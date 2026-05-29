@@ -70,6 +70,23 @@ def call_llm(prompt: str, system_prompt: str, temperature: float = 0.8,
         is_judge: If True, uses the AUTONOVEL_JUDGE_MODEL (or provider-specific env).
         is_review: If True, uses the AUTONOVEL_REVIEW_MODEL (or provider-specific env).
     """
+    # Append dynamic base language directive if configured
+    language = os.environ.get("AUTOBOOK_LANGUAGE", "").upper()
+    if language == "PT-BR":
+        system_prompt += (
+            "\n\n[CRITICAL LANGUAGE DIRECTIVE]\n"
+            "You must generate all output story prose, narrative, dialogue, and descriptions in Portuguese (PT-BR) only. "
+            "Do not write or translate any fictional content into English. Structural formats (like JSON) must still match the requested schemas, "
+            "but all textual content within must be in PT-BR."
+        )
+    elif language == "EN":
+        system_prompt += (
+            "\n\n[CRITICAL LANGUAGE DIRECTIVE]\n"
+            "You must generate all output story prose, narrative, dialogue, and descriptions in English (EN) only. "
+            "Do not write or translate any fictional content into Portuguese. Structural formats (like JSON) must still match the requested schemas, "
+            "but all textual content within must be in English."
+        )
+
     provider_name = os.environ.get("AUTOBOOK_PROVIDER", "anthropic").lower()
     
     if provider_name not in PROVIDER_PROFILES:

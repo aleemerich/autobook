@@ -10,6 +10,11 @@ from unittest.mock import patch, MagicMock
 # Import the code to test
 from llm import call_llm, PROVIDER_PROFILES
 
+@pytest.fixture(autouse=True)
+def force_clean_lang_env():
+    with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": ""}):
+        yield
+
 
 def test_invalid_provider():
     """Ensures call_llm exits with error on unknown provider."""

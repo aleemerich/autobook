@@ -3,8 +3,15 @@
 tests/test_evaluate_unit.py — Unit tests for the evaluate.py mechanical slop checker.
 """
 
+import os
 import pytest
+from unittest.mock import patch
 from evaluate import slop_score
+
+@pytest.fixture(autouse=True)
+def force_english_env():
+    with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "EN"}):
+        yield
 
 
 def test_clean_text():

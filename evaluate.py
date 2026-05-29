@@ -39,80 +39,164 @@ EVAL_LOG_DIR.mkdir(exist_ok=True)
 
 # ---- Mechanical Slop Detection (no LLM needed) ----
 
-TIER1_BANNED = [
-    "delve", "utilize", "leverage", "facilitate", "elucidate",
-    "embark", "endeavor", "encompass", "multifaceted", "tapestry",
-    "paradigm", "synergy", "synergize", "holistic", "catalyze",
-    "catalyst", "juxtapose", "myriad", "plethora",
-]
+TIER1_BANNED_MAP = {
+    "EN": [
+        "delve", "utilize", "leverage", "facilitate", "elucidate",
+        "embark", "endeavor", "encompass", "multifaceted", "tapestry",
+        "paradigm", "synergy", "synergize", "holistic", "catalyze",
+        "catalyst", "juxtapose", "myriad", "plethora",
+    ],
+    "PT-BR": [
+        "delve", "utilizar", "alavancar", "facilitar", "elucidar",
+        "embarcar", "esforço", "abrange", "multifacetado", "tapeçaria",
+        "paradigma", "sinergia", "holístico", "catalisar", "catalisador",
+        "justapor", "inúmeros", "pletora", "mergulhar",
+    ]
+}
 
-TIER2_SUSPICIOUS = [
-    "robust", "comprehensive", "seamless", "seamlessly", "cutting-edge",
-    "innovative", "streamline", "empower", "foster", "enhance", "elevate",
-    "optimize", "pivotal", "intricate", "profound", "resonate",
-    "underscore", "harness", "cultivate", "bolster", "galvanize",
-    "cornerstone", "game-changer", "scalable",
-]
+TIER2_SUSPICIOUS_MAP = {
+    "EN": [
+        "robust", "comprehensive", "seamless", "seamlessly", "cutting-edge",
+        "innovative", "streamline", "empower", "foster", "enhance", "elevate",
+        "optimize", "pivotal", "intricate", "profound", "resonate",
+        "underscore", "harness", "cultivate", "bolster", "galvanize",
+        "cornerstone", "game-changer", "scalable",
+    ],
+    "PT-BR": [
+        "robusto", "abrangente", "perfeito", "perfeitamente", "de ponta",
+        "inovador", "simplificar", "capacitar", "promover", "melhorar", "elevar",
+        "otimizar", "crucial", "intrincado", "profundo", "ressoar",
+        "sublinhar", "aproveitar", "cultivar", "fortalecer", "galvanizar",
+        "pedra angular", "revolucionário", "escalável",
+    ]
+}
 
-TIER3_FILLER = [
-    r"it'?s worth noting that",
-    r"it'?s important to note that",
-    r"^importantly,?\s",
-    r"^notably,?\s",
-    r"^interestingly,?\s",
-    r"let'?s dive into",
-    r"let'?s explore",
-    r"as we can see",
-    r"^furthermore,?\s",
-    r"^moreover,?\s",
-    r"^additionally,?\s",
-    r"in today'?s .*(fast-paced|digital|modern)",
-    r"at the end of the day",
-    r"it goes without saying",
-    r"when it comes to",
-    r"one might argue that",
-    r"not just .+, but",
-]
+TIER3_FILLER_MAP = {
+    "EN": [
+        r"it'?s worth noting that",
+        r"it'?s important to note that",
+        r"^importantly,?\s",
+        r"^notably,?\s",
+        r"^interestingly,?\s",
+        r"let'?s dive into",
+        r"let'?s explore",
+        r"as we can see",
+        r"^furthermore,?\s",
+        r"^moreover,?\s",
+        r"^additionally,?\s",
+        r"in today'?s .*(fast-paced|digital|modern)",
+        r"at the end of the day",
+        r"it goes without saying",
+        r"when it comes to",
+        r"one might argue that",
+        r"not just .+, but",
+    ],
+    "PT-BR": [
+        r"vale a pena notar que",
+        r"vale notar que",
+        r"é importante notar que",
+        r"^importante,?\s",
+        r"^notavelmente,?\s",
+        r"^curiosamente,?\s",
+        r"vamos mergulhar em",
+        r"vamos explorar",
+        r"como podemos ver",
+        r"^além disso,?\s",
+        r"^ademais,?\s",
+        r"^adicionalmente,?\s",
+        r"no mundo (?:de hoje|moderno|digital|dinâmico)",
+        r"no fim das contas",
+        r"não precisa dizer que",
+        r"quando se trata de",
+        r"alguém poderia argumentar que",
+        r"não apenas .+, mas",
+    ]
+}
 
-TRANSITION_OPENERS = [
-    "however", "furthermore", "additionally", "moreover",
-    "nevertheless", "consequently", "nonetheless", "similarly",
-]
+TRANSITION_OPENERS_MAP = {
+    "EN": [
+        "however", "furthermore", "additionally", "moreover",
+        "nevertheless", "consequently", "nonetheless", "similarly",
+    ],
+    "PT-BR": [
+        "contudo", "entretanto", "todavia", "além disso", "ademais",
+        "portanto", "consequentemente", "similarmente",
+    ]
+}
 
 # Fiction-specific AI tells (prose clichés that betray machine origin)
-FICTION_AI_TELLS = [
-    r"a sense of \w+",
-    r"couldn'?t help but feel",
-    r"the weight of \w+",
-    r"the air was thick with",
-    r"eyes widened",
-    r"a wave of \w+ washed over",
-    r"a pang of \w+",
-    r"heart pounded in (?:his|her|their) chest",
-    r"(?:raven|dark|golden|silver) (?:hair|tresses) (?:spilled|cascaded|tumbled|fell)",
-    r"piercing (?:blue|green|gray|grey|dark) eyes",
-    r"a knowing (?:smile|grin|look|glance)",
-    r"(?:he|she|they) felt a (?:surge|rush|wave|pang|flicker) of",
-    r"the silence (?:was|hung|stretched|grew) (?:heavy|thick|oppressive|deafening)",
-    r"let out a breath (?:he|she|they) didn'?t (?:know|realize)",
-    r"something (?:dark|ancient|primal|unnamed) stirred",
-]
+FICTION_AI_TELLS_MAP = {
+    "EN": [
+        r"a sense of \w+",
+        r"couldn'?t help but feel",
+        r"the weight of \w+",
+        r"the air was thick with",
+        r"eyes widened",
+        r"a wave of \w+ washed over",
+        r"a pang of \w+",
+        r"heart pounded in (?:his|her|their) chest",
+        r"(?:raven|dark|golden|silver) (?:hair|tresses) (?:spilled|cascaded|tumbled|fell)",
+        r"piercing (?:blue|green|gray|grey|dark) eyes",
+        r"a knowing (?:smile|grin|look|glance)",
+        r"(?:he|she|they) felt a (?:surge|rush|wave|pang|flicker) of",
+        r"the silence (?:was|hung|stretched|grew) (?:heavy|thick|oppressive|deafening)",
+        r"let out a breath (?:he|she|they) didn'?t (?:know|realize)",
+        r"something (?:dark|ancient|primal|unnamed) stirred",
+    ],
+    "PT-BR": [
+        r"uma sensação de \w+",
+        r"não pôde evitar de",
+        r"não pôde deixar de sentir",
+        r"o peso de \w+",
+        r"o ar estava (?:carregado|denso|espesso) com",
+        r"olhos se arregalaram",
+        r"olhos arregalados",
+        r"uma onda de \w+ invadiu",
+        r"uma onda de \w+ passou por",
+        r"uma pontada de \w+",
+        r"coração (?:martelando|batendo forte) no peito",
+        r"cabelos (?:pretos|escuros|loiros|ruivos|grisalhos|prateados) (?:caíam|desciam|escorriam)",
+        r"olhos (?:azuis|verdes|cinzas|castanhos|escuros) penetrantes",
+        r"um sorriso (?:cúmplice|enigmático|sutil)",
+        r"sentiu um (?:vislumbre|onda|sopro|flicker|surgimento|sopro) de",
+        r"o silêncio (?:era|ficou|se estendeu) (?:pesado|espesso|sufocante|ensurdecedor)",
+        r"soltou um (?:sopro|suspiro|ar) que não (?:sabia|percebeu) que estava segurando",
+        r"algo (?:sombrio|antigo|primitivo|sem nome) se moveu",
+        r"algo se agitou",
+    ]
+}
 
 # Structural AI tics -- rhetorical formulas that betray AI composition
-STRUCTURAL_AI_TICS = [
-    r"(?:I'm|I am) not (?:saying|asking|suggesting) .{3,40}(?:I'm|I am) (?:saying|asking|suggesting)",  # "I'm not saying X. I'm saying Y"
-    r"(?:which|that) means either .{3,40} or ",  # "which means either X, or Y"
-    r"[Tt]here'?s a (?:difference|distinction)\.",  # formula capper
-    r"[Tt]hose are (?:different|not the same) things\.",  # formula capper
-    r"[Nn]ot (?:just|merely|simply) .{3,40}, but ",  # "not just X, but Y"
-    r"[Nn]ot (?:from|by|because of) .{3,40}, but (?:from|by|because)",  # "not from X, but from Y" in narration
-]
+STRUCTURAL_AI_TICS_MAP = {
+    "EN": [
+        r"(?:I'm|I am) not (?:saying|asking|suggesting) .{3,40}(?:I'm|I am) (?:saying|asking|suggesting)",  # "I'm not saying X. I'm saying Y"
+        r"(?:which|that) means either .{3,40} or ",  # "which means either X, or Y"
+        r"[Tt]here'?s a (?:difference|distinction)\.",  # formula capper
+        r"[Tt]hose are (?:different|not the same) things\.",  # formula capper
+        r"[Nn]ot (?:just|merely|simply) .{3,40}, but ",  # "not just X, but Y"
+        r"[Nn]ot (?:from|by|because of) .{3,40}, but (?:from|by|because)",  # "not from X, but from Y" in narration
+    ],
+    "PT-BR": [
+        r"não estou dizendo .{3,40} estou dizendo",
+        r"o que significa que ou .{3,40} ou ",
+        r"há uma diferença\.",
+        r"essas são coisas diferentes\.",
+        r"não apenas .{3,40}, mas",
+        r"não por .{3,40}, mas",
+    ]
+}
 
 # Show-don't-tell detectors: emotion TELLING patterns
-TELLING_PATTERNS = [
-    r"\b(?:he|she|they|I|we|[A-Z]\w+) (?:felt|was|seemed|looked|appeared) (?:angry|sad|happy|scared|nervous|excited|jealous|guilty|anxious|lonely|desperate|furious|terrified|elated|miserable|hopeful|confused|relieved|horrified|disgusted|ashamed|proud|bitter|defeated|triumphant)\b",
-    r"\b(?:angrily|sadly|happily|nervously|excitedly|desperately|furiously|anxiously|guiltily|bitterly|wearily|miserably)\b",
-]
+TELLING_PATTERNS_MAP = {
+    "EN": [
+        r"\b(?:he|she|they|I|we|[A-Z]\w+) (?:felt|was|seemed|looked|appeared) (?:angry|sad|happy|scared|nervous|excited|jealous|guilty|anxious|lonely|desperate|furious|terrified|elated|miserable|hopeful|confused|relieved|horrified|disgusted|ashamed|proud|bitter|defeated|triumphant)\b",
+        r"\b(?:angrily|sadly|happily|nervously|excitedly|desperately|furiously|anxiously|guiltily|bitterly|wearily|miserably)\b",
+    ],
+    "PT-BR": [
+        r"\b(?:ele|ela|eles|elas|eu|nós|[A-Z]\w+) (?:sentiu|estava|parecia|aparentava) (?:triste|feliz|assustado|nervoso|animado|ciumento|culpado|ansioso|solitário|desesperado|furioso|aterrorizado|miserável|esperançoso|confuso|aliviado|horrorizado|enojado|envergonhado|orgulhoso|amargurado|derrotado|triunfante)\b",
+        r"\b(?:tristemente|alegremente|nervosamente|desesperadamente|furiosamente|ansiosamente|culpadamente|amarguradamente|cansadamente|miseravelmente)\b",
+    ]
+}
 
 
 def slop_score(text):
@@ -126,12 +210,24 @@ def slop_score(text):
       - transition_opener_ratio: fraction of paragraphs starting with transitions
       - slop_penalty: 0-10 deduction (0 = clean, 10 = pure slop)
     """
+    language = os.environ.get("AUTOBOOK_LANGUAGE", "EN").upper()
+    if language not in ["EN", "PT-BR"]:
+        language = "EN"
+
+    tier1_banned = TIER1_BANNED_MAP[language]
+    tier2_suspicious = TIER2_SUSPICIOUS_MAP[language]
+    tier3_filler = TIER3_FILLER_MAP[language]
+    transition_openers = TRANSITION_OPENERS_MAP[language]
+    fiction_ai_tells = FICTION_AI_TELLS_MAP[language]
+    structural_ai_tics = STRUCTURAL_AI_TICS_MAP[language]
+    telling_patterns = TELLING_PATTERNS_MAP[language]
+
     words = text.lower().split()
     word_count = len(words) or 1
 
     # Tier 1
     tier1_hits = []
-    for w in TIER1_BANNED:
+    for w in tier1_banned:
         c = sum(1 for token in words if token.strip(".,;:!?\"'()") == w)
         if c > 0:
             tier1_hits.append((w, c))
@@ -140,19 +236,19 @@ def slop_score(text):
     paragraphs = [p.strip() for p in text.split("\n\n") if p.strip()]
     tier2_hits = []
     tier2_cluster_count = 0
-    for w in TIER2_SUSPICIOUS:
+    for w in tier2_suspicious:
         c = sum(1 for token in words if token.strip(".,;:!?\"'()") == w)
         if c > 0:
             tier2_hits.append((w, c))
     for para in paragraphs:
         para_lower = para.lower()
-        hits_in_para = sum(1 for w in TIER2_SUSPICIOUS if w in para_lower)
+        hits_in_para = sum(1 for w in tier2_suspicious if w in para_lower)
         if hits_in_para >= 3:
             tier2_cluster_count += 1
 
     # Tier 3
     tier3_hits = []
-    for pattern in TIER3_FILLER:
+    for pattern in tier3_filler:
         matches = re.findall(pattern, text, re.IGNORECASE | re.MULTILINE)
         if matches:
             tier3_hits.append((pattern, len(matches)))
@@ -177,13 +273,13 @@ def slop_score(text):
     transition_starts = 0
     for para in paragraphs:
         first_word = para.split()[0].lower().strip(".,;:!?\"'()") if para.split() else ""
-        if first_word in TRANSITION_OPENERS:
+        if first_word in transition_openers:
             transition_starts += 1
     transition_ratio = transition_starts / len(paragraphs) if paragraphs else 0
 
     # Fiction AI tells
     fiction_tells = []
-    for pattern in FICTION_AI_TELLS:
+    for pattern in fiction_ai_tells:
         matches = re.findall(pattern, text, re.IGNORECASE)
         if matches:
             fiction_tells.append((pattern[:40], len(matches)))
@@ -191,12 +287,12 @@ def slop_score(text):
 
     # Show-don't-tell violations
     telling_count = 0
-    for pattern in TELLING_PATTERNS:
+    for pattern in telling_patterns:
         telling_count += len(re.findall(pattern, text, re.IGNORECASE))
 
     # Structural AI tics (rhetorical formulas)
     structural_tics = []
-    for pattern in STRUCTURAL_AI_TICS:
+    for pattern in structural_ai_tics:
         matches = re.findall(pattern, text, re.IGNORECASE)
         if matches:
             structural_tics.append((pattern[:40], len(matches)))
