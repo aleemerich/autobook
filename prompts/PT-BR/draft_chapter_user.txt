@@ -1,0 +1,49 @@
+Escreva o Capítulo {chapter_num} de "The Second Son of the House of Bells."
+
+DEFINIÇÃO DE VOZ (siga exatamente):
+{voice}
+
+ESBOÇO DESTE CAPÍTULO (atinja cada batida):
+{chapter_outline}
+
+ESBOÇO DO PRÓXIMO CAPÍTULO (para continuidade -- termine este capítulo para que flua para o próximo):
+{next_chapter}
+
+FIM DO CAPÍTULO ANTERIOR (continue a partir daqui):
+{prev_tail}
+
+DICIONÁRIO DO MUNDO / WORLD BIBLE (referência para detalhes de worldbuilding):
+{world}
+
+REGISTRO DE PERSONAGENS (referência para padrões de fala e comportamento):
+{characters}
+
+INSTRUÇÕES DE ESCRITA:
+1. Escreva o capítulo COMPLETO. Meta de ~3.200 palavras. Não trunque ou resuma.
+2. Terceira pessoa limitada, pretérito, fixado no ponto de vista (POV) de Cass.
+3. Atingir TODAS as batidas numeradas do esboço na ordem.
+4. Incluir TODOS os elementos de prenúncio (foreshadowing) listados em "Plants".
+5. Mostrar detalhes sensoriais: o que Cass ouve, cheira, sente fisicamente.
+6. A nota sussurrada ("under-note") causa dor física específica (uma agulha atrás do olho esquerdo, não um desconforto vago).
+7. O diálogo segue os padrões de fala definidos em characters.md.
+8. Sem palavras banidas das diretrizes da Parte 1 do voice.md.
+9. Sem clichês de ficção gerados por IA: nada de "uma sensação de", "não pôde deixar de sentir", "olhos arregalados".
+10. Variar o comprimento das frases. Frases curtas para impacto. Mais longas para construir ritmo.
+11. Metáforas baseadas na experiência de Cass: som, bronze, ofício, a resposta do corpo ao tom.
+12. Confiar no leitor. Não explique o significado das cenas. Deixe-as falar por si mesmas.
+13. Comece o capítulo na cena propriamente dita, não com exposição. Termine em um momento forte, não com um resumo.
+
+PADRÕES A EVITAR (que foram sinalizados em capítulos anteriores):
+14. SEM listas sensoriais tríades. Nunca "X. Y. Z." ou "X e Y e Z" como três itens separados em sequência. Combine dois, corte um ou reestruture.
+15. SEM a construção "Ele não [verbo]" mais de uma vez por capítulo. Converta negativas em alternativas ativas ou apenas corte.
+16. SEM a construção "Ele pensou sobre [X]". Substitua por: o pensamento em si como um fragmento, uma ação física ou diálogo.
+17. SEM o conector de símile "do jeito que [X] fazia [Y]" mais de duas vezes por capítulo. Use estruturas de símile diferentes ou corte a comparação.
+18. SEM explicações excessivas após mostrar. Se uma cena demonstra algo, não faça o narrador reafirmar isso. Confie na cena.
+19. SEM quebras de seção (---) como muletas de ritmo. Use apenas para saltos reais de tempo/localização. Máximo de 2 por capítulo.
+20. VARIE o comprimento dos parágrafos deliberadamente. Nunca mais de 3 parágrafos consecutivos de tamanho similar. Inclua pelo menos um parágrafo de 1 a 2 frases e um parágrafo de mais de 6 frases.
+21. TERMINE o capítulo de forma diferente dos anteriores. NÃO termine com Cass do lado de fora ouvindo o pai trabalhar. Encontre o final que pertence especificamente a ESTE capítulo.
+22. INCLUA pelo menos um momento que surpreenda -- um personagem dizendo algo errado, uma batida emocional chegando cedo ou tarde demais, um detalhe que não se encaixa no padrão esperado. Excelência previsível ainda é previsível.
+23. PREFIRA cena ao resumo. Pelo menos 70% do capítulo deve ser cena pura (momento a momento, com diálogo e ação) em vez de resumo do narrador comprimindo o tempo.
+24. O DIÁLOGO deve soar como fala espontânea, não prosa escrita. Os personagens devem ocasionalmente hesitar, interromper, perder o fio da meada ou dizer algo ligeiramente incorreto. Um jovem de 14 anos não fala com epigramas polidos.
+
+Escreva o capítulo agora. Texto completo, do início ao fim.

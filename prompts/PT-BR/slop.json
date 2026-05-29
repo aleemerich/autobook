@@ -1,0 +1,72 @@
+{
+  "tier1_banned": [
+    "delve", "utilizar", "alavancar", "facilitar", "elucidar",
+    "embarcar", "esforço", "abrange", "multifacetado", "tapeçaria",
+    "paradigma", "sinergia", "holístico", "catalisar", "catalisador",
+    "justapor", "inúmeros", "pletora", "mergulhar"
+  ],
+  "tier2_suspicious": [
+    "robusto", "abrangente", "perfeito", "perfeitamente", "de ponta",
+    "inovador", "simplificar", "capacitar", "promover", "melhorar", "elevar",
+    "otimizar", "crucial", "intrincado", "profundo", "ressoar",
+    "sublinhar", "aproveitar", "cultivar", "fortalecer", "galvanizar",
+    "pedra angular", "revolucionário", "escalável"
+  ],
+  "tier3_filler": [
+    "vale a pena notar que",
+    "vale notar que",
+    "é importante notar que",
+    "^importante,?\\s",
+    "^notavelmente,?\\s",
+    "^curiosamente,?\\s",
+    "vamos mergulhar em",
+    "vamos explorar",
+    "como podemos ver",
+    "^além disso,?\\s",
+    "^ademais,?\\s",
+    "^adicionalmente,?\\s",
+    "no mundo (?:de hoje|moderno|digital|dinâmico)",
+    "no fim das contas",
+    "não precisa dizer que",
+    "quando se trata de",
+    "alguém poderia argumentar que",
+    "não apenas .+, mas"
+  ],
+  "transition_openers": [
+    "contudo", "entretanto", "todavia", "além disso", "ademais",
+    "portanto", "consequentemente", "similarmente"
+  ],
+  "fiction_ai_tells": [
+    "uma sensação de \\w+",
+    "não pôde evitar de",
+    "não pôde deixar de sentir",
+    "o peso de \\w+",
+    "o ar estava (?:carregado|denso|espesso) com",
+    "olhos se arregalaram",
+    "olhos arregalados",
+    "uma onda de \\w+ invadiu",
+    "uma onda de \\w+ passou por",
+    "uma pontada de \\w+",
+    "coração (?:martelando|batendo forte) no peito",
+    "cabelos (?:pretos|escuros|loiros|ruivos|grisalhos|prateados) (?:caíam|desciam|escorriam)",
+    "olhos (?:azuis|verdes|cinzas|castanhos|escuros) penetrantes",
+    "um sorriso (?:cúmplice|enigmático|sutil)",
+    "sentiu um (?:vislumbre|onda|sopro|flicker|surgimento|sopro) de",
+    "o silêncio (?:era|ficou|se estendeu) (?:pesado|espesso|sufocante|ensurdecedor)",
+    "soltou um (?:sopro|suspiro|ar) que não (?:sabia|percebeu) que estava segurando",
+    "algo (?:sombrio|antigo|primitivo|sem nome) se moveu",
+    "algo se agitou"
+  ],
+  "structural_ai_tics": [
+    "não estou dizendo .{3,40} estou dizendo",
+    "o que significa que ou .{3,40} ou ",
+    "há uma diferença\\.",
+    "essas são coisas diferentes\\.",
+    "não apenas .{3,40}, mas",
+    "notadamente por .{3,40}, mas"
+  ],
+  "telling_patterns": [
+    "\\b(?:ele|ela|eles|elas|eu|nós|[A-Z]\\w+) (?:sentiu|estava|parecia|aparentava) (?:triste|feliz|assustado|nervoso|animado|ciumento|culpado|ansioso|solitário|desesperado|furioso|aterrorizado|miserável|esperançoso|confuso|aliviado|horrorizado|enojado|envergonhado|orgulhoso|amargurado|derrotado|triunfante)\\b",
+    "\\b(?:tristemente|alegremente|nervosamente|desesperadamente|furiosamente|ansiosamente|culpadamente|amarguradamente|cansadamente|miseravelmente)\\b"
+  ]
+}

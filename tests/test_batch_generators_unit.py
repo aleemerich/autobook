@@ -5,8 +5,14 @@ Verifies that all call_writer/call_judge/call_opus/call_claude/call_model functi
 delegate to llm.call_llm with the expected configuration parameters.
 """
 
+import os
 import pytest
 from unittest.mock import patch, MagicMock
+
+@pytest.fixture(autouse=True)
+def force_english_env():
+    with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "EN"}):
+        yield
 
 @patch("llm.call_llm")
 def test_gen_revision_call_writer(mock_call_llm):

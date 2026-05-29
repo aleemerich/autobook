@@ -1,0 +1,67 @@
+{
+  "tier1_banned": [
+    "delve", "utilize", "leverage", "facilitate", "elucidate",
+    "embark", "endeavor", "encompass", "multifaceted", "tapestry",
+    "paradigm", "synergy", "synergize", "holistic", "catalyze",
+    "catalyst", "juxtapose", "myriad", "plethora"
+  ],
+  "tier2_suspicious": [
+    "robust", "comprehensive", "seamless", "seamlessly", "cutting-edge",
+    "innovative", "streamline", "empower", "foster", "enhance", "elevate",
+    "optimize", "pivotal", "intricate", "profound", "resonate",
+    "underscore", "harness", "cultivate", "bolster", "galvanize",
+    "cornerstone", "game-changer", "scalable"
+  ],
+  "tier3_filler": [
+    "it'?s worth noting that",
+    "it'?s important to note that",
+    "^importantly,?\\s",
+    "^notably,?\\s",
+    "^interestingly,?\\s",
+    "let'?s dive into",
+    "let'?s explore",
+    "as we can see",
+    "^furthermore,?\\s",
+    "^moreover,?\\s",
+    "^additionally,?\\s",
+    "in today'?s .*(fast-paced|digital|modern)",
+    "at the end of the day",
+    "it goes without saying",
+    "when it comes to",
+    "one might argue that",
+    "not just .+, but"
+  ],
+  "transition_openers": [
+    "however", "furthermore", "additionally", "moreover",
+    "nevertheless", "consequently", "nonontoneless", "similarly"
+  ],
+  "fiction_ai_tells": [
+    "a sense of \\w+",
+    "couldn'?t help but feel",
+    "the weight of \\w+",
+    "the air was thick with",
+    "eyes widened",
+    "a wave of \\w+ washed over",
+    "a pang of \\w+",
+    "heart pounded in (?:his|her|their) chest",
+    "(?:raven|dark|golden|silver) (?:hair|tresses) (?:spilled|cascaded|tumbled|fell)",
+    "piercing (?:blue|green|gray|grey|dark) eyes",
+    "a knowing (?:smile|grin|look|glance)",
+    "(?:he|she|they) felt a (?:surge|rush|wave|pang|flicker) of",
+    "the silence (?:was|hung|stretched|grew) (?:heavy|thick|oppressive|deafening)",
+    "let out a breath (?:he|she|they) didn'?t (?:know|realize)",
+    "something (?:dark|ancient|primal|unnamed) stirred"
+  ],
+  "structural_ai_tics": [
+    "(?:I'm|I am) not (?:saying|asking|suggesting) .{3,40}(?:I'm|I am) (?:saying|asking|suggesting)",
+    "(?:which|that) means either .{3,40} or ",
+    "[Tt]here'?s a (?:difference|distinction)\\.",
+    "[Tt]hose are (?:different|not the same) things\\.",
+    "[Nn]ot (?:just|merely|simply) .{3,40}, but ",
+    "[Nn]ot (?:from|by|because of) .{3,40}, but (?:from|by|because)"
+  ],
+  "telling_patterns": [
+    "\\b(?:he|she|they|I|we|[A-Z]\\w+) (?:felt|was|seemed|looked|appeared) (?:angry|sad|happy|scared|nervous|excited|jealous|guilty|anxious|lonely|desperate|furious|terrified|elated|miserable|hopeful|confused|relieved|horrified|disgusted|ashamed|proud|bitter|defeated|triumphant)\\b",
+    "\\b(?:angrily|sadly|happily|nervously|excitedly|desperately|furiously|anxiously|guiltily|bitterly|wearily|miserably)\\b"
+  ]
+}

@@ -118,3 +118,54 @@ def test_slop_score_cross_language_isolation():
     with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "PT-BR"}):
         pt_result = slop_score(portuguese_slop_text)
         assert len(pt_result["fiction_ai_tells"]) > 0
+
+
+# ---------------------------------------------------------------------------
+# 3. Prompt Loader & i18n Fallback Tests
+# ---------------------------------------------------------------------------
+
+def test_prompt_loader_resolution():
+    """Ensures prompt_loader loads directives and slop correctly from the new folder structure."""
+    from prompt_loader import load_prompt, load_slop_config
+    
+    with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "PT-BR"}):
+        directive = load_prompt("directives.txt")
+        assert "Portuguese (PT-BR)" in directive
+        
+        slop = load_slop_config()
+        assert "utilizar" in slop["tier1_banned"]
+
+    with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "EN"}):
+        directive = load_prompt("directives.txt")
+        assert "English (EN)" in directive
+        
+        slop = load_slop_config()
+        assert "delve" in slop["tier1_banned"]
+
+
+def test_prompt_loader_fallback():
+    """Ensures prompt_loader falls back to EN when a specific file is missing from PT-BR folder."""
+    from prompt_loader import load_prompt
+    import shutil
+    from pathlib import Path
+    
+    # 1. Create a dummy file only in prompts/EN/ folder
+    dummy_file_en = Path("prompts/EN/dummy_test_fallback.txt")
+    dummy_file_en.write_text("Hello Fallback World!", encoding="utf-8")
+    
+    try:
+        # 2. Under PT-BR environment, try loading the dummy file. It should fall back to EN.
+        with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "PT-BR"}):
+            loaded_content = load_prompt("dummy_test_fallback.txt")
+            assert loaded_content == "Hello Fallback World!"
+            
+        # 3. Try to load with fallback disabled. It should raise FileNotFoundError.
+        with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "PT-BR"}):
+            with pytest.raises(FileNotFoundError):
+                load_prompt("dummy_test_fallback.txt", fallback_to_en=False)
+                
+    finally:
+        # Cleanup
+        if dummy_file_en.exists():
+            dummy_file_en.unlink()
+

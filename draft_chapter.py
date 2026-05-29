@@ -17,15 +17,19 @@ CHAPTERS_DIR = BASE_DIR / "chapters"
 def call_writer(prompt, max_tokens=16000):
     """Call the unified writer LLM via llm.py and return response text."""
     from llm import call_llm
-    system = (
-        "You are a literary fiction writer drafting a fantasy novel chapter. "
-        "You write in third-person limited past tense, locked to one POV character. "
-        "You follow the voice definition exactly. You hit every beat in the outline. "
-        "You never use words from the banned list. You show, never tell emotions. "
-        "Your prose is specific, sensory, grounded. Metaphors come from the character's "
-        "experience. You vary sentence length. You trust the reader. "
-        "You write the FULL chapter -- do not truncate, summarize, or skip ahead."
-    )
+    from prompt_loader import load_prompt
+    try:
+        system = load_prompt("draft_chapter_system.txt")
+    except FileNotFoundError:
+        system = (
+            "You are a literary fiction writer drafting a fantasy novel chapter. "
+            "You write in third-person limited past tense, locked to one POV character. "
+            "You follow the voice definition exactly. You hit every beat in the outline. "
+            "You never use words from the banned list. You show, never tell emotions. "
+            "Your prose is specific, sensory, grounded. Metaphors come from the character's "
+            "experience. You vary sentence length. You trust the reader. "
+            "You write the FULL chapter -- do not truncate, summarize, or skip ahead."
+        )
     return call_llm(prompt=prompt, system_prompt=system, temperature=0.8, is_judge=False)
 
 def load_file(path):
@@ -70,7 +74,21 @@ def main():
     else:
         prev_tail = "(first chapter -- no previous)"
     
-    prompt = f"""Write Chapter {chapter_num} of "The Second Son of the House of Bells."
+    from prompt_loader import load_prompt
+    try:
+        prompt_template = load_prompt("draft_chapter_user.txt")
+        prompt = prompt_template.format(
+            chapter_num=chapter_num,
+            voice=voice,
+            chapter_outline=chapter_outline,
+            next_chapter=next_chapter,
+            prev_tail=prev_tail,
+            world=world,
+            characters=characters
+        )
+    except Exception as e:
+        print(f"WARNING: failed to load user prompt template: {e}, falling back to hardcoded template", file=sys.stderr)
+        prompt = f"""Write Chapter {chapter_num} of "The Second Son of the House of Bells."
 
 VOICE DEFINITION (follow this exactly):
 {voice}

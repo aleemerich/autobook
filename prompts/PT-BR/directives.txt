@@ -1,0 +1,2 @@
+[CRITICAL LANGUAGE DIRECTIVE]
+You must generate all output story prose, narrative, dialogue, and descriptions in Portuguese (PT-BR) only. Do not write or translate any fictional content into English. Structural formats (like JSON) must still match the requested schemas, but all textual content within must be in PT-BR.

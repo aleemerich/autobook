@@ -14,12 +14,16 @@ load_dotenv(BASE_DIR / ".env")
 def call_writer(prompt, max_tokens=16000):
     """Call the unified writer LLM via llm.py and return response text."""
     from llm import call_llm
-    system = (
-        "You are rewriting a fantasy novel chapter based on a specific revision brief. "
-        "You follow the brief exactly. You preserve the voice, world, and characters "
-        "from the existing draft while making the structural changes specified. "
-        "You write the FULL chapter. Do not truncate or summarize."
-    )
+    from prompt_loader import load_prompt
+    try:
+        system = load_prompt("gen_revision_system.txt")
+    except FileNotFoundError:
+        system = (
+            "You are rewriting a fantasy novel chapter based on a specific revision brief. "
+            "You follow the brief exactly. You preserve the voice, world, and characters "
+            "from the existing draft while making the structural changes specified. "
+            "You write the FULL chapter. Do not truncate or summarize."
+        )
     return call_llm(prompt=prompt, system_prompt=system, temperature=0.8, is_judge=False)
 
 def main():
@@ -41,7 +45,22 @@ def main():
     old_path = BASE_DIR / "chapters" / f"ch_{ch_num:02d}.md"
     old_text = old_path.read_text() if old_path.exists() else "(no existing draft)"
     
-    prompt = f"""Rewrite Chapter {ch_num} of "The Second Son of the House of Bells."
+    from prompt_loader import load_prompt
+    try:
+        prompt_template = load_prompt("gen_revision_user.txt")
+        prompt = prompt_template.format(
+            ch_num=ch_num,
+            brief=brief,
+            voice=voice,
+            characters=characters,
+            world=world,
+            prev_tail=prev_tail,
+            next_head=next_head,
+            old_text=old_text
+        )
+    except Exception as e:
+        print(f"WARNING: failed to load user prompt template: {e}, falling back to hardcoded template", file=sys.stderr)
+        prompt = f"""Rewrite Chapter {ch_num} of "The Second Son of the House of Bells."
 
 REVISION BRIEF (follow this exactly):
 {brief}
