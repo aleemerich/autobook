@@ -168,10 +168,13 @@ def call_llm(prompt: str, system_prompt: str, temperature: float = 0.8,
             
     # 5. Call API
     try:
+        print(f"[LLM] Requesting model '{model}' from provider '{provider_name}'...", file=sys.stderr)
+        print("[LLM] Waiting for API response (this may take up to 10 minutes for long generations)...", file=sys.stderr)
         # Timeout 600s is crucial for long writer generations
         with httpx.Client() as client:
             resp = client.post(url, headers=headers, json=payload, timeout=600)
             
+            print(f"[LLM] Response received! Status: {resp.status_code}. Processing content...", file=sys.stderr)
             # Print helpful error details on failure
             if resp.status_code != 200:
                 print(f"ERROR: API request failed with status code {resp.status_code}", file=sys.stderr)

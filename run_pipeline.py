@@ -115,30 +115,62 @@ def step(text: str):
 
 def run_tool(cmd: str, timeout: int = 600, check: bool = False) -> subprocess.CompletedProcess:
     """
-    Run a tool as a subprocess, capturing output.
+    Run a tool as a subprocess, capturing and streaming output in real-time.
     Uses shell=True so callers can pass full command strings.
     Returns CompletedProcess; never raises unless check=True.
     """
+    import time
+    import select
+    
     step(f"RUN: {cmd}")
+    start_time = time.time()
+    
     try:
-        result = subprocess.run(
-            cmd, shell=True, capture_output=True, text=True,
-            timeout=timeout, cwd=str(BASE_DIR),
+        process = subprocess.Popen(
+            cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+            text=True, cwd=str(BASE_DIR)
         )
-        if result.returncode != 0:
-            print(f"    WARN: exit code {result.returncode}")
-            stderr_preview = (result.stderr or "")[:300]
-            if stderr_preview:
-                print(f"    stderr: {stderr_preview}")
-        if check and result.returncode != 0:
+        
+        stdout_lines = []
+        while True:
+            # Check timeout expiration
+            elapsed = time.time() - start_time
+            if elapsed > timeout:
+                process.kill()
+                process.wait()
+                print(f"    ERROR: timed out after {timeout}s")
+                fake = subprocess.CompletedProcess(cmd, returncode=-1, stdout="".join(stdout_lines), stderr="TIMEOUT")
+                return fake
+                
+            # Wait for data to be ready to read, with a 1-second timeout
+            rlist, _, _ = select.select([process.stdout], [], [], 1.0)
+            
+            if process.stdout in rlist:
+                line = process.stdout.readline()
+                if not line:  # EOF reached
+                    break
+                stdout_lines.append(line)
+                sys.stdout.write(line)
+                sys.stdout.flush()
+            elif process.poll() is not None:
+                # Process finished and no more data
+                break
+                
+        process.wait()
+        stdout = "".join(stdout_lines)
+        
+        if process.returncode != 0:
+            print(f"    WARN: exit code {process.returncode}")
+            
+        if check and process.returncode != 0:
             raise subprocess.CalledProcessError(
-                result.returncode, cmd, result.stdout, result.stderr)
-        return result
-    except subprocess.TimeoutExpired:
-        print(f"    ERROR: timed out after {timeout}s")
-        # Return a fake CompletedProcess for graceful handling
-        fake = subprocess.CompletedProcess(cmd, returncode=-1, stdout="", stderr="TIMEOUT")
-        return fake
+                process.returncode, cmd, stdout, "")
+                
+        return subprocess.CompletedProcess(cmd, returncode=process.returncode, stdout=stdout, stderr="")
+        
+    except Exception as e:
+        print(f"    FATAL ERROR during subprocess execution: {e}")
+        raise
 
 
 def uv_run(script: str, timeout: int = 600) -> subprocess.CompletedProcess:
