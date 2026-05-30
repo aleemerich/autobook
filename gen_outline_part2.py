@@ -64,6 +64,8 @@ REMEMBER:
 
     print("Calling writer model...", file=sys.stderr)
     result = call_writer(prompt)
+    outline_path.write_text(part1 + "\n\n" + result, encoding="utf-8")
+    print("Outline complete (with foreshadowing ledger) saved to outline.md", file=sys.stderr)
     print(result)
 
 if __name__ == "__main__":

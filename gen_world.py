@@ -108,6 +108,8 @@ IMPORTANT:
 
     print("Calling writer model...", file=sys.stderr)
     result = call_writer(prompt)
+    (BASE_DIR / "world.md").write_text(result, encoding="utf-8")
+    print("World bible generated and saved to world.md", file=sys.stderr)
     print(result)
 
 if __name__ == "__main__":

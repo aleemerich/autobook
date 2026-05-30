@@ -131,7 +131,7 @@ IMPORTANT:
     print("Calling writer model...", file=sys.stderr)
     result = call_writer(prompt)
     (BASE_DIR / "characters.md").write_text(result, encoding="utf-8")
-    print("Personagens gerados e salvos em characters.md", file=sys.stderr)
+    print("Character registry generated and saved to characters.md", file=sys.stderr)
     print(result)
 
 if __name__ == "__main__":

@@ -115,6 +115,8 @@ CONSTRAINTS:
 
     print("Calling writer model...", file=sys.stderr)
     result = call_writer(prompt)
+    (BASE_DIR / "outline.md").write_text(result, encoding="utf-8")
+    print("Outline part 1 generated and saved to outline.md", file=sys.stderr)
     print(result)
 
 if __name__ == "__main__":
