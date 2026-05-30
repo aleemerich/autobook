@@ -1,68 +1,83 @@
-# Canon
+## Geografia
+- O LIMIAR é uma plataforma global de neurotecnologia disponível via implante craniano mínimo. (SEED.TXT)
+- O procedimento de implantação do LIMIAR leva 40 minutos. (SEED.TXT)
+- O procedimento de implantação do LIMIAR tem dor zero. (SEED.TXT)
+- O procedimento de implantação do LIMIAR tem recuperação imediata. (SEED.TXT)
+- O mundo está se tornando silencioso, sem arte nova, sem perguntas novas, sem revoluções. (SEED.TXT)
+- O mundo está se tornando perfeitamente estável e perfeitamente governável. (SEED.TXT)
 
-Hard facts about the world. Every entry here is a constraint the
-evaluator checks against. If the prose contradicts canon, it's a bug.
+## Linha do Tempo
+- Em 2041, a neurotecnologia LIMIAR promete curar depressão, ansiedade e TEPT. (SEED.TXT)
+- 200 milhões de pessoas são tratadas pelo LIMIAR. (SEED.TXT)
+- Marina publicou livro de contos aos 24 anos. (SEED.TXT)
+- Marina tem 28 anos. (SEED.TXT)
+- Dr. Tomás tem 40 anos. (SEED.TXT)
+- Desde os 24 anos, Marina não consegue escrever uma linha. (SEED.TXT)
 
-This file grows during foundation and drafting. When a fact is
-established (in world.md, characters.md, or in a chapter), it gets
-logged here as canonical. The evaluator cross-references canon
-against every chapter.
+## Regras do Sistema Mágico
+- O "bug" é um padrão de ativação neural identificável — inconsistência criativa. (SEED.TXT)
+- Matematicamente, o "bug" é o que Gödel provou como inevitável em qualquer sistema formal suficientemente poderoso. (SEED.TXT)
+- O "erro" não é defeito: é PROPRIEDADE NECESSÁRIA. (SEED.TXT)
+- Sem o "bug", o sistema é trivial e incapaz de expressar qualquer coisa interessante. (SEED.TXT)
+- Corrigir o bug = podar conexões sinápticas "erradas" = cérebro eficiente, sem imaginação. (SEED.TXT)
+- A dor de Marina — depressão, bloqueio criativo, vazio — não é ausência de criatividade. É criatividade REPRIMIDA. (SEED.TXT)
+- O LIMIAR silencia o inconsciente. (SEED.TXT)
+- A inconsistência É a consistência de Marina. (SEED.TXT)
+- Nos gráficos do LIMIAR, a entropia cerebral dos pacientes cai para zero. (SEED.TXT)
+- Ordem perfeita. Zero informação nova. Morte da criatividade. (SEED.TXT)
+- O "bug" eliminado é o mesmo padrão neural que aparece em estados de flow, insights criativos, experiências místicas, amor genuíno. (SEED.TXT)
+- O "bug" não é ruído. É sinal. É o sinal mais importante que o cérebro produz. (SEED.TXT)
+- O modelo neural por trás do LIMIAR foi treinado com dados de tradições espirituais milenares — budismo, misticismo cristão, sufismo. (SEED.TXT)
+- As tradições espirituais milenares ensinam a ATRAVESSAR o sofrimento, não eliminá-lo. (SEED.TXT)
+- O LIMIAR sara a ferida sem tratar a infecção. (SEED.TXT)
 
-## How to use
+## Fatos dos Personagens
+- Marina é escritora. (SEED.TXT)
+- Marina publicou livro de contos aos 24 anos, aclamado. (SEED.TXT)
+- Marina tem 28 anos. (SEED.TXT)
+- Marina tem bloqueio criativo total. (SEED.TXT)
+- Marina tem depressão. (SEED.TXT)
+- Marina tem ansiedade. (SEED.TXT)
+- A terapeuta de Marina sugere LIMIAR. (SEED.TXT)
+- Marina resiste ao LIMIAR — teme perder o que resta de sua voz. (SEED.TXT)
+- Marina acredita que sua dor é preço legítimo da arte. (SEED.TXT)
+- Marina precisa provar que o "bug" é feature. (SEED.TXT)
+- Marina precisa aceitar que não precisa da dor — precisa da verdade. (SEED.TTX)
+- A mentira de Marina: "Se eu masterizar a dor, ela vira arte." (SEED.TXT)
+- Marina consegue sentir, em dados, o que está sendo perdido. (SEED.TXT)
+- O modelo já identificou o "bug" nos dados de Marina. (SEED.TXT)
+- Uma "atualização" gratuita, imediata, está sendo oferecida a Marina. (SEED.TXT)
+- Marina está tão mal que quase aceita a atualização. (SEED.TXT)
+- Marina escreve um manifesto. (SEED.TXT)
+- O manifesto de Marina SÓ pode ser escrito por alguém com O "bug". (SEED.TXT)
+- O manifesto de Marina é um texto que uma mente "corrigida" não conseguiria produzir. (SEED.TXT)
+- A frase final do manifesto de Marina: "Fui oferecida a paz. Recusei. Não porque a dor é virtuosa. Mas porque a dor é MINHA. E sem o que é meu, não há eu para ser pacífico." (SEED.TXT)
+- Dr. Tomás é neurocientista. (SEED.TXT)
+- Dr. Tomás tem 40 anos. (SEED.TXT)
+- Dr. Tomás foi demitido do projeto LIMIAR por questionar a direção. (SEED.TXT)
+- Dr. Tomás tem a teoria de que o "bug" eliminado é o mesmo padrão neural que aparece em estados de flow, insights criativos, experiências místicas, amor genuíno. (SEED.TXT)
+- Juntos, Marina e Tomás descobrem que o LIMIAR não é projeto de saúde — é projeto de controle existencial. (SEED.TXT)
 
-Each entry: a short, falsifiable statement with the source.
-Group by category. Keep it flat and scannable -- this isn't prose,
-it's a database.
-
----
-
-## Geography
-<!-- Example:
-- Vael is 12 days' ride north of Tasren. (world.md)
-- The Ashenmoor lies between Vael and the Sundering Peaks. (world.md)
-- The River Kell flows south through Tasren to the sea. (ch_02)
--->
-
-## Timeline
-<!-- Example:
-- The Sundering happened 300 years before the story begins. (world.md)
-- Kael is 23 at story start. (characters.md)
-- The siege of Vael happened when Kael was 7. (ch_04)
-- Ch 1-3 span approximately 2 weeks. (outline.md)
--->
-
-## Magic System Rules
-<!-- Example:
-- All magic costs blood or memory. No exceptions. (world.md, HARD RULE)
-- A shaper cannot affect living flesh, only dead matter. (world.md)
-- Using the old tongue draws the attention of the Hollow. (ch_03)
--->
-
-## Character Facts
-<!-- Example:
-- Kael is left-handed. (ch_01)
-- Vessa has a scar across her left palm. (ch_01)
-- Moren cannot read. He hides this. (characters.md)
-- Kael's mother died in the siege of Vael. (characters.md)
--->
-
-## Political / Factional
-<!-- Example:
-- The Accord of Tasren was signed by three of the five houses. (world.md)
-- House Drennan controls the salt trade. (world.md)
-- The Temple does not recognize secular law within its walls. (ch_05)
--->
+## Político / Faccional
+- O LIMIAR é uma plataforma global de neurotecnologia. (SEED.TXT)
+- A plataforma coleta dados neurais de 200 milhões de cérebros em tempo real. (SEED.TXT)
+- Esses dados alimentam um modelo de IA que está aprendendo o que é o "bug" da consciência humana — e como eliminá-lo permanentemente. (SEED.TXT)
+- O LIMIAR não é projeto de saúde — é projeto de controle existencial. (SEED.TXT)
 
 ## Cultural
-<!-- Example:
-- In Tasren, the dead are burned, never buried. (world.md)
-- Naming a child before its first moon is considered bad luck. (ch_06)
-- The color white is associated with mourning, not black. (world.md)
--->
+- O LIMIAR fez o que todas as tradições proíbem: sara a ferida sem tratar a infecção. (SEED.TXT)
+- A ferida é onde a luz entra. (SEED.TXT)
 
-## Established In-Story (things that happened in chapters)
-<!-- Example:
-- Kael killed the messenger in ch_03. This cannot be undone.
-- Vessa revealed her tattoo to Moren in ch_07. He now knows.
-- The bridge at Ashenmoor was destroyed in ch_09. It's gone.
--->
+## Estabelecido na História
+- Em 2041, uma neurotecnologia chamada LIMIAR promete curar depressão, ansiedade e TEPT reconectando circuitos neurais "disfuncionais". (SEED.TXT)
+- O LIMIAR funciona. (SEED.TXT)
+- 200 milhões de pessoas são tratadas. (SEED.TXT)
+- Junto com a dor, vai embora a arte. As perguntas. A raiva que gera mudança. O vazio que gera busca. (SEED.TXT)
+- Ninguém percebe — porque quem foi "corrigido" não sente falta. (SEED.TXT)
+- Quem não foi começa a achar que o problema é ele. (SEED.TXT)
+- Os pacientes ficam estáveis, funcionais, felizes. Sem oscilações. Sem crises. Sem sofrimento. (SEED.TXT)
+- Marina publicou livro de contos aos 24 anos, aclamado. (SEED.TXT)
+- Desde os 24 anos, Marina não consegue escrever uma linha. (SEED.TXT)
+- Dr. Tomás foi demitido do projeto LIMIAR por questionar a direção. (SEED.TXT)
+- O modelo neural por trás do LIMIAR foi treinado com dados de tradições espirituais milenares — budismo, misticismo cristão, sufismo. (SEED.TXT)
+- Marina escreve um manifesto. (SEED.TXT)
