@@ -411,12 +411,67 @@ THEME: [Deep thematic question]
                 seed_file.write_text(result, encoding="utf-8")
             break
             
+    # 4. Generate MYSTERY.md (Optional automation based on selected concept)
+    mystery_file = BASE_DIR / "MYSTERY.md"
+    seed_content = seed_file.read_text(encoding="utf-8")
+    
+    print("\n" + "="*60)
+    print("🔮 GERAÇÃO DE MISTÉRIO CENTRAL (MYSTERY.md) 🔮")
+    print("="*60)
+    try:
+        choice = input("Deseja gerar um Mistério Central profundo (MYSTERY.md) com base neste conceito? [Y/n] ").strip().lower()
+        if choice == "" or choice in ["y", "yes", "s", "sim"]:
+            step("Gerando MYSTERY.md estruturado e ambíguo com IA...")
+            
+            mystery_prompt = f"""Based on this sci-fi/fantasy novel seed concept, build a deep, high-stakes, and morally ambiguous "Author's Eyes Only" central mystery.
+This is the MYSTERY.MD file -- the definitive reference for the underlying conspiracy and the recontextualizing reveal that will happen at the climax.
+
+SEED CONCEPT:
+{seed_content}
+
+Structure the document with exactly these sections:
+
+# THE CENTRAL MYSTERY
+### Author's Eyes Only — Not for AI agent context during drafting
+
+---
+
+## The Question
+State the central question/enigma of the novel in one single, compelling sentence.
+
+## The Answer
+What is the core secret? The hidden truth that the protagonist discovers at the climax that recontextualizes the entire story.
+
+## Moral Ambiguity
+Explain why there is no "clean" or "right" moral answer. What are the competing, valid ethical claims of both sides? How does it avoid being a generic "good vs evil" plot?
+
+## Physical Manifestation
+What physical objects, files, or structures in the world hold or embody this mystery? (e.g. locked journals, tuning forks, acoustic anomalies, forbidden records). How do characters interact with them before the reveal?
+
+## The Protagonist's Choice
+What is the final decision the protagonist must make regarding this mystery at the climax? What is the severe and permanent cost/loss associated with either choice he makes?
+"""
+            
+            mystery_result = call_llm(
+                prompt=mystery_prompt,
+                system_prompt="You are a brilliant mystery novelist and literary structural architect. You design high-stakes, deeply personal, and cosmic conspiracies with moral depth.",
+                temperature=0.7,
+                is_judge=False
+            )
+            
+            mystery_file.write_text(mystery_result, encoding="utf-8")
+            step("MYSTERY.md gerado e salvo com sucesso!")
+        else:
+            step("Ignorando geração de mistério. O template padrão em branco foi mantido.")
+    except (KeyboardInterrupt, EOFError):
+        print("\nIgnorando geração de mistério. O template padrão em branco foi mantido.")
+            
     # Save state and commit
     state["phase"] = "foundation"
     state["current_focus"] = "planning"
     save_state(state)
     
-    git_add_commit("ideation: finalized seed.txt concept selection")
+    git_add_commit("ideation: finalized seed.txt and generated MYSTERY.md")
     
     banner("IDEAÇÃO CONCLUÍDA — seed.txt pronto para a Fase 1")
     return state
