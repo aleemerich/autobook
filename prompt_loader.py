@@ -58,3 +58,39 @@ def load_slop_config() -> dict:
         
     with open(slop_file, "r", encoding="utf-8") as f:
         return json.load(f)
+
+
+def load_genre_rules() -> str:
+    """
+    Load the genre-specific rules and instructions from genres/{LANG}/{genre}.txt.
+    Falls back to EN if active language is missing.
+    Falls back to 'drama' if the selected genre is missing or invalid.
+    """
+    lang = get_active_language()
+    genre = os.environ.get("AUTOBOOK_GENRE", "drama").lower().strip()
+    
+    genres_dir = BASE_DIR / "genres"
+    
+    # 1. Try localizing the requested genre
+    genre_file = genres_dir / lang / f"{genre}.txt"
+    if genre_file.exists():
+        return genre_file.read_text(encoding="utf-8")
+        
+    # 2. Try falling back to English for the requested genre
+    if lang != "EN":
+        fallback_genre_file = genres_dir / "EN" / f"{genre}.txt"
+        if fallback_genre_file.exists():
+            return fallback_genre_file.read_text(encoding="utf-8")
+            
+    # 3. Fallback to default 'drama' in active language
+    default_file = genres_dir / lang / "drama.txt"
+    if default_file.exists():
+        return default_file.read_text(encoding="utf-8")
+        
+    # 4. Final emergency fallback to 'drama' in English
+    final_file = genres_dir / "EN" / "drama.txt"
+    if final_file.exists():
+        return final_file.read_text(encoding="utf-8")
+        
+    raise FileNotFoundError("Critical default genre file 'drama.txt' not found under EN fallback.")
+

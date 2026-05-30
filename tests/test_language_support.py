@@ -169,3 +169,73 @@ def test_prompt_loader_fallback():
         if dummy_file_en.exists():
             dummy_file_en.unlink()
 
+
+# ---------------------------------------------------------------------------
+# 4. Genre Specific Guidelines & Fallback Tests
+# ---------------------------------------------------------------------------
+
+def test_load_genre_rules_success():
+    """Ensures dynamic load_genre_rules retrieves the correct genre-specific guidelines."""
+    from prompt_loader import load_genre_rules
+    
+    # 1. Active language PT-BR, genre crime_mystery
+    with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "PT-BR", "AUTOBOOK_GENRE": "crime_mystery"}):
+        rules = load_genre_rules()
+        assert "investigador/detetive" in rules
+        assert "xadrez verbal" in rules
+
+    # 2. Active language EN, genre crime_mystery
+    with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "EN", "AUTOBOOK_GENRE": "crime_mystery"}):
+        rules = load_genre_rules()
+        assert "detective/investigator" in rules
+
+    # 3. Active language PT-BR, genre light_novel
+    with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "PT-BR", "AUTOBOOK_GENRE": "light_novel"}):
+        rules = load_genre_rules()
+        assert "internos" in rules
+        assert "proativos" in rules
+
+    # 4. Active language PT-BR, genre cyber_horror
+    with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "PT-BR", "AUTOBOOK_GENRE": "cyber_horror"}):
+        rules = load_genre_rules()
+        assert "cyberpunk" in rules
+        assert "claustro" in rules
+
+    # 5. Active language EN, genre cyber_horror
+    with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "EN", "AUTOBOOK_GENRE": "cyber_horror"}):
+        rules = load_genre_rules()
+        assert "cyberpunk" in rules
+        assert "claustrophobic" in rules
+
+
+def test_load_genre_rules_fallbacks():
+    """Ensures resilient fallbacks when genre is missing, invalid, or needs English fallback."""
+    from prompt_loader import load_genre_rules
+    from pathlib import Path
+
+    # 1. Non-existent genre in PT-BR but exists in EN -> fallback to EN version
+    dummy_file_en = Path("genres/EN/space_opera.txt")
+    dummy_file_en.parent.mkdir(parents=True, exist_ok=True)
+    dummy_file_en.write_text("Fictional English space opera guidelines", encoding="utf-8")
+
+    try:
+        with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "PT-BR", "AUTOBOOK_GENRE": "space_opera"}):
+            rules = load_genre_rules()
+            assert rules == "Fictional English space opera guidelines"
+    finally:
+        if dummy_file_en.exists():
+            dummy_file_en.unlink()
+
+    # 2. Non-existent genre completely -> fallback to default 'drama' in active language
+    with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "PT-BR", "AUTOBOOK_GENRE": "invalid_genre_name_abc"}):
+        rules = load_genre_rules()
+        # drama.txt in PT-BR contains default novel rules
+        assert "Escreva o capítulo COMPLETO" in rules
+        assert "Terceira pessoa limitada" in rules
+
+    # 3. Non-existent genre completely in English -> fallback to English 'drama'
+    with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "EN", "AUTOBOOK_GENRE": "invalid_genre_name_abc"}):
+        rules = load_genre_rules()
+        assert "Write the COMPLETE chapter" in rules
+        assert "Third-person limited" in rules
+

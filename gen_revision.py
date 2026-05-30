@@ -45,9 +45,10 @@ def main():
     old_path = BASE_DIR / "chapters" / f"ch_{ch_num:02d}.md"
     old_text = old_path.read_text() if old_path.exists() else "(no existing draft)"
     
-    from prompt_loader import load_prompt
+    from prompt_loader import load_prompt, load_genre_rules
     try:
         prompt_template = load_prompt("gen_revision_user.txt")
+        genre_rules = load_genre_rules()
         prompt = prompt_template.format(
             ch_num=ch_num,
             brief=brief,
@@ -56,7 +57,8 @@ def main():
             world=world,
             prev_tail=prev_tail,
             next_head=next_head,
-            old_text=old_text
+            old_text=old_text,
+            genre_rules=genre_rules
         )
     except Exception as e:
         print(f"WARNING: failed to load user prompt template: {e}, falling back to hardcoded template", file=sys.stderr)

@@ -74,9 +74,10 @@ def main():
     else:
         prev_tail = "(first chapter -- no previous)"
     
-    from prompt_loader import load_prompt
+    from prompt_loader import load_prompt, load_genre_rules
     try:
         prompt_template = load_prompt("draft_chapter_user.txt")
+        genre_rules = load_genre_rules()
         prompt = prompt_template.format(
             chapter_num=chapter_num,
             voice=voice,
@@ -84,7 +85,8 @@ def main():
             next_chapter=next_chapter,
             prev_tail=prev_tail,
             world=world,
-            characters=characters
+            characters=characters,
+            genre_rules=genre_rules
         )
     except Exception as e:
         print(f"WARNING: failed to load user prompt template: {e}, falling back to hardcoded template", file=sys.stderr)

@@ -21,16 +21,7 @@ ABERTURA DO PRÓXIMO CAPÍTULO (termine de forma a fluir naturalmente para este)
 O RASCUNHO EXISTENTE (use como material bruto -- mantenha o que funciona, corte o que não funciona):
 {old_text}
 
-REGRAS DE ANTI-PADRÃO (ANTI-PATTERN):
-- SEM listas sensoriais tríades (X. Y. Z.)
-- SEM a construção "Ele não [verbo]" mais de uma vez
-- SEM a construção "Ele pensou sobre [X]"
-- SEM o conector "do jeito que [X] fazia [Y]" mais de duas vezes
-- SEM a fórmula "não X, mas Y" na narração
-- SEM explicações excessivas após mostrar
-- MÁXIMO de 2 quebras de seção
-- Pelo menos um momento que genuinamente surpreenda
-- 70%+ em cena (diálogo e ação, não resumo do narrador)
-- O diálogo deve soar como fala natural, não prosa escrita
+DIRETRIZES DE ESCRITA E REGRAS DO GÊNERO:
+{genre_rules}
 
 Escreva o capítulo revisado COMPLETO agora.

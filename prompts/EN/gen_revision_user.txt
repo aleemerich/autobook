@@ -21,16 +21,7 @@ NEXT CHAPTER OPENING (end so this flows into it):
 THE EXISTING DRAFT (use as raw material -- keep what works, cut what doesn't):
 {old_text}
 
-ANTI-PATTERN RULES:
-- NO triadic sensory lists (X. Y. Z.)
-- NO "He did not [verb]" more than once
-- NO "He thought about [X]" constructions
-- NO "the way [X] did [Y]" more than twice
-- NO "not X, but Y" formula in narration
-- NO over-explaining after showing
-- MAX 2 section breaks
-- At least one moment that genuinely surprises
-- 70%+ in-scene (dialogue and action, not summary)
-- Dialogue should sound like speech, not prose
+GENRE-SPECIFIC RULES & WRITING GUIDELINES:
+{genre_rules}
 
 Write the FULL revised chapter now.

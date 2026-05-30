@@ -44,7 +44,7 @@ MIN_REVISION_CYCLES = 3
 MAX_REVISION_CYCLES = 6
 PLATEAU_DELTA = 0.3
 
-PHASE_ORDER = ["foundation", "drafting", "revision", "export"]
+PHASE_ORDER = ["ideation", "foundation", "drafting", "revision", "export"]
 
 
 # ---------------------------------------------------------------------------
@@ -61,7 +61,7 @@ def load_state() -> dict:
 
 def default_state() -> dict:
     return {
-        "phase": "foundation",
+        "phase": "ideation",
         "current_focus": "planning",
         "iteration": 0,
         "foundation_score": 0.0,
@@ -229,6 +229,197 @@ def get_total_chapters(state: dict) -> int:
         if matches:
             return max(int(m) for m in matches)
     return 24  # sensible default
+
+
+# ---------------------------------------------------------------------------
+# PHASE 0 — IDEATION (CALDEIRÃO DE IDEIAS)
+# ---------------------------------------------------------------------------
+
+def run_ideation(state: dict) -> dict:
+    """
+    Phase 0: Ideation (Caldeirão de Ideias).
+    Bypasses if seed.txt exists, or asks 4 interactive questions,
+    generates 3 robust concepts, and provides a refinement loop.
+    """
+    banner("FASE 0: CALDEIRÃO DE IDEIAÇÃO INTERATIVA", "=")
+    
+    seed_file = BASE_DIR / "seed.txt"
+    
+    # 1. Bypass check if seed.txt already exists
+    if seed_file.exists() and seed_file.stat().st_size > 10:
+        print(f"\n[INFO] Detectado seed.txt existente no diretório.")
+        try:
+            choice = input("Deseja usar este seed.txt existente para a geração? [S/n] ").strip()
+            if choice == "" or choice.lower() in ['s', 'sim', 'y', 'yes']:
+                step("Bypass ativado! Usando seed.txt existente.")
+                state["phase"] = "foundation"
+                state["current_focus"] = "planning"
+                save_state(state)
+                banner("IDEAÇÃO CONCLUÍDA — seed.txt preservado")
+                return state
+        except (KeyboardInterrupt, EOFError):
+            print("\n[INFO] Bypass ignorado por cancelamento.")
+            
+    # 2. Pre-generation Questionnaire
+    print("\nResponda às 4 perguntas abaixo para calibrar o seu Caldeirão de Ideias.")
+    print("(Apenas pressione Enter para usar as sugestões padrão escritas em colchetes)\n")
+    
+    try:
+        genre_ans = input("1. Gênero, Tom e Atmosfera [Terror biotecnológico cyberpunk com suspense]: ").strip()
+        if not genre_ans:
+            genre_ans = "Terror biotecnológico cyberpunk com suspense"
+            
+        spark_ans = input("2. Centelha ou Imagem Mental [Um mar biomecânico que se lembra de cadáveres]: ").strip()
+        if not spark_ans:
+            spark_ans = "Um mar biomecânico que se lembra de cadáveres"
+            
+        cost_ans = input("3. Custo do Extraordinário [Curto-circuito neural e perda trágica de memórias]: ").strip()
+        if not cost_ans:
+            cost_ans = "Curto-circuito neural e perda trágica de memórias"
+            
+        protagonist_ans = input("4. Foco do Protagonista [Um ex-soldado cínico com implante óptico corrompido]: ").strip()
+        if not protagonist_ans:
+            protagonist_ans = "Um ex-soldado cínico com implante óptico corrompido"
+    except (KeyboardInterrupt, EOFError):
+        print("\nEntrevista interrompida. Usando parâmetros padrão.")
+        genre_ans = "Terror biotecnológico cyberpunk com suspense"
+        spark_ans = "Um mar biomecânico que se lembra de cadáveres"
+        cost_ans = "Curto-circuito neural e perda trágica de memórias"
+        protagonist_ans = "Um ex-soldado cínico com implante óptico corrompido"
+
+    # 3. Generation Loop (supports Riffing/Regeneration)
+    from llm import call_llm
+    from seed import SYSTEM_PROMPT
+    
+    current_prompt = f"""Generate 3 extremely addictive, robust sci-fi/fantasy novel seed concepts based on these user preferences:
+- Genre, Tone & Atmosphere: {genre_ans}
+- Starting Spark / Image: {spark_ans}
+- Speculative Cost: {cost_ans}
+- Protagonist Archetype: {protagonist_ans}
+
+Each concept must use elite page-turner and narrative hooking techniques:
+1. Hook of Paradox: A compelling hook that sets up an immediate choice/paradox.
+2. Curiosity Loops: An underlying conspiracy/secret that forces readers to keep turning pages.
+3. Wound/Want/Need/Lie: Backstory trauma (Wound) that shapes a tragic character goal (Want).
+4. High Speculative Cost: Limits > powers, severe and irreversible costs of power.
+
+Provide EXACTLY this format for EACH concept:
+
+NUMBER. TITLE
+HOOK: [One sentence paradox/compelling hook]
+WORLD: [Gritty, sensory details of the hostile world]
+MAGIC/COST: [The speculative element and its tragic cost]
+TENSION: [Personal vs cosmic conflict driven by Wound and Want]
+THE CONSPIRACY: [The underlying mystery/curiosity loop that drives the pages]
+THEME: [A deep thematic question with no easy answer]
+"""
+
+    while True:
+        step("Gerando 3 sementes premium com artimanhas de escrita viciante...")
+        
+        result = call_llm(
+            prompt=current_prompt,
+            system_prompt=SYSTEM_PROMPT,
+            temperature=1.0,
+            is_judge=False
+        )
+        
+        # Save cauldron file
+        cauldron_path = BASE_DIR / "cauldron.txt"
+        cauldron_path.write_text(result, encoding="utf-8")
+        
+        print("\n" + "="*60)
+        print("🔥 SEUS CONCEITOS DO CALDEIRÃO DE IDEIAS 🔥")
+        print("="*60)
+        print(result)
+        print("="*60)
+        
+        # Parse concepts
+        concepts = {}
+        pattern = r'(?:^|\n)(\d+)\.\s*(.*?)(?=\n\d+\.\s*|$)'
+        matches = re.findall(pattern, result, re.DOTALL)
+        
+        for num, content in matches:
+            concepts[int(num)] = f"{num}. {content.strip()}"
+            
+        print("\nOpções do Menu:")
+        if concepts:
+            for num, content in sorted(concepts.items()):
+                lines = content.split('\n')
+                title = lines[0]
+                hook = next((l for l in lines if l.strip().startswith("HOOK:")), "")
+                print(f"  [{num}] Selecionar: {title} — {hook.replace('HOOK:', '').strip()}")
+            for num in sorted(concepts.keys()):
+                print(f"  [R{num}] Refinar/Riff: Fazer ajustes finos e variações na Ideia {num}")
+        print("  [C] Customizar: Inserir uma semente totalmente customizada por você.")
+        
+        try:
+            choice = input("\nSua escolha > ").strip()
+            
+            if choice.lower() in ['c', 'custom']:
+                print("\nDigite sua semente customizada completa (pressione Enter para finalizar):")
+                custom_idea = input("> ").strip()
+                if custom_idea:
+                    seed_file.write_text(custom_idea, encoding="utf-8")
+                    step(f"Semente customizada gravada com sucesso em {seed_file.name}!")
+                    break
+            elif choice.isdigit() and int(choice) in concepts:
+                selected = concepts[int(choice)]
+                seed_file.write_text(selected, encoding="utf-8")
+                step(f"Semente selecionada gravada com sucesso em {seed_file.name}!")
+                break
+            elif len(choice) >= 2 and choice[0].upper() == 'R' and choice[1].isdigit() and int(choice[1]) in concepts:
+                target_num = int(choice[1])
+                target_concept = concepts[target_num]
+                
+                print(f"\nVocê escolheu refinar a Ideia {target_num}:")
+                print(f"  {target_concept.split('\n')[0]}")
+                refine_feedback = input("O que você gostaria de refinar ou mudar nesta ideia? > ").strip()
+                
+                if refine_feedback:
+                    current_prompt = f"""We are refining a novel seed concept.
+Here is the selected base concept:
+{target_concept}
+
+Here is the user's specific feedback/refinement request:
+"{refine_feedback}"
+
+Generate 3 new variations of this concept incorporating the feedback. Keep the elite writing principles:
+1. Hook of Paradox: compelling one-sentence paradox.
+2. Curiosity Loops: deep conspiracy/mystery layer.
+3. Wound/Want/Need/Lie: backstory trauma in tension with goal.
+4. Speculative Cost: powers have high tragic costs.
+
+Provide EXACTLY the same format:
+
+NUMBER. TITLE
+HOOK: [One sentence paradox]
+WORLD: [Gritty sensory details]
+MAGIC/COST: [Speculative element and tragic cost]
+TENSION: [Personal vs cosmic conflict]
+THE CONSPIRACY: [The underlying mystery/curiosity loop]
+THEME: [Deep thematic question]
+"""
+                    continue
+            else:
+                print("Opção inválida. Escolha um número de 1 a 3, R1-R3 para refinar, ou C.")
+        except (KeyboardInterrupt, EOFError):
+            print("\nIdeação interrompida. Usando o conceito 1 por padrão.")
+            if concepts:
+                seed_file.write_text(concepts[1], encoding="utf-8")
+            else:
+                seed_file.write_text(result, encoding="utf-8")
+            break
+            
+    # Save state and commit
+    state["phase"] = "foundation"
+    state["current_focus"] = "planning"
+    save_state(state)
+    
+    git_add_commit("ideation: finalized seed.txt concept selection")
+    
+    banner("IDEAÇÃO CONCLUÍDA — seed.txt pronto para a Fase 1")
+    return state
 
 
 # ---------------------------------------------------------------------------
@@ -780,10 +971,6 @@ def run_pipeline(args):
     # Load or initialize state
     if args.from_scratch:
         banner("STARTING FROM SCRATCH")
-        seed_file = BASE_DIR / "seed.txt"
-        if not seed_file.exists():
-            print("ERROR: seed.txt not found. Cannot start from scratch without a seed.")
-            sys.exit(1)
         state = default_state()
         save_state(state)
     else:
@@ -825,7 +1012,9 @@ def run_pipeline(args):
 
     for phase in phases:
         try:
-            if phase == "foundation":
+            if phase == "ideation":
+                state = run_ideation(state)
+            elif phase == "foundation":
                 state = run_foundation(state)
             elif phase == "drafting":
                 state = run_drafting(state)

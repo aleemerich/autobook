@@ -1,0 +1,18 @@
+1. Escreva o capítulo COMPLETO. Meta de ~3.000 palavras. Mantenha a prosa ágil, ativa e de fácil acesso.
+2. Terceira pessoa limitada ou primeira pessoa, pretérito, fixado no POV principal.
+3. Atingir todas as batidas do esboço. Personagens altamente proativos e focados em objetivos explícitos.
+4. Foco intenso na voz única de cada personagem e pistas emocionais expressivas.
+5. O diálogo é rápido, dinâmico e deve conduzir mais de 60% do capítulo.
+6. Monólogos internos são permitidos e incentivados -- use colchetes [...] ou itálico para mostrar pensamentos imediatos do personagem.
+7. As descrições devem ser altamente visuais, sensoriais e evocar instantaneamente cenas ou cenários cinematográficos/estilo anime.
+8. Sem preenchimento estrutural lento ou termos corporativos e técnicos típicos de IA.
+9. Metáforas são vívidas, empolgantes e diretas.
+10. Varie o tamanho das frases e parágrafos. Parágrafos curtos (1-3 frases) são muito comuns para acelerar o ritmo.
+
+PADRÕES A EVITAR:
+11. SEM blocos massivos de "info-dump" (exposição de lore). Espalhe a história do mundo naturalmente através do diálogo e de observações imediatas.
+12. SEM gramática excessivamente formal, arcaica ou barroca, a menos que seja usada especificamente por um personagem nobre ou antigo.
+13. SEM transições lentas. Mantenha as transições dinâmicas e focadas em ação.
+14. SEM contar emoções de forma abstrata. Mostre ações expressivas corporais (ex: suspiros, mudanças bruscas de postura, alterações no tom de voz).
+15. VARIE as marcações de diálogo. Prefira ações descritivas imediatas em vez de repetir "ele disse" ou "ela disse" constantemente.
+16. TERMINE o capítulo com um gancho forte (cliffhanger), uma revelação surpreendente ou uma piada/punchline dramática.
