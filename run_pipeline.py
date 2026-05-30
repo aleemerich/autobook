@@ -965,8 +965,47 @@ def run_export(state: dict) -> dict:
 # Main orchestrator
 # ---------------------------------------------------------------------------
 
+def get_current_branch() -> str:
+    """Return the current active git branch name, or empty string on failure."""
+    try:
+        res = subprocess.run(
+            "git rev-parse --abbrev-ref HEAD", shell=True,
+            capture_output=True, text=True, cwd=str(BASE_DIR)
+        )
+        return res.stdout.strip() if res.returncode == 0 else ""
+    except Exception:
+        return ""
+
+
 def run_pipeline(args):
     """Run the full pipeline or a specific phase."""
+    # Safety Check: Prevent running on main/master to avoid repo pollution
+    branch = get_current_branch()
+    if branch in ["main", "master"]:
+        print(f"\n[WARNING] You are currently on the '{branch}' branch.")
+        print("Running the pipeline directly on main/master will pollute your repository history with automated commits.")
+        try:
+            choice = input("Would you like to automatically create and switch to a new branch for this generation? [Y/n] ").strip().lower()
+            if choice == "" or choice in ["y", "yes", "s", "sim"]:
+                book_name = input("Enter a name for your book (e.g., my-book): ").strip()
+                if not book_name:
+                    book_name = "book"
+                # Sanitize branch name
+                sanitized_name = re.sub(r'[^a-zA-Z0-9_-]', '-', book_name).lower()
+                branch_name = f"autobook/{sanitized_name}"
+                
+                print(f"[GIT] Creating and switching to new branch '{branch_name}'...")
+                create_res = subprocess.run(f"git checkout -b {branch_name}", shell=True, capture_output=True, text=True, cwd=str(BASE_DIR))
+                if create_res.returncode != 0:
+                    print(f"ERROR: Failed to create branch '{branch_name}': {create_res.stderr.strip()}")
+                    sys.exit(1)
+                print(f"[GIT] Switched to branch '{branch_name}' successfully!")
+            else:
+                print("ERROR: Execution aborted. Please switch to a secondary branch manually before running the pipeline.")
+                sys.exit(1)
+        except (KeyboardInterrupt, EOFError):
+            print("\nExecution aborted.")
+            sys.exit(1)
 
     # Load or initialize state
     if args.from_scratch:
