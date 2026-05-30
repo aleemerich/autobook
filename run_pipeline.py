@@ -269,55 +269,55 @@ def get_total_chapters(state: dict) -> int:
 
 def run_ideation(state: dict) -> dict:
     """
-    Phase 0: Ideation (Caldeirão de Ideias).
+    Phase 0: Ideation (Interactive Ideation Cauldron).
     Bypasses if seed.txt exists, or asks 4 interactive questions,
     generates 3 robust concepts, and provides a refinement loop.
     """
-    banner("FASE 0: CALDEIRÃO DE IDEIAÇÃO INTERATIVA", "=")
+    banner("PHASE 0: INTERACTIVE IDEATION CAULDRON", "=")
     
     seed_file = BASE_DIR / "seed.txt"
     
     # 1. Bypass check if seed.txt already exists
     if seed_file.exists() and seed_file.stat().st_size > 10:
-        print(f"\n[INFO] Detectado seed.txt existente no diretório.")
+        print(f"\n[INFO] Detected existing seed.txt in the directory.")
         try:
-            choice = input("Deseja usar este seed.txt existente para a geração? [S/n] ").strip()
-            if choice == "" or choice.lower() in ['s', 'sim', 'y', 'yes']:
-                step("Bypass ativado! Usando seed.txt existente.")
+            choice = input("Do you want to use this existing seed.txt for generation? [Y/n] ").strip()
+            if choice == "" or choice.lower() in ['y', 'yes', 's', 'sim']:
+                step("Bypass activated! Using existing seed.txt.")
                 state["phase"] = "foundation"
                 state["current_focus"] = "planning"
                 save_state(state)
-                banner("IDEAÇÃO CONCLUÍDA — seed.txt preservado")
+                banner("IDEATION COMPLETE — seed.txt preserved")
                 return state
         except (KeyboardInterrupt, EOFError):
-            print("\n[INFO] Bypass ignorado por cancelamento.")
+            print("\n[INFO] Bypass ignored due to cancellation.")
             
     # 2. Pre-generation Questionnaire
-    print("\nResponda às 4 perguntas abaixo para calibrar o seu Caldeirão de Ideias.")
-    print("(Apenas pressione Enter para usar as sugestões padrão escritas em colchetes)\n")
+    print("\nAnswer the 4 questions below to calibrate your Ideation Cauldron.")
+    print("(Simply press Enter to use the default suggestions written in brackets)\n")
     
     try:
-        genre_ans = input("1. Gênero, Tom e Atmosfera [Terror biotecnológico cyberpunk com suspense]: ").strip()
+        genre_ans = input("1. Genre, Tone & Atmosphere [Cyberpunk biotechnical horror with suspense]: ").strip()
         if not genre_ans:
-            genre_ans = "Terror biotecnológico cyberpunk com suspense"
+            genre_ans = "Cyberpunk biotechnical horror with suspense"
             
-        spark_ans = input("2. Centelha ou Imagem Mental [Um mar biomecânico que se lembra de cadáveres]: ").strip()
+        spark_ans = input("2. Starting Spark / Image [A biomechanical sea that remembers corpses]: ").strip()
         if not spark_ans:
-            spark_ans = "Um mar biomecânico que se lembra de cadáveres"
+            spark_ans = "A biomechanical sea that remembers corpses"
             
-        cost_ans = input("3. Custo do Extraordinário [Curto-circuito neural e perda trágica de memórias]: ").strip()
+        cost_ans = input("3. Cost of the Extraordinary [Neural short-circuit and tragic loss of memories]: ").strip()
         if not cost_ans:
-            cost_ans = "Curto-circuito neural e perda trágica de memórias"
+            cost_ans = "Neural short-circuit and tragic loss of memories"
             
-        protagonist_ans = input("4. Foco do Protagonista [Um ex-soldado cínico com implante óptico corrompido]: ").strip()
+        protagonist_ans = input("4. Protagonist Focus [A cynical ex-soldier with a corrupted optical implant]: ").strip()
         if not protagonist_ans:
-            protagonist_ans = "Um ex-soldado cínico com implante óptico corrompido"
+            protagonist_ans = "A cynical ex-soldier with a corrupted optical implant"
     except (KeyboardInterrupt, EOFError):
-        print("\nEntrevista interrompida. Usando parâmetros padrão.")
-        genre_ans = "Terror biotecnológico cyberpunk com suspense"
-        spark_ans = "Um mar biomecânico que se lembra de cadáveres"
-        cost_ans = "Curto-circuito neural e perda trágica de memórias"
-        protagonist_ans = "Um ex-soldado cínico com implante óptico corrompido"
+        print("\nInterview interrupted. Using default parameters.")
+        genre_ans = "Cyberpunk biotechnical horror with suspense"
+        spark_ans = "A biomechanical sea that remembers corpses"
+        cost_ans = "Neural short-circuit and tragic loss of memories"
+        protagonist_ans = "A cynical ex-soldier with a corrupted optical implant"
 
     # 3. Generation Loop (supports Riffing/Regeneration)
     from llm import call_llm
@@ -347,7 +347,7 @@ THEME: [A deep thematic question with no easy answer]
 """
 
     while True:
-        step("Gerando 3 sementes premium com artimanhas de escrita viciante...")
+        step("Generating 3 premium seeds with addictive writing techniques...")
         
         result = call_llm(
             prompt=current_prompt,
@@ -361,7 +361,7 @@ THEME: [A deep thematic question with no easy answer]
         cauldron_path.write_text(result, encoding="utf-8")
         
         print("\n" + "="*60)
-        print("🔥 SEUS CONCEITOS DO CALDEIRÃO DE IDEIAS 🔥")
+        print("🔥 YOUR IDEATION CAULDRON CONCEPTS 🔥")
         print("="*60)
         print(result)
         print("="*60)
@@ -374,39 +374,39 @@ THEME: [A deep thematic question with no easy answer]
         for num, content in matches:
             concepts[int(num)] = f"{num}. {content.strip()}"
             
-        print("\nOpções do Menu:")
+        print("\nMenu Options:")
         if concepts:
             for num, content in sorted(concepts.items()):
                 lines = content.split('\n')
                 title = lines[0]
                 hook = next((l for l in lines if l.strip().startswith("HOOK:")), "")
-                print(f"  [{num}] Selecionar: {title} — {hook.replace('HOOK:', '').strip()}")
+                print(f"  [{num}] Select: {title} — {hook.replace('HOOK:', '').strip()}")
             for num in sorted(concepts.keys()):
-                print(f"  [R{num}] Refinar/Riff: Fazer ajustes finos e variações na Ideia {num}")
-        print("  [C] Customizar: Inserir uma semente totalmente customizada por você.")
+                print(f"  [R{num}] Refine/Riff: Make fine adjustments and variations to Idea {num}")
+        print("  [C] Customize: Input a completely custom seed concept.")
         
         try:
-            choice = input("\nSua escolha > ").strip()
+            choice = input("\nYour choice > ").strip()
             
             if choice.lower() in ['c', 'custom']:
-                print("\nDigite sua semente customizada completa (pressione Enter para finalizar):")
+                print("\nType your complete custom seed (press Enter to finish):")
                 custom_idea = input("> ").strip()
                 if custom_idea:
                     seed_file.write_text(custom_idea, encoding="utf-8")
-                    step(f"Semente customizada gravada com sucesso em {seed_file.name}!")
+                    step(f"Custom seed successfully written to {seed_file.name}!")
                     break
             elif choice.isdigit() and int(choice) in concepts:
                 selected = concepts[int(choice)]
                 seed_file.write_text(selected, encoding="utf-8")
-                step(f"Semente selecionada gravada com sucesso em {seed_file.name}!")
+                step(f"Selected seed successfully written to {seed_file.name}!")
                 break
             elif len(choice) >= 2 and choice[0].upper() == 'R' and choice[1].isdigit() and int(choice[1]) in concepts:
                 target_num = int(choice[1])
                 target_concept = concepts[target_num]
                 
-                print(f"\nVocê escolheu refinar a Ideia {target_num}:")
+                print(f"\nYou chose to refine Idea {target_num}:")
                 print(f"  {target_concept.split('\n')[0]}")
-                refine_feedback = input("O que você gostaria de refinar ou mudar nesta ideia? > ").strip()
+                refine_feedback = input("What would you like to refine or change in this idea? > ").strip()
                 
                 if refine_feedback:
                     current_prompt = f"""We are refining a novel seed concept.
@@ -434,9 +434,9 @@ THEME: [Deep thematic question]
 """
                     continue
             else:
-                print("Opção inválida. Escolha um número de 1 a 3, R1-R3 para refinar, ou C.")
+                print("Invalid option. Choose a number from 1 to 3, R1-R3 to refine, or C.")
         except (KeyboardInterrupt, EOFError):
-            print("\nIdeação interrompida. Usando o conceito 1 por padrão.")
+            print("\nIdeation interrupted. Using concept 1 by default.")
             if concepts:
                 seed_file.write_text(concepts[1], encoding="utf-8")
             else:
@@ -448,12 +448,12 @@ THEME: [Deep thematic question]
     seed_content = seed_file.read_text(encoding="utf-8")
     
     print("\n" + "="*60)
-    print("🔮 GERAÇÃO DE MISTÉRIO CENTRAL (MYSTERY.md) 🔮")
+    print("🔮 CENTRAL MYSTERY GENERATION (MYSTERY.md) 🔮")
     print("="*60)
     try:
-        choice = input("Deseja gerar um Mistério Central profundo (MYSTERY.md) com base neste conceito? [Y/n] ").strip().lower()
+        choice = input("Do you want to generate a deep Central Mystery (MYSTERY.md) based on this concept? [Y/n] ").strip().lower()
         if choice == "" or choice in ["y", "yes", "s", "sim"]:
-            step("Gerando MYSTERY.md estruturado e ambíguo com IA...")
+            step("Generating structured and ambiguous MYSTERY.md with AI...")
             
             mystery_prompt = f"""Based on this sci-fi/fantasy novel seed concept, build a deep, high-stakes, and morally ambiguous "Author's Eyes Only" central mystery.
 This is the MYSTERY.MD file -- the definitive reference for the underlying conspiracy and the recontextualizing reveal that will happen at the climax.
@@ -492,11 +492,11 @@ What is the final decision the protagonist must make regarding this mystery at t
             )
             
             mystery_file.write_text(mystery_result, encoding="utf-8")
-            step("MYSTERY.md gerado e salvo com sucesso!")
+            step("MYSTERY.md successfully generated and saved!")
         else:
-            step("Ignorando geração de mistério. O template padrão em branco foi mantido.")
+            step("Ignoring mystery generation. The default blank template is preserved.")
     except (KeyboardInterrupt, EOFError):
-        print("\nIgnorando geração de mistério. O template padrão em branco foi mantido.")
+        print("\nIgnoring mystery generation. The default blank template is preserved.")
             
     # Save state and commit
     state["phase"] = "foundation"
@@ -505,7 +505,7 @@ What is the final decision the protagonist must make regarding this mystery at t
     
     git_add_commit("ideation: finalized seed.txt and generated MYSTERY.md")
     
-    banner("IDEAÇÃO CONCLUÍDA — seed.txt pronto para a Fase 1")
+    banner("IDEATION COMPLETE — seed.txt ready for Phase 1")
     return state
 
 

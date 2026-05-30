@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-llm.py — Unified LLM client client for the autonovel pipeline.
+llm.py — Unified LLM client client for the autobook pipeline.
 
 Provides a single function 'call_llm' to route requests to Anthropic, OpenAI,
 Gemini, and OpenRouter based on configuration in the .env file.
@@ -67,8 +67,8 @@ def call_llm(prompt: str, system_prompt: str, temperature: float = 0.8,
         prompt: The main user instructions/prose context.
         system_prompt: System-level role and style constraints.
         temperature: Creative temperature (defaults to 0.8 for writing).
-        is_judge: If True, uses the AUTONOVEL_JUDGE_MODEL (or provider-specific env).
-        is_review: If True, uses the AUTONOVEL_REVIEW_MODEL (or provider-specific env).
+        is_judge: If True, uses the AUTOBOOK_JUDGE_MODEL (or provider-specific env).
+        is_review: If True, uses the AUTOBOOK_REVIEW_MODEL (or provider-specific env).
     """
     # Append dynamic base language directive if configured
     from prompt_loader import load_prompt, get_active_language

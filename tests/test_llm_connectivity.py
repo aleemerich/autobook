@@ -41,8 +41,8 @@ def main():
     print("-" * 60)
 
     # 2. Test Connection
-    system_prompt = "You are a helpful and extremely concise assistant. Respond in Portuguese."
-    prompt = "Diga 'Olá Mundo! Eu sou o autobook rodando no [provedor]' trocando [provedor] pelo nome do seu provedor."
+    system_prompt = "You are a helpful and extremely concise assistant. Respond in English."
+    prompt = "Say 'Hello World! I am autobook running on [provider]' replacing [provider] with the name of your provider."
 
     print("  [Action] Sending test prompt to WRITER model...")
     
@@ -57,13 +57,13 @@ def main():
         print("  [Response] Success! Reply from LLM:")
         print(f"\n{response.strip()}\n")
         print("=" * 60)
-        print("  CONEXÃO VALIDADA COM SUCESSO!")
+        print("  CONNECTION SUCCESSFULLY VALIDATED!")
         print("=" * 60)
         
     except Exception as e:
         print("-" * 60)
         print(f"  [ERROR] Connection failed: {e}", file=sys.stderr)
-        print("  Por favor, verifique se a chave de API correta está configurada no seu .env.")
+        print("  Please verify if the correct API key is configured in your .env.")
         print("=" * 60)
         sys.exit(1)
 

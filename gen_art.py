@@ -473,7 +473,7 @@ def cmd_vectorize(args):
 
 def cmd_all(args):
     print("=" * 60)
-    print("AUTONOVEL ART PIPELINE (interactive)")
+    print("AUTOBOOK ART PIPELINE (interactive)")
     print("=" * 60)
 
     print("\n--- Step 1: Visual Style ---")

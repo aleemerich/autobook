@@ -43,7 +43,7 @@ def test_model_resolution_specific(mock_post):
     mock_resp.status_code = 200
     mock_resp.json.return_ok = True
     mock_resp.json.return_value = {
-        "choices": [{"message": {"content": "Olá!"}}]
+        "choices": [{"message": {"content": "Hello!"}}]
     }
     mock_post.return_value = mock_resp
 
@@ -67,7 +67,7 @@ def test_model_resolution_generic_fallback(mock_post):
     mock_resp = MagicMock()
     mock_resp.status_code = 200
     mock_resp.json.return_value = {
-        "choices": [{"message": {"content": "Olá!"}}]
+        "choices": [{"message": {"content": "Hello!"}}]
     }
     mock_post.return_value = mock_resp
 
@@ -90,7 +90,7 @@ def test_model_resolution_curated_default(mock_post):
     mock_resp = MagicMock()
     mock_resp.status_code = 200
     mock_resp.json.return_value = {
-        "choices": [{"message": {"content": "Olá!"}}]
+        "choices": [{"message": {"content": "Hello!"}}]
     }
     mock_post.return_value = mock_resp
 
