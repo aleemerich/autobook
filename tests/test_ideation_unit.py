@@ -56,13 +56,14 @@ def test_run_ideation_select_option(mock_input, mock_call_llm, mock_git_commit, 
     if seed_file.exists():
         seed_file.unlink()
 
-    # 2. Mock inputs: 4 questionnaire questions, and choice "2"
+    # 2. Mock inputs: 4 questionnaire questions, choice "2", and "n" for mystery
     mock_input.side_effect = [
         "Sci-fi noir",  # Genre
         "cybernetic eye",  # Spark
         "neural damage",  # Cost
         "blind detective",  # Protagonist
-        "2"  # Choice: Select Option 2
+        "2",  # Choice: Select Option 2
+        "n"  # Choice: Skip mystery generation
     ]
     
     mock_call_llm.return_value = mock_cauldron_output
@@ -95,11 +96,12 @@ def test_run_ideation_custom_option(mock_input, mock_call_llm, mock_git_commit, 
     if seed_file.exists():
         seed_file.unlink()
 
-    # Questionnaire, choose C, then enter custom text
+    # Questionnaire, choose C, custom text, and "n" for mystery
     mock_input.side_effect = [
         "", "", "", "",  # Pressione Enter for all 4 questions
         "C",  # Choose Custom option
-        "My completely unique custom idea about space and clocks."  # Custom idea text
+        "My completely unique custom idea about space and clocks.",  # Custom idea text
+        "n"  # Choice: Skip mystery generation
     ]
     
     mock_call_llm.return_value = mock_cauldron_output
@@ -140,3 +142,52 @@ def test_run_ideation_bypass_existing_seed(mock_input, mock_git_commit, clean_st
     finally:
         if seed_file.exists():
             seed_file.unlink()
+
+
+@patch("run_pipeline.git_add_commit")
+@patch("llm.call_llm")
+@patch("builtins.input")
+def test_run_ideation_with_mystery_generation(mock_input, mock_call_llm, mock_git_commit, clean_state, mock_cauldron_output):
+    """Ensures that choosing to generate a mystery creates the MYSTERY.md file successfully."""
+    seed_file = BASE_DIR / "seed.txt"
+    mystery_file = BASE_DIR / "MYSTERY.md"
+    
+    if seed_file.exists():
+        seed_file.unlink()
+    if mystery_file.exists():
+        mystery_file.write_text("")  # Reset it
+
+    # Mock inputs: 4 questions, choice 1, and "y" for generating mystery
+    mock_input.side_effect = [
+        "Sci-fi", "", "", "",  # Questions
+        "1",  # Select option 1
+        "y"  # Choice: Yes, generate mystery
+    ]
+    
+    # First call_llm returns the cauldron options, second returns the mystery bible
+    mock_call_llm.side_effect = [
+        mock_cauldron_output,
+        "# THE CENTRAL MYSTERY\n## The Question\nWho killed the voice?\n## The Answer\nThe Chancellor."
+    ]
+
+    try:
+        updated_state = run_ideation(clean_state)
+        
+        assert seed_file.exists()
+        assert mystery_file.exists()
+        mystery_content = mystery_file.read_text(encoding="utf-8")
+        assert "THE CENTRAL MYSTERY" in mystery_content
+        assert "Who killed the voice?" in mystery_content
+        assert updated_state["phase"] == "foundation"
+        
+    finally:
+        if seed_file.exists():
+            seed_file.unlink()
+        # Reset mystery_file to standard template
+        template_content = (
+            "# THE CENTRAL MYSTERY\n"
+            "### Author's Eyes Only — Not for AI agent context during drafting\n\n"
+            "---\n\n"
+            "<!-- Define the central secret... -->\n"
+        )
+        mystery_file.write_text(template_content, encoding="utf-8")
