@@ -23,18 +23,23 @@ import subprocess
 import sys
 from datetime import datetime
 from pathlib import Path
+from dotenv import load_dotenv
 
 # ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------
 
 BASE_DIR = Path(__file__).parent
+load_dotenv(BASE_DIR / ".env")
+
 STATE_FILE = BASE_DIR / "state.json"
 RESULTS_FILE = BASE_DIR / "results.tsv"
 CHAPTERS_DIR = BASE_DIR / "chapters"
 BRIEFS_DIR = BASE_DIR / "briefs"
 EDIT_LOGS_DIR = BASE_DIR / "edit_logs"
 EVAL_LOGS_DIR = BASE_DIR / "eval_logs"
+
+PIPELINE_TIMEOUT = int(os.environ.get("AUTOBOOK_PIPELINE_TIMEOUT", "3600"))
 
 FOUNDATION_THRESHOLD = 7.5
 CHAPTER_THRESHOLD = 6.0
@@ -113,7 +118,7 @@ def step(text: str):
 # Helpers: subprocess execution
 # ---------------------------------------------------------------------------
 
-def run_tool(cmd: str, timeout: int = 600, check: bool = False) -> subprocess.CompletedProcess:
+def run_tool(cmd: str, timeout: int = PIPELINE_TIMEOUT, check: bool = False) -> subprocess.CompletedProcess:
     """
     Run a tool as a subprocess, capturing and streaming output in real-time.
     Uses shell=True so callers can pass full command strings.
@@ -173,7 +178,7 @@ def run_tool(cmd: str, timeout: int = 600, check: bool = False) -> subprocess.Co
         raise
 
 
-def uv_run(script: str, timeout: int = 600) -> subprocess.CompletedProcess:
+def uv_run(script: str, timeout: int = PIPELINE_TIMEOUT) -> subprocess.CompletedProcess:
     """Shorthand for 'uv run python <script>' from project root."""
     return run_tool(f"uv run python {script}", timeout=timeout)
 
@@ -529,26 +534,26 @@ def run_foundation(state: dict) -> dict:
 
         # 1. Generate planning documents
         step("Generating world bible...")
-        uv_run("gen_world.py", timeout=300)
+        uv_run("gen_world.py", timeout=PIPELINE_TIMEOUT)
 
         step("Generating characters...")
-        uv_run("gen_characters.py", timeout=300)
+        uv_run("gen_characters.py", timeout=PIPELINE_TIMEOUT)
 
         step("Generating outline (part 1)...")
-        uv_run("gen_outline.py", timeout=300)
+        uv_run("gen_outline.py", timeout=PIPELINE_TIMEOUT)
 
         step("Generating outline (part 2 — foreshadowing)...")
-        uv_run("gen_outline_part2.py", timeout=300)
+        uv_run("gen_outline_part2.py", timeout=PIPELINE_TIMEOUT)
 
         step("Generating canon...")
-        uv_run("gen_canon.py", timeout=300)
+        uv_run("gen_canon.py", timeout=PIPELINE_TIMEOUT)
 
         step("Running voice fingerprint...")
-        uv_run("voice_fingerprint.py", timeout=300)
+        uv_run("voice_fingerprint.py", timeout=PIPELINE_TIMEOUT)
 
         # 2. Evaluate
         step("Evaluating foundation...")
-        eval_result = uv_run("evaluate.py --phase=foundation", timeout=300)
+        eval_result = uv_run("evaluate.py --phase=foundation", timeout=PIPELINE_TIMEOUT)
         score = parse_score(eval_result.stdout, "overall_score")
         lore = parse_lore_score(eval_result.stdout)
 

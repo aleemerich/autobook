@@ -20,8 +20,9 @@ def call_writer(prompt, max_tokens=16000):
     return call_llm(prompt=prompt, system_prompt=system, temperature=0.5, is_judge=False)
 
 def main():
-    part1 = open('/tmp/outline_output.md').read()
-    mystery = (BASE_DIR / "MYSTERY.md").read_text()
+    outline_path = BASE_DIR / "outline.md"
+    part1 = outline_path.read_text(encoding="utf-8")
+    mystery = (BASE_DIR / "MYSTERY.md").read_text(encoding="utf-8")
 
     prompt = f"""Here are the first 17 chapters of a 24-chapter outline for "The Second Son of the House of Bells."
 The outline was cut off mid-chapter-17. Continue from where it left off, then complete chapters 18-24,
