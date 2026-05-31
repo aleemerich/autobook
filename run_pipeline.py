@@ -85,6 +85,8 @@ def default_state() -> dict:
         "novel_score": 0.0,
         "revision_cycle": 0,
         "debts": [],
+        "completed_tasks": [],
+        "current_task": ""
     }
 
 
@@ -110,17 +112,45 @@ def log_result(commit: str, phase: str, score, word_count: int,
         f.write(f"{commit}\t{phase}\t{score}\t{word_count}\t{status}\t{description}\n")
 
 
+LOG_FILE = BASE_DIR / "pipeline.log"
+LOG_TRUNCATE_LIMIT = int(os.environ.get("AUTOBOOK_LOG_TRUNCATE_LIMIT", "300"))
+
+def log_msg(msg: str, level: str = "INFO", truncate: bool = False):
+    """
+    Unified timestamped logger.
+    Appends the full, untruncated message with a timestamp to `pipeline.log`.
+    Prints the formatted (and optionally truncated with '...') message to standard output.
+    """
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    clean_msg = str(msg).strip()
+    full_log_line = f"[{timestamp}] [{level}] {clean_msg}"
+    
+    # Always append the full, untruncated message to pipeline.log
+    try:
+        with open(LOG_FILE, "a", encoding="utf-8") as f:
+            f.write(full_log_line + "\n")
+    except Exception as e:
+        print(f"[{timestamp}] [WARNING] Failed to write to pipeline.log: {e}", file=sys.stderr)
+
+    # For standard screen output, format and optionally truncate
+    screen_line = f"[{timestamp}] {clean_msg}"
+    if truncate and len(clean_msg) > LOG_TRUNCATE_LIMIT:
+        screen_line = f"[{timestamp}] {clean_msg[:LOG_TRUNCATE_LIMIT]}..."
+        
+    print(screen_line)
+
+
 def banner(text: str, char: str = "=", width: int = 60):
-    """Print a visible phase/step banner."""
-    print(f"\n{char * width}")
-    print(f"  {text}")
-    print(f"{char * width}")
+    """Log a visual banner with timestamps."""
+    border = char * width
+    log_msg(border)
+    log_msg(f"  {text}")
+    log_msg(border)
 
 
 def step(text: str):
-    """Print a step indicator."""
-    ts = datetime.now().strftime("%H:%M:%S")
-    print(f"  [{ts}] {text}")
+    """Log a step message with a timestamp and visual indicator."""
+    log_msg(f"  {text}")
 
 
 # ---------------------------------------------------------------------------
@@ -164,8 +194,7 @@ def run_tool(cmd: str, timeout: int = PIPELINE_TIMEOUT, check: bool = False) -> 
                 if not line:  # EOF reached
                     break
                 stdout_lines.append(line)
-                sys.stdout.write(line)
-                sys.stdout.flush()
+                log_msg(line.rstrip('\n'), level="SUBPROCESS", truncate=True)
             elif process.poll() is not None:
                 # Process finished and no more data
                 break
@@ -1078,6 +1107,251 @@ def get_current_branch() -> str:
         return ""
 
 
+# Task List mapping
+TASK_LIST = [
+    "0_ideation",
+    "1_world",
+    "2_characters",
+    "3_outline",
+    "4_outline_p2",
+    "5_canon",
+    "6_voice",
+    "7_foundation_eval",
+    "8_draft_chapters",
+    "9_adversarial_edit",
+    "10_reader_panel",
+    "11_opus_review",
+    "12_export"
+]
+
+def task_ideation(state: dict) -> dict:
+    banner("TASK 0: INTERACTIVE IDEATION CAULDRON")
+    state = run_ideation(state)
+    state["phase"] = "foundation"
+    return state
+
+def task_world(state: dict) -> dict:
+    banner("TASK 1: GENERATE WORLD BIBLE")
+    step("Generating world bible...")
+    uv_run("gen_world.py", timeout=PIPELINE_TIMEOUT)
+    return state
+
+def task_characters(state: dict) -> dict:
+    banner("TASK 2: GENERATE CHARACTER REGISTRY")
+    step("Generating character registry...")
+    uv_run("gen_characters.py", timeout=PIPELINE_TIMEOUT)
+    return state
+
+def task_outline(state: dict) -> dict:
+    banner("TASK 3: GENERATE PARTIAL OUTLINE (PART 1)")
+    step("Generating outline part 1...")
+    uv_run("gen_outline.py", timeout=PIPELINE_TIMEOUT)
+    return state
+
+def task_outline_p2(state: dict) -> dict:
+    banner("TASK 4: GENERATE COMPLETE OUTLINE (PART 2)")
+    step("Generating outline part 2...")
+    uv_run("gen_outline_part2.py", timeout=PIPELINE_TIMEOUT)
+    return state
+
+def task_canon(state: dict) -> dict:
+    banner("TASK 5: GENERATE CANON")
+    step("Generating canon...")
+    uv_run("gen_canon.py", timeout=PIPELINE_TIMEOUT)
+    return state
+
+def task_voice(state: dict) -> dict:
+    banner("TASK 6: GENERATE VOICE FINGERPRINT")
+    step("Evaluating voice fingerprint...")
+    uv_run("voice_fingerprint.py", timeout=PIPELINE_TIMEOUT)
+    return state
+
+def task_foundation_eval(state: dict) -> dict:
+    banner("TASK 7: EVALUATE FOUNDATION DOCS")
+    step("Evaluating foundation documents...")
+    eval_result = uv_run("evaluate.py --phase=foundation", timeout=PIPELINE_TIMEOUT)
+    score = parse_score(eval_result.stdout, "overall_score")
+    lore_score = parse_lore_score(eval_result.stdout)
+    
+    state["foundation_score"] = score
+    state["lore_score"] = lore_score
+    
+    log_msg(f"Foundation Score: {score} (Lore: {lore_score})")
+    
+    if score >= FOUNDATION_THRESHOLD and lore_score > 0.0:
+        log_msg("Foundation approved! Proceeding to drafting.")
+        state["phase"] = "drafting"
+    else:
+        log_msg(f"Foundation score {score} (Lore {lore_score}) below threshold. Please refine bibles.")
+    return state
+
+def task_draft_chapters(state: dict) -> dict:
+    banner("TASK 8: DRAFT ALL CHAPTERS")
+    state = run_drafting(state)
+    state["phase"] = "revision"
+    return state
+
+def task_adversarial_edit(state: dict) -> dict:
+    banner("TASK 9: ADVERSARIAL EDITING & CUTS")
+    step("Running adversarial editing on all chapters...")
+    uv_run("adversarial_edit.py all", timeout=ADVERSARIAL_TIMEOUT)
+
+    apply_cuts = BASE_DIR / "apply_cuts.py"
+    if apply_cuts.exists():
+        step("Applying mechanical cuts (OVER-EXPLAIN, REDUNDANT)...")
+        run_tool("uv run python apply_cuts.py all "
+                 "--types OVER-EXPLAIN REDUNDANT --min-fat 15", timeout=EXPORT_TIMEOUT)
+    else:
+        step("apply_cuts.py not found, skipping mechanical cuts")
+    return state
+
+def task_reader_panel(state: dict) -> dict:
+    banner("TASK 10: READER PANEL EVALUATION & REVISIONS")
+    step("Running reader panel evaluation...")
+    uv_run("reader_panel.py", timeout=READER_PANEL_TIMEOUT)
+
+    panel_path = EDIT_LOGS_DIR / "reader_panel.json"
+    consensus_items = parse_panel_consensus(panel_path)
+
+    if consensus_items:
+        step(f"Found {len(consensus_items)} consensus items:")
+        for item in consensus_items:
+            log_msg(f"    Ch {item['chapter']}: {item['question']} (flagged by {item['count']} readers)")
+    else:
+        step("No strong consensus items found from panel")
+
+    for idx, item in enumerate(consensus_items):
+        ch_num = item["chapter"]
+        question = item["question"]
+        banner(f"  Revising Ch {ch_num} ({question}) [{idx+1}/{len(consensus_items)}]", ".")
+
+        pre_eval = uv_run(f"evaluate.py --chapter={ch_num}", timeout=EVAL_TIMEOUT)
+        pre_score = parse_score(pre_eval.stdout, "overall_score")
+
+        brief_file = BRIEFS_DIR / f"ch{ch_num:02d}_cycle1_{question}.md"
+        gen_brief = BASE_DIR / "gen_brief.py"
+        if gen_brief.exists():
+            step(f"Generating brief for Ch {ch_num}...")
+            run_tool(f"uv run python gen_brief.py --panel {ch_num}", timeout=EVAL_TIMEOUT)
+            brief_candidates = sorted(
+                BRIEFS_DIR.glob(f"ch{ch_num:02d}*.md"),
+                key=lambda p: p.stat().st_mtime, reverse=True)
+            if brief_candidates:
+                brief_file = brief_candidates[0]
+        else:
+            step(f"gen_brief.py not found, creating minimal brief for Ch {ch_num}...")
+            brief_content = (
+                f"# Revision Brief: Chapter {ch_num}\n\n"
+                f"## Issue: {question}\n\n"
+                f"Panel consensus identified this chapter for revision.\n"
+                f"Focus: address the {question.replace('_', ' ')} issue.\n"
+                f"Preserve existing voice, character work, and essential beats.\n"
+            )
+            brief_file.write_text(brief_content)
+
+        if not brief_file.exists():
+            step(f"No brief file found for Ch {ch_num}, skipping")
+            continue
+
+        step(f"Revising Ch {ch_num} with brief {brief_file.name}...")
+        uv_run(f"gen_revision.py {ch_num} {brief_file}", timeout=REVISION_TIMEOUT)
+
+        post_eval = uv_run(f"evaluate.py --chapter={ch_num}", timeout=EVAL_TIMEOUT)
+        post_score = parse_score(post_eval.stdout, "overall_score")
+
+        ch_file = CHAPTERS_DIR / f"ch_{ch_num:02d}.md"
+        word_count = len(ch_file.read_text().split()) if ch_file.exists() else 0
+
+        log_msg(f"Ch {ch_num}: {pre_score} -> {post_score}")
+
+        if post_score >= pre_score:
+            commit_hash = git_add_commit(
+                f"revision reader_panel: ch{ch_num:02d} "
+                f"{question} {pre_score}->{post_score}")
+            log_result(commit_hash, f"rev-ch{ch_num:02d}", post_score,
+                       word_count, "keep",
+                       f"Reader Panel: {question} improved {pre_score}->{post_score}")
+        else:
+            step(f"Revision made it worse ({post_score} < {pre_score}), reverting")
+            git_reset_hard("HEAD")
+            log_result("reverted", f"rev-ch{ch_num:02d}", post_score,
+                       word_count, "discard",
+                       f"Reader Panel: {question} regressed {pre_score}->{post_score}")
+    return state
+
+def task_opus_review(state: dict) -> dict:
+    banner("TASK 11: OPUS HOLISTIC REVIEW LOOP")
+    step("Running full novel evaluation...")
+    full_eval = uv_run("evaluate.py --full", timeout=REVISION_TIMEOUT)
+    novel_score = parse_score(full_eval.stdout, "novel_score")
+    
+    if novel_score >= 8.0:
+        step(f"Novel Score is {novel_score} >= 8.0. Skipping Opus review loop.")
+        state["phase"] = "export"
+        return state
+
+    max_review_rounds = 3
+    for rnd in range(1, max_review_rounds + 1):
+        banner(f"Opus Review Round {rnd}/{max_review_rounds}", "-")
+        
+        step("Sending manuscript to Opus for review...")
+        review_result = uv_run(f"review.py --output reviews.md", timeout=REVIEW_TIMEOUT)
+        
+        step("Parsing review...")
+        parse_result = run_tool("uv run python review.py --parse", timeout=60)
+        
+        review_logs = sorted((EDIT_LOGS_DIR).glob("*_review.json"), reverse=True)
+        if review_logs:
+            review_data = json.loads(review_logs[0].read_text())
+            stars = review_data.get("stars", 0) or 0
+            total_items = review_data.get("total_items", 0)
+            major_items = review_data.get("major_items", 0)
+            qualified = review_data.get("qualified_items", 0)
+            
+            step(f"Stars: {stars}, Items: {total_items} ({major_items} major, {qualified} qualified)")
+            
+            if stars >= 4.5 and major_items == 0:
+                step("★★★★½ with no major items — novel is ready.")
+                break
+            if stars >= 4 and total_items > 0 and qualified / total_items > 0.5:
+                step(f"★★★★ with majority qualified items — novel is ready.")
+                break
+        
+        step("Generating revision briefs from review...")
+        gen_brief_py = BASE_DIR / "gen_brief.py"
+        if gen_brief_py.exists():
+            run_tool("uv run python gen_brief.py --auto", timeout=EVAL_TIMEOUT)
+            
+            recent_briefs = sorted(
+                BRIEFS_DIR.glob("*_auto.md"),
+                key=lambda p: p.stat().st_mtime, reverse=True)
+            if recent_briefs:
+                brief = recent_briefs[0]
+                ch_match = re.search(r'ch(\d+)', brief.name)
+                if ch_match:
+                    ch_num = int(ch_match.group(1))
+                    step(f"Revising Ch {ch_num} from review brief...")
+                    uv_run(f"gen_revision.py {ch_num} {brief}", timeout=REVISION_TIMEOUT)
+                    git_add_commit(f"review round {rnd}: revise ch{ch_num:02d} from Opus feedback")
+        
+        step("Running mechanical cleanup pass...")
+        apply_cuts_py = BASE_DIR / "apply_cuts.py"
+        if apply_cuts_py.exists():
+            run_tool("uv run python apply_cuts.py all --types OVER-EXPLAIN REDUNDANT --min-fat 15", timeout=EXPORT_TIMEOUT)
+            git_add_commit(f"review round {rnd}: mechanical cleanup")
+        
+        step(f"Review round {rnd} complete.")
+        
+    state["phase"] = "export"
+    return state
+
+def task_export(state: dict) -> dict:
+    banner("TASK 12: EXPORT manuscript & COMPILATION")
+    state = run_export(state)
+    state["phase"] = "complete"
+    return state
+
+
 def run_pipeline(args):
     """Run the full pipeline or a specific phase."""
     # Safety Check: Prevent running on main/master to avoid repo pollution
@@ -1091,7 +1365,6 @@ def run_pipeline(args):
                 book_name = input("Enter a name for your book (e.g., my-book): ").strip()
                 if not book_name:
                     book_name = "book"
-                # Sanitize branch name
                 sanitized_name = re.sub(r'[^a-zA-Z0-9_-]', '-', book_name).lower()
                 branch_name = f"autobook/{sanitized_name}"
                 
@@ -1122,69 +1395,118 @@ def run_pipeline(args):
     EDIT_LOGS_DIR.mkdir(exist_ok=True)
     EVAL_LOGS_DIR.mkdir(exist_ok=True)
 
-    # Apply max_cycles override
-    max_cycles = args.max_cycles if args.max_cycles else MAX_REVISION_CYCLES
+    # Task mapping dict
+    TASKS = {
+        "0_ideation": task_ideation,
+        "1_world": task_world,
+        "2_characters": task_characters,
+        "3_outline": task_outline,
+        "4_outline_p2": task_outline_p2,
+        "5_canon": task_canon,
+        "6_voice": task_voice,
+        "7_foundation_eval": task_foundation_eval,
+        "8_draft_chapters": task_draft_chapters,
+        "9_adversarial_edit": task_adversarial_edit,
+        "10_reader_panel": task_reader_panel,
+        "11_opus_review": task_opus_review,
+        "12_export": task_export,
+    }
 
-    # Determine which phases to run
+    # Action 1: Handle Checklist Status check
+    if args.status:
+        completed = state.get("completed_tasks", [])
+        banner("AUTOBOOK PIPELINE - TASK STATUS CHECKLIST")
+        for t in TASK_LIST:
+            status_char = "[x]" if t in completed else "[ ]"
+            log_msg(f"  {status_char} {t}")
+        return
+
+    # Action 2: Handle Rewinding
+    if args.rewind:
+        rewind_task = args.rewind
+        if rewind_task not in TASK_LIST:
+            log_msg(f"ERROR: Unknown task to rewind to: '{rewind_task}'", level="ERROR")
+            sys.exit(1)
+        idx = TASK_LIST.index(rewind_task)
+        state["completed_tasks"] = TASK_LIST[:idx]
+        state["current_task"] = rewind_task
+        if idx <= 0:
+            state["phase"] = "ideation"
+        elif idx <= 7:
+            state["phase"] = "foundation"
+        elif idx <= 8:
+            state["phase"] = "drafting"
+        elif idx <= 11:
+            state["phase"] = "revision"
+        else:
+            state["phase"] = "export"
+        save_state(state)
+        log_msg(f"Pipeline progress checkpoint successfully rewound to task: '{rewind_task}'")
+        # Proceed with execution from rewound point forward
+
+    # Action 3: Handle Single Task isolated execution
+    if args.task:
+        target_task = args.task
+        if target_task not in TASK_LIST:
+            log_msg(f"ERROR: Unknown task: '{target_task}'", level="ERROR")
+            sys.exit(1)
+        log_msg(f"Executing single isolated task: '{target_task}'")
+        state = TASKS[target_task](state)
+        save_state(state)
+        log_msg(f"Single isolated task '{target_task}' completed successfully.")
+        return
+
+    # Action 4: Sequential Run Loop (Resume mode)
+    completed = state.get("completed_tasks", [])
     if args.phase:
-        # Single phase mode
-        phases = [args.phase]
+        # Legacy compatibility mapping
+        phase_map = {
+            "ideation": ["0_ideation"],
+            "foundation": ["1_world", "2_characters", "3_outline", "4_outline_p2", "5_canon", "6_voice", "7_foundation_eval"],
+            "drafting": ["8_draft_chapters"],
+            "revision": ["9_adversarial_edit", "10_reader_panel", "11_opus_review"],
+            "export": ["12_export"]
+        }
+        active_tasks = phase_map.get(args.phase, [])
     else:
-        # Run from current state onward
-        current = state.get("phase", "foundation")
-        if current == "complete":
-            print("Pipeline already complete. Use --from-scratch to restart "
-                  "or --phase to run a specific phase.")
+        active_tasks = [t for t in TASK_LIST if t not in completed]
+        if not active_tasks:
+            log_msg("Pipeline already complete! Use --from-scratch to restart or --rewind <task> to roll back.")
             return
-        try:
-            start_idx = PHASE_ORDER.index(current)
-        except ValueError:
-            start_idx = 0
-        phases = PHASE_ORDER[start_idx:]
 
-    banner(f"AUTOBOOK PIPELINE — phases: {', '.join(phases)}")
-    print(f"  State: phase={state.get('phase')}, "
-          f"foundation_score={state.get('foundation_score', 0)}, "
-          f"chapters={state.get('chapters_drafted', 0)}/{state.get('chapters_total', '?')}, "
-          f"novel_score={state.get('novel_score', 0)}")
+    banner(f"AUTOBOOK PIPELINE — executing tasks: {', '.join(active_tasks)}")
+    print(f"  State: current_task={state.get('current_task')}, completed={len(completed)}/{len(TASK_LIST)}")
 
     start_time = datetime.now()
 
-    for phase in phases:
+    for task_name in active_tasks:
         try:
-            if phase == "ideation":
-                state = run_ideation(state)
-            elif phase == "foundation":
-                state = run_foundation(state)
-            elif phase == "drafting":
-                state = run_drafting(state)
-            elif phase == "revision":
-                state = run_revision(state, max_cycles=max_cycles)
-            elif phase == "export":
-                state = run_export(state)
-            else:
-                print(f"Unknown phase: {phase}")
-                sys.exit(1)
+            state["current_task"] = task_name
+            save_state(state)
+            
+            state = TASKS[task_name](state)
+            
+            if "completed_tasks" not in state:
+                state["completed_tasks"] = []
+            if task_name not in state["completed_tasks"]:
+                state["completed_tasks"].append(task_name)
+            save_state(state)
+            
         except KeyboardInterrupt:
-            banner("INTERRUPTED — state saved")
+            banner(f"INTERRUPTED during task '{task_name}' — state saved")
             save_state(state)
             sys.exit(130)
         except Exception as e:
-            print(f"\n  FATAL ERROR in {phase}: {e}")
+            log_msg(f"FATAL ERROR in task '{task_name}': {e}", level="FATAL")
             save_state(state)
             raise
 
     elapsed = datetime.now() - start_time
     hours = elapsed.total_seconds() / 3600
 
-    banner("PIPELINE COMPLETE")
-    print(f"  Time:       {hours:.1f} hours")
-    print(f"  Phase:      {state.get('phase')}")
-    print(f"  Foundation: {state.get('foundation_score', 0)}")
-    print(f"  Chapters:   {state.get('chapters_drafted', 0)}/{state.get('chapters_total', '?')}")
-    print(f"  Words:      {count_words_in_chapters()}")
-    print(f"  Novel:      {state.get('novel_score', 0)}")
-    print(f"  Cycles:     {state.get('revision_cycle', 0)}")
+    banner("PIPELINE EXECUTION COMPLETE")
+    log_msg(f"  Time elapsed:    {hours:.2f} hours")
+    log_msg(f"  Completed tasks: {', '.join(state.get('completed_tasks', []))}")
 
 
 def main():
@@ -1194,12 +1516,10 @@ def main():
         epilog="""\
 Examples:
   python run_pipeline.py                     # resume from current state
+  python run_pipeline.py --status            # view pipeline checklist status
   python run_pipeline.py --from-scratch      # start fresh from seed.txt
-  python run_pipeline.py --phase foundation  # run only foundation
-  python run_pipeline.py --phase drafting    # run only drafting
-  python run_pipeline.py --phase revision    # run only revision
-  python run_pipeline.py --phase export      # run only export
-  python run_pipeline.py --max-cycles 4      # limit revision to 4 cycles
+  python run_pipeline.py --task 1_world      # run only task 1_world in isolation
+  python run_pipeline.py --rewind 3_outline  # roll back progress checklist to task 3_outline
 """)
 
     parser.add_argument(
@@ -1207,10 +1527,19 @@ Examples:
         help="Reset state and start from seed.txt")
     parser.add_argument(
         "--phase", choices=PHASE_ORDER,
-        help="Run only a specific phase")
+        help="Run only a specific legacy phase")
     parser.add_argument(
         "--max-cycles", type=int, default=None,
         help=f"Maximum revision cycles (default: {MAX_REVISION_CYCLES})")
+    parser.add_argument(
+        "--status", action="store_true",
+        help="Display the visual status checklist of tasks")
+    parser.add_argument(
+        "--task", type=str, default=None,
+        help="Execute only the specified task name in isolation")
+    parser.add_argument(
+        "--rewind", type=str, default=None,
+        help="Roll back the pipeline progress checkpoint to the specified task")
 
     args = parser.parse_args()
     run_pipeline(args)
