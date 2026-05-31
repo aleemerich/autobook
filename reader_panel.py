@@ -173,7 +173,18 @@ def find_disagreements(results):
     return disagreements
 
 def main():
-    arc_summary = (BASE_DIR / "arc_summary.md").read_text()
+    arc_summary_path = BASE_DIR / "arc_summary.md"
+    if not arc_summary_path.exists():
+        print("arc_summary.md not found. Running build_arc_summary.py to generate it dynamically...")
+        import subprocess
+        try:
+            subprocess.run([sys.executable, str(BASE_DIR / "build_arc_summary.py")], check=True)
+            print("Successfully generated arc_summary.md!")
+        except Exception as e:
+            print(f"Failed to generate arc_summary.md dynamically: {e}")
+            sys.exit(1)
+            
+    arc_summary = arc_summary_path.read_text()
     
     results = {}
     for reader_key, reader_info in READERS.items():
