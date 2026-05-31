@@ -218,13 +218,17 @@ def call_judge(prompt, max_tokens=2000):
 def parse_json_response(text):
     """Extract JSON from a response that might have markdown fences or trailing text."""
     text = text.strip()
-    if text.startswith("```"):
-        text = re.sub(r'^```\w*\n?', '', text)
-        text = re.sub(r'\n?```$', '', text)
+    
+    # Pre-clean: strip markdown code blocks completely
+    text = re.sub(r'```json\s*', '', text)
+    text = re.sub(r'```\s*', '', text)
+    text = text.strip()
+    
     # Find the outermost JSON object
     start = text.find('{')
     if start == -1:
         raise ValueError("No JSON object found in response")
+        
     # Walk forward to find the matching closing brace
     depth = 0
     in_string = False
@@ -247,12 +251,27 @@ def parse_json_response(text):
         elif c == '}':
             depth -= 1
             if depth == 0:
-                return json.loads(text[start:i+1], strict=False)
-    # Fallback: try loading as-is, with strict=False to handle control chars
+                try:
+                    return json.loads(text[start:i+1], strict=False)
+                except json.JSONDecodeError:
+                    # If parsing sliced substring fails, try to repair literal newlines
+                    fixed_slice = re.sub(r'(?<!\\)\n', '\\n', text[start:i+1])
+                    return json.loads(fixed_slice, strict=False)
+                    
+    # Fallback: find the last closing brace in the text
+    end = text.rfind('}')
+    if end != -1 and end > start:
+        cleaned_text = text[start:end+1]
+        try:
+            return json.loads(cleaned_text, strict=False)
+        except json.JSONDecodeError:
+            fixed_fallback = re.sub(r'(?<!\\)\n', '\\n', cleaned_text)
+            return json.loads(fixed_fallback, strict=False)
+            
+    # Ultimate fallback: try loading whole text with repairs
     try:
         return json.loads(text, strict=False)
     except json.JSONDecodeError:
-        # Last resort: fix common issues (literal newlines in strings)
         fixed = re.sub(r'(?<!\\)\n', '\\n', text)
         return json.loads(fixed, strict=False)
 
@@ -505,6 +524,11 @@ CROSS-CHECKS (perform before scoring):
    the reader through the narrator's assertions? Is mystery maintained
    through genuine withholding or through the character conveniently
    not thinking about things they'd think about?
+6. MAGICAL & TECH SYSTEM LAWS: Check character abilities against world rules.
+   Specifically, look for errors where the ECO-9 or implant-based surveillance/interaction is
+   attributed to a character who does not have an implant (such as the protagonist Marina).
+   Since Marina is explicitly NOT implanted, any plot point suggesting she is monitored through
+   internal neural metrics or neural networks is a MAJOR canon violation.
 
 Score these dimensions:
 
