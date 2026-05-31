@@ -8,6 +8,7 @@ Gemini, and OpenRouter based on configuration in the .env file.
 
 import os
 import sys
+import time
 import httpx
 from pathlib import Path
 from dotenv import load_dotenv
@@ -166,29 +167,46 @@ def call_llm(prompt: str, system_prompt: str, temperature: float = 0.8,
         else:
             payload["max_tokens"] = 8000
             
-    # 5. Call API
-    try:
-        print(f"[LLM] Requesting model '{model}' from provider '{provider_name}'...", file=sys.stderr)
-        print("[LLM] Waiting for API response (this may take up to 10 minutes for long generations)...", file=sys.stderr)
-        # Timeout 600s is crucial for long writer generations
-        with httpx.Client() as client:
-            resp = client.post(url, headers=headers, json=payload, timeout=600)
+    max_retries = 3
+    backoff_factor = 2
+    
+    for attempt in range(1, max_retries + 1):
+        try:
+            print(f"[LLM] Requesting model '{model}' from provider '{provider_name}' (Attempt {attempt}/{max_retries})...", file=sys.stderr)
+            print("[LLM] Waiting for API response (this may take up to 10 minutes for long generations)...", file=sys.stderr)
             
-            print(f"[LLM] Response received! Status: {resp.status_code}. Processing content...", file=sys.stderr)
-            # Print helpful error details on failure
-            if resp.status_code != 200:
-                print(f"ERROR: API request failed with status code {resp.status_code}", file=sys.stderr)
-                print(f"Response: {resp.text}", file=sys.stderr)
-                resp.raise_for_status()
+            with httpx.Client() as client:
+                resp = client.post(url, headers=headers, json=payload, timeout=600)
                 
-            data = resp.json()
-            
-            # 6. Extract Response
-            if provider_name == "anthropic":
-                return data["content"][0]["text"]
-            else:
-                return data["choices"][0]["message"]["content"]
+                print(f"[LLM] Response received! Status: {resp.status_code}. Processing content...", file=sys.stderr)
                 
-    except Exception as e:
-        print(f"FATAL ERROR during LLM API call: {e}", file=sys.stderr)
-        raise
+                if resp.status_code != 200:
+                    print(f"ERROR: API request failed with status code {resp.status_code}", file=sys.stderr)
+                    print(f"Response: {resp.text}", file=sys.stderr)
+                    resp.raise_for_status()
+                    
+                data = resp.json()
+                
+                # Check for API error payloads that return 200 OK (common in OpenRouter)
+                if "error" in data:
+                    err_msg = data["error"].get("message", "Unknown API error payload")
+                    raise ValueError(f"API Provider Error: {err_msg}")
+                
+                # Extract Response
+                if provider_name == "anthropic":
+                    if "content" not in data or not data["content"]:
+                        raise KeyError("content")
+                    return data["content"][0]["text"]
+                else:
+                    if "choices" not in data or not data["choices"]:
+                        raise KeyError("choices")
+                    return data["choices"][0]["message"]["content"]
+                    
+        except Exception as e:
+            print(f"WARNING: LLM API call failed on attempt {attempt}: {e}", file=sys.stderr)
+            if attempt == max_retries:
+                print("FATAL ERROR: Max retries exceeded during LLM API call.", file=sys.stderr)
+                raise
+            sleep_time = backoff_factor ** attempt
+            print(f"Retrying in {sleep_time} seconds...", file=sys.stderr)
+            time.sleep(sleep_time)

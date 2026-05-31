@@ -66,13 +66,37 @@ def main():
     chapter_outline = extract_chapter_outline(outline, chapter_num)
     next_chapter = extract_next_chapter_outline(outline, chapter_num)
     
-    # Previous chapter (if exists)
-    prev_path = CHAPTERS_DIR / f"ch_{chapter_num - 1:02d}.md"
-    if prev_path.exists():
-        prev_text = prev_path.read_text()
-        prev_tail = prev_text[-2000:] if len(prev_text) > 2000 else prev_text
-    else:
-        prev_tail = "(first chapter -- no previous)"
+    # Previous chapter continuity context (previous 2 chapters)
+    prev_tail = ""
+    
+    # 1. Two chapters ago (N-2)
+    ch_prev2_path = CHAPTERS_DIR / f"ch_{chapter_num - 2:02d}.md"
+    if ch_prev2_path.exists():
+        prev2_text = ch_prev2_path.read_text(encoding="utf-8").strip()
+        prev2_words = prev2_text.split()
+        prev2_tail_words = prev2_words[-600:] if len(prev2_words) > 600 else prev2_words
+        prev2_tail_text = " ".join(prev2_tail_words)
+        prev_tail += f"### TWO CHAPTERS AGO (Chapter {chapter_num - 2} Ending):\n... {prev2_tail_text}\n\n"
+        
+    # 2. Immediate previous chapter (N-1)
+    ch_prev1_path = CHAPTERS_DIR / f"ch_{chapter_num - 1:02d}.md"
+    if ch_prev1_path.exists():
+        prev1_text = ch_prev1_path.read_text(encoding="utf-8").strip()
+        prev1_words = prev1_text.split()
+        
+        # Extract first 500 words (opening/setup) and last 1000 words (ending/climax)
+        prev1_head_words = prev1_words[:500] if len(prev1_words) > 500 else prev1_words
+        prev1_tail_words = prev1_words[-1000:] if len(prev1_words) > 1000 else prev1_words
+        
+        prev1_head_text = " ".join(prev1_head_words)
+        prev1_tail_text = " ".join(prev1_tail_words)
+        
+        prev_tail += f"### IMMEDIATE PREVIOUS CHAPTER (Chapter {chapter_num - 1}):\n"
+        prev_tail += f"**[How Chapter {chapter_num - 1} Started]:**\n{prev1_head_text} ...\n\n"
+        prev_tail += f"**[How Chapter {chapter_num - 1} Ended - Continue directly from here]:**\n... {prev1_tail_text}"
+        
+    if not prev_tail:
+        prev_tail = "(First chapter of the novel -- no previous plot continuity history exists)"
     
     from prompt_loader import load_prompt, load_genre_rules
     try:
