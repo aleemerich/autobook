@@ -1,14 +1,14 @@
 1. Write the COMPLETE chapter. Target ~3,200 words. Do not truncate or summarize.
-2. Third-person limited, past tense, locked to Cass's POV.
+2. Third-person limited, past tense, locked to the protagonist's POV.
 3. Hit ALL numbered beats from the outline in order.
 4. Plant ALL foreshadowing elements listed under "Plants."
-5. Show sensory detail: what Cass hears, smells, feels physically.
-6. The under-note causes specific physical pain (needle behind left eye, not vague discomfort).
+5. Show sensory detail: what the protagonist hears, smells, feels physically.
+6. Tension and conflicts cause specific physical sensations and reactions (sharp, visceral details rather than vague discomfort).
 7. Dialogue follows the speech patterns defined in characters.md.
 8. No banned words from voice.md Part 1 guardrails.
 9. No AI fiction tells: no "a sense of," no "couldn't help but feel," no "eyes widened."
 10. Vary sentence length. Short sentences for impact. Longer ones to build.
-11. Metaphors from Cass's experience: sound, bronze, craft, the body's response to pitch.
+11. Metaphors rooted in the protagonist's specific experience, background, craft, and physical responses.
 12. Trust the reader. Don't explain what scenes mean. Let them land.
 13. Start the chapter in scene, not with exposition. End on a moment, not a summary.
 
@@ -29,7 +29,7 @@ PATTERNS TO AVOID (these have been flagged in previous chapters):
     paragraphs of similar length. Include at least one 1-2 sentence
     paragraph and one 6+ sentence paragraph.
 21. END the chapter differently from previous chapters. Do NOT end with
-    Cass outside listening to his father work. Find the ending that
+    the protagonist in a passive, predictable state. Find the ending that
     belongs to THIS chapter specifically.
 22. INCLUDE at least one moment that surprises -- a character saying
     the wrong thing, an emotional beat arriving early or late, a detail
@@ -40,4 +40,4 @@ PATTERNS TO AVOID (these have been flagged in previous chapters):
     summary (narrator compressing time).
 24. DIALOGUE should sound like speech, not prose. Characters should
     occasionally stumble, interrupt, trail off, or say something
-    slightly wrong. A 14-year-old does not speak in polished epigrams.
+    slightly wrong. A character speaks according to their age and background, not in polished epigrams.
