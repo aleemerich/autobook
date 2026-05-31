@@ -62,6 +62,62 @@ See [PIPELINE.md](PIPELINE.md) for the full technical specification.
 
 ---
 
+## Pipeline Control & Logging (Advanced Features)
+
+Autobook features a robust logging system and a resumeable/rewindable task-based pipeline to give you absolute control over the generation process.
+
+### ⚙️ Environment Variables
+* `AUTOBOOK_LOG_TRUNCATE_LIMIT`: Console log truncation limit (in characters, default: `300`). 
+  * Any log line printed to the terminal that exceeds this limit will be cut at exactly the limit, and `...` will be appended for cleaner, highly readable screen output.
+  * **Note**: The persistent file `pipeline.log` always preserves the **full, untruncated content** with timestamps for auditing.
+
+### 📋 Task-Based Execution
+The pipeline is divided into **13 named tasks**. The execution state is saved to `state.json` (`completed_tasks` and `current_task`) after every successfully completed task.
+
+#### **Pipeline Task Map**
+| Task Name | Action Description | Outputs | Dependencies |
+| :--- | :--- | :--- | :--- |
+| `0_ideation` | Cauldron interactive seed & central mystery generation | `cauldron.txt`, `MYSTERY.md` | *None* |
+| `1_world` | World Bible generation | `world.md` | `0_ideation` |
+| `2_characters` | Character Registry generation | `characters.md` | `0_ideation` |
+| `3_outline` | Partial Outline generation (Part 1) | `outline.md` | `0_ideation`, `1_world`, `2_characters` |
+| `4_outline_p2` | Complete Outline (Part 2 + Foreshadowing) | `outline.md` | `3_outline` |
+| `5_canon` | Canon establishment | `canon.md` | `1_world`, `2_characters`, `4_outline_p2` |
+| `6_voice` | Voice fingerprint evaluation | `voice.md` | `1_world`, `2_characters` |
+| `7_foundation_eval` | Foundation evaluation and scoring | `eval_logs/` | `1_world`, `2_characters`, `4_outline_p2`, `5_canon`, `6_voice` |
+| `8_draft_chapters` | Draft all 24 chapters sequentially | `chapters/ch_*.md` | `7_foundation_eval` |
+| `9_adversarial_edit` | Run adversarial editing and mechanical cuts | `edit_logs/ch*_cuts.json` | `8_draft_chapters` |
+| `10_reader_panel` | 4-reader evaluation and targeted cycle fixes | `edit_logs/reader_panel.json` | `8_draft_chapters` |
+| `11_opus_review` | Full manuscript review and slop/mechanical passes | `reviews.md`, `edit_logs/` | `10_reader_panel` |
+| `12_export` | Build final outline, arc summary, manuscript & PDF | `manuscript.md`, `novel.pdf` | `11_opus_review` |
+
+### 🛠️ Execution Control CLI Commands
+Run these commands to control the pipeline execution:
+
+* **View Progress Status**:
+  ```bash
+  uv run python run_pipeline.py --status
+  ```
+  Displays a checklist of all completed and pending tasks.
+
+* **Resume (Default)**:
+  ```bash
+  uv run python run_pipeline.py
+  ```
+  Automatically resumes from the first uncompleted task.
+
+* **Execute a Single Task**:
+  ```bash
+  uv run python run_pipeline.py --task 1_world
+  ```
+  Runs only the specified task in isolation and stops.
+
+* **Rewind Pipeline Progress**:
+  ```bash
+  uv run python run_pipeline.py --rewind 3_outline
+  ```
+  Safely rolls back the completed task list checkpoint in `state.json` to the specified task (clearing subsequent completed tasks) so you can make manual adjustments and start regenerating from that point forward.
+
 ## Tools (27 Python scripts)
 
 ### Foundation
