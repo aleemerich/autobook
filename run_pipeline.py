@@ -41,6 +41,15 @@ EVAL_LOGS_DIR = BASE_DIR / "eval_logs"
 
 PIPELINE_TIMEOUT = int(os.environ.get("AUTOBOOK_PIPELINE_TIMEOUT", "3600"))
 
+# Fine-grained timeouts, scaling based on AUTOBOOK_PIPELINE_TIMEOUT or manually configured
+DRAFT_TIMEOUT = int(os.environ.get("AUTOBOOK_DRAFT_TIMEOUT", str(max(PIPELINE_TIMEOUT, 1200))))
+EVAL_TIMEOUT = int(os.environ.get("AUTOBOOK_EVAL_TIMEOUT", str(max(PIPELINE_TIMEOUT // 2, 600))))
+REVISION_TIMEOUT = int(os.environ.get("AUTOBOOK_REVISION_TIMEOUT", str(max(PIPELINE_TIMEOUT, 1200))))
+ADVERSARIAL_TIMEOUT = int(os.environ.get("AUTOBOOK_ADVERSARIAL_TIMEOUT", str(max(PIPELINE_TIMEOUT, 1800))))
+READER_PANEL_TIMEOUT = int(os.environ.get("AUTOBOOK_READER_PANEL_TIMEOUT", str(max(PIPELINE_TIMEOUT, 1200))))
+REVIEW_TIMEOUT = int(os.environ.get("AUTOBOOK_REVIEW_TIMEOUT", str(max(PIPELINE_TIMEOUT, 1800))))
+EXPORT_TIMEOUT = int(os.environ.get("AUTOBOOK_EXPORT_TIMEOUT", str(max(PIPELINE_TIMEOUT // 2, 600))))
+
 FOUNDATION_THRESHOLD = 7.5
 CHAPTER_THRESHOLD = 6.0
 MAX_FOUNDATION_ITERS = 20
@@ -617,7 +626,7 @@ def run_drafting(state: dict) -> dict:
             step(f"Attempt {attempt}/{MAX_CHAPTER_ATTEMPTS}")
 
             # Draft
-            draft_result = uv_run(f"draft_chapter.py {ch}", timeout=600)
+            draft_result = uv_run(f"draft_chapter.py {ch}", timeout=DRAFT_TIMEOUT)
             if draft_result.returncode != 0:
                 step(f"Draft failed (exit {draft_result.returncode}), retrying...")
                 continue
@@ -632,7 +641,7 @@ def run_drafting(state: dict) -> dict:
             step(f"Drafted {word_count} words")
 
             # Evaluate
-            eval_result = uv_run(f"evaluate.py --chapter={ch}", timeout=300)
+            eval_result = uv_run(f"evaluate.py --chapter={ch}", timeout=EVAL_TIMEOUT)
             score = parse_score(eval_result.stdout, "overall_score")
             step(f"Chapter {ch} score: {score}")
 
@@ -765,20 +774,20 @@ def run_revision(state: dict, max_cycles: int = MAX_REVISION_CYCLES) -> dict:
 
         # -- Step 1: Adversarial editing pass --
         step("Running adversarial editing on all chapters...")
-        uv_run("adversarial_edit.py all", timeout=900)
+        uv_run("adversarial_edit.py all", timeout=ADVERSARIAL_TIMEOUT)
 
         # -- Step 2: Apply mechanical cuts (only if apply_cuts.py exists) --
         apply_cuts = BASE_DIR / "apply_cuts.py"
         if apply_cuts.exists():
             step("Applying mechanical cuts (OVER-EXPLAIN, REDUNDANT)...")
             run_tool("uv run python apply_cuts.py all "
-                     "--types OVER-EXPLAIN REDUNDANT --min-fat 15", timeout=300)
+                     "--types OVER-EXPLAIN REDUNDANT --min-fat 15", timeout=EXPORT_TIMEOUT)
         else:
             step("apply_cuts.py not found, skipping mechanical cuts")
 
         # -- Step 3: Reader panel --
         step("Running reader panel evaluation...")
-        uv_run("reader_panel.py", timeout=600)
+        uv_run("reader_panel.py", timeout=READER_PANEL_TIMEOUT)
 
         # -- Step 4: Parse panel consensus --
         panel_path = EDIT_LOGS_DIR / "reader_panel.json"
@@ -799,7 +808,7 @@ def run_revision(state: dict, max_cycles: int = MAX_REVISION_CYCLES) -> dict:
             banner(f"  Revising Ch {ch_num} ({question}) [{idx+1}/{len(consensus_items)}]", ".")
 
             # Snapshot the current chapter score for comparison
-            pre_eval = uv_run(f"evaluate.py --chapter={ch_num}", timeout=300)
+            pre_eval = uv_run(f"evaluate.py --chapter={ch_num}", timeout=EVAL_TIMEOUT)
             pre_score = parse_score(pre_eval.stdout, "overall_score")
 
             # Generate revision brief
@@ -807,7 +816,7 @@ def run_revision(state: dict, max_cycles: int = MAX_REVISION_CYCLES) -> dict:
             gen_brief = BASE_DIR / "gen_brief.py"
             if gen_brief.exists():
                 step(f"Generating brief for Ch {ch_num}...")
-                run_tool(f"uv run python gen_brief.py --panel {ch_num}", timeout=300)
+                run_tool(f"uv run python gen_brief.py --panel {ch_num}", timeout=EVAL_TIMEOUT)
                 # gen_brief.py may write to briefs/ — find the most recent brief
                 brief_candidates = sorted(
                     BRIEFS_DIR.glob(f"ch{ch_num:02d}*.md"),
@@ -832,10 +841,10 @@ def run_revision(state: dict, max_cycles: int = MAX_REVISION_CYCLES) -> dict:
 
             # Run revision
             step(f"Revising Ch {ch_num} with brief {brief_file.name}...")
-            uv_run(f"gen_revision.py {ch_num} {brief_file}", timeout=600)
+            uv_run(f"gen_revision.py {ch_num} {brief_file}", timeout=REVISION_TIMEOUT)
 
             # Evaluate revised chapter
-            post_eval = uv_run(f"evaluate.py --chapter={ch_num}", timeout=300)
+            post_eval = uv_run(f"evaluate.py --chapter={ch_num}", timeout=EVAL_TIMEOUT)
             post_score = parse_score(post_eval.stdout, "overall_score")
 
             ch_file = CHAPTERS_DIR / f"ch_{ch_num:02d}.md"
@@ -859,7 +868,7 @@ def run_revision(state: dict, max_cycles: int = MAX_REVISION_CYCLES) -> dict:
 
         # -- Step 6: Full novel evaluation --
         step("Running full novel evaluation...")
-        full_eval = uv_run("evaluate.py --full", timeout=600)
+        full_eval = uv_run("evaluate.py --full", timeout=REVISION_TIMEOUT)
         novel_score = parse_score(full_eval.stdout, "novel_score")
 
         if novel_score < 0:
@@ -902,7 +911,7 @@ def run_revision(state: dict, max_cycles: int = MAX_REVISION_CYCLES) -> dict:
             # Step 1: Generate the review
             step("Sending manuscript to Opus for review...")
             review_result = uv_run(
-                f"review.py --output reviews.md", timeout=900)
+                f"review.py --output reviews.md", timeout=REVIEW_TIMEOUT)
             
             # Step 2: Parse the review
             step("Parsing review...")
@@ -937,7 +946,7 @@ def run_revision(state: dict, max_cycles: int = MAX_REVISION_CYCLES) -> dict:
             gen_brief_py = BASE_DIR / "gen_brief.py"
             if gen_brief_py.exists():
                 # Auto mode: picks weakest chapter, cross-references all sources
-                run_tool("uv run python gen_brief.py --auto", timeout=300)
+                run_tool("uv run python gen_brief.py --auto", timeout=EVAL_TIMEOUT)
                 
                 # Find any generated briefs and apply the top one
                 recent_briefs = sorted(
@@ -950,7 +959,7 @@ def run_revision(state: dict, max_cycles: int = MAX_REVISION_CYCLES) -> dict:
                     if ch_match:
                         ch_num = int(ch_match.group(1))
                         step(f"Revising Ch {ch_num} from review brief...")
-                        uv_run(f"gen_revision.py {ch_num} {brief}", timeout=600)
+                        uv_run(f"gen_revision.py {ch_num} {brief}", timeout=REVISION_TIMEOUT)
                         git_add_commit(
                             f"review round {rnd}: revise ch{ch_num:02d} from Opus feedback")
             
@@ -961,7 +970,7 @@ def run_revision(state: dict, max_cycles: int = MAX_REVISION_CYCLES) -> dict:
             if apply_cuts_py.exists():
                 run_tool(
                     "uv run python apply_cuts.py all --types OVER-EXPLAIN REDUNDANT --min-fat 15",
-                    timeout=300)
+                    timeout=EXPORT_TIMEOUT)
                 git_add_commit(f"review round {rnd}: mechanical cleanup")
             
             step(f"Review round {rnd} complete.")
@@ -991,13 +1000,13 @@ def run_export(state: dict) -> dict:
     build_outline = BASE_DIR / "build_outline.py"
     if build_outline.exists():
         step("Rebuilding outline from chapters...")
-        uv_run("build_outline.py", timeout=300)
+        uv_run("build_outline.py", timeout=EXPORT_TIMEOUT)
 
     # 2. Build arc summary
     build_arc = BASE_DIR / "build_arc_summary.py"
     if build_arc.exists():
         step("Building arc summary...")
-        uv_run("build_arc_summary.py", timeout=300)
+        uv_run("build_arc_summary.py", timeout=EXPORT_TIMEOUT)
 
     # 3. Concatenate chapters into manuscript.md
     step("Building manuscript.md...")
@@ -1021,7 +1030,7 @@ def run_export(state: dict) -> dict:
     build_tex = BASE_DIR / "typeset" / "build_tex.py"
     if build_tex.exists():
         step("Building LaTeX content...")
-        run_tool(f"uv run python typeset/build_tex.py", timeout=120)
+        run_tool(f"uv run python typeset/build_tex.py", timeout=EXPORT_TIMEOUT)
 
         # 5. Typeset with tectonic (if available)
         novel_tex = BASE_DIR / "typeset" / "novel.tex"
@@ -1029,7 +1038,7 @@ def run_export(state: dict) -> dict:
             tectonic_check = run_tool("which tectonic", timeout=10)
             if tectonic_check.returncode == 0:
                 step("Typesetting PDF with tectonic...")
-                result = run_tool("tectonic typeset/novel.tex", timeout=300)
+                result = run_tool("tectonic typeset/novel.tex", timeout=EXPORT_TIMEOUT)
                 if result.returncode == 0:
                     step("PDF generated: typeset/novel.pdf")
                 else:
