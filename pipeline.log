@@ -7713,3 +7713,1066 @@
 [2026-06-01 03:10:03] [INFO] RUN: git checkout -- chapters/ch_05.md 2>/dev/null || true
 [2026-06-01 03:10:03] [INFO] WARNING: Chapter 5 failed all 5 attempts, keeping last attempt and moving on
 [2026-06-01 03:10:03] [INFO] RUN: git add -A
+[2026-06-01 03:10:03] [INFO] RUN: git commit -m "ch05: best-effort after 5 attempts" --allow-empty
+[2026-06-01 03:10:04] [SUBPROCESS] [autobook/a-prova-final 2f55eb9] ch05: best-effort after 5 attempts
+[2026-06-01 03:10:04] [SUBPROCESS] 4 files changed, 1731 insertions(+), 1 deletion(-)
+[2026-06-01 03:10:04] [SUBPROCESS] create mode 100644 chapters/ch_05.md
+[2026-06-01 03:10:04] [INFO] RUN: git rev-parse --short HEAD
+[2026-06-01 03:10:04] [SUBPROCESS] 2f55eb9
+[2026-06-01 03:10:04] [INFO] GIT COMMIT: 2f55eb9 — ch05: best-effort after 5 attempts
+[2026-06-01 03:10:04] [INFO] ------------------------------------------------------------
+[2026-06-01 03:10:04] [INFO] Drafting Chapter 6/22
+[2026-06-01 03:10:04] [INFO] ------------------------------------------------------------
+[2026-06-01 03:10:04] [INFO] Attempt 1/5
+[2026-06-01 03:10:04] [INFO] RUN: uv run python draft_chapter.py 6
+[2026-06-01 03:10:04] [SUBPROCESS] Drafting Chapter 6...
+[2026-06-01 03:10:05] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 03:16:52] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 03:16:52] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 03:16:52] [SUBPROCESS] Saved to /mnt/d/Dev/autobook/chapters/ch_06.md
+[2026-06-01 03:16:52] [SUBPROCESS] Word count: 4460
+[2026-06-01 03:16:52] [SUBPROCESS] # Capítulo 6 — A escolha
+[2026-06-01 03:16:52] [SUBPROCESS] 
+[2026-06-01 03:16:52] [SUBPROCESS] O ecrã do portátil mostrava três rostos. Renan no canto superior esquerdo, o fundo a estante de livros impecável de seu escritório em Oxford, a luz de uma lâmpada de mesa a criar um halo dourado atrás da cabeça — como um santo renascentista pintado por alguém com orçamento de universidade antiga. Marcus no canto inferior, o caos habitual da sua secretária de Zurique visível atrás: pilhas de papel, o esqueleto-plástico porta-canetas, uma caneca com uma mancha de café que já fizera parte da mobília. E no canto superior direito, o próprio rosto de Elisa — que ela não olhava porque olhar para o próprio rosto numa videoconferência era um exercício de voyeurismo involuntário que a incomodava.
+[2026-06-01 03:16:52] [SUBPROCESS] 
+[2026-06-01 03:16:52] [SUBPROCESS] Marcus falava. Falava sempre quando estava nervoso, e estava sempre nervoso.
+[2026-06-01 03:16:52] [SUBPROCESS] 
+[2026-06-01 03:16:52] [SUBPROCESS] — A questão não é se a anomalia existe, a questão é como a comunicamos. Cada hora que passa sem um comunicado oficial é uma hora em que a Yuki Tanaka e os outros jornalistas preencham o vazio. E o vazio deles não é neutro, Elisa. É veneno.
+[2026-06-01 03:16:52] [SUBPROCESS] 
+[2026-06-01 03:16:52] [SUBPROCESS] — O vazio já está preenchido — disse Elisa. A voz saiu mais seca do que pretendia, mas não pretendia suavizar. — A Yuki já contactou o hospital três vezes. Já falou com dois enfermeiros e com um administrador. A história vai sair. A questão não é se sai, é se sai com dados ou com especulação.
+[2026-06-01 03:16:52] [SUBPROCESS] 
+[2026-06-01 03:16:52] [SUBPROCESS] Renan ajustou os óculos. O gesto era familiar — quarenta e seis meses de colaboração tinham dado a Elisa a capacidade de prever os movimentos de Renan com a mesma confiança com que previa a trajectória de um projéctil. Ajuste de óculos significava discordância contida.
+[2026-06-01 03:16:52] [SUBPROCESS] 
+[2026-06-01 03:16:52] [SUBPROCESS] — Proponho o seguinte comunicado — disse Renan. A voz era a de sempre: calibrada, britânica, cada sílaba no seu lugar como peças de xadrez num tabuleiro. — "Uma anomalia foi detectada numa medição de IC. A investigação está em curso. O formalismo mantém-se válido até que dados adicionais exijam revisão." É neutro. É preciso. Não abre porta a interpretações.
+[2026-06-01 03:16:52] [SUBPROCESS] 
+[2026-06-01 03:16:52] [SUBPROCESS] — Abre todas as portas — disse Elisa.
+[2026-06-01 03:16:52] [SUBPROCESS] 
+[2026-06-01 03:16:52] [SUBPROCESS] — Como assim?
+[2026-06-01 03:16:52] [SUBPROCESS] 
+[2026-06-01 03:16:52] [SUBPROCESS] — "O formalismo mantém-se válido" é uma afirmação que não sustentamos. Não sabemos se o formalismo é válido neste caso. Não sabemos se Helena é uma excepção, um erro de calibração, ou uma refutação. Dizer que "se mantém válido" é mentir por omissão. E a comunidade percebe.
+[2026-06-01 03:16:52] [SUBPROCESS] 
+[2026-06-01 03:16:52] [SUBPROCESS] Silêncio. Marcus empurrou os óculos para cima. Renan não fez nada — o que, em Renan, era o equivalente a um murro na mesa.
+[2026-06-01 03:16:52] [SUBPROCESS] 
+[2026-06-01 03:16:52] [SUBPROCESS] — Elisa — disse Renan, e o facto de ter dito apenas o nome dela, sem mais nada, era um sinal. — Não publicamos nada até compreendermos o que estamos a ver.
+[2026-06-01 03:16:52] [SUBPROCESS] 
+[2026-06-01 03:16:52] [SUBPROCESS] — Cada dia que passa sem comunicação é um dia que a imprensa preenche com especulação.
+[2026-06-01 03:16:52] [SUBPROCESS] 
+[2026-06-01 03:16:52] [SUBPROCESS] — A imprensa vai especular de qualquer forma — disse Elisa. — Prefiro especular com dados do que sem eles.
+[2026-06-01 03:16:52] [SUBPROCESS] 
+[2026-06-01 03:16:52] [SUBPROCESS] Marcus interrompeu-se a si próprio. Começou uma frase, parou, recomeçou.
+[2026-06-01 03:16:52] [SUBPROCESS] 
+[2026-06-01 03:16:52] [SUBPROCESS] — Elisa, eu sei que... olha, eu compreendo a tua posição. Compreendo. Mas o Renan tem um ponto. Não sobre o comunicado exacto, mas sobre o princípio. O mundo está à espera. O ETH está à espera. Eu recebi seis e-mails só hoje de colegas a perguntar se a história da Yuki é verdadeira. E eu não respondi a nenhum, porque não sei o que dizer. Não posso dizer "é um erro" quando tu confirmaste que não é. Não posso dizer "é real" sem provas adicionais. Precisamos de... de algum tipo de posicionamento.
+[2026-06-01 03:16:52] [SUBPROCESS] 
+[2026-06-01 03:16:52] [SUBPROCESS] Elisa olhou para o ecrã. Marcus parecia cansado. Olheiras fundas, a barba de três dias a avançar para quatro, a camisa de flanela com uma mancha nova no punho esquerdo — sopa, provavelmente. Marcus vivia de sopa aquecida no micro-ondas da sua secretária. Tinha visto o micro-ondas uma vez, durante uma visita ao laboratório: tinha uma etiqueta escrita à mão que dizia "NÃO META METAIS" com três pontos de exclamação.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — Não publicamos nada — repetiu Elisa. — Repeti o teste três vezes. Lena Hartmann confirmou a calibração dos três aparelhos. O resultado é 0,001 Dk com um desvio-padrão de 0,0002. Não é erro de medição. Não é artefacto. É o que é. Mas não sabemos o que é. E publicar um comunicado antes de compreender é transformar incerteza em narrativa. E narrativas, uma vez lançadas, não se recolhem.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] Renan inclinou-se para a frente. A câmara de Oxford captou o movimento com um ligeiro atraso — 0,3 segundos, estimou Elisa automaticamente, a latência da ligação transatlântica era sempre pior nas horas da tarde europeia quando os servidores americanos estavam sobrecarregados.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — Elisa — disse Renan outra vez. E desta vez o nome não era um sinal. Era um aviso. — Isto não é sobre a Helena. É sobre o formalismo. Se admitirmos uma excepção, admitimos que o modelo é incompleto. E se o modelo é incompleto, tudo o que construímos sobre ele é questionável.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — Se o modelo é incompleto, é incompleto.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — Não é tão simples.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — É exactamente tão simples. A verdade não se torna falsa porque nos incomoda.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] O silêncio que se seguiu tinha textura. Era o tipo de silêncio que se encontra entre duas placas tectónicas — imóvel na superfície, catastrófico nas camadas profundas. Elisa viu algo no rosto de Renan que não era raiva. Era medo. Renan Kapoor, que vestia fatos impecáveis e relógios caros e falava como se cada frase tivesse sido aprovada por um comité de edição, estava com medo.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — Renan — disse Elisa, e a voz saiu diferente. Mais baixa. Mais próxima daquilo que a voz era quando não havia ecrãs pelo meio. — Eu sei o que está em jogo. Sei o que isto significa para o formalismo. Sei o que significa para ti. Para nós. Quinze anos de trabalho.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — Então compreende porque precisamos de proteger o que temos.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — Proteger não é ocultar.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — Não estou a propor ocultação. Estou a propoor prudência. Há uma diferença.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — A diferença é de três semanas — disse Marcus, e ambos olharam para ele. — Em três semanas, podemos ter dados suficientes para distinguir entre um erro sistemático e uma anomalia real. Se for erro, o comunicado corrige-se. Se for real, o comunicado explica-se. Em ambos os casos, três semanas dão-nos o que não temos agora: contexto.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] Renan abriu a boca. Fechou-a. Abriu outra vez.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — Três semanas é uma eternidade em ciclo mediático.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — Então o ciclo mediático é que tem de esperar — disse Elisa.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] E houve outra vez aquele silêncio. Mas este era diferente. Este era o silêncio de algo que se parte — não com estrondo, mas com o som quase inaudível de uma fissura que se alarga numa parede que parecia sólida.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] Renan endireitou-se. O gesto era mínimo — dois centímetros de ajuste postural — mas Elisa reconheceu-o. Tinha visto aquele gesto uma vez antes, há seis anos, quando um revisor anónimo da *Physical Review Letters* sugerira que uma secção do formalismo precisava de fundamentação adicional. Renan endireitou-se exactamente da mesma forma antes de dizer, com a mesma calma cortante: "Aceito a sugestão do revisor e retiro a secção."
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — Muito bem — disse Renan. — Três semanas. Mas quando publicarmos — e vamos publicar, Elisa, isso não é negociável — eu quero acesso completo aos dados. Sem filtros. Sem interpretações prévias. Dados brutos.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — Tens — disse Elisa.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — E quero incluir uma nota técnica sobre possíveis fontes de erro sistemático. Não para minar a descoberta, mas para demonstrar rigor.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — Inclui o que quiseres. Os dados falam por si.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — Falam — disse Renan. E o "falavam" ficou suspenso no ar como uma moeda lançada que ainda não caíra.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] Marcus tossiu. O som foi tão deslocado naquela conversa que pareceu uma intrusão de outra realidade — uma realidade onde as pessoas tossiam por razões físicas e não por constrangimento social.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — Óptimo — disse Marcus, com o entusiasmo forçado de quem tenta colar um vaso partido. — Então estamos de acordo. Três semanas. Dados brutos. Nota técnica. Eu começo a trabalhar na análise estatística esta noite. Elisa, preciso que me envies os ficheiros de calibração da Lena também.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — Envio dentro de uma hora.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — Boa. Boa. E, Elisa — Marcus hesitou. — Cuida de ti. Estás com um aspecto horrível.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — Obrigada, Marcus.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] — Não é um elogio. É uma observação clínica.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] A chamada terminou às 14h47. Renan desligou primeiro — o seu canto do ecrã ficou negro sem despedida, sem "até breve", sem o mínimo ritual social que a situação exigia. Marcus piscou, abriu a boca para dizer algo, pensou melhor, e desligou com um aceno desajeitado que a câmara transformou num borrão.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] O escritório do ETH ficou silencioso. Não em silêncio — havia o zumbido dos néons, o clique distante de um teclado no corredor, o som subterrâneo do sistema de aquecimento que percorria os tubos do edifío como sangue nas veias. Mas o tipo de silêncio que existe depois de uma conversa que mudou algo. O tipo de silêncio que tem peso.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] Elisa ficou sentada. O ecrã do portátil mostrava agora o ambiente de trabalho — o Limmat ao entardecer, o fundo por defeito que nunca mudara. O rio estava imóvel. Não parado. Imóvel.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] Fechou o portátil. A escrita do escritório — que era o corredor do terceiro andar do edifício HPF, a ala de física teórica, com as janelas altas e o eco dos passos a soar como gotas num telhado de zinco — foi substituída pela escuridão do ecrã desligado. Elisa olhou para o rectângulo negro. O rectângulo negro não respondeu.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] Levantou-se. A cadeira de secretária rangeu — precisava de óleo, precisava de manutenção, precisava de todas as coisas que as cadeiras de escritório académico precisam e nunca recebem. Caminhou até à janela. Zurique estava cinzenta. O céu de aço baixo, sem nuvens, sem variação. O rio Limmat passava lá em baixo com a pressa constante de um sistema que converte energia potencial em calor e não sabe que o faz.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] Pensou em Renan. Quinze anos. Começou em 2012, num congresso em Viena — o congresso sobre mecânica estatística e sistemas complexos que Elisa quase não tinha ido porque era doutoranda e os doutorandos não iam a congressos, iam a seminários e reuniões de grupo e sessões de estudo solitárias que terminavam às três da manhã com olhos vermelhos e a sensação de que o universo era simultaneamente mais compreensível e mais impossível do que quando tinham começado. Mas fora. E Renan estava lá — não no auditório principal, mas no corredor, a beber café de uma máquina que cobrava dois euros por um líquido que cheirava a borracha queimada. Tinham falado durante quarenta minutos. Renan tinha uma ideia sobre a relação entre entropia informacional e estados cerebrais que era elegante mas incompleta. Elisa tinha dito isso. Renan tinha dito: "Então completa-a." E ela completara. Durante onze anos, completara.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] Agora a fissura. Não uma ruptura — fissuras não são rupturas. Fissuras são o que acontece antes da ruptura. São o aviso. São o som que a parede faz quando sabe que vai cair mas ainda não caiu.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] Elisa tocou na orelha esquerda. O gesto foi automático, involuntário, e só se apercebeu quando o dedo já estava lá. Baixou a mão. Olhou para a janela outra vez. O rio continuava a passar.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] Voltou à secretária. Sentou-se. Abriu a gaveta.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] A gaveta da secretária do escritório temporário do ETH não tinha nada de especial. Canetas sem tampa. Um carregador de telefone com o isolamento descascado. Dois clips. Um post-it amarelo com uma equação que não reconheceu imediatamente e que, ao reconhecer, descobriu ser da sua própria caligrafia — "ΔS ≥ k ln 2 · I_bit" — escrita numa letra que não era a letra actual. Mais redonda. Mais jovem. De quando ainda acreditava que as equações eram bonitas por si só e não pelo que custavam.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] E por baixo do post-it, os guardanapos.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] Não estavam numa caixa. Não estavam organizados. Estavam dobrados — alguns em quatro, alguns em dois, o último apenas amassado, como se a mão que o segurava não tivesse tido força para o dobrar. Quarenta e sete guardanapos de papel, de diferentes espessuras e proveniências — uns de café, outros de hospital, outros de nenhum lugar identificável. Cada um com uma equação. Cada equação incompleta.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] O primeiro guardanapo — o mais antigo, o mais amarelecido, o papel tão fino que era quase transparente — tinha sido escrito no Hospital Universitário de Viena, no serviço de oncologia, em Março de 2006. Jana Dragowska, 52 anos, cancro pâncreas estágio IV, morfina a 12mg por hora, escrevera com uma mão que já não obedecia completamente: "S = k log W". A letra era trémula mas legível. A equação estava correcta. Era a equação de Boltzmann — a entropia é proporcional ao logaritmo do número de microestados. A equação que estava gravada no túmulo de Boltzmann em Viena, a equação que Elisa aprendera aos dezassete anos e que se tornara, sem que ninguém soubesse porquê, o centro gravitacional da sua vida.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] O segundo guardanapo tinha "ΔS > 0" — a entropia aumenta. Sempre. O terceiro tinha "W = Ω" — o número de microestados igual à multiplicidade. O quarto tinha apenas "k = 1,38 × 10⁻²³" — a constante de Boltzmann, o número que liga o mundo microscópico ao mundo macroscópico, o número que diz que cada partícula carrega um pedaço de entropia como cada pessoa carrega um pedaço de dor.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] Elisa não os contou. Sabia que eram quarenta e sete. Sabia-o com a mesma certeza com que sabia a massa do electrão. Os guardanapos eram o mapa da mente da mãe a desfazer-se — não por deterioração cognitiva, mas por morfina. A morfina não destruía a inteligência. Embalava-a. Transformava-a num rio lento e sinuoso que passava por paisagens que a mente lúcida não visitava. Jana escrevia equações nos guardanapos porque as equações eram a única linguagem que ainda funcionava quando as palavras falhavam. Não falhavam por doença — falhavam porque há coisas que não cabem em palavras. A dor não cabe. O medo não cabe. A despedida não cabe.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:53] [SUBPROCESS] O último guardanapo estava em baixo da pilha. Elisa sabia-o sem procurar. Sabia-o como se sabe onde está a ferida sem olhar para o corpo.
+[2026-06-01 03:16:53] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] Tirou-o. Desdobrou-o.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] "S = k lo—"
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] A mão parou. A caneta — uma Bic azul, a caneta que o hospital fornecia porque os doentes não levam cancro com canetas pessoais — tinha desenhado o início de "log" e parado. O "g" não existia. O "aritmo de W" não existia. A equação estava incompleta. A mãe morrera a meio de uma frase.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] Elisa olhou para a equação incompleta. A tinta estava desbotada — dezassete anos de desbotamento transformaram o azul em cinzento, como se a própria tinta estivesse a sofrer entropia, a perder cor, a caminhar para o equilíbrio.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] Completou a equação mentalmente. *S igual a k logaritmo de W.* A entropia é proporcional ao logaritmo do número de microestados. Mais estados possíveis, mais desordem. Mais desordem, mais tempo a passar. O universo conta os seus estados como um relógio conta os segundos.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] A mãe morreu a meio de uma frase.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] Helena vivia a meio de um número.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] Qual é a diferença?
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] A pergunta ficou no ar. Não tinha resposta. Não tinha sequer a estrutura gramatical de uma pergunta com resposta — era uma daquelas perguntas que existem não para serem respondidas mas para serem habitadas. Como uma casa que se constrói à volta de um vazio.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] Elisa dobrou o guardanapo. Devolveu-o à gaveta. Ficou com as mãos sobre a gaveta fechada. O metal estava frio. O frio subiu pelos dedos, pelos pulsos, pelos antebraços — o tipo de frio que não é temperatura mas ausência. A ausência da mãe. A ausência de resposta. A ausência de um número que fizesse sentido.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] Pensou em Helena. Helena que inclinava a cabeça para a esquerda quando fazia perguntas. Helena que cozinhava paprika todos os dias. Helena que cuidava de um manjericão com um IC de 0,002 Dk — marginalmente superior ao dela própria. Helena que perguntara, com a voz mais simples do mundo: "A senhora acha que eu sou uma pessoa?"
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] O formalismo dizia que não. O formalismo dizia que um sistema com IC de 0,001 Dk não era consciente. O formalismo dizia que Helena era, para todos os efeitos termodinâmicos, uma rocha.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] Mas Helena não era uma rocha. Helena era uma mulher de sessenta e sete anos que lembrava Budapeste em 1978, que perdera o marido no jardim entre roseiras, que falava húngaro consigo mesma quando estava nervosa, que fizera uma pergunta que quarenta e sete definições de consciência não conseguiam responder.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] Elisa abriu o portátil outra vez. O ecrã acendeu — o Limmat ao entardecer, imóvel, indiferente. Abriu a aplicação de contactos. Encontrou o número de Marcus. Ligou.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] Marcus atendeu ao segundo toque, o que significava que estava ao telefone — provavelmente a falar com alguém sobre os dados, provavelmente a gesticular para ninguém, provavelmente a empurrar os óculos para cima a cada três segundos.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Elisa. Algum problema?
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Preciso de acesso total ao histórico de Helena.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] Silêncio. Depois:
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Que tipo de acesso?
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Exames. Entrevista. O que for preciso. E preciso de falar com a filha.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Mirela? Ela não quer falar connosco.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Eu convenço-a.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] Outro silêncio. Mais longo. Elisa ouviu Marcus respirar — uma respiração rápida, superficial, a respiração de quem está a processar informação a uma velocidade que o corpo não acompanha.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Elisa, o que é que mudou? Há uma hora disseste que precisávamos de três semanas. Agora queres acesso total. O que aconteceu?
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Nada aconteceu. É exactamente por nada ter acontecido que preciso de agir. Três semanas é o tempo que temos antes de Renan publicar. Três semanas é o tempo que temos antes de a imprensa transformar isto em narrativa. Se não compreendermos o que Helena é antes disso, nunca compreenderemos — porque a narrativa vai cristalizar-se e os dados vão ser lidos à luz da narrativa, não o contrário.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — E o que é que esperas encontrar?
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Não sei. Se soubesse, não precisava de procurar.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] Marcus suspirou. O suspiro tinha o peso de um homem que carregava uma filha epiléptica, um laboratório caótico, e agora uma anomalia que ameaçava destruir o trabalho de uma amiga.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Eu trato do acesso ao hospital. A entrevista com a Helena é contigo — ela confia em ti. A Mirela... a Mirela é outra história. Ela acha que estamos a usar a mãe como cobaia.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Não estamos a usar a mãe como cobaia. Estamos a tentar compreendê-la.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Eu sei o que estamos a fazer. A Mirela não sabe. E a Mirela não tem razão para confiar em nós.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Por isso preciso de falar com ela. Pessoalmente. Não por telefone, não por e-mail. Pessoalmente.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Berna?
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Berna.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Quando?
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Amanhã.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Amanhã é sábado.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — A anomalia não descansa ao fim de semana.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] Marcus riu. Foi uma risada curta, seca, a risada de quem não tem energia para rir a sério mas precisa de fazer o corpo lembrar-se de que a risada existe.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Está bem. Eu trato do hospital. Tu tratas da Mirela. E, Elisa?
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Sim?
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — Tenta dormir. Pelo menos quatro horas. Prometo que o formalismo não colapsa se dormires quatro horas.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — O formalismo não colapsa se eu dormir zero horas.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] — O formalismo talvez não. Tu, sim.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] Elisa não respondeu. Marcus desligou com um "até amanhã" que soou mais a oração que a despedida.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] O escritório ficou silencioso outra vez. O zumbido dos néons. O clique distante. O som subterrâneo. Elisa olhou para o relógio de pulso — o relógio da mãe, o analógico com pulseira de couro gasto. 15h23. O tempo passava. A entropia aumentava. Cada segundo era um tique no relógio do universo que não voltava.
+[2026-06-01 03:16:54] [SUBPROCESS] 
+[2026-06-01 03:16:54] [SUBPROCESS] Fechou o portátil. Levantou-se. Apagou a luz de secretária — nunca a luz principal. O escritório mergulhou na penumbra dos néons do corredor que entravam pela porta entreaberta. Pegou no casaco. O granito no bolso direito fez um som surdo contra a perna da secretária ao levantar-se — o som de uma rocha a existir, pesada e indiferente.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] Saiu do ETH. O ar de Março cortava. Zurique estava cinzenta — o céu de aço baixo, sem nuvens, sem movimento, sem a menor variação que indicasse que o tempo passava. As pessoas caminhavam na direcção oposta, com pressa, com destino, com a eficiência suíça de quem sabe exactamente onde vai.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] Elisa caminhou na direcção do lago. Não decidiu caminhar na direcção do lago — os pés levaram-na, como levam sempre quando a mente está ocupada a processar algo que os pés não compreendem mas reconhecem.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] O lago apareceu entre os edifícios como uma ferida horizontal — água escura, quase negra, estendida entre margens de pedra e árvores sem folhas. O banco de madeira estava onde sempre estava: junto à margem, a dois metros do caminho, com uma vista directa para a água e uma vista indirecta para os Alpes que Elisa rarava olhar.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] Sentou-se. O banco estava frio. O frio subiu pelo casaco, pela coluna, até à base do crânio.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] A água era negra. Não escura — negra. A diferença importava. Escura era profundidade que absorvia a luz sem a negar. Negra era ausência. A água do lago, em Março, antes do degelo completo, era o mais perto de ausência que a água conseguia ser sem deixar de ser água.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] Um pato-real deslizou da margem para o centro. Nenhum rasto. Nenhuma onda. Como se não tivesse passado por ali.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] Elisa tirou o granito do bolso. Segurou-o na mão direita. Os cristais de feldspato — pequenos rectângulos brancos numa matriz cinzenta — estavam frios. Cinquenta milhões de anos de história geológica. Nenhum pensamento. Nenhuma pergunta. Nenhum medo.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] Cada pensamento gera entropia. Cada decisão aproxima o universo do fim. A equação era clara: ΔS_consciente ≥ k · ln(2) · I_bit. Cada acto consciente — cada percepção, cada decisão, cada momento de experiência subjectiva — era um incremento de desordem no tecido do cosmos. Pensar era desordenar. Viver era desordenar. E o universo, que caminhava inexoravelmente para a Morte Térmica, para o equilíbrio final onde nenhuma diferença de temperatura existiria e nenhum processo seria possível — esse universo era acelerado por cada pensamento de cada ser consciente que o habitava.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] E mesmo assim, pensava. Mesmo assim, decidia.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] Porquê?
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] A pergunta ficou suspensa sobre o lago. Não era retórica. Não era filosófica no sentido abstracto que as perguntas filosóficas são quando são feitas em seminários e publicações e debates após o jantar. Era genuína. Era a pergunta de uma mulher sentada num banco de madeira, com um granito na mão e quarenta e sete guardanapos numa gaveta, a olhar para água negra num dia de céu cinzento, a perguntar-se porquê.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] Porquê pensar, se pensar destrói?
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] Porquê decidir, se cada decisão gasta o universo?
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] Porquê existir, se existir é acelerar o fim?
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] O pato-real chegou ao centro do lago. Parou. Flutuou. A água não se moveu à volta dele — ou moveu-se e voltou, como se o pato fosse uma pedra que não perturba a superfície mas que, de alguma forma, a atravessa sem a quebrar.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] Elisa olhou para o granito na mão. Olhou para o pato. Olhou para a água.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] A resposta não veio. Mas a pergunta, pela primeira vez, era genuína — não retórica, não académica, não um exercício intelectual. Era a pergunta de alguém que está a viver a pergunta, não a pensá-la.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] Guardou o granito. Levantou-se. O banco de madeira deixou uma marca de humidade no casaco que levaria vinte minutos a secar. Caminhou de volta para a Sihlstrasse. Os pés no asfalto faziam o som seco, regular, de quem anda sozinha a horas em que as pessoas deveriam estar em casa.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] Mas Elisa não ia para casa. Ia para Berna. Ia encontrar Mirela. Ia investigar Helena a fundo — não para salvar o formalismo, não para provar que estava correcto, mas para compreender o que Helena era.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] A decisão estava tomada. Não com um momento de clareza dramática, não com uma epifania, não com um raio de luz que rompe nuvens. Estava tomada da forma como as decisões importantes são tomadas: silenciosamente, no espaço entre uma respiração e a outra, no instante em que a pergunta substitui a resposta como centro de gravidade.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] O formalismo era completo. O formalismo era correcto. O formalismo era insuficiente.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] E Elisa ia descobrir porquê.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] O comboio para Berna saía às 17h12. Elisa chegou à estação às 16h58. Quatorze minutos de margem. Comprou um café na máquina — dois euros, líquido que cheirava a borracha queimada — e sentou-se num banco da plataforma. O café arrefecia a 0,4 graus por minuto. A entropia total do universo aumentava. Sempre aumentava.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] O comboio chegou às 17h14. Atraso de dois minutos. Elisa registou o atraso sem o processar emocionalmente. Era dado, não ofensa.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] Entrou. Sentou-se junto à janela. O café na mão esquerda. O granito no bolso direito. Os quarenta e sete guardanapos na gaveta do escritório, a equação incompleta da mãe a meio de uma frase.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] O comboio arrancou. Zurique ficou para trás — cinzenta, imóvel, cheia de pessoas que caminhavam com destino.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] Elisa bebeu café. O café estava a 64 graus. Ainda demasiado quente para beber de um trago. Ainda demasiado frio para justificar que ainda não o tivesse bebido.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] Pensou em Helena. Pensou na mãe. Pensou que ambas, de formas diferentes, escapavam às equações — a mãe porque as equações não a trouxeram de volta, Helena porque as equações não a conseguiam capturar.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] E pensou: amanhã vou encontrar Mirela. Amanh vou perguntar o que Farkas não quer dizer. Amanhã vou começar a compreender.
+[2026-06-01 03:16:55] [SUBPROCESS] 
+[2026-06-01 03:16:55] [SUBPROCESS] A paisagem passou pela janela. Campos. Vacas. Um rio. Montanhas ao longe, brancas, indiferentes.
+[2026-06-01 03:16:56] [SUBPROCESS] 
+[2026-06-01 03:16:56] [SUBPROCESS] O universo contava os seus estados. Cada segundo era um tique. Cada pensamento era um tique. Cada decisão era um tique.
+[2026-06-01 03:16:56] [SUBPROCESS] 
+[2026-06-01 03:16:56] [SUBPROCESS] E mesmo assim, o comboio andava. Mesmo assim, Elisa decidia. Mesmo assim, o universo continuava a existir — não porque devesse, mas porque, por razões que nenhuma equação capturava, existia.
+[2026-06-01 03:16:56] [SUBPROCESS] 
+[2026-06-01 03:16:56] [SUBPROCESS] O café arrefeceu. O comboio andou. A entropia aumentou.
+[2026-06-01 03:16:56] [SUBPROCESS] 
+[2026-06-01 03:16:56] [SUBPROCESS] Elisa fechou os olhos. Não para dormir — para pensar. Para decidir. Para habitar a pergunta que não tinha resposta mas que, pela primeira vez, valia a pena habitar.
+[2026-06-01 03:16:56] [SUBPROCESS] 
+[2026-06-01 03:16:56] [SUBPROCESS] *S igual a k logaritmo de W.*
+[2026-06-01 03:16:56] [SUBPROCESS] 
+[2026-06-01 03:16:56] [SUBPROCESS] A equação não respondeu.
+[2026-06-01 03:16:56] [SUBPROCESS] 
+[2026-06-01 03:16:56] [SUBPROCESS] Claro que não respondeu.
+[2026-06-01 03:16:56] [SUBPROCESS] 
+[2026-06-01 03:16:56] [SUBPROCESS] Equações não respondem — descrevem.
+[2026-06-01 03:16:56] [SUBPROCESS] 
+[2026-06-01 03:16:56] [SUBPROCESS] E a diferença entre descrever e responder era a diferença entre o mapa e o território, entre a medição e a compreensão, entre o número e a pessoa.
+[2026-06-01 03:16:56] [SUBPROCESS] 
+[2026-06-01 03:16:56] [SUBPROCESS] O comboio chegou a Berna às 18h03.
+[2026-06-01 03:16:56] [INFO] Drafted 4460 words
+[2026-06-01 03:16:56] [INFO] RUN: uv run python evaluate.py --chapter=6
+[2026-06-01 03:16:57] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 03:19:45] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 03:19:45] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 03:19:45] [SUBPROCESS] ---
+[2026-06-01 03:19:45] [SUBPROCESS] overall_score: 4.0
+[2026-06-01 03:19:45] [SUBPROCESS] voice_adherence: 7 -- The prose generally matches Elisa's voice well — technical precision, thermodynamic metaphors, long deductive sentences punctuated by short crisis ones. But occasionally the narrator reaches for poetic metaphors that belong to a more literary voice than Elisa's. The geological metaphor is the clearest example. The strongest voice moment is the guardanapo sequence, where the prose becomes almost liturgical in its repetition — 'O primeiro guardanapo... O segundo... O terceiro... O quarto' — which perfectly mirrors Elisa's ritualized grief.
+[2026-06-01 03:19:45] [SUBPROCESS] beat_coverage: 7 -- Beats 1-4 are well-executed. The videoconferenced tension between Elisa and Renan is dramatized with good pacing. The guardanapo discovery is the chapter's strongest beat. The phone call to Marcus is functional but compressed. Beat 5 (lake) is the weakest — it's summary dressed as scene.
+[2026-06-01 03:19:45] [SUBPROCESS] character_voice: 7 -- Elisa's voice is consistently rendered — clipped, precise, no contractions, thermodynamic metaphors. Renan is properly formal. The dialogue distinction test works for all three main speakers. The weakest moment is Marcus being too composed. Strongest moment: Elisa's 'Prefiro especular com dados do que sem eles' — pure Elisa, no fat, no softening.
+[2026-06-01 03:19:45] [SUBPROCESS] plants_seeded: 6 -- The three plants from the outline are all present: the guardanapos (fully revealed here, which is correct for the Ato I placement per outline), the rupture with Renan (well-seeded through the videoconference tension), and Elisa's decision to investigate (clearly dramatized). The 'Porquê?' existential question is planted but feels more told than earned. The guardanapo reveal is the best-integrated plant — it emerges from Elisa's action (opening the drawer) rather than from narrative convenience.
+[2026-06-01 03:19:45] [SUBPROCESS] prose_quality: 6 -- The prose is generally strong with good sentence variety. The guardanapo sequence has beautiful rhythm. Weaknesses: (1) occasional overwriting — 'o som subterrâneo do sistema de aquecimento que percorria os tubos do edifício como sangue nas veias' is too much metaphor for Elisa's voice; (2) the lake scene has three consecutive paragraphs starting with 'O' (O lago, O banco, O frio) which creates monotony; (3) 'O rectângulo negro não respondeu' is trying too hard to be poetic. The strongest writing is in the guardanapo sequence and the final paragraph.
+[2026-06-01 03:19:45] [SUBPROCESS] continuity: 8 -- Strong continuity from Chapter 5. Elisa's emotional state tracks — she's moved from the Farkas meeting (where she was told 'Não é um problema a resolver') to active investigation. The granito in the pocket, the insomnia routine, the thermodynamic worldview — all consistent. The transition from the Farkas office to the ETH office to the lake to the train to Berna follows a logical emotional and physical path. No contradictions with the previous chapter.
+[2026-06-01 03:19:45] [SUBPROCESS] canon_compliance: 7 -- Most canon facts are correctly rendered. The character descriptions match (Renan's glasses adjustment, Marcus's cluttered desk, Elisa's granite). The IC values and formalism details are consistent. The main violations are the transatlantic error (minor), the 17 vs 21 years error (minor but noticeable), and the train duration (minor).
+[2026-06-01 03:19:45] [SUBPROCESS] lore_integration: 7 -- The guardanapo sequence is where the lore integration is strongest — Boltzmann's equation, the Drakon formalism, and Elisa's personal history are woven together seamlessly. The lake scene's thermodynamic questioning ('Cada pensamento gera entropia') is good lore-as-philosophy. The weakest integration is the videoconference, which needs more specific IC-world stakes.
+[2026-06-01 03:19:45] [SUBPROCESS] engagement: 6 -- The chapter's engagement is front-loaded — the videoconference is tense and well-paced, the guardanapo discovery is genuinely moving, and the final decision to go to Berna provides forward momentum. The lake scene sags because it's told rather than shown. The chapter does not surprise — every beat arrives where expected. The strongest engagement moment is the guardanapo reveal, which is both emotionally resonant and structurally significant.
+[2026-06-01 03:19:45] [SUBPROCESS] three_weakest_sentences: ['O tipo de silêncio que tem peso.', 'O rectângulo negro não respondeu.', 'O café arrefecia a 0,4 graus por minuto. A entropia total do universo aumentava. Sempre aumentava.']
+[2026-06-01 03:19:45] [SUBPROCESS] three_strongest_sentences: ['A mãe morreu a meio de uma frase. Helena vivia a meio de um número. Qual é a diferença?', 'O formalismo era completo. O formalismo era correcto. O formalismo era insuficiente.', 'Equações não respondem — descrevem.']
+[2026-06-01 03:19:45] [SUBPROCESS] ai_patterns_detected: ["Three consecutive paragraphs at the lake starting with 'O' (O lago, O banco, O frio)", "Emotional beats arriving on schedule: the guardanapo reveal is positioned exactly where a 'midpoint emotional climax' would be in a template structure", "The 'observations in threes' pattern: 'Não é erro de medição. Não é artefacto. É o que é.' / 'O formalismo era completo. O formalismo era correcto. O formalismo era insuficiente.' / 'Não para salvar o formalismo, não para provar que estava correcto, mas para compreender o que Helena era.'", "Internal monologue explaining what the scene already showed: 'O tipo de silêncio que existe depois de uma conversa que mudou something' — the reader already felt this from the dialogue; the narration doesn't need to name it", 'The lake scene catalogs sensory details (cold bench, black water, duck, mountains) rather than selecting the one or two that matter']
+[2026-06-01 03:19:45] [SUBPROCESS] weakest_dimension: engagement
+[2026-06-01 03:19:45] [SUBPROCESS] top_3_revisions: ["Rewrite the lake scene (Beat 5) to include a concrete physical event — the duck doing something that violates thermodynamic expectations — that triggers Elisa's 'Porquê?' question experientially rather than philosophically. Cut 40% of the internal monologue and replace with observation and reaction.", "Fix the canon errors: change 'ligação transatlântica' to 'ligação internacional' or specify the latency is Zurich-Oxford via London servers; correct 'dezassete anos' to 'vinte e um anos'; adjust the train arrival time to ~18:27 for realism.", "Cut the preamble to the guardanapo reveal ('A gaveta da secretária do escritório temporário do ETH não tinha nada de especial') and open the sequence with 'Abriu a gaveta. Quarenta e sete guardanapos.' Also break Marcus's punchline dialogue into his characteristic self-interrupting pattern."]
+[2026-06-01 03:19:45] [SUBPROCESS] new_canon_entries: ['Elisa keeps the 47 guardanapos in the drawer of her temporary ETH office (previously established as being under her bed — this is a contradiction or a relocation that needs explanation)', 'Elisa travels to Berna to meet Mirela (first mention of this trip)', 'The duck on the lake leaves no wake — potentially significant given the thermodynamic themes', "Elisa's mother wrote the guardanapos in the Universitätsklinik Wien, oncology department, March 2006"]
+[2026-06-01 03:19:45] [SUBPROCESS] slop: N/A --
+[2026-06-01 03:19:45] [SUBPROCESS] raw_judge_score: 6
+[2026-06-01 03:19:45] [SUBPROCESS] 
+[2026-06-01 03:19:45] [SUBPROCESS] eval_log: /mnt/d/Dev/autobook/eval_logs/20260601_031945_ch06.json
+[2026-06-01 03:19:45] [INFO] Chapter 6 score: 4.0
+[2026-06-01 03:19:45] [INFO] Score 4.0 < 6.0, discarding attempt
+[2026-06-01 03:19:45] [INFO] RUN: git checkout -- chapters/ch_06.md 2>/dev/null || true
+[2026-06-01 03:19:45] [INFO] Attempt 2/5
+[2026-06-01 03:19:45] [INFO] RUN: uv run python draft_chapter.py 6
+[2026-06-01 03:19:46] [SUBPROCESS] Drafting Chapter 6...
+[2026-06-01 03:19:46] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 03:25:59] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 03:25:59] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 03:25:59] [SUBPROCESS] Saved to /mnt/d/Dev/autobook/chapters/ch_06.md
+[2026-06-01 03:25:59] [SUBPROCESS] Word count: 4129
+[2026-06-01 03:25:59] [SUBPROCESS] # Capítulo 6 — A Escolha
+[2026-06-01 03:25:59] [SUBPROCESS] 
+[2026-06-01 03:25:59] [SUBPROCESS] O ecrã do portátil tinha três janelas abertas: o PDF do formalismo de 2023, a folha de dados de Helena com os três testes, e uma mensagem de WhatsApp de Renan que dizia apenas "Precisamos de falar" — sem ponto final, sem emoji, sem contexto. Elisa olhou para a mensagem durante quatro segundos. Depois olhou para os dados. 0,001 Dk. 0,001 Dk. 0,001 Dk. Três aparelhos. Três sessões. Três desvios-padrão que não se sobrepunham a zero.
+[2026-06-01 03:25:59] [SUBPROCESS] 
+[2026-06-01 03:25:59] [SUBPROCESS] O telefone vibrou no tampo da secretária. Marcus.
+[2026-06-01 03:25:59] [SUBPROCESS] 
+[2026-06-01 03:25:59] [SUBPROCESS] Ela atendeu.
+[2026-06-01 03:25:59] [SUBPROCESS] 
+[2026-06-01 03:25:59] [SUBPROCESS] — Já estou a ligar para o Renan — disse a voz de Marcus, rápida, sobreposta a si própria. — Mas quero que saibas que a Lena confirmou. Três calibrações independentes. O resultado é real. Não é ruído. Não é deriva térmica. É real, Elisa.
+[2026-06-01 03:25:59] [SUBPROCESS] 
+[2026-06-01 03:25:59] [SUBPROCESS] — Eu sei que é real.
+[2026-06-01 03:25:59] [SUBPROCESS] 
+[2026-06-01 03:25:59] [SUBPROCESS] — Então sabes o que isto significa.
+[2026-06-01 03:25:59] [SUBPROCESS] 
+[2026-06-01 03:25:59] [SUBPROCESS] Elisa não respondeu. O granito no bolso do casaco pressionava contra a coxa. 2,7 gramas por centímetro cúbido. Cinquenta milhões de anos sem pensar.
+[2026-06-01 03:25:59] [SUBPROCESS] 
+[2026-06-01 03:25:59] [SUBPROCESS] — Videoconferência daqui a dez minutos — disse Marcus. — Renan já está online. A Lena vai juntar-se.
+[2026-06-01 03:25:59] [SUBPROCESS] 
+[2026-06-01 03:25:59] [SUBPROCESS] Desligou antes que Elisa pudesse dizer que não precisava de mais ninguém para confirmar o que já sabia. Elisa pousou o telefone. Olhou para o relógio de pulso da mãe — 14h23. O couro da pulseira estava gasto no ponto onde o osso do pulso o pressionava. Quarenta e um anos de uso. A mãe comprara-o em 1986, em Lisboa, numa relojaeria da Rua Augusta que já não existia.
+[2026-06-01 03:25:59] [SUBPROCESS] 
+[2026-06-01 03:25:59] [SUBPROCESS] O telefone vibrou outra vez. Desta vez era o código de acesso à sala de reuniões virtuais. Elisa abriu a aplicação. O ecrã dividiu-se em três rectângulos: Renan, já sentado no escritório de Oxford, com o cabelo penteado para trás e uma caneta entre os dedos que girava com a regularidade de um metrónomo; Marcus, no laboratório do USZ, com a camisa de flanela de sempre e uma mancha de café no bolso esquerdo; e Lena Hartmann, ao fundo da sala de calibração, com a bata branca e a expressão de quem acabou de confirmar algo que preferia estar errado.
+[2026-06-01 03:25:59] [SUBPROCESS] 
+[2026-06-01 03:25:59] [SUBPROCESS] — Então — disse Renan. A caneta parou de girar. — Vamos aos factos.
+[2026-06-01 03:25:59] [SUBPROCESS] 
+[2026-06-01 03:25:59] [SUBPROCESS] Era assim que Renan entrava em modo de crise: factos, não sentimentos. Elisa reconhecia o mecanismo porque era o seu próprio.
+[2026-06-01 03:25:59] [SUBPROCESS] 
+[2026-06-01 03:25:59] [SUBPROCESS] — Facto um — disse Lena da sala de calibração, a voz ligeiramente metálica através do microfone do portátil. — Três câmaras de Faraday independentes. Câmara A, B e C. Calibração verificada antes de cada sessão com padrão de referência certificado. Facto dois: o IC medido para o sujeito Helena Varga foi, respectivamente, 0,0011, 0,0009 e 0,0013 Dk. Facto três: a margem de erro do aparelho é de ±0,0002 Dk. Facto quatro: o valor de controlo para granito de Zermatt, medido nas mesmas condições, foi de 0,0010 Dk. Facto cinco: o sujeito apresentava comportamento verbal, motor e afectivo consistente com consciência humana funcional durante todos os testes.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] Silêncio. O tipo de silêncio que pesa.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — O que temos, portanto — continuou Lena — é um resultado experimentalmente sólido que contradiz a previsão do formalismo. O sujeito é funcional. O aparelho funciona. A previsão falha.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] A caneta de Renan voltou a girar.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Ou a definição operacional de "acto consciente" é insuficiente — disse ele. A voz era calma, precisa, britânica. — Há uma diferença entre o que o aparelho mede e o que o formalismo define. Se a Helena processa informação de forma termodinamicamente reversível —
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Isso é impossível em sistemas macroscópicos — cortou Marcus.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Impossível é uma palavra forte para quem acabou de medir 0,001 Dk numa pessoa que pede chá.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] Elisa ouviu os dois a discutir. Tinha ouvido discussões assim mil vezes — em congressos, em revisões de artigos, em jantares de faculdade onde alguém trazia uma garrafa de vinho e outra pessoa trazia uma contradição. A diferença era que, desta vez, a contradição tinha nome. Helena. Varga. 67 anos. Viúva. Manjericão na varanda.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Precisamos de publicar um comunicado — disse Renan.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] Elisa endireitou-se na cadeira.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Publicar.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Um comunicado formal. Algo como: "Anomalia detectada em medição de IC. Investigação em curso. Formalismo mantém-se válido até prova em contrário." É isto que fazem os físicos quando encontram algo que não encaixa. Não escondem. Comunicam.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Não publicamos nada — disse Elisa.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] O silêncio desta vez foi diferente. Mais denso.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Cada dia que passa sem comunicação — disse Renan, e a caneta parou outra vez — é um dia que a imprensa preenche com especulação.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — A imprensa vai especular de qualquer forma.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Elisa.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Prefiro especular com dados do que sem eles.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] Renan inclinou-se para a câmara. O gesto era mínimo — dois centímetros, talvez três — mas Elisa conhecia-o há quinze anos e sabia o que significava: o limite da paciência a ser testado.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Isto não é sobre a Helena — disse ele. — É sobre o formalismo. Se admitimos uma exceção, admitimos que o modelo é incompleto. E se o modelo é incompleto, tudo o que construímos sobre ele é questionável. As leis de direitos animais na UE. Os protocolos de morte cerebral em catorze países. Os contratos de certificação de IA que movem biliões. Tudo.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Se o modelo é incompleto, é incompleto — disse Elisa.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — A verdade não se torna falsa porque nos incomoda — acrescentou, e soube no instante em que o disse que a frase não era sobre física. Era sobre guardanapos. Sobre mãos que param a meio de uma equação. Sobre mães que se vão e não voltam, independentemente de quantas equações se escrevam para as trazer de volta.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] Renan olhou para ela através do ecrã. Os olhos castanho-escuros de Elisa encontraram os dele — castanho-escuros também, mas sem o halo de insónia, sem as unhas roídas, sem o granito no bolso. Renan tinha uma vida arrumada. Uma mulher que o esperava. Um relógio caro que funcionava. Uma carreira que não tremia.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Quinze anos — disse Renan. Não era uma acusação. Era uma constatação. — Quinze anos de colaboração. E agora dizes-me que prefires especular com dados.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Não te estou a dizer isso.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Estás a dizer exactamente isso. Estás a dizer que prefires o isolamento à colaboração. Que prefires a tua interpretação dos dados à interpretação colectiva. Que prefires — e a voz endureceu um grau, um único grau, suficiente — que prefires proteger a Helena a proteger o formalismo.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] Elisa tocou na orelha esquerda. Soltou-a imediatamente.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Não se trata de proteger. Trata-se de compreender antes de comunicar.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Compreender — repetiu Renan. A palavra saiu como se fosse um corpo estranho na boca. — E quanto tempo demora a compreensão? Uma semana? Um mês? Um ano? Enquanto isso, o mundo continua a tomar decisões baseadas num formalismo que tu própria admites que pode estar errado.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Não admiti que está errado. Disse que pode ser incompleto.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Para os efeitos práticos, é a mesma coisa.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] Marcus limpou a garganta. O som foi pequeno, quase inaudível, mas quebrou algo — não a tensão, que continuava ali, mas a ilusão de que a tensão era apenas entre dois.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Marcus — disse Renan, sem olhar para o ecrã dele. — Não precisamos da tua opinião neste momento.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Precisas sim — disse Marcus, e a velocidade da voz dele era como sempre: ideias que se atropelavam. — Porque o que a Elisa está a dizer faz sentido, Renan, faz. Publicar um comunicado agora, sem dados suficientes, é dar munição a todo o tipo de interpretação. As corporações vão usar isto para questionar contratos. Os grupos anti-IC vão usar isto para declarar vitória. Os transcendentais — não, espera — os grupos religiosos vão dizer que provámos a existência da alma. Tudo isto antes de sabermos o que realmente está a acontecer.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — O que está a acontecer é que uma mulher tem IC zero e funciona normalmente — disse Renan. — Isso não é uma questão de interpretação. É um facto.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — O facto é que o formalismo não a captura — disse Elisa. — E se eu publicar um comunicado a dizer que o formalismo se mantém válido sem saber porquê ela é uma exceção, estou a mentir. Não por omissão. Por comissão.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] O silêncio durou sete segundos. Elisa contou. Era um tique que tinha — contar os silêncios como se fossem dados, como se a duração de um silêncio pudesse ser analisada e categorizada e, de alguma forma, controlada.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Estás a tomar uma decisão que não te compete tomar sozinha — disse Renan. — O formalismo não é teu. É nosso. O artigo de 2023 tem dois autores.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Eu fiz a prova.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Eu fiz a revisão.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — A revisão não é a prova.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Sem a revisão, a prova não teria sido publicada na *Physical Review Letters*.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] Elisa sabia que ele tinha razão. Sabia que o formalismo era, tecnicamente, uma obra conjunta. Mas sabia também — com uma certeza que vinha do estômago, não da cabeça — que publicar um comunicado agora seria matar algo que ainda não tinha nascido. A compreensão. Não a compreensão de Helena como dado, mas de Helena como pergunta.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Renan — disse ela, e a voz saiu mais baixa do que pretendia. — Espera.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Esperar para quê?
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — Para eu perceber o que estou a ver.
+[2026-06-01 03:26:00] [SUBPROCESS] 
+[2026-06-01 03:26:00] [SUBPROCESS] — E se perceberes que estás errada?
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] — Então publicamos o comunicado.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Renan olhou para ela durante três batimentos cardíacos. Depois a caneta voltou a girar.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] — Uma semana — disse. — Depois disso, publicamos com ou sem ti. Não vou deixar o formalismo ruir porque uma cientista com Nobel decidiu que precisa de "perceber" antes de comunicar.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Desligou. O rectângulo dele ficou negro.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] — Bem — disse Marcus. — Isso foi...
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] — Sim — disse Elisa.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] — Ele não vai esperar uma semana.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] — Eu sei.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] — Vais investigar?
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Elisa olhou para a janela aberta no portátil. Os dados de Helena. 0,001 Dk. O número não mudava. Nunca mudava.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] — Sim — disse.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Desligou. O escritório ficou silencioso. O tipo de silêncio que existe em salas onde alguém acaba de tomar uma decisão que não pode ser desfeita — não porque a decisão seja irreversível, mas porque o acto de tomá-la já mudou o estado do sistema. Como a entropia. Como o tempo.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] ---
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Elisa levantou-se da cadeira. O escritório do ETH era pequeno — temporário, atribuído a visitantes de prestígio, uma formalidade que a reitora cumpria com a eficiência suíça de quem sabe que um Nobel no corpo docente é bom para o ranking. A secretária era de carvalho claro. As paredes, brancas. O chão, linóleo cinzento. Uma janela com vista para o Limmat — o rio passava lá em baixo, cinzento e rápido, carregando a entropia da cidade inteira para o norte.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Foi à gaveta da secretária. A segunda gaveta, a que tinha a chave mais pequena. Rodou-a. Abriu.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Dentro: uma caixa de cartão. Castanha, sem marcas, do tipo que se compra em papelarias para guardar documentos. Elisa tirou-a. Abriu-a.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Quarenta e sete guardanapos.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Estavam dobrados em quatro, organizados por ordem cronológica inversa — o último em cima, o primeiro em baixo. O papel era fino, do tipo que se encontra em cafés baratos — branco com um tom amarelado que o tempo acentuava. Cada um tinha escrita. A letra da mãe era redonda, generosa, com as inclinações certas para quem aprendera caligrafia portuguesa nos anos 60. Mas nos últimos guardanapos a letra mudava — tremia, inclinava-se demasiado para a direita, as letras perdiam altura. A morfina. O cancro. O corpo a desistir antes da mão.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Elisa tirou o último. Desdobrou-o.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] *S = k lo—*
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] A mão parou. Não havia reticências. Não havia um traço final que indicasse que a mãe pretendia continuar. A tinta simplesmente acabava, como se a mão tivesse caído, como se o corpo tivesse decidido que aquilo era o fim — não da equação, mas da capacidade de a escrever.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Elisa olhou para a equação incompleta. *S igual a k lo.* Faltava o *garitmo de W*. Faltava a palavra que transformava uma abreviatura em física, um símbolo em universo. Sem *logaritmo de W*, *S = k lo* não era nada. Era tinta em papel. Era um som sem significado.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Mas a mãe sabia o que queria escrever. A mãe sabia, com a certeza de quem ensinou equações durante trinta anos, que aquilo era a entropia. Que *S* era a desordem do universo. Que *k* era a constante de Boltzmann. Que *W* era o número de microestados — todas as formas possíveis de o universo ser o que é. A mãe estava a escrever a equação mais fundamental da termodinâmica no último guardanapo da sua vida, e não conseguiu terminar.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Elisa dobrou o guardanapo. Guardou-o. Olhou para os outros quarenta e seis.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] A mãe morreu a meio de uma frase.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Helena vive a meio de um número.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Qual é a diferença?
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] A pergunta formou-se sem que Elisa a convocasse — como as equações que vinham durante a insónia, como os pensamentos que chegavam quando ela tentava não pensar. Qual é a diferença entre morrer a meio de uma frase e viver a meio de um número? Entre uma equação que não se completa e uma medição que não se explica? Entre uma mulher que para de escrever porque o corpo falha e uma mulher que continua a viver porque o corpo funciona, mas o instrumento diz que não devia?
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Elisa não tinha a resposta. Tinha os guardanapos. Tinha o granito. Tinha 0,001 Dk.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Fechou a caixa. Guardou-a. Fechou a gaveta.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Sentou-se à secretária outra vez. Abriu o portátil. O ecrã mostrava o ambiente de trabalho — o Limmat ao entardecer, parado, imóvel, uma fotografia de relógio de pulso que nunca indicava a hora certa.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Abriu a aplicação de contactos. Encontrou o número de Marcus. Ligou.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] — Marcus.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] — Elisa. Aconteceu alguma coisa? O Renan —
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] — Preciso de acesso total ao histórico de Helena.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Silêncio breve.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] — Que tipo de acesso?
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] — Todo. Exames neurológicos, análises ao sangue, ressonâncias, históricos familiares. Tudo o que o USZ tem. Tudo o que o Farkas tem. E preciso de falar com a filha.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] — Mirela?
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] — Sim.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] — Ela não quer falar connosco. Disse-o explicitamente. Disse, e cito, "Deixem a minha mãe em paz."
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] Elisa olhou para a janela. O rio passava. A água não voltava. Era a coisa mais básica da termodinâmica — a seta do tempo, a irreversibilidade, o facto de que cada instante gasta-se e não se recupera. Helena gastava instantes sem que o universo os contasse. Ou gastava-os de uma forma que os instrumentos não reconheciam.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] — Eu convenço-a — disse Elisa.
+[2026-06-01 03:26:01] [SUBPROCESS] 
+[2026-06-01 03:26:01] [SUBPROCESS] — Como?
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] — Não sei ainda.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] Marcus riu. Foi um riso curto, nervoso, de quem está a perceber que a pessoa mais racional que conhece acaba de dizer "não sei" com uma naturalidade que devia ser impossível.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] — Estás a mudar — disse ele.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] — Estou a investigar.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] — Não. Estás a mudar. A Elisa de há uma semana teria dito "os dados falam por si". A Elisa de agora diz "eu convenço-a". Isso não é ciência. Isso é outra coisa.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] Elisa não respondeu. Marcus tinha razão, e ambos sabiam. A diferença entre "os dados falam por si" e "eu convenço-a" era a diferença entre tratar Helena como anomalia e tratára como pessoa. Era a diferença que Farkas tentara mostrá-la no consultório de Kreuzlingen, com o cheiro a tabaco velho e a frase que funcionava como uma pedra no caminho: *Não é um problema a resolver. É uma pessoa a compreender.*
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] — Amanhã — disse Elisa. — Vou a Berna. Encontro a Mirela. Depois vou ao apartamento da Helena.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] — Queres que vá contigo?
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] — Não.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] — Elisa.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] — Preciso de ir sozinha.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] Desligou antes que Marcus pudesse insistir. O escritório ficou silencioso outra vez. O néon do corredor entrava por baixo da porta — uma linha de luz branca que cortava o linóleo como um escalpelo.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] ---
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] Elisa saiu do ETH às 16h40. O ar de Março cortava — não frio o suficiente para neve, mas suficiente para lembrar que o inverno não tinha acabado, apenas parado à porta. Caminhou em direção ao lago. Não era uma decisão consciente — os pés levaram-na, como levavam sempre quando o cérebro precisava de espaço para processar dados que não cabiam em equações.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] O lago apareceu depois da curva na Seestrasse. Água escura. Não negra — escura. A diferença continuava a importar, mesmo que Elisa soubesse que a distinção era arbitrária, uma linha desenhada na areia perceptiva. Negra era ausência. Escura era profundidade que absorvia a luz sem a negar. Um pato-real deslizou da margem para o centro sem perturbar a superfície. Nenhum rasto. Nenhuma onda.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] O banco de madeira estava onde sempre estava — junto à margem, com o assento curvado pelo uso, a madeira cinzenta da chuva e do sol e do tempo. Elisa sentou-se. O banco estava frio. O frio subiu pelo casaco, pela coluna, até à base do crânio.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] O granito no bolso pressionava contra a coxa. Elisa tirou-o. Olhou-o. Os cristais de feldspato — pequenos rectângulos brancos numa matriz cinzenta — captavam a luz difusa do céu baixo e devolviam-na em reflexos mínimos. Bonito, se a rocha soubesse que era bonita. Mas a rocha não sabia. A rocha não sabia nada. A rocha era 0,001 Dk de matéria organizada que não processava informação, não fazia perguntas, não perguntava se era uma pessoa.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] Helena perguntara. *A senhora acha que eu sou uma pessoa?*
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] Elisa fechou a mão sobre o granito. Os cristais pressionaram a palma — pequenas arestas que não cortavam mas que se faziam sentir, como a verdade quando ainda não se tem coragem de a formular.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] Cada pensamento gera entropia. Cada decisão aproxima o universo do fim. Era isto que o formalismo dizia — era isto que Elisa provara com uma elegância que lhe valeu o Nobel e que agora, sentada num banco de madeira junto a um lago escuro, parecia simultaneamente correcta e insuficiente. Correcta nos cálculos. Insuficiente na compreensão.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] E mesmo assim, pensava. Mesmo assim, decidia. O cérebro de Elisa — 1,4 quilogramas de matéria processando informação, gerando calor, aumentando a entropia do universo em 1,38 vezes 10 à menos 23 joules por kelvin vezes ln 2 vezes cada bit — continuava a funcionar. Continuava a contar silêncios, a medir lacunas entre equações, a perguntar porquê com a insistência de quem sabe que a resposta pode não vir mas que a pergunta, em si, é o que mantém o relógio a ticar.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] Porquê?
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] A pergunta formou-se de forma diferente desta vez. Não retórica. Não automática. Genuína. Como a pergunta de Helena não fora retórica — fora a pergunta de uma pessoa que quer saber se é vista, se é real, se existe para além do que os instrumentos registam.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] Porquê?
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] Porque pensava, sabendo que pensar destruía o universo um pouco mais a cada instante? Porque decidia, sabendo que cada decisão era irreversível? Porque investigava Helena, sabendo que a investigação podia custar-lhe a amizade de Renan, a estabilidade do formalismo, a certeza de que o mundo era compreensível?
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] A resposta não veio. Não era o tipo de resposta que vinha — não como um teorema, não como uma equação, não como um número com duas casas decimais. Era o tipo de resposta que se habita. Que se carrega no bolso como um fragmento de rocha. Que se guarda numa caixa de cartão como quarenta e sete guardanapos que dizem mais sobre a pessoa que os guardou do que sobre a pessoa que os escreveu.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] Elisa olhou para o lago. A água estava imóvel. O pato-real chegara ao centro e parara, flutuando sem esforço, como se a água o segurasse sem que ele precisasse de pedir.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] *Os números nada significam perante a imensidão da verdadeira consciência.*
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] Elisa não pensou isto. Não ainda. A frase pertencia a um futuro que não tinha acontecido — a um momento que só existiria no terceiro acto, quando o véu se rasgasse e a compreensão mudasse de natureza. Mas algo na água, no pato, na luz cinzenta que o céu de Zurique devolvia sem entusiasmo, era uma premonição. Uma pista. Um detalhe arquitetónico que parecia decorativo mas era estrutural.
+[2026-06-01 03:26:02] [SUBPROCESS] 
+[2026-06-01 03:26:02] [SUBPROCESS] O universo contava os seus estados. Cada pensamento era um tique no relógio. Cada decisão era um passo na direção do equilíbrio final — a Morte Térmica, o máximo de entropia, o fim de toda a diferença. Mas alguém — algo — pensava sem fazer o relógio ticar. Ou ticava, e a entropia ia para algum lugar que não sabiam procurar.
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] Elisa guardou o granito no bolso. Levantou-se. O banco de madeira deixou uma mancha de humidade no casaco — a mesma mancha de sempre, que secava e reaparecia, que era e não era a mesma água, que era o tipo de fenómeno que a termodinâmica descrevia mas que a experiência tornava estranho.
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] Caminhou de volta. Zurique continuava cinzenta. As pessoas continuavam a andar com pressa, com destino, com a eficiência de quem sabe exactamente onde vai. Elisa caminhou entre elas sem destino — não sem destino, mas com um destino que ainda não tinha nome. Berna. Mirela. Helena. A investigação que não era sobre salvar o formalismo, era sobre compreender o que Helena era.
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] A mentira estava a ceder. Não de forma dramática — não com uma epifania, não com uma revelação, não com um momento de cinema. De forma lenta. Como a água desgasta a pedra. Como o tempo gasta os instantes. Como um guardanapo que se completa na cabeça de quem o guarda, noite após noite, até que a equação incompleta se torne uma oração que não precisa de ponto final.
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] O desejo — provar que o formalismo estava correcto — ainda existia. Mas a necessidade — aceitar que a medição não era compreensão — estava a crescer. A sobrepor-se. A ocupar o espaço que antes era só do medo.
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] Elisa chegou ao apartamento. Subiu as escadas. Abriu a porta. Sentou-se à secretária. Acendeu a luz de secretária. Bebeu água à temperatura ambiente. Abriu o portátil.
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] O formalismo continuava ali. Sessenta e sete páginas de matemática perfeita. S = k log W. A equação da mãe. A equação de Boltzmann. A equação que dizia que o universo tem uma direção, que o tempo não volta, que cada pensamento custa.
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] Elisa abriu um documento novo. Escreveu:
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] *Berna. Amanhã. 9h.*
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] *Mirela Varga. Café perto da estação.*
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] *Objectivo: obter autorização para investigação aprofundada.*
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] *Objectivo real: compreender.*
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] Olhou para a palavra. *Compreender.* Não medir. Não calcular. Não provar. Compreender.
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] Guardou o documento. Fechou o portátil. Olhou para a gaveta da secretária — a segunda gaveta, a que tinha a chave mais pequena, a que guardava quarenta e sete guardanapos e um segredo que era, simultaneamente, a razão de tudo o que ela fazia e a razão de tudo o que ela não conseguia aceitar.
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] A equação da mãe estava incompleta. A equação de Helena era zero. E Elisa, sentada à secretária de um apartamento temporário em Zurique, com o granito no bolso e o lago na memória e a palavra "compreender" a pulsar como um relócio que finalmente sabia a hora certa, sabia que amanhã ia a Berna. Ia encontrar uma mulher que não queria ser encontrada. Ia pedir o que não se pede — acesso à vida de uma pessoa que só quer ser deixada em paz.
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] E ia fazê-lo não porque o formalismo exigia. Não porque o Nobel obrigava. Não porque Renan esperava ou Marcus aprovava.
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] Ia fazê-lo porque Helena perguntara *a senhora acha que eu sou uma pessoa?* e Elisa ainda não tivera a honestidade de responder.
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] A luz de secretária projectava um círculo amarelo sobre a secretária. Fora, Zurique era cinzenta. O rio passava. O tempo não voltava. E Elisa Dragovski, física, Nobel, autora do formalismo que pesava consciência e que agora não pesava Helena, sentou-se no escuro — não total, porque o indicador de standby do portátil piscava a verde, e a luz de emergência da porta projectava o seu rectângulo amarelado, e alguma coisa no subsolo zumbia com a paciência de quem sabe que o mundo lá em cima não dorme, apenas finge.
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] O granito no bolso estava frio. A rocha não sofria. A rocha não pensava. A rocha não perguntava porquê.
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] Mas Elisa perguntava. Pela primeira vez, sem vergonha. Pela primeira vez, sem equações a proteger a pergunta. Pela primeira vez, a pergunta era só uma pergunta — não um problema, não um desafio, não uma anomalia. Apenas a pergunta mais simples que uma pessoa pode fazer a outra:
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] *Eu vejo-te?*
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] A luz piscou. O zumbido continuou. O rio passou.
+[2026-06-01 03:26:03] [SUBPROCESS] 
+[2026-06-01 03:26:03] [SUBPROCESS] Elisa não dormiu.
+[2026-06-01 03:26:03] [INFO] Drafted 4129 words
+[2026-06-01 03:26:03] [INFO] RUN: uv run python evaluate.py --chapter=6
+[2026-06-01 03:26:04] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 03:28:47] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 03:28:47] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 03:28:48] [SUBPROCESS] ---
+[2026-06-01 03:28:48] [SUBPROCESS] overall_score: 3.5
+[2026-06-01 03:28:48] [SUBPROCESS] voice_adherence: 7 -- The prose largely adheres to Elisa's voice — technical vocabulary, thermodynamic metaphors, long deductive sentences punctuated by short crisis fragments. The strongest voice moment is the granito passage where physics and grief merge seamlessly. However, several passages slip into a generic literary register that doesn't feel like Elisa's mind at work.
+[2026-06-01 03:28:48] [SUBPROCESS] beat_coverage: 7 -- All five beats are present. Beats 1-4 (videoconference, guardanapos, decision to investigate, calling Marcus) are well dramatized with dialogue and action. Beat 5 (lake, existential question) is the weakest — it's the emotional climax of the chapter but reads as summary rather than scene.
+[2026-06-01 03:28:48] [SUBPROCESS] character_voice: 7 -- Elisa and Renan are distinguishable. Marcus's rapid-fire interruption style comes through. Lena is appropriately terse. The dialogue is strongest when characters talk past each other (Renan's 'Isso é interessante' moment is implied but not overdone). Weakest when characters articulate their positions too cleanly.
+[2026-06-01 03:28:48] [SUBPROCESS] plants_seeded: 7 -- The guardanapos are well-integrated — the physical act of opening the box and reading the last one is dramatized, not just mentioned. The rupture with Renan is planted naturally through dialogue. The 'compreender vs. medir' distinction is planted through Elisa's document at the end, which works well.
+[2026-06-01 03:28:48] [SUBPROCESS] prose_quality: 6 -- The prose is strongest in short, parallel constructions (the mother/Helena contrast) and weakest when it explains its own metaphors. Several paragraphs have rhythmic monotony — three sentences of similar length starting with subject-verb. The lake scene paragraphs are particularly uniform. The guardanapos passage is the prose high point.
+[2026-06-01 03:28:48] [SUBPROCESS] continuity: 8 -- Strong continuity from Chapter 5. Elisa's state of mind tracks logically — she's moved from observation (Ch 5) to decision (Ch 6). The granito, the insónia routine, the orelha esquerda tique, the mother's watch — all carried forward naturally. The emotional progression from ambivalence to cold determination follows the outline's arc. No discontinuities detected.
+[2026-06-01 03:28:48] [SUBPROCESS] canon_compliance: 7 -- No major canon violations. The chapter is faithful to established facts. Minor additions (Seestrasse, crystal shape) are reasonable extrapolations. The missing ETH corridor echo is the most notable omission.
+[2026-06-01 03:28:48] [SUBPROCESS] lore_integration: 7 -- The IC system, the formalism, and the corporate stakes are all present but mostly discussed rather than dramatized. The guardanapos and the lake are where the world does real work — the mother's equation connects to Boltzmann, which connects to the formalism, which connects to Helena. That chain is well-built.
+[2026-06-01 03:28:48] [SUBPROCESS] engagement: 6 -- The videoconference scene is the most engaging — the Renan rupture has real tension. The guardanapos scene is the most emotionally resonant. The chapter's weakness is that its climax (the lake) is passive. A reader will turn the page because of Renan's ultimatum ('uma semana'), but the chapter doesn't surprise — it delivers what the outline promises, no more.
+[2026-06-01 03:28:48] [SUBPROCESS] three_weakest_sentences: ['O tipo de silêncio que existe em salas onde alguém acaba de tomar uma decisão que não pode ser desfeita — não porque a decisão seja irreversível, mas porque o acto de tomá-la já mudou o estado do sistema.', 'O universo contava os seus estados. Cada pensamento era um tique no relógio. Cada decisão era um passo na direção do equilíbrio final — a Morte Térmica, o máximo de entropia, o fim de toda a diferença.', 'Os números nada significam perante a imensidão da verdadeira consciência.']
+[2026-06-01 03:28:48] [SUBPROCESS] three_strongest_sentences: ['A mãe morreu a meio de uma frase. Helena vive a meio de um número. Qual é a diferença?', 'Elisa tocou na orelha esquerda. Soltou-a imediatamente.', 'A rocha não sofria. A rocha não pensava. A rocha não perguntava porquê.']
+[2026-06-01 03:28:48] [SUBPROCESS] ai_patterns_detected: ['Emotional beats arrive on schedule — the guardanapos scene is placed exactly where the outline says it should be, and it feels placed rather than discovered.', "Internal monologue explaining what the scene already showed — the lake scene tells us the question is 'genuine' rather than showing its genuineness through form or rupture.", "Symmetry addiction — three sentences starting with 'Cada...' in the lake scene (Cada pensamento... Cada decisão... Cada instante...).", 'Description that catalogs rather than selects — the ETH office is described with four visual details (carvalho claro, paredes brancas, linóleo cinzento, janela) when one specific detail would be sharper.', "The 'tipo de silêncio que...' construction appears twice in the chapter with nearly identical structure.", "Hedge parade in internal monologue — 'não era o tipo de resposta que vinha' hedges what could be a direct statement."]
+[2026-06-01 03:28:48] [SUBPROCESS] weakest_dimension: prose_quality
+[2026-06-01 03:28:48] [SUBPROCESS] top_3_revisions: ["Rewrite the lake scene (Beat 5) to include an external event or sensory trigger that forces Elisa's internal question into contact with the physical world. Cut the explanatory internal monologue and let the 'Porquê?' emerge from image and action, not from narrative declaration.", "Replace the three weakest sentences with grounded, sensory alternatives. 'O tipo de siléncio que pesa/existe em salas' — both instances — should become specific physical sensations. 'Os números nada significam...' should be cut entirely and replaced with the pato-real image doing the thematic work.", "Break Renan's most rhetorically polished dialogue into shorter, more interruptive fragments. His character profile says he uses silence as a weapon and says 'Isso é interessante' to mean the opposite — let that precision show through implication rather than through perfectly structured parallel arguments."]
+[2026-06-01 03:28:48] [SUBPROCESS] new_canon_entries: ['Elisa has a WhatsApp contact for Renan Kapoor.', 'Elisa keeps the guardanapos in the second drawer of her ETH office desk (not under her bed as previously established — this may be a continuity issue if she moved them).', 'Elisa plans to meet Mirela at a café near the Bern station at 9h the next day.', 'The ETH office has a neon light in the corridor outside that enters under the door.', "Elisa's document uses the word 'Objectivo' (European Portuguese spelling), consistent with her Lisbon upbringing."]
+[2026-06-01 03:28:48] [SUBPROCESS] slop: N/A --
+[2026-06-01 03:28:48] [SUBPROCESS] raw_judge_score: 6
+[2026-06-01 03:28:48] [SUBPROCESS] 
+[2026-06-01 03:28:48] [SUBPROCESS] eval_log: /mnt/d/Dev/autobook/eval_logs/20260601_032848_ch06.json
+[2026-06-01 03:28:48] [INFO] Chapter 6 score: 3.5
+[2026-06-01 03:28:48] [INFO] Score 3.5 < 6.0, discarding attempt
+[2026-06-01 03:28:48] [INFO] RUN: git checkout -- chapters/ch_06.md 2>/dev/null || true
+[2026-06-01 03:28:48] [INFO] Attempt 3/5
+[2026-06-01 03:28:48] [INFO] RUN: uv run python draft_chapter.py 6
+[2026-06-01 03:28:48] [SUBPROCESS] Drafting Chapter 6...
+[2026-06-01 03:28:49] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 03:35:13] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 03:35:13] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 03:35:13] [SUBPROCESS] Saved to /mnt/d/Dev/autobook/chapters/ch_06.md
+[2026-06-01 03:35:13] [SUBPROCESS] Word count: 3945
+[2026-06-01 03:35:13] [SUBPROCESS] # Capítulo 6 — A escolha
+[2026-06-01 03:35:13] [SUBPROCESS] 
+[2026-06-01 03:35:13] [SUBPROCESS] O ecrã do portátil mostrava três rectângulos de vídeo. Ao centro, Renan Kapoor, com a luz de Oxford atrás — sempre a mesma luz, aquele amanhecer inglês que parecia永远 insuficiente para iluminar seja o que fosse. À esquerda, Marcus Weil, com a camisa de flanela de sempre e o queixo apoiado na mão como se o peso da barba exigisse apoio estrutural. À direita, o quadro de Elisa — ela própria, que raramente se via em chamadas e que, quando se via, achava o próprio rosto uma distracção administrativa.
+[2026-06-01 03:35:13] [SUBPROCESS] 
+[2026-06-01 03:35:13] [SUBPROCESS] Marcus falava. Falava sempre primeiro.
+[2026-06-01 03:35:13] [SUBPROCESS] 
+[2026-06-01 03:35:13] [SUBPROCESS] — A imprensa tem três versões. A primeira: Helena Varga é uma fraude. A segunda: Helena Varga prova que o IC é falho. A terceira: Helena Varga prova que a consciência é transcendente. Nenhuma das três serve. Precisamos de um comunicado.
+[2026-06-01 03:35:13] [SUBPROCESS] 
+[2026-06-01 03:35:13] [SUBPROCESS] Elisa não respondeu de imediato. Olhou para o relógio de pulso — o da mãe, pulseira de couro gasto, mostrador analógico que fazia tique-taque mesmo que ela só o imaginasse. 14h22. O café na caneca ao lado do teclado tinha arrefecido para os 40 e poucos graus. Bebeu-o na mesma.
+[2026-06-01 03:35:13] [SUBPROCESS] 
+[2026-06-01 03:35:13] [SUBPROCESS] — Que comunicado — disse.
+[2026-06-01 03:35:13] [SUBPROCESS] 
+[2026-06-01 03:35:13] [SUBPROCESS] Renan inclinou-se para a frente. O gesto era mínimo — Renan nunca fazia gestos grandes — mas na webcam parecia uma avanço.
+[2026-06-01 03:35:13] [SUBPROCESS] 
+[2026-06-01 03:35:13] [SUBPROCESS] — Algo como: "Anomalia detectada em medição de IC. Investigação em curso. Formalismo mantém-se válido." Directo. Técnico. Resolve.
+[2026-06-01 03:35:13] [SUBPROCESS] 
+[2026-06-01 03:35:13] [SUBPROCESS] — Não.
+[2026-06-01 03:35:13] [SUBPROCESS] 
+[2026-06-01 03:35:13] [SUBPROCESS] A palavra saiu antes de Elisa a ouvir a si própria dizê-la. Não era discussão. Era geometria — uma linha não se cruza a si própria.
+[2026-06-01 03:35:13] [SUBPROCESS] 
+[2026-06-01 03:35:13] [SUBPROCESS] — Elisa — disse Renan, e o tom era o de quem recolhe um prato partido do chão —, cada dia que passa sem comunicação é um dia que a imprensa preenche com especulação.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — A imprensa vai especular de qualquer forma. Prefiro especular com dados do que sem eles.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] Marcus riu — um som curto, quase involuntário, que morreu assim que nasceu.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Elisa, isto não é especulação. É gestão. Se não controlarmos a narrativa—
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — A narrativa é que uma mulher de 67 anos tem o mesmo IC de um pedaço de rocha. Não há versão gerível disso.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] Silêncio. Três rectângulos de vídeo, três rostos, uma pausa que durou o suficiente para Elisa contar os batimentos cardíacos. Sete. Oito, se contasse o que veio a seguir.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] Renan falou primeiro, como sempre.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Isto não é sobre a Helena.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Sobre o quê é, então?
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Sobre o formalismo. Se admitimos uma exceção, admitimos que o modelo é incompleto. E se o modelo é incompleto, tudo o que construímos sobre ele é questionável.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] Os olhos de Renan não piscavam. Elisa reparou nisto — os olhos de Renan, que em quinze anos de colaboração nunca tinham deixado de piscar nas horas certas, nos intervalos certos, com a precisão de um metrónomo que agora parecia ter parado.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Renan.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — As leis de direitos animais baseadas no IC. Os protocolos de morte cerebral. Os certificados de IA. Os tratados. Tudo — disse, e a palavra "tudo" saiu com um peso que não era retórica, era literal, era a massa de quinze anos a cair num único monossílabo.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] Elisa pousou a caneca. A base de cerâmica fez um som seco contra a madeira da secretária — o som de uma decisão pequena que precede uma decisão grande.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Se o modelo é incompleto, é incompleto. A verdade não se torna falsa porque nos incomoda.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] Marcus abriu a boca. Fechou-a. Abriu-a outra vez.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Elisa, eu concordo contigo em princípio — começou.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Mas.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Mas o Renan tem razão em uma coisa. Se publicarmos que há uma anomalia sem explicação, o estrago é o mesmo que publicar que o IC está errado. A diferença entre "há algo que não compreendemos" e "está tudo errado" é uma diferença que a imprensa não faz.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — A imprensa não faz muitas coisas — disse Elisa. — Não é razão para fazermos por ela.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] Renan endireitou-se. O gesto era tão subtil que, noutro contexto, Elisa não o notaria. Mas ela notou — porque conhecia Renan como se conhece uma equação, não pelos valores mas pelos sinais, e aquele endireitar era um sinal negativo.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Estás a tomar isto pessoalmente.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Estou a tomar isto cientificamente.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Não. Estás a tomar isto como se questionar o formalismo fosse questionar-te a ti. E não é. O formalismo é maior do que qualquer uma de nós. Maior do que eu, maior do que ti, maior do que a Helena. É uma estrutura. E as estruturas não caem porque uma pessoa—
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Uma pessoa. Diz a palavra, Renan. Uma pessoa. Não "uma anomalia", não "uma excepção". Uma pessoa.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] O silêncio desta vez foi mais longo. Marcus olhou para Renan. Renan olhou para Elisa. Elisa olhou para o rectângulo vazio no canto inferior direito do ecrã — o seu próprio reflexo, que evitava como se evita um espelho em casa alheia.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Quinze anos — disse Renan, e a voz era diferente agora. Não era a voz de um colega. Era a voz de alguém que conta os azulejos de uma parede numa sala de espera. — Quinze anos, Elisa. Desde Viena. Desde aquela noite em que acordaste às três da manhã com a equação na cabeça. Desde—
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Essa noite não é assunto de comunicado.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Essa noite é a razão pela qual estamos aqui.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] Elisa sentiu alguma coisa na garganta — não um nó, porque nós são metáforas — uma contracção involuntária do esófago que durou dois segundos e se foi. Engoliu. O café a 40 graus tinha deixado um sabor a papel na língua.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Não publicamos nada até compreendermos o que estamos a ver — disse. — Nem que demore uma semana. Nem que demore um mês.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — E se demorar um ano?
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Então demora um ano.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] Renan retirou os óculos. Limpan-os com um pano que tirou do bolso do fato — sempre o mesmo pano, branco, quadrangular, dobrado com precisão. Colocou os óculos de novo. O gesto durou oito segundos. Elisa contou porque contar era mais fácil do que sentir.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Concordo com a Elisa — disse Marcus, e a voz tinha aquela qualidade de quem tenta construir uma ponte enquanto as duas margens se afastam. — Mas precisamos de um plano B. Se a imprensa publicar primeiro—
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — A imprensa já publicou. A Tanaka tem três fontes no USZ. Tem uma peça pronta.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Então—
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — E quando publicar, publicamos nós os dados. Os dados crus. Sem editorial, sem enquadramento. Os números falam.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Os números não falam — disse Renan. — As pessoas é que falam sobre os números.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Então que falem sobre os números certos.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] Renan pousou as mãos no teclado. Os dedos ficaram suspensos sobre as teclas — como um pianista que se esqueceu da partitura, ou que se lembrou de uma melodia que não quer tocar.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Isto é um erro.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Pode ser.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — E não te importa?
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] Elisa olhou para o ecrã. Para os três rectângulos. Para as três versões da mesma história — a dela, a de Renan, a de Marcus, que era uma versão intermédia, uma média estatística de posições que não se comprometia com nenhuma. Pensou em Helena. Na pergunta de Helena. *A senhora acha que eu sou uma pessoa?* Pensou que a resposta deveria ser simples. Que qualquer pessoa, ouvindo aquela pergunta, diria sim sem hesitar. Mas Elisa não era qualquer pessoa. Elisa era a pessoa que construíra o instrumento que dizia que Helena não era uma pessoa. E dizer sim agora era admitir que o instrumento mentia. E admitir que o instrumento mentia era admitir que quinze anos de trabalho eram uma casa construída sobre areia — não areia metafórica, areia literal, grão a grão, a mesma areia do tempo que passa e não volta e que leva tudo consigo, como o rio Limmat leva as folhas e os galhos e o lixo que as pessoas deitam sem pensar na entropia que esse lixo gera ao decompor-se.
+[2026-06-01 03:35:14] [SUBPROCESS] 
+[2026-06-01 03:35:14] [SUBPROCESS] — Importo-me — disse. — Importo-me de muitas coisas. Mas não publico o que não compreendo.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] Renan assentiu. Uma vez. O gesto mínimo que encerra uma conversação de quinze anos sem a fechar — porque fechar seria a explosão, e Renan não fazia explosões, Renan fazia implosões, coisas que colapsam para dentro e deixam um buraco negro onde antes havia matéria.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Como quiseres — disse. E desligou.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] O rectângulo de Renan ficou preto. Marcus olhou para o espaço onde Renan estivera como quem olha para uma cadeira vazia numa sala de tribunal.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Isso não foi bom — disse Marcus.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Não.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Ele vai contactar o comité.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Provavelmente.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — E tu estás bem com isso?
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] Elisa olhou para o rectângulo de Marcus. Para a barba de três dias, para os órgãos de armaça grossa que escorregavam pelo nariz, para as mangas arregaçadas que revelavam antebraços pálidos de quem não vê sol suficiente nem quando o sol está a trabalhar.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Estou bem com a verdade.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — A verdade é uma coisa. O que o Renan vai dizer ao comité é outra.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — O comité pode ouvir os mesmos dados que eu.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Não é assim que funciona e tu sabes.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] Elisa sabia. Sabia com a mesma certeza com que sabia que a entropia não diminui — não por experiência, mas por dedução. O mundo não funciona com dados. Funciona com narrativas. E a narrativa de Renan — *Elisa Dragovski está a proteger a sua reputação em detrimento da ciência* — era mais elegante, mais simples, mais fácil de contar do que a narrativa de Elisa, que era: *Não sabemos o que estamos a ver e admitir ignorância é o primeiro passo para compreender*.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Marcus.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Sim?
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — A Lina. Como está?
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] Marcus não esperava a pergunta. A mão que empurrava os órgãos para — parou a meio. O rosto mudou — não drasticamente, não como nos filmes, mas na forma como uma superfície de água muda quando o vento muda de direcção.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Está igual. As crises diminuíram. Dois meses sem nenhuma.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Isso é bom.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Isso é inexplicável. O modelo previa frequência crescente. A frequência diminuiu. O modelo está errado, ou a Lina está a fazer algo que o modelo não captura. Não sei qual das duas hipóteses me assusta mais.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] Elisa assentiu. Pensou em Helena. Na equação que não se completava. No formalismo que não se aplicava. No modelo que previa uma coisa e a realidade fazia outra.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Marcus, se o formalismo está incompleto—
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Está.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Se está, não é por defeito. É por dimensão. Há algo que não estamos a medir. O IC mede o incremento entrópico. Mas e se houver um tipo de processo cognitivo que não gera incremento? Ou que gera um incremento que não conseguemos detectar? Ou que exporta a entropia para algum lugar que—
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Elisa.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Sim?
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Eu sei. Eu sei tudo isso. E é exactamente por isso que temos de ser cuidadosos. Se admitimos que há processos cognéticos que o IC não capta, estamos a admitir que o IC não é uma medida de consciência. É uma medida de uma coisa que se parece com consciência. E essa distinção—
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — É a distinção que importa.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — A distinção que destrói o edifício.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] Os dois ficaram em silêncio. O silêncio era diferente do silêncio com Renan — era o silêncio de duas pessoas que concordam no diagnóstico mas discordam no tratamento.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Vou investigar — disse Elisa. — Sozinha, se for preciso. Quero acesso total ao histórico da Helena. Exames, entrevistas, tudo. E preciso de falar com a filha.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Mirela? Ela não quer falar connosco.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Eu convenço-a.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Elisa—
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Convenço-a, Marcus.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] Marcus suspirou. O suspiro durou três segundos e saiu com a textura de quem já viu este filme antes e sabe como termina.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Vou-te enviar o que temos. Mas tem cuidado. A Evromind tem um observador no comité de ética do USZ. Cada pedido de acesso fica registado.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Registado onde?
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] — Em todo o lado.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] Marcus desligou. O rectângulo ficou preto. O ecrã do portátil mostrava, na janela principal, o ambiente de trabalho — a fotografia do rio Limmat ao entardecer que o informático instalara por defeito e que Elisa nunca mudara. O rio estava parado. Não — imóvel. A diferença importava.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] Elisa fechou o portátil. O som do fecho foi macio, preciso — o som de uma câmara de Faraday a selar-se.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] O escritório mergulhou no silêncio. Não no silêncio total — o ETH nunca estava em silêncio total. O sistema de ventilação fazia um zumbido grave e contínuo, como o pulmão de um edifício que respira por quem não consegue. Os néons do corredor, visíveis por baixo da porta, projetavam uma linha de luz branca no chão. Lá fora, Zurique continuava — o som distante de comboios, o grito de gaivotas no Limmat, o tique-taque de um mundo que não sabia que estava a ser medido.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] Elisa abriu a gaveta da secretária.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:15] [SUBPROCESS] A gaveta era a do meio — não a de cima, onde estavam os cabos e os adaptadores e os marcadores de quadro branco que ninguém usava. Não a de baixo, onde estavam os papéis administrativos — formulários de ética, autorizações de laboratório, cartas do reitor que Elisa assinava sem ler. A gaveta do meio era a gaveta que não tinha fechadura e que, por isso, era a única que precisava de uma.
+[2026-06-01 03:35:15] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] Estavam lá os guardanapos.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] Quarenta e sete. Dobrados em quatro, alinhados por ordem cronológica — do primeiro ao último, da esquerda para a direita, como uma linha do tempo que cabia numa gaveta de 40 por 30 centímetros. O papel era de diferentes espessuras e cores — diferentes cafés, diferentes guardanapos, diferentes mãos que os trouxeram para o quarto de hospital onde Jana Dragowska passou os últimos três meses de vida. Alguns tinham bordas rasgadas. Outros tinham nódoas de café que não eram de café. Um — o número 23 — tinha uma mancha que Elisa nunca analisou quimicamente mas que sabia ser de morfina diluída em água, porque a enfermeira misturava assim para a mãe conseguir engolir.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] O último guardanapo estava no canto superior direito. Elisa tirou-o. Desdobrou-o. O papel era amarelecido, fino, do tipo que se encontra em hospitais baratos — o tipo que se desfaz se tocado com demasiada força. A tinta era azul, de esferográfica barata, e a letra era a letra da mãe — inclinada para a direita, as maiúsculas grandes demais, os "s" finais que subiam como tentativas de voo.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] *S = k lo—*
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] A mão parou ali. No "lo" que não chegou a ser "log". A esferográfica deixara um ponto final que não era um ponto final — era o sítio onde a tinta se esgotou, ou onde a mão se esgotou, ou onde ambas se esgotaram ao mesmo tempo, numa coincidência que Elisa se recusava a chamar de poética.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] S igual a k logaritmo de W.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] A entropia é proporcional ao número de microestados. Mais estados, mais desordem. Mais desordem, mais tempo. O universo conta os seus estados como um Relógio conta os segundos, e cada instante é um tique que não volta.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] A mãe morreu a meio de uma frase.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] Helena vivia a meio de um número.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] Elisa olhou para o guardanapo. Para a equação incompleta. Para o ponto final que não era final.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] Qual é a diferença?
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] A pergunta ficou no ar. Não como as perguntas de Elisa costumavam ficar — suspensas, aguardando dados, aguardando medições, aguardando a equação que transforma a pergunta em resposta. Esta pergunta ficou no ar como fica uma mão estendida que ninguém aperta. Não aguardava nada. Estava ali.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] Elisa não tinha resposta. Pela primeira vez — não a primeira vez na vida, porque havia perguntas sem resposta em todos os cantos da física, mas a primeira vez nesta investigação — a ausência de resposta não a irritava. Não era o vazio que se preenchia com trabalho. Era o vazio que se habitava.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] Guardou o guardanapo. Feche a gaveta. Abriu o portátil.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] Tirou o telemóvel. Marcou o número de Marcus. Ele atendeu ao segundo toque.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] — Sim?
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] — Preciso de acesso total ao histórico de Helena Varga. Exames neurológicos completos, histórico farmacológico, entrevistas psicológicas, tudo. E preciso de autorização para uma segunda entrevista. Estruturada.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] — Elisa, o comité de ética—
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] — O comité de ética pode esperar. Não é um pedido. É uma necessidade.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] — Preciso de justificação formal.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] — A justificação é que tenho uma paciente com IC de 0,001 Dk que apresenta comportamento consciente pleno e ninguém me explicou como. Isso é justificação suficiente?
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] Marcus respirou. A respiração saiu pelo altifalante do telemóvel como um sussurro mecânico.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] — Vou precisar de 48 horas.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] — Tenho 24.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] — Elisa—
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] — 24 horas, Marcus.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] Silêncio. Depois:
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] — Vou fazer o que for preciso.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] — Obrigada.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] — E o que é que eu digo à Mirela quando ela perguntar porquê?
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] Elisa olhou para a gaveta fechada. Para os quarenta e sete guardanapos que não estavam à vista mas que estavam lá, com a paciência de coisas que não precisam de ser vistas para existir.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] — Diz-lhe que preciso de compreender a mãe dela.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] — Ela vai perguntar porquê.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] — Porque compreender é o que faço.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] Elisa desligou. Guardou o telemóvel. Ficou sentada no escuro — quase no escuro, porque o ecrã do portátil projectava uma luz branca que fazia sombras geométricas na parede, rectângulos sobre rectângulos, como uma gaveta de gavetas.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] A equação de Boltzmann continuava a caber num guardanapo. Uma linha. Sete símbolos. S = k log W. A entropia do universo numa frase que a mãe não conseguiu terminar.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] Elisa levantou-se. Apagou a luz de secretária. O escritório mergulhou na escuridão — não total, porque o indicador de standby do portátil piscava a verde no canto do ecrã, e a luz de emergência da porta projectava um rectângulo amarelado no chão, e alguma coisa no subsolo zumbia com a paciência de um motor que não sabe que o mundo lá em cima não dormia.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] Desceu as escadas. O elevador continuava avariado — avariado desde terça-feira, o que significava que alguém o avariara ou que a entropia finalmente reclamara o seu tributo ao sistema de cabos e contrapesos. Elisa não sabia qual das duas hipóteses preferia.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] Saiu para a rua.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] Março em Zurique tinha uma qualidade particular — não era Inverno, não era Primavera, era o intervalo entre os dois, o corredor entre salas, o silêncio entre movimentos de uma sinfonia que o compositor ainda não decidira como terminar. O ar cortava. Não cortava como Janeiro corta — com lâmina, com intenção. Cortava como corta uma porta que se abre para uma divisão mais fria.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] O lago apareceu ao fundo da Sihlstrasse. Elisa caminhou até ele. Os pés no asfalto faziam o mesmo som seco, regular, o som de quem anda sozinha a horas em que as outras pessoas tinham destinos. Mas não era tarde — eram 15h12, uma hora em que as pessoas estavam nos seus lugares, nos escritórios, nos laboratórios, nos cafés com os seus cafés e as suas conversas e as suas vidas que não dependiam de equações.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:16] [SUBPROCESS] O banco de madeira estava junto à margem. O mesmo banco onde se sentara — quando? Na segunda? Na terça? Os dias tinham perdido a sequência, sobrepostos como transparências em retroprojector. Sentou-se. O banco estava frio. O frio subiu pelo casaco, pela coluna, até à base do crânio, e ali ficou, instalado, como um inquilino que não pretende sair.
+[2026-06-01 03:35:16] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] A água era negra. Não escura — negra. A diferença importava. Escura era profundidade que absorvia a luz sem a negar. Negra era a cor que fica quando a luz desiste.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] Um pato-real deslizou da margem para o centro do lago. Nenhum rasto. Nenhuma onda. Como se não tivesse passado por ali. Como se a água se fechasse atrás dele sem memória.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] Elisa pensou em Helena.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] Pensou que cada pensamento gera entropia. Que cada decisão aproxima o universo do fim. O segundo princípio da termodinâmica, a lei mais implacável de todas — mais implacável que a gravidade, porque a gravidade peloixa atrai, mas a entropia só destrói. A entropia é o único processo físico que tem uma direcção. Tudo o mais é reversível, em princípio. Tudo o menos a seta do tempo.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] E mesmo assim, penso.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] Mesmo assim, decido.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] Cada sinapse é um tique no relógio do universo. Cada percepção, cada memória, cada acto de vontade — um incremento de entropia, um grão de areia a mais na pilha que cresce, sempre cresce, até ao máximo, até ao equilíbrio, até ao fim de todas as diferenças, até ao calor uniforme que não faz nada, não pensa nada, não é nada.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] Mesmo assim.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] Porquê?
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] A pergunta ficou entre Elisa e o lago. Não era retórica. Não era filosófica — ou era, mas no sentido em que a física é filosófica: uma pergunta que se faz com as mãos, não com palavras.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] A resposta não veio. Mas a pergunta, pela primeira vez, era genuína. Não era a pergunta que Elisa fazia para ilustrar um conceito. Era a pergunta que Elisa fazia porque não sabia a resposta e precisava — não queria, precisava — da resposta.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] O pato-real chegou ao centro do lago. Parou. Flutuou. A água não o movia. Ou movia-o, mas tão devagar que o movimento era invisível — como o movimento das placas tectónicas, como o envelhecimento dos continentes, como a morte térmica do universo: acontecendo, sempre acontecendo, mas demasiado lento para o instante que o observa.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] Elisa ficou no banco. O frio do madeira passou pelo casaco, pela pele, pelo músculo, chegou ao osso e instalou-se ali, como uma coisa que pertence à estrutura.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] Pensou na mãe. No último guardanapo. Na equação incompleta.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] Pensou em Helena. Na pergunta de Helena.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] Pensou que ia investigar. Não para salvar o formalismo — o formalismo que se salvasse sozinho, ou que não se salvasse, que era hipótese igualmente válida. Ia investigar para compreender. Para olhar para Helena e ver — não uma anomalia, não uma excepção, não um erro de calibração — uma pessoa. Uma pessoa que pensava sem fazer o universo pagar. Uma pessoa que existia no espaço entre a equação e a oração, entre o número e o nome, entre o mapa e o território.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] Ia investigar. E se o formalismo caísse — caía.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] O granito no bolso pressionava contra a coxa. Elisa tirou-o. Olhou-o. Cinzento, cristais de feldspato, 2,7 gramas por centímetro cúbido. Cinquenta milhões de anos sem um único pensamento. A rocha não sofria. A rocha não pensava. A rocha não perguntava se era uma pessoa.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] Mas Helena perguntou. E a mãe, no último guardanapo, tentou escrever a equação que dizia que o universo tem uma direção — e não conseguiu terminar.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] Qual é a diferença?
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] Elisa não tinha resposta. Mas ia procurar uma.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] Guardou o granito. Levantou-se. O banco de madeira deixou uma mancha de humidade no casaco — humidade que ia evaporar, molécula a molécula, num processo irreversível que aumentava a entropia do universo em 1,38 vezes 10 à menos 23 joules por kelvin vezes o número de moléculas de água que passaram do estado líquido ao estado gasoso.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] Caminhou de Zurique acima. Em direcção ao ETH. Em direcção ao escritório. Em direcção ao portátil que estava aberto com o ecrã a mostrar o rio Limmat ao entardecer — parado, imóvel, como uma fotografia de uma coisa que se moveu e deixou de se mover.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] O lago ficou para trás. O pato-real continuou no centro, flutuando, sem deixar rasto.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] A entropia do universo aumentava. Sempre aumentava.
+[2026-06-01 03:35:17] [SUBPROCESS] 
+[2026-06-01 03:35:17] [SUBPROCESS] E mesmo assim.
+[2026-06-01 03:35:17] [INFO] Drafted 3945 words
+[2026-06-01 03:35:17] [INFO] RUN: uv run python evaluate.py --chapter=6
+[2026-06-01 03:35:18] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 03:38:19] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 03:38:19] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 03:38:19] [SUBPROCESS] ---
+[2026-06-01 03:38:19] [SUBPROCESS] overall_score: 6.0
+[2026-06-01 03:38:19] [SUBPROCESS] voice_adherence: 7 -- The voice is generally strong — Elisa's thermodynamic metaphors are consistent, her sentence rhythm varies well between long deductive passages and short crisis beats. The prose stays in third-limited POV without drifting into omniscient commentary. However, there are moments where the writing becomes too self-consciously literary (the Faraday line, the 'gaveta de gavetas' image) in ways that feel like the author showing off rather than Elisa thinking. The strongest voice moments are when Elisa's body leads: the coffee at 40 degrees, the involuntary esophageal contraction, the cold traveling up the spine.
+[2026-06-01 03:38:19] [SUBPROCESS] beat_coverage: 7 -- All five beats from the outline are present. The videoconference (beats 1-3) is well-executed with real dramatic tension. The guardanapo moment (beat 4) is handled with restraint and emotional precision. The decision to investigate is clear. The phone call to Marcus is functional. The weakest link is the lakeside coda, which is the most important emotional beat and the most overwritten.
+[2026-06-01 03:38:19] [SUBPROCESS] character_voice: 7 -- Elisa's voice is consistently strong — direct, technical, no contractions, thermodynamic metaphors. Marcus sounds like Marcus — the bridge-building, the involuntary laugh, the Lina pivot. The dialogue is mostly speech-like, though Renan occasionally sounds like he's delivering a position paper. The Mirela phone call is absent (Marcus says he'll handle it), which is a missed opportunity to establish Mirela's voice early.
+[2026-06-01 03:38:19] [SUBPROCESS] plants_seeded: 8 -- The three key plants from the outline are all present: the 47 guardanapos (intimate secret), the rupture with Renan (begins here), and the 'Porquê?' question (central existential theme). The Evromind observer mention is a subtle but effective plant. The Lina conversation doubles as character development and thematic plant — the model that predicts one thing and reality does another mirrors Helena perfectly.
+[2026-06-01 03:38:19] [SUBPROCESS] prose_quality: 7 -- The prose is generally strong with good sentence variety — long deductive passages alternate with short, punchy lines. The thermodynamic metaphors are consistent and character-specific. Weaknesses: occasional overwriting (the 'gaveta de gavetas' line, the extended pato-real meditation), some repetitive sentence structures in the middle section (several sentences starting with 'Pensou' or 'O silêncio'), and a tendency to explain emotional beats that the scene already showed. The strongest writing is in the guardanapo scene and the final lakeside passage, where the prose achieves genuine lyricism without losing Elisa's voice.
+[2026-06-01 03:38:19] [SUBPROCESS] continuity: 8 -- Strong continuity from the previous chapter. Elisa's emotional state tracks logically — she's come from the meeting with Farkas ('Não é um problema a resolver'), processed it on the walk home, and now makes the active choice to investigate. The granito in the pocket, the insomnia routine, the coffee habits, the mother's watch — all consistent. The transition from the previous chapter's ending (Elisa at her desk, writing Helena's chronology) to this chapter's opening (the videoconference) is smooth. One minor note: the previous chapter ends with Elisa writing 'Cronologia Helena Varga 1978-1984' — this chapter doesn't reference that document again, which is a small missed beat.
+[2026-06-01 03:38:19] [SUBPROCESS] canon_compliance: 7 -- No major canon violations. Character details, locations, timeline, and the IC system are all consistent. The new details (napkin #23's morphine stain, the specific temperature of the coffee at 40 degrees, the pato-real on the lake) are additive worldbuilding that doesn't contradict established facts.
+[2026-06-01 03:38:19] [SUBPROCESS] lore_integration: 7 -- The IC system is well-integrated — the specific numbers (0,001 Dk, the margin of error, the comparison to granite) are used naturally in dialogue and thought. The cultural details (IC bracelets, the insect protein industry, AI certification) are referenced without infodumping. The political factions (Renan as defender of the formalism, Marcus as revisionist, the corporate observer) are established through conflict rather than exposition. The world does real work here — the IC isn't just set dressing, it's the engine of every conflict in the chapter.
+[2026-06-01 03:38:19] [SUBPROCESS] engagement: 7 -- The videoconference is the chapter's strongest engagement sequence — the tension between Elisa and Renan is real, the stakes are clear, and the rupture feels earned. The guardanapo scene is quietly devastating. The phone call with Marcus adds the Lina dimension, which deepens the thematic resonance. The chapter's weakness is structural: it's front-loaded with drama (the call) and back-loaded with reflection (the lake), with the decision itself happening off-screen between the two. A reader will turn the page, but the momentum dips in the middle.
+[2026-06-01 03:38:19] [SUBPROCESS] three_weakest_sentences: ['O silêncio era diferente do silêncio com Renan — era o silêncio de duas pessoas que concordam no diagnóstico mas discordam no tratamento.', 'O som do fecho foi macio, preciso — o som de uma câmara de Faraday a selar-se.', 'A resposta não veio. Mas a pergunta, pela primeira vez, era genuína. Não era a pergunta que Elisa fazia para ilustrar um conceito. Era a pergunta que Elisa fazia porque não sabia a resposta e precisava — não queria, precisava — da resposta.']
+[2026-06-01 03:38:19] [SUBPROCESS] three_strongest_sentences: ['A mãe morreu a meio de uma frase. Helena vivia a meio de um número.', 'S igual a k logaritmo de W. A entropia é proporcional ao número de microestados. Mais estados, mais desordem. Mais desordem, mais tempo.', "Uma rocha não pede chá. / Uma rocha não pergunta se é uma pessoa. — (implied in Elisa's thought: 'A rocha não sofria. A rocha não pensava. A rocha não perguntava se era uma pessoa.')"]
+[2026-06-01 03:38:19] [SUBPROCESS] ai_patterns_detected: ["Emotional beats that arrive on schedule: the guardanapo revelation happens exactly when the outline says it should, with exactly the emotional weight the outline prescribes. Real writing would surprise — maybe Elisa opens the drawer and can't bring herself to look, or looks at the wrong napkin first.", "Internal monologue explaining what the scene already showed: 'a pergunta, pela primeira vez, era genuine' tells us what the preceding paragraphs already demonstrated. Trust the reader.", "Observations in threes: 'Não era retórica. Não era filosófica — ou era, mas no sentido em que a física é filosófica' — the triple structure is a tell.", 'Description that catalogs: the drawer contents are listed (cables, markers, administrative papers) when the scene only needs the guardanapos. The other items are set dressing.', 'Symmetry addiction: the chapter opens with three video rectangles and closes with the lake — the visual framing is too neat. Real chapters are lumpier.']
+[2026-06-01 03:38:19] [SUBPROCESS] weakest_dimension: prose_quality
+[2026-06-01 03:38:19] [SUBPROCESS] top_3_revisions: ["Cut 30-40% of the lakeside coda (beat 5). End on the question 'Porquê?' without the narrator's confirmation that it's genuine. Add one unexpected sensory detail or encounter to give the scene narrative surprise rather than just philosophical confirmation.", "Rewrite Renan's most direct accusations to be more oblique and characteristic. Instead of 'Estás a tomar isto como se questionar o formalismo fosse questionar-te a ti,' use his signature move: say something that sounds neutral but means the opposite. 'That's an interesting approach, Elisa' with the right subtext is more devastating than a thesis statement.", "Replace the 'silêncio era diferente' summary sentence with physical detail. Show the silence between Elisa and Marcus through body language, breathing, the webcam light — not through a diagnostic metaphor that explains what the reader should already feel."]
+[2026-06-01 03:38:19] [SUBPROCESS] new_canon_entries: ['Guardanapo #23 tem uma mancha de morfina diluída em água — a enfermeira misturava assim para Jana conseguir engolir.', "O café de Elisa arrefece para '40 e poucos graus' quando ela se distrai em reuniões.", 'O elevador do ETH está avariado desde terça-feira (causa desconhecida — sabotagem ou entropia).', 'O informático instalou por defeito a fotografia do rio Limmat ao entardecer como ambiente de trabalho do portátil de Elisa; ela nunca a mudou.', "Marcus respira pelo altifalante do telemóvel como um 'sussurro mecânico' quando está desconfortável."]
+[2026-06-01 03:38:19] [SUBPROCESS] slop: N/A --
+[2026-06-01 03:38:19] [SUBPROCESS] raw_judge_score: 7
+[2026-06-01 03:38:19] [SUBPROCESS] 
+[2026-06-01 03:38:19] [SUBPROCESS] eval_log: /mnt/d/Dev/autobook/eval_logs/20260601_033819_ch06.json
+[2026-06-01 03:38:19] [INFO] Chapter 6 score: 6.0
+[2026-06-01 03:38:19] [INFO] RUN: git add -A
