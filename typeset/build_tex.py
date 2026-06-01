@@ -3,8 +3,9 @@
 import re
 import os
 
-CHAPTERS_DIR = "/home/jeffq/autobook/chapters"
-OUT_DIR = "/home/jeffq/autobook/typeset"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CHAPTERS_DIR = os.path.join(BASE_DIR, "chapters")
+OUT_DIR = os.path.join(BASE_DIR, "typeset")
 
 def latex_escape(t):
     t = t.replace('&', '\\&')
@@ -91,7 +92,7 @@ def make_drop_cap(latex_body):
     return drop + '\n\n' + rest
 
 chapters_tex = []
-for n in range(1, 20):
+for n in range(1, 23):
     path = os.path.join(CHAPTERS_DIR, f"ch_{n:02d}.md")
     with open(path) as f:
         text = f.read()
