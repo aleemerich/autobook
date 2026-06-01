@@ -84,8 +84,8 @@ def load_editorial_markdown() -> dict:
             "- affects_downstream: 18, 19, 20\n"
         )
         EDITORIAL_MD.write_text(default_content, encoding="utf-8")
-        log_msg(f"Criado arquivo de template editorial em Markdown: {EDITORIAL_MD}")
-        log_msg("Edite este arquivo com suas anotações antes de rodar o pipeline editorial.")
+        log_msg(f"Created default editorial Markdown template at: {EDITORIAL_MD}")
+        log_msg("Please edit this file with your notes before running the editorial pipeline.")
         sys.exit(0)
         
     text = EDITORIAL_MD.read_text(encoding="utf-8")
@@ -121,7 +121,7 @@ def load_editorial_markdown() -> dict:
     )
     
     try:
-        log_msg("Chamando LLM para extração semântica e assertiva do editorial.md...")
+        log_msg("Calling LLM for semantic and assertive extraction of editorial.md...")
         response = call_llm(prompt=user_prompt, system_prompt=system_prompt, temperature=0.1, is_judge=True)
         
         # Clean response string of markdown wraps
@@ -150,13 +150,13 @@ def load_editorial_markdown() -> dict:
                 "affects_downstream": [int(x) for x in v.get("affects_downstream", [])]
             }
             
-        log_msg("Extração semântica via LLM concluída com sucesso.")
+        log_msg("Semantic extraction via LLM completed successfully.")
         return {
             "general_notes": general_notes,
             "chapters": chapters
         }
     except Exception as e:
-        log_msg(f"AVISO: Falha na extração semântica via LLM: {e}. Usando parser de fallback robusto baseado em regex.")
+        log_msg(f"WARNING: Semantic extraction via LLM failed: {e}. Falling back to robust regex parser.")
         return load_editorial_markdown_fallback(text)
 
 def classify_brief_with_ai(ch_num: int, brief: str) -> dict:
@@ -233,10 +233,10 @@ def run_editorial():
     chapters_data = editorial.get("chapters", {})
     
     if not chapters_data:
-        log_msg("Aviso: Nenhuma diretiva de capítulos encontrada no Markdown. Encerrando.")
+        log_msg("Warning: No chapter directives found in the Markdown file. Exiting.")
         return
         
-    banner("ANALISANDO DIRETIVAS EDITORIAIS")
+    banner("ANALYZING EDITORIAL DIRECTIVES")
     
     # 2. Hybrid impact analysis
     parsed_tasks = {}
@@ -245,7 +245,7 @@ def run_editorial():
         user_type = ch_info.get("type", "punctual")
         user_downstream = ch_info.get("affects_downstream", [])
         
-        step(f"Analisando Capítulo {ch_num} com Inteligência Editorial...")
+        step(f"Analyzing Chapter {ch_num} with Editorial Intelligence...")
         ai_analysis = classify_brief_with_ai(ch_num, brief)
         
         # Merge Downstream ranges
@@ -266,33 +266,33 @@ def run_editorial():
         
     # 3. Present the Adjustment Plan (Dry-Run)
     print("\n" + "=" * 60)
-    print("PLANO DE AJUSTE EDITORIAL (AGUARDANDO APROVAÇÃO)")
+    print("EDITORIAL ADJUSTMENT PLAN (AWAITING APPROVAL)")
     print("=" * 60)
     if general_notes:
         print(f"Diretrizes Gerais:\n{general_notes}\n")
         
     for ch_num in sorted(parsed_tasks.keys()):
         task = parsed_tasks[ch_num]
-        type_str = "QUEBRA DE CONTINUIDADE (CASCATA)" if task["type"] == "continuity_breaking" else "PONTUAL (AJUSTE LOCAL)"
-        print(f"[-] Capítulo {ch_num:02d}: {type_str}")
-        print(f"    Briefing Humano:\n{task['brief']}")
-        print(f"    Crítica Direta da IA: \"{task['criticism']}\"")
+        type_str = "CONTINUITY BREAKING (CASCADE)" if task["type"] == "continuity_breaking" else "PUNCTUAL (LOCAL ADJUSTMENT)"
+        print(f"[-] Chapter {ch_num:02d}: {type_str}")
+        print(f"    Human Briefing:\n{task['brief']}")
+        print(f"    Direct AI Criticism: \"{task['criticism']}\"")
         if task["affects_downstream"]:
-            print(f"    Capítulos Afetados a Jusante: {task['affects_downstream']}")
+            print(f"    Downstream Chapters Affected: {task['affects_downstream']}")
         print("-" * 60)
         
     # 4. Interactive prompt
     try:
-        choice = input("\nDeseja iniciar as ações de correção acima? [Y/n] ").strip().lower()
+        choice = input("\nDo you want to initiate the correction actions above? [Y/n] ").strip().lower()
         if choice not in ["", "y", "yes", "s", "sim"]:
-            log_msg("Operação abortada pelo usuário.")
+            log_msg("Operation aborted by user.")
             return
     except (KeyboardInterrupt, EOFError):
-        print("\nOperação abortada.")
+        print("\nOperation aborted.")
         return
         
     # 5. Process revisions
-    banner("EXECUTANDO REVISÕES EDITORIAIS")
+    banner("EXECUTING EDITORIAL REVISIONS")
     
     # Track cascading continuity warnings
     # maps chapter -> list of strings
@@ -302,7 +302,7 @@ def run_editorial():
     sorted_chapters = sorted(parsed_tasks.keys())
     for ch_num in sorted_chapters:
         task = parsed_tasks[ch_num]
-        banner(f"PROCESSANDO CAPÍTULO {ch_num:02d} ({task['type'].upper()})", char=".")
+        banner(f"PROCESSING CHAPTER {ch_num:02d} ({task['type'].upper()})", char=".")
         
         # Build local brief content
         brief_lines = [
@@ -340,7 +340,7 @@ def run_editorial():
         pre_score = parse_score(pre_eval.stdout, "overall_score")
         
         # Run revision
-        step(f"Reescrevendo Capítulo {ch_num}...")
+        step(f"Rewriting Chapter {ch_num}...")
         run_tool(f"uv run python gen_revision.py {ch_num} {temp_brief_path}", timeout=REVISION_TIMEOUT)
         
         # Evaluate after revision
@@ -348,21 +348,21 @@ def run_editorial():
         post_score = parse_score(post_eval.stdout, "overall_score")
         
         # Keep or discard decision
-        log_msg(f"Capítulo {ch_num}: Pontuação {pre_score} -> {post_score}")
+        log_msg(f"Chapter {ch_num}: Score {pre_score} -> {post_score}")
         
         if post_score >= pre_score:
             commit_hash = git_add_commit(f"editorial: revise ch{ch_num:02d} ({task['type']}) {pre_score}->{post_score}")
-            log_msg(f"Mantendo alteração no Capítulo {ch_num:02d}. Commit: {commit_hash}")
+            log_msg(f"Keeping revision for Chapter {ch_num:02d}. Commit: {commit_hash}")
             
             # If continuity breaking, register warnings for downstream chapters
             if task["type"] == "continuity_breaking":
-                warning_msg = f"No Capítulo {ch_num}, foi estabelecido o seguinte fato: {task['brief']}"
+                warning_msg = f"In Chapter {ch_num}, the following fact was established: {task['brief']}"
                 for downstream_ch in task["affects_downstream"]:
                     if downstream_ch not in continuity_warnings:
                         continuity_warnings[downstream_ch] = []
                     continuity_warnings[downstream_ch].append(warning_msg)
         else:
-            step(f"A revisão reduziu a nota ({post_score} < {pre_score}). Revertendo alterações.")
+            step(f"Revision reduced the score ({post_score} < {pre_score}). Reverting changes.")
             git_reset_hard("HEAD")
             
         # Clean up temporary brief file
@@ -370,14 +370,14 @@ def run_editorial():
             temp_brief_path.unlink()
             
     # 6. Rebuild manuscript, arc summary and LaTeX
-    banner("CONSOLIDANDO MANUSCRITO E ESTRUTURA")
+    banner("CONSOLIDATING MANUSCRIPT AND STRUCTURE")
     run_tool("uv run python build_arc_summary.py", timeout=EXPORT_TIMEOUT)
     run_tool("uv run python build_outline.py", timeout=EXPORT_TIMEOUT)
     run_tool("uv run python typeset/build_tex.py", timeout=EXPORT_TIMEOUT)
     
     git_add_commit("editorial: finalize manuscript, outline, and LaTeX typeset consolidation")
     
-    banner("PIPELINE EDITORIAL CONCLUÍDO COM SUCESSO")
+    banner("EDITORIAL PIPELINE COMPLETED SUCCESSFULLY")
 
 def main():
     run_editorial()
