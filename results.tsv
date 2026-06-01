@@ -72,3 +72,4 @@ discarded	ch22	3.5	2955	discard	Chapter 22 attempt 4
 discarded	ch22	3.2	4119	discard	Chapter 22 attempt 5
 e3b7c7b	ch22	?	4119	forced	Chapter 22: kept after max attempts
 reverted	rev-ch15	5.7	2981	discard	Reader Panel: momentum_loss regressed 6.0->5.7
+reverted	rev-ch19	4.5	4536	discard	Reader Panel: missing_scene regressed 6.0->4.5
