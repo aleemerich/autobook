@@ -13393,3 +13393,558 @@
 [2026-06-01 05:29:14] [SUBPROCESS] eval_log: /mnt/d/Dev/autobook/eval_logs/20260601_052914_ch15.json
 [2026-06-01 05:29:14] [INFO] Chapter 15 score: 6.14
 [2026-06-01 05:29:14] [INFO] RUN: git add -A
+[2026-06-01 05:29:15] [INFO] RUN: git commit -m "ch15: score 6.14, 2686w" --allow-empty
+[2026-06-01 05:29:15] [SUBPROCESS] [autobook/a-prova-final fc85fc4] ch15: score 6.14, 2686w
+[2026-06-01 05:29:15] [SUBPROCESS] 4 files changed, 382 insertions(+), 1 deletion(-)
+[2026-06-01 05:29:15] [SUBPROCESS] create mode 100644 chapters/ch_15.md
+[2026-06-01 05:29:15] [INFO] RUN: git rev-parse --short HEAD
+[2026-06-01 05:29:15] [SUBPROCESS] fc85fc4
+[2026-06-01 05:29:15] [INFO] GIT COMMIT: fc85fc4 — ch15: score 6.14, 2686w
+[2026-06-01 05:29:15] [INFO] ------------------------------------------------------------
+[2026-06-01 05:29:15] [INFO] Drafting Chapter 16/22
+[2026-06-01 05:29:15] [INFO] ------------------------------------------------------------
+[2026-06-01 05:29:15] [INFO] Attempt 1/5
+[2026-06-01 05:29:15] [INFO] RUN: uv run python draft_chapter.py 16
+[2026-06-01 05:29:16] [SUBPROCESS] Drafting Chapter 16...
+[2026-06-01 05:29:16] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 05:34:30] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 05:34:30] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 05:34:30] [SUBPROCESS] Saved to /mnt/d/Dev/autobook/chapters/ch_16.md
+[2026-06-01 05:34:30] [SUBPROCESS] Word count: 3398
+[2026-06-01 05:34:30] [SUBPROCESS] # Capítulo 16 — A CONFRONTAÇÃO COM O PAI
+[2026-06-01 05:34:30] [SUBPROCESS] 
+[2026-06-01 05:34:30] [SUBPROCESS] O comboio de Zurique para Kreuzlingen demorava trinta e sete minutos. Elisa sabia porque cronometrara na primeira vez — ida e volta, duas vezes, num fim-de-semana de Outono em que não tinha conseguido dormir e a única alternativa ao escritório era o movimento. Trinta e sete minutos. O suficiente para ler um artigo curto. O insuficiente para pensar em tudo o que precisava de pensar.
+[2026-06-01 05:34:30] [SUBPROCESS] 
+[2026-06-01 05:34:30] [SUBPROCESS] Não levou artigo nenhum.
+[2026-06-01 05:34:30] [SUBPROCESS] 
+[2026-06-01 05:34:30] [SUBPROCESS] Sentou-se no lugar junto à janela, do lado esquerdo, porque a luz da manhã entrava pela direita e o brilho no ecrã do portátil tornava-se insuportável depois de vinte minutos. O comboio encheu-se devagar — um homem de negócios com AirPods, duas estudantes a rir de algo no telefone, uma mulher idada com sacos de compras. Pessoas normais a fazer coisas normais. Elisa perguntou-se se alguma delas sabia o que era um Drakon. Provavelmente não. Provavelmente tinham outras coisas com que se preocupar. O homem de negócios certamente calculava dinheiro. As estudantes certamente calculavam afectos. A senhora com os sacos certamente calculava o peso que as pernas já não suportavam.
+[2026-06-01 05:34:30] [SUBPROCESS] 
+[2026-06-01 05:34:30] [SUBPROCESS] Todos calculavam. A diferença era o que escolhiam medir.
+[2026-06-01 05:34:30] [SUBPROCESS] 
+[2026-06-01 05:34:30] [SUBPROCESS] O campo desenrolava-se para lá da janela. Inverno suíço — planície cinzenta, árvores sem folha, um céu tão baixo que parecia pousado nos telhados. Elisa olhou para o reflexo no vidro. O cabelo caía-lhe sobre o olho direito. Não o afastou. A cara que via no vidro era a mesma de sempre: angulosa, estreita, com olheiras que já não eram um sintoma mas uma característica. Rosto de quem dorme quatro horas e trabalha vinte. Rosto de quem não tem tempo para ser outra coisa.
+[2026-06-01 05:34:30] [SUBPROCESS] 
+[2026-06-01 05:34:30] [SUBPROCESS] O telefone vibrou. Mensagem de Marcus.
+[2026-06-01 05:34:30] [SUBPROCESS] 
+[2026-06-01 05:34:30] [SUBPROCESS] *"Vi o teu e-mail. Fala comigo antes de fazeres algo que não possas reverter."*
+[2026-06-01 05:34:30] [SUBPROCESS] 
+[2026-06-01 05:34:30] [SUBPROCESS] Elisa não respondeu. Guardou o telefone no bolso interior do casaco, junto ao peito, onde o vibração se tornava uma segunda pulsação. Marcus tinha razão — havia sempre coisas que não se podiam reverter. Mas a investigação de Helena não era uma delas. A investigação era o único processo reversível naquele momento, o único sistema que ainda obedecia a leis que Elisa compreendia. Tudo o resto — o artigo de Marcus, as corporações, a carta na gaveta, o último guardanapo da mãe — era entropia pura. Desordem a aumentar.
+[2026-06-01 05:34:30] [SUBPROCESS] 
+[2026-06-01 05:34:30] [SUBPROCESS] Tocou no granito no bolso direito. O polegar encontrou o sulco que já ali estava, polido por repetição. Dois vírgula sete gramas por centímetro cúbico. Zero vírgula zero zero um Drakons. O mesmo valor que Helena.
+[2026-06-01 05:34:30] [SUBPROCESS] 
+[2026-06-01 05:34:30] [SUBPROCESS] O comboio abrandou. Kreuzlingen.
+[2026-06-01 05:34:30] [SUBPROCESS] 
+[2026-06-01 05:34:30] [SUBPROCESS] ---
+[2026-06-01 05:34:30] [SUBPROCESS] 
+[2026-06-01 05:34:30] [SUBPROCESS] O consultório do Dr. Farkas ficava no segundo andar de um edifício de apartamentos junto ao lago de Constança. Sem placa. Sem indicação. O nome na campainha dizia apenas "A. Farkas" — como se a inicial fosse suficiente, como se o primeiro nome fosse informação reservada a quem já soubesse.
+[2026-06-01 05:34:30] [SUBPROCESS] 
+[2026-06-01 05:34:30] [SUBPROCESS] Elisa tocou à campainha às 9h14. Não tinha marcado consulta. Não tinha avisado. Tinha pegado no comboio às 8h30 com uma decisão que tomara às 3h40 da manhã, no escritório do ETH, com uma caneca fria de café na mão e o artigo de Marcus ainda aberto no ecrã. A decisão era simples: se Helena era o problema, Farkas era quem mais perto estivera do problema. Vinte anos de consultas. Vinte anos de confidências. O médico que a conhecia melhor do que a filha, melhor do que o falecido marido, melhor do que qualquer instrumento que Elisa pudesse apontar.
+[2026-06-01 05:34:30] [SUBPROCESS] 
+[2026-06-01 05:34:30] [SUBPROCESS] A porta abriu.
+[2026-06-01 05:34:30] [SUBPROCESS] 
+[2026-06-01 05:34:30] [SUBPROCESS] Amós Farkas era mais baixo do que Elisa esperava — as fotografias no Google Scholar eram de pé, e a postura criava uma ilusão de altura que a realidade desmentia. Um vírgula sessenta e cinco, talvez menos. Cabelo branco, espesso, penteado com um rigor que parecia militar. Bigode branco e denso. Olhos castanho-escuros que a olharam com uma calma que Elisa reconheceu imediatamente: a calma de quem já sabe o que vai ser dito e escolheu, há muito, não se surpreender.
+[2026-06-01 05:34:30] [SUBPROCESS] 
+[2026-06-01 05:34:30] [SUBPROCESS] — Doutora Dragovski — disse Farkas. A voz era baixa, húngaro-suíço, com pausas que não eram hesitação mas arquitectura. — Sabia que viria.
+[2026-06-01 05:34:30] [SUBPROCESS] 
+[2026-06-01 05:34:30] [SUBPROCESS] Elisa não perguntou como sabia. Não perguntou se podia entrar. Farkas afastou-se da porta e fez um gesto com a mão direita — largo, lento, cirúrgico. Entre, como se fosse óbvio, como se a casa já estivesse à espera dela.
+[2026-06-01 05:34:30] [SUBPROCESS] 
+[2026-06-01 05:34:30] [SUBPROCESS] O consultório ocupava a frente do apartamento. Estantes cheias de livros — médicos, filosóficos, alguns em húngaro. Uma secretária de madeira escura, com um tampo limpo excepto por um bloco de notas e uma caneta. Dois cadeirões frente a frente, separados por uma mesa baixa. Na janela, o lago de Constança — cinzento, imóvel, com uma neblina fina que dissolvia a linha entre água e céu.
+[2026-06-01 05:34:30] [SUBPROCESS] 
+[2026-06-01 05:34:30] [SUBPROCESS] Farkas sentou-se num dos cadeirões. Elisa sentou-se no outro. A madeira rangeu sob o peso — ou sob a idade, ou sob ambas.
+[2026-06-01 05:34:30] [SUBPROCESS] 
+[2026-06-01 05:34:30] [SUBPROCESS] — Café turco? — perguntou Farkas.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] Elisa abriu a boca para recusar. Fechou-a. Assentiu.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] Farkas levantou-se e desapareceu numa porta ao fundo. Elisa ouviu água, gás, o som metálico de uma cafeteira pequena a ser colocada no lume. Esperou. Olhou para a estante mais próxima. Viu títulos em alemão, húngaro, inglês. *O Que É a Vida?* de Schrödinger. *A Estrutura das Revoluções Científicas* de Kuhn. Um livro em húngaro que Elisa não conseguiu decifrar. E, numa prateleira mais baixa, separado dos outros, um volume gasto com lombada de couro: *Budapest 1956 — Testemunhos*.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] Farkas regressou com duas chávenas pequenas, escuras, sem asas. Colocou uma diante de Elisa. Sentou-se. Esperou que ela provasse.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] Elisa levantou a chávena. O café era espesso, amargo, com um fundo de terra e cardamomo. Bebeu. O sabor era simultaneamente estranho e familiar — como uma memória que não era sua.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — Obrigada — disse.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] Farkass assentiu. Bebeu do seu café. Pousou a chávena.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — Vou contar-lhe uma coisa que nunca contei a ninguém — disse Farkas. A voz não mudou de registo. Era a mesma calma de sempre. Mas as pausas entre as frases eram mais longas, como se cada palavra precisasse de permissão para sair. — Mas primeiro, preciso que me prometa uma coisa.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — Que coisa?
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — Que não vai usar isto contra a Helena.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] Elisa pousou a chávena. O café turco deixou um resíduo escuro no fundo — espesso, denso, como sangue seco.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — Não prometo — disse.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] Farkass olhou para ela. Não havia surpresa no olhar. Nem decepção. Apenas uma confirmação silenciosa — como se a resposta fosse exactamente a que esperava.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — Mas vou ouvir — disse Elisa.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] Farkas bebeu mais um gole de café. Pousou a chávena com ambas as mãos, como se a estivesse a ancorar à mesa.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — Em 2019 — disse Farkas —, na semana após a morte do Béla, a Helena tomava comprimidos para dormir. Zolpidem, quinze miligramas. O dobro do que eu teria prescrito. Mas ela não me pediu. Comprou-os sozinha. Eu soube depois, quando a Mirela me contou que encontrou a caixa vazia no caixote do lixo da casa de banho.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] Elisa não disse nada. Sabia que não devia interromper. Sabia que Farkas estava a escolher cada palavra com a precisão de quem desactiva uma bomba — um gesto errado e a informação deflagrava.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — Numa noite — continuou Farkas —, a Helena ligou-me. Eram duas e meia da madrugada. Estava mais solta do que o normal. Os comprimidos. Falou durante quarenta minutos. Eu anotei o essencial no dia seguinte, enquanto a memória estava fresca. As notas estão naquela gaveta — apontou para a secretária — e nunca ninguém as leu.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] Elisa olhou para a secretária. A gaveta estava fechada. Normalmente fechada, como todas as gavetas que guardam coisas que não devem ser encontradas.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — A Helena falou sobre 1983 — disse Farkas. — Sobre a tradução. Sobre as seis horas. Sobre o diplomata soviético. E sobre as três semanas de leveza.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] Elisa sentiu algo no peito — não um aperto, não um salto. Uma mudança de pressão, como quando se desce demasiado rápido num elevador e o corpo demora um segundo a perceber que o chão está mais perto do que pensava.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — Ela contou-lhe sobre as três semanas?
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] Farkas assentiu.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — Disse-me: "Amós, durante três semanas, pensar não custou nada. Foi como respirar debaixo de água — natural, sem resistência. E depois passou. E eu nunca percebi porquê."
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] O café arrefeceu entre as mãos de Elisa. Respirar debaixo de água. Natural. Sem resistência. A metáfora era imprecisa — respirar debaixo de água era impossível, era a definição de asfixia — mas a sensação que transmitia era exacta: a ausência de esforço. A ausência de custo. Um sistema que processa informação sem pagar o preço termodinâmico.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — A senhora guardou este segredo durante oito anos — disse Elisa. Não era uma pergunta.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — Oito anos — confirmou Farkas. — Porque a Helena me pediu que não contasse. E porque eu sabia que, se contasse, ela deixaria de ser a minha paciente e passaria a ser o vosso problema.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — Ela já é o meu problema.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — Não. Ela é a minha paciente. E a senhora é que tem o problema — Farkas inclinou-se para a frente, os cotovelos nos joelhos, as mãos entrelaçadas. — O problema da senhora não é a Helena. O problema da senhora é que construiu um modelo bonito, elegante, premiado, e a Helena não cabe nele. E em vez de perguntar se o modelo está errado, a senhora está a perguntar se a Helena está errada. Eu não vou ajudá-la a fazer isso.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] Elisa bebeu o resto do café. Estava frio. O amargo era mais forte.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — A Helena sabe que a senhora está a contar-me isto?
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — Não — disse Farkas. — E peço-lhe que não lhe diga.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — Porquê?
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — Porque a Helena não gosta de ser vista como anomalia. Prefere ser vista como pessoa. E eu respeito isso. Respeito há vinte anos. Não vou ser eu a quebrar a confiança dela, e não vou ser a senhora.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — Eu vejo-a como pessoa.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] Farkas olhou para ela. O olhar durou três segundos. Quatro. Cinco. Depois disse:
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — Não basta ver. É preciso que ela sinta que é vista.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] Elisa não abriu a boca. O silêncio que se seguiu não era um silêncio vazio — era um silêncio cheio, denso, como a água que enche um tanque antes de transbordar. Havia algo na frase de Farkas que tocava uma zona que Elisa não tinha nome para tocar. Algo sobre ver e ser visto. Sobre medição e reconhecimento. Sobre a diferença entre registar um fenómeno e compreendê-lo.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] Mudou de assunto. Tinha mais perguntas e sabia que o tempo era limitado — Farkas não era um homem que desperdiçasse palavras, mas também não era um homem que prolongasse uma conversa para além do necessário.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — A Helena mencionou mais alguma coisa nessa noite? — perguntou. — Para além das três semanas.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] Farkas endireitou-se. Bebeu o último gole do seu café. Pousou a chávena com um gesto final.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — Sim — disse. — Mencionou uma coisa que nunca repetiu. Nessa noite, a meio da conversa, a Helena disse: "Amós, e se a consciência não for o que pensamos que for? E se for algo que escolhe quando se manifesta?"
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] Elisa sentiu a espinha endireitar-se. Não por escolha — por reflexo. O corpo a reagir antes do cérebro processar.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] — Eu perguntei o que queria dizer — continuou Farkas. — Ela respondeu: "Não sei. Mas durante aquelas três semanas, senti que podia escolher. Escolher pensar sem custar. E escolhi. E depois a escolha acabou."
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] O consultório ficou em silêncio. Lá fora, o lago de Constança continuava imóvel. A neblina não se movia. O mundo, naquele instante, parecia um sistema em equilíbrio — nenhuma transição, nenhuma mudança, nenhuma desordem a aumentar.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:31] [SUBPROCESS] Mas Elisa não estava em equilíbrio.
+[2026-06-01 05:34:31] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Escolher pensar sem custar.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] A frase repetiu-se na cabeça como uma equação que não fecha — os dois lados da igualdade a recusarem-se a ser o mesmo. Pensar é um processo termodinâmico. Todo o processo termodinâmico gera entropia. Todo o incremento de entropia tem custo. O custo é a seta do tempo. A seta do tempo é universal. Escolher não entra na equação — a equação é determinística, não voluntária. Um sistema não escolhe gerar entropia. Ou gera ou não gera.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Mas Helena escolheu.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Helena sentiu que podia escolher. Escolheu pensar sem custar. E depois a escolha acabou.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Isto implicava agência. Não era um processo termodinâmico passivo — era uma decisão. Uma decisão que operava sobre o próprio mecanismo que deveria ser involuntário. Como se a consciência não fosse o motor que gera entropia, mas o condutor que decide quando o motor funciona.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Elisa levou a mão ao bolso direito. Tocou no granito. O polegar encontrou o sulco. Dois vírgula sete gramas por centímetro cúbico. Zero vírgula zero zero um Drakons. O granito não escolhia. O granito não pensava. O granito era o controlo — o ponto zero, a linha de base, o nada contra o qual se media o algo.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Mas Helena não era o nada. Helena era uma mulher de sessenta e sete anos que cozinhava paprika e cuidava de manjericão e falava sozinha em húngaro e tinha covinhas profundas quando sorria. Helena era o algo. E o algo escolhia quando ser algo.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] — Doutora Dragovski — disse Farkas. A voz trouxe-a de volta. — A senhora está bem?
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Elisa retirou a mão do bolso. Olhou para Farkas. O bigode branco, os olhos castanho-escuros, a calma de quem já viu coisas que não têm nome e aprendeu a viver com elas.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] — Estou — disse. E era verdade. Estava bem. Estava terrível. As duas coisas ao mesmo tempo, comprimidas no peito como duas ondas de frequência diferente que se encontram e se anulam — o resultado não é silêncio, é uma vibração estranha que não é nem uma coisa nem outra.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] — Posso perguntar uma coisa? — disse Elisa.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] — Pode.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] — Porquê agora? Porquê contar-me isto agora?
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Farkas olhou para ela durante cinco segundos. Depois olhou para a janela. O lago. A neblina. O céu que não se distinguia da água.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] — Porque a Helena tem o direito de ser compreendida — disse. — E a senhora é a única pessoa no mundo com ferramentas para a compreender. Mas ferramentas não bastam. Precisa de algo que eu não sei nomear. Algo que a senhora também não sabe nomear, ou não estaria aqui a fazer-me perguntas que já sabe que eu não consigo responder.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Elisa levantou-se. As pernas estavam firmes — o corpo obedecendo enquanto o cérebro processava a uma velocidade que não tinha unidade de medida. Agradecer era o protocolo. Agradecer era o que se fazia quando alguém nos dá algo. Mas Farkas não lhe tinha dado algo — Farkas tinha-lhe mostrado uma porta. E a porta estava aberta. E do outro lado da porta havia uma pergunta que Elisa não sabia formular.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] — Obrigada — disse. Porque não havia outra coisa para dizer.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Farkas levantou-se. Acompanhou-a à porta. Antes de abri-la, disse:
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] — Doutora. Uma última coisa.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Elisa virou-se.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] — A Helena não é um problema para resolver. É uma pessoa para compreender. Se a senhora confundir as duas coisas, vai perder as duas.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Elisa abriu a porta. As escadas eram estreitas, com um corrimão de ferro pintado de verde — o mesmo verde das escadas exteriores do prédio de Helena, pensou, e depois pensou que estava a fazer associações irrelevantes porque o cérebro precisava de processar algo e não sabia por onde começar.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Desceu as escadas. Saiu para a rua. O ar de Kreuzlingen era mais frio do que Zurique — o lago de Constança trazia uma humidade que se infiltrava nos ossos. Caminhou até à estação. O comboio seguinte saía em doze minutos.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Sentou-se num banco na plataforma. Tirou o caderno do bolso interior do caserno — o caderno pequeno, de capa preta, onde escrevia coisas que não cabiam no portátil. Abriu numa página em branco. Escreveu:
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] *Possibilidade 5: A consciência não é um processo — é uma escolha. Helena escolhe quando gerar entropia. Durante três semanas em 1983, escolheu não gerar. Agora, permanentemente, escolhe não gerar. Porquê? O que mudou?*
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Parou. Olhou para a pergunta. A tinta ainda estava húmida — a caneta a deixar um rasto negro sobre o papel branco, irreversível, como tudo o que se escreve.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] A pergunta era diferente de todas as anteriores. As quatro primeiras possibilidades eram sobre mecanismos: a entropia estava a ser exportada, o formalismo estava incompleto, Helena era uma Máquina de Maxwell biológica, a seta do tempo era local. Todas perguntavam *como*. Como funciona? Como é possível? Como se explica?
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Esta perguntava *porquê*.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Porquê escolher não gerar entropia? Porquê escolher pensar sem custar? O que mudou entre 1983 e agora? O que mudou entre as três semanas e os quarenta e três anos que se seguiram?
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Elisa fechou o caderno. O comboio apitou à entrada da plataforma. Levant-se. Entrou. Sentou-se no lugar junto à janela, do lado esquerdo, porque a luz da manhã entrava pela direita e o brilho no ecrã do portátil tornava-se insuportável depois de vinte minutos.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] O comboio partiu. Kreuzlingen ficou para trás. O lago de Constança desapareceu. O campo desenrolou-se para lá da janela — planície cinzenta, árvores sem folha, um céu tão baixo que parecia pousado nos telhados.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Elisa abriu o portátil. O ecrã acendeu-se. O formalismo estava ali — as equações, os dados, os gráficos. S igual a k logaritmo de W. Delta S maior ou igual a k ln 2 vezes I bit. A prova matemática de que pensar é desordenar o universo. A prova que lhe deram o Nobel. A prova que o mundo adoptou como verdade.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Olhou para as equações. As equações não tinham mudado. Os cálculos estavam correctos. A matemática era sólida. A matemática era sempre sólida — a matemática era a única coisa que não traía porque não prometia nada.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Mas a matemática descrevia um processo. E Helena não era um processo.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Helena era uma escolha.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] E a escolha — a escolha real, a escolha voluntária, a escolha que não cabia em nenhuma equação porque as equações não têm espaço para a vontade — era a coisa que o formalismo não capturava. Nunca capturaria. Porque o formalismo mede o que acontece. Não mede o que escolhe acontecer.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Elisa fechou o portátil. Olhou para o reflexo no vidro. O cabelo caía-lhe sobre o olho direito. Não o afastou. A cara que via no vidro era a mesma de sempre — mas os olhos eram diferentes. Os olhos de quem viu uma porta aberta e não sabe se quer passar.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Tocou no granito no bolso direito. O polegar encontrou o sulco. Dois vírgula sete gramas por centímetro cúbico. Zero vírgula zero zero um Drakons.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] O granito não escolhia.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Helena escolhia.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] E a diferença entre os dois — a diferença absoluta, irreversível, a diferença que nenhuma equação podia colmatar — era a diferença entre um processo e uma pessoa.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] O comboio entrou em Zurique às 10h22. Elisa levantou-se. Saiu da estação. Caminhou. Hofwiesenstrasse. Riedtlistraße. O prédio de fachada cinzenta azulada. Não subiu. Continuou em frente, em direção ao ETH, ao escritório temporário, ao monitor que projectava sombras azuis sobre a mesa.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Tinha trabalho a fazer. Os dados do CERN. O artigo de Renan. A resposta a Marcus. O formalismo no ecrã, linha por linha, à procura da falha que sabia estar lá mas que ainda não conseguia ver.
+[2026-06-01 05:34:32] [SUBPROCESS] 
+[2026-06-01 05:34:32] [SUBPROCESS] Mas agora — agora que Farkas lhe tinha mostrado a porta — a falha tinha um nome.
+[2026-06-01 05:34:33] [SUBPROCESS] 
+[2026-06-01 05:34:33] [SUBPROCESS] A falha não estava nos cálculos. A falha estava nos pressupostos. O formalismo assumia que a consciência era um processo termodinâmico. Se era uma escolha, o formalismo medía o correlato, não a coisa. O mapa não era o território. Nunca fora.
+[2026-06-01 05:34:33] [SUBPROCESS] 
+[2026-06-01 05:34:33] [SUBPROCESS] Elisa caminhou. Zurique era cinzenta. O tempo passava. A entropia aumentava. E em algum lugar, num laboratório subterrâneo sob a fronteira franco-suíça, um anel de vinte e sete quilómetros continuava a acelerar protões, e os detectores continuavam a registar padrões que ninguém lia, e um técnico anónimo continuava a escrever notas internas que ninguém abria.
+[2026-06-01 05:34:33] [SUBPROCESS] 
+[2026-06-01 05:34:33] [SUBPROCESS] Parece estruturado. Como se fosse sinal.
+[2026-06-01 05:34:33] [SUBPROCESS] 
+[2026-06-01 05:34:33] [SUBPROCESS] Elisa caminhou. O caderno no bolso. A pergunta na cabeça. A porta aberta à frente.
+[2026-06-01 05:34:33] [SUBPROCESS] 
+[2026-06-01 05:34:33] [SUBPROCESS] *Porquê?*
+[2026-06-01 05:34:33] [SUBPROCESS] 
+[2026-06-01 05:34:33] [SUBPROCESS] Não era *como funciona?*
+[2026-06-01 05:34:33] [SUBPROCESS] 
+[2026-06-01 05:34:33] [SUBPROCESS] Era *porquê?*
+[2026-06-01 05:34:33] [SUBPROCESS] 
+[2026-06-01 05:34:33] [SUBPROCESS] E a diferença entre as duas perguntas era a diferença entre uma cientista e uma pessoa.
+[2026-06-01 05:34:33] [INFO] Drafted 3398 words
+[2026-06-01 05:34:33] [INFO] RUN: uv run python evaluate.py --chapter=16
+[2026-06-01 05:34:34] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 05:37:48] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 05:37:48] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 05:37:48] [SUBPROCESS] ---
+[2026-06-01 05:37:48] [SUBPROCESS] overall_score: 4.5
+[2026-06-01 05:37:48] [SUBPROCESS] voice_adherence: 7 -- The voice is generally strong — Elisa's thermodynamic metaphors are consistent, her observational precision is present, and the sentence rhythm varies well between long deductive passages and short crisis beats. But there are moments where the narration steps outside Elisa's head to explain things she wouldn't explain to herself. The voice profile says POV is strictly limited to Elisa — these explanatory asides break that contract.
+[2026-06-01 05:37:48] [SUBPROCESS] beat_coverage: 8 -- All five outline beats are present and executed with care. The Farkas conversation is the chapter's backbone and it's well-dramatized — the coffee, the pauses, the two revelations delivered with proper escalation. The 'Possibilidade 5' notebook entry on the return train is a strong closing beat that reframes the entire investigation. The yes-but structure (crucial information gained, but it raises devastating new questions) is properly executed.
+[2026-06-01 05:37:48] [SUBPROCESS] character_voice: 8 -- Elisa's voice is precise, direct, contraction-free, and dominated by thermodynamic metaphor — all consistent with the character sheet. Farkas speaks with the slow, weighted cadence of a 72-year-old Hungarian-Swiss physician who chooses every word. The distinction is clear even without tags. Elisa's internal monologue — 'Pessoas normais a fazer coisas normais' — has the right blend of precision and detachment. The dialogue between Elisa and Farkas is the chapter's strongest element.
+[2026-06-01 05:37:48] [SUBPROCESS] plants_seeded: 8 -- The 1983 thread (planted in Ch 5, reinforced in Ch 13) pays off here with the full revelation — the translation, the Soviet diplomat, the three weeks, and the new element: Helena's agency. The 'escolher pensar sem custar' line is the chapter's thematic keystone and it's planted with precision. The CERN data mention at the end is a subtle structural callback that maintains the parallel mystery.
+[2026-06-01 05:37:48] [SUBPROCESS] prose_quality: 7 -- The prose is generally strong with good sentence variety — long deductive passages alternate with short, punchy realizations. The granito/Helena repetition at the end is the chapter's best structural move. Weaknesses: occasional explanatory narration that steps outside POV, a few too many em dashes in the final pages (4 in the last 300 words), and some repetitive sentence openings in the train scenes ('Elisa caminhou' appears 4 times). The 'Rosto de quem dorme quatro horas e trabalha vinte' sentence is generic — it could describe any overworked academic.
+[2026-06-01 05:37:48] [SUBPROCESS] continuity: 8 -- Strong continuity from the previous chapter. Elisa's emotional state tracks: she ends Ch 15 having just spoken with Helena on the phone ('os números podem esperar'), having disconnected from Marcus, walking alone through grey Zurich. Ch 16 opens with her on the train to Kreuzlingen — the decision made at 3:40am, consistent with her insomnia pattern. The granito in the pocket, the USB drive, the letter in the drawer, the mother's napkins — all carried forward. The fracture with Marcus is acknowledged but not resolved. The emotional throughline (determination → confrontation → revelation) is clean.
+[2026-06-01 05:37:48] [SUBPROCESS] canon_compliance: 7 -- No major canon violations. The chapter is faithful to established facts, character descriptions, timeline, and world rules. The Farkas revelation about 2019 is consistent with the established fact that Helena mentioned the three weeks to him under sleeping pills. The 'escolher pensar sem custar' quote is new information delivered through Farkas, which is the correct mechanism for this revelation per the outline.
+[2026-06-01 05:37:48] [SUBPROCESS] lore_integration: 7 -- The Farkas conversation is deeply integrated with the world's central question — consciousness, entropy, agency, the IC's limitations. The thermodynamic framework is present throughout. But the setting itself (train, station, street) does minimal work. The world is set dressing here when it could be active texture.
+[2026-06-01 05:37:48] [SUBPROCESS] engagement: 7 -- The Farkas conversation is genuinely engaging — the two revelations are well-paced, the dialogue has tension, and the 'escolher pensar sem custar' line is a proper gut-punch. The chapter's central question ('porquê?' instead of 'como?') is a strong reframe that should propel the reader forward. The weakness is structural: the chapter is front-loaded with atmosphere (train, walk, coffee) and back-loaded with reflection (train, walk, office), leaving the middle as the only fully dramatized section. This creates a sandwich structure where the bread is thicker than the filling.
+[2026-06-01 05:37:48] [SUBPROCESS] three_weakest_sentences: ['Havia algo na frase de Farkas que tocava uma zona que Elisa não tinha nome para tocar.', 'O mundo, naquele instante, parecia um sistema em equilíbrio — nenhuma transição, nenhuma mudança, nenhuma desordem a aumentar.', 'Pessoas normais a fazer coisas normais. Elisa perguntou-se se alguma delas sabia o que era um Drakon.']
+[2026-06-01 05:37:48] [SUBPROCESS] three_strongest_sentences: ['O granito não escolhia. Helena escolhia. E a diferença entre os dois — a diferença absoluta, irreversível, a diferença que nenhuma equação podia colmatar — era a diferença entre um processo e uma pessoa.', 'Escolher pensar sem custar. A frase repetiu-se na cabeça como uma equação que não fecha — os dois lados da igualdade a recusarem-se a ser o mesmo.', 'Não basta ver. É preciso que ela sinta que é vista.']
+[2026-06-01 05:37:48] [SUBPROCESS] ai_patterns_detected: ['Em dash overload in final pages (4 em dashes in last 300 words)', "Repetitive sentence openings: 'Elisa caminhou' appears 4 times, 'O comboio' appears 3 times in the opening", 'Symmetry addiction: outbound and return train journeys are nearly identical in structure and description', "Description that catalogs: 'um homem de negócios com AirPods, duas estudantes a rir de algo no telefone, uma mulher idosa com sacos de compras' — three stock characters listed rather than one specific one developed", "Internal monologue explaining what the scene already showed: 'O mundo, naquele instante, parecia um sistema em equilíbrio' after the still lake description already conveyed this", "Emotional beats arriving on schedule: the chapter follows the outline's emotional arc (determination → confrontation → revelation) with mechanical precision — no surprises, no detours"]
+[2026-06-01 05:37:48] [SUBPROCESS] weakest_dimension: prose_quality
+[2026-06-01 05:37:48] [SUBPROCESS] top_3_revisions: ["Cut or rewrite all explanatory narration that steps outside Elisa's POV — particularly 'O mundo, naquele instante, parecia um sistema em equilíbrio' and 'Havia algo na frase de Farkas que tocava uma zona que Elisa não tinha nome para tocar.' Replace with physical sensations or observations that stay inside her head.", "Differentiate the return train journey from the outbound — either change the sensory details to reflect Elisa's transformed state, or compress it entirely and open the return with her already at her desk. The current mirroring is too symmetrical and creates repetitive prose.", "Add one world-specific detail to the train/station scenes — an IC bracelet, a Nexion poster, a conversation about Drakons — to transform generic European transit texture into this specific world's cultural landscape."]
+[2026-06-01 05:37:48] [SUBPROCESS] new_canon_entries: ['Elisa sits on the left side of trains because morning light comes from the right and glares on laptop screens', 'Elisa carries a small black notebook in her inner coat pocket for handwritten notes', "Farkas has a bookshelf that includes 'Budapest 1956 — Testemunhos' (note: minor discrepancy with canon's 1968 Prague Spring reference)", 'Farkas keeps his 2019 notes about Helena in a drawer of his desk — no one has ever read them', "Elisa's 'Possibilidade 5' framework: consciousness as choice rather than process"]
+[2026-06-01 05:37:48] [SUBPROCESS] slop: N/A --
+[2026-06-01 05:37:48] [SUBPROCESS] raw_judge_score: 7
+[2026-06-01 05:37:48] [SUBPROCESS] 
+[2026-06-01 05:37:48] [SUBPROCESS] eval_log: /mnt/d/Dev/autobook/eval_logs/20260601_053748_ch16.json
+[2026-06-01 05:37:48] [INFO] Chapter 16 score: 4.5
+[2026-06-01 05:37:48] [INFO] Score 4.5 < 6.0, discarding attempt
+[2026-06-01 05:37:48] [INFO] RUN: git checkout -- chapters/ch_16.md 2>/dev/null || true
+[2026-06-01 05:37:48] [INFO] Attempt 2/5
+[2026-06-01 05:37:48] [INFO] RUN: uv run python draft_chapter.py 16
+[2026-06-01 05:37:49] [SUBPROCESS] Drafting Chapter 16...
+[2026-06-01 05:37:49] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 05:43:03] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 05:43:03] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 05:43:03] [SUBPROCESS] Saved to /mnt/d/Dev/autobook/chapters/ch_16.md
+[2026-06-01 05:43:03] [SUBPROCESS] Word count: 3165
+[2026-06-01 05:43:03] [SUBPROCESS] # Capítulo 16 — A CONFRONTAÇÃO COM O PAI
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] O comboio de Zurique para Kreuzlingen demorava quarenta e um minutos. Elisa sabia porque cronometrara — não naquela manhã, mas na véspera, sentada à secretária do escritório temporário com o ecrã do computador apagado e as mãos pousadas sobre o teclado, a calcular quanto tempo levaria a chegar ao consultório do Dr. Farkas sem avisar. Quarenta e um minutos. O suficiente para sete estações, duas mudanças de paisagem — os subúrbios de Zurique a cederem lugar aos campos planos do Cantão de Turgóvia — e, se Elisa não conseguisse parar de pensar, aproximadamente quatro mil e duzentos pensamentos, cada um deles a desordenar o universo em 1,38 vezes 10 à menos 23 joules por kelvin.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] Não parou de pensar.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] O granito no bolso direito. O toque repetido — polegar contra a superfície polida que já tinha o formato da sua impressão digital. A rapariga sentada em frente olhava para o ecrã do telefone com a boca ligeiramente aberta, absorvida em algo que Elisa não quis identificar. Ao lado da rapariga, um homem de fato cinzento lia um jornal impresso. Um jornal impresso. Em 2027. Elisa achou isto simultaneamente anedótico e perturbador, como encontrar um fóssil que ainda respirava.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] Marcos. Rorschach. Tuttlingen. As estações passavam. O campo era verde e plano e monótono e Elisa não o via — via o rosto de Farkas, a última vez que o encontrara, no corredor do USZ, quando ele dissera "Helena não é um caso, Doutora" com aquela calma de quem coloca um bisturi sobre a mesa sem avisar que vai cortar.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] Ela não avisara que ia. Mandara um e-mail breve — "Preciso de falar com o senhor. Segunda-feira de manhã. Kreuzlingen" — e Farkas respondera em onze minutos: "Estarei no consultório. Café turco. Venha com fome."
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] Café turco. Como se fosse uma visita social. Como se Elisa não fosse chegar com a intenção de arrancar um segredo que um homem de 72 anos guardava há oito anos.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] Kreuzlingen. A estação era pequena — um edifício de tijolo amarelo, dois bancos de madeira, um painel eletrônico que mostrava partidas para Constança e Romanshorn. Elisa desceu. O ar cheira a gasóleo de comboio e a terra húmida. Março em Turgóvia era uma estação que não se decidia — nem inverno, nem primavera, apenas humidez cinzenta que entrava pela roupa.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] O consultório ficava a seis minutos a pé. Elisa em três.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] ---
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] O edifício era do século XIX, paredes de pedra cinzenta, janelas altas com persianas de madeira parcialmente fechadas. A porta de entrada era verde-escura, com um dourado na maçanetea que se descascava. Elisa tocou. Esperou. Ouviu passos — lentos, arrastados, o som de alguém que caminha como se o chão fosse uma superfície que merece respeito.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] Farkas abriu.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] Vestia colete. Como sempre. Camisa branca de mangas compridas arregaçadas até ao cotovelo, calças castanhas, sapatos de couro velho polidos com um cuidado que parecia ritual. O bigode branco e espesso — o mesmo bigude que Helena mencionara uma vez, rindo: "Parece uma foca com autoridade." Farkas não parecia uma foca. Parecia um homem que viveu o suficiente para saber que a maioria das urgências não era urgente.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] — Doutora Dragovski.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] A voz era a mesma. Lenta. Húngaro-suíço, com as consoantes a roçar umas nas outras como pedras de um rio.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] — Sabia que viria.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] Elisa não respondeu. Não porque não tivesse resposta, mas porque a frase não exigia uma — era uma constatação, não uma pergunta, e Farkas sabia que ela sabia que ele sabia. O café cheirava a cardamomo. Vinha de dentro, da cozinha que Elisa nunca vira mas que imaginava — pequena, organizada, com uma cafeteira de cobre turca no fogão.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] — Entre — disse Farkas.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] ---
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] O consultório ocupava o rés-do-chão. Um corredor estreito levava a uma sala com estantes de cheio a cheio — livros de medicina em alemão e húngaro, alguns com a lombada partida pelo uso, outros novos e fechados como promessas não cumpridas. Uma secretária de madeira escura, grande demais para a sala, com uma disposição que parecia aleatória mas que Elisa reconheceu como um sistema: os papéis à esquerda eram pacientes ativos, os do centro eram processos pendentes, os da direita eram arquivos mortos. Farkas era um homem de bordas. Tudo tinha o seu espaço.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] Dois sofás baixos, um de frente para o outro, separados por uma mesa de café de madeira clara. Sobre a mesa, uma bandeja de cobre com duas chávenas pequenas, um bule turco, um prato com lokum — cubos de gelatina de rosa cobertos de açúcar em pó.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] — Sente-se — disse Farkas, não como um pedido.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] Elisa sentou-se. O sofá era baixo demais para as pernas dela — os joelhos ficaram acima da anca, uma posição que a infância em Lisboa nunca lhe ensinara e que a vida na Suíça nunca corrigira. Farkas sentou-se do outro lado com o cuidado de quem sabe que o corpo já não negoceia. Serviu o café. O líquido era escuro, denso, com uma espuma fina à superfície. O cheiro — cardamomo, algo terroso, algo que não era café como Elisa o conhecia — encheu o espaço entre os dois.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] Farkas tomou um gole. Pousou a chávena. Olhou para Elisa com aqueles olhos castanho-escuros que pareciam medir sem instrumento.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] — Vou contar-lhe uma coisa que nunca contei a ninguém — disse. A voz não mudou de tom. Não houve solenidade, não hoo peso dramático. Era como dizer "Vou servir mais café." — Mas primeiro, preciso que me prometa uma coisa.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] Elisa não tomou o café.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] — Que é?
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] — Que não vai usar isto contra a Helena.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] O silêncio durou quatro segundos. Elisa contou — sempre contava, os silêncios eram dados, e os dados tinham duração.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] — Não prometo — disse. — Mas vou ouvir.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] Farkas inclinou a cabeça. Não em desaprovação — em reconhecimento. Como se a resposta fosse a única honesta que ele esperava.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] — Pois bem.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] ---
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] Tomou outro gole. Pousou a chávena. As mãos grandes — mãos de cirurgião aposentado, dedos longos com articulações ligeiramente inchadas — repousaram sobre o colete.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] — Em 2019 — disse —, na semana após a morte de Béla, a Helena tomava comprimidos para dormir. Zolpidem, dez miligramas, receitados por mim. Não era habitual — nunca tinha precisado de ajuda para dormir, em quarenta anos de casamento. Mas o Béla morreu entre roseiras, e a Helena encontrou-o, e há coisas que o corpo sabe processar antes que a mente aceite.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] Elisa não se mexeu. O granito no bolso. O polegar parou.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] — Numa noite — continuou Farkas, a voz igual, o mesmo tom plano de quem lê um boletim meteorológico —, a Helena falou mais solta do que o normal. Os comprimidos faziam isso — não a embriagavam, não a desinibiam no sentido que os entendidos descrevem. Apenas baixavam uma barreira. Uma barreira que a Helena mantinha há décadas, com uma disciplina que, agora que penso nisto, sempre me pareceu… excessiva.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] Excessiva. Elisa registou a palavra. Farkas não escolhia palavras ao acaso — tinha 72 anos, era húngaro, falava três línguas e escolhia cada termo como um cirurgião escolhe onde cortar.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] — Contou-me sobre 1983 — disse Farkas.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] Elisa sentiu algo mudar no peito — não uma emoção, uma mudança de pressão, como quando o avião inicia a descida e os ouvidos registram a alteração antes que a mente a nomeie.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] — A tradução — disse Elisa.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] Farkas levantou as sobrancelhas. O bigode mexeu-se.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] — Sabe da tradução?
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] — Sei que houve uma. Sei que durou seis horas. Sei que um diplomata soviético disse alguma coisa. Não sei o quê.
+[2026-06-01 05:43:04] [SUBPROCESS] 
+[2026-06-01 05:43:04] [SUBPROCESS] — Disse: "Esta menina não está a traduzir. Está a pensar." Em russo. A Helena compreendeu — nunca admitiu compreender russo, sempre fingiu que não, mas compreendeu. Naquela noite, dormiu catorze horas. Quando acordou, sentiu algo que nunca conseguiu explicar com palavras. E durante as três semanas seguintes…
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] Farkas parou. Pousou a chávena. Olhou para a janela — a persiana estava meio fechada, a luz entrava em lâminas oblíquas que cortavam o ar poeirento.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — …durante as três semanas seguintes — continuou, agora mais devagar, como se cada palavra custasse algo —, sentir-se estranhamente leve. Como se pensar não custasse nada.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] O silêncio que se seguiu não era vazio — era cheio. Cheio de algo que Elisa reconhecia porque passara a vida inteira a medir: a ausência de custo. A ausência de incremento. O pensamento sem entropia.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — Disse-me — e a voz de Farkas desceu meio tom, não por dramatismo, mas porque a memória era pesada e o corpo sabia —: "Amós, durante três semanas, pensar não custou nada. Foi como respirar debaixo de água — natural, sem resistência. E depois passou. E eu nunca percebi porquê."
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] Farkas olhou para Elisa. Os olhos não pediam nada. Apenas ofereciam.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — Guardei este segredo durante oito anos.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] ---
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] Elisa tomou o café. Estava morno — não frio, não quente, o ponto exato em que o cardamomo se torna amargo. Bebeu. Pousou a chávena. As mãos estavam estáveis. Por dentro, algo funcionava a uma velocidade que ela não conseguia cronometrar — não era pânico, não era excitação, era o processo de encaixar uma peça num puzzle que não tinha imagem na caixa.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] Três semanas. 1983. Pensar sem custo. Respirar debaixo de água.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — A Helena sabe que a senhora está a contar-me isto?
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — Não — disse Farkas. — E peço-lhe que não lhe diga.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — Porquê?
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] Farkas inclinou a cabeça para a esquerda — o mesmo gesto que Helena fazia, pensou Elisa, e a coincidência perturbou-a mais do que deveria.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — A Helena não gosta de ser vista como anomalia. Prefere ser vista como pessoa.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — Eu vejo-a como pessoa — disse Elisa.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — Não basta ver — disse Farkas. — É preciso que ela sinta que é vista.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] Elisa não respondeu. Não porque concordasse ou discordasse, mas porque a frase continha algo que não sabia processar — uma distinção entre observação e reconhecimento que o formalismo de Elisa não fazia, porque o formalismo não tinha variável para o sentir.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] Farkas serviu mais café. O líquido escuro encheu a chávena com um som grosso, viscoso.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — Há mais — disse. — Na mesma noite. A Helena mencionou algo que nunca repetiu. Nunca. Em oito anos, nunca voltou a tocar no assunto.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] Elisa esperou. Não perguntou. Farkas olhou para ela e, pela primeira vez, algo mudou no rosto dele — não uma expressão, uma transição, como uma porta que se abre meio centímetro para mostrar que há um corredor por detrás.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — Disse: "Amós, e se a consciência não for o que pensamos que for? E se for algo que escolhe quando se manifesta?"
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] O ar da sala mudou. Não era metáfora — Elisa sentiu a pressão, a densidade, o peso específico do silêncio que se seguiu. O granito no bolso. O polegar contra a pedra.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — Eu perguntei o que queria dizer. Ela respondeu: "Não sei. Mas durante aquelas três semanas, senti que podia escolher. Escolher pensar sem custar. E escolhi. E depois a escolha acabou."
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] Farkas parou. Tomou café. Pousou a chávena.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — E mudou de assunto — disse. — Pediu-me lokum. Comeu três cubos. Adormeceu no sofá. Nunca mais falou nisso.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] ---
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] Elisa não se mexeu durante onze segundos. Contou. O pensamento corria — não como um rio, como um sistema de equações a resolver-se a si mesmo, cada variável a encaixar na posição que já ocupava antes de ela a ver.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] Escolher pensar sem custar.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] Não era um processo. Não era termodinâmica. Não era incremento entrópico associado a atividade neural medida em joules por kelvin. Era uma decisão. Um ato de vontade. Uma escolha.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] O formalismo de Elisa — o formalismo que levara três anos a construir, que o Nobel validara, que 14 países usavam como base legal, que três megacorporações certificavam — o formalismo assumia que a consciência era um processo termodinâmico. Um efeito. Uma consequência inevitável de matéria a processar informação. Pensar gerava entropia da mesma forma que a gravidade puxava os corpos — não por escolha, por lei.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] Mas se Helena *escolhia* quando gerar entropia — se a consciência era uma decisão e não uma consequência — então o formalismo não media a consciência. Media o *correlato* termodinâmico da consciência. O mapa não era o território. Nunca fora.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] A falha não estava nos cálculos. Estava nos pressupostos.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] Elisa sentiu o chão mover-se. Não o chão real — o chão conceptual, a fundação sobre a qual passara a vida inteira a construir. A equação de Boltzmann no túmulo da mãe. S = k log W. A seta do tempo. A irreversibilidade. Tudo o que era sólido tornou-se, naquele instante, uma hipótese.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — A senhora acredita nela? — perguntou Elisa. A voz saiu mais baixa do que pretendia.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] Farkas olhou para ela com uma gentileza que não pedia nada.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — Doutora, eu sou médico há cinquenta anos. Aprendi que o corpo diz a verdade quando a mente já desistiu de a procurar. A Helena não estava a inventar. Não estava a delirar. Estava a tentar articular uma experiência que não cabe nas palavras. E a única coisa que disse, naquela noite, que repetiu em tudo o que disse antes e depois, foi: "Não sei."
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — "Não sei" — repetiu Elisa.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — "Não sei" — confirmou Farkas. — A Helena não finge que sabe. Não pretende que compreende. Não teoriza. Apenas vive com a pergunta. E isso, Doutora, é a coisa mais honesta que já vi uma pessoa fazer.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] Elisa olhou para a chávena. O café estava agora frio. Uma película fina formara-se à superfície — óleo de cardamomo, talvez, ou apenas o destino de todos os líquidos que deixam de ser quentes.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — Obrigada — disse. Não sabia o que mais dizer.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] Farkas levantou-se. Com o mesmo cuidado de antes. Caminhou até à janela e abriu a persiana. A luz entrou — cinzenta, plana, a luz de março em Turgóvia que não prometia nada.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — Doutora — disse, sem se virar. — A Helena não é um problema. Não é um caso. Não é uma anomalia que precisa de explicação. É uma mulher que perdeu o marido, que cuida de manjericão, que fala sozinha em húngaro. Se a senhora conseguir manter isso em mente — se conseguir ver a pessoa antes do número —, talvez chegue a algum sítio que a ciência, sozinha, não alcança.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] Elisa levantou-se. O sofá baixo fez-lhe doer os joelhas. Pôs a mão no bolso — o granito.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — Eu faço ciência — disse. Não era defensiva. Era factual.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:05] [SUBPROCESS] — Eu sei — disse Farkas, virando-se. — E a ciência é uma coisa bonita. Mas a Helena não é bonita por causa dos números. É bonha apesar deles.
+[2026-06-01 05:43:05] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] ---
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] A estação de Kreuzlingen estava mais cheia do que quando chegara. Um grupo de adolescentes sentados no banco de madeira, a falar alto numa mistura de suíço-alemão e algo que podia ser turco ou curdo ou ambos. O painel electrónico mostrava o próximo comboio para Zurique: sete minutos.
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] Elisa comprou um bilhete. Máquina automática, interface em quatro línguas. Toque no ecrã. O gesto era trivial — pressão sobre superfície capacitiva, circuito fechado, informação processada em bits. Quantos joules por kelvin? Quantos Drakons? O gesto de comprar um bilhete gerava entropia como qualquer outro processo. Todos pagavam. Helena não.
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] Sentou-se no banco, no lado oposto aos adolescentes. O granito no bolso. O caderno no outro — um caderno Moleskine, preto, que comprara numa papelaria de Zurique na primeira semana e que já ia no terço. Abriu-o. A página estava em branco. A caneta — Pilot, tinta preta, 0,5 mm — hesitou.
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] Escreveu:
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] *Possibilidade 5: A consciência não é um processo — é uma escolha. Helena escolhe quando gerar entropia. Durante três semanas em 1983, escolheu não gerar. Agora, permanentemente, escolhe não gerar. Porquê? O que mudou?*
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] Parou. Olhou para a pergunta. Não tinha resposta. Mas a pergunta era diferente de todas as anteriores — diferentes das quatro possibilidades que montara no escritório do ETH, diferentes dos modelos que refinara com Marcus, diferentes dos argumentos que preparara contra Renan.
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] Não era "como funciona?"
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] Era "porquê?"
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] O comboio chegou. Portas automáticas. O som pneumático — ar comprimido a libertar-se, entropia a aumentar, o universo a desordenar-se mais um pouco. Elisa entrou. Sentou-se junto à janela. O campo plano de Turgóvia começou a mover-se, devagar, depois mais rápido, os ares a desfocarem-se em manchas verdes e castanhas.
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] Abriu o caderno outra vez. Releu o que escrevera. Porquê?
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] O formalismo de Elisa — o mapa mais preciso alguma vez traçado do terreno da consciência — assumia que perguntar "como" era suficiente. Como é que a consciência gera entropia? Como é que o incremento se mede? Como é que o IC se aplica a sistemas biológicos e artificiais? Como, como, como.
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] Mas Helena fizera uma pergunta diferente. Não "como escolho pensar sem custar?" mas "e se a consciência for algo que escolhe quando se manifesta?"
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] A diferença era abismal. "Como" assume mecanismo. "E se" assume possibilidade. Helena não estava a descrever um mecanismo — estava a apontar para algo que o mecanismo não continha.
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] Elisa fechou o caderno. Olhou pela janela. Um campo. Uma vaca. Uma linha de árvores sem folhas contra o céu cinzento. O comboio a deslizar sobre os carris com um ritmo que era quase hipnótico — o som metálico, repetitivo, a cadência de um metrónomo que marca o tempo que a entropia leva a fazer o que faz.
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] S = k log W.
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] A equação da mãe. A equação no túmulo. A equação que Elisa completara mentalmente todas as noites durante dois anos — não no papel, na cabeça, como uma orração que não precisava de voz.
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] A mãe morrera sem terminar. Helena vivia sem gerar. As duas coisas eram incompletas. As duas coisas eram, de formas que Elisa não conseguia articular sem violar a física que jurara defender, a mesma pergunta escrita em linguagens diferentes.
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] O comboio entrou num túnel. O escuro durou três segundos. Depois a luz — cinzenta, como tudo em Zurique naquele março.
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] Elisa abriu o caderno outra vez. Escreveu, por baixo da primeira pergunta:
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] *Não é "como funciona?" É "porquê?" E a pergunta "porquê" não cabe em Drakons.*
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] Fechou o caderno. Pôs a mão no granito. A pedra estava fria — sempre fria, sempre 0,001 Dk, sempre o mesmo valor de sempre.
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] Helena tinha o mesmo valor.
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] Mas Helena não era o mesmo.
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] Elisa olhou pela janela. Zurique aproximava-se — os subúrbios, os prédios, o rio, o lago ao longe como uma mancha escura recortada contra o céu. A cidade que a acolhera com a indiferença organizada que era a sua marca registada.
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] O comboio abrandou. Estação de Zurique. O som dos travões — atrito, calor, entropia, sempre entropia.
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] Elisa levantou-se. O caderno debaixo do braço. O granito no bolso. A pergunta nova — a pergunta que mudava tudo — a arder como algo vivo dentro do peito.
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] Os números podiam esperar.
+[2026-06-01 05:43:06] [SUBPROCESS] 
+[2026-06-01 05:43:06] [SUBPROCESS] A pergunta não.
+[2026-06-01 05:43:06] [INFO] Drafted 3165 words
+[2026-06-01 05:43:06] [INFO] RUN: uv run python evaluate.py --chapter=16
+[2026-06-01 05:43:07] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 05:44:58] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 05:44:58] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 05:44:58] [SUBPROCESS] ---
+[2026-06-01 05:44:58] [SUBPROCESS] overall_score: 6.0
+[2026-06-01 05:44:58] [SUBPROCESS] voice_adherence: 7 -- The voice is generally strong — Elisa's counting compulsion, the thermodynamic metaphors, the precise numerical observations all track. But the opening paragraph is expository in a way that breaks the 'show the mind at work' principle. The chapter finds its rhythm once the scene with Farkas begins. The closing pages with the notebook are the strongest voice work — the shift from 'como' to 'porquê' is perfectly calibrated to Elisa's analytical mind confronting something it cannot quantify.
+[2026-06-01 05:44:58] [SUBPROCESS] beat_coverage: 8 -- All five beats from the outline are present and dramatized rather than summarized. The Farkas conversation is properly scene-work with dialogue, physical detail, and pacing. The train journey bookends work well. Beat 4 (the 'escolher pensar sem custar' revelation) is the strongest — it lands with genuine force because the prose slows down and lets the implication settle.
+[2026-06-01 05:44:58] [SUBPROCESS] character_voice: 7 -- Elisa's voice is consistently strong — the counting, the thermodynamic framing, the precise self-observation. Farkas is mostly well-rendered (the slow delivery, the medical metaphors, the Hungarian-Swiss formality) but occasionally slips into a more literary register than his character supports. The dialogue without tags is distinguishable: Elisa's precision vs. Farkas's measured simplicity.
+[2026-06-01 05:44:58] [SUBPROCESS] plants_seeded: 8 -- The chapter's primary plant — 'a consciência é uma escolha, não um processo' — is seeded through Farkas's testimony rather than stated directly, which is exactly right. The 1983 callback pays off the planted material from earlier chapters naturally. The closing line ('A pergunta não') is an elegant button.
+[2026-06-01 05:44:58] [SUBPROCESS] prose_quality: 7 -- Sentence variety is generally good — the chapter mixes Elisa's long deductive sentences with short observational hits. The strongest prose is in the Farkas dialogue scene, where the pauses and silences are rendered with physical specificity. Weakest moments are the travel sequences, which default to competent but unremarkable description. The 'vacas e árvores sem folhes' passage is the most generic in the chapter.
+[2026-06-01 05:44:58] [SUBPROCESS] continuity: 8 -- Strong continuity from Chapter 15. Elisa's emotional state tracks — she's alone, fractured from Marcus, carrying the weight of Helena's phone call ('os números podem esperar'), and now moving toward Farkas for answers. The transition from the café scene (end of Ch 15) to the train (start of Ch 16) is seamless. Her mental state — determination shading into something more uncertain — follows logically. The granite-touching tic, the counting, the thermodynamic framing of every observation: all consistent.
+[2026-06-01 05:44:58] [SUBPROCESS] canon_compliance: 8 -- No major canon violations detected. All character details (Farkas's colete, bigode, mãos de cirurgião, consultório), timeline elements (2019, eight years of secrecy), and the 1983 revelation are consistent with established canon. The IC values and thermodynamic framework are correctly applied. Helena's dialogue as reported by Farkas matches her established voice and history.
+[2026-06-01 05:44:58] [SUBPROCESS] lore_integration: 8 -- The chapter's core lore integration is excellent — the Farkas conversation is essentially a lore delivery mechanism that works because it's dramatized through character conflict and revelation. The thermodynamic framework (entropy, Drakons, the cost of thinking) is woven into Elisa's perception of everything, which is exactly how worldbuilding should function. The notebook entry's shift from 'como' to 'porquê' is the chapter's thematic thesis and it emerges from the world's logic.
+[2026-06-01 05:44:58] [SUBPROCESS] engagement: 7 -- The Farkas scene is genuinely engaging — the slow revelation, the moral tension (Elisa won't promise not to use the information), and the final 'escolher pensar sem custar' revelation all work. The chapter's closing question ('porquê?') is a strong hook. The chapter earns its emotional beats through scene work rather than narration, which keeps engagement high during the core conversation.
+[2026-06-01 05:44:58] [SUBPROCESS] three_weakest_sentences: ['O comboio entrou num túnel. O escuro durou três segundos. Depois a luz — cinzenta, como tudo em Zurique naquele março.', 'Um grupo de adolescentes sentados no banco de madeira, a falar alto numa mistura de suíço-alemão e algo que podia ser turco ou curdo ou ambos.', 'E mudou de assunto — disse. — Pediu-me lokum. Comeu três cubos. Adormeceu no sofá. Nunca mais falou nisso.']
+[2026-06-01 05:44:58] [SUBPROCESS] three_strongest_sentences: ["Não era 'como funciona?' Era 'porquê?' E a pergunta 'porquê' não cabe em Drakons.", 'A mãe morrera sem terminar. Helena vivia sem gerar. As duas coisas eram incompletas.', "O formalismo de Elisa — o mapa mais preciso alguma vez traçado do terreno da consciência — assumia que perguntar 'como' era suficiente."]
+[2026-06-01 05:44:58] [SUBPROCESS] ai_patterns_detected: ['Three consecutive short sentences for rhythmic effect (tunnel passage) — a common AI pattern', "The 'observations in threes' pattern appears: 'pacientes ativos, processos pendentes, arquivos mortos' — functional but formulaic", "The train station description catalogs rather than selects: 'edifício de tijolo amarelo, dois bancos de madeira, um painel eletrônico' — three items listed when one specific detail would be sharper", 'Slight symmetry addiction in the chapter structure: outbound train / Farkas scene / return train — the two mirror each other perhaps too neatly', "The 'vacas e árvores sem folhes' passage is generic travel description that could appear in any novel"]
+[2026-06-01 05:44:58] [SUBPROCESS] weakest_dimension: prose_quality
+[2026-06-01 05:44:58] [SUBPROCESS] top_3_revisions: ["Rewrite the opening paragraph to start with Elisa's physical/cognitive state rather than logistics. The 'quarenta e um minutos' fact should emerge from her counting compulsion, not as a stated premise.", "Sharpen Farkas's closing dialogue — 'bonha apesar deles' needs correction and the line as written is too epigrammatic for his voice. Rewrite in his established pattern of short, weighted phrases with pauses.", 'Add worldbuilding texture to the train sequences — IC bracelets, certification posters, or social details that show how the IC has changed Swiss daily life. Currently these scenes are transitional filler.']
+[2026-06-01 05:44:58] [SUBPROCESS] new_canon_entries: ['Elisa cronometrou a viagem de comboio Zurique-Kreuzlingen: 41 minutos, 7 estações', 'Farkas mantém o consultório organizado por um sistema de bordas: papéis à esquerda (pacientes ativos), centro (processos pendentes), direita (arquivos mortos)', 'Elisa possui um caderno Moleskine preto, comprado numa papelaria de Zurique na primeira semana', "Elisa escreve 'Possibilidade 5' no caderno: a consciência como escolha, não processo", 'Farkas serviu café turco com cardamomo e lokum (cubos de gelatina de rosa) durante a conversa']
+[2026-06-01 05:44:58] [SUBPROCESS] slop: N/A --
+[2026-06-01 05:44:58] [SUBPROCESS] raw_judge_score: 7
+[2026-06-01 05:44:59] [SUBPROCESS] 
+[2026-06-01 05:44:59] [SUBPROCESS] eval_log: /mnt/d/Dev/autobook/eval_logs/20260601_054458_ch16.json
+[2026-06-01 05:44:59] [INFO] Chapter 16 score: 6.0
+[2026-06-01 05:44:59] [INFO] RUN: git add -A
