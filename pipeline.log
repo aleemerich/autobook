@@ -9581,3 +9581,316 @@
 [2026-06-01 03:59:20] [SUBPROCESS] eval_log: /mnt/d/Dev/autobook/eval_logs/20260601_035919_ch07.json
 [2026-06-01 03:59:20] [INFO] Chapter 7 score: 6.0
 [2026-06-01 03:59:20] [INFO] RUN: git add -A
+[2026-06-01 03:59:20] [INFO] RUN: git commit -m "ch07: score 6.0, 4164w" --allow-empty
+[2026-06-01 03:59:21] [SUBPROCESS] [autobook/a-prova-final d333912] ch07: score 6.0, 4164w
+[2026-06-01 03:59:21] [SUBPROCESS] 4 files changed, 1058 insertions(+), 1 deletion(-)
+[2026-06-01 03:59:21] [SUBPROCESS] create mode 100644 chapters/ch_07.md
+[2026-06-01 03:59:21] [INFO] RUN: git rev-parse --short HEAD
+[2026-06-01 03:59:21] [SUBPROCESS] d333912
+[2026-06-01 03:59:21] [INFO] GIT COMMIT: d333912 — ch07: score 6.0, 4164w
+[2026-06-01 03:59:21] [INFO] ------------------------------------------------------------
+[2026-06-01 03:59:21] [INFO] Drafting Chapter 8/22
+[2026-06-01 03:59:21] [INFO] ------------------------------------------------------------
+[2026-06-01 03:59:21] [INFO] Attempt 1/5
+[2026-06-01 03:59:24] [INFO] RUN: uv run python draft_chapter.py 8
+[2026-06-01 03:59:24] [SUBPROCESS] Drafting Chapter 8...
+[2026-06-01 03:59:25] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 04:04:56] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 04:04:56] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 04:04:56] [SUBPROCESS] Saved to /mnt/d/Dev/autobook/chapters/ch_08.md
+[2026-06-01 04:04:56] [SUBPROCESS] Word count: 3326
+[2026-06-01 04:04:56] [SUBPROCESS] # Capítulo 8 — O Laboratório Privado
+[2026-06-01 04:04:56] [SUBPROCESS] 
+[2026-06-01 04:04:56] [SUBPROCESS] A e-mail da Evromind chegou numa terça-feira, às 11h47, quando Elisa estava sentada no escritório do ETH com frio nas mãos apesar de o aquecimento central manter a temperatura a 21,0°C. O assunto dizia: "Proposta de colaboração — confidencial." O corpo da mensagem ocupava seis parágrafos. Elisa leu três vezes.
+[2026-06-01 04:04:56] [SUBPROCESS] 
+[2026-06-01 04:04:56] [SUBPROCESS] O primeiro parágrafo agradecia a sua disponibilidade. O segundo descrevia um laboratório privado no complexo Evromind em Zurique — piso subterrâneo, acesso biométrico, equipamento de última geração. O terceiro oferecia acesso ilimitado, sem supervisão, sem relatórios intermédios, sem interferência corporativa. O quarto mencionava um "interesse legítimo na validade do formalismo do IC." O quinto dizia que Helena Varga seria bem-vinda como participante, caso Elisa considerasse adequado. O sexto tinha uma assinatura — Dra. Sigrid Brandt, Directora de Investigação — e um número de telefone.
+[2026-06-01 04:04:56] [SUBPROCESS] 
+[2026-06-01 04:04:56] [SUBPROCESS] Elisa fechou o portátil. Abriu-o outra vez. Releu o terceiro parágrafo.
+[2026-06-01 04:04:56] [SUBPROCESS] 
+[2026-06-01 04:04:56] [SUBPROCESS] *Sem supervisão. Sem relatórios intermédios.*
+[2026-06-01 04:04:56] [SUBPROCESS] 
+[2026-06-01 04:04:56] [SUBPROCESS] Nenhuma corporação oferece algo sem querer algo em troca. Era uma lei tão fundamental como a segunda lei da termodinâmica: não existe transferência de energia sem compensação. A Evromind investira quatro mil milhões de euros em infraestrutura de certificação de IC. Se o formalismo falhasse, os processos judiciais destruí-la-iam. Helena era uma ameaça existencial. E a Evromind oferecia um laboratório — perfeito, privado, livre — para que Elisa investigasse essa ameaça.
+[2026-06-01 04:04:56] [SUBPROCESS] 
+[2026-06-01 04:04:56] [SUBPROCESS] A generosidade era a armadilha. Elisa sabia-o.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] Aceitou na mesma.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] ---
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] O laboratório ficava no subsolo de um edifício de fachada vidrada no distrito de Altstetten, zona industrial norte de Zurique. O elevador descia quatro andares — Elisa contou as paragens pelo movimento no estômago. Quando as portas abriram, o ar era diferente. Mais frio. Mais seco. Filtrado, sem partículas, sem cheiro.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] O corredor era branco. Não metaforicamente branco — literalmente branco. Paredes, tecto, chão. A iluminação era indirecta, uniforme, sem sombras. Elisa caminhou sobre o pavimento antiestático e ouviu os próprios passos com uma clareza desagradável, como se o edifício estivesse a escutá-la.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] A porta do laboratório não tinha maçanita. Um painel biométrico leu a palma da mão e a porta deslizou para dentro com um sussurro pneumático. Elisa entrou.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] O espaço media talvez quarenta metros quadrados. Bancadas de aço inoxidável alinhadas contra a parede esquerda. Monitores curvos — cinco, seis, sete — montados em braços articulados. Um aparelho de calorimetria de precisão extrema ocupava o canto mais afastado, envolvido em cabos de fibra óptica que serpenteavam pelo chão como raízes de uma árvore invertida. Havia uma câmara de Faraday no fundo — a porta estava aberta, e o interior era forrado a cobre, as paredes brilhando com a opacidade de metal novo.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] Temperatura: 20,0°C. Humidade: 45%. Elisa verificou os sensores digitais montados junto à entrada. Os valores eram estáveis ao décimo mais próximo.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] Silêncio absoluto.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] Não o silêncio de uma sala vazia — esse tem textura, tem o zumbido quase inaudível dos sistemas eléctricos, o murmúrio distante da vida no andar de cima. Este era um silêncio construído. Engenheiro. O tipo de silêncio que custa dinheiro a produzir. Elisa esteve imóvel durante dez segundos e não ouviu nada. Nenhum trânsito. Nenhum elevador. Nenhum pé no corredor. Nada.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] Não havia janelas.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] Tocou no granito no bolso direito. Cinzento, cristais de feldspato, 2,7 gramas por centímetro cúbido. A rocha não sofria. A rocha não pensava. A rocha não notava a ausência de janelas.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] Elisa notou.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] Sentou-se na cadeira ergonómica — a única cadeira — e ligou o monitor principal. O sistema arrancou em quatro segundos. O ambiente de trabalho era limpo, sem ícones desnecessários. Abriu o navegador. Acedeu ao servidor interno do laboratório. Funcionava. Abriu o terminal. A velocidade de processamento era — Elisa verificou três vezes — aproximadamente dez vezes superior à do cluster do ETH.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] Fechou o terminal. Levantou-se. Caminhou até à câmara de Faraday. Tocou na parede de cobre. O metal estava frio — não o frio do ar condicionado, o frio da condutividade térmica, o tipo de frio que rouba calor à pele por contacto directo. Recuou.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] O laboratório era perfeito. Imaculado. Sem janelas.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] Demasiado perfeito.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] ---
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] Helena chegou na quarta-feira seguinte, às nove da manhã. Elisa esperava-a à entrada do edifício — não no subsolo, não no laboratório, mas à superfície, onde havia luz natural e uma paragem de eléctrico e pessoas que caminhavam com destino.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] Helena saiu do eléctrico número 9 com um saco de pano pendurado no antebraço e um lenço azul na cabeça. Vestia o casaco vermelho. Viu Elisa e sorriu — as covinhas profundas, os olhos azul-claros quase translúcidos.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] — Doutora Dragovski. Bonito dia para estar debaixo da terra.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] — Não vamos estar debaixo da terra — disse Elisa, e depois corrigiu-se — Vamos. Mas há luz artificial de espectro completo. É quase igual.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] — Quase — repetiu Helena, e o modo como disse a palavra continha uma ironia que Elisa não soube classificar.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] Desceram no elevador. Helena não disse nada durante a descida. Olhava para as portas metálicas com a expressão de quem observa algo familiar — não o elevador, mas a sensação. Quando as portas abriram e o corredor branco apareceu, Helena inclinou a cabeça para a esquerda.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] — Branco — disse. — O Béla não gostava de branco. Dizia que era a cor de quem tem medo de manchas.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] Elisa não respondeu. Guiou-a pelo corredor até à porta do laboratório. O painel leu a palma da mão de Helena — os dados biométricos tinham sido carregados pela Evromind — e a porta deslizou.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] Helena entrou. Olhou em volta. Tocou na bancada de aço com a ponta dos dedos.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] — Parece um sítio onde se fazem coisas importantes — disse.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] — É — disse Elisa.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] — Ou um sítio onde se escondem coisas importantes — disse Helena.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] Elisa ligou os monitores. Não respondeu.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] ---
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] Os testes começaram às 9h34.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] Elisa instalou Helena na câmara de Faraday. A posição era supina, sobre uma mesa acolchoada, com sensores de temperatura corporal distribuídos em seis pontos — fronte, axilas, palmas das mãos, plantas dos pés. O capacete de neuroimagem funcional era um protótipo que Elisa nunca tinha visto fora de artigos de revista: 512 canais, resolução temporal de milissegundos, campo magnético de 7 Tesla. A Evromind tinha razão numa coisa — o equipamento era de última geração.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] — Vou pedir-lhe que fique imóvel — disse Elisa, ajustando o capacete sobre o crânio de Helena. Os cabelos brancos escapavam pelos lados. — Vou medir a actividade neural e o incremento entrópico simultaneamente. Se precisar de se mexer, avise-me antes.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] — E se precisar de me mexer sem avisar?
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] — Não pode.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] Helena riu. Um riso curto, seco, que ecoou nas paredes de cobre.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] — Como uma máquina de ressonância magnética, então.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] — Pior. A ressonância magnética não mede consciência.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] — Não? — Helena inclinou a cabeça. — Então o que é que mede?
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] — Actividade neural. Padrões de oxigenação sanguínea. Não é a mesma coisa.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] — Para mim é — disse Helena. — Mas eu sou só uma mulher velha com um lenço azul.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] Elisa não respondeu. Saiu da câmara. Fechou a porta de cobre. Sentou-se no monitor principal.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:57] [SUBPROCESS] O ecrã dividiu-se em três painéis. Esquerda: neuroimagem funcional — o cérebro de Helena em tempo real, zonas de activação a acenderem em amarelo e vermelho como cidades vistas do espaço à noite. Centro: calorimetria — a curva de dissipação térmica, o incremento entrópico calculado em tempo real. Direita: variabilidade cardíaca — o ritmo do coração de Helena, batimento a batimento, a oscilação entre sístole e diástole que era, para Elisa, um metrónomo biológico.
+[2026-06-01 04:04:57] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] — Helena — disse, através do intercomunicador. — Pode ouvir-me?
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] — Ouço. A voz da senhora parece mais bonita neste altifalante. Mais redonda.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] — Vou pedir-lhe que relaxe. Pense no que quiser. Não vou fazer perguntas.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] — Posso falar?
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] Elisa hesitou.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] — Pode.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] — Óptimo. Vou contar uma história, então. Gosto de contar histórias quando estou deitada. O Béla dizia que eu falava mais deitada do que de pé. Dizia que era porque deitada não tinha de competir com a gravidade pela atenção. Achei graça. Achei sempre graça às coisas que o Béla dizia. Ele era... como se diz... um homem que sabia o peso das palavras. Não no sentido de que as pesava — no sentido de que as escolhia. Cada palavra era uma coisa que ele decidiu pôr no mundo. Como uma pedra num muro. Cada uma no sítio certo.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] Elisa olhou para o painel central. A curva de calorimetria estava estável. O incremento entrópico: 0,001 Dk.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] — O Béla podava as roseiras em Março — continuou Helena. — Sempre em Março. Dizia que as roseiras precisavam de ser magoadas para florescer. Eu achava que era uma coisa cruel dizer. Mas ele tinha razão. As roseiras que ele podava eram sempre as que davam mais flores. As que ele deixava em paz ficavam com os ramos compridos e finos e quase nenhuma flor. Eu aprendi com ele que às vezes a gente precisa de cortar uma parte de si para que o resto cresça. Não sei se isto é verdade para as pessoas. Mas era verdade para as roseiras.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] O painel esquerdo mostrava actividade no córtex pré-frontal, no giro angular, na ínsula — os padrões típicos de uma pessoa a narrar uma memória autobiográfica. O cérebro de Helena funcionava como qualquer cérebro humano. Consumia glicose. Oxigenava sangue. Disparava potenciais de acção ao longo de axónios mielinizados a 120 metros por segundo.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] O painel central continuava em 0,001 Dk.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] — Ele morreu no jardim — disse Helena. A voz não mudou de tom. Não houve tremor, não houve pausa. — Estava a podar a roseira do canto — a que dava flores cor-de-rosa, não vermelhas, cor-de-rosa, como as bochechas de uma criança. Encontrei-o caído sobre as tesouras. Terra nas mãos. Os olhos abertos. Olhava para cima. Para o céu de Setembro, que era azul, muito azul, o tipo de azul que só existe quando o Verão já se foi mas ainda não sabe que se foi. Chamei o número de emergência. Disseram-me para não mexer nele. Não mexi. Fiquei sentada ao lado dele no chão, com terra nos joelhos, a olhar para as mãos dele. As mãos dele tinham terra debaixo das unhas. Terra e seiva de roseira. E eu pensei: estas mãos podaram quarenta anos de roseiras. Estas mãos seguraram a minha cara quando eu era jovem. Estas mãos fizeram um jardim. E agora estão quietas. Quietas como pedras.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] O painel direito mostrou um aumento na variabilidade cardíaca — o coração de Helena respondeu à emoção da memória. O sistema nervoso autónomo activou o ramo simpático. A frequência cardíaca subiu de 68 para 74 batimentos por minuto.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] O painel central: 0,001 Dk.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] Elisa olhou para os três painéis simultaneamente. O cérebro de Helena processava informação. O coração de Helena respondia à emoção. O corpo de Helena dissipava calor como qualquer corpo humano — metabolismo basal, contracção muscular mínima, condução térmica através da pele. Mas o incremento entrópico associado ao acto consciente — aquele que o formalismo previa, aquele que cada pensamento deveria gerar — não estava ali.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] A entropia de Helena era a mesma de uma rocha.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] Helena continuou a falar. Contou a história da primeira roseira que Béla plantou — em 1981, no primeiro ano de casamento, num jardim que era só terra e ervas daninhas. Contou como ele cavou o buraco com as mãos porque não tinha pá. Contou como a roseira morreu no primeiro Inverno e como Béla plantou outra. E outra. E outra. Até que uma sobreviveu.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] Elisa ouviu. Mediu. Os dados eram ricos, detalhados, e inúteis.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] O IC mantinha-se em 0,001.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] ---
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] A primeira sessão durou quarenta e sete minutos. Quando Elisa abriu a câmara de Faraday, Helena estava com os olhos fechados. Não dormia — a neuroimagem confirmava vigília. Estava quieta. Imóvel. Como se estivesse a ouvir algo que os sensores não captavam.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] — Pode levantar-se — disse Elisa.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] Helena abriu os olhos. Sentou-se na mesa. Tirou o capacete com cuidado, como quem tira um chapéu num templo.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] — Como foi?
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] — Os dados são... — Elisa parou. Não sabia como completar a frase. Normais? Anômalos? Ambos? — Vou analisar esta tarde.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] — Posso perguntar uma coisa?
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] — Pode.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] — A senhora está a dormir bem, doutora?
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] Elisa tocou na orelha esquerda. O gesto durou menos de um segundo. Recuou a mão.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] — Estimamente.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] Helena sorriu. Não era um sorriso de divertimento. Era o sorriso de quem reconhece algo familiar — um padrão, um gesto, uma mentira que já viu antes.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] — Mentiu — disse Helena. — Tocou na orelha esquerda.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] Elisa sentiu o sangue subir ao rosto. Não de vergonha — de alarme. O gesto era inconsciente. Não sabia que o fazia. E Helena notou.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] — O Béla também tocava na orelha quando mentia — disse Helena, deslizando da mesa até ao chão. Os pés tocaram o pavimento antiestático com um som suave. — Dizia que era um tique. Mas eu sabia. As pessoas que amamos ensinam-nos a vê-las.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] Elisa não disse nada. A boca estava seca. Bebeu água do garrafão que trouxera de casa — temperatura ambiente, sem gás, o sabor a nada que era o sabor da água quando se bebe sozinha num laboratório às onze da manhã.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] — A senhora está com medo — disse Helena. Não era uma pergunta. — Não da máquina. De mim.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] O silêncio que se seguiu durou talvez cinco segundos. Cinco segundos em que Elisa ouviu o zumbido — quase inaudível, quase inexistente — do sistema de refrigeração dos ímãs supercondutores. Cinco segundos em que olhou para Helena Varga, 67 anos, casaco vermelho, lenço azul, olhos que viam sem calcular, e sentiu algo que não conseguia nomear porque não tinha nome na termodinâmica.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] — Vou analisar os dados — disse Elisa.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] Helena assentiu. Pegou no saco de pano. Caminhou até à porta. Parou.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] — Doutora. A senhora não tem medo de mim. Tem medo do que eu significo. São coisas diferentes.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] Saiu.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] Elisa ficou no laboratório. Sozinha. O silêncio absoluto instalou-se como um gato que regressa a um sítio onde já esteve. Sentou-se no monitor. Abriu os ficheiros da sessão. Os dados estavam todos ali — gigabytes de informação, cada milissegundo da actividade cerebral de Helena registado com precisão de 7 Tesla, cada flutuação térmica medida com resolução de 0,001 graus, cada batimento cardíaco catalogado.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] E no meio de tudo isso: zero.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] Não zero literal — 0,001, o ruído de fundo do aparelho, o limite de detecção, o valor que o granito de Zermatt dava e que Helena dava e que significava, segundo o formalismo que Elisa publicara e que o comité do Nobel validara, que não havia acto consciente.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:58] [SUBPROCESS] Elisa abriu o terminal. Escreveu uma sequência de comandos. O sistema respondeu com a velocidade que só um processador de dez vezes a potência do cluster do ETH conseguia. Correu a análise estatística. Correu a análise espectral. Correu a análise de correlação cruzada entre neuroimagem e calorimetria.
+[2026-06-01 04:04:58] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] Os resultados apareceram no ecrã.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] Correlação entre actividade neural e incremento entrópico: r = 0,02.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] Para uma pessoa normal, o valor esperado era r = 0,78.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] O cérebro de Helena funcionava. O corpo de Helena dissipava calor. Mas a ligação entre os dois — a ligação que o formalismo previa, a ligação que dizia que pensar gera desordem — não existia.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] Elisa fechou os olhos. Abriu-os. Os números não mudavam.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] ---
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] Trabalhou até às três da tarde. Depois parou porque o corpo exigiu — não fome, não sede, mas uma rigidez nos ombros que subiu pelo pescoço e se instalou nas têmporas como uma prensa. Levantou-se. Caminhou pelo laboratório. Tocou nas bancadas, nos monitores, na parede de cobre da câmara de Faraday. Tudo real. Tudo sólido. Tudo exactamente como deveria ser.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] Sentou-se outra vez. Abriu o navegador. Acedeu ao servidor interno do laboratório — não para rever os dados de Helena, mas para verificar a estrutura de ficheiros. Queria saber o que a Evromind tinha instalado. Que programas. Que bases de dados. Que protocolos.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] A árvore de directórios era simples. Uma pasta para cada tipo de equipamento. Uma pasta para os dados brutos. Uma pasta para os relatórios. Uma pasta chamada "ADMIN" que estava protegida por palavra-passe.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] Elisa não tentou aceder à pasta ADMIN. Não imediatamente. Em vez disso, abriu a pasta de relatórios. Vazia. Abriu a pasta de dados brutos. Os ficheiros da sessão de Helena estavam lá, com os timestamps correctos, os formatos correctos, os tamanhos correctos.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] Depois viu algo.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] Um directório que não deveria estar ali. Estava enterrado três níveis abaixo da pasta principal, com um nome que parecia um código hexadecimal — 7F3A9B2C — o tipo de nome que o sistema gera automaticamente para ficheiros temporários. Mas não era temporário. A data de criação era 2025. O tamanho era 340 megabytes.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] Elisa clicou. O directório continha ficheiros encriptados. Dezenas. Cada um com um código diferente — SUJ-0047, SUJ-0112, SUJ-0203. Abriu o primeiro.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] O sistema pediu palavra-passe.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] Elisa olhou para o ecrã. Pensou na pasta ADMIN protegida. Pensou no laboratório sem janelas. Pensou na oferta da Evromind — generosa demais, livre demais, sem supervisão demais.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] Tentou uma palavra-passe. O sistema rejeitou.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] Tentou outra. Rejeitou.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] Tentou "Helena". O sistema aceitou.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] O ficheiro abriu-se.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] Era um relatório de medição de IC. O cabeçalho dizia: "SUJ-0047 — Medição de IC — Protocolo Padrão — Classificação: Erro de Medição." O corpo do relatório continha dados — neuroimagem, calorimetria, variabilidade cardíaca — de um sujeito não identificado. O IC registado: 0,0008 Dk. O sujeito apresentava actividade neural compatível com vigília. Linguagem funcional. Memória preservada. Respostas emocionais adequadas.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] E no fundo do relatório, a nota: "Resultado classificado como erro de medição. Repetir protocolo."
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] Elisa abriu o segundo ficheiro. SUJ-0112. IC: 0,0012 Dk. Mesma nota.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] O terceiro. SUJ-0203. IC: 0,0006 Dk. Mesma nota.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] Abriu mais. E mais. E mais.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] Dezanove relatórios. Dezanove sujeitos não identificados. Todos com IC abaixo de 0,01. Todos classificados como erro de medição. Todos com actividade neural compatível com consciência plena.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] Elisa parou de abrir ficheiros. Sentou-se. Olhou para o ecrã.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] A Evromind sabia.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] Não sabia — sabia. Tinha dados. Tinha dezanove casos. Vinte, contando com Helena. Vinte pessoas com o IC de uma rocha e o cérebro de um ser humano. E a Evromind classificara todos como erro de medição. Escondera-os. Enterrara-os num directório com nome hexadecimal, protegido por uma palavra-passe que era o nome da mulher que estava a quatro andares de distância, numa câmara de Faraday, a contar histórias sobre roseiras.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:04:59] [SUBPROCESS] A segurança era fraca de mais. A palavra-passe era óbvia de mais. O directório estava escondido, mas não o suficiente. Não para alguém que soubesse procurar.
+[2026-06-01 04:04:59] [SUBPROCESS] 
+[2026-06-01 04:05:00] [SUBPROCESS] Como se quisessem que ela encontrasse.
+[2026-06-01 04:05:00] [SUBPROCESS] 
+[2026-06-01 04:05:00] [SUBPROCESS] Elisa copiou os ficheiros para um disco USB que tirou do bolso. O processo demorou noventa segundos. Quando terminou, guardou o disco no bolso esquerdo do casaco — não no direito, onde estava o granito. O granito era para quando tinha medo. O disco era para quando tinha certezas.
+[2026-06-01 04:05:00] [SUBPROCESS] 
+[2026-06-01 04:05:00] [SUBPROCESS] Fechou o terminal. Desligou os monitores. O laboratório mergulhou na penumbra — só a iluminação de emergência, vermelha, fraca, o tipo de luz que os edifícios usam para dizer que continuam vivos mesmo quando ninguém os ocupa.
+[2026-06-01 04:05:00] [SUBPROCESS] 
+[2026-06-01 04:05:00] [SUBPROCESS] Elisa saiu. O elevador subiu. As portas abriram. O ar de Março entrou — frio, húmido, com cheiro a terra molhada e a combustão de diesel dos caminhões na estrada industrial.
+[2026-06-01 04:05:00] [SUBPROCESS] 
+[2026-06-01 04:05:00] [SUBPROCESS] O céu estava cinzento. Sempre cinzento. Março em Zurique era um mês que não se decidia.
+[2026-06-01 04:05:00] [SUBPROCESS] 
+[2026-06-01 04:05:00] [SUBPROCESS] Elisa caminhou. O disco USB pressionava contra o peito. O granito pressionava contra a coxa. Dois objectos no mesmo casaco. Um era uma rocha que não pensava. O outro era a prova de que havia mais como Helena. Muitas mais.
+[2026-06-01 04:05:00] [SUBPROCESS] 
+[2026-06-01 04:05:00] [SUBPROCESS] A Evromind sabia. Quantas Helenas existiam? E por que é que as escondiam?
+[2026-06-01 04:05:00] [SUBPROCESS] 
+[2026-06-01 04:05:00] [SUBPROCESS] O frio cortava. Elisa abotoou o casaco até ao topo. Continuou a caminhar. Zurique estava cinzenta. O céu não mudava. O tempo passava sem que o céu o confessasse.
+[2026-06-01 04:05:00] [SUBPROCESS] 
+[2026-06-01 04:05:00] [SUBPROCESS] E mesmo assim.
+[2026-06-01 04:05:00] [INFO] Drafted 3326 words
+[2026-06-01 04:05:00] [INFO] RUN: uv run python evaluate.py --chapter=8
+[2026-06-01 04:05:01] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 04:06:51] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 04:06:51] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 04:06:51] [SUBPROCESS] ---
+[2026-06-01 04:06:52] [SUBPROCESS] overall_score: 6.0
+[2026-06-01 04:06:52] [SUBPROCESS] voice_adherence: 7 -- The voice generally captures Elisa's analytical distance and thermodynamic metaphor framework well. The strongest voice moments are when Elisa's physical habits (granito, orelha, café) ground the abstract in the bodily. The weakest moments are when the narration steps back to describe characters or settings in ways that don't filter through Elisa's specific perceptual lens.
+[2026-06-01 04:06:52] [SUBPROCESS] beat_coverage: 7 -- All five beats from the outline are present. Beat 2 (testing Helena) is the strongest — it's fully dramatized with dialogue, sensory detail, and the emotional impact of the data contradicting the person. Beat 4 (Helena calling out Elisa's lie) is also well-executed. Beat 1 (arrival at the lab) is solid worldbuilding. Beat 5 (exit and reflection) is functional but rushes the emotional aftermath.
+[2026-06-01 04:06:52] [SUBPROCESS] character_voice: 8 -- Elisa's voice is consistently rendered — clipped, precise, thermodynamically framed. Helena's voice is generally strong, especially during the rose garden monologue, which is the chapter's emotional high point. The dialogue distinction test works: you can tell who's speaking. Helena's provérbios húngaros are absent in this chapter, which is a missed opportunity — one could naturally appear during the testing scene.
+[2026-06-01 04:06:52] [SUBPROCESS] plants_seeded: 7 -- Four plants from the outline are present: the encrypted files, the weak security, Helena noticing the ear touch, and Helena's 'fear of me' line. All are functional. The ear-touch plant is the best integrated because it emerges naturally from character behavior rather than plot mechanics.
+[2026-06-01 04:06:52] [SUBPROCESS] prose_quality: 7 -- The prose is generally clean and varied. Sentence length does range from short fragments to longer analytical passages. The strongest writing is in the Helena testing scene, where the clinical data (panels, numbers, brain activity) contrasts with the emotional content of her monologue. The 'Quietas como pedras' closing of Helena's rose garden story is devastating in its simplicity. Weakest prose moments are transitional passages that summarize rather than dramatize.
+[2026-06-01 04:06:52] [SUBPROCESS] continuity: 8 -- Strong continuity from the previous chapter. Elisa's emotional state tracks — she ends the previous chapter walking through grey Zurich, thinking about Mirela and the incompleteness of her formalism, and opens this chapter in her office at ETH, still in that headspace. The granito appears in both chapters as her tactile anchor. The progression from 'the problem is bigger than Helena' to 'the problem is bigger than I thought — there are more of them' is logical and well-paced. No emotional or plot discontinuities detected.
+[2026-06-01 04:06:52] [SUBPROCESS] canon_compliance: 8 -- The chapter is canon-compliant. Character descriptions match (Helena's red coat, blue scarf, wooden hair clip; Elisa's granito, ear-touch tice). IC values are consistent (Helena at 0,001 Dk). The Evromind corporate structure and motivations align with the political map. The testing protocol matches the established rules (controlled conditions, Faraday chamber, calorimetry + neuroimaging).
+[2026-06-01 04:06:52] [SUBPROCESS] lore_integration: 7 -- The IC measurement system is well-integrated into the testing scene — the three-panel display (neuroimaging, calorimetry, cardiac variability) is a concrete dramatization of the world's rules. The Evromind corporate pressure is present but could be more specific. The cultural details (IC bracelets, insect protein industry, AI certification) are absent — not necessarily a flaw for this chapter, but an opportunity for texture.
+[2026-06-01 04:06:52] [SUBPROCESS] engagement: 7 -- The chapter's strongest engagement moment is Helena's rose garden monologue — it's genuinely moving and the contrast between her emotional richness and the flat 0,001 Dk reading is the chapter's thematic core. The file discovery is the strongest plot hook. The chapter ends on a strong question ('Quantas Helenas existem?') that propels the reader forward. The opening (Elisa receiving the Evromind email) is solid but not gripping.
+[2026-06-01 04:06:52] [SUBPROCESS] three_weakest_sentences: ['A generosidade era a armadilha. Elisa sabia-o.', 'O laboratório era perfeito. Imaculado. Sem janelas. Demasiado perfeito.', 'Elisa não respondeu. Guiou-a pelo corredor até à porta do laboratório. O painel leu a palma da mão de Helena — os dados biométricos tinham sido carregados pela Evromind — e a porta deslizou.']
+[2026-06-01 04:06:52] [SUBPROCESS] three_strongest_sentences: ['Quietas como pedras.', 'A entropia de Helena era a mesma de uma rocha.', 'O disco USB pressionava contra o peito. O granito pressionava contra a coxa. Dois objectos no mesmo casaco. Um era uma rocha que não pensava. O outro era a prova de que havia mais como Helena.']
+[2026-06-01 04:06:52] [SUBPROCESS] ai_patterns_detected: ["Paragraph template repetition: Several paragraphs follow the structure 'description -> Elisa observes -> Elisa reflects -> short concluding sentence.' This pattern appears at least 4 times.", "Observations in threes: 'Bancadas de aço inoxidável alinhadas contra a parede esquerda. Monitores curvos — cinco, seis, sete — montados em braços articulados. Um aparelho de calorimetria de precisão extrema ocupava o canto mais afastado.' The counting (five, six, seven) is a classic AI enumeration tic.", "Emotional beats arriving on schedule: Helena's emotional monologue -> data shows nothing -> Helena calls out Elisa's lie -> Elisa finds the files. Each beat arrives exactly when structurally expected.", 'Description that catalogs: The lab description lists walls, ceiling, floor, lighting, benches, monitors, calorimetry equipment, Faraday chamber. A human writer would select 2-3 telling details and let the reader fill in the rest.', "Symmetry addiction: The chapter is structured as five clean beats of roughly equal weight, mirroring the outline's five beats exactly. Real chapters are lumpier."]
+[2026-06-01 04:06:52] [SUBPROCESS] weakest_dimension: prose_quality
+[2026-06-01 04:06:52] [SUBPROCESS] top_3_revisions: ["Cut or rewrite the 'A generosidade era a armadilha' thesis statement and similar explanatory sentences throughout. Trust the reader to infer Elisa's suspicion from her actions (re-reading the email three times, noting the lack of windows, testing the system speed before using it).", "Expand the encrypted file discovery sequence from 2 pages to 3-4. Add investigative detail — other files on the server, communications, financial data — so the discovery feels like genuine detective work rather than a password working on the third try. This is the chapter's hook and it needs more room to breathe.", "Rewrite Helena's 'A senhora não tem medo de mim. Tem medo do que eu significo' line to match her established speech pattern — shorter sentences, self-interruption, concrete anchoring. The philosophical content is right; the delivery is too polished for her voice."]
+[2026-06-01 04:06:52] [SUBPROCESS] new_canon_entries: ['Evromind possui um laboratório subterrâneo no distrito de Altstetren, Zurique, com equipamento de última geração incluindo um protótipo de neuroimagem funcional de 7 Tesla.', "Evromind possui pelo menos 19 outros casos de sujeitos com IC abaixo de 0,01 Dk, classificados como 'erro de medição', com dados recolhidos desde pelo menos 2025.", "A palavra-passe do directório encriptado no servidor do laboratório Evromind era 'Helena', sugerindo que a empresa queria que Elisa encontrasse os ficheiros.", 'A correlação entre actividade neural e incremento entrópico em Helena é r = 0,02 (vs. r = 0,78 esperado para uma pessoa normal).']
+[2026-06-01 04:06:52] [SUBPROCESS] slop: N/A --
+[2026-06-01 04:06:52] [SUBPROCESS] raw_judge_score: 7
+[2026-06-01 04:06:52] [SUBPROCESS] 
+[2026-06-01 04:06:52] [SUBPROCESS] eval_log: /mnt/d/Dev/autobook/eval_logs/20260601_040651_ch08.json
+[2026-06-01 04:06:52] [INFO] Chapter 8 score: 6.0
+[2026-06-01 04:06:52] [INFO] RUN: git add -A
