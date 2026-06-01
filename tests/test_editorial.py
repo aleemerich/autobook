@@ -25,6 +25,7 @@ from run_editorial import (
 def mock_editorial_file(tmp_path, monkeypatch):
     temp_file = tmp_path / "editorial.md"
     monkeypatch.setattr(run_editorial, "EDITORIAL_MD", temp_file)
+    monkeypatch.setattr(run_editorial, "BRIEFS_DIR", tmp_path / "briefs")
     return temp_file
 
 def test_load_editorial_markdown_creates_default(mock_editorial_file):

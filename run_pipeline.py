@@ -895,6 +895,10 @@ def run_revision(state: dict, max_cycles: int = MAX_REVISION_CYCLES) -> dict:
                            word_count, "discard",
                            f"Cycle {cycle}: {question} regressed {pre_score}->{post_score}")
 
+            # Clean up brief file
+            if brief_file.exists():
+                brief_file.unlink()
+
         # -- Step 6: Full novel evaluation --
         step("Running full novel evaluation...")
         full_eval = uv_run("evaluate.py --full", timeout=REVISION_TIMEOUT)
@@ -991,6 +995,8 @@ def run_revision(state: dict, max_cycles: int = MAX_REVISION_CYCLES) -> dict:
                         uv_run(f"gen_revision.py {ch_num} {brief}", timeout=REVISION_TIMEOUT)
                         git_add_commit(
                             f"review round {rnd}: revise ch{ch_num:02d} from Opus feedback")
+                        if brief.exists():
+                            brief.unlink()
             
             # Step 5: Mechanical fixes from review
             # Run slop pass on any mentioned patterns
@@ -1277,6 +1283,9 @@ def task_reader_panel(state: dict) -> dict:
             log_result("reverted", f"rev-ch{ch_num:02d}", post_score,
                        word_count, "discard",
                        f"Reader Panel: {question} regressed {pre_score}->{post_score}")
+
+        if brief_file.exists():
+            brief_file.unlink()
     return state
 
 def task_opus_review(state: dict) -> dict:
@@ -1333,6 +1342,8 @@ def task_opus_review(state: dict) -> dict:
                     step(f"Revising Ch {ch_num} from review brief...")
                     uv_run(f"gen_revision.py {ch_num} {brief}", timeout=REVISION_TIMEOUT)
                     git_add_commit(f"review round {rnd}: revise ch{ch_num:02d} from Opus feedback")
+                    if brief.exists():
+                        brief.unlink()
         
         step("Running mechanical cleanup pass...")
         apply_cuts_py = BASE_DIR / "apply_cuts.py"
