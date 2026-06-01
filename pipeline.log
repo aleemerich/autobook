@@ -11165,3 +11165,1435 @@
 [2026-06-01 04:41:09] [SUBPROCESS] eval_log: /mnt/d/Dev/autobook/eval_logs/20260601_044108_ch12.json
 [2026-06-01 04:41:09] [INFO] Chapter 12 score: 6.0
 [2026-06-01 04:41:09] [INFO] RUN: git add -A
+[2026-06-01 04:41:09] [INFO] RUN: git commit -m "ch12: score 6.0, 4375w" --allow-empty
+[2026-06-01 04:41:10] [SUBPROCESS] [autobook/a-prova-final 6a745b2] ch12: score 6.0, 4375w
+[2026-06-01 04:41:10] [SUBPROCESS] 4 files changed, 758 insertions(+), 1 deletion(-)
+[2026-06-01 04:41:10] [SUBPROCESS] create mode 100644 chapters/ch_12.md
+[2026-06-01 04:41:10] [INFO] RUN: git rev-parse --short HEAD
+[2026-06-01 04:41:10] [SUBPROCESS] 6a745b2
+[2026-06-01 04:41:10] [INFO] GIT COMMIT: 6a745b2 — ch12: score 6.0, 4375w
+[2026-06-01 04:41:10] [INFO] ------------------------------------------------------------
+[2026-06-01 04:41:10] [INFO] Drafting Chapter 13/22
+[2026-06-01 04:41:10] [INFO] ------------------------------------------------------------
+[2026-06-01 04:41:10] [INFO] Attempt 1/5
+[2026-06-01 04:41:10] [INFO] RUN: uv run python draft_chapter.py 13
+[2026-06-01 04:41:10] [SUBPROCESS] Drafting Chapter 13...
+[2026-06-01 04:41:11] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 04:44:21] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 04:44:21] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 04:44:21] [SUBPROCESS] Saved to /mnt/d/Dev/autobook/chapters/ch_13.md
+[2026-06-01 04:44:21] [SUBPROCESS] Word count: 3758
+[2026-06-01 04:44:21] [SUBPROCESS] # Capítulo 13 — O Círculo de Harmonia
+[2026-06-01 04:44:21] [SUBPROCESS] 
+[2026-06-01 04:44:21] [SUBPROCESS] O disco USB estava quente contra a coxa de Elisa quando ela subiu as escadas exteriores do edifício de Helena. Não por defeito eléctrico — o rectângulo de plástico e silício temperara-se ao corpo durante meses, como um seixo num rio, e agora, às 15h47 de uma quinta-feira de Março, com o céu de Zurique da cor de chumbo polido, ela sentia-o ali, junto ao quadril esquerdo, um peso que não era peso. O granito no bolso direito pesava mais. Tocou nele. O polimento sob o polegar. Cinquenta milhões de anos sem um único pensamento.
+[2026-06-01 04:44:21] [SUBPROCESS] 
+[2026-06-01 04:44:21] [SUBPROCESS] Tocou à campainha.
+[2026-06-01 04:44:21] [SUBPROCESS] 
+[2026-06-01 04:44:21] [SUBPROCESS] Helena abriu a porta com o casaco vermelho vestido e um avental às riscas. Cheirava a alho e a paprika. Os olhos azul-claros — translúcidos, como água sobre calcário — percorreram o rosto de Elisa com uma atenção que não era curiosidade. Era outra coisa. Reconhecimento, talvez. Ou a ausência de pressa de quem já sabe o que vai ouvir.
+[2026-06-01 04:44:21] [SUBPROCESS] 
+[2026-06-01 04:44:21] [SUBPROCESS] — Doutora Dragovski — disse Helena. Entrou para trás. — Entre, entre. Vou tirar o frigorífico do lume.
+[2026-06-01 04:44:21] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Elisa entrou. O apartamento era pequeno e cheiroso como um pão no forno. A sala tinha mobília dos anos 1970 — sofá verde-escuro, estante de nogueira, tapete persa com as cores lavadas. O relógio de parede marcava 15h41. Atrasava três minutos por dia. Helena nunca o acertava.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — A senhora sabe por que estou aqui — disse Elisa. Não era pergunta.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Helena olhou para ela por cima do ombro. Inclinou a cabeça para a esquerda.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — A senhora quer perguntar sobre os outros. — Não era pergunta também. Voltou para a cozinha.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Elisa ficou de pé no meio da sala. Não se sentou. Tocou no granito. Olhou para as fotografias na estante — Helena jovem, um homem de sorriso largo, uma menina com tranças. Budapeste nalgumas. Zurique noutras. A transição entre as duas cidades era abrupta, como se alguém tivesse cortado uma vida e colado outra por cima. Não havia fotografias dos anos entre 1978 e 1986. Elisa notara isto na primeira visita.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — Sente-se — chamou Helena da cozinha. — O chá está quase.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Elisa sentou-se. O sofá afundou sob ela com um suspiro de molas velhas. Havia um livro aberto na mesa de centro — *A Montanha Mágica*, de Thomas Mann, em alemão, com a lombada partida e anotações a lápis nas margens. Helena lê em alemão, mas pensa em húngaro. Elisa sabera isto com Marcus, que notara que os padrões de leitura de Helena — pausas, releituras, velocidade — correspondiam a alguém que traduz internamente enquanto processava.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Helena voltou com duas canecas. Chá de camomila. Entregou uma a Elisa e sentou-se na cadeira ao cruzar, não no sofá. A distância era deliberada. Helena segurava a caneca com as duas mãos, como se a aquecesse, embora o vapor já tivesse quase desaparecido.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — Quantos? — perguntou Helena.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Elisa bebeu um gole. O chá estava morno. Bem.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — Confirmámos três. Provavelmente mais.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — Pessoas como eu.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — Pessoas com IC abaixo de 0,01. Sim.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Helena ficou em silêncio. Olhou para o chá. Os dedos grandes, com as articulações inchadas pela artrose, envolveram a caneca com uma firmeza que não combinava com a fragilidade que sugeriam. O relógio na parede fez um clique — o ponteiro dos minutos saltou um segundo para a frente, como se tentasse apanhar o tempo que perdia.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — Isso é bom — disse Helena.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Elisa pousou a caneca.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — É?
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Helena levantou os olhos. A inclinação da cabeza outra vez, subtil, como um pássaro a avaliar a distância.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — Se sou a única, sou um erro. — Pausa. Bebeu um gole. — Se somos várias, somos uma coisa que ainda não tem nome. Prefiro ser uma coisa sem nome a ser um erro.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Elisa abriu a boca. Fechou-a. Consultou mentalmente quarenta e sete definições de anomalia, desvio-padrão, ruído estatístico. Nenhuma servia. O silêncio que se seguiu não era desconfortável. Era o silêncio de duas pessoas que sabem que a conversa acabou de mudar de piso.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Helena levantou-se e foi à cozinha. Ouviu-se o som do fogão a gás — um estalido, depois o sopro azul da chama. Helena voltou com um prato de pão fatiado e um pequeno prato de azeite escuro com ervas.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — Coma — disse. — A senhora não come. Eu vejo.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Elisa comeu. O pão era denso, caseiro, com crosta dura e miolo escuro. O azeite tinha tomilho. Não disse obrigada, porque obrigada seria tratar aquilo como favor, e Helena não estava a fazer favores. Estava a alimentar alguém que precisava de comer. A diferença era pequena e enorme.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Comeram em silêncio durante um minuto. Helena tirou o avental e dobrou-o sobre o braço da cadeira. O casaco vermelho tinha uma mancha de farinha no punho esquerdo.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — A senhora quer saber sobre os outros — disse Helena. — Mas primeiro quer saber se eu tenho medo.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Elisa pousou o pão.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — Tenho.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — Do quê?
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — De que me transformem em número. — Helena tocou no pingente de carvalho. — Já sou um número. Zero vírgula zero zero um. Quando as pessoas olham para mim, não vêem Helena. Vêem o número. A senhora também.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Elisa não respondeu. Porque era verdade. Porque a primeira vez que vira Helena — no relatório, no ecrã do laboratório do USZ — vira um número. 0,001 Dk. O número chegara antes da pessoa. O número chegara antes de tudo.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — A senhora tem razão — disse Elisa. — A primeira vez que ouvi falar da senhora, vi um número. Não vi a senhora.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Helena sorriu. As covinhas fundas apareceram como dois parênteses no rosto redondo.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — E agora?
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Agora. A palavra ficou suspensa entre elas como uma nota musical que ninguém se decide a terminar.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — Agora vejo a senhora — disse Elisa. — E o número não ajuda.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Helena assentiu. Levantou-se, foi à cozinha, voltou com a chaleira. Encheu as duas canecas. O ritual era o mesmo — movimentos lentos, precisos, sem desperdício. Helena não fazia nada por acaso. Elisa notara isto nas visitas anteriores: cada gesto de Helena tinha uma economia de esforço que não era preguiça. Era eficiência. Era a precisão de quem traduziu durante 35 anos e aprendeu que cada palavra desnecessária custa caro.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — Conte-me sobre Budapeste — disse Elisa.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Helena sentou-se outra vez. Segurou a caneca. Os olhos focaram-se num ponto atrás de Elisa — não na parede, mas na parede de uma memória.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — Budapeste era um cão velho — disse. — Ladrava muito mas não mordia.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — Como assim?
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — Os soviéticos estavam lá. Os tanques, a KGB, os informadores em cada prédio. As pessoas queixavam-se — nos cafés, no autocarro, à mesa de jantar. Muito barulho. Mas no dia a dia, a vida passava. As pessoas trabalhavam, cozinhavam, apaixonavam-se, tinham filhos. O regime era um cão velho que ladrava para mostrar que ainda existia. Mas já não mordia. Ou mordia tão poucas vezes que as pessoas aprendiam a evitar os dentes.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Olhou para a canela. O vapor tinha desaparecido.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — O Danúbio no Inverno era cinzento. Não azul, não verde. Cinzento como cimento. Cheirava a pedra húmida e a peixe morto. Havia um mercado na Rua Vármegyi onde vendiam paprika — sacos enormes, vermelhos como sangue seco. A minha mãe comprava paprika todos os sábados. Dizia que o paprika de Budapeste tinha uma cor que não existia em mais lado nenhum. Eu achava que era conversa de velha. Agora acho que tinha razão.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] Elisa bebeu chá. Esperava. Helena falava em ondas — uma frase sobre a cidade, depois um salto para o sensorial, depois um silêncio. Não se podia apressar. Era como tentar acelerar um rio.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — E o som? — perguntou Elisa.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — Húngaro. — Helena sorriu. — O húngaro soa como alguém a atirar pedras a um telhado de zinco. Todas as consoantes, nenhuma vogal. Os estrangeiros achavam feio. Eu achava... — Tocou no pingente outra vez. — Achava que era a linguagem mais honesta do mundo. Não tenta ser bonita. Apenas diz o que é.
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:22] [SUBPROCESS] — A senhora sente saudas?
+[2026-06-01 04:44:22] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] Helena inclinou a cabeça. Desta vez não para o lado esquerdo — para a frente, como se olhasse para algo muito perto.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — Sinto falta de uma versão de mim que existiu lá. — Pausa. — Não da cidade. De mim.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] A frase ficou no ar. Elisa deixou-a ficar. Não a examinou, não a mediu, não a traduziu para variáveis. Apenas a ouviu.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — E essa versão — disse Elisa, devagar — quando é que desapareceu?
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] Helena olhou para ela. Os olhos azul-claros tinham uma qualidade que Elisa tentara descrever a Marcus na noite anterior e falhara — pareciam ver sem calcular. Como se olhassem para as coisas não para as analisar mas para as reconhecer.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — 1983 — disse Helena. — Foi um ano estranho.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] Elisa pousou a caneca. O chá tilhou contra a porcelana.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — Estranho como?
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — Trabalhava muito. — Helena falava devagar, como quem pisa gelo fino. — Traduzia reuniões que não devia traduzir. O Ministério mandava-me para sala onde não devia estar. Húngaros, soviéticos, conversas que eu não devia ouvir. Eu traduzia. Fazia o meu trabalho.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] Fez uma pausa. Os dedos encontraram o pingente.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — Uma noite — Março, creio, ou talvez Fevereiro — chamaram-me à uma da manhã. Reunião de emergência. Dois diplomatas húngaros, três soviéticos. Eu traduzi durante seis horas. Seis horas sem parar. Russo para húngaro, húngaro para russo. Bebi quatro cafés. Fumei dois cigarros, coisa que não fazia.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] Elisa não se mexia. O disco USB estava quente contra a coxa. O granito estava frio no bolso. Dois objectos. Dois pesos. Nenhum dos quais importava naquele momento.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — No final — disse Helena — um dos soviéticos olhou para mim. Um homem velho, cinzento, com um fato que cheirava a tabaco frio. E disse — em russo, não em húngaro, disse em russo, que eu não devia perceber mas percebi — disse: "Esta menina não está a traduzir. Está a pensar."
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] Helena sorriu. Um sorriso pequeno, sem covinhas.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — Naquela noite voltei para casa e dormi catorze horas. Catorze. Quando acordei, senti... — Parou. Os olhos procuraram a palavra como quem procura uma chave no fundo de um saco. — Leveza. Como se pensar não custasse nada. Como se cada pensamento deslizasse em vez de empurrar.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] Elisa congelou.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] Não visivelmente. Não com um sobressalto ou um grito. Congelou por dentro — uma paragem súbita, como um relógio que alguém pára com o dedo. O formalismo na sua cabeça — a equação de Boltzmann, a prova de 2023, o Drakon — tudo parou ao mesmo tempo.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — Quanto tempo durou essa sensação? — A voz de Elisa saiu normal. Científica. Medida.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — Três semanas.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] Três semanas.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] O número atingiu Elisa como uma pedra atirada a uma janela. Não partiu o vidro — o vidro já estava partido, desde Helena, desde o CERN, desde a mãe. Mas a pedra passou através da fractura e caiu num sotão onde Elisa não costumava ir.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — E depois? — perguntou.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — Depois passou. — Helena encolheu os ombros. — Voltei ao normal. Ou ao que eu achava que era normal. Nunca contei isto a ninguém.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] Elisa tocou no granito. O polimento sob o polegar. Cinquenta milhões de anos sem um único pensamento. Mas Helena — Helena pensara durante três semanas sem gerar entropia mensurável. Três semanas de consciência sem custo termodinâmico. O formalismo previa que fazer isso era impossível. E durante três semanas, para Helena, fora exactamente isso.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] Pensar sem pagar o preço.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — A senhora sentiu alguma outra coisa durante essas três semanas? — A voz de Elisa era aço. Não porque fosse dura, mas porque era a única forma de não tremer. — Além da leveza?
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — Clareza. — Helena disse a palavra como se a tirasse de uma gaveta antiga. — Tudo parecia... nítido. Não mais bonito. Não mais feliz. Apenas mais nítido. Como se o mundo tivesse sido limpo com um pano húmido e eu estivesse a ver pela primeira vez.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — E no final das três semanas?
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — Acordei uma manhã e estava tudo outra vez enevoado. Normal. — Helena bebeu o chá, que já devia estar frio. — Achei que era cansaço. Que o corpo tinha voltado ao que era. Nunca pensei mais no assunto. Até agora.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] Elisa levantou-se. Não planeara levantar-se — o corpo decidiu sozinho, como um animal que precisa de se mover. Foi até à janela. O vidro estava frio. Lá fora, Oerlikon continuava a funcionar — uma mulher com um carrinho de bebé, um homem de gabardina, um eléctrico que passava com um som de metal sobre metal.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] Três semanas.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] O IC de Helena era 0,001 Dk. Zero, para todos os efeitos práticos. Mas durante três semanas em 1983, fora zero antes de voltar ao normal. O que significava que o IC zero não era permanente. Era um estado que se podia entrar e sair. Um estado que Helena entrara por razões que desconhecera e saíra quando algo mudara.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] O quê?
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] Elisa fechou os olhos. O formalismo girava na cabeça como uma engrenagem sem dentes — a girar, a girar, mas sem agarrar nada. Se a entropia de Helena ia para outro sistema — outro universo, outra dimensão, outro regime físico — então o que acontecera em 1983? O sistema alternativo estivera disponível durante três semanas e depois encerrara? Helena entrara num estado de consciência reversível e depois saíra? Porquê? O que mudara?
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] Abriu os olhos. Zurique continuava cinzenta. O eléctrico desaparecera. O homem de gabardina também.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — Doutora.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] Helena estava de pé atrás dela. Não fazia barulho ao andar — anos de apartamento com chão de madeira tinham-lhe ensinado a pisar com a lateral do pé.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — A senhora está assustada — disse Helena.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] Não era pergunta.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — Estou — disse Elisa.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] Helena assentiu. Pousou a mão no ombro de Elisa — um gesto breve, quase clínico, que durou menos de dois segundos e que, por alguma razão que Elisa não conseguia nomear, a fez pensar na mãe.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — Eu também estou — disse Helena. — Mas o medo é como o Danúbio no Inverno. É cinzento. Mas corre.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] Elisa virou-se. Helena recuou para a cadeira e sentou-se. O casaco vermelho tinha uma dobra nova no cotovelo esquerdo. O pingente de carvalho brilhava sob a luz fria da tarde.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — Posso fazer-lhe mais uma pergunta? — disse Elisa.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — Pode.
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:23] [SUBPROCESS] — A senhora tem fotografias de Budapeste?
+[2026-06-01 04:44:23] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Helena hesitou. Pela primeira vez desde que Elisa a conhecera, hesitou de verdade — não uma pausa calculada, mas uma paragem genuína, como se uma porta tivesse sido aberta e ela estivesse a decidir se entrava.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] — Tenho — disse. — Mas não são para ver.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Elisa não insistiu. Não porque não quisesse — queria, a curiosidade era um ácido no estômago — porque sabia que forçar seria violar algo. Helena revelava o que queria revelar. E o que revelara sobre 1983 já era mais do que Elisa esperava.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Sentaram-se outra vez. O chá estava frio nas duas canecas. O relógio marcava 16h23. Na verdade, eram 16h26. Três minutos de atraso, como sempre.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] — A senhora vem mais vezes? — perguntou Helena.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] — Se a senhora quiser.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] — Quero. — Helena sorriu. As covinhas apareceram. — É agradável ter alguém que não olha para mim como se eu fosse um problema de matemática.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Elisa quase sorriu. Quase. O músculo certo no lado esquerdo do rosto contraiu-se por um instante e depois voltou ao repouso.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] — A senhora não é um problema de matemática — disse.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] — Eu sei. Mas a senhora ainda não sabe.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Elisa levantou-se. Pôs o casaco. O disco USB no bolso esquerdo. O granito no direito. Dois objectos. Dois pesos.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] — Obrigada pelo chá.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] — Obrigada pelo pão — disse Helena. — Quer dizer, obrigada por comer o pão.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Elisa abriu a porta. O corredor cheirava a detergente e a alguma coisa a fritar três andares abaixo.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] — Doutora.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Elisa virou-se.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] — Aquela frase — disse Helena. — Sobre ser uma coisa sem nome em vez de um erro. A senhora vai usá-la?
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] — Nos meus relatórios? Não.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] — Não. Na sua cabeça.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Elisa não respondeu. Fechou a porta. Desceu as escadas exteriores. O corrimão de ferro verde estava frio sob a mão. Lá fora, o céu continuava de chumbo. O ar cortava.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Foi até o lago.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] ---
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] O caminho do edifício de Helena ao lago de Zurique demorava doze minutos a pé. Elisa fizera esse trajecto mentalmente centenas de vezes — a rua Oerlikon até à bifurcação, depois a descida pela Seestrasse, depois o parque, depois o banco de madeira junto à água. Nunca o fizera. Desta vez fez.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] O lago estava imóvel. Não parado — imóvel. A diferença era importante. Parado implicava esforço contra o movimento. Imóvel era ausência total de transição. A água tinha a cor de aço líquido. Não azul, não verde, não negra. Aço. O tipo de cor que não existe na natureza — só existe em coisas que foram fundidas, moldadas, arrefecidas.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Sentou-se no banco. A madeira estava húmida e fria através do tecido das calças. Um pato-real deslizou da margem esquerda para o centro do lago sem perturbar a superfície. Nenhum rasto. Nenhuma onda. Como se não tivesse passado por ali.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Três semanas.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Elisa pensou nos dados do CERN. As anomalias de 2018 — os padrões que ninguém soubera explicar, que a Evromind classificara como ruído, que guardara no disco USB como quem guarda uma carta que não quer abrir. Os padrões tinham uma estrutura. O técnico escrevera: "Parece... estruturado. Como se fosse sinal." Sinal de quê? De onde?
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Se Helena exportava entropia para outro sistema durante três semanas em 1983, esse sistema deixara de funcionar — ou deixara de estar acessível. O IC voltara ao normal. Ou ao que Helena chamava normal. Mas normal, para Helena, não era o IC médio de 7,2 a 12,6. Era zero. Zero permanente. Excepto durante aquelas três semanas, quando fora zero temporário antes de se tornar zero permanente.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] A linha temporal não fazia sentido.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Ou fazia, mas exigia que Elisa aceitasse algo que a sua formação científica rejeitava. Que a consciência não era um processo termodinâmico local. Que o custo de pensar podia ser transferido — não para outro lugar no universo conhecido, mas para outro regime físico. Outra camada. Outra dimensão, se a palavra dimensão não fosse demasiado grande e demasiado pequena ao mesmo tempo.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Tocou no granito. O polimento sob o polegar. Cinquenta milhões de anos.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] A rocha não exportava entropia. A rocha não pensava. A rocha era simples.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Helena não era simples. Helena pensava — disso Elia tinha certeza, porque estivera na varanda dela, vira-a regar o manjericão, ouvira-a fazer perguntas que rochas não faziam — e o universo não pagava o preço. Ou pagava, mas noutro sítio. Noutro sistema. Noutro lugar onde ninguém media.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Elisa pensou na mãe. No último guardanapo. *S igual k lo—*. A mão que parou. A tinta que se interrompeu. A frase que nunca foi terminara.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Completara-a mentalmente todas as noites durante dois anos. *S igual k logaritmo de W*. A equação de Boltzmann. A linguagem da ciência e o último sussurro da mãe.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Mas e se a equação estivesse completa? E se *S igual k lo—* fosse tudo o que havia — não por falha da mãe, mas por honestidade? E se a mão tivesse parado porque não havia mais nada para dizer?
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Elisa nunca admitiria isto em voz alta. Nunca o escreveria num artigo, nunca o diria a Marcus, nunca o confessaria ao padre Tomás, que a olharia com aqueles olhos de quem já sabe a resposta antes da pergunta.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Mas ali, no banco de madeira junto ao lago imóvel, com o disco USB quente no bolso esquerdo e o granito frio no direito, admitiu.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] A mãe parara porque não havia mais nada para dizer.
+[2026-06-01 04:44:24] [SUBPROCESS] 
+[2026-06-01 04:44:24] [SUBPROCESS] Helena exportava entropia para um sítio que a ciência não alcançava.
+[2026-06-01 04:44:25] [SUBPROCESS] 
+[2026-06-01 04:44:25] [SUBPROCESS] E o formalismo — o Nobel, a prova, o Drakon, tudo — descrevia o mecanismo, mas não a experiência.
+[2026-06-01 04:44:25] [SUBPROCESS] 
+[2026-06-01 04:44:25] [SUBPROCESS] A assinatura não era a coisa em si.
+[2026-06-01 04:44:25] [SUBPROCESS] 
+[2026-06-01 04:44:25] [SUBPROCESS] O pato-real chegou ao centro do lago. Parou. Flutuava sem se mover — ou movia-se com a corrente de forma tão exacta que parecia imóvel. Elisa observou-o. O animal tinha um IC estimado de 0,8 Dk. Baixo para um humano. Alto para uma rocha. Algures entre o pensamento e a ausência dele.
+[2026-06-01 04:44:25] [SUBPROCESS] 
+[2026-06-01 04:44:25] [SUBPROCESS] Helena tinha o IC de uma rocha e a mente de uma pessoa. O pato tinha o IC de algo entre os dois e a mente de... quê? De um pato. De um ser que não fazia perguntas sobre o seu próprio IC. Que não se perguntava se era um erro ou uma coisa sem nome. Que simplesmente flutuava.
+[2026-06-01 04:44:25] [SUBPROCESS] 
+[2026-06-01 04:44:25] [SUBPROCESS] Elisa invejou o pato durante três segundos. Depois a inveja passou e ficou outra coisa — não determinação, não medo, mas algo intersticial. Uma substância entre dois estados da matéria. Não sólida, não líquida. Algo que não tinha nome.
+[2026-06-01 04:44:25] [SUBPROCESS] 
+[2026-06-01 04:44:25] [SUBPROCESS] Como Helena. Uma coisa sem nome.
+[2026-06-01 04:44:25] [SUBPROCESS] 
+[2026-06-01 04:44:25] [SUBPROCESS] Elisa levantou-se. A madeira do banco ficou com a marca das calças húmidas. O pato continuava no centro do lago. Zurique continuava cinzenta. O disco USB continuava quente. O granito continuava frio.
+[2026-06-01 04:44:25] [SUBPROCESS] 
+[2026-06-01 04:44:25] [SUBPROCESS] O passo estava ali. Um passo à frente. Não exigia um novo formalismo, nem uma nova equação, nem um novo Nobel. Exigia que Elisa aceitasse que a consciência podia operar fora da termodinâmica — não como excepção, mas como regra que ainda não compreendíamos. Que o custo de pensar não desaparecia, mas ia para um sítio que os nossos instrumentos não alcançavam. Que Helena não era uma anomalia. Era uma ponte.
+[2026-06-01 04:44:25] [SUBPROCESS] 
+[2026-06-01 04:44:25] [SUBPROCESS] E pontes têm dois sentidos.
+[2026-06-01 04:44:25] [SUBPROCESS] 
+[2026-06-01 04:44:25] [SUBPROCESS] Elisa caminhou. O ETH ficava a vinte minutos. Marcus esperava. Os dados do CERN esperavam. O formalismo esperava.
+[2026-06-01 04:44:25] [SUBPROCESS] 
+[2026-06-01 04:44:25] [SUBPROCESS] Mas à frente de tudo isso — à frente dos números, das equações, dos relatórios e dos e-mails de Renan Kapoor — havia algo que Elisa não podia medir. Algo que Helena conhecia há quarenta e quatro anos, desde aquela noite em Budapeste, desde o diplomata soviético que dissera *esta menina não está a traduzir, está a pensar*.
+[2026-06-01 04:44:25] [SUBPROCESS] 
+[2026-06-01 04:44:25] [SUBPROCESS] A leveza.
+[2026-06-01 04:44:25] [SUBPROCESS] 
+[2026-06-01 04:44:25] [SUBPROCESS] Elisa não a sentia. Não ainda. Mas sabia onde procurar. Não nos dados. Não no laboratório. Não no formalismo.
+[2026-06-01 04:44:25] [SUBPROCESS] 
+[2026-06-01 04:44:25] [SUBPROCESS] Em Helena. Na mulher do casaco vermelho que cozinhava paprika e cuidava de manjericão e falava sozinha em húngaro e tinha o IC de uma rocha e a mente de quem sabe algo que a ciência ainda não nomeou.
+[2026-06-01 04:44:25] [SUBPROCESS] 
+[2026-06-01 04:44:25] [SUBPROCESS] O passo estava ali.
+[2026-06-01 04:44:25] [SUBPROCESS] 
+[2026-06-01 04:44:25] [SUBPROCESS] Elisa deu-o.
+[2026-06-01 04:44:25] [INFO] Drafted 3758 words
+[2026-06-01 04:44:25] [INFO] RUN: uv run python evaluate.py --chapter=13
+[2026-06-01 04:44:26] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 04:47:33] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 04:47:33] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 04:47:34] [SUBPROCESS] ---
+[2026-06-01 04:47:34] [SUBPROCESS] overall_score: 4.5
+[2026-06-01 04:47:34] [SUBPROCESS] voice_adherence: 7 -- The chapter generally captures Elisa's analytical voice well, particularly in the lake scene where her scientific framing cracks. But there are moments where the prose smooths into a generic literary register rather than staying inside Elisa's specific cognitive patterns. The sentence rhythm tends toward medium-length throughout — needs more fragments and more long, winding deductive sentences to match the voice profile.
+[2026-06-01 04:47:34] [SUBPROCESS] beat_coverage: 8 -- All five outline beats are present and most are well-executed. Beat 3 (the 1983 revelation) is the strongest — it lands with real force. Beat 1 (the 'thing without a name' exchange) is excellent. Beat 5 (the lake) is the weakest because it's summarized rather than lived.
+[2026-06-01 04:47:34] [SUBPROCESS] character_voice: 8 -- Helena's voice is generally excellent — the Hungarian proverbs, the sensory metaphors, the head-tilt before devastating questions. Elisa's voice is strong in dialogue — direct, no contractions, precise numbers. The 'Prefiro ser uma coisa sem nome a ser um erro' line is perfect Helena. The weakest moment is when Helena sounds too fluent and complete.
+[2026-06-01 04:47:34] [SUBPROCESS] plants_seeded: 8 -- The three-weeks-of-1983 revelation is the chapter's central plant and it's excellently handled — it emerges naturally from Helena's storytelling, not from Elisa interrogating her. The 'coisa sem nome' line is a plant that will pay off later. The photograph box is a good plant but slightly mechanical in execution.
+[2026-06-01 04:47:34] [SUBPROCESS] prose_quality: 7 -- The prose is generally strong with good variation in sentence length. The lake scene has some of the best writing — 'A água tinha a cor de aço líquido. Não azul, não verde, não negra. Aço.' — this is excellent. Weakest tendencies: occasional over-description (listing three negations becomes a pattern), and some transitional sentences that summarize rather than render. The 'Dois objectos. Dois pesos.' repetition from the previous chapter's ending is effective but risks becoming a tic.
+[2026-06-01 04:47:34] [SUBPROCESS] continuity: 8 -- Strong continuity from the previous chapter. Elisa's emotional state — the admission 'Não estou bem' from the train scene — tracks directly into this chapter's vulnerability. The USB drive, the granite, the CERN data, the twelve subjects — all carried forward naturally. The shift from the train (Marcus scene) to Helena's apartment is handled with a time jump that works. Elisa's arc from determination to tenderness to anticipatory grief is present and earned.
+[2026-06-01 04:47:34] [SUBPROCESS] canon_compliance: 7 -- The Farkas violation is significant — it's a direct factual contradiction of established canon. Helena is defined as someone who never lies. Having her say 'never told anyone' when she told Farkas (even under medication) breaks character. This needs correction.
+[2026-06-01 04:47:34] [SUBPROCESS] lore_integration: 8 -- The chapter does strong work integrating the IC system into emotional and philosophical territory. The central revelation — that Helena experienced three weeks of zero IC in 1983 — is a perfect fusion of plot mechanics and thematic depth. The world's rules aren't just referenced; they're stress-tested. The formalism isn't set dressing — it's the thing that breaks.
+[2026-06-01 04:47:34] [SUBPROCESS] engagement: 7 -- The chapter's strongest engagement moment is the 1983 revelation — it lands with genuine force and recontextualizes everything. The 'coisa sem nome' exchange is the chapter's emotional high point. The lake scene is contemplative rather than tense, which is appropriate for the 'Fun and Games' beat but may lose readers who want forward momentum. The chapter earns its quietness but could use one more moment of surprise.
+[2026-06-01 04:47:34] [SUBPROCESS] three_weakest_sentences: ['O disco USB estava quente contra a coxa de Elisa quando ela subiu as escadas exteriores do edifício de Helena.', 'O silêncio que se seguiu não era desconfortável. Era o silêncio de duas pessoas que sabem que a conversa acabou de mudar de piso.', 'Elisa invejou o pato durante três segundos. Depois a inveja passou e ficou outra coisa — não determinação, não medo, mas algo intersticial.']
+[2026-06-01 04:47:34] [SUBPROCESS] three_strongest_sentences: ['Se sou a única, sou um erro. Se somos várias, somos uma coisa que ainda não tem nome. Prefiro ser uma coisa sem nome a ser um erro.', 'A água tinha a cor de aço líquido. Não azul, não verde, não negra. Aço.', 'A mãe parara porque não havia mais nada para dizer.']
+[2026-06-01 04:47:34] [SUBPROCESS] ai_patterns_detected: ["Triple negation pattern: 'Não azul, não verde, não negra' — this is a common AI rhetorical device (ruling out three options to arrive at the right one). It appears once here but is a pattern to watch.", "Emotional beats arriving on schedule: the chapter follows the outline's emotional arc (determination → tenderness → anticipatory grief) very precisely. The beats don't surprise — they arrive when expected.", "Symmetry in the pocket motif: 'disco USB no bolso esquerdo, granito no direito' appears twice in near-identical form. Effective as a bookend but risks feeling mechanical.", "Internal monologue explaining what the scene already showed: 'O número atingiu Elisa como uma pedra atirada a uma janela' — the metaphor is good but the narration is telling us the impact that the dialogue already conveyed.", "The 'Dois objectos. Dois pesos.' construction is repeated from the previous chapter's ending — effective as a callback but the repetition of this specific short-short pattern across chapters could become a tic."]
+[2026-06-01 04:47:34] [SUBPROCESS] weakest_dimension: canon_compliance
+[2026-06-01 04:47:34] [SUBPROCESS] top_3_revisions: ["Fix the canon violation: Helena says 'Nunca contei isto a ninguém' but canon establishes she told Dr. Farkas in 2019 under sleeping pills. Rewrite her line to acknowledge the Farkas incident while preserving her sense of never having intentionally revealed it. Suggested: 'Nunca contei a ninguém — não acordada, não de propósito.' This keeps her truthful per her character definition.", "Expand the lake scene from summary into a full dramatized moment. Instead of narrating that Elisa 'thinks about' the three weeks, the CERN data, and her mother, show her physical experience at the lake — what she sees, touches, hears — and let the memories be triggered by sensory details rather than abstract reflection. Cut the internal monologue by 40% and replace with rendered experience.", "Tighten Helena's Budapest monologue by intercutting Elisa's physical reactions and observations. Break the monologue into 3-4 shorter beats with Elisa noticing Helena's body language (touching the pendant, voice shifts). This creates dramatic irony and tension while preserving the sensory richness of Helena's memories."]
+[2026-06-01 04:47:34] [SUBPROCESS] new_canon_entries: ["Helena reads Thomas Mann's 'A Montanha Mágica' in German with pencil annotations (not previously established but consistent with her character)", "Helena processes reading by translating internally from German to Hungarian (established via Marcus's observation, now shown in narration)", "The specific detail that Helena's building exterior stairs have a green-painted iron railing (canon-established, now shown in scene)", "Elisa's route from Helena's apartment to the lake takes twelve minutes on foot (new specific detail)", "The detail that Helena's red coat has a flour stain on the left cuff (new observational detail, not previously canonized)"]
+[2026-06-01 04:47:34] [SUBPROCESS] slop: N/A --
+[2026-06-01 04:47:34] [SUBPROCESS] raw_judge_score: 7
+[2026-06-01 04:47:34] [SUBPROCESS] 
+[2026-06-01 04:47:34] [SUBPROCESS] eval_log: /mnt/d/Dev/autobook/eval_logs/20260601_044734_ch13.json
+[2026-06-01 04:47:34] [INFO] Chapter 13 score: 4.5
+[2026-06-01 04:47:34] [INFO] Score 4.5 < 6.0, discarding attempt
+[2026-06-01 04:47:34] [INFO] RUN: git checkout -- chapters/ch_13.md 2>/dev/null || true
+[2026-06-01 04:47:34] [INFO] Attempt 2/5
+[2026-06-01 04:47:34] [INFO] RUN: uv run python draft_chapter.py 13
+[2026-06-01 04:47:34] [SUBPROCESS] Drafting Chapter 13...
+[2026-06-01 04:47:35] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 04:51:03] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 04:51:03] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 04:51:03] [SUBPROCESS] Saved to /mnt/d/Dev/autobook/chapters/ch_13.md
+[2026-06-01 04:51:04] [SUBPROCESS] Word count: 3224
+[2026-06-01 04:51:04] [SUBPROCESS] # Capítulo 13 — O Círculo de Harmonia
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] O elevador do edifício de Oerlikon cheirava a desinfetante e gordura de cozinha. Elisa subiu no sétimo andar com o disco USB quente no bolso esquerdo e o granito no direito, e entre os dois a sensação de que ia perguntar coisas que não sabia formular. A porta do 7C estava entreaberta. Helena devia ter visto-a entrar no prédio pela janela da varanda — o manjericão estava lá, como sempre, mas agora com uma cadeira extra ao lado, como se a planta tivesse convidado Elisa para se sentar.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — Entre, doutora. A água já está a ferver.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] Helena apareceu no corredor com o casaco vermelho e um lenço azul no pescoço. As mãos grandes, as articulações inchadas, o pingente de carvalho a bater levemente no esterno. Cheirava a azeite e camomila. O apartamento era pequeno e a luz de março entrava pelas janelas estreitas como quem pede licença. Fotografias analógicas nas paredes — Budapeste, uma ponte sobre água escura, uma mulher jovem com cabelo preto e olhos que podiam ser de Helena ou podiam ser de outra pessoa. O relógio de parede marcava 14h07. O relógio de Elisa marcava 14h10. Três minutos de atraso. Sempre.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — Chá de camomila — disse Helena, sem perguntar se Elisa queria. — O Béla dizia que a camomila não é chá, é desculpa para parar. Mas o Béla já não está aqui para dizer nada, então beba o chá.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] Helena foi para a cozinha. Elisa ficou na sala. Olhou para as fotografias. A mulher na ponte estava a sorrir de um jeito que Elisa não reconhecia — não era o sorriso de Helena. Era um sorriso de quem sabe algo que ainda não aconteceu. Debaixo da fotografia, em letra pequena e trémula: *Budapest, 1983*.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] Elisa tocou no granito.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — 1983 — disse, mais para si do que para Helena.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — Ah. Essa. — Helena voltou com duas canecas. A água tinha a cor de mel escuro. Sentou-se na cadeira ao lado do sofá onde Elisa se acomodou. — Esse ano. Foi um ano estranho. Não para o mundo — o mundo é sempre estranho — mas para mim.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] Elisa segurou a caneca. O calor nos dedos. O cheiro de camomila subiu e por meio segundo pensou na mãe, que não bebia chá porque a morfina não deixava.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — Vim perguntar sobre os outros casos — disse Elisa. Não havia razão para rodeios. Helena não gostava de rodeios, e Elisa não sabia fazer de outra forma. — A senhora sabe que o seu IC não é único. Encontrámos pelo menos mais três pessoas com valores abaixo de 0,01 Dk. Confirmadas. Provavelmente mais.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] Helena inclinou a cabeça para a esquerda. O gesto do pássaro. Bebeu o chá. Pousou a cança.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — A senhora acha que há mais pessoas como eu?
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — Acho que sim. Pelo menos mais três que conseguimos confirmar. Provavelmente mais. Os dados sugerem uma distribuição que não é aleatória.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — Isso é bom.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — É?
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — Se sou a única, sou um erro. Um defeito de fábrica. Uma aberração que os cientistas estudam e depois arquivam. — Helena tocou no pingente de carvalho. — Se somos várias, somos uma coisa que ainda não tem nome. Prefiro ser uma coisa sem nome a ser um erro. Pelo menos uma coisa sem nome pode vir a ser uma coisa com nome. Um erro é sempre só um erro.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] Elisa abriu a boca. Fechou-a. A caneca estava quente. O chá tinha gosto de flores e mel e algo que não era nenhum dos dois — era o gosto de uma cozinha onde alguém cozinhava todos os dias, onde o cheiro era parte da arquitectura, onde a comida não era combustível mas linguagem.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — O professor em Tóquio — disse Elisa. — Setenta e um anos. Matemática. Publicou em teoria de números. Vivo, funcional, sem registo de internamentos que não fossem de rotina. IC de 0,0011 Dk.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — Matemática — repetiu Helena. — O Béla gostava de matemática. Não percebia nada, mas gostava. Dizia que os números são como peixes — tu pescas, mas nunca pescas o mesmo duas vezes.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — Há uma fisioterapeuta em São Paulo. Trinta e nove anos. IC de 0,0009. E um professor em Lagos. Cinquenta e quatro anos. IC de 0,0013.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] Helena bebeu mais chá. O relógio atrasou. O trânsito no baixo da rua fez um som que era como respiração — irregular, constante, sem começo nem fim.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — A senhora quer saber porquê — disse Helena. Não era uma pergunta.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — Quero saber o mecanismo. Quero saber para onde vai a entropia.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — A entropia. — Helena olhou para as próprias mãos. As articulações inchadas. Os dedos que tinham traduzido milhares de páginas, que tinham cortado cebolas e aparado roseiras e tocado num homem morto sobre terra vermelha. — A minha filha diz que a senhora traduz pessoas em números. Eu digo que a senhora traduz pessoas em perguntas. É pior. As perguntas não têm unidade de medida.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] Elisa bebeu o chá. Estava amargo por baixo do mel. Isso parecia correcto.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — A senhora sente saudades? — perguntou. A pergunta saiu antes que a pudesse filtrar. Não era pergunta de investigação. Era pergunta de uma mulher de quarenta e uma anos que não dormia e que carregava um granito no bolso como quem carrega um talismã invertido.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] Helena olhou para ela. Os olhos azul-claros, quase translúcidos, com aquela qualidade que Elisa não conseguia nomear — pareciam ver sem calcular.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — De Budapeste?
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — De qualquer coisa.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] Helena pousou a caneca. Tocou no pingente. Olhou para a fotografia na ponte.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — Sinto falta de uma versão de mim que existiu lá. Não da cidade. De mim. Havia uma Helena em Budapeste que eu já não sei quem era. Era mais leve. Não quero dizer mais feliz — leve. Como se pensar não custasse nada. Como se cada pensamento fosse um passo em vez de um peso.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] Elisa congelou. A caneca subiu meio centímetro em direcção à boca e parou.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — Quando é que a senhora se sentiu assim?
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] Helena inclinou a cabeça para o outro lado. O gesto do pássaro ao contrário.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — 1983. Trabalhava no Ministério. Tradutora júnior. Uma noite de Março — não sei qual, mas era Março porque o Danúbio ainda tinha gelo junto às margens — chamaram-me para uma reunião de emergência. Diplomatas húngaros e soviéticos. Seis horas sem parar. Seis horas a traduzir sem parar, sem água, sem ir à casa de banho, com a voz a falhar e a boca seca e os olhos a arder.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] Helena fez uma pausa. O relógio atrasou. O trânsito respirou.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — No final, um dos soviéticos olhou para mim. Disse em russo — eu compreendia russo, nunca disse a ninguém — disse: "Esta menina não está a traduzir. Está a pensar." — Helena riu. Uma risada curta, seca, de quem se lembra de algo que na altura não teve graça. — Eu traduzia as palavras dele há seis horas. Mas ele tinha razão. No final, eu já não traduzia. Eu pensava. As palavras entravam e saíam e eu estava no meio, a pensar, e não custava nada. Era como... como se o pensamento fosse água em vez de pedra.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] Elisa pousou a caneca. A mão tremeu — não por nervosismo, mas por algo que não tinha nome. Algo que vivia no espaço entre *descoberta* e *terror*.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — O que é que aconteceu depois?
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — Dormi catorze horas. Quando acordei... — Helena parou. Tocou no pingente. Os olhos foram para a fotografia na ponte — a mulher jovem, o sorriso de quem sabe algo que ainda não aconteceu. — Quando acordei, senti leveza. Uma clareza como se alguém tivesse limpo o mundo. Tudo estava nítido. E pensar — pensar, doutora — pensar não custava nada. Era como respirar. Não havia esforço. Não havia peso.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — Quanto tempo durou?
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] — Três semanas. Depois passou. Voltou o normal. O esforço. O peso. — Helena olhou para Elisa. Directa. Sem armadura. — Nunca contei isto a ninguém. Nem ao Béla. Nem ao doutor Farkas. Nunca contei porque não tenho palavras para o que foi. Mas a senhora tem números. Talvez os números saibam o que as palavras não sabem.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:04] [SUBPROCESS] Elisa ficou muito quieta. O granito no bolso. O disco USB no outro. As três semanas de 1983. Três semanas em que Helena experimentara exactamente o que o IC media — ou melhor, a ausência do que o IC media. Pensar sem gerar entropia. Três semanas de IC zero temporário. Depois passou.
+[2026-06-01 04:51:04] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] Porquê?
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] O que mudou?
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] Os dados do CERN pulsavam na memória como um segundo coração. A análise do Grande Colisor de Hadron. Os padrões de 2018. A nota do técnico: *Parece... estruturado. Como se fosse sinal.* Três semanas. Três semanas de ligação entre a consciência de Helena e algo que o CERN detectara sem saber o que detectava. Três semanas em que a entropia de Helena não foi para o universo — foi para outro lugar. E depois o caminho fechou. A ponte desligou. Helena voltou ao normal. Entropia normal. IC normal. Pensamento com peso.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] Mas o que abriu a ponte? O que a fechou?
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] Seis horas de tradução. Seis horas em que Helena deixou de traduzir e começou a pensar. O diplomata soviético dissera a verdade: *Esta menina não está a traduzir. Está a pensar.* Traduzir é processar informação sem custo — é transferir significado de um sistema para outro sem alterar nenhum dos dois. Pensar é outra coisa. Pensar deveria custar. Pensar deveria desordar o universo. Mas durante três semanas, para Helena, pensar não custou nada.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] A não ser que tenha custado. A não ser que a entropia tenha ido para outro sistema. Para o campo que o CERN detectara. Para a estrutura que o técnico descrevera como *sinal*.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] O chá arrefeceu. Helena não tocou mais. Olhava para Elisa com aquela qualidade de ver sem calcular, como se lesse não o que Elisa dizia mas o que Elisa pensava.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] — A senhora está a fazer contas — disse Helena.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] — Sempre.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] — Pois. — Helena pegou na caneca. Bebeu o chá frio sem fazer caretas. — O Béla dizia que as contas são como orações — tu fazes, mas não sabes se alguém está a ouvir.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] Elisa levantou-se. O corpo pesava. Não por cansaço — por carregar três semanas de 1983 como se fossem uma equação que não cabe na página. Precisava de ir. Precisava de espaço. Precisava de um lugar onde os pensamentos tivessem espaço para se desdobrar sem paredes.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] — Obrigada pelo chá.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] — Obrigada pela visita. — Helena levantou-se também. O pingente de carvalho bateu no esterno. — Doutora.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] — Sim?
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] — Aquelas três semanas. Quando acordei e o mundo estava nítido. Quando pensar não custava nada. — Helena fez uma pausa. Longa. O relógio atrasou. O trânsito respirou. — Aquilo foi real. Não foi sonho. Não foi febre. Foi real. E depois desapareceu, como algo que me foi tirado. — Outra pausa. — A senhora vai descobrir o que era?
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] Elisa tocou no granito. Cinquenta milhões de anos de rocha sem um único pensamento.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] — Vou tentar.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] Helena sorriu. O sorriso de Helena — o sorriso real, não o da fotografia na ponte, não o sorriso de quem sabe algo que ainda não aconteceu, mas o sorriso de quem já viveu o que ainda não foi explicado.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] — Tentar é bom. O Béla dizia: "Quem tenta e falha, pelo menos sabe o tamanho do buraco." Ele era prático. Eu era a sonhadora. Agora estou sozinha e tenho de ser as duas coisas. É cansativo.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] Elisa saiu. O elevador cheirava a desinfetante e gordura de cozinha. Desceu os sete andares com o granito no bolso e as três semanas de 1983 a arderem atrás dos olhos como dados que ainda não tinham sido processados. A porta do prédio abriu-se para a rua de Oerlikon. Março continuava cinzento. O céu era uma folha de papel por escrever.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] Caminhou. Não sabia para onde. Os pés levaram-na pela Seestrasse, ao longo do rio, e depois para cima, em direcção ao lago. O corpo sabia o caminho. O corpo ia para o lago quando a cabeça precisava de espaço.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] O banco de madeira estava húmido. Elisa sentou-se à mesma. A água estava imóvel. Não parada — imóvel. A diferença importava. Parada implica esforço contra o movimento. Imóvel era ausência total de transição. Um pato-real deslizou da margem para o centro do lago sem perturbar a superfície. Nenhum rasto. Nenhuma onda. Como se não tivesse passado por ali.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] Elisa pensou nas três semanas. Pensou nos dados do CERN. Pensou na mãe. Pensou que a verdade estava a um passo — mas o passo exigia que aceitasse algo que a sua formação científica rejeitava.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] Se Helena gerara IC zero durante três semanas, e se a entropia tivera que ir para algum lado porque a entropia não desaparece — então durante três semanas algo no universo recebera a desordenação que os pensamentos de Helena deveriam ter gerado. Algo com estrutura. Algo que o CERN detectara. Algo que um técnico anónimo descrevera como *sinal*.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] Uma ponte. Com dois sentidos.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] E se a ponte se abrira em 1983 durante uma noite de tradução em que Helena deixara de ser tradutora e passara a ser pensadora — se a ponte se abrira quando Helena processou informação de uma forma que o formalismo de Elisa não previa — então a consciência de Helena não era apenas uma anomalia. Era uma chave. Uma chave que abria uma porta entre o universo conhecido e algo que estava do outro lado.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] E se a porta se fechara depois de três semanas porque Helena deixara de ser o que era naquela noite — se o esforço de pensar a trazida de volta ao regime normal, ao IC de 7,2 a 12,6 Dk, ao pensamento com peso, à consciência que desordena — então o mecanismo não era permanente. Era um estado. Um estado que podia ser entrado e saído. Um estado que Helena entrara por acidente, em 1983, e do qual saíra sem saber como.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] O que mudava na física de uma pessoa que passava de tradutora a pensadora durante seis horas sem parar? O que mudava no processamento de informação quando a tradução — transferência reversível, sem custo — se transformava em pensamento genuíno?
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] Nada. Tudo.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] Elisa não sabia. E não saber doía de uma forma que não era intelectual. Doía no corpo. No peito. No espaço entre as costelas onde a mãe tinha guardado a equação incompletila no último guardanapo. S igual k lo—. A mão que parou. A tinta que se interrompeu. A frase que nunca foi terminada.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] E se a equação estivesse completa? E se S igual k lo— fosse tudo o que havia — não por falha da mãe, mas por honestidade? E se a mão tivesse parado porque não havia mais nada para dizer dentro daquele formalismo? E se o que quer que fosse necessário para completar a frase viesse de outro regime — um regime que não era termodinâmico, que não era medido por calorímetros, que não era capturado por ressonâncias magnéticas funcionais?
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] O formalismo de Elisa dizia que pensar desordena o universo. Helena, durante três semanas, pensara sem desordenar nada. A não ser que desordenasse outro universo. Outro sistema. Outro regime.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] E se esse sistema fosse habitado?
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] A pergunta sentou-se no banco ao lado de Elisa como uma pessoa real. Sólida. Presente. Impossível de ignorar.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] O lago estava imóvel. O pato-real voltou para a margem. Desta vez deixou rasto — um rasto que se alargou em círculos concêntricos e depois desapareceu, como se o lago tivesse engolido a evidência da passagem.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] Elisa tocou no granito. O polimento sob o polegar. A rocha mais simples. A rocha que não fazia perguntas.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] As três semanas de 1983 eram a chave. A peça que faltava. Helena experimentara, durante vinte e um dias exactamente, o que o IC media — a ausência do incremento entrópico. E depois passara. Porquê? O que mudara entre o dia em que acordara leve e o dia em que a leveza desapareceu?
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] Seis horas de tradução. A voz a falhar. A boca seca. Os olhos a arder. E depois: *Esta menina não está a traduzir. Está a pensar.*
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] A diferença entre traduzir e pensar. A diferença entre processar informação e ser consciente dela. A diferença entre transferência e experiência. O formalismo de Elisa medira a segunda — o custo termodinâmico da consciência. Mas Helena, durante seis horas, fizera a primeira. E de alguma forma, ao fizê-la, abrira uma porta que normalmente estava fechada.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] E se a consciência normal — a consciência que gera entropia, que desordena, que acelera a Morte Térmica — fosse apenas um modo? E se houvesse outro modo, um modo que Helena entrara em 1983 e do qual saíra sem saber, um modo em que pensar não custa porque a entropia vai para outro lugar, para outro sistema, para outra coisa que o CERN detectara em 2018?
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] O disco USB no bolso. Os dados da Evromind. Os dados do CERN. A nota do técnico. Os doze sujeitos. Os três confirmados. Os nove por confirmar. Helena. O professor em Tóquio. A fisioterapeuta em São Paulo. O professor em Lagos. Todas aquelas pessoas a pensar sem pagar o preço. Todas aquelas pontes entre o universo conhecido e algo que estava do outro lado.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] Elisa levantou-se do banco. O corpo doía. Não de fome, não de frio — de carregar algo que era grande demais para caber em quarenta e uma anos de formação científica. O lagos continuava imóvel. O céu continuava cinzenta. Zurique continuava a funcionar — a entropia a aumentar, o tempo a correr, o universo a caminhar para a Morte Térmica, cada pensamento um passo na direcção do fim.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] Mas ali, naquele banco, com o granito no bolso esquerdo e o disco USB no direito e as três semanas de 1983 a arderem como dados que finalmente começavam a fazer sentido — ali, pela primeira vez, Elisa aceitou algo que a sua formação rejeitava.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] A consciência podia operar fora da termodinâmica.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] Não como metáfora. Não como esperança. Como facto.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:05] [SUBPROCESS] Helena fizera isso durante três semanas em 1983. E o formalismo de Elisa não tinha nome para isso.
+[2026-06-01 04:51:05] [SUBPROCESS] 
+[2026-06-01 04:51:06] [SUBPROCESS] Elisa caminhou de volta para Zurique. Os pés sabiam o caminho. O corpo sabia o caminho. A cabeça — a cabeça ia a meio. Metade a processar, metade a recusar. Metade cientista, metade a criança de dezanove anos que acordara às três da manhã com uma equação na cabeira e chora sem saber porquê.
+[2026-06-01 04:51:06] [SUBPROCESS] 
+[2026-06-01 04:51:06] [SUBPROCESS] O lago ficou para trás. Imóvel. Negro. Sem respostas.
+[2026-06-01 04:51:06] [SUBPROCESS] 
+[2026-06-01 04:51:06] [SUBPROCESS] Mas as três semanas ficaram. As três semanas ficaram como uma porta entreaberta num corredor escuro — não era a resposta, mas era o sítio onde a resposta vivia. E Elisa ia entrar.
+[2026-06-01 04:51:06] [SUBPROCESS] 
+[2026-06-01 04:51:06] [SUBPROCESS] Ou ia tentar. Pelo menos ia tentar.
+[2026-06-01 04:51:06] [SUBPROCESS] 
+[2026-06-01 04:51:06] [SUBPROCESS] O granito no bolso. O disco USB no outro. Dois objectos no mesmo casaco. Um era a prova. O outro era o controlo. E entre os dois, o espaço onde a verdade vivia — não nos números, não nos dados, não nas equações. No espaço entre. No sítio onde os números nada significavam perante a imensidão da verdadeira consciência.
+[2026-06-01 04:51:06] [SUBPROCESS] 
+[2026-06-01 04:51:06] [SUBPROCESS] Elisa caminhou. Zurique era cinzenta. O tempo passava. A entropia aumentava.
+[2026-06-01 04:51:06] [SUBPROCESS] 
+[2026-06-01 04:51:06] [SUBPROCESS] Mas as três semanas de 1983 não mentiam.
+[2026-06-01 04:51:06] [INFO] Drafted 3224 words
+[2026-06-01 04:51:06] [INFO] RUN: uv run python evaluate.py --chapter=13
+[2026-06-01 04:51:07] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 04:53:48] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 04:53:48] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 04:53:48] [SUBPROCESS] ---
+[2026-06-01 04:53:48] [SUBPROCESS] overall_score: 4.5
+[2026-06-01 04:53:48] [SUBPROCESS] voice_adherence: 7 -- The chapter largely maintains Elisa's voice well — technical vocabulary, thermodynamic metaphors, long deductive sentences that fracture under pressure. But in the lakeside meditation, the prose occasionally drifts into a more generic 'philosophical wonder' register that could belong to any POV character. The strongest voice moments are when Elisa's body intrudes on her thinking: the hand trembling, the tea going cold, the granite in the pocket.
+[2026-06-01 04:53:48] [SUBPROCESS] beat_coverage: 8 -- Beats 1-4 are well-executed. The Helena dialogue scene is the chapter's backbone and it works. The revelation of the three weeks is properly dramatized through dialogue rather than summary. The 'coisa sem nome' exchange is the chapter's emotional center and it lands. Beat 5 is functional but flat compared to what it could be.
+[2026-06-01 04:53:48] [SUBPROCESS] character_voice: 8 -- Helena's voice is the chapter's standout achievement. Her speech patterns — incomplete sentences, Hungarian proverbs, concrete metaphors, the head tilt — are consistent and distinctive. The 'Budapeste era um cão velho' line is perfect Helena. Elisa's voice in dialogue is more restrained than her internal monologue, which is correct, but occasionally she says things that are too polished for someone in emotional distress. The strongest character moment is Helena's 'Nunca contei isto a ninguém' — delivered without drama, which makes it devastating.
+[2026-06-01 04:53:48] [SUBPROCESS] plants_seeded: 7 -- The three-weeks revelation is well-seeded — it emerges from Helena's natural storytelling, not from Elisa interrogating her. The 'coisa sem nome' line is a perfect thematic plant. The photograph on the wall (Budapest, 1983) is a nice visual plant that pays off when Helena mentions the year. The weakest plant is the CERN/entropy bridge, which is stated rather than discovered.
+[2026-06-01 04:53:48] [SUBPROCESS] prose_quality: 7 -- The prose is strongest in the Helena dialogue scene, where sentence variety is natural and the rhythm shifts between Elisa's long deductive sentences and Helena's fragments. The lakeside section is weaker — more uniform in rhythm, more abstract in imagery. The 'água em vez de pedra' metaphor from Helena is the chapter's best image. The repeated 'Elisa pensou' construction appears 4+ times and should be varied.
+[2026-06-01 04:53:48] [SUBPROCESS] continuity: 8 -- Strong continuity from Chapter 12. Elisa arrives at Helena's with the USB drive and the granite — both carried from the previous chapter's ending. Her emotional state ('não estou bem') tracks correctly. The CERN data connection follows logically from the train scene. The mother/guardanapo thread is consistent. One minor issue: the chapter says Elisa 'tocou no granito' multiple times but the canon says it's in the *right* pocket — the prose doesn't specify which hand, so this is fine, but a detail-oriented reader might notice the granite is mentioned as being felt/held without pocket specificity.
+[2026-06-01 04:53:48] [SUBPROCESS] canon_compliance: 7 -- The pocket reversal in the final paragraph is the most concrete error — it contradicts the chapter's own earlier establishment and the canon. The Farkas issue is nuanced but worth flagging.
+[2026-06-01 04:53:48] [SUBPROCESS] lore_integration: 8 -- The Helena apartment is the chapter's strongest lore integration — every detail (the clock, the photographs, the smell of paprika and camomile, the traffic noise) is canon-grounded and doing narrative work. The CERN/entropy bridge material is conceptually strong but less viscerally integrated.
+[2026-06-01 04:53:48] [SUBPROCESS] engagement: 7 -- The Helena dialogue scene is genuinely engaging — the 'coisa sem nome' exchange is the kind of moment that makes a reader stop and think. The three-weeks revelation is well-paced. The chapter's weakness is structural: it has one strong scene (the apartment) and one weak scene (the lake), and the weak scene comes last, which means the chapter ends on its lowest energy note.
+[2026-06-01 04:53:48] [SUBPROCESS] three_weakest_sentences: ['Elisa pensou nas três semanas. Pensou nos dados do CERN. Pensou na mãe. Pensou que a verdade estava a um passo — mas o passo exigia que aceitasse algo que a sua formação científica rejeitava.', 'O formalismo de Elisa dizia que pensar desordena o universo. Helena, durante três semanas, pensara sem desordenar nada. A não ser que desordenasse outro universo. Outro sistema. Outro regime.', 'Elisa levantou-se do banco. O corpo doía. Não de fome, não de frio — de carregar algo que era grande demais para caber em quarenta e uma anos de formação científica.']
+[2026-06-01 04:53:48] [SUBPROCESS] three_strongest_sentences: ['Uma mulher de 41 anos que medira o peso do pensamento e descobrira que o peso era real.', 'Se sou a única, sou um erro. Um defeito de fábrica. Uma aberração que os cientistas estudam e depois arquivam. Se somos várias, somos uma coisa que ainda não tem nome. Prefiro ser uma coisa sem nome a ser um erro.', 'Sinto falta de uma versão de mim que existiu lá. Não da cidade. De mim.']
+[2026-06-01 04:53:48] [SUBPROCESS] ai_patterns_detected: ["List of three thoughts: 'Pensou nas três semanas. Pensou nos dados do CERN. Pensou na mãe.' — classic AI compression pattern.", "Symmetry addiction: 'Outro universo. Outro sistema. Outro regime.' — three abstract nouns in parallel.", 'Emotional beat arriving on schedule: the lakeside scene delivers exactly the realization the outline promised, with no surprise or deviation.', "Internal monologue explaining what the scene already showed: 'Elisa ficou muito quieta' followed by three paragraphs of internal monologue that restate the significance of what Helena just said.", 'Paragraph length uniformity in the lakeside section: most paragraphs are 3-4 sentences of similar length.', 'Pocket reversal: granite and USB positions swapped in final paragraph vs. earlier in chapter — suggests the prose was generated in sections without cross-referencing.']
+[2026-06-01 04:53:48] [SUBPROCESS] weakest_dimension: prose_quality
+[2026-06-01 04:53:48] [SUBPROCESS] top_3_revisions: ['Fix the pocket reversal in the final paragraph — granite is in the RIGHT pocket, USB in the LEFT, per canon and per earlier in the chapter. This is a concrete continuity error that a copyeditor would catch.', "Rewrite the lakeside scene (Beat 5) to include physical action, sensory grounding, and a surprise or interruption. Either cut it entirely and end on 'Vou tentar' or give Elisa a moment where her body intrudes on her thinking in an unexpected way. The current version is a second pass at the same realization the apartment scene already delivered.", "Vary the 'Elisa pensou' construction — it appears 4+ times in the chapter. Replace at least two instances with physical action or sensory detail that shows the thought rather than naming it. E.g., instead of 'Elisa pensou na mãe,' write 'A caneca arrefeceu. A mãe não bebia chá — a morfina não deixava.'"]
+[2026-06-01 04:53:48] [SUBPROCESS] new_canon_entries: ['Helena voluntarily tells Elisa about the three weeks of 1983 — this is new information not previously established (canon said she never told anyone except under sleeping pills to Farkas in 2019). This is a significant new canon entry that changes the Helena-Farkas dynamic.', "The photograph on Helena's wall is dated 'Budapest, 1983' — this is a new visual detail not previously specified in canon.", "Helena describes the sensation of the three weeks as 'leveza' and 'clareza' — 'como se alguém tivesse limpo o mundo' — this is new descriptive canon for the 1983 event.", "Elisa's realization that consciousness can operate outside thermodynamics is stated as a fact she accepts — this is a new character-state milestone not previously established."]
+[2026-06-01 04:53:48] [SUBPROCESS] slop: N/A --
+[2026-06-01 04:53:48] [SUBPROCESS] raw_judge_score: 7
+[2026-06-01 04:53:48] [SUBPROCESS] 
+[2026-06-01 04:53:48] [SUBPROCESS] eval_log: /mnt/d/Dev/autobook/eval_logs/20260601_045348_ch13.json
+[2026-06-01 04:53:48] [INFO] Chapter 13 score: 4.5
+[2026-06-01 04:53:48] [INFO] Score 4.5 < 6.0, discarding attempt
+[2026-06-01 04:53:48] [INFO] RUN: git checkout -- chapters/ch_13.md 2>/dev/null || true
+[2026-06-01 04:53:48] [INFO] Attempt 3/5
+[2026-06-01 04:53:48] [INFO] RUN: uv run python draft_chapter.py 13
+[2026-06-01 04:53:49] [SUBPROCESS] Drafting Chapter 13...
+[2026-06-01 04:53:49] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 04:57:11] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 04:57:11] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 04:57:11] [SUBPROCESS] Saved to /mnt/d/Dev/autobook/chapters/ch_13.md
+[2026-06-01 04:57:11] [SUBPROCESS] Word count: 3461
+[2026-06-01 04:57:11] [SUBPROCESS] # Capítulo 13 — O Círculo de Harmonia
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] O USB estava quente quando Elisa o tirou do bolso. Não pelo mesmo motivo de sempre — não pelos meses de atrito contra a coxa, não pelo temperar gradual ao corpo como um seixo em rio. Quente porque o tinha apertado com tanta força durante o caminho de comboio, de estação até ao edifício de Oerlikon, que o plástico amolecera um grau. Elisa notou isto com a precisão absurda de quem mede coisas pequenas para não pensar nas grandes.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] Tocou no granito. O polegar encontrou o sulco já familiar, o formato da sua própria ansiedade fossilizada na rocha. Subiu as escadas exteriores — corrimão verde, ferro frio — e tocou à campainha do terceiro andar.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] Helena abriu a porta com um lenço azul atado à cabeça e cheiro a alho.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — Doutora Dragovski. Entre, entre. Está um frio de cão lá fora.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] Elisa entrou. O apartamento cheirava a camomila e azeite, como sempre. O relógio de parede marcava 10h47. Elisa olhou para o próprio relógio: 11h22. Trinta e cinco minutos de atraso acumulado desde a última visita. O relógio de Helena não era uma falha. Era uma declaração.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — A senhora tem mais alguém em casa? — perguntou Elisa, embora soubesse que não tinha. Mirela estaria em Berna. O Dr. Farkas só vinha às quintas.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — Só eu e o manjericão. Senta-te, senta-te.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] Helena desapareceu na cozinha. Elisa ficou de pé na sala, junto à estante de livros — húngaro, alemão, alguns em eslovaco — e à caixa de fotografias analógicas que Helena nunca abria quando ela estava presente. O sofá tinha uma manta vermelha dobrada sobre o braço. O chão era de madeira clara, riscado pelos anos. Um tapete redondo, desbotado, cobria a zona onde o sofá virava para a janela. Onde Béla se sentava, percebeu Elisa. A zona mais quente da sala, junto à luz.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] Helena voltou com duas chávenas de chá. Entregou uma a Elisa. Os dedos da mulher eram ásperos, quentes, com restos de farinha nas unhas.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — Chá de camomila. Toma. Pareces gelada.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] Elisa bebeu. Estava demasiado quente. Bebeu à mesma.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — Obrigada.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] Sentaram-se. Helena no seu lugar — a cadeira de braços junto à janela, com vista para a varanda e o manjericão. Elisa no sofá, com a chávena a queimar-lhe as palmas. O silêncio durou onze segundos. Elisa contou. Helena não parecia incomodada.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — Veio perguntar mais coisas sobre o aparelho — disse Helena. Não era uma pergunta.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — Vim perguntar sobre os outros casos.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] Helena inclinou a cabeça. O gesto de pássaro.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — Outros casos?
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — Confirmámos três. Pessoas com o mesmo valor de IC que a senhora. Abaixo de 0,01 Dk. Funcionais. Conscientes. Uma fisioterapeuta em São Paulo. Um professor em Lagos. Um senhor em Tóquio.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] Helena pousou a chávena. O pires tiniu contra a base de porcelana. Ficou a olhar para a janela. O manjericão tinha uma folha amarela — Helena ainda não a tinha removido. A luz de Março entrava fina, sem calor, e pousava no cabelo branco da mulher como em neve de montanha.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — A senhora acha que há mais pessoas como eu?
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — Acho que sim — disse Elisa. — Pelo menos mais três que conseguimos confirmar. Os dados da Evromind sugerem até doze, mas só conseguimos rastrear três com informação suficiente.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] Silêncio. Helena olhava para o manjericão. A folha amarela. O vento tocou-lhe e ela não se moveu.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — Isso é bom — disse Helena.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — É?
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — Se sou a única, sou um erro. Se somos várias, somos uma coisa que ainda não tem nome. — Helena virou-se para Elisa. Os olhos azul-claros, quase translúcidos, com aquela qualidade que Elisa não conseguia nomear. — Prefiro ser uma coisa sem nome a ser um erro.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] Elisa abriu a boca. Fechou-a. A frase instalou-se no peito como uma pedra atirada à água — o impacto era o de menos, as ondulações é que importavam. Uma coisa sem nome. Não um erro de calibração, não uma anomalia estatística, não um defeito no aparelho. Uma coisa sem nome. Helena tinha dito isto com a simplicidade de quem pede sal à mesa, e Elisa sentiu o formalismo — o edifício de tijolos, a prova de 2023, o Nobel, os Drakons, Boltzmann e Shannon e a ressonância magnética funcional — sentir-se, por um instante, como uma casa com uma parede pintada que não existia.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — Vou fazer mais chá — disse Helena, levantando-se.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] Elisa ficou sozinha na sala. Olhou para as fotografias na caixa. Não abriu — não era invasão, era limite, e Elisa conhecia limites porque passara a vida a desenhá-los. Mas olhou para a tampa. Havia uma fotografia encostada ao interior da caixa, virada para cima: Helena jovem, talvez vinte e poucos anos, de pé junto a um rio. O Danúbio, provavelmente. Estava a sorrir. Não o sorriso que Elisa conhecia — o sorriso de covinhas, o sorriso de quem cozinha paprika e fala sozinha em húngaro. Era outro sorriso. Mais largo. Como se a pessoa na fotografia soubesse algo que a Helena do presente tinha esquecido.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] Helena voltou com a chaleira. Encheu as duas chávenas. Sentou-se. Bebeu um gole longo, com os olhos fechados.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — Budapeste — disse Helena, sem que Elisa perguntasse. — Estava a pensar em Budapeste.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — A senhora fala muito de Budapeste.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — É de lá que venho. — Helena abriu os olhos. — Não da cidade. De mim. A Helena que existiu em Budapeste não é a Helena que está aqui. São a mesma pessoa, mas não são a mesma. Percebe?
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] Elisa percebia. Não com a cabeça — com o corpo. A Elisa que existira em Lisboa, antes de Viena, antes do formalismo, antes da mãe morrer, não era a Elisa que estava ali. Eram a mesma pessoa, mas não eram a mesma.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — Budapeste era um cão velho — disse Helena. — Ladrava muito mas não mordia. Os soviéticos estavam lá, os húngaros fingiam que não estavam, todos fingiam que a parede de som funcionava. Cheirava a paprika e fumo de carvão. No inverno, o Danúbio ficava cinzento — não azul, não verde, cinzento. Como betão dissolvido. E o som — o som do húngaro nas ruas. Uma língua que não parece nada com as outras. Parece que está a ser inventada enquanto se fala.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] Helena bebeu mais um gole. Os olhos estavam húmidos, mas não de choro. De distância.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — A senhora sente saudades? — perguntou Elisa.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] Helena pousou a chávena. Olhou para as próprias mãos. As articulações inchadas, a pele enrugada, os restos de farinha.
+[2026-06-01 04:57:11] [SUBPROCESS] 
+[2026-06-01 04:57:11] [SUBPROCESS] — Sinto falta de uma versão de mim que existiu lá. Não da cidade. De mim.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] A frase ficou suspensa entre as duas como fumo. Elisa pensou na mãe. Nos guardanapos. Na equação incompleta. Pensou que sentia falta de uma versão de si que existira antes de saber que pensar desordena o universo. Uma versão que olhava para as estrelas sem calcular a entropia.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — 1983 — disse Elisa. A palavra saiu antes de a poder filtrar. Não era uma pergunta. Era um bisturi.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] Helena ficou muito quieta. Não o silêncio confortável de antes — era outro. O silêncio de um animal que ouve um som que não reconhece e precisa de decidir se é ameaça ou vento.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — 1983 — repetiu Helena. A voz mudou. Mais baixa. Mais lenta. — Porque pergunta sobre 1983?
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — A senhora mencionou uma vez que foi um ano estranho. Não disse como.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] Helena tocou no pingente de carvalho. O gesto de ancoragem. Os dedos fecharam-se sobre a prata e ficaram ali, como se o pingente fosse uma corda que a impedia de se perder.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — 1983 foi um ano estranho — disse Helena. — Trabalhava muito. Traduzia reuniões que não devia traduzir. O Ministério mandava-me para sala onde não devia estar, com pessoas com quem não devia falar, a traduzir coisas que não devia ouvir. Húngaro para russo, russo para húngaro, às vezes eslovaco para alemão. Seis horas sem parar. Oito. Uma vez, dez.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] Helena soltou o pingente. Olhou para as próprias mãos como se as visse pela primeira vez.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — Uma noite — disse. — Março, creio. Ou Fevereiro. Frio. Chamaram-me à meia-noite. Uma reunião de emergência. Diplomatas húngaros e soviéticos. Eu era júnior — não devia estar lá. Mas o tradutor principal estava doente e o alternativo não apareceu. Fui eu.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] Elisa não se mexia. A chávena de chá arrefecia entre as palmas. Cada palavra de Helena era um dado — não no sentido estatístico, no sentido de mosaico. Uma peça que não fazia sentido sozinha, mas que alterava a forma de todas as outras.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — Traduzi durante seis horas sem parar — disse Helena. — Seis horas. Sem água, sem pausa, sem papel. Tudo de memória. No final, um dos soviéticos — o mais velho, o que não falava durante as reuniões, só ouvia — olhou para mim e disse, em russo: "Esta menina não está a traduzir. Está a pensar."
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] Helena fez uma pausa. O relógio de parede tic-tacou três vezes. O atraso acumulado — três minutos por dia, todos os dias, desde quando? Helena nunca o acertava. O tempo, naquela sala, era uma opinião.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — Naquela noite, dormi catorze horas — disse Helena. — Catorze. Quando acordei, senti... — Parou. Procurou a palavra. Não a encontrou em alemão. Mudou para húngaro: *könnyedség*. Depois, de volta ao alemão: — Leveza. Como se pensar não custasse nada. Como se cada pensamento fosse uma bolha de ar que subia sem esforço. Sem peso. Sem... — Tocou no pingente outra vez. — Sem preço.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] Elisa congelou. Não por escolha — o corpo decidiu antes da cabeça. A chávena tremeu nas mãos. O chá ondulou, quase transbordou.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — Quanto tempo durou essa sensação? — A voz de Elisa saiu estranha. Achatada. Como se alguém tivesse pisado o acelerador e o travão ao mesmo tempo.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — Três semanas — disse Helena. — Talvez um pouco mais. Depois passou. Voltou o peso. O custo. O esforço de pensar como toda a gente.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — Nunca contou isto a ninguém.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — Nunca.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] Elisa pousou a chávena. Com cuidado. Com a precisão de quem manuseia material radioativo. Três semanas. Em 1983. Helena experimentara, durante três semanas, exactamente o que o IC mede — ou melhor, a ausência do que o IC mede. Pensar sem gerar entropia. Pensar sem pagar o preço termodinâmico. Pensar como uma rocha pensaria, se rochas pensassem. E depois passou.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] Porquê?
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] O que mudou?
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] Elisa levantou-se. Não planeou levantar-se — o corpo fez isso, como fazia quando os dados não cabiam na teoria e precisava de se mover para pensar. Foi até à janela. O manjericão tinha a folha amarela. O vaso de barro, a terra escura, o cheiro verde que entrava pela frinchta mal fechada. IC de 0,002 Dk. Marginalmente superior ao de Helena. Helena rira quando Elisa lhe dissera isto. "Então sou menos consciente que uma planta."
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — Helena — disse Elisa, de costas para a mulher. — Na noite dessa reunião. Antes de dormir catorze horas. Comeu alguma coisa? Tomou algum medicamento? Bebeu?
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] Silêncio atrás dela. Depois:
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — Não me lembro. Provavelmente não. Estava exausta. Fui para casa, deitei-me, e apaguei.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — E quando acordou — as três semanas de leveza — fez algo diferente? Mudou a rotina? Comeu diferente? Esteve em contacto com alguém novo?
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — Doutora Dragovski — disse Helena, e havia algo na voz dela que não estava lá antes. Não era defensiva. Era cuidadoso. O cuidado de quem sabe que o que vai dizer importa. — Porque é que isto é importante?
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] Elisa virou-se. Helena estava de pé, junto à cadeira, com as mãos cruzadas à frente do corpo como uma criança que espera castigo. Os olhos azul-claros fixos em Elisa. Sem calcular. Sem medir. Apenas a ver.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — Porque durante essas três semanas — disse Elisa, e cada palavra custava, cada palavra era um tijolo retirado do edifício — o seu IC foi zero. Ou próximo de zero. Eu sei que não o mediram em 1983 porque o aparelho não existia. Mas pelo que a senhora descreve — a leveza, a ausência de custo, o pensar sem esforço — corresponde exactamente ao perfil que medimos na senhora agora. A diferença é que agora é permanente. E em 1983 durou três semanas e passou.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] Helena sentou-se. Devagar. Como se os joelhos tivessem decidido antes do cérebro.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — Está a dizer que eu já fui... assim... antes?
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — Estou a dizer que pode ter sido. Temporariamente. E que o que quer que tenha causado essa mudança — a reunião, a exaustão, o traduzir seis horas sem parar — pode ser a chave para compreender o que é agora.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] Helena olhou para as próprias mãos. As articulações inchadas. A pele enrugada. Os restos de farinha. Olhou para elas como se fossem de outra pessoa. Como se as mãos da Helena de 1983 — a Helena de vinte e três anos, a Helena que traduzia reuniões que não devia traduzir, a Helena que dormiu catorze horas e acordou leve — fossem mãos diferentes destas.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — Nunca pensei nisso — disse Helena. — Nunca associei uma coisa à outra. As três semanas foram... foram bonitas. Foram as melhores três semanas da minha vida. Pensei que era só cansaço. Que o corpo tinha descansado e a cabeça funcionava melhor. Nunca pensei que fosse... — Não terminou a frase.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] Elisa sentou-se outra vez. O sofá rangeu. A manta vermelha estava onde estava. A luz de Março continuava fina, sem calor. O relógio continuava atrasado. Tudo igual. Tudo diferente.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — A senhora lembra-se do que pensava durante essas três semanas? — perguntou Elisa. — Não o conteúdo. A qualidade. Como era pensar?
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] Helena fechou os olhos. Demorou. Quando os abriu, havia lágrimas — não de tristeza, não de alegria. De reconhecimento.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — Era como respirar debaixo de água — disse Helena. — Natural. Sem resistência. O pensamento simplesmente... acontecia. Sem esforço. Sem aquela coisa que normalmente se sente quando se pensa — aquele peso, aquele calor, aquela sensação de que o cérebro está a trabalhar. Não havia nada disso. O pensamento era como luz. Estava lá. Sem custo.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] Elisa tocou no granito. O polimento sob o polegar. Cinquenta milhões de anos de rocha sem um único pensamento. E Helena — durante três semanas em 1983 — pensara como uma rocha. Sem custo. Sem entropia. Sem pagar o preço.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] E depois passou.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] O que mudou?
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] A pergunta instalou-se no peito de Elisa como uma lâmina entre as costelas. Não por ser dolorosa — por ser precisa. Três semanas de IC zero temporário. Agora IC zero permanente. A diferença entre os dois estados era a chave. A diferença entre os dois estados era a resposta. Mas a diferença exigia que Elisa aceitasse algo que a sua formação científica rejeitava com a mesma ferocidade com que o corpo rejeita um órgão estranho.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] Que a consciência podia operar fora da termodinâmica. Não como anomalia. Não como erro. Como escolha.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] Helena levantou-se. Foi à cozinha. Elisa ouviu o som da chaleira, da torneira, do fósforo no fogão — Helena tinha fogão a gás, não elétrico, e acendia-o com fósforo como se o século XXI não tivesse chegado. Quando voltou, trazia não chá, mas uma travessa.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] — Paprika de frango — disse Helena. — Fiz esta manhã. Antes de saber que vinha.
+[2026-06-01 04:57:12] [SUBPROCESS] 
+[2026-06-01 04:57:12] [SUBPROCESS] Elisa olhou para a travessa. O vermelho do paprika, o vapor que subia, o cheiro que encheu a sala como uma presença. O estômago de Elisa reagiu — não com fome abstrata, mas com fome real, fome de corpo, fome que não era necessidade mas desejo. Fazia meses — anos? — que Elisa não sentia fome como desejo.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] — Obrigada — disse Elisa.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] Helena serviu. Sentaram-se à mesa pequena da cozinha — a sala de jantar era a sala de estar, e a cozinha era onde se comia de verdade, percebeu Elisa. Comeram em silêncio. O frango estava bom. O paprika estava melhor. O pão era caseiro, com crosta dura e miolo escuro. Elisa comeu mais do que pretendia. Helena comeu devagar, com a precisão de quem saboreia não o alimento mas o ato de comer.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] — Sabe, doutora — disse Helena, pousando o garfo. — A minha avó tinha um ditado. Dizia: "A harmonia não é a ausência de som. É o som certo no momento certo." Nunca percebi o que queria dizer. Achava que era sobre música. Mas agora acho que era sobre isto. — Tocou no peito. — Sobre o que se sente quando o pensamento não pesa.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] Elisa não respondeu. Estava a pensar nas três semanas. Nos dados do CERN de 2018. Na nota do técnico: "Parece... estruturado. Como se fosse sinal." No formalismo. Na equação de Boltzmann. No último guardanapo da mãe. S igual k lo—. A mão que parou. A tinta que se interrompeu. A frase que nunca foi terminada.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] E se a equação estivesse completa? E se S igual k lo— fosse tudo o que havia — não por falha da mãe, mas por honestidade? E se a mão tivesse parado porque não havia mais nada para dizer?
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] — Helena — disse Elisa. — A senhora quer saber o que eu penso?
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] — Sempre.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] — Acho que a senhora é a coisa mais importante que já me aconteceu. E acho que isso me aterroriza.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] Helena sorriu. As covinhas profundas. O sorriso que Elisa conhecia.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] — O terror é o começo da sabedoria, doutora. A minha avó também dizia isso.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] Elisa pagou o almoço — não com dinheiro, mas com presença. Ficaram na cozinha mais quarenta minutos. Helena falou de Mirela — a filha que ligava todas as noites, que queria que a mãe fosse para Berna, que não compreendia porque é que a mãe insistia em ficar em Zurique. "Ela acha que eu sou teimosa. Eu acho que sou teimosa. Talvez sejamos as duas." Elisa falou de Marcus — do neurocientista que queria rever o IC, que a pressionava, que tinha uma filha com epilepsia e por isso via o mundo de forma diferente. Não falou de Renan. Não falou do formalismo. Não falou da mãe.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] Quando saiu, Helena acompanhou-a à porta.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] — Doutora.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] — Sim.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] — Obrigada por ter vindo. Não pelos dados. Por ter vindo.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] Elisa desceu as escadas. O corrimão verde estava frio. O ar de Março cortava. O céu continuava cinzento. Zurique continuava Zurique — limpa, rica, silenciosa, cheia de relógios que funcionavam e pessoas que pagavam impostos e um lago que refletia os Alpes como um espelho que não quisesse mostrar nada.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] Elisa caminhou até ao lago.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] O banco era o mesmo de sempre — madeira cinzenta, pregos ferrujentos, vista para a água negra. Sentou-se. A água estava imóvel. Não parada — imóvel. A diferença era importante. Parado implicava esforço contra o movimento. Imóvel era ausência total de transição. Um pato-real deslizou da margem para o centro sem perturbar a superfície. Nenhum rasto. Nenhuma onda. Como se não tivesse passado por ali.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] Elisa pensou nas três semanas de 1983. Na leveza. No pensar sem custo. Na Helena de vinte e três anos que dormiu catorze horas e acordou diferente. Pensou no que poderia causar uma mudança temporária de IC — de 7,2 Dk normais para 0,001. Exaustão? Stress? Algo na reunião? Algo no ato de traduzir — de converter significado de uma língua para outra, de processar informação a uma velocidade que o cérebro não foi desenhado para suportar?
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] Pensou nos dados do CERN. Nos padrões anómalos de 2018. Na nota do técnico. "Parece... estruturado. Como se fosse sinal."
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] Pensou na mãe. No último guardanapo. Na equação incompleta.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] E pensou — pela primeira vez não como cientista, mas como filha, como pessoa, como mulher de 41 anos com olheiras arroxeadas e um fragmento de granito no bolso — que a verdade estava a um passo. Um passo pequeno. Um passo que não exigia mais dados, mais equipamento, mais formalismo. Um passo que exigia apenas que aceitasse o que os dados já diziam.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] Que a consciência podia operar fora da termodinâmica. Que Helena não era uma anomalia — era uma demonstração. Que o formalismo de Elisa descrevia o mecanismo, mas não a experiência. Que a assinatura não era a coisa em si.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] Que pensar podia ser leve.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] O pato-real chegou ao centro do lago. Parou. A água continuou imóvel. O céu continuou cinzento. Os Alpes continuaram brancos ao longe, indiferentes, glaciais, recuando quinze metros por ano em direção a um futuro que não incluía ninguém.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] Elisa tocou no granito. O polimento sob o polegar. Cinquenta milhões de anos de rocha sem um único pensamento.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] Helena pensava. E o universo não pagava o preço.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] A verdade estava a um passo.
+[2026-06-01 04:57:13] [SUBPROCESS] 
+[2026-06-01 04:57:13] [SUBPROCESS] Elisa não deu o passo. Não ainda. Mas pela primeira vez, soube exatamente onde ele ficava.
+[2026-06-01 04:57:13] [INFO] Drafted 3461 words
+[2026-06-01 04:57:13] [INFO] RUN: uv run python evaluate.py --chapter=13
+[2026-06-01 04:57:14] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 05:00:10] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 05:00:10] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 05:00:10] [SUBPROCESS] ---
+[2026-06-01 05:00:10] [SUBPROCESS] overall_score: 4.5
+[2026-06-01 05:00:10] [SUBPROCESS] voice_adherence: 7 -- The prose generally captures Elisa's POV well — the counting of seconds, the tactile granito, the scientific precision bleeding into emotional observation. Sentence rhythm varies appropriately: long deductive passages broken by short crisis beats. The body-before-emotion principle is mostly honored (Elisa's hands, the chávena burning her palms, the body deciding before the head). However, the chapter occasionally slips into a register that's too literary-generic, particularly in the closing paragraphs by the lake, where the prose becomes a touch too symmetrical and meditative in a way that feels composed rather than experienced.
+[2026-06-01 05:00:10] [SUBPROCESS] beat_coverage: 8 -- All five beats from the outline are present and mostly dramatized. Beat 1 (other cases / 'coisa sem nome') is strong. Beat 2 (Budapeste sensory memories) is vivid. Beat 3 (1983 revelation) is the chapter's centerpiece and earns its weight. Beat 4 (Elisa's realization) is handled with appropriate restraint. Beat 5 (lake) is the weakest — it tells us Elisa thinks rather than showing us her thinking.
+[2026-06-01 05:00:10] [SUBPROCESS] character_voice: 7 -- Helena's voice is the chapter's strongest element — the fragmented sentences, the code-switching to húngaro, the concrete metaphors (Budapeste as an old dog, thinking as breathing underwater). Elisa's voice is generally solid but occasionally becomes too fluent in emotional territory where she'd be halting. The dialogue distinction test works: you can tell who's speaking. But Elisa never says the wrong thing or talks past Helena — she's always precisely on target, which is slightly artificial.
+[2026-06-01 05:00:10] [SUBPROCESS] plants_seeded: 8 -- The three weeks of 1983 is the chapter's crucial plant and it's handled well — revealed through Helena's own words, not through Elisa's deduction. The 'coisa sem nome' line is perfectly placed. The CERN data connection is appropriately subtle. The incomplete equation parallel (S = k lo—) is elegant but risks being too on-the-nose if not handled carefully in future chapters.
+[2026-06-01 05:00:10] [SUBPROCESS] prose_quality: 7 -- The prose is generally strong with good sentence variety. The strongest moments are sensory and specific: the chávena burning Elisa's palms, the paprika smell filling the room, the duck leaving no trace. The weakest moments are the closing paragraphs where the prose becomes too symmetrical and declarative. The 'three observations in a row' pattern appears occasionally ('O céu continuou cinzento. Os Alpes continuaram brancos. O relógio continuou atrasado.') — this is a structural AI tell.
+[2026-06-01 05:00:10] [SUBPROCESS] continuity: 8 -- The chapter follows logically from the previous one. Elisa arrives from the train journey with the USB drive and the knowledge of the twelve subjects. Her emotional state — the admission 'Não estou bem' from the previous chapter — tracks into this chapter's vulnerability. The progression from scientific determination to genuine emotional openness is well-paced. The granito tic, the counting of seconds, the café details all maintain continuity.
+[2026-06-01 05:00:10] [SUBPROCESS] canon_compliance: 8 -- The most significant potential violation is Helena claiming she never told anyone about the three weeks when the canon explicitly states she told Dr. Farkas in 2019. This needs to be addressed — either Helena is omitting (which is allowed), but the absolute 'Nunca' is problematic if she told Farkas even under medication. All other canon details check out: locations, ages, IC values, physical descriptions, the relógio atrasado, the manjericão, the pingente de carvalho, the apartment details.
+[2026-06-01 05:00:10] [SUBPROCESS] lore_integration: 8 -- The chapter does strong work integrating the IC system into the emotional fabric of the scene — Helena's comment about being 'menos consciente que uma planta' is a perfect example of worldbuilding through character voice. The Evromind data, the twelve subjects, the CERN connection all feel organic. The apartment of Oerlikon is vividly rendered with canon-accurate details.
+[2026-06-01 05:00:10] [SUBPROCESS] engagement: 7 -- The chapter's engagement is strongest in the apartment scenes, particularly the 1983 revelation which has genuine dramatic weight. The 'coisa sem nome' exchange is a moment of real surprise. The chapter earns its emotional beats through scene work rather than narration. However, the ending deflates rather than escalates — Elisa sits, thinks, and doesn't act. For a chapter at the 52-56% mark, this is a missed opportunity to drive the second act forward.
+[2026-06-01 05:00:11] [SUBPROCESS] three_weakest_sentences: ['A verdade estava a um passo. Elisa não deu o passo. Não ainda. Mas pela primeira vez, soube exatamente onde ele ficava.', 'O terror é o começo da sabedoria, doutora. A minha avó também dizia isso.', 'Elisa pagou o almoço — não com dinheiro, mas com presença.']
+[2026-06-01 05:00:11] [SUBPROCESS] three_strongest_sentences: ['O pensamento era como luz. Estava lá. Sem custo.', 'Prefiro ser uma coisa sem nome a ser um erro.', 'Sinto falta de uma versão de mim que existiu lá. Não da cidade. De mim.']
+[2026-06-01 05:00:11] [SUBPROCESS] ai_patterns_detected: ["Symmetry addiction in the closing: 'O céu continuou cinzento. Os Alpes continuarem brancos ao longe, indiferentes, glaciais.' The parallel structure of 'continuou X, continuou Y, continuou Z' is a tell.", 'Emotional beats arriving on schedule: the chapter hits determination → tenderness → grief in the exact order the outline specifies, without surprise or deviation.', "The 'three observations' pattern: 'O relógio de parede tic-tacou três vezes. O atraso acumulado — três minutos por dia, todos os dia.' The number three appears with suspicious frequency.", "Ending on a declarative summary of the chapter's meaning rather than on an image or action — a classic AI move to 'close' the chapter thematically.", 'The lake scene catalogs sensory details (água imóvel, pato-real, céu cinzento, Alpes brancos) rather than selecting the one or two details that would carry emotional weight.']
+[2026-06-01 05:00:11] [SUBPROCESS] weakest_dimension: prose_quality
+[2026-06-01 05:00:11] [SUBPROCESS] top_3_revisions: ["Fix the Helena canon violation: change 'Nunca contei isto a ninguém' to something that acknowledges the Dr. Farkas incident — e.g., 'Nunca contei isto a ninguém de propósito. Uma vez, sob comprimidos, mencionei algo ao Dr. Farkas. Mas ele não percebeu. Ou fingiu não perceber.' This preserves Helena's truthfulness while maintaining the secret.", "Rewrite the lake scene as a full scene with sensory anchoring and physical action, cutting the final three declarative sentences entirely. End on a concrete image — the duck, the granito, Elisa's hand — rather than on the narrator's summary of what Elisa realizes.", "Give Elisa's emotional climax more roughness. Instead of 'A senhora é a coisa mais importante que já me aconteceu,' have her say something more oblique and more true to her character — something that reveals the emotion through scientific framing rather than direct confession."]
+[2026-06-01 05:00:11] [SUBPROCESS] new_canon_entries: ["Helena explicitly tells Elisa about the three weeks of 1983 — the translation incident, the 14 hours of sleep, the lightness, the 'thinking without cost.' This is now on-record between the two characters.", 'Elisa confirms to Helena that there are at least three other confirmed cases (São Paulo, Lagos, Tokyo) and up to twelve suspected.', "Helena describes the quality of thought during the three weeks as 'como respirar debaixo de água — natural, sem resistência' and 'como luz. Estava lá. Sem custo.'", "Elisa's internal realization that consciousness may operate outside thermodynamics — not as anomaly but as choice — is now explicit in her POV.", 'The photograph of young Helena by the Danube is noted by Elisa as showing an unfamiliar smile.']
+[2026-06-01 05:00:11] [SUBPROCESS] slop: N/A --
+[2026-06-01 05:00:11] [SUBPROCESS] raw_judge_score: 7
+[2026-06-01 05:00:11] [SUBPROCESS] 
+[2026-06-01 05:00:11] [SUBPROCESS] eval_log: /mnt/d/Dev/autobook/eval_logs/20260601_050010_ch13.json
+[2026-06-01 05:00:11] [INFO] Chapter 13 score: 4.5
+[2026-06-01 05:00:11] [INFO] Score 4.5 < 6.0, discarding attempt
+[2026-06-01 05:00:11] [INFO] RUN: git checkout -- chapters/ch_13.md 2>/dev/null || true
+[2026-06-01 05:00:11] [INFO] Attempt 4/5
+[2026-06-01 05:00:11] [INFO] RUN: uv run python draft_chapter.py 13
+[2026-06-01 05:00:11] [SUBPROCESS] Drafting Chapter 13...
+[2026-06-01 05:00:12] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 05:04:11] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 05:04:11] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 05:04:11] [SUBPROCESS] Saved to /mnt/d/Dev/autobook/chapters/ch_13.md
+[2026-06-01 05:04:11] [SUBPROCESS] Word count: 4101
+[2026-06-01 05:04:11] [SUBPROCESS] # Capítulo 13 — O Círculo de Harmonia
+[2026-06-01 05:04:11] [SUBPROCESS] 
+[2026-06-01 05:04:11] [SUBPROCESS] O elevador do edifício de Helena cheirava a pedra-húmida e sabão azul. Elisa apertou o botão do terceiro andar e sentiu o granito no bolso direito girar sob o polegar — o polimento já tinha o formato exato da sua fricção, uma concavidade que não existia quando a rocha saíra de Zermatt. Cinquenta milhões de anos de mineral reduzidos a um amuleto que cabia na palma da mão. IC: 0,001 Dk. O mesmo número que Helena.
+[2026-06-01 05:04:11] [SUBPROCESS] 
+[2026-06-01 05:04:11] [SUBPROCESS] O elevador parou. O andar abriu-se para um corredor estreito, paredes de estuque cinzento-claro, um tapete castanho-escuro que tinha sido vermelho em alguma década anterior. Porta 3F. Green iron railing. O mesmo corrimão que Elisa já subira quatro vezes — cinco, agora. Helena abriu antes de a campainha tocar.
+[2026-06-01 05:04:11] [SUBPROCESS] 
+[2026-06-01 05:04:11] [SUBPROCESS] — Doutora Dragovski.
+[2026-06-01 05:04:11] [SUBPROCESS] 
+[2026-06-01 05:04:11] [SUBPROCESS] Helena usava o casaco vermelho, o de dentro de casa. O cabelo branco preso com o gancho de madeira. Os olhos azul-claro com aquela qualidade que Elisa ainda não conseguia nomear — ver sem calcular, olhar sem medir.
+[2026-06-01 05:04:11] [SUBPROCESS] 
+[2026-06-01 05:04:11] [SUBPROCESS] — Boa tarde, senhora Varga.
+[2026-06-01 05:04:11] [SUBPROCESS] 
+[2026-06-01 05:04:11] [SUBPROCESS] — Entre.
+[2026-06-01 05:04:11] [SUBPROCESS] 
+[2026-06-01 05:04:11] [SUBPROCESS] O apartamento cheirava a camomila. Sempre a camomila, como se o ar tivesse absorvido décadas de chá e nunca mais o tivesse largado. A sala era pequena: um sofá verde com almofadas desbotadas, uma estante de madeira escura cheia de livros em húngaro e alemão, fotografias analógicas em preto e branco nos molduras finas. O relógio de parede marcava 16h07. O relógio de Elisa marcava 16h10. Três minutos de atraso. O relógio de Helena atrasava três minutos por dia e ela nunca o acertava.
+[2026-06-01 05:04:11] [SUBPROCESS] 
+[2026-06-01 05:04:11] [SUBPROCESS] — Sente-se — disse Helena, apontando para o sofá. — Vou fazer chá.
+[2026-06-01 05:04:11] [SUBPROCESS] 
+[2026-06-01 05:04:11] [SUBPROCESS] Helena desapareceu na cozinha. Elisa ouviu o som do gás, a chaleira, o abrir de uma gaveta. Sentou-se no sofá. As almofadas tinham a forma de corpos anteriores — o corpo de Helena, provavelmente, ao longo de anos. Havia algo reconfortante nisso. Uma marca de uso que nenhuma equação capturava.
+[2026-06-01 05:04:11] [SUBPROCESS] 
+[2026-06-01 05:04:11] [SUBPROCESS] A estante tinha três prateleiras. A superior: livros de húngaro — poetas que Elisa não conhecia. A média: dicionários, gramáticas, manuais de tradução. A inferior: fotografias emolduradas sem disposição lógica. Helena jovem, sorridente, ao lado de um homem grande de cabelo escuro — Béla, provavelmente. Helena mais velha, com uma criança ao colo. Helena em frente a um edifício que podia ser Budapeste ou podia ser qualquer cidade do leste europeu com fachadas otomanas descascadas.
+[2026-06-01 05:04:11] [SUBPROCESS] 
+[2026-06-01 05:04:11] [SUBPROCESS] Elisa tirou o caderno da mochila. Abriu na página onde tinha escrito, na noite anterior, às 03h12, com a caligrafia torta da insónia:
+[2026-06-01 05:04:11] [SUBPROCESS] 
+[2026-06-01 05:04:11] [SUBPROCESS] *Se existe Helena, existem outros. 3 confirmados. 9 por confirmar. O CERN detectou anomalias em 2018. Correlação? Causa? Mecanismo? Onde vai a entropia?*
+[2026-06-01 05:04:11] [SUBPROCESS] 
+[2026-06-01 05:04:11] [SUBPROCESS] Helena regressou com uma bandeja. Duas canecas de cerâmica — uma com um gato pintado, outra com uma flor. Um pires com fatias de limão. Um pote de mel. A bandeja tinha uma mancha de chá antiga, em forma de anel, que Helena nunca conseguira limpar.
+[2026-06-01 05:04:11] [SUBPROCESS] 
+[2026-06-01 05:04:11] [SUBPROCESS] — Sem açúcar — disse Helena, pousando a bandeja na mesa de café. — A senhora não come açúcar, pois não?
+[2026-06-01 05:04:11] [SUBPROCESS] 
+[2026-06-01 05:04:11] [SUBPROCESS] — Como é que a senhora sabe?
+[2026-06-01 05:04:11] [SUBPROCESS] 
+[2026-06-01 05:04:11] [SUBPROCESS] — Reparou.
+[2026-06-01 05:04:11] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] Helena sentou-se na cadeira ao lado do sofá. Cruzou as pernas. Tomou um gole do seu chá. Fez um som de satisfação — baixo, quase involuntário, o som de alguém que bebe chá há sessenta e sete anos e ainda encontra conforto nisso.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — A senhora veio perguntar sobre os outros casos — disse Helena. Não era uma pergunta.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — Sim.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] Helena tomou outro gole. Pousou a caneca. Olhou para Elisa com a cabeça ligeiramente inclinada para a esquerda — o gesto do pássaro, o gesto que antecipava as perguntas que Elisa não sabia responder.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — A senhora acha que há mais pessoas como eu?
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] Elisa sentiu o granito no bolso. O polimento sob o polegar. Pensou nos três confirmados — o professor em Tóquio, a fisioterapeuta em São Paulo, o professor em Lagos. Pensou nos nove por confirmar. Pensou no ficheiro encriptado da Evromind, nos doze sujeitos classificados como "erro de medição — descartar."
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — Acho sim — disse Elisa. — Pelo menos mais três que conseguimos confirmar.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] Helena ficou em silêncio. O relógio atrasado marcava o tempo errado. Um carro passou lá fora, no baixo da rua. A chaleira arrefecia na cozinha com um som quase inaudível — o som do calor a escapar, a entropia a fazer o seu trabalho irreversível em cada coisa que existia, excepto, aparentemente, em Helena.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — Isso é bom — disse Helena.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — É?
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — Se sou a única, sou um erro. Se somos várias, somos uma coisa que ainda não tem nome. — Helena tomou outro gole de chá. — Prefiro ser uma coisa sem nome a ser um erro.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] Elisa abriu o caderno. Escreveu a frase inteira. Depois sublinhou-a. Depois voltou a olhar para Helena, que estava a mexer no mel com uma colher de pau, o pingente de carvalho balançando ligeiramente contra o casaco vermelho.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — A senhora fala como alguém que já tinha pensado nisso — disse Elisa.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — Eu penso em tudo, doutora. É o que as pessoas velhas fazem quando já não têm mais nada para fazer senão pensar. — Helena pousou a colher. — A minha avó tinha um ditado. "Quando o cão velho já não ladra, é porque está a ouvir." Eu ouvi muito, ao longo dos anos. E o que ouvi foi isto: que não sou como os outros. Não sei como sei. Sei.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] Elisa registou isto. Não no caderno — na memória. O padrão de Helena não era introspecção. Era observação. Helena observava-se a si própria da mesma forma que observava o manjericão — com atenção prática, sem romance, sem drama. Estás com sede. Precisas de mais sol. Não sou como os outros.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — A senhora quer saber mais sobre os outros? — perguntou Elisa.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — Quero. Mas primeiro — Helena levantou-se — deixa-me ver se há biscoitos.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] Helena foi à cozinha. Elisa ouviu abrir de gavetas, o som de uma lata metálica, o fechar de uma porta. Olhou para o relógio. 16h14 pelo relógio de Helena. 16h17 pelo dela. Três minutos. Sempre três minutos. Helena dizia que o tempo era uma opinião. Elisa achava irritante e fascinante em partes iguais.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] Quando Helena regressou, trazia uma lata redonda com uma paisagem alpina pintada — montanhas que não correspondiam a nenhuma geografia real, picos simétricos demais, um lago circular demais, um céu azul demais. Dentro da lata, biscoitos de manteiga em forma de estrela.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — A Béla comprava estes — disse Helena, pousando a lata na mesa. — Eu continuo a comprá-los. Não gosto de biscoitos de manteira. Mas gosto da lata.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] Comeu um. Elisa comeu outro. Era seco, levemente salgado, e desfazia-se na boca com uma textura que lembrava giz.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — Budapeste — disse Helena, sem transição. — A senhora quer saber sobre Budapeste?
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] Elisa assentiu. Helena inclinou-se para trás na cadeira. Os olhos focaram-se num ponto acima do ombro de Elisa — não em Elisa, não na sala, mas em algum lugar que existia apenas na memória dela.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — Budapeste era um cão velho — disse Helena. — Ladrava muito mas não mordia. Os soviéticos estavam lá, os tanques estavam lá, mas era mais teatro do que guerra. As pessoas tinham medo, claro. Mas o medo era... como um hábito. Acordavas com ele, dormias com ele. Ao fim de anos, já nem reparavas.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] Tomou um gole de chá. Continuou.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — Cheirava a paprika e fumo de carvão. No inverno, o Danúbio ficava cinzento — não azul, não preto, cinzento. Como cimento diluído. E o húngaro nas ruadas — a senhora não fala húngaro?
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — Não.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — É uma língua que soa a coisa nenhuma. Nem germânica, nem eslava, nem latina. Vem de algures no leste, de quando os magiares atravessaram os Cárpatos. Soa a cavalos e a erva seca. — Helena tocou no pingente. — A minha mãe dizia que o húngaro era a língua dos fugidos. Porque quem foge inventa palavras novas para coisas velhas, e o húngaro está cheio de palavras que não existem em mais nenhuma língua.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] Elisa escrevia. A caligrafia era legível apesar da pressa — anos de escrever em quadros brancos tinham-lhe dado uma economia de traço que funcionava mesmo em cadernos de papel.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — O som do trâmvia — disse Helena. — Era amarelo, o trâmvia. Amarelo sujo. Fazia um som metálico nas curvas, como unhas num quadro. Eu ia para o trabalho de trâmvia. Todas as manhãs. Sete e vinte. O número 4, que passava pela Rua Andrássy e descia até ao Danúbio. Sentava-me no fundo, junto à janela, e via a cidade passar. Os edifícios do século XIX com as fachadas descascadas. As pessoas com os casacos escuros. O cheiro a gasóleo e a pão quente.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — A senhora sente saudades? — perguntou Elisa.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] Helena ficou quieta. O relógio atrasou mais um segundo. O chá arrefeceu nas duas canecas.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — Sinto falta de uma versão de mim que existiu lá — disse Helena. — Não da cidade. De mim. A Helena que andava no trâmvia das sete e vinte. A Helena que traduzia reuniões que não devia traduzir. A Helena que dormia ao lado do Béla num apartamento com fugas na canalização e um gato que não era nosso mas que aparecia sempre ao jantar. Essa Helena morreu. Não morreu de vez — anda por aqui, neste apartamento, neste casaco. Mas não é a mesma. É uma tradução. E traduções, doutora, nunca são o original.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] Elisa pousou a caneta. O granito no bolso. O polimento sob o polegar. Pensou na mãe — na Jana que escrevia equações em guardanapos, na Jana que morreu com a mão parada sobre S = k lo—. Pensou que Helena tinha razão. Que traduções nunca são o original. Que a Helena de Budapeste era o texto e a Helena de Zurique era a tradução, e entre as duas havia uma perda que nenhum dicionário cobria.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — 1983 — disse Elisa.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] Helena ficou muito quieta. Não o silêncio habitual — o silêncio de quem escolhe as palavras. Era outro silêncio. O silêncio de quem ouve algo dentro de si que preferia não ouvir.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — 1983 — repetiu Helena. A voz mudou. Mais baixa. Mais lenta. — 1983 foi um ano estranho.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] Elisa esperou. Aprendera, ao longo de cinco visitas, que Helena preenchia os silêncios quando estava pronta. Não antes.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — Trabalhava muito — disse Helena. — Traduzia reuniões que não devia traduzir. O governo suíço contratava-me para traduzir entre húngaro e alemão, eu fazia isso. Mas às vezes pediam-me para traduzir reuniões que eram... diferentes. Reuniões com pessoas que não eram diplomatas. Reuniões em salas sem janelas. Reuniões onde o que se discutia não era tratado nos jornais.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] Helena tocou no pingente de carvalho. Os dedos grandes, as articulações inchadas pela artrose, seguravam a folha de prata com delicadeza.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — Uma noite — disse Helena. — Março, creio. Pode ter sido Fevereiro. O frio em Zurique é todo parecido. Pediram-me para traduzir uma reunião entre diplomatas húngaros e soviéticos. Não sei porquê. Não sei como me encontraram. Disseram-me apenas que precisavam de alguém que falasse as duas línguas e que não fizesse perguntas.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] Helena parou. Tomou um gole de chá. O chá estava frio — Elisa viu os lábios dela franzirem ligeiramente ao contacto com a temperatura.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — Seis horas — disse Helena. — Seis horas sem parar. Sentada numa cadeira de plástico, com um auricular, a traduzir em tempo real. Húngaro para russo, russo para húngaro. Os diplomatas falavam rápido, falavam baixo, falavam por código. Eu traduzia tudo. Cada palavra. Cada pausa. Cada mudança de tom. Ao fim de três horas, já não ouvia as palavras — ouvia os espaços entre elas. Ao fim de cinco horas, já não traduzia — pensava. O húngaro e o russo entravam por um ouvido e saíam pela boca, e no meio, entre a entrada e a saída, havia um espaço onde eu estava só a pensar. A pensar sem traduzir. A pensar por mim.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] Helena pousou a caneca. Olhou para as próprias mãos.
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:12] [SUBPROCESS] — No final — disse —, um dos soviéticos olhou para mim. Olhou para mim como quem vê algo que não esperava ver. E disse, em russo: "Esta menina não está a traduzir. Está a pensar."
+[2026-06-01 05:04:12] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] Elisa congelou. A caneta parou sobre o caderno. A tinta formou uma pequena poça negra no papel — um ponto que se expandia, irreversível, como a entropia.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Ele disse isso — repetiu Elisa. Não era uma pergunta.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Disse. Em russo. Eu compreendia russo, embora nunca o admitisse a ninguém — uma tradutora húngaro-alemã que compreende russo era uma coisa perigosa em 1983. — E naquela noite, voltei para casa. Deitei-me. E dormi.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Quanto tempo?
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Catorze horas.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] Elisa sentiu alguma coisa mover-se dentro do peito — não no coração, não nos pulmões, num sítio intermédio que não tinha nome anatômico. Uma mudança de pressão. Como quando se sobe um avão e os ouvidos tapam.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Quando acordei — disse Helena —, senti... leveza. Como se pensar não custasse nada. Como se cada pensamento fosse uma pedra que eu deitava ao lago e o lago a engolia sem ondas. Sem esforço. Sem peso.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Quanto tempo durou essa sensação?
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Três semanas.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] Elisa escreveu o número. Escreveu-o três vezes, como se a repetição o ancorasse ao papel.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] Três semanas.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] Três semanas em que Helena pensava sem gerar entropia mensurável. Três semanas em que o formalismo — o formalismo de Elisa, o formalismo do Nobel, o formalismo que dizia que todo ato consciente desordena o universo — não se aplicava. Três semanas de exceção. E depois a exceção acabou. Porquê?
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Depois passou — disse Helena. — Gradualmente. Como quando o sol se põe — não é de um momento para o outro, é uma coisa lenta, e quando reparas, já está escuro. Ao fim de três semanas, pensar voltou a custar. Voltei a ser o que era antes. Nunca contei isto a ninguém.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] Elisa olhou para Helena. Helena olhava para o vazio — para o ponto acima do ombro que era Budapeste, ou 1983, ou a versão de si que existia ali e em mais nenhum sítio.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Porque não? — perguntou Elisa.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Porque não tenho palavras para o que senti. "Leveza" é a palavra mais próxima, mas não é certa. É como tentar descrever uma cor que não existe. Sabes que a viste, mas quando tentas explicá-la, as palavras falham. — Helena pegou na caneca de chá. Estava fria. Bebeu-a à mesma. — E porque, doutora, quando não temos palavras para uma coisa, temos duas opções: calar ou inventar. Eu calei.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] Elisa fechou o caderno. O som foi seco, pequeno, final.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] Três semanas. Março de 1983. Seis horas de tradução. Um diplomata soviético que disse: "Esta menina não está a traduzir. Está a pensar." E depois: catorze horas de sono. E depois: três semanas de leveza.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] Onde é que a entropia ia durante aquelas três semanas?
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] O formalismo era claro: a entropia não desaparece. Se Helena pensava sem gerar incremento entrópico mensurável, a entropia estava a ser exportada para outro sistema. Mas qual? E porquê durante três semanas e não mais? O que mudou em março de 1983? O que mudou depois?
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — A senhora teve algum outro episódio assim? — perguntou Elisa. — Depois de 1983?
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Não. Nunca mais.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Antes de 1983?
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Não me lembro. Mas eu tinha vinte e três anos — a memória aos vinte e três é como um ralo: entra tudo, sai quase tudo.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] Helena levantou-se. A cadeira rangeu. Foi à cozinha. Ouviu-se o som da chaleira a ser encheu, o gás a ser aceso. Helena regressou sem chá — regressou com a caixa de biscoitos, que pousou na mesa como uma oferenda.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Coma mais — disse. — Estes biscoitos não vão comer-se a si mesmos. O Béla gostava disso — de dizer que as coisas se comem a si mesmas. Era o tipo de coisa que ele dizia para me fazer rir, e eu ria, mesmo sendo uma piada má.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] Elisa comeu outro biscoito. Continuava a desfazer-se na boca como giz.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Doutora — disse Helena, sentando-se outra vez. — Posso fazer-lhe uma pergunta?
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Pode.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — O que é que a senhora está a tentar provar?
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] Elisa abriu a boca. Fechou-a. Deu por si a consultar mentalmente quarenta e sete definições — de consciência, de anomalia, de entropia, de reversibilidade — e a rejeitar todas, porque nenhuma respondia à pergunta de Helena. A pergunta de Helena não era sobre ciência. Era sobre medo.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Estou a tentar perceber o que a senhora é — disse Elisa.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Eu sei o que sou. Sou uma mulher de sessenta e sete anos que cozinha paprika e cuida de manjericão. A senhora é que não sabe o que eu sou. E isso assusta-a.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] O granito no bolso. O polimento sob o polegar. Cinquenta milhões de anos de rocha sem um único pensamento.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Sim — disse Elisa. — Assusta.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] Helena sorriu. As covinhas profundas. Os olhos azul-claro.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Não devia. Eu não mordo. Sou como Budapeste — ladro muito, mas não mordo.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] Levantou-se outra vez. Tirou as canecas da mesa. Elisa aproveitou para ver o relógio de parede — 17h02 pelo relógio de Helena, 17h05 pelo dela. Três minutos. Sempre três minutos. Helena dizia que o tempo era uma opinião, e talvez tivesse razão — talvez o tempo fosse uma opinião que o universo tinha sobre si mesmo, e Helena vivesse numa opinião ligeiramente diferente.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Tem de ir — disse Helena da cozinha. Não era uma pergunta.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Tenho.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] Elisa levantou-se. Pegou na mochila. Meteu o caderno dentro. Sentiu o peso do disco USB no bolso esquerdo — os dados da Evromind, os doze sujeitos, a nota do técnico. Sentiu o granito no bolto direito. Dois objetos. Dois pesos. Um era informação. O outro era ausência de informação. E entre os dois, Helena lavava canecas na cozinha e cantarolava qualquer coisa em húngaro que Elisa não compreendia.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] Helena reapareceu. Secava as mãos num pano de cozinha com limões pintados.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Doutora.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Sim?
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Obrigada por ter vindo. A maior parte das pessoas que vem aqui quer tirar alguma coisa — sangue, saliva, dados, respostas. A senhora vem e senta-se e come biscoitos. É diferente.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] Elisa não soube o que dizer. Disse obrigada à mesma. Helena acompanhou-a à porta. O corredor cheirava a pedra-húmida e sabão azul, como quando Elisa chegara, como sempre cheiraria.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:13] [SUBPROCESS] — Até à próxima — disse Helena.
+[2026-06-01 05:04:13] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] Elisa desceu as escadas. O corrimão verde rangeu sob a mão. O elevador estava avariado — um papel colado na porta dizia "AUSSER BETRIEB" em letras vermelhas. Desceu a pé. Três andares. Dezanove degraus por andar. Cinquenta e sete degraus no total. Contá-los foi involuntário — um tique de quem mede tudo, de quem não consegue desligar o mecanismo que traduz o mundo em números.
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] A rua estava escura. Março em Zurique — o sol pôs-se às cinco e meia e depois era só escuro e frio e o som do trânsito no baixo. Elisa caminhou em direção ao lago. Não decidiu caminhar — os pés foram por conta própria, como se o corpo soubesse que a mente precisava de água e escuridão e silêncio.
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] O lago estava imóvel. Não parado — imóvel. A diferença era importante. Parado implicava esforço contra o movimento. Imóvel era ausência total de transição. Elisa sentou-se no banco de madeira que já se tornara o seu banco — o terceiro a contar da ponte, com vista para os Alpes que não se viam na escuridão mas cuja presença se sentia, uma massa de ar mais frio que descia das montanhas como uma respiração lenta.
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] Tirou o disco USB do bolso. Segurou-o na mão esquerda. Tirou o granito do bolso direito. Segurou-o na mão direita. Dois retângulos sólidos — um de plástico e silício, outro de feldspato e quartzo. Um continha dados. O outro continha cinquenta milhões de anos de silêncio geológico.
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] Três semanas.
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] Helena experimentara, durante três semanas, exatamente o que o IC media — ou melhor, a ausência do que o IC media. Pensar sem gerar entropia. Pensar sem desordenar o universo. E depois passou. Porquê?
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] O que mudou?
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] Elisa pensou nos dados do CERN. 2018. Os padrões anómalos nas colisões de alta energia. A nota do técnico: "Parece estruturado. Como se fosse sinal." Tinha guardado os dados brutos num disco pessoal durante nove anos. Nunca os esqueceu. Nunca os compreendeu.
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] Pensou na mãe. No último guardanapo. S = k lo—. A mão que parou. A tinta que se interrompeu. A equação incompleta que Elisa completara mentalmente todas as noites durante dois anos.
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] S = k log W.
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] A linguagem da ciência. O último sussurro da mãe.
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] Mas e se a equação estivesse completa? E se S = k lo— fosse tudo o que havia — não por falha da mãe, mas por honestidade? E se a mão tivesse parado porque não havia mais nada para dizer?
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] Elisa olhou para o lago. A água negra não se mexia. Um pato-real deslizou da margem para o centro sem perturbar a superfície. Nenhum rasto. Nenhuma onda. Como se não tivesse passado por ali.
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] Três semanas em 1983. Seis horas de tradução. Um diplomata soviético que disse: "Esta menina não está a traduzir. Está a pensar." E depois: catorze horas de sono. E depois: leveza. Três semanas de leveza.
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] Onde é que a entropia ia?
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] O formalismo dizia: para outro sistema. O Princípio da Compensação Entrópica era inequívoco — a entropia não desaparece. Se Helena pensava e o universo não pagava o preço, o preço estava a ser pago noutro sítio. Mas noutro sítio onde? Outra dimensão? Outro campo? Outro regime físico?
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] Ou — e era esta ideia que queimava como um ferro quente no centro do peito — outro regime que não era físico de todo?
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] Elisa apertou o granito. O polimento sob o polegar. Cinquenta milhões de anos sem um único pensamento. Helena pensava — disso Elisa tinha certeza, porque estivera na varanda dela, vira-a regar o manjericão, ouvira-a fazer perguntas que rochas não faziam — e o universo não pagava o preço.
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] A verdade estava a um passo. Elisa sentia-a como se sente a electricidade antes de um relâmpago — o ar que muda de sabor, o cabelo que se arrepia, o corpo que sabe antes da mente.
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] O passo exigia que aceitasse algo que a sua formação científica rejeitava. Não a incompletude do formalismo — isso já aceitara, na conversa com Tomás, com o café frio e a pergunta do padre. O que ainda não aceitava era outra coisa. A possibilidade de que a consciência não fosse um processo termodinâmico. De que pensar não fosse desordenar. De que Helena não fosse uma anomalia dentro do sistema, mas uma prova de que o sistema era uma camada — uma camada real, mensurável, Nobel — mas não a única.
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] O lago continuava imóvel. O pato-real chegara ao centro e parara, uma forma escura sobre água escura, indistinguível da própria água. Como se fosse o lago a pensar-se a si próprio.
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] Elisa guardou o disco USB. Guardou o granito. Levantou-se do banco. As pernas estavam frias — o frio da madeira passara através das calças e instalara-se nos ossos. Caminhou de volta. Zurique à noite era uma cidade de luzes refletidas na água — postes, janelas, faróis de carros, tudo duplicado no lago como um universo paralelo que existia apenas em reflexo.
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] O granito no bolso direito. O disco USB no bolso esquerdo. Dois objetos. Duas verdades. Entre elas, Helena — sentada no sofá verde, a comer biscoitos de manteiga numa lata com montanhas que não existiam, a falar de Budapeste como quem fala de uma pessoa que amou e perdeu, a inclinar a cabeça para a esquerda quando fazia perguntas que tinham a forma simples de todas as perguntas impossíveis.
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] *Prefiro ser uma coisa sem nome a ser um erro.*
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] Elisa caminhou. O frio cortava. O céu era escuro. Os Alpes eram uma presença invisível — massa e tempo e gelo a recuar quinze metros por ano, a entropia geológica feita visível, montanhas que foram oceão e seriam planície e seriam mar outra vez.
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] Três semanas.
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] O passo estava ali. Elisa não o deu. Não ainda. Mas sabia — com a certeza visceral de quem constrói uma casa tijolo a tijolo e reconhece quando alguém pinta uma parede que não existe — que o passo era inevitável.
+[2026-06-01 05:04:14] [SUBPROCESS] 
+[2026-06-01 05:04:14] [SUBPROCESS] E que, quando o desse, nada voltaria a ser o que era.
+[2026-06-01 05:04:14] [INFO] Drafted 4101 words
+[2026-06-01 05:04:14] [INFO] RUN: uv run python evaluate.py --chapter=13
+[2026-06-01 05:04:15] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 05:07:09] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 05:07:09] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 05:07:09] [SUBPROCESS] ---
+[2026-06-01 05:07:09] [SUBPROCESS] overall_score: 4.5
+[2026-06-01 05:07:09] [SUBPROCESS] voice_adherence: 7 -- The chapter largely maintains Elisa's voice well — her precision, her thermodynamic framing, her clipped emotional moments. But there are occasional slips into generic literary metaphor that don't come from her specific experience. The granito-in-pocket tic is used effectively throughout. The sentence rhythm generally follows the voice profile (long in deduction, short in crisis), though there are passages where the rhythm becomes too uniform.
+[2026-06-01 05:07:09] [SUBPROCESS] beat_coverage: 8 -- Beats 1-4 are well-executed and dramatized. The dialogue between Elisa and Helena feels lived-in and real. The revelation of the three weeks is the chapter's strongest moment and is properly staged. The 'budapest was an old dog' beat is beautifully handled. The weakest beat is the lake coda, which reads as summary rather than scene.
+[2026-06-01 05:07:09] [SUBPROCESS] character_voice: 8 -- Overall, the dialogue distinction is strong. Elisa's directness and precision come through clearly. Helena's voice is mostly excellent — the Hungarian proverb fragments, the concrete imagery, the head-tilt questions. The 'Budapest was an old dog' passage is a standout. Mirela doesn't appear, so no comparison issue. The dialogue generally reads as speech, not written prose, though Helena occasionally becomes too articulate.
+[2026-06-01 05:07:09] [SUBPROCESS] plants_seeded: 7 -- The three-weeks revelation is the chapter's most important plant and it's well-integrated — it emerges naturally from Elisa's questioning and Helena's willingness to share. The CERN data connection is appropriately subtle. The 'traduções nunca são o original' line is a beautiful plant for the novel's larger themes. The biscoito tin detail (Helena continuing to buy them for the tin, not the biscuits) is a lovely small plant.
+[2026-06-01 05:07:09] [SUBPROCESS] prose_quality: 7 -- The prose is generally strong with good sentence variety. The 'Cinquenta milhões de anos' sentence is excellent — short, devastating, perfectly Elisa. The passage about the biscoito tin ('A Béla comprava estes... Eu continuo a comprá-los. Não gosto de biscoitos de manteiga. Mas gosto da lata.') is quietly devastating. The lake scene prose becomes too uniform — several sentences in a row starting with 'Elisa' or 'O lago.' The description of the apartment is well-selected (the tea stain ring, the faded carpet, the wrong clock) rather than catalog-style.
+[2026-06-01 05:07:09] [SUBPROCESS] continuity: 8 -- Strong continuity from the previous chapter. Elisa arrives from Geneva with the USB drive and the weight of the twelve subjects — this is carried forward naturally. Her emotional state (determination cracking into something more vulnerable) tracks well from the train scene where she says 'Não estou bem' for the first time. The granito tic, the insomnia, the coffee — all consistent. The progression from the previous chapter's ending (Elisa vowing to answer) to this chapter's ending (Elisa unable to take the step) is a natural emotional arc.
+[2026-06-01 05:07:09] [SUBPROCESS] canon_compliance: 7 -- The canon violation about Farkas is significant — it's a direct contradiction of established fact. The elevator contradiction is a continuity error within the chapter itself. Otherwise, canon is well-respected: the IC values, the character descriptions, the apartment details, the Budapest references, the CERN data, the USB drive from Evromind — all consistent.
+[2026-06-01 05:07:09] [SUBPROCESS] lore_integration: 8 -- The world does real work here. The IC system isn't just backdrop — it's the engine of the scene. The three-weeks revelation only has meaning because the reader understands what IC measures and why zero is impossible. The cultural details (the tram, the paprika, the biscoito tin) ground the world without exposition. The thermodynamic framework is present in every paragraph without being heavy-handed.
+[2026-06-01 05:07:09] [SUBPROCESS] engagement: 7 -- The Helena scenes are genuinely engaging — the dialogue crackles, the revelations land, the emotional beats feel earned. The chapter does something a generic AI draft wouldn't: it lets two people sit in a room and talk, and makes that conversation the most compelling thing on the page. The surprise is Helena's calm — she's not frightened or angry about being an anomaly, she's practical about it. That's unexpected and human. The chapter's weakness is structural — the lake coda overstays its welcome.
+[2026-06-01 05:07:09] [SUBPROCESS] three_weakest_sentences: ['Elisa registou isto. Não no caderno — na memória.', 'O lago continuava imóvel. O pato-real chegara ao centro e parara, uma forma escura sobre água escura, indistinguível da própria água.', 'Elisa caminhou. O frio cortava. O céu era escuro.']
+[2026-06-01 05:07:09] [SUBPROCESS] three_strongest_sentences: ['Cinquenta milhões de anos de rocha sem um único pensamento.', 'Prefiro ser uma coisa sem nome a ser um erro.', 'Três semanas em que Helena pensava sem gerar entropia mensurável.']
+[2026-06-01 05:07:09] [SUBPROCESS] ai_patterns_detected: ["Emotional beats arriving on schedule — the chapter follows the outline's emotional arc (determination → tenderness → anticipatory grief) very precisely, which makes it feel slightly predetermined", 'Description that catalogs — the apartment description lists items (shelf top/middle/bottom, sofa, clock, photographs) in a systematic way rather than selecting 2-3 sharp details', 'Internal monologue explaining what the scene already showed — the lake scene tells us Elisa is afraid of a truth beyond formalism, but we already understood this from her reaction in the apartment', "Several consecutive sentences starting with 'Elisa' in the lake sequence (Elisa pensou... Elisa olhou... Elisa apertou... Elisa guardou...)", "The 'three minutes late' clock detail is repeated four times in the chapter — effective as a motif the first two times, slightly mechanical thereafter"]
+[2026-06-01 05:07:09] [SUBPROCESS] weakest_dimension: canon_compliance
+[2026-06-01 05:07:09] [SUBPROCESS] top_3_revisions: ["Fix the canon violation: Helena must NOT say 'Nunca contei isto a ninguém' about the three weeks. She should say something like 'Nunca contei isto a ninguém — excepto uma vez, ao doutor Farkas, quando tomava comprimidos e falava mais solta.' This preserves the scene's intimacy while respecting established canon.", 'Fix the elevator contradiction: Elisa should walk up the stairs (establishing the 57 steps as a count she does involuntarily), and the broken elevator is only discovered on the way down — which she already handles by taking the stairs. Remove the initial elevator ride or make it clear she walked.', 'Cut the lake coda by 40%. The duck-without-wake image is the strongest moment in the sequence — end near it. The extended internal monologue about PCE and the nature of consciousness is intellectually sound but dramatically inert. Trust the reader to do the work.']
+[2026-06-01 05:07:09] [SUBPROCESS] new_canon_entries: ["Helena explicitly tells Elisa about the three weeks of 1983 — the six-hour translation session, the Soviet diplomat's comment, the fourteen hours of sleep, and the subsequent three weeks of cognitive lightness", "Helena's biscoito tin has an idealized Alpine landscape painted on it — mountains that don't correspond to any real geography", 'Helena buys biscoitos de manteiga specifically because Béla liked them, not because she enjoys them herself', "The elevator in Helena's building is broken (AUSSER BETRIEB) as of this chapter", 'Elisa counts the stairs descending: 19 steps per floor, 57 total — an involuntary tic']
+[2026-06-01 05:07:09] [SUBPROCESS] slop: N/A --
+[2026-06-01 05:07:09] [SUBPROCESS] raw_judge_score: 7
+[2026-06-01 05:07:09] [SUBPROCESS] 
+[2026-06-01 05:07:09] [SUBPROCESS] eval_log: /mnt/d/Dev/autobook/eval_logs/20260601_050709_ch13.json
+[2026-06-01 05:07:09] [INFO] Chapter 13 score: 4.5
+[2026-06-01 05:07:09] [INFO] Score 4.5 < 6.0, discarding attempt
+[2026-06-01 05:07:09] [INFO] RUN: git checkout -- chapters/ch_13.md 2>/dev/null || true
+[2026-06-01 05:07:09] [INFO] Attempt 5/5
+[2026-06-01 05:07:09] [INFO] RUN: uv run python draft_chapter.py 13
+[2026-06-01 05:07:09] [SUBPROCESS] Drafting Chapter 13...
+[2026-06-01 05:07:10] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 05:10:57] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 05:10:57] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 05:10:57] [SUBPROCESS] Saved to /mnt/d/Dev/autobook/chapters/ch_13.md
+[2026-06-01 05:10:57] [SUBPROCESS] Word count: 3652
+[2026-06-01 05:10:57] [SUBPROCESS] # Capítulo 13 — O CÍRCULO DE HARMONIA
+[2026-06-01 05:10:57] [SUBPROCESS] 
+[2026-06-01 05:10:57] [SUBPROCESS] O apartamento de Helena cheirava a paprika e azeite de oliva. Elisa notou isto antes de notar qualquer outra coisa — antes da porta se abrir, antes do sorriso de Helena, antes do "Doutora, entre, por favor." O cheiro entrava pelo corredor como uma mão que puxa para dentro de casa. Elisa ficou no parapeito da porta durante dois segundos. O disco USB no bolso esquerdo. O granito no bolso direito. Os dois objectos que carregava há 43 meses e que nunca tinha tirado do casaco, nem para dormir, nem para tomar banho. Helena já estava a recuar, a deixar espaço. Elisa entrou.
+[2026-06-01 05:10:57] [SUBPROCESS] 
+[2026-06-01 05:10:57] [SUBPROCESS] O apartamento era mais pequeno do que esperava. Uma sala com coberta por uma mesa de madeira escura, quatro cadeiras que não combinavam entre si, um sofá com uma manta de croché cor de laranja, e estantes por todo o lado — livros em húngaro, em alemão, em inglês, discos de vinil numa caixa de cartão, fotografias em molduras de prata. O relógio de parede marcava 15h07. O relógio do telemóvel de Elisa marcava 15h10. Três minutos de atraso. Helena não o acertava nunca.
+[2026-06-01 05:10:57] [SUBPROCESS] 
+[2026-06-01 05:10:57] [SUBPROCESS] — A senhora quer sentar-se — disse Helena. Não era uma pergunta.
+[2026-06-01 05:10:57] [SUBPROCESS] 
+[2026-06-01 05:10:57] [SUBPROCESS] Elisa sentou-se na cadeira mais perto da porta. Um reflexo. Helena inclinou a cabeça para a esquerda — o gesto do pássaro — e foi para a cozinha. Ouviu-se água a correr. Um bule a ser enchido. O som de colheres contra cerâmica.
+[2026-06-01 05:10:57] [SUBPROCESS] 
+[2026-06-01 05:10:57] [SUBPROCESS] Helena voltou com duas chávenas de chá numa bandeja de alumínio. A bandeja tinha uma flor azul pintada no centro, os pétalas ligeiramente gastas. Helena pousou-a na mesa com um cuidado que parecia ritual — como se a bandeja fosse frágil, ou como se o gesto importasse mais do que o objecto.
+[2026-06-01 05:10:57] [SUBPROCESS] 
+[2026-06-01 05:10:57] [SUBPROCESS] — Camomila — disse Helena, sentando-se à frente de Elisa. — A senhora toma camomila?
+[2026-06-01 05:10:57] [SUBPROCESS] 
+[2026-06-01 05:10:57] [SUBPROCESS] — Tome.
+[2026-06-01 05:10:57] [SUBPROCESS] 
+[2026-06-01 05:10:57] [SUBPROCESS] — Eu sei que não toma. Mas ofereço à mesma.
+[2026-06-01 05:10:57] [SUBPROCESS] 
+[2026-06-01 05:10:57] [SUBPROCESS] Elisa pegou na chávena. Estava quente. O vapor subia em linhas rectas que se dobravam ao chegar ao tecto. Três segundos. Cinco. O chá arrefeceu um grau e meio. A entropia a fazer o seu trabalho.
+[2026-06-01 05:10:57] [SUBPROCESS] 
+[2026-06-01 05:10:57] [SUBPROCESS] — Veio para me fazer mais perguntas — disse Helena.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — Vim para lhe perguntar sobre os outros.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] Helena abriu a boca. Fechou-a. Tocou no pingente de carvalho — o pequeno gesto de ancoragem que Elisa já conhecia da primeira visita.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — Outros — repetiu Helena.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — Confirmámos pelo menos mais três Pessoas com perfil semelhante ao seu. IC abaixo de 0,01. Funcionais. Sem danos cerebrais. Sem medicação que explique o resultado.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] Helena ficou em silêncio. Bebeu o chá. Os olhos azuis quase translúvidos fixaram-se num ponto da parede atrás de Elisa — não na parede, através da parede, como se visse algo do outro lado. O relógio atrasou mais um segundo.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — A senhora acha que há mais pessoas como eu? — perguntou Helena.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — Acho que sim. Pelo menos mais três que conseguimos confirmar.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] Helena pousou a chávena. O som contra a bandeja foi suave, controlado. Ficou em silêncio durante tempo suficiente para que o relógio desse sete badaladas — sete minutos que na verdade eram seis e meio.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — Isso é bom — disse Helena.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — É?
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — Se sou a única, sou um erro. Se somos várias, somos uma coisa que ainda não tem nome. — Helena inclinou a cabeça. — Prefiro ser uma coisa sem nome a ser um erro.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] Elisa não disse nada. O chá estava a arrefecer. Bebeu um gole. Estava amargo — a camomila tinha sido deixada a macerar tempo a mais. Helena não percebia de chá. Ou percebia e não se importava. O amargo desceu pela garganta de Elisa como uma verdade que não podia ser cuspida.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — Tem mais? — perguntou Helena.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — Mais quê?
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — Mais perguntas. A senhora veio até aqui. Não foi só para me dizer que há mais como eu.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] Elisa pousou a chávena. Tocou no bolso direito — o granito, o polimento sob o polegar. Cinquenta milhões de rocha sem um único pensamento.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — Quero saber sobre a sua vida — disse Elisa. — Não os dados. A vida. Onde cresceu. O que fez antes de se reformar. O que sentia.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — O que sentia — repetiu Helena, e algo no rosto dela se dissolveu, como açúcar em água quente. — Isso é mais difícil do que os dados.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — Eu sei.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] Helena levantou-se. Foi à cozinha. Voltou com o bule e encheu as duas chávenas sem perguntar. Sentou-se. Cruzou as mãos sobre a mesa — mãos grandes, articulações inchadas pela artrose, unhas curtas e limpas.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — Budapeste — disse Helena. — Nasci em Budapeste. 1960. O meu pai trabalhava nos caminhos de ferro. A minha mãe costurava roupa para uma loja no Andrássy út. Tínhamos um apartamento com uma janela que dava para o Danúbio. No inverno, o rio era cinzento. Não cinzento bonito. Cinzento como cimento. Cinzento como o rosto de alguém que está cansado de viver num país que não escolheu.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] Elisa ouvia. Não tomava notas. Não gravava. Apenas ouvia.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — Budapeste cheirava a paprika e fumo de carvão. Ainda cheiro isso quando fecho os olhos. O húngaro nas ruas era duro — não como o alemão, que é uma máquina, mas como pedras a bater umas nas outras. As pessoas falavam baixo porque havia sempre alguém a ouvir. A minha avó dizia: "Nesta cidade, até as paredes têm ouvidos." E as paredes tinham. Literalmente. O Estado metia microfones em todo o lado.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] Helena bebeu chá. O relógio atrasou.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — Budapeste era um cão velho — disse. — Ladrava muito mas não mordia. Ou mordia, mas em sítios onde não se via.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — A senhora sente saudades? — perguntou Elisa.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] Helena inclinou a cabeça. Tocou no pingente.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — Sinto falta de uma versão de mim que existiu lá. Não da cidade. De mim.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] A frase ficou suspensa entre as duas como o vapor do chá — visível, mas que se dissolve se se tentar agarrar. Elisa pensou na mãe. Na Jana que escrevia equações em guardanapos. Na Jana que existia antes do cancro — não uma versão diferente, mas a mesma versão com mais tempo. Sentir falta de uma versão de si. Elisa não tinha palavras para isto. Tinha equações. As equações não serviam.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — E 1983? — perguntou Elisa. A voz saiu mais baixa do que pretendia.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] Helena ficou muito quieta. Não o tipo de quietude que é pausa — o tipo de quietude que é muro. Os olhos azuis fixaram-se em Elisa com uma intensidade que não tinha estado lá antes. Helena tocou no pingente duas vezes. Três.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — 1983 — repetiu. — Porque quer saber sobre 1983?
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — É um ano que aparece nos seus registos médicos. Uma anomalia menor — nada comparada ao IC zero. Mas está lá. Uma nota de um médico que a examinou em Abril de 1983. "Paciente apresenta fadiga cognitiva reduzida e estado de ânimo elevado sem causa aparente."
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] Helena não disse nada durante dez segundos. Vinte. O relógio deu duas badaladas. Helena descruzou as mãos. Voltou a cruzá-las. Os dedos tremiam — não muito, mas o suficiente para Elisa ver.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — 1983 foi um ano estranho — disse Helena finalmente. A voz era diferente. Mais lenta. Como se cada palavra tivesse de ser tirada de um sítio fundo. — Trabalhava muito. Era tradutora júnior no Ministério das Relações Exteriores. Traduzia reuniões que não devia traduzir. Documentos que não devia ler. Conversas entre diplomatas húngaros e soviéticos — eu era fluente em russo, embora nunca tenha admitido isso oficialmente. Se admitisse, mandavam-me para um sítio pior.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] Helena parou. Bebeu chá. A chávena tremeu nos lábios — um tremor mínimo, quase invisível. Elisa viu.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — Uma noite — continuou Helena — chamaram-me à meia-noite. Reunião de emergência. Não me disseram o que era. Levaram-me num carro sem matrícula até um edifício no Buda. Não me disseram o nome da rua. Havia homens — húngaros, soviéticos, não sei — sentados à volta de uma mesa comprida. Papéis por todo o lado. Mapas. Números. E eu traduzi. Seis horas sem parar. Russo para húngaro. Húngaro para russo. Palavras sobre produção de aço, cotas de gás natural, quotas de cereais. Palavras que não significavam nada e significavam tudo.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] Elisa sentiu algo — não no estômago, não no peito, mas atrás dos olhos. Uma pressão. Como se o cérebro estivesse a processar informação a uma velocidade que o corpo não acompanhava.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — No final — disse Helena — um dos soviéticos olhou para mim. Era velho. Cabelo branco. Olhos como os seus, doutora — escuros, com olheiras. E disse-me, em russo: "Esta menina não está a traduzir. Está a pensar." E riu-se. Os outros riram-se. Eu não ri. Não porque não fosse engraçado. Porque era verdade.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] Helena pousou a chávena. As mãos já não tremiam.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — Naquela noite voltei para casa e dormi catorze horas. Catorze. Nunca dormi tanto. Nunca mais dormi tanto. Quando acordei — Helena parou. Os olhos encheram-se, não de lágrimas, mas de algo mais antigo. — Quando acordei, senti leveza. Como se pensar não custasse nada. Cada pensamento entrava e saía sem esforço. Como respirar debaixo de água — natural, sem resistência.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] Elisa congelou. Não deliberadamente. O corpo parou antes que a ordem chegasse. Os músculos do pescoço ficaram rígidos. A mão direita, que ia tocar no granito, ficou suspensa a meio do caminho.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — Quanto tempo durou essa sensação? — A voz de Elisa saiu plana. Científica. Como se estivesse a perguntar sobre a meia-vida de um isótopo.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:58] [SUBPROCESS] — Três semanas.
+[2026-06-01 05:10:58] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] — Três semanas.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] — Depois passou. Voltei ao normal. Ou ao que eu achava que era normal. — Helena tocou no pingente. — Nunca contei isto a ninguém. Nem ao Béla. Nem ao doutor Farkas. Nunca.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Elisa completou a frase mentalmente: *até agora.* Helena nunca tinha contado a ninguém até agora. Até uma mulher de óculos redondos e casaco cinzento ter aparecido à porta com perguntas sobre entropia e consciência e o peso do pensamento.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Três semanas. Vinte e um dias. Helena Varga, aos vinte e três anos, experimentou durante vinte e um dias exactamente o que o formalismo de Elisa dizia ser impossível: pensar sem gerar entropia mensurável. Ou melhor — pensar sem o custo que todos os outros pagavam. O universo não cobrou o preço. Ou cobrou, e Helena não sentiu.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] A perna de Elisa tremia sob a mesa. Não à vista — por baixo, onde ninguém via, o músculo da coxa batia contra a madeira da cadeira como um metrónomo descontrolado. Tocou no granito. O polimento. O formato do polegar já gravado na rocha.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] — Doutora? — disse Helena. — Está bem?
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] — Preciso de sair — disse Elisa.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] — O chá—
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] — O chá estava bom. Obrigada.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Elisa levantou-se. A cadeira arranhou o chão — um som agudo, breve, que o relógio engoliu. Helena levantou-se também. Foi até à porta abri-la. Ficaram as duas no parapeito — Elisa com a mão no puxador, Helena com a mão no pingente.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] — Doutora Dragovski — disse Helena. — Aquela noite em 1983. Quando achei que pensar não custava nada. Era isso. Era exactamente isso. Eu sabia que era diferente. Não sabia dizer como. Mas sabia.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Elisa abriu a porta. O corredor estava escuro — uma das lâmpadas tinha fundido e ninguém a tinha substituído. O cheiro a paprika ficou para trás, no apartamento, como um cobertor que se deixa na cama quando se levanta demasiado cedo.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] — Obrigada — disse Elisa.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] — Volte quando quiser. O chá não melhora, mas a companhia sim.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Elisa desceu as escadas. O corrimão verde rangeu sob a mão. O prédio dos anos 1960 tinha uma acústica particular — cada passo ecoava três andares. Quatro. Cinco. Elisa contava os degraus sem querer. Vinte e três por lance. Quatro lances. Noventa e dois degraus até à rua.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] O ar de Março cortou-lhe o rosto. O céu de Zurique estava cinzenta — não nublada, apenas cinzenta, como se alguém tivesse passado um pano húmido sobre o azul e o tivesse removido sem deixar rasto. Elisa caminhou. Não sabia para onde. Os pés sabiam. Esquerda na Riedtlistraße. Direita na Hofwiesenstrasse. Em frente, sempre em frente, até que o cheiro a paprika desapareceu e foi substituído pelo cheiro a pedra húmida e diesel.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] O lago apareceu sem aviso — Zurique é assim, uma cidade que esconde água entre edifícios e a revela quando se menos espera. Elisa sentou-se num banco de madeira à beira da margem. O banco tinha uma placa: *Em memória de Heinrich Z., 1931-2019.* Heinrich Z. tinha morrido com 88 anos. O IC dele tinha descido abaixo de 0,05 Dk setenta e duas horas antes de o coração parar — segundo a lei suíça, isso significava que morrera antes de morrer. A lei era clara. A lei era absurda.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] A água estava imóvel. Não parada — imóvel. A diferença importava. Parada implicava esforço contra o movimento. Imóvel era ausência total de transição. Nenhuma onda. Nenhuma ondulação. A superfície era negro-esverdeado, como vidro soprado, e reflectia os Alpes com uma fidelidade que parecia artificial — as montanhas na água eram mais nítidas do que as montanhas no céu.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Elisa pensou nas três semanas.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Três semanas em 1983. Antes disso — IC normal, presumivelmente. Depois disso — IC progressivamente anormal até estabilizar no zero que os aparelhos registavam agora. O que aconteceu naquelas seis horas de tradução? O que aconteceu naquela noite que mudou a assinatura termodinâmica de uma mulher durante vinte e um dias?
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] A hipótese óbvia: o esforço cognitivo extremo provocou uma alteração temporária no processamento de informação do cérebro de Helena. Uma espécie de estado de fluxo — não o fluxo psicológico, mas algo mais fundamental. Um regime em que a informação era processada de forma reversível. Como uma Máquina de Maxwell biológica. Teoricamente possível. Nunca observada.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Mas se foi temporário — se durou três semanas e passou — então o que fez passar? O que mudou no cérebro de Helena no vigésimo segundo dia?
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] E se não passou completamente?
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Elisa tirou o disco USB do bolfo. Segurou-o na palma da mão. Dois centímetros de comprimento. Plástico preto com uma tampa prateada. Dentro: os dados da Evromind. Os doze sujeitos. Os três confirmados. O professor em Tóquio. A fisioterapeuta em São Paulo. O professor em Lagos. E agora — se Elisa ligasse os dados — Helena em Zurique, com uma anomalia que não era permanente, que tinha começado como temporária e se tornara crónica. Uma anomalia com data de início. Uma anomalia com causa presumível.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Seis horas de tradução. Seis horas de processamento de informação a uma velocidade e intensidade que o cérebro de Helena nunca tinha experimentado. E no final, o soviético: "Esta menina não está a traduzir. Está a pensar."
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Pensar. Não traduzir. A diferença entre traduzir e pensar era a diferença entre processar informação e ser consciente da informação que se processava. Traduzir era mapear — palavra por palavra, estrutura por estrutura. Pensar era habitar a palavra antes de a traduzir. Era sentir o peso do significado antes de o converter noutro idioma.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Elisa pensou no formalismo. Na equação. Delta S maior ou igual a k ln 2 vezes I bit. Cada bit de informação processada de forma irreversível gerava entropia. Mas e se a informação fosse processada de forma reversível? Se o cérebro — por algum mecanismo que a física ainda não nomeava — encontrasse um caminho onde a informação entrava e saía sem deixar rastro termodinâmico?
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] A entropia não desaparecia. O Princípio da Compensação Entrópica garantia isso. Ia para algum lugar. Mas onde?
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Elisa olhou para o lago. A água estava imóvel. Um pato-real deslizou da margem para o centro sem perturbar a superfície. Nenhum rasto. Nenhuma onda. Como se não tivesse passado por ali. Como se o lago não registasse a passagem.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Como Helena.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Elisa pensou na mãe. No último guardanapo. S igual k lo—. A mão que parou. A tinta que se interrompeu. Elisa completara a equação mentalmente todas as noites durante dois anos. S igual k logaritmo de W. A equação de Boltzmann. A linguagem da ciência e o último sussurro da mãe.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Mas e se a equação estivesse completa? E se S igual k lo— fosse tudo o que havia — não por falha da mãe, mas por honestidade? E se a mão tivesse parado porque não havia mais nada para dizer?
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Elisa tinha passado a vida inteira a completar coisas incompletas. Equações. Teorias. A dor da mãe — transformada em formalismo, em Nobel, em IC, em Drakons. Tudo para provar que nada se perde. Que tudo tem peso. Que a entropia conta cada pensamento como uma moeda no mealhado.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Mas e se a mãe tivesse parado porque sabia — não com a cabeça, mas com a mão, com o corpo, com o cancro que já lhe comia o pâncreas — que havia coisas que não cabem em equações?
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] O medo voltou. Não o medo do formalismo estar errado — esse medo já tinha sido ultrapassado no café com Tomás, com o café frio e a pergunta do padre. O medo era outro. Era o medo de que a resposta — a causa, o mecanismo, a explicação para Helena e para os outros — fosse pior do que a pergunta. Pior do que a anomalia. Pior do que a incompletude.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Porque se a entropia de Helena ia para outro sistema — outro universo, outra dimensão, outro regime físico — então cada pensamento de cada pessoa com IC zero estava a desordenar algo que não era o nosso universo. E se esse algo era habitado — se havia alguém do outro lado a receber a entropia exportada — então a consciência de Helena não era apenas anomalia.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Era uma ponte.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] E pontes têm dois sentidos.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Elisa guardou o disco USB. Tocou no granito. O polimento. O formato do polegar. Cinquenta milhões de anos de rocha sem um único pensamento. A rocha não fazia perguntas. A rocha não precisava de respostas. A rocha era simples.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Helena não era simples. Helena cozinhava paprika e cuidava de manjericão e falava sozinha em húngaro e tinha covinhas profundas quando sorria e tocava no pingente da mãe quando falava do passado e fizera, em 1983, durante seis horas, algo que mudara a assinatura termodinâmica do seu cérebro para sempre.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Ou quase para sempre. Porque as três semanas passaram. Porque a leveza acabou. Porque o custo voltou — mas não para o universo. Para outro sítio. Para um sítio que os aparelhos de Elisa não alcançavam.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] O sol pôs-se. Não atrás das nuvens — as nuvens eram o próprio céu. O sol pôs-se atrás de Zurique, atrás dos Alpes, atrás do horizonte que Elisa não via porque estava demasiado ocupada a olhar para dentro. A água do lago escureceu. O negro-esverdeado tornou-se negro. Os Alpes no reflexo desapareceram. O banco de Heinrich Z. ficou frio.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Elisa levantou-se. As pernas estavam dormentes — tinha estado sentada durante quarenta minutos sem se mexer. Quarenta minutos a pensar em três semanas de 1983. Quarenta minutos a tentar encaixar Helena numa equação que não a cabia.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Caminhou de volta. O caminho era o mesmo — Hofwiesenstrasse, Riedtlistraße, o prédio de fachada cinzenta azulada, o corrimão verde. Mas não subiu. Não bateu à porta de Helena. Continuou em frente, em direcção ao ETH, ao escritório temporário, ao monitor que projectava sombras azuis sobre a mesa.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Tinha trabalho a fazer. Os dados do CERN de 2018. A nota do técnico: "Parece... estruturado. Como se fosse sinal." Os doze sujeitos. As três semanas de Helena. A ligação entre colisões de partículas e consciência humana que ninguém queria ver porque ver significava aceitar que o universo era mais estranho do que a física permitia.
+[2026-06-01 05:10:59] [SUBPROCESS] 
+[2026-06-01 05:10:59] [SUBPROCESS] Elisa caminhou. Zurique era cinzenta. O tempo passava. A entropia aumentava. Cada passo era um micro-acto de destruição cósmica — o atrito da sola no asfalto, o calor dissipado pelo músculo da coxa, o impulso eléctrico no cérebro que decidia levantar o pé esquerdo e depois o direito.
+[2026-06-01 05:11:00] [SUBPROCESS] 
+[2026-06-01 05:11:00] [SUBPROCESS] Mas em algum lugar — num apartamento em Oerlikon, com um relógio que atrasava três minutos por dia e um manjericão na varanda — uma mulher de 67 anos cozinhava paprika e não pagava o preço.
+[2026-06-01 05:11:00] [SUBPROCESS] 
+[2026-06-01 05:11:00] [SUBPROCESS] E isso era o mais aterrorizante que Elisa tinha encontrado em quarenta e um anos de vida.
+[2026-06-01 05:11:00] [SUBPROCESS] 
+[2026-06-01 05:11:00] [SUBPROCESS] Mais aterrorizante do que a mãe. Mais aterrorizante do que o Nobel. Mais aterrorizante do que a Morte Térmica.
+[2026-06-01 05:11:00] [SUBPROCESS] 
+[2026-06-01 05:11:00] [SUBPROCESS] Porque a Morte Térmica era uma certeza. E certezas, por mais devastadoras que sejam, têm a gentileza de ser compreensíveis.
+[2026-06-01 05:11:00] [SUBPROCESS] 
+[2026-06-01 05:11:00] [SUBPROCESS] Helena não era compreensível.
+[2026-06-01 05:11:00] [SUBPROCESS] 
+[2026-06-01 05:11:00] [SUBPROCESS] Helena era uma coisa sem nome.
+[2026-06-01 05:11:00] [SUBPROCESS] 
+[2026-06-01 05:11:00] [SUBPROCESS] E Elisa — que passara a vida inteira a dar nome a tudo — não sabia o que fazer com uma coisa sem nome.
+[2026-06-01 05:11:00] [SUBPROCESS] 
+[2026-06-01 05:11:00] [SUBPROCESS] Excepto continuar a caminhar. Excepto continuar a medir. Excepto continuar a perguntar.
+[2026-06-01 05:11:00] [SUBPROCESS] 
+[2026-06-01 05:11:00] [SUBPROCESS] O disco USB no bolso esquerdo. O granito no bolso direito. Dois objectos no mesmo casaco. Um era a prova de que havia mais Helenas. O outro era uma rocha que não pensava.
+[2026-06-01 05:11:00] [SUBPROCESS] 
+[2026-06-01 05:11:00] [SUBPROCESS] Elisa caminhou. A noite caiu sobre Zurique como um pano que alguém larga do alto — lenta, inevitável, sem pressa. As luzes da cidade acenderam-se. O rio corria. O mundo continuava a funcionar.
+[2026-06-01 05:11:00] [SUBPROCESS] 
+[2026-06-01 05:11:00] [SUBPROCESS] E em algum lugar, num laboratório subterrâneo sob a fronteira franco-suíça, um anel de 27 quilómetros continuava a acelerar protões a uma velocidade próxima da luz, e os detectores continuavam a registar padrões que ninguém lia, e um técnico anónimo continuava a escrever notas internas que ninguém abria.
+[2026-06-01 05:11:00] [SUBPROCESS] 
+[2026-06-01 05:11:00] [SUBPROCESS] Parece estruturado.
+[2026-06-01 05:11:00] [SUBPROCESS] 
+[2026-06-01 05:11:00] [SUBPROCESS] Como se fosse sinal.
+[2026-06-01 05:11:00] [SUBPROCESS] 
+[2026-06-01 05:11:00] [SUBPROCESS] Elisa caminhou. Tinha os dados. Tinha a pista. Tinha as três semanas de 1983.
+[2026-06-01 05:11:00] [SUBPROCESS] 
+[2026-06-01 05:11:00] [SUBPROCESS] Faltava-lhe apenas a coragem de aceitar o que os dados diziam.
+[2026-06-01 05:11:00] [SUBPROCESS] 
+[2026-06-01 05:11:00] [SUBPROCESS] Mas a coragem — ao contrário da entropia — não se mede em Drakons.
+[2026-06-01 05:11:00] [SUBPROCESS] 
+[2026-06-01 05:11:00] [SUBPROCESS] A coragem mede-se em passos. E Elisa dava mais um.
+[2026-06-01 05:11:00] [INFO] Drafted 3652 words
+[2026-06-01 05:11:00] [INFO] RUN: uv run python evaluate.py --chapter=13
+[2026-06-01 05:11:01] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 05:12:46] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 05:12:46] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 05:12:46] [SUBPROCESS] ---
+[2026-06-01 05:12:46] [SUBPROCESS] overall_score: 4.5
+[2026-06-01 05:12:46] [SUBPROCESS] voice_adherence: 7 -- The prose generally captures Elisa's analytical mind and thermodynamic metaphor domain well. But in several emotional peaks, the narration tells us what Elisa feels instead of showing the body-before-emotion. The voice profile demands that Elisa process the world through physics — when she's terrified, she should be calculating entropy, not naming 'fear #1' and 'fear #2' like a textbook.
+[2026-06-01 05:12:46] [SUBPROCESS] beat_coverage: 8 -- All five outline beats are present and the Helena conversation (beats 1-4) is well dramatized with dialogue, silence, and physical detail. The 'coisa sem nome' exchange is the chapter's strongest moment. Beat 5 just needs to be a scene, not a meditation.
+[2026-06-01 05:12:46] [SUBPROCESS] character_voice: 8 -- Helena's voice is strong throughout — the Hungarian proverb feel, the concrete imagery, the incomplete sentences. Elisa's analytical voice is consistent. The 'coisa sem nome' line is perfect Helena. The dialogue distinction test would work for all characters present. Minor issue: Elisa's spoken lines during the 1983 revelation are too composed — she should be more fragmented, more interrupted by her own calculations.
+[2026-06-01 05:12:46] [SUBPROCESS] plants_seeded: 7 -- The three weeks of 1983 is the chapter's central plant and it's well integrated — revealed through Helena's dialogue naturally. The 'coisa sem nome' line is both a character moment and a structural plant. The CERN/2018 data connection is threaded in without being obvious. The USB drive as a physical object is a good recurring plant.
+[2026-06-01 05:12:46] [SUBPROCESS] prose_quality: 7 -- Sentence variety is good — fragments mixed with long analytical passages. The thermodynamic metaphors are consistent with Elisa's voice. Some paragraphs in the lake scene run long and could be broken. The 'Heinrich Z.' aside is a nice specific detail. Weakest pattern: several sentences start with 'Elisa' in the lake scene, creating monotony.
+[2026-06-01 05:12:46] [SUBPROCESS] continuity: 8 -- Strong continuity from the previous chapter. Elisa arrives from Geneva with the USB drive and granite — both carried over correctly. Her emotional state (determination cracking into something more vulnerable) tracks logically. The mention of the café with Tomás references an established scene. The mother/guardanapo thread is consistent. No plot or emotional discontinuities detected.
+[2026-06-01 05:12:46] [SUBPROCESS] canon_compliance: 8 -- One clear canon violation regarding what Helena told Farkas. The rest is consistent — locations, ages, physical descriptions, the IC values, the 1983 incident details all match.
+[2026-06-01 05:12:46] [SUBPROCESS] lore_integration: 7 -- The IC system, the Drakon unit, the corporate data, the CERN connection — all well integrated. The thermodynamic framework is present without being expository. The cultural details (paprika, the clock, the basil) ground Helena's world. The chapter does real work for the novel's central question.
+[2026-06-01 05:12:46] [SUBPROCESS] engagement: 7 -- The Helena conversation is genuinely engaging — the 1983 revelation is a strong dramatic moment. The 'coisa sem nome' exchange would make a reader pause. The chapter's weakness is that it's front-loaded: the best material is in the first 60%, and the back 40% is Elisa alone with her thoughts, which is inherently less dramatic.
+[2026-06-01 05:12:46] [SUBPROCESS] three_weakest_sentences: ['A frase ficou suspensa entre as duas como o vapor do chá — visível, mas que se dissolve se se tentar agarrar.', 'O medo voltou. Não o medo do formalismo estar errado — esse medo já tinha sido ultrapassado no café com Tomás, o café frio e a pergunta do padre. O medo era outro.', 'A coragem mede-se em passos. E Elisa dava mais um.']
+[2026-06-01 05:12:46] [SUBPROCESS] three_strongest_sentences: ['Prefiro ser uma coisa sem nome a ser um erro.', 'Sinto falta de uma versão de mim que existiu lá. Não da cidade. De mim.', 'Como se pensar não custasse nada. Cada pensamento entrava e saía sem esforço. Como respirar debaixo de água — natural, sem resistência.']
+[2026-06-01 05:12:46] [SUBPROCESS] ai_patterns_detected: ["Emotional taxonomy: 'O medo voltou. Não o medo X — esse já tinha sido ultrapassado. O medo era outro. Era o medo de que...' — this sequential naming of emotions is a classic AI pattern.", "Metaphor inflation: the steam simile, the bridge metaphor, the 'pano que alguém larga do alto' for nightfall — three extended metaphors in the final pages, all slightly too neat.", "Symmetry addiction: the USB/granito parallel is stated, then restated at the end with almost identical wording ('O disco USB no bolso esquerdo. O granito no bolso direito.'). The repetition is intentional but too symmetrical.", 'Paragraph length uniformity in the lake scene: most paragraphs are 4-5 sentences of similar length, creating a meditative rhythm that becomes monotonous.', "The 'coisa sem nome' phrase is used three times in the final pages — once by Helena, twice by Elisa. The third use feels like the author making sure the reader got it."]
+[2026-06-01 05:12:46] [SUBPROCESS] weakest_dimension: voice_adherence
+[2026-06-01 05:12:46] [SUBPROCESS] top_3_revisions: ["Fix the Helena/Farkas canon violation: change Helena's line from 'Nunca contei isto a ninguém. Nem ao Béla. Nem ao doutor Farkas. Nunca.' to something like 'Nunca contei isto a ninguém de verdade. Nem ao Béla. Nunca acordada.' This preserves the emotional truth (she doesn't count the sleeping-pill confession as 'really' telling) while staying canon-accurate.", "Rewrite the lake scene to cut 40% of the internal monologue. Keep the duck/no-trace image and the mother connection. Cut the bridge metaphor, the 'pior do que a Morte Térmica' passage, and the final 'coragem mede-se in passos' coda. End with Elisa walking — the image is strong enough without explanation.", "Replace the emotional taxonomy passage ('O medo voltado. Não o medo X... O medo era outro...') with physical sensation. Show Elisa's leg trembling, her hand frozen mid-reach for the granite, her breath catching. Let the reader feel the layered fears through the body, not through Elisa's clinical self-analysis."]
+[2026-06-01 05:12:47] [SUBPROCESS] new_canon_entries: ["Helena reveals to Elisa that she experienced three weeks of 'leviandade cognitiva' in 1983 after translating a six-hour emergency meeting between Hungarian and Soviet diplomats.", 'Helena states she never told anyone about the three weeks (canon violation — she did tell Dr. Farkas in 2019 under sleeping pills).', 'Elisa confirms at least three other subjects with IC below 0.01 Dk, functional, with no brain damage or medication to explain the result.', 'Elisa connects the 2018 CERN anomalous data to the Helena anomaly for the first time in her own reasoning.', "The USB drive from Evromind contains data on 12 subjects, 3 confirmed, with profiles matching Helena's."]
+[2026-06-01 05:12:47] [SUBPROCESS] slop: N/A --
+[2026-06-01 05:12:47] [SUBPROCESS] raw_judge_score: 7
+[2026-06-01 05:12:47] [SUBPROCESS] 
+[2026-06-01 05:12:47] [SUBPROCESS] eval_log: /mnt/d/Dev/autobook/eval_logs/20260601_051246_ch13.json
+[2026-06-01 05:12:47] [INFO] Chapter 13 score: 4.5
+[2026-06-01 05:12:47] [INFO] Score 4.5 < 6.0, discarding attempt
+[2026-06-01 05:12:47] [INFO] RUN: git checkout -- chapters/ch_13.md 2>/dev/null || true
+[2026-06-01 05:12:47] [INFO] WARNING: Chapter 13 failed all 5 attempts, keeping last attempt and moving on
+[2026-06-01 05:12:47] [INFO] RUN: git add -A
