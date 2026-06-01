@@ -221,6 +221,12 @@ def parse_score(stdout: str, key: str = "overall_score") -> float:
     return float(match.group(1)) if match else 0.0
 
 def run_editorial():
+    # Load configurable timeouts
+    PIPELINE_TIMEOUT = int(os.environ.get("AUTOBOOK_PIPELINE_TIMEOUT", "3600"))
+    REVISION_TIMEOUT = int(os.environ.get("AUTOBOOK_REVISION_TIMEOUT", str(max(PIPELINE_TIMEOUT, 1200))))
+    EVAL_TIMEOUT = int(os.environ.get("AUTOBOOK_EVAL_TIMEOUT", str(max(PIPELINE_TIMEOUT // 2, 600))))
+    EXPORT_TIMEOUT = int(os.environ.get("AUTOBOOK_EXPORT_TIMEOUT", str(max(PIPELINE_TIMEOUT // 2, 600))))
+
     # 1. Load the centralized briefs
     editorial = load_editorial_markdown()
     general_notes = editorial.get("general_notes", "")
@@ -330,15 +336,15 @@ def run_editorial():
         temp_brief_path.write_text("\n".join(brief_lines), encoding="utf-8")
         
         # Evaluate before revision
-        pre_eval = run_tool(f"uv run python evaluate.py --chapter={ch_num}", timeout=120)
+        pre_eval = run_tool(f"uv run python evaluate.py --chapter={ch_num}", timeout=EVAL_TIMEOUT)
         pre_score = parse_score(pre_eval.stdout, "overall_score")
         
         # Run revision
         step(f"Reescrevendo Capítulo {ch_num}...")
-        run_tool(f"uv run python gen_revision.py {ch_num} {temp_brief_path}", timeout=300)
+        run_tool(f"uv run python gen_revision.py {ch_num} {temp_brief_path}", timeout=REVISION_TIMEOUT)
         
         # Evaluate after revision
-        post_eval = run_tool(f"uv run python evaluate.py --chapter={ch_num}", timeout=120)
+        post_eval = run_tool(f"uv run python evaluate.py --chapter={ch_num}", timeout=EVAL_TIMEOUT)
         post_score = parse_score(post_eval.stdout, "overall_score")
         
         # Keep or discard decision
@@ -365,9 +371,9 @@ def run_editorial():
             
     # 6. Rebuild manuscript, arc summary and LaTeX
     banner("CONSOLIDANDO MANUSCRITO E ESTRUTURA")
-    run_tool("uv run python build_arc_summary.py")
-    run_tool("uv run python build_outline.py")
-    run_tool("uv run python typeset/build_tex.py")
+    run_tool("uv run python build_arc_summary.py", timeout=EXPORT_TIMEOUT)
+    run_tool("uv run python build_outline.py", timeout=EXPORT_TIMEOUT)
+    run_tool("uv run python typeset/build_tex.py", timeout=EXPORT_TIMEOUT)
     
     git_add_commit("editorial: finalize manuscript, outline, and LaTeX typeset consolidation")
     

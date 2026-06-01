@@ -67,9 +67,13 @@ See [PIPELINE.md](PIPELINE.md) for the full technical specification.
 Autobook features a robust logging system and a resumeable/rewindable task-based pipeline to give you absolute control over the generation process.
 
 ### ⚙️ Environment Variables
-* `AUTOBOOK_LOG_TRUNCATE_LIMIT`: Console log truncation limit (in characters, default: `300`). 
+* `AUTOBOOK_LOG_TRUNCATE_LIMIT`: Console log truncation limit (in characters, default: `300`).
   * Any log line printed to the terminal that exceeds this limit will be cut at exactly the limit, and `...` will be appended for cleaner, highly readable screen output.
   * **Note**: The persistent file `pipeline.log` always preserves the **full, untruncated content** with timestamps for auditing.
+* `AUTOBOOK_PIPELINE_TIMEOUT`: Overall timeout for automated subprocess tasks (in seconds, default: `3600`).
+* `AUTOBOOK_REVISION_TIMEOUT`: Fine-grained timeout override for chapter revisions and rewrites (in seconds, defaults to max of `AUTOBOOK_PIPELINE_TIMEOUT` or `1200`). Applies to both the main pipeline and the Interactive Editorial Pipeline.
+* `AUTOBOOK_EVAL_TIMEOUT`: Fine-grained timeout override for chapter evaluations and scoring (in seconds, defaults to max of `AUTOBOOK_PIPELINE_TIMEOUT // 2` or `600`).
+* `AUTOBOOK_EXPORT_TIMEOUT`: Fine-grained timeout override for typesetting, compilation, and arc/outline exports (in seconds, defaults to max of `AUTOBOOK_PIPELINE_TIMEOUT // 2` or `600`).
 
 ### 📋 Task-Based Execution
 The pipeline is divided into **13 named tasks**. The execution state is saved to `state.json` (`completed_tasks` and `current_task`) after every successfully completed task.

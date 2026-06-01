@@ -198,3 +198,69 @@ def test_run_editorial_abort(mock_call_llm, mock_input, mock_run_tool, mock_clas
     for call in mock_run_tool.call_args_list:
         cmd = call[0][0]
         assert "gen_revision.py" not in cmd
+
+@patch("run_editorial.classify_brief_with_ai")
+@patch("run_editorial.run_tool")
+@patch("builtins.input")
+@patch("llm.call_llm")
+@patch("run_editorial.git_add_commit")
+@patch("run_editorial.git_reset_hard")
+def test_run_editorial_dynamic_timeouts(mock_git_reset, mock_git_commit, mock_call_llm, mock_input, mock_run_tool, mock_classify, mock_editorial_file, monkeypatch):
+    # Mock env variables
+    monkeypatch.setenv("AUTOBOOK_PIPELINE_TIMEOUT", "4000")
+    monkeypatch.setenv("AUTOBOOK_REVISION_TIMEOUT", "5000")
+    monkeypatch.setenv("AUTOBOOK_EVAL_TIMEOUT", "2500")
+    
+    markdown_content = (
+        "# Capítulo 10\n"
+        "Test brief\n"
+    )
+    mock_editorial_file.write_text(markdown_content, encoding="utf-8")
+    
+    # Mock LLM parser
+    mock_call_llm.return_value = """
+    {
+      "general_notes": "",
+      "chapters": {
+        "10": {
+          "brief": "Test brief",
+          "type": "punctual",
+          "affects_downstream": []
+        }
+      }
+    }
+    """
+    
+    # Mock AI classification
+    mock_classify.return_value = {
+        "type": "punctual",
+        "affects_downstream": [],
+        "criticism": "Good"
+    }
+    
+    # Mock user input to proceed
+    mock_input.return_value = "y"
+    
+    # Mock run_tool to return a CompletedProcess-like object with stdout
+    mock_pre_eval = MagicMock()
+    mock_pre_eval.stdout = "overall_score: 8.5"
+    mock_run_tool.return_value = mock_pre_eval
+    
+    # Run the pipeline
+    run_editorial.run_editorial()
+    
+    # Verify run_tool was called with the specific granular timeouts
+    eval_call_count = 0
+    revision_call_count = 0
+    for call in mock_run_tool.call_args_list:
+        cmd = call[0][0]
+        kwargs = call[1]
+        if "evaluate.py" in cmd:
+            assert kwargs["timeout"] == 2500
+            eval_call_count += 1
+        elif "gen_revision.py" in cmd:
+            assert kwargs["timeout"] == 5000
+            revision_call_count += 1
+            
+    assert eval_call_count == 2
+    assert revision_call_count == 1
