@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Deep manuscript review via Opus.
+Deep manuscript review via configured review LLM.
 
-Sends the full novel to Claude Opus for dual-persona review:
+Sends the full novel to the configured review LLM for dual-persona review:
   1. Literary critic (newspaper book review style)
   2. Professor of fiction (specific, actionable craft suggestions)
 
@@ -33,7 +33,7 @@ REVIEW_PROMPT = """Read the below novel, "{title}". Review it first as a literar
 {manuscript}"""
 
 
-def call_opus(prompt, max_tokens=8000):
+def call_review_llm(prompt, max_tokens=8000):
     """Call the review LLM with the full manuscript."""
     from llm import call_llm
     system_prompt = (
@@ -201,7 +201,7 @@ def cmd_review(args):
     
     prompt = REVIEW_PROMPT.format(title=title, manuscript=manuscript)
     
-    review_text = call_opus(prompt)
+    review_text = call_review_llm(prompt)
     
     # Save raw review
     LOGS_DIR.mkdir(exist_ok=True)
@@ -262,7 +262,7 @@ def cmd_parse(args):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Deep manuscript review via Opus")
+    parser = argparse.ArgumentParser(description="Deep manuscript review via configured review LLM")
     parser.add_argument("--output", "-o", default=None, help="Save human-readable review to file")
     parser.add_argument("--parse", action="store_true", help="Parse most recent review")
     

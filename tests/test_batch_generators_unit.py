@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 tests/test_batch_generators_unit.py — Unit tests for Phase 5 batch and media migrated scripts.
-Verifies that all call_writer/call_judge/call_opus/call_claude/call_model functions correctly
+Verifies that all call_writer/call_judge/call_review_llm/call_claude/call_model functions correctly
 delegate to llm.call_llm with the expected configuration parameters.
 """
 
@@ -48,13 +48,13 @@ def test_reader_panel_call_reader(mock_call_llm):
     assert called_kwargs["is_judge"] is True
 
 @patch("llm.call_llm")
-def test_review_call_opus(mock_call_llm):
-    """Verifies review.call_opus correctly routes to call_llm with is_review=True."""
-    from review import call_opus
+def test_review_call_review_llm(mock_call_llm):
+    """Verifies review.call_review_llm correctly routes to call_llm with is_review=True."""
+    from review import call_review_llm
     mock_call_llm.return_value = "Mocked deep review content"
     
     prompt = "Test manuscript text"
-    res = call_opus(prompt)
+    res = call_review_llm(prompt)
     
     assert res == "Mocked deep review content"
     mock_call_llm.assert_called_once()
