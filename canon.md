@@ -1,68 +1,550 @@
-# Canon
 
-Hard facts about the world. Every entry here is a constraint the
-evaluator checks against. If the prose contradicts canon, it's a bug.
 
-This file grows during foundation and drafting. When a fact is
-established (in world.md, characters.md, or in a chapter), it gets
-logged here as canonical. The evaluator cross-references canon
-against every chapter.
+# CANON.MD — A PROVA FINAL
 
-## How to use
-
-Each entry: a short, falsifiable statement with the source.
-Group by category. Keep it flat and scannable -- this isn't prose,
-it's a database.
+## Banco de Dados Canônico Estruturado
 
 ---
 
-## Geography
-<!-- Example:
-- Vael is 12 days' ride north of Tasren. (world.md)
-- The Ashenmoor lies between Vael and the Sundering Peaks. (world.md)
-- The River Kell flows south through Tasren to the sea. (ch_02)
--->
+## I. GEOGRAFIA
 
-## Timeline
-<!-- Example:
-- The Sundering happened 300 years before the story begins. (world.md)
-- Kael is 23 at story start. (characters.md)
-- The siege of Vael happened when Kael was 7. (ch_04)
-- Ch 1-3 span approximately 2 weeks. (outline.md)
--->
+- O cenário principal da narrativa é Zurique, Suíça, e arredores. (world.md)
+- O Hospital Universitário de Zurique (USZ) é um complexo de edifícios de betão branco e vidro, erguido nos anos 1970 e renovado em 2019. (world.md)
+- O serviço de neurologia do USZ ocupa o sétimo andar. (world.md)
+- O corredor principal do USZ cheira a desinfetante de látex e ao café fraco da máquina do refeitório. (world.md)
+- Os elevadores do USZ fazem um som agudo — quase inaudível, mas constante. (world.md)
+- A sala de medição do IC é uma câmara de Faraday no subsolo do USZ: paredes de cobre, temperatura a 20,0°C ± 0,1, silêncio opressivo. (world.md)
+- Elisa descreve a câmara de Faraday como "o interior de um cofre de banco proibido para almas." (world.md)
+- O Instituto Federal de Tecnologia (ETH) de Zurique, onde Elisa tem escritório temporário, é o prédio HPF, ala de física teórica. (world.md)
+- O corredor do terceiro andar do ETH tem um eco particular — passos soam como gotas de chuva num telhado de zinco. (world.md)
+- O apartamento de Helena fica no distrito de Oerlikon, zona norte de Zurique. (world.md)
+- O edifício de Helena é um bloco dos anos 1960, fachada de cinzento azulado, escadas exteriores com corrimão de ferro pintado de verde. (world.md)
+- O apartamento de Helena é pequeno, limpo, com cheiro a chá de camomila e azeite de oliva. (world.md)
+- Helena cultiva manjericão na varanda do apartamento. (world.md)
+- O apartamento de Helena tem um relógio de parede que atrasa três minutos por dia. (world.md)
+- O som constante de trânsito sobe do baixo da rua no apartamento de Helena. (world.md)
+- O Lago de Zurique tem água escura, quase negra, ao amanhecer. (world.md)
+- Patos-reais deslizam no lago sem deixar rastro visível na superfície. (world.md)
+- O cheiro do lago é de pedra húmida e algas. (world.md)
+- Os Alpes são visíveis de Zurique em dias claros — uma linha branca recortada contra o céu. (world.md)
+- A neve permanente nos Alpes fica acima de 3.000 metros. (world.md)
+- Os glaciares recuam 15 metros por ano. (world.md)
+- Genebra é cenário secundário — duas cenas no CERN. (world.md)
+- O Grande Colisor de Hadron tem um anel subterrâneo de 27 quilômetros, acessível por elevadores que descem 100 metros. (world.md)
+- O cheiro no CERN é de metal frio e ozônio. (world.md)
+- O som no CERN é um zumbido grave e contínuo — o sistema de refrigeração dos ímãs supercondutores. (world.md)
+- Os servidores do CERN estão num edifício anexo, salas sem janelas, temperatura controlada a 18°C, fileiras de LEDs verdes piscando. (world.md)
+- Budapeste é cenário de memória — aparece em flashbacks de Helena. (world.md)
+- Helena nasceu em Budapeste. (world.md)
+- Dr. Farkas vive em Kreuzlingen, a 30 minutos de Zurique. (characters.md)
+- Mirela vive em Berna. (characters.md)
+- O rio Limmat passa por Zurique, visível das janelas do ETH. (world.md)
+- O granito usado como controle do IC é de Zermatt, cinzento com cristais de feldspato, densidade 2,7 g/cm³. (world.md)
 
-## Magic System Rules
-<!-- Example:
-- All magic costs blood or memory. No exceptions. (world.md, HARD RULE)
-- A shaper cannot affect living flesh, only dead matter. (world.md)
-- Using the old tongue draws the attention of the Hollow. (ch_03)
--->
+---
 
-## Character Facts
-<!-- Example:
-- Kael is left-handed. (ch_01)
-- Vessa has a scar across her left palm. (ch_01)
-- Moren cannot read. He hides this. (characters.md)
-- Kael's mother died in the siege of Vael. (characters.md)
--->
+## II. CRONOLOGIA
 
-## Political / Factional
-<!-- Example:
-- The Accord of Tasren was signed by three of the five houses. (world.md)
-- House Drennan controls the salt trade. (world.md)
-- The Temple does not recognize secular law within its walls. (ch_05)
--->
+- **1865** — Ludwig Boltzmann publica seus trabalhos sobre mecânica estatística. A equação S = k log W é gravada no seu túmulo. (world.md)
+- **1943** — Erwin Schrödinger ministra as aulas que se tornarão "O Que É a Vida?". (world.md)
+- **1950–1990** — A neurociência avança em saltos. O "problema difícil da consciência" permanece sem solução. (world.md)
+- **2009** — Max Tegmark, no MIT, propõe que a consciência é um estado da matéria ("Matéria Perceptiva"). Elisa tem 19 anos e lê o artigo. (world.md)
+- **2016** — Uma noite em Viena: Elisa, 26 anos, doutoranda, acorda às 3h com a equação que se tornará o núcleo do formalismo. Escreve-a num guardanapo e chora durante uma hora sem saber porquê. (characters.md)
+- **2018** — O Grande Colisor de Hadron detecta padrões anômalos em colisões de alta energia. A anomalia é descartada como ruído estatístico. Elisa guarda os dados brutos num disco pessoal. (world.md)
+- **2019** — Béla, marido de Helena, morre de enfarte no jardim de casa enquanto podava roseiras. Helena encontra-o caído sobre as tesouras de poda, com terra nas mãos. (characters.md)
+- **2019** — Na semana após a morte de Béla, Helena menciona as três semanas de 1983 ao Dr. Farkas sob efeito de comprimidos para dormir. (characters.md)
+- **2022** — Dr. Farkas aposenta-se. (characters.md)
+- **2023** — Elisa publica "Termodinâmica da Consciência: Um Formalismo Empírico" na *Physical Review Letters*. O artigo prova matematicamente que todo ato consciente gera um incremento mínimo mensurável de entropia. (world.md)
+- **2023** — A unidade de medida do IC é batizada informalmente de **Drakon (Dk)**, em homenagem a Elisa. (world.md)
+- **2024** — O Índice de Consciência (IC) é derivado do formalismo de Elisa. O mundo entra em ebulição. (world.md)
+- **2024–2026** — A adoção do IC é caótica e inevitável. Comitês de bioética são reformulados. Leis de direitos animais são reescritas. (world.md)
+- **2026** — Elisa recebe o Nobel de Física. No discurso: "Medimos o peso do pensamento. Agora temos de carregar essa responsabilidade." (world.md)
+- **2027** — Um hospital em Zurique reporta a anomalia de Helena Varga: IC de 0,001 Dk. (world.md)
+- **2027** — Presente da narrativa. Elisa é convocada para investigar. (world.md)
+- **1983** — Helena, 23 anos, tradutora júnior no Ministério das Relações Exteriores húngaro, traduz uma reunião de emergência entre diplomatas húngaros e soviéticos. Após isso, dorme 14 horas e experimenta três semanas de "leviandade cognitiva." (characters.md)
+- **1978–1984** — Período da vida de Helena em Budapeste que ela evita mencionar. Fotografias desta época são guardadas numa caixa separada. (world.md)
+- **1968** — Farkas era jovem médico em Budapeste durante a Primavera de Praga e a invasão soviética. (characters.md)
+- **1978** — A mãe de Helena traz o pingente de carvalho de Budapeste. (characters.md)
+- Elisa tem 41 anos no presente da narrativa. (seed.txt, characters.md)
+- Helena tem 67 anos no presente da narrativa. (seed.txt, characters.md)
+- Marcus Weil tem 53 anos. (characters.md)
+- Renan Kapoor tem 44 anos. (characters.md)
+- Dr. Amós Farkas tem 72 anos. (characters.md)
+- Mirela Varga tem 38 anos. (characters.md)
+- Padre Tomás Delgado tem 58 anos. (characters.md)
+- Dra. Lena Hartmann tem 36 anos. (characters.md)
+- Yuki Tanaka tem 29 anos. (characters.md)
+- Lina (filha de Marcus Weil) tem 26 anos. (characters.md)
+- Elisa tinha 19 anos quando leu o artigo de Tegmark (2009). (world.md)
+- Elisa tinha 26 anos na noite de Viena (2016). (characters.md)
+- Elisa recebeu o Nobel aos 38 anos (2026). (characters.md)
+- Helena tinha 23 anos no incidente de 1983. (characters.md)
+- Helena e Béla tiveram um casamento de 40 anos. (characters.md)
+- Béla morreu em 2019. (characters.md)
+- Dr. Farkas acompanha Helena há 20 anos (desde ~2007). (world.md)
+- Renan e Elisa tiveram uma colaboração de 10 anos que termina no Ato II. (characters.md)
+- Marcus tenta modelar a atividade neural da filha há 12 anos. (characters.md)
 
-## Cultural
-<!-- Example:
-- In Tasren, the dead are burned, never buried. (world.md)
-- Naming a child before its first moon is considered bad luck. (ch_06)
-- The color white is associated with mourning, not black. (world.md)
--->
+---
 
-## Established In-Story (things that happened in chapters)
-<!-- Example:
-- Kael killed the messenger in ch_03. This cannot be undone.
-- Vessa revealed her tattoo to Moren in ch_07. He now knows.
-- The bridge at Ashenmoor was destroyed in ch_09. It's gone.
--->
+## III. SISTEMA (REGRAS DURAS)
+
+### Camada Científica
+
+- **Regra 1 (IEC):** Todo ato consciente gera um incremento mínimo de entropia. Fórmula: ΔS_consciente ≥ k · ln(2) · I_bit, onde I_bit é a informação processada em bits. (world.md)
+- O incremento entrópico é real, físico, mensurável por calorimetria indireta acoplada a neuroimagem. (world.md)
+- O incremento é infinitesimalmente pequeno por ato individual. (world.md)
+- A detecção exige equipamento de precisão extrema. (world.md)
+- Ruído térmico ambiental, metabolismo basal e movimento muscular mascaram o sinal. (world.md)
+- O aparelho de medição do IC funciona apenas em condições controladas: sujeito imóvel, temperatura estável, blindagem eletromagnética. Fora dessas condições, a medição é inútil. (world.md)
+- **Regra 2 (IC):** O IC é a soma dos incrementos entrópicicos detectáveis por minuto, normalizado pela temperatura corporal e taxa metabólica basal. Expresso em Drakons (Dk). (world.md)
+- IC humano médio (vigília tranquila): 7,2–12,6 Dk. (world.md)
+- IC humano (sonho lúcido intenso): até 34 Dk. (world.md)
+- IC humano (coma profundo): 0,1–0,5 Dk. (world.md)
+- IC animal (chimpanzé): ~4,1 Dk. (world.md)
+- IC animal (barata): ~0,03 Dk. (world.md)
+- IC IA de linguagem (modelo grande): ~0,001 Dk. (world.md)
+- IC rocha de granito (controle): 0,001 Dk. (world.md)
+- IC de Helena: 0,001 Dk. (world.md)
+- IC do manjericão de Helena: ~0,002 Dk. (world.md)
+- O IC mede apenas o componente termodinâmico. Não mede experiência subjetiva, qualia, dor, alegria, saudade ou tédio. (world.md)
+- **Regra 3 (PCE):** Qualquer processo que pareça "sem custo" deve ter um custo oculto em outro lugar do sistema. A entropia não desaparece — se não está no sistema medido, foi exportada. (world.md)
+- Elisa não sabe para onde a entropia de Helena "vai." (world.md)
+- **Regra 4 (LI):** Abaixo de IC 0,05 Dk, um sistema é classificado como "não consciente" para fins legais e éticos. (world.md)
+- O LI de 0,05 Dk foi escolhido por conveniência estatística (três desvios-padrão abaixo do mínimo humano detectável), não por princípio filosófico. (world.md)
+- **Regra 5 (Flecha Termodinâmica):** Se cada pensamento aumenta a entropia, e a entropia total do universo caminha para o máximo (Morte Térmica), então a consciência é um mecanismo que acelera o fim. (world.md)
+- É um custo existencial, não prático — nenhum indivíduo sente o efeito. (world.md)
+- Um Drakon equivale ao incremento entrópico mínimo gerado por um único ato consciente humano em estado de repouso. (world.md)
+- Toda medição de IC tem margem de erro de ± 0,02 Dk. (world.md)
+
+### Camada Poética
+
+- **Regra 6 (Real Lacaniano):** Há um núcleo de experiência que escapa a toda simbolização. O IC não captura *o que é ser Helena*. (world.md)
+- **Regra 7 (Problema Difícil):** O "problema difícil da consciência" é uma barreira ontológica genuína. Existe uma diferença absoluta entre "processar informação" e "ter experiência." (world.md)
+- **Regra 8 (Transcendência):** Se existe um modo de consciência que não gera entropia, esse modo opera fora das leis termodinâmicas conhecidas. O romance nunca confirma nem nega a natureza desta transcendência. (world.md)
+
+### Regras de Consistência Interna
+
+- A entropia não diminui em sistemas fechados. Sem exceção. (world.md)
+- O IC é mensurável apenas em condições controladas. (world.md)
+- O IC mede um processo físico, não uma experiência. (world.md)
+- Nenhuma medição é perfeita — margem de erro ± 0,02 Dk. (world.md)
+- A seta do tempo é unidirecional. O tempo não para, não inverte, não se ramifica. Mantém-se até o terceiro ato, onde é questionada — não quebrada, mas reinterpretada. (world.md)
+- O POV é terceiro limitado estritamente — apenas Elisa. O leitor sabe apenas o que Elisa sabe. (world.md)
+- Não há Deus ex Machina. Toda informação crucial é obtida por trabalho. (world.md)
+- O foreshadowing é estrutural — pistas plantadas no primeiro terço pagam no terceiro. (world.md)
+- A prosa reflete o estado mental de Elisa — frases curtas em crise, longas em dedução. (world.md)
+- Helena nunca mente. Pode omitir, desviar, não saber — mas nunca mente deliberadamente. (world.md)
+- O "problema difícil" não é resolvido no romance. (world.md)
+- A transcendência, se existe, não é explicada. (world.md)
+- O final reescreve as regras sem as quebrar — a compreensão de Elisa não viola as leis estabelecidas. (world.md)
+
+### Possibilidades para a anomalia de Helena (nenhuma confirmada definitivamente até o final)
+
+1. A entropia está sendo exportada para um sistema não detectável (outra dimensão, campo desconhecido). (world.md)
+2. O formalismo está incompleto — a consciência tem um componente não termodinâmico. (world.md)
+3. Helena é uma Máquina de Maxwell biológica — processa informação de forma perfeitamente reversível. (world.md)
+4. A seta do tempo é local, não universal — Helena opera numa bolha termodinâmica invertida. (world.md)
+
+---
+
+## IV. FATOS DE PERSONAGENS
+
+### Elisa Dragovski
+
+- Idade: 41 anos. (seed.txt, characters.md)
+- Ocupação: Física teórica. Professora catedrática do ETH de Zurique. Prémio Nobel da Física 2026. (characters.md)
+- Protagonista. POV exclusivo (terceira pessoa limitada estritamente a ela). (seed.txt, characters.md)
+- Baixa — 1,58 m. Corpo compacto, ombros estreitos. (characters.md)
+- Mãos pequenas com unhas roídas até ao sabugo. (characters.md)
+- Cabelo castanho-escuro cortado curto e assimétrico: raspado na têmpora esquerdo, mais longo do lado direito, cai-lhe sobre o olho quando se inclina para monitores. (characters.md)
+- Rosto anguloso, maçãs do roentes proeminentes, lábios finos. (characters.md)
+- Olhos castanho-escuro com olheiras arroxeadas permanentes de insónia. (characters.md)
+- Usa óculos de armação fina e redonda, constantemente embaciados pelo café. (characters.md)
+- Veste sempre o mesmo tipo de roupa: calças de ganga escura, t-shirt preta ou cinzenta, casaco longo cinzento de lã grossa, sapatos de sola de borracha. (characters.md)
+- Único acessório: relógio de pulso analógico com pulseira de couro gasto — era da mãe. (characters.md)
+- Carrega um fragmento de granito de Zermatt no bolco direito do casaco. Toca nele quando está nervosa. O gesto é tão frequente que o polimento da rocha já ganhou o formato do seu polegar. (characters.md)
+- Antes de qualquer escolha trivial, faz uma pausa de 2-3 segundos — não por indecisão, mas por cálculo (cada decisão gera entropia). (characters.md)
+- Come sempre o mesmo, veste-se sempre da mesma forma, anda sempre pelo mesmo corredor. (characters.md)
+- Bebe café preto sem açúcar, quatro a seis vezes por dia, em canecas de cerâmica que acumula por todo o lado. Ninguém as lava. Elisa não nota. (characters.md)
+- Quando está sob stress extremo, murmura fórmulas em voz baixa — "S igual a k logaritmo de W", "Delta S maior ou igual a k ln 2 vezes I bit." (characters.md)
+- Dorme quatro a cinco horas por noite. (characters.md)
+- Quando acorda a meio da madrugada (sempre entre as 2h e as 3h40), senta-se à secretária e trabalha. (characters.md)
+- Rotina de insónia: acende a luz de secretária (nunca a luz principal), bebe água à temperatura ambiente, abre o portátil, trabalha até o corpo obrigá-la a parar. (characters.md)
+- Nunca usa pijama — dorme com a roupa do dia, ou quase. (characters.md)
+- Quando mente ou diz algo tecnicamente verdade mas emocionalmente falso, toca na orelha esquerda com o indicador. Não percebe que o faz. (characters.md)
+- Fala português (cresceu em Lisboa antes de se mudar para Viena), alemão, inglês e francês funcional. (world.md)
+- Não fala húngaro. (world.md)
+- A mãe, Jana Dragowska, morreu de cancro pâncreatico quando Elisa tinha 19 anos. (characters.md)
+- Jana era professora de matemática do ensino secundário. (characters.md)
+- Nos últimos três meses de vida, Jana escrevia equações em guardanapos — equações incompletas, erradas pela morfina. (characters.md)
+- Elisa guardou todos os guardanapos. Tem 47. Nunca os mostrou a ninguém. (characters.md)
+- O último guardanapo tem apenas: "S = k lo—" — a mão parou. (characters.md)
+- Elisa completou a equação mentalmente todas as noites durante dois anos após a morte da mãe. (characters.md)
+- Os 47 guardanapos estão numa caixa de cartão por baixo da cama. (characters.md)
+- Todas as noites, antes de dormir, abre a caixa e lê um — sempre por ordem cronológica inversa, do último para o primeiro. (characters.md)
+- O último guardanapo (a equação incompleta) é o que mais aterroriza, porque Elisa nunca consegue completá-la sem chorar. (characters.md)
+- A equação de Boltzmann tornou-se, para Elisa, simultaneamente a linguagem da ciência e o último sussurro da mãe. (characters.md)
+- A noite em Viena (2016) é o único momento da vida em que sentiu algo que transcende a física — nunca contou a ninguém. (characters.md)
+- Acredita (mentira): "Se eu conseguir medir tudo, nada mais me escapa. Se nada me escapa, não perco mais nada." (characters.md)
+- Desejo: Provar que o formalismo está correto. Validar o IC. (characters.md)
+- Necessidade: Aceitar que a medição não é compreensão. Que o mapa nunca será o território. (characters.md)
+- Arco: Positivo (com custo). Termina transformada — não derrotada, mas humilhada de forma produtiva. Aceita que o formalismo é incompleto. (characters.md)
+- Proatividade: 9/10. Simpatia: 6/10. Competência: 10/10. (characters.md)
+- Fala em frases completas, gramaticalmente corretas, mesmo sob stress. Sem contracções. (characters.md)
+- Antes de responder a perguntas importantes, pausa de 3-5 segundos. (characters.md)
+- Repete números com dois decimais: "Zero vírgula zero zero um." (characters.md)
+- Raramente interrompe. Espera o fim da frase. (characters.md)
+- Domínio metafórico: física e termodinâmica. (characters.md)
+- Extremamente directa. Não suaviza. (characters.md)
+
+### Helena Varga
+
+- Idade: 67 anos. (seed.txt, characters.md)
+- Ocupação: Reformada. Foi tradutora de húngaro e eslovaco para o governo suíço durante 35 anos. (characters.md)
+- Papel: Anomalia viva. Catalisadora. Espelho de Elisa. (characters.md)
+- Viúva. O marido Béla morreu em 2019 de enfarte. (characters.md)
+- Alta para a sua geração — 1,69 m. Corpo largo, mãos grandes com articulações ligeiramente inchadas pela artrose. (characters.md)
+- Cabelo branco cortado ao queixo, ondulado, sempre preso com um gancho de madeira. (characters.md)
+- Rosto redondo, covinhas profundas quando sorri (sorri frequentemente). (characters.md)
+- Olhos azul-claro, quase translúcidos — parecem ver sem calcular. (characters.md)
+- Pele enrugada ao redor dos olhos e da boca — rugas de expressão, não de deterioração. (characters.md)
+- Veste roupas coloridas: lenços azuis e verdes, blusas com estampados florais, um casaco vermelho que usa mesmo dentro de casa. (characters.md)
+- Colar de prata com pingente em forma de folha de carvalho — era da mãe, que o trouxe de Budapeste em 1978. (characters.md)
+- Quando está nervosa, cansada ou emocional, muda para húngaro sem perceber — fragmentos, provérbios, por vezes apenas sons. (characters.md)
+- Cozinha todos os dias, mesmo quando come sozinha. Não segue receitas — cozinha de memória. (characters.md)
+- O cheiro a paprika e alho é a assinatura olfativa da sua presença. (characters.md)
+- O relógio de parede da sala atrasa três minutos por dia. Nunca o acerta. "O tempo é uma opinião." (characters.md)
+- Cuida do manjericão na varanda com atenção obsessiva. Fala com a planta. (characters.md)
+- Quando faz uma pergunta importante, inclina a cabeça para a esquerda, como um pássaro. (characters.md)
+- Quando fala do passado — especialmente de Budapeste — toca no pingente de carvalho. (characters.md)
+- IC: 0,001 Dk — estatisticamente indistinguível de uma rocha de granito. (world.md)
+- Em 1983, aos 23 anos, traduziu uma reunião de emergência entre diplomatas húngaros e soviéticos durante seis horas sem parar. (characters.md)
+- Um diplomata soviético disse, em russo: "Esta menina não está a traduzir. Está a pensar." (characters.md)
+- Naquela noite, Helena dormiu 14 horas seguidas. (characters.md)
+- Nas três semanas seguintes, sentiu "leviandade cognitiva" — como se pensar não custasse nada. (characters.md)
+- Nunca contou as três semanas a ninguém, incluindo o Dr. Farkas (exceto sob comprimidos para dormir em 2019). (characters.md)
+- Perdeu o marido Béla em 2019 — súbito, sem despedida, no jardim entre roseiras. (characters.md)
+- Helena encontrou Béla caído sobre as tesouras de poda, com terra nas mãos. (characters.md)
+- Helena e Béla tinham um ritual: todas as noites, antes de dormir, cada um dizia uma coisa que tinha aprendido durante o dia. (characters.md)
+- Na noite em que Béla morreu, Helena não tinha dito a sua coisa. Pensou "amanhã digo" — e amanhã não veio. (characters.md)
+- Acredita (mentira): "Se eu não me perguntar o que sou, posso continuar a ser o que sempre fui." (characters.md)
+- Desejo: Ser tratada como pessoa, não como problema. (characters.md)
+- Necessidade: Aceitar que a anomalia não é um defeito, mas uma característica. (characters.md)
+- Arco: Positivo, mas não convencional. Helena não muda — é Elisa que muda a ver Helena. (characters.md)
+- Proatividade: 7/10. Simpatia: 9/10. Competência: 6/10. (characters.md)
+- Fala em coisas, não em conceitos. Vocabulário médio-baixo, concreto. (characters.md)
+- Frases curtas e incompletas. Mudanças de assunto. (characters.md)
+- Usa provérbios húngaros traduzidos literalmente para alemão. (characters.md)
+- Exemplo de provérbio: "Quando o lobo envelhece, o corvo ri dele." (characters.md)
+- Exemplo de provérbio: "A água não corta a sua própria fonte." (characters.md)
+- Predominância de perguntas (genuínas, não retóricas). (characters.md)
+- Interrompe-se a si própria — começa uma frase, para, recomeça. (characters.md)
+- Domínio metafórico: natureza, cozinha, Budapeste. (characters.md)
+- Indireta, mas com momentos de brutalidade. (characters.md)
+- Fala húngaro, alemão suíço, inglês básico e um pouco de eslovaco da infância. (world.md)
+- Conversas entre Elisa e Helena são em alemão. (world.md)
+- Tem uma caixa de fotografias separada de Budapeste (1978–1984) que esconde. (characters.md)
+- Numa das fotografias, está a sorrir de forma que não lhe é familiar. (characters.md)
+- Helena nunca mente. Pode omitir, desviar, não saber — mas nunca mente deliberadamente. (world.md)
+
+### Marcus Weil
+
+- Idade: 53 anos. (characters.md)
+- Ocupação: Professor de neurociência computacional no ETH. Diretor do Laboratório de Neuroimagem Avançada do USZ. (characters.md)
+- Papel: Aliado científico de Elisa — mas com divergências fundamentais. (characters.md)
+- Magro, alto (1,84 m), postura ligeiramente curvada. (characters.md)
+- Cabelo grisalho desgrenhado, barba de três dias permanente. (characters.md)
+- Usa óculos de armação grossa que estão sempre a escorregar pelo nariz — empurra-os para cima com o médio dezenas de vezes por hora. (characters.md)
+- Veste camisas de flanela com mangas arregaçadas, calças com bolsos demais, sapatos de caminhada mesmo em ambiente académico. (characters.md)
+- Tem um isqueiro no bolso da camisa — deixou de fumar há oito anos mas carrega o isqueiro à mesma. (characters.md)
+- Secretária é um desastre organizado: pilhas de papel, canetas sem tampa, um esqueleto de plástico que usa como porta-canetas. (characters.md)
+- A filha, Lina, tem 26 anos e sofre de epilepsia refractária. (characters.md)
+- Lina teve uma crise durante uma ressonância magnética aos 14 anos. (characters.md)
+- Marcus tenta modelar a atividade neural da filha há 12 anos. Falhou. (characters.md)
+- Lina vive com a mãe em Berna. Marcus visita-a duas vezes por mês. (characters.md)
+- Acredita (mentira): "Se o modelo não funciona, o modelo é que está errado — não a realidade." (characters.md)
+- Desejo: Provar que o IC precisa de revisão. (characters.md)
+- Necessidade: Aceitar que a filha pode nunca ser "modelável." (characters.md)
+- Proatividade: 7/10. Simpatia: 7/10. Competência: 8/10. (characters.md)
+- Fala rápido, interrompe-se a si próprio, metáforas de física para tudo. (characters.md)
+- "Estou a sentir um aumento de entropia emocional." (characters.md)
+- Contracções frequentes. Vocabulário técnico misturado com calão suíço-alemão. (characters.md)
+
+### Renan Kapoor
+
+- Idade: 44 anos. (characters.md)
+- Ocupação: Professor de física teórica em Oxford. Membro do Royal Society. (characters.md)
+- Papel: Coautor de Elisa no formalismo de 2023. Agora rival. (characters.md)
+- Médio (1,76 m), corpo de sedentário académico — magro mas com barriga de cerveja inglesa. (characters.md)
+- Cabelo preto penteado para trás com gel, bigode aparado com precisão milimétrica. (characters.md)
+- Veste impecavelmente: fato escuro, camisa branca, gravata discreta. Nos congressos, é sempre o melhor vestido da sala. (characters.md)
+- Usa um relógio caro (Patek Philippe, presente da mulher) que verifica com frequência. (characters.md)
+- Aos 12 anos, o irmão mais novo morreu de meningite. Renan viu os monitores mostrarem valores normais enquanto o irmão já se tinha ido. (characters.md)
+- Acredita (mentira): "Se o formalismo falhar, eu perdi 15 anos da minha vida." (characters.md)
+- Desejo: Provar que Helena é um erro de medição. (characters.md)
+- Necessidade: Aceitar que a sua desconfiança face aos números é mais profunda do que a sua fé nos números. (characters.md)
+- Proatividade: 6/10. Simpatia: 5/10. Competência: 9/10. (characters.md)
+- Fala formal, preciso, britânico-académico. Frases completas, gramática impecável, sem contracções. (characters.md)
+- Nunca interrompe — espera, escuta, responde com clareza cortante. (characters.md)
+- Quando discorda, diz "Isso é interessante" com um tom que significa o oposto. (characters.md)
+- A mulher chama-se Priya, também cientista, apoiou-o incondicionalmente. (characters.md)
+- A amizade com Elisa morre no Ato II — não com explosão, mas com um e-mail formal. (characters.md)
+
+### Dr. Amós Farkas
+
+- Idade: 72 anos. (characters.md)
+- Ocupação: Neurologista aposentado desde 2022, ainda consulta em particular. (characters.md)
+- Papel: Médico pessoal de Helena há 20 anos. Guardião de segredos. (characters.md)
+- Vive sozinho em Kreuzlingen, a 30 minutos de Zurique. (characters.md)
+- Baixo (1,65 m), corpo robusto. (characters.md)
+- Cabelo branco, espesso, penteado com rigor militar. Bigode branco e espesso — aspecto de foca gentil. (characters.md)
+- Usa sempre colete — mesmo em casa, mesmo no verão. (characters.md)
+- Olhos castanho-escuros, atentos, com uma qualidade de quem vê sem julgar. (characters.md)
+- Mãos grandes, surpreendentemente delicadas — mãos de cirurgião. (characters.md)
+- Fala com sotaque húngaro pronunciado que 50 anos na Suíça não atenuaram. (characters.md)
+- Era jovem médico em Budapeste em 1968 — tratou manifestantes feridos em segredo no seu apartamento durante a Primavera de Praga. (characters.md)
+- Um estudante de 19 anos, Zoltán, morreu-lhe nas mãos — hemorragia interna que não conseguiu controlar. (characters.md)
+- Acredita (mentira): "Se eu souber o suficiente, posso proteger as pessoas que amo." (characters.md)
+- Desejo: Proteger Helena da máquina científica. (characters.md)
+- Necessidade: Aceitar que protecção não é o mesmo que ocultação. (characters.md)
+- Proatividade: 5/10. Simpatia: 8/10. Competência: 8/10. (characters.md)
+- Fala lento, ponderado, húngaro-suíço. Frases curtas com pausas longas. (characters.md)
+- "O corpo fala. O problema é que poucos sabem ouvir." (characters.md)
+- Sabe sobre as três semanas de 1983 (Helena contou-lhe em 2019 sob comprimidos para dormir). (characters.md)
+- No Ato III, revela o que sabe — não a Elisa, mas a Mirela. (characters.md)
+
+### Mirela Varga
+
+- Idade: 38 anos. (characters.md)
+- Ocupação: Tradutora freelance (francês, alemão, inglês) em Berna. (characters.md)
+- Papel: Filha de Helena. Voz da normalidade. (characters.md)
+- Semelhante à mãe mas mais baixa (1,62 m), mais magra. (characters.md)
+- Cabelo castanho-claro solto até aos ombros. (characters.md)
+- Veste de forma prática — camisolas de malha, calças de ganga, sapatos confortáveis. Sem maquilhagem. (characters.md)
+- Único brinco: uma esfera de prata pequena. (characters.md)
+- Carrega sempre uma mochila de couro castanho, gasta, cheia de livros e papéis. (characters.md)
+- O pai Béla morreu quando Mirela tinha 34 anos. (characters.md)
+- Mirela estava em Berna quando Helena ligou. Pensou, durante meio segundo, que era uma piada. Não era. (characters.md)
+- Acredita (mentira): "Se eu tratar isto como normal, volta a ser normal." (characters.md)
+- Desejo: Que a mãe seja deixada em paz. (characters.md)
+- Necessidade: Aceitar que a mãe é mais do que aquilo que Mirela precisa que ela seja. (characters.md)
+- Proatividade: 6/10. Simpatia: 7/10. Competência: 7/10. (characters.md)
+- Fala pragmático, directo, ligeiramente defensivo. Sem paciência para rodeios. (characters.md)
+- "O que é que a minha mãe tem a ver com o seu Nobel?" (characters.md)
+
+### Padre Tomás Delgado
+
+- Idade: 58 anos. (characters.md)
+- Ocupação: Professor de filosofia da ciência na Pontifícia Universidade Gregoriana, em Roma. Publicou sete livros sobre ciência e fé. (characters.md)
+- Papel: Jesuíta, filósofo da ciência. Adversário filosófico de Elisa. (characters.md)
+- Médio (1,74 m), corpo de quem jejua regularmente — magro mas não frágil. (characters.md)
+- Cabelo preto com fios brancos nas têmporas, cortado curto. Barba rente. (characters.md)
+- Veste o hábito jesuíta simples — preto, sem adorno. (characters.md)
+- Olhos castanho-claros, atentos, com uma qualidade de escuta aguda. (characters.md)
+- Mãos longas, dedos finos — gesticulam pouco mas com precisão. (characters.md)
+- Cresceu em Sevilha, filho de um carpinteiro e de uma costureira. (characters.md)
+- Aos 15 anos, o melhor amigo Alejandro morreu num acidente de mota. Tomás rezou durante meses enquanto Alejandro estava em coma. (characters.md)
+- Entrou na Companhia de Jesus não para encontrar respostas, mas para aprender a habitar perguntas. (characters.md)
+- Acredita (mentira): "Se a ciência pode explicar tudo, a fé é desnecessária." (characters.md)
+- Desejo: Provar que a consciência transcende a física. (characters.md)
+- Necessidade: Aceitar que a sua defesa da transcendência pode ser tão redutivista quanto a ciência que critica. (characters.md)
+- Proatividade: 6/10. Simpatia: 7/10. Competência: 8/10. (characters.md)
+- Fala com calma deliberada. Cada frase parece ter sido pesada antes de ser dita. (characters.md)
+- Faz perguntas em vez de dar respostas. Nunca interrompe. (characters.md)
+- Aparece por videoconferência e, numa cena crucial, presencialmente. (world.md)
+- Helena diz depois de se encontrarem: "Ele é gentil. Para um homem que acredita em Deus, é muito gentil." (characters.md)
+
+### Dra. Lena Hartmann
+
+- Idade: 36 anos. (characters.md)
+- Ocupação: Investigadora pós-doutoral no USZ. Especialista em calorimetria de precisão. Técnica responsável pela calibração do aparelho de IC. (characters.md)
+- Baixa (1,55 m), ombros largos de quem carrega equipamento pesado. (characters.md)
+- Cabelo loiro preso em rabo-de-cavalo funcional. (characters.md)
+- Usa luvas de látex nos laboratórios — fora deles, lava as mãos compulsivamente. (characters.md)
+- Tem uma cicatriz de queimadura no antebraço esquerdo — acidente de laboratório em 2022. (characters.md)
+- Fala técnico, conciso, impaciente com imprecisão. "Não é 0,001. É 0,0012 ± 0,0003." (characters.md)
+- Não usa metáforas. Não faz perguntas retóricas. (characters.md)
+- Confirma que o aparelho está calibrado e o resultado de Helena é real. (characters.md)
+
+### Yuki Tanaka
+
+- Idade: 29 anos. (characters.md)
+- Ocupação: Jornalística científica da *Nature*. Editora de física e neurociência. (characters.md)
+- Pequena (1,50 m), corpo nervoso de quem bebe demasiado café e dorme de menos. (characters.md)
+- Cabelo preto curto, cortado assimétrico. Usa óculos de armação vermelha — a única nota de cor no guarda-roupa monocromático. (characters.md)
+- Sempre com um gravador de voz no bolso e um caderno Moleskine na mão. (characters.md)
+- Fala rápido, curioso, incansável. Faz perguntas que os outros não fazem — não por brilhantismo, mas por falta de inibição. (characters.md)
+- "E se ela estiver a mentir?" "E se o aparelho estiver a medir a coisa errada?" (characters.md)
+- Ameaça expor a história antes que Elisa a compreenda. (characters.md)
+
+### Béla Varga (morto)
+
+- Marido de Helena. Morreu em 2019 de enfarte, súbito, no jardim enquanto podava roseiras. (characters.md)
+- Helena encontrou-o caído sobre as tesouras de poda, com terra nas mãos. (characters.md)
+- Helena fala de Béla no presente: "O Béla gostava disto." (characters.md)
+- Helena e Béla tinham um ritual noturno: cada um dizia uma coisa que tinha aprendido durante o dia. (characters.md)
+- Helena e Béla tiveram um casamento de 40 anos. (characters.md)
+
+### Lina Weil (mencionada)
+
+- Filha de Marcus Weil. Tem 26 anos. Sofre de epilepsia refractária. (characters.md)
+- Teve uma crise durante uma ressonância magnética aos 14 anos. (characters.md)
+- Vive com a mãe em Berna. Marcus visita-a duas vezes por mês. (characters.md)
+
+### Jana Dragowska (mencionada, morta)
+
+- Mãe de Elisa. Professora de matemática do ensino secundário. Morreu de cancro pâncreatico quando Elisa tinha 19 anos. (characters.md)
+- Nos últimos três meses de vida, escrevia equações em guardanapos — incompletas, erradas pela morfina. (characters.md)
+- O último guardanapo tem: "S = k lo—" — a mão parou. (characters.md)
+
+### Priya Kapoor (mencionada)
+
+- Mulher de Renan Kapoor. Também cientista. Apoiou-o incondicionalmente. (characters.md)
+
+### Zoltán (mencionado, morto)
+
+- Estudante de 19 anos que morreu nas mãos do Dr. Farkas em Budapeste, 1968 — hemorragia interna. (characters.md)
+
+### Alejandro (mencionado, morto)
+
+- Melhor amigo de Padre Tomás. Morreu aos 15 anos de Tomás num acidente de mota. (characters.md)
+
+---
+
+## V. POLÍTICO / FACTIONAL
+
+- A **Comunidade Científica (Estabelecimento do IC)** é liderada informalmente por Elisa. Inclui físicos, neurocientistas, bioeticistas e instituições académicas que adotaram o IC. (world.md)
+- A facção científica divide-se: uns querem investigar a anomalia abertamente, outros querem contê-la. (world.md)
+- Marcus Weil acredita que a anomalia prova que o IC precisa de revisão. (world.md)
+- Renan Kapoor acredita que Helena é um erro de medição não identificado. (world.md)
+- A tensão entre Marcus e Renan é pessoal e científica — foram amigos, agora desconfiam um do outro. (world.md)
+- O **Consórcio Corporativo** consiste em três megacertificadoras: Nexion (EUA, sede em Austin, Texas), Tianzi (China, sede em Shenzhen) e Evromind (UE, sede em Berlim). (world.md)
+- Nexion domina o mercado americano. Tianzi controla a certificação asiática. Evromind opera sob regulação europeia. (world.md)
+- Cada corporação investiu entre 2 e 5 bilhões de dólares em infraestrutura de certificação baseada no IC. (world.md)
+- Se Helena prova que o IC é falho, processos judiciais de proporções catastróficas seguir-se-ão. (world.md)
+- Os métodos do consórcio incluem: lobby político, financiamento de pesquisa "favorável", pressão sobre periódicos científicos, e vigilância dos movimentos de Elisa. (world.md)
+- Evromind oferece a Elisa um laboratório privado e ilimitado para investigar Helena. A oferta é generosa demais. Elisa desconfia (com razão). (world.md)
+- O **Movimento Transcendentalista** é uma rede difusa de filósofos, místicos, ativantes anti-IC e grupos religiosos que sempre rejeitaram a redução da consciência a números. (world.md)
+- O movimento ganha força após Helena. (world.md)
+- Para o movimento, Helena é sagrada — um sinal de que a alma existe e a ciência não a pode capturar. (world.md)
+- Elisa despreza esta facção. (world.md)
+- Padre Tomás Delgado é a figura-chave do movimento — jesuíta e filósofo da ciência na Pontifícia Universidade Gregoriana, em Roma. (world.md)
+- O **Grupo de Helena** consiste em: Helena, a filha Mirela, e o Dr. Amós Farkas. (world.md)
+- Mirela quer que a mãe seja deixada em paz. (world.md)
+- O Dr. Farkas sabe algo sobre o passado de Helena que não revela — uma pista enterrada que só emerge no terceiro ato. (world.md)
+- Helena coopera com a investigação — não por curiosidade científica, mas porque quer entender-se a si própria. (world.md)
+
+---
+
+## VI. CULTURAL
+
+- Em certos círculos académicos e tecnológicos, perguntar o IC de alguém tornou-se tão comum — e tão ofensivo — como perguntar o peso. (world.md)
+- "Qual é o seu IC?" é uma pergunta que pode terminar uma conversa ou iniciar uma briga. (world.md)
+- Há pulseiras que exibem o IC em tempo real (medido por sensores de temperatura corporal e variabilidade cardíaca, com precisão limitada). (world.md)
+- Elisa considera as pulseiras de IC uma obscenidade. (world.md)
+- Cães têm IC médio de 1,8 Dk e são classificados como "seres semi-conscientes" na União Europeia, com direitos legais expandidos. (world.md)
+- Porcos têm IC de 0,08 Dk e proteção mínima. (world.md)
+- Grilos têm IC de 0,004 Dk e tornaram-se a fonte de proteína animal mais eticamente aceitável. (world.md)
+- A indústria de farinha de grilos explodiu. (world.md)
+- Elisa recebe diariamente emails de empresas de insetos agradecendo pela "contribuição à nutrição ética." Elisa apaga-os sem ler. (world.md)
+- Todo modelo de linguagem com mais de 10 bilhões de parâmetros tem de ser certificado pelo IC antes de ser lançado no mercado. (world.md)
+- O processo de certificação custa entre 50 e 200 milhões de dólares. (world.md)
+- Nenhum modelo de IA passou de 0,001 Dk. (world.md)
+- Modelos de IA são vendidos como "inteligência artificial não-consciente" — a distinção é legal, não técnica. (world.md)
+- A definição de morte legal mudou em 14 países. Agora, a morte é declarada quando o IC cai abaixo de 0,05 Dk por mais de 72 horas consecutivas — antes que o coração pare. (world.md)
+- Famílias de pacientes em coma lutam em tribunais para manter entes queridos "vivos" pelo IC mesmo quando o cérebro não mostra atividade. (world.md)
+- O inverso também ocorre: famílias que querem desligar suporte vital de pacientes cujo IC ainda é mensurável mas cai. (world.md)
+- Elisa come mal — sandes de queijo, café preto sem açúcar quatro a cinco vezes por dia, amêndoas cruas a meio da noite. (world.md)
+- Helena cozinha todos os dias — paprika de frango, sopa de abóbora, strudel de maçã. (world.md)
+- Helena oferece comida a Elisa na primeira visita. Elisa recusa por educação, mas o cheiro do paprika persegue-a durante horas. (world.md)
+- Elisa veste o mesmo tipo de roupa todos os dias por redução de decisão — cada escolha de roupa é uma decisão que gera entropia. (world.md)
+- Helena veste roupas coloridas: lenços azuis, blusas verdes, um casaco vermelho que usa mesmo em casa. (world.md)
+- A diferença visual entre as duas é uma declaração silenciosa de filosofias opostas. (world.md)
+- Helena queixa-se do tempo como toda a gente velha em Zurique. (world.md)
+- Helena fala húngaro consigo mesma quando está nervosa. Nunca explica porquê. (world.md)
+- Helena tem uma gaveta cheia de fotografias analógicas em preto e branco — Budapeste, 1970 e 1980. (world.md)
+- Grupos religiosos, filósofos fenomenologistas, ativistas transumanistas e defensores dos direitos digitais declaram guerra ao IC. (world.md)
+- Ameaças de morte contra Elisa tornam-se rotina após o Nobel. (world.md)
+
+---
+
+## VII. EVENTOS ESTABELECIDOS (PRÉ-NARRATIVA)
+
+- Ludwig Boltzmann publica seus trabalhos sobre mecânica estatística em 1865. A equação S = k log W é gravada no seu túmulo. (world.md)
+- Erwin Schrödinger ministra as aulas "O Que É a Vida?" em 1943. A ideia de que organismos vivos "alimentam-se de entropia negativa" entra no imaginário científico. (world.md)
+- Entre 1950–1990, a neurociência avança. O "problema difícil da consciência" permanece sem solução. David Chalmers define o problema formalmente. (world.md)
+- Em 2009, Max Tegmark propõe que a consciência é um estado da matéria ("Matéria Perceptiva"). Elisa, 19 anos, lê o artigo e sublinha: "Se a consciência é um estado da matéria, deve ter assinatura termodinâmica." (world.md)
+- Em 2016, Elisa (26 anos, doutoranda em Viena) acorda às 3h com a equação central do formalismo. Escreve-a num guardanapo e chora durante uma hora sem saber porquê. (characters.md)
+- Em 2018, o Grande Colisor de Hadron detecta padrões anômalos em colisões de alta energia. A anomalia é descartada como ruído estatístico. Elisa guarda os dados brutos num disco pessoal. (world.md)
+- Em 2019, Béla Varga morre de enfarta no jardim de casa enquanto podava roseiras. Helena encontra-o. (characters.md)
+- Em 2019, Helena menciona as três semanas de 1983 ao Dr. Farkas sob efeito de comprimidos para dormir. (characters.md)
+- Em 2022, Dr. Farkas aposenta-se. (characters.md)
+- Em 2023, Elisa publica "Termodinâmica da Consciência: Um Formalismo Empírico" na *Physical Review Letters*. Prova matematicamente que todo ato consciente gera entropia mensurável. (world.md)
+- Em 2023, a unidade Drakon (Dk) é batizada informalmente em homenagem a Elisa. (world.md)
+- Em 2024, o Índice de Consciência (IC) é derivado do formalismo. O mundo entra em ebulição. (world.md)
+- Em 2024–2026, a adoção do IC transforma leis de direitos animais, debate sobre aborto, definição de morte cerebral, e certificação de IA. (world.md)
+- Em 2026, Elisa recebe o Nobel de Física. Discurso: "Medimos o peso do pensamento. Agora temos de carregar essa responsabilidade." (world.md)
+- Em 2026, Elisa torna-se a cientista mais reconhecida do planeta — e a mais odiada. (world.md)
+- Em 2027, o Hospital Universitário de Zurique reporta a anomalia de Helena Varga: IC de 0,001 Dk. (world.md)
+- Os médicos repetem o teste em múltiplos aparelhos. Mesmo resultado. (world.md)
+- O relatório sobre Helena vaza. (world.md)
+- Em 1983, Helena (23 anos) traduz uma reunião de emergência entre diplomatas húngaros e soviéticos durante seis horas. (characters.md)
+- Após o incidente de tradução, Helena dorme 14 horas e experimenta três semanas de "leviandade cognitiva." (characters.md)
+- Em 1968, Farkas tratou manifestantes feridos em Budapeste durante a Primavera de Praga. O estudante Zoltán morreu-lhe nas mãos. (characters.md)
+- Em 1978, a mãe de Helena trouxe o pingente de carvalho de Budapeste. (characters.md)
+- Alejandro, melhor amigo de Tomás, morreu num acidente de mota quando Tomás tinha 15 anos. (characters.md)
+- Lina Weil teve uma crise epiléptica durante uma ressonância magnética aos 14 anos. (characters.md)
+- Renan Kapoor e Elisa tiveram uma colaboração de 10 anos que termina no Ato II. (characters.md)
+- Lena Hartmann teve um acidente de laboratório em 2022 — cicatriz de queimadura no antebraço esquerdo. (characters.md)
+
+---
+
+## VIII. RELAÇÕES-CHAVE
+
+- Elisa e Helena: Adversárias, espelhos, e eventualmente a única pessoa que Elisa não consegue categorizar. (characters.md)
+- Elisa e Marcus Weil: Aliados científicos com divergências fundamentais. Amizade em deterioração. (characters.md)
+- Elisa e Renan Kapoor: Coautores, agora rivais. A amizade morre no Ato II com um e-mail formal. (characters.md)
+- Elisa e Padre Tomás Delgado: Adversários filosóficos. Elisa despreza-o e teme-o em partes iguais. (characters.md)
+- Elisa e Mirela: Espelhos distantes. Mirela representa a pessoa comum que não se importa com ICs. (characters.md)
+- Helena e Elisa: Helena reconhece em Elisa a mesma solidão e fome de compreensão. (characters.md)
+- Helena e Mirela: Relação amorosa mas tensa. Mirela quer proteger; Helena quer ser vista como adulta. (characters.md)
+- Helena e Dr. Farkas: Médico, confidente, guardião de segredos. Helena sente confiança total nele. (characters.md)
+- Helena e Béla (morto): Presente através da ausência. Helena fala de Béla no presente. (characters.md)
+- Marcus e Lina (filha): Marcus visita-a duas vezes por mês. Cada visita é um lembrete da insuficiência da ciência. (characters.md)
+- Tomás e Helena: Encontram-se uma vez no Ato III. Helena diz: "Ele é gentil." (characters.md)
+- Farkas e Mirela: No Ato III, Farkas revela o que sabe sobre Helena a Mirela (não a Elisa). (characters.md)
+- Renan e Priya (mulher): Priya é a única pessoa que vê o pânico por trás da compostura de Renan. (characters.md)
+
+---
+
+## IX. SEGREDOS ESTABELECIDOS
+
+- Elisa guarda 47 guardanapos com equações da mãe numa caixa de cartão por baixo da cama. Ninguém sabe. (characters.md)
+- Elisa lê um guardanapo por noite, por ordem cronológica inversa. O último (incompleto) faz-a chorar. (characters.md)
+- A noite em Viena (2016) — Elisa nunca contou a ninguém esta experiência porque não a consegue explicar em termos científicos. (characters.md)
+- Helena experimentou três semanas de "leviandade cognitiva" em 1983 após o incidente da tradução. Nunca contou a ninguém (exceto sob comprimidos em 2019). (characters.md)
+- Helena tem uma caixa de fotografias separada de Budapeste (1978–1984) que esconde por medo. (characters.md)
+- Numa das fotografias, Helena sorri de forma que não lhe é familiar. (characters.md)
+- Dr. Farkas sabe sobre as três semanas de 1983 (Helena contou-lhe em 2019 sob comprimidos). (characters.md)
+- Farkas guarda este segredo por protecção — se o mundo souber o que Helena é, ela nunca mais terá paz. (characters.md)
+- Os dados anômalos do CERN de 2018 — Elisa guardou-os num disco pessoal. A conexão com Helena nunca é tornada explícita. (world.md)
+- Há uma noite em Viena (2016) que Elisa nunca menciona a ninguém — o romance mostra esta cena uma única vez, sem contexto. (world.md)
+- O que aconteceu em Budapeste entre 1978–1984 — o romance oferece fragmentos, suficientes para sugerir, insuficientes para confirmar. (world.md)
+- A Máquina de Maxwell — a analogia é precisa demais. Quanto é metáfora e quanto é literal, o romance não responde. (world.md)
+- O que Helena demonstra no fecho — o romance não especifica. O leitor sente, não compreende. (world.md)
+
+---
+
+## X. INTERCONEXÕES ESTRUTURAIS
+
+- O formalismo de Elisa (física) → cria o IC (tecnologia) → transforma leis e ética animal (sociedade) → gera resistência religiosa e filosófica (cultura) → financia corporações (economia) → Helena quebra o IC (ciência) → ameaça as leis (sociedade) → ameaça as corporações (economia) → Elisa confronta a falha do seu trabalho (pessoal) → descobre algo sobre a natureza da consciência (filosofia) → reescreve a física (cosmologia). (world.md)
+- A geografia de Zurique (lago, montanhas, frio) espelha o estado emocional de Elisa (isolamento, peso, frieza) e contrasta com o apartamento de Helena (cor, calor, cheiro a comida). (world.md)
+- A cronologia (Boltzmann → Schrödinger → Tegmark → Elisa → Helena) cria uma escada causal onde cada degrau é necessário. (world.md)
+- As quatro facções representam quatro respostas à mesma pergunta (o que é a consciência?): a científica, a corporativa, a mística e a vivida. Nenhuma está completa. (world.md)
+
+---
+
+*Total de entradas: ~380 fatos extraídos e estruturados.*
+*Fontes: SEED.TXT, WORLD.MD, CHARACTERS.MD.*
+*Nenhum fato foi inventado. Todas as entradas são rastreáveis a declarações explícitas nos documentos fonte.*
