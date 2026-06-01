@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-tests/test_editorial.py — Unit tests for the run_editorial.py orchestrator, Markdown loading, hybrid classification, and cascading continuity warning injection.
+tests/test_editorial.py — Unit tests for the run_editorial.py orchestrator,
+Markdown loading, hybrid classification, and cascading continuity warning injection.
 """
 
 import sys
@@ -13,7 +14,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import run_editorial
-from run_editorial import load_editorial_markdown, classify_brief_with_ai, parse_score
+from run_editorial import (
+    load_editorial_markdown,
+    load_editorial_markdown_fallback,
+    classify_brief_with_ai,
+    parse_score,
+)
 
 @pytest.fixture
 def mock_editorial_file(tmp_path, monkeypatch):
@@ -36,21 +42,80 @@ def test_load_editorial_markdown_creates_default(mock_editorial_file):
     assert "# Capítulo 11" in content
     assert "# Capítulo 17" in content
 
-def test_load_editorial_markdown_loads_existing(mock_editorial_file):
+@patch("llm.call_llm")
+def test_load_editorial_markdown_loads_via_llm(mock_call_llm, mock_editorial_file):
     markdown_content = (
         "# Diretrizes Gerais\n"
         "Test notes\n\n"
         "# Capítulo 10\n"
         "Test brief\n"
+    )
+    mock_editorial_file.write_text(markdown_content, encoding="utf-8")
+    
+    mock_response = """
+    {
+      "general_notes": "Test notes",
+      "chapters": {
+        "10": {
+          "brief": "Test brief",
+          "type": "continuity_breaking",
+          "affects_downstream": [11, 12]
+        }
+      }
+    }
+    """
+    mock_call_llm.return_value = mock_response
+    
+    loaded = load_editorial_markdown()
+    
+    assert loaded["general_notes"] == "Test notes"
+    assert loaded["chapters"][10]["brief"] == "Test brief"
+    assert loaded["chapters"][10]["type"] == "continuity_breaking"
+    assert loaded["chapters"][10]["affects_downstream"] == [11, 12]
+    mock_call_llm.assert_called_once()
+
+@patch("llm.call_llm")
+def test_load_editorial_markdown_llm_fallback_on_exception(mock_call_llm, mock_editorial_file):
+    markdown_content = (
+        "# Diretrizes Gerais\n"
+        "Test notes fallback\n\n"
+        "# Capítulo 10\n"
+        "Test brief fallback\n"
         "affects_downstream: 11, 12\n"
     )
     mock_editorial_file.write_text(markdown_content, encoding="utf-8")
     
+    # Make LLM call raise an exception to force fallback
+    mock_call_llm.side_effect = Exception("API Timeout")
+    
     loaded = load_editorial_markdown()
-    assert "Test notes" in loaded["general_notes"]
-    assert "Test brief" in loaded["chapters"][10]["brief"]
-    assert loaded["chapters"][10]["affects_downstream"] == [11, 12]
+    
+    # Verify we successfully fell back to regex parsing
+    assert loaded["general_notes"] == "Test notes fallback"
+    assert loaded["chapters"][10]["brief"] == "Test brief fallback"
     assert loaded["chapters"][10]["type"] == "continuity_breaking"
+    assert loaded["chapters"][10]["affects_downstream"] == [11, 12]
+    mock_call_llm.assert_called_once()
+
+def test_load_editorial_markdown_fallback_direct():
+    markdown_content = (
+        "# Guidelines\n"
+        "Style guidelines here\n\n"
+        "# Chapter 5\n"
+        "Punctual edit style\n\n"
+        "# Cap 8\n"
+        "Structural changes\n"
+        "affects: 9, 10\n"
+    )
+    
+    loaded = load_editorial_markdown_fallback(markdown_content)
+    
+    assert loaded["general_notes"] == "Style guidelines here"
+    assert loaded["chapters"][5]["brief"] == "Punctual edit style"
+    assert loaded["chapters"][5]["type"] == "punctual"
+    assert loaded["chapters"][8]["brief"] == "Structural changes"
+    assert loaded["chapters"][8]["type"] == "continuity_breaking"
+    assert loaded["chapters"][8]["affects_downstream"] == [9, 10]
 
 @patch("llm.call_llm")
 def test_classify_brief_with_ai_punctual(mock_call):
@@ -92,7 +157,8 @@ def test_parse_score():
 @patch("run_editorial.classify_brief_with_ai")
 @patch("run_editorial.run_tool")
 @patch("builtins.input")
-def test_run_editorial_abort(mock_input, mock_run_tool, mock_classify, mock_editorial_file, monkeypatch):
+@patch("llm.call_llm")
+def test_run_editorial_abort(mock_call_llm, mock_input, mock_run_tool, mock_classify, mock_editorial_file, monkeypatch):
     markdown_content = (
         "# Diretrizes Gerais\n"
         "Test notes\n\n"
@@ -100,6 +166,20 @@ def test_run_editorial_abort(mock_input, mock_run_tool, mock_classify, mock_edit
         "Punctual edit\n"
     )
     mock_editorial_file.write_text(markdown_content, encoding="utf-8")
+    
+    # Mock LLM parser
+    mock_call_llm.return_value = """
+    {
+      "general_notes": "Test notes",
+      "chapters": {
+        "10": {
+          "brief": "Punctual edit",
+          "type": "punctual",
+          "affects_downstream": []
+        }
+      }
+    }
+    """
     
     # Mock AI returning punctual
     mock_classify.return_value = {

@@ -171,6 +171,7 @@ Run these commands to control the pipeline execution:
 | Tool | Purpose |
 |------|---------|
 | `run_pipeline.py` | Full pipeline orchestrator (seed → finished novel) |
+| `run_editorial.py` | Interactive human-directed editorial pipeline with LLM-based semantic extraction and cascading re-writes |
 | `build_arc_summary.py` | Regenerate arc summary from chapters |
 | `build_outline.py` | Regenerate outline from chapters |
 
@@ -249,6 +250,85 @@ with this prompt:
 The dual-persona review catches what automated tools can't: prose-level
 repetition, character thinness, ethical gaps, structural monotony. The
 loop continues until the reviewer's items are mostly qualified hedges rather than real problems.
+
+### Interactive Editorial Pipeline (Markdown-Driven)
+
+The **Interactive Editorial Pipeline** (`run_editorial.py`) allows the author to direct and inject fine-tuned corrections, plot twists, character behavior updates, or canon changes using a simple, human-friendly Markdown file (`editorial.md`) placed at the workspace root.
+
+```text
+       [ editorial.md ]
+              │
+              ▼
+   ┌───────────────────────┐
+   │  LLM Semantic Parser  │ ◄─── (Failsafe Regex Fallback)
+   └──────────┬────────────┘
+              │ (Extracts strict JSON Schema)
+              ▼
+   ┌───────────────────────┐
+   │   Hybrid AI Editor    │ ◄─── (Non-sycophantic criticism)
+   └──────────┬────────────┘
+              │ (Calculates downstream impact & cascade)
+              ▼
+   ┌───────────────────────┐
+   │ Dry-Run & Approval    │
+   └──────────┬────────────┘
+              │ (If Approved by Author)
+              ▼
+   ┌───────────────────────┐
+   │ Cascading Re-writes   │ ─── (Evaluates & commits per chapter)
+   └───────────────────────┘
+```
+
+> [!TIP]
+> **Why Markdown-Driven?**
+> Instead of managing complex JSON configurations, you simply write structured headings in `editorial.md`.
+> The pipeline uses a high-performance **semantic LLM extractor** to convert your raw notes into structured instructions.
+
+#### **How It Works**
+
+1. **Semantic LLM Extractor**:
+   When you run the pipeline, it reads your `editorial.md`. An elite, highly accurate, and objective LLM parser extracts your guidelines into a strict JSON payload. 
+   * **Resilient Failsafe Fallback**: If the LLM API is experiencing high latency, timeout, or return issues, the pipeline seamlessly triggers an advanced multi-language regex-based parser, ensuring zero downtime.
+
+2. **Sincere and Assertive Hybrid Analysis**:
+   The AI Editor evaluates your guidelines, comparing them against the narrative context. It operates under a strict **non-sycophantic persona**—providing critical, honest, and direct feedback without filler praise. If it identifies that a requested change introduces a new object or alters an event that breaks story continuity, it automatically flags it as `continuity_breaking` and calculates the downstream cascade of affected chapters, even if you forgot to declare them.
+
+3. **Dry-Run Confirmation**:
+   The orchestrator prints a detailed **Adjustment Plan** showing:
+   * Overall guidelines.
+   * Specific chapter briefs.
+   * AI Editor's direct critique.
+   * Cascading downstream chapters that will be affected and re-written.
+   
+   It prompts you: `Deseja iniciar as ações de correção acima? [Y/n]`.
+
+4. **Sequential Cascading Re-writes**:
+   Once approved:
+   * The pipeline processes the target chapters sequentially.
+   * Dynamic continuity warnings from upstream edits (e.g. *"In Chapter 17, Helena gave Elisa a physical bronze key"* ) are automatically generated and injected into the prompt context of downstream chapters (18, 19, 20).
+   * Each re-written chapter is evaluated by the local scorer. If the quality score improves or remains stable, the change is committed to Git. If the score degrades, the change is rolled back.
+
+#### **Standard `editorial.md` Format**
+
+Create a file named `editorial.md` at the root of the project with the following structure:
+
+```markdown
+# Diretrizes Gerais
+- Aumentar o realismo científico nos diálogos.
+- Remover repetições em tríade e outros vícios de escrita típicos de IA.
+
+# Capítulo 11
+- Padre Tomás Delgado deve ser mais enigmático e fazer perguntas desafiadoras em vez de discursos expositivos.
+
+# Capítulo 17
+- Helena dá a Elisa uma chave física de bronze que pertencia a Béla.
+- affects_downstream: 18, 19, 20
+```
+
+#### **How to Run**
+```bash
+uv run python run_editorial.py
+```
 
 ---
 

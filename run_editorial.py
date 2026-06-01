@@ -24,10 +24,53 @@ EDITORIAL_MD = BASE_DIR / "editorial.md"
 CHAPTERS_DIR = BASE_DIR / "chapters"
 BRIEFS_DIR = BASE_DIR / "briefs"
 
+def load_editorial_markdown_fallback(text: str) -> dict:
+    """
+    Fallback parser using regex in case the LLM API is unavailable.
+    """
+    sections = re.split(r"^#\s+", text, flags=re.MULTILINE)
+    general_notes = ""
+    chapters = {}
+    
+    for section in sections:
+        if not section.strip():
+            continue
+            
+        lines = section.split("\n")
+        title = lines[0].strip().lower()
+        content = "\n".join(lines[1:]).strip()
+        
+        if any(keyword in title for keyword in ["geral", "diretriz", "nota", "general", "guideline", "notes"]):
+            general_notes = content
+        else:
+            # Match chapter number
+            match = re.search(r"(?:capítulo|cap|chapter)\s*(\d+)", title)
+            if match:
+                ch_num = int(match.group(1))
+                
+                # Check for affects_downstream inside content
+                downstream = []
+                ds_match = re.search(r"(?:affects_downstream|afeta|jusante|affects)\s*:\s*([0-9\s,]+)", content, re.IGNORECASE)
+                if ds_match:
+                    downstream = [int(x.strip()) for x in ds_match.group(1).split(",") if x.strip().isdigit()]
+                    # Remove the affects_downstream line from the brief so it doesn't pollute the prompt
+                    content = re.sub(r"(?:affects_downstream|afeta|jusante|affects)\s*:\s*[0-9\s,]+", "", content, flags=re.IGNORECASE).strip()
+                
+                chapters[ch_num] = {
+                    "brief": content,
+                    "type": "continuity_breaking" if downstream else "punctual",
+                    "affects_downstream": downstream
+                }
+                
+    return {
+        "general_notes": general_notes,
+        "chapters": chapters
+    }
+
 def load_editorial_markdown() -> dict:
     """
-    Parse the centralized editorial.md file.
-    Returns a dict with 'general_notes' and 'chapters' {ch_num: {'brief': str, 'type': str, 'affects_downstream': list}}.
+    Parse the centralized editorial.md file using an LLM semantic extractor.
+    Falls back to a robust regex parser if the LLM call fails or returns invalid JSON.
     """
     if not EDITORIAL_MD.exists():
         default_content = (
@@ -47,46 +90,74 @@ def load_editorial_markdown() -> dict:
         
     text = EDITORIAL_MD.read_text(encoding="utf-8")
     
-    # Split text by top-level headings (#)
-    sections = re.split(r"^#\s+", text, flags=re.MULTILINE)
+    # Try parsing via LLM
+    from llm import call_llm
     
-    general_notes = ""
-    chapters = {}
+    system_prompt = (
+        "Você é um extrator de dados semântico de elite, frio, extremamente preciso e objective. "
+        "Sua única função é ler o documento de diretrizes editoriais do autor em Markdown e convertê-lo em "
+        "um JSON estruturado e validado. Você é totalmente sincero e assertivo, ignorando qualquer bajulação ou elogios.\n\n"
+        "Estrutura do JSON a ser retornado:\n"
+        "{\n"
+        "  \"general_notes\": \"Texto das diretrizes gerais de estilo, tom, etc. (vazio se não houver)\",\n"
+        "  \"chapters\": {\n"
+        "    \"<numero_do_capitulo>\": {\n"
+        "      \"brief\": \"Instruções específicas e condensadas para este capítulo\",\n"
+        "      \"type\": \"punctual\" ou \"continuity_breaking\",\n"
+        "      \"affects_downstream\": [lista de números inteiros de capítulos afetados se for quebra de continuidade]\n"
+        "    }\n"
+        "  }\n"
+        "}\n\n"
+        "Regras Críticas de Extração:\n"
+        "1. Identifique as seções do documento. A seção de diretrizes gerais geralmente tem cabeçalhos como '# Diretrizes Gerais' ou '# Geral'.\n"
+        "2. Identifique os capítulos com base em cabeçalhos como '# Capítulo X', '# Cap X' ou '# Chapter X'. A chave sob 'chapters' deve ser apenas o número do capítulo como string (ex: \"11\").\n"
+        "3. Determine assertivamente 'type' e 'affects_downstream'. Se a diretiva do capítulo alterar a cronologia do enredo, introduzir um novo objeto físico crucial (como uma chave física de bronze), revelar segredos que mudam o comportamento dos personagens, classifique-o assertivamente como 'continuity_breaking' e inclua no array 'affects_downstream' os capítulos subsequentes lógicos que sofrerão impacto direto, mesmo se o autor não os tiver listado explicitamente. Se a alteração for estritamente local (estilo, diálogos pontuais), use 'punctual' e deixe 'affects_downstream' vazio.\n\n"
+        "Responda APENAS com o JSON válido. Não inclua nenhuma explicação, introdução ou conclusão fora do JSON."
+    )
     
-    for section in sections:
-        if not section.strip():
-            continue
-            
-        lines = section.split("\n")
-        title = lines[0].strip().lower()
-        content = "\n".join(lines[1:]).strip()
+    user_prompt = (
+        f"Conteúdo do editorial.md a ser extraído:\n\n{text}\n\n"
+        "Extraia e responda apenas com o JSON."
+    )
+    
+    try:
+        log_msg("Chamando LLM para extração semântica e assertiva do editorial.md...")
+        response = call_llm(prompt=user_prompt, system_prompt=system_prompt, temperature=0.1, is_judge=True)
         
-        if "geral" in title or "diretriz" in title or "nota" in title:
-            general_notes = content
-        else:
-            # Match chapter number
-            match = re.search(r"(?:capítulo|cap|chapter)\s*(\d+)", title)
-            if match:
-                ch_num = int(match.group(1))
-                
-                # Check for affects_downstream inside content
-                downstream = []
-                ds_match = re.search(r"(?:affects_downstream|afeta|jusante)\s*:\s*([0-9\s,]+)", content, re.IGNORECASE)
-                if ds_match:
-                    downstream = [int(x.strip()) for x in ds_match.group(1).split(",") if x.strip().isdigit()]
-                    # Remove the affects_downstream line from the brief so it doesn't pollute the prompt
-                    content = re.sub(r"(?:affects_downstream|afeta|jusante)\s*:\s*[0-9\s,]+", "", content, flags=re.IGNORECASE).strip()
-                
-                chapters[ch_num] = {
-                    "brief": content,
-                    "type": "continuity_breaking" if downstream else "punctual",
-                    "affects_downstream": downstream
-                }
-                
-    return {
-        "general_notes": general_notes,
-        "chapters": chapters
-    }
+        # Clean response string of markdown wraps
+        cleaned = response.strip()
+        if cleaned.startswith("```"):
+            cleaned = cleaned.split("\n", 1)[1]
+        if cleaned.endswith("```"):
+            cleaned = cleaned.rsplit("\n", 1)[0]
+        cleaned = cleaned.strip()
+        if cleaned.startswith("json"):
+            cleaned = cleaned[4:].strip()
+            
+        data = json.loads(cleaned)
+        
+        # Validate schema structure
+        general_notes = data.get("general_notes", "").strip()
+        chapters = {}
+        
+        for k, v in data.get("chapters", {}).items():
+            if not k.isdigit():
+                continue
+            ch_num = int(k)
+            chapters[ch_num] = {
+                "brief": v.get("brief", "").strip(),
+                "type": v.get("type", "punctual"),
+                "affects_downstream": [int(x) for x in v.get("affects_downstream", [])]
+            }
+            
+        log_msg("Extração semântica via LLM concluída com sucesso.")
+        return {
+            "general_notes": general_notes,
+            "chapters": chapters
+        }
+    except Exception as e:
+        log_msg(f"AVISO: Falha na extração semântica via LLM: {e}. Usando parser de fallback robusto baseado em regex.")
+        return load_editorial_markdown_fallback(text)
 
 def classify_brief_with_ai(ch_num: int, brief: str) -> dict:
     """
@@ -96,21 +167,20 @@ def classify_brief_with_ai(ch_num: int, brief: str) -> dict:
     from llm import call_llm
     
     system_prompt = (
-        "You are an elite, highly critical literary editor. Your style is direct, "
-        "extremely precise, and devoid of any sycophancy or filler words. You do NOT praise. "
-        "Your task is to analyze a chapter's proposed editorial instructions and classify "
-        "their structural impact on the novel.\n\n"
-        "Classification Rules:\n"
-        "1. 'punctual': The changes are strictly confined to the chapter's internal prose, "
-        "style, dialogue, or localized pacing. No plot facts or downstream continuity are affected.\n"
-        "2. 'continuity_breaking': The changes introduce a new physical item, reveal a secret, "
-        "alter character states/fates/knowledges, or change historical timeline events. These "
-        "WILL propagate downstream and require subsequent chapters to be updated/rewritten in sequence.\n\n"
-        "You MUST return your output in strict JSON format with exactly the following keys:\n"
+        "Você é um editor literário de elite, extremamente crítico, pragmático e direto. "
+        "Seu estilo é cirúrgico, frio, sem rodeios e totalmente desprovido de bajulação, elogios vazios ou formalidades. "
+        "Sua missão é analisar as diretrizes de alteração de um capítulo e classificar seu impacto na estrutura da obra.\n\n"
+        "Regras de Classificação:\n"
+        "1. 'punctual': Mudanças estritamente locais no estilo, tom, diálogo ou ritmo do capítulo, "
+        "sem alterar fatos do enredo, cronologia ou estados físicos/mentais dos personagens fora deste capítulo.\n"
+        "2. 'continuity_breaking': Mudanças que introduzem novos fatos, segredos, objetos físicos, "
+        "alteram o destino de um personagem ou mudam eventos históricos que causam impacto inevitável a jusante. "
+        "Você DEVE classificar como 'continuity_breaking' e listar precisamente no array 'affects_downstream' os capítulos que precisam ser reescritos em sequência.\n\n"
+        "Você DEVE responder estritamente com um objeto JSON válido contendo exatamente as chaves:\n"
         "{\n"
-        "  \"type\": \"punctual\" or \"continuity_breaking\",\n"
-        "  \"affects_downstream\": [list of integer chapter numbers affected, empty if punctual],\n"
-        "  \"criticism\": \"Brief, direct, non-flattering, no-nonsense critique of the current draft/instruction.\"\n"
+        "  \"type\": \"punctual\" ou \"continuity_breaking\",\n"
+        "  \"affects_downstream\": [lista de números inteiros de capítulos afetados],\n"
+        "  \"criticism\": \"Uma crítica sincera, fria, direta e absolutamente sem bajulação sobre o briefing fornecido.\"\n"
         "}"
     )
     
