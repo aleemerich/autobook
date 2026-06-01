@@ -9894,3 +9894,258 @@
 [2026-06-01 04:06:52] [SUBPROCESS] eval_log: /mnt/d/Dev/autobook/eval_logs/20260601_040651_ch08.json
 [2026-06-01 04:06:52] [INFO] Chapter 8 score: 6.0
 [2026-06-01 04:06:52] [INFO] RUN: git add -A
+[2026-06-01 04:06:52] [INFO] RUN: git commit -m "ch08: score 6.0, 3326w" --allow-empty
+[2026-06-01 04:06:53] [SUBPROCESS] [autobook/a-prova-final c7174c1] ch08: score 6.0, 3326w
+[2026-06-01 04:06:53] [SUBPROCESS] 4 files changed, 582 insertions(+), 1 deletion(-)
+[2026-06-01 04:06:53] [SUBPROCESS] create mode 100644 chapters/ch_08.md
+[2026-06-01 04:06:53] [INFO] RUN: git rev-parse --short HEAD
+[2026-06-01 04:06:53] [SUBPROCESS] c7174c1
+[2026-06-01 04:06:53] [INFO] GIT COMMIT: c7174c1 — ch08: score 6.0, 3326w
+[2026-06-01 04:06:53] [INFO] ------------------------------------------------------------
+[2026-06-01 04:06:53] [INFO] Drafting Chapter 9/22
+[2026-06-01 04:06:53] [INFO] ------------------------------------------------------------
+[2026-06-01 04:06:53] [INFO] Attempt 1/5
+[2026-06-01 04:06:53] [INFO] RUN: uv run python draft_chapter.py 9
+[2026-06-01 04:06:53] [SUBPROCESS] Drafting Chapter 9...
+[2026-06-01 04:06:54] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 04:12:00] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 04:12:00] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 04:12:00] [SUBPROCESS] Saved to /mnt/d/Dev/autobook/chapters/ch_09.md
+[2026-06-01 04:12:00] [SUBPROCESS] Word count: 2989
+[2026-06-01 04:12:00] [SUBPROCESS] # Capítulo 9 — A Entropia Sente-se
+[2026-06-01 04:12:00] [SUBPROCESS] 
+[2026-06-01 04:12:00] [SUBPROCESS] Elisa subiu as escadas exteriores do edifício de Oerlikon sem ter ligado a Helena. Sem ter mandado mensagem. Sem ter verificado se era aceitável — e a palavra "aceitável" não pertencia ao seu vocabulário habitual, o que significava que algo se tinha deslocado, uma placa tectónica mínima sob a superfície do protocolo que ela própria estabelecera. Três andares. O corrimão de ferro pintado de verde tinha uma falha na tinta no segundo lance — o metal por baixo era castanho-avermelhado, não verde, e Elisa reparou nisto porque reparar em coisas que não importavam era o que fazia quando não queria pensar no que importava.
+[2026-06-01 04:12:00] [SUBPROCESS] 
+[2026-06-01 04:12:00] [SUBPROCESS] Bateu à porta. Esperou. Ouviu passos — lentos, arrastados, o som de alguém que não tem pressa porque a pressa é uma doença dos outros. A porta abriu.
+[2026-06-01 04:12:00] [SUBPROCESS] 
+[2026-06-01 04:12:00] [SUBPROCESS] Helena tinha farinha nas mãos. Não um pouco de farinha — as mãos inteiras, as palmas, os dedos, os espaços entre os dedos, como se tivesse mergulhado os braços até aos cotovelos numa nuvem branca. Usava um avental azul com manchas antigas — tomate, talvez, ou paprika — e o cabelo branco estava preso com o gancho de madeira, mas solto de um lado, como se o gancho tivesse perdido a batalha a meio.
+[2026-06-01 04:12:00] [SUBPROCESS] 
+[2026-06-01 04:12:00] [SUBPROCESS] — Doutora Dragovski — disse Helena. Não pareceu surpreendida. — Estou a fazer strudel. Entra.
+[2026-06-01 04:12:00] [SUBPROCESS] 
+[2026-06-01 04:12:00] [SUBPROCESS] Não era um convite. Era uma constatação. Helena virou-se e caminhou para o interior do apartamento, e Elisa ficou na porta durante dois segundos — dois segundos que duraram o suficiente para notar que o corredor cheirava a maçã e canela, um cheiro que não pertencia ao mundo dos laboratórios nem dos ecrãs, um cheiro que pertencia a uma categoria de coisas que Elisa não sabia nomear — e depois entrou.
+[2026-06-01 04:12:00] [SUBPROCESS] 
+[2026-06-01 04:12:00] [SUBPROCESS] Fechou a porta. O apartamento era pequeno. Sala e cozinha separadas por um balcão de madeira com dois bancos altos. A parede da sala tinha uma estante de livros — húngaro, alemão, alguns em eslovaco. O relógio de parede marcava 16h03. Elisa sabia que eram 16h17. O relógio atrasava três minutos por dia. Helena nunca o acertava.
+[2026-06-01 04:12:00] [SUBPROCESS] 
+[2026-06-01 04:12:00] [SUBPROCESS] A cozinha estava ocupada por uma massa estendida sobre a bancada. Fina — tão fina que Elisa conseguia ver a madeira por baixo através da superfície pálida. Maçãs descascadas numa tigela. Manteiga derretida numa panela pequena. Canela num frasco de vidro sem tampa.
+[2026-06-01 04:12:00] [SUBPROCESS] 
+[2026-06-01 04:12:00] [SUBPROCESS] Helena voltou à bancada. Pegou num pincel — um pincel de cozinha, cerdas naturais, gasto — e mergulhou-o na manteiga deretida. Pincelou a massa com movimentos longos, uniformes, sem hesitação. As mãos eram grandes. As articulações dos dedos estavam inchadas — artrose, provavelmente, ou o desgaste simples de 67 anos a fazer coisas com as mãos. Mas os movimentos eram precisos. Não precisos como os de uma máquina — precisos como os de alguém que fez isto mil vezes e não precisa de pensar para o fazer.
+[2026-06-01 04:12:00] [SUBPROCESS] 
+[2026-06-01 04:12:00] [SUBPROCESS] Elisa encostou-se ao balcão. Não se sentou. Não tirou o casaco.
+[2026-06-01 04:12:00] [SUBPROCESS] 
+[2026-06-01 04:12:00] [SUBPROCESS] — A senhora não me perguntou por que vim — disse Elisa.
+[2026-06-01 04:12:00] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — Não — disse Helena, sem levantar os olhos da massa. — A senhora veio. Isso chega.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] Helena pegou nas maçãs descascadas. Começou a cortá-las em lâminas finas — uma faca de cozinha, não especial, uma faca normal com o cabo de plástico rachado. As lâminas caíram sobre a massa em fileiras. Sem régua. Sem medida. Sem receita.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — A senhora segue uma receita? — perguntou Elisa.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — Não.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — Como sabe as quantidades?
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] Helena parou. Olhou para Elisa com os olhos azul-claros que pareciam ver sem calcular.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — A minha mãe ensinou-me. A minha mãe aprendeu com a mãe dela. Nenhuma delas usava receita. Sabiam pela mão. A mão sabe coisas que a cabeça não aprende.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] Elisa olhou para as mãos de Helena. Articulações inchadas. Farinha nos nós dos dedos. Manteiga sob as unhas. As mãos de quem fez isto mil vezes.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — O Béla gostava de strudel com café — disse Helena, voltando às maçãs. — Não com chá — com café. Dizia que strudel com chá era um crime contra a Áustria.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] Helena riu. A risada foi genuína, quente, um som que veio de algum sítio abaixo do peito e subiu sem pedir licença. Elisa ouviu-a e sentiu algo que não classificou — não era empatia, não era curiosidade científica, era outra coisa, uma coisa que não tinha nome no vocabulário que ela usava.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — Como foi — perguntou Elisa, e a pergunta saiu antes de a poder filtrar — perdê-lo?
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] Helena parou de cortar. A faca ficou imóvel sobre a tábua. Não a largou — ficou com os dedos no cabo, como se a facna fosse uma extensão da mão e largá-la seria largar uma parte de si.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — Súbito — disse Helena. — Sem despedida.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] Silêncio. O relógio de parede fez tique-taque. Um tique-taque que estava errado — não no som, mas no tempo entre os tiques, que era ligeiramente irregular, como um coração com arritmia benigna.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — Uma coisa que aprendi, doutora — disse Helena, sem levantar os olhos. — As pessoas que partem sem despedida deixam-nos com frases que nunca dissemos.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] Helena voltou a cortar. As lâminas de maçã caíram sobre a massa. Uma. Outra. Outra.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — Eu tinha uma coisa para lhe dizer naquela noite — disse Helena. — "Amanhã digo", pensei. Amanhã não veio.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] Elisa sentiu algo que não classificou. Não é empatia — é reconhecimento. A mãe morreu sem despedida. Jana escreveu equações em guardanapos nos últimos meses. O último guardanapo ficou incompleto. "S = k lo—" A mão parou. Elisa nunca disse à mãe o que queria dizer. A frase não dita de Helena ecoou a frase não dita de Elisa, e o eco não foi metálico nem vazio — foi quente, como o cheiro a canela que enchia a cozinha.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] Elisa não disse nada. Helena não esperava que dissesse.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] ---
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] O strudel foi ao forno às 16h34. Helena lavou as mãos — água quente, sabão, três passagens, metódico — e secou-as num pano que estava pendurado no puxador do forno. Depois encheu a chaleira. Colocou-a no fogão. Acendeu o lume.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — Café ou chá? — perguntou Helena.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — Café.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] Helena assentiu. Abriu um armário. Tirou dois pacotes — um de café, um de chá. Colocou-os no balcão.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — O Béla tinha razão sobre uma coisa — disse Helena, abrindo o pacote de café. — Strudel merece café. O chá é para os dias em que não se merece nada.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] O café foi feito numa cafeteira italiana — uma Bialetti de alumínio, antiga, com o cabo colado. Helena não mediu o café. Encheu o filtro com uma colher grande, nivelou com o dedo, colocou água na base. Três gestos. Três décadas de prática comprimidos em noventa segundos.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] Sentaram-se no balcão. Helena num banco. Elisa no outro. A chaleira não era para Elisa — Helena serviu-se de chá. Camomila. O cheiro subiu com o vapor e misturou-se com o café e a canela que já saía do forno, e o apartamento cheirava a coisas que Elisa não sabia que podiam coexistir no mesmo espaço.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — A senhora vem aqui sem avisar — disse Helena. Não era uma pergunta.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — Sim.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — Porquê?
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] Elisa olhou para a caneca de café. Preto. Sem açúcar. A superfície tinha uma finha película oleosa — café de verdade, não o café aguado das máquinas do ETH.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — Não sei — disse Elisa.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] Helena sorriu. Não um sorriso grande — um sorriso pequeno, do canto da boca, o tipo de sorriso que as pessoas dão quando ouvem a verdade e sabem que é a verdade.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — A senhora sabe — disse Helena. — A senhora é é inteligente demais para não saber. Mas não está pronta para dizer. Tudo bem. O strudel ainda vai demorar.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] O forno fez um som — o termóstato a ligar e desligar, o ciclo de manutenção de temperatura. 180 graus. Elisa sabia-o sem verificar. O cheiro a canela intensificou-se. A maçã a cozer tinha um cheiro diferente da maçã crua — mais doce, mais redondo, como se o calor libertasse algo que a maçã crua mantinha preso.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — A senhora cozinha todos os dias? — perguntou Elisa.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — Todos.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — Porquê?
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] Helena bebeu um gole do chá. Fez uma pausa.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] — Porque o Béla gostava que eu cozinhasse. E agora que ele está morto, continuo a cozinhar. Não por ele. Por mim. Porque o ato de cozinhar é o ato de transformar coisas. Maçã crua em strudel. Farinha em massa. Sozinha em acompanhada. A transformação é a única coisa que não mente.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] Elisa bebeu o café. Estava bom. Melhor do que bom — era o primeiro café em semanas que não bebeu por necessidade. Bebeu-o porque sabia bem, e o facto de saber bem era uma informação que não sabia o que fazer.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] ---
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] O strudel saiu do forno às 16h58. Helena tirou-o com panos — não luvas de forno, panos dobrados, o método antigo — e colocou-o sobre a bancada. Estava dourado. A massa tinha encolhido nas bordas e criado camadas visíveis — folhas finas de massa separadas por ar e manteiga, o interior visível onde a maçã tinha derretido e caramelizado. Polvilhou açúcar em pó por cima. O açúcar caiu como neve sobre um campo dourado.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] Helena cortou duas fatias. Colocou-as em pratos — pratos de cerâmica branca, sem padrão, os pratos do dia a dia, não os pratos bonitos. Serviu Elisa primeiro.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] Elisa olhou para o strudel. Não comia algo que não fosse uma sande ou amêndoas cruas há semanas. O corpo tinha esquecido o que era comer por prazer — ou talvez nunca tivesse sabido, e o prazer fosse uma coisa que acontecia a outras pessoas, pessoas que não passavam os dias a medir a entropia do universo.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:01] [SUBPROCESS] Pegou no garfo. Cortou um pedaço. Levou-o à boca.
+[2026-06-01 04:12:01] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] O sabor foi simultaneamente estranho e familiar. Doce, mas não demasiado. A maçã tinha acidez. A canela tinha calor. A massa tinha manteiga e crosta e uma textura que se desfazia e voltava a formar-se na língua. Era bom. Era genuinamente bom. E o facto de ser bom perturbou Elisa de uma forma que não conseguia articular — porque o prazer era entropia, cada sensação era um processo termodinâmico, cada papila gustativa a disparar era um incremento de desordem no universo, e ela estava ali a gerar entropia por puro prazer enquanto uma mulher com IC de 0,001 lhe servia strudel num prato branco.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] — Bom? — perguntou Helena.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] — Sim.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] Helena olhou para ela. Inclinou a cabeça para a esquerda — o gesto do pássaro, o gesto que precedia as perguntas que importavam.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] — Mentiu — disse Helena. — Mas agradeço a mentira.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] Elisa quase riu. Quase. O som subiu da garganta e parou a meio, como um tremor de terra que não chega a ser sismo. Helena viu-o — o quase-riso — e sorriu. Não disse nada. Comeu o seu strudel.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] Elisa comeu o resto. Cada garfada era uma decisão que não tinha razão para ser tomada — não precisava de comer, não precisava de estar ali, não precisava de sentir o sabor da maçã caramelizada misturado com canela e manteiga. Mas comeu. E quando terminou, o prato estava limpo e o corpo estava quente e algo dentro dela — algo que não tinha nome, algo que não era entropia nem IC nem formalismo — estava, por um momento, silencioso.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] ---
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] Helena lavou os pratos. Elisa ofereceu-se para ajudar. Helena recusou com um gesto da mão — não agora, depois, o strudel precisa de arrefecer completamente antes de guardar, e a cozinha precisa de ser limpa na ordem certa, primeiro os pratos depois as bancadas depois o chão, a ordem importa mesmo quando ninguém está a ver.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] Elisa levantou-se. Caminhou até à varanda. A porta estava entreaberta. Empurrou-a.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] A varanda era estreita — talvez dois metros por três. Tinha um banco de madeira, uma mesa pequena, e plantas. Muitas plantas. Vasos de barro, vasos de plástico, vasos de cerâmica. Ervas — manjericão, alecrim, tomilho, salsa. Flores — cravos, begónias, uma planta que Elisa não reconhecia com flores cor-de-rosa pequenas. E no centro, no maior vaso, o manjericão. *Ocimum basilicum*. Folhas verdes escuras, brilhantes, gordas de seiva. A planta mais cuidada de todas — o vaso era novo, a terra era escura e húmida, as folhas não tinham um único buraco de insecto.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] Helena saiu para a varanda. Trouxe um regador de plástico — verde, com o bico longo, desses baratos de supermercado. Aproximou-se do manjericão. Regou. A água escorreu pela terra e saiu pelo furo no fundo do vaso, pingando para um pratinho por baixo.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] — Estás com sede — disse Helena à planta. — Eu sei. Eu também.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] Elisa olhou para Helena. Helena olhava para o manjericão. O rosto dela tinha uma expressão que Elisa não conseguia ler — não era ternura, não era afecto, era algo mais fundamental, como se a planta fosse uma extensão de Helena e regá-la fosse regar-se a si mesma.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] — A senhora fala com as plantas? — perguntou Elisa.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] — As plantas ouvem melhor que as máquinas — disse Helena, sem levantar os olhos. — Não têm números para nos dar. Só têm crescimento.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] Elisa olhou para o manjericão. Pensou no IC de 0,002. Pensou em Helena. Pensou que a planta era, pelo critério do formalismo que ela própria publicara e que o comité do Nobel validara, mais consciente do que a mulher que a cuidava. A planta gerava mais entropia por segundo do que Helena. A planta tinha um índice de consciência superior. A planta era, segundo a métrica que governava o mundo, mais real.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] E a planta não perguntava se era uma pessoa.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] Elisa encostou-se ao parapeito da varanda. O ar de Março entrava — frio, húmido, com cheiro a terra molhada e ao escape de um camião que passava na rua abaixo. Zurique estava cinzenta. Sempre cinzenta. O céu de aço baixo, sem nuvens, sem movimento, sem a menor variação que indicasse que o tempo passava.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] — Helena — disse Elisa.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] Helena olhou para ela. Esperou.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] — A senhora sabe o que eu faço. O que eu faço para viver.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] — Sei. Mede coisas.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] — Medo consciência. Medo o acto de pensar. Transformo-o em número.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] Helena pousou o regador. Cruzou os braços. O avental azul ainda tinha farinha.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] — E o número que eu tenho — disse Helena — é o número errado.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] — O número é 0,001. É o número de uma rocha.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] — Eu sei o meu número, doutora. Li os jornais.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] Silêncio. O relógio de parede, do outro lado da porta, fez tique-taque. Atrasado. Sempre atrasado.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] — A pergunta não é o que diz a máquina — disse Helena. Inclinou a cabeça. — A pergunta é o que diz a senhora.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] Elisa abriu a boca. Fechou-a. Consultou mentalmente quarenta e sete definições de pessoa, consciência e identidade. Nenhuma servia. Nenhuma servia porque nenhuma tinha sido escrita para Helena — tinham sido escritas para humanos normais, para sistemas que geravam entropia como previsto, para cérebros que desordenavam o universo a cada pensamento. Helena não desordenava. Helena pensava — disso Elisa tinha certeza, porque estava ali, a olhá-la, a fazer perguntas que rochas não faziam — e o universo não pagava o preço.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] — Eu não sei o que dizer — disse Elisa.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] — Então não diga nada — disse Helena. — Fique.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] Elisa ficou. O ar de Março cortava. O manjericão tinha as folhas viradas para a luz cinzenta, a fazer fotossíntese com a eficiência de um sistema que não precisa de permissão para existir. Helena voltou a regar — não o manjericão, que já tinha sido regado, mas o alecrim, que tinha a terra seca e as folhas ligeiramente curvadas.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] — O alecrim é teimoso — disse Helena. — Não pede ajuda. Mesmo com sede, não pede. Eu tenho de ver. Tenho de olhar para ele e perceber que precisa. As máquinas não fazem isso. As máquinas medem o que está à superfície. O que está por baixo, não medem.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] Elisa olhou para o alecrim. Olhou para o manjericão. Olhou para Helena — as mãos grandes, as articulações inchadas, o avental com farinha, os olhos azul-claros que pareciam ver sem calcular.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] E pensou: a fronteira entre investigadora e humana está a dissolver-se. E isto é simultaneamente libertador e aterrorizante.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] O granito no bolso pressionava contra a coxa. Elisa não lhe tocou. Não precisava. A rocha estava ali, sempre ali, 2,7 gramas por centímetro cúbido, 50 milhões de anos sem um único pensamento. Mas ali, na varanda, com o cheiro a manjericão e a strudel e a terra molhada, o granito parecia menos um talismã e mais uma acusação.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] Helena voltou para dentro. Elisa ouviu-a a guardar o regador, a fechar a torneira, a limpar as mãos no pano. Depois Helena apareceu na porta da varanda.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] — O café ainda está quente — disse. — E sobrou strudel.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] Elisa olhou para ela. Helena estava de pé na porta, com o avental azul e o gancho de madeira e as mãos limpas, e havia qualquer coisa no rosto dela — qualquer coisa que não era curiosidade, não era medo, não era submissão — que Elisa reconheceu sem conseguir nomear.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] — Tudo bem — disse Elisa. — Fico mais um bocado.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] Helena sorriu. O sorriso pequeno, do canto da boca.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] — Pois — disse. — Fica.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:02] [SUBPROCESS] Elisa voltou para dentro. O apartamento cheirava a café e canela e camomila. O relógio atrasava três minutos. O strudel arrefecia no prato. E Elisa sentou-se no balcão, e bebeu mais café, e comeu mais strudel, e não pensou em números.
+[2026-06-01 04:12:02] [SUBPROCESS] 
+[2026-06-01 04:12:03] [SUBPROCESS] Por um momento — um momento breve, frágil, irreversível — não pensou em números.
+[2026-06-01 04:12:03] [SUBPROCESS] 
+[2026-06-01 04:12:03] [SUBPROCESS] E a entropia, algures no universo, aumentou. Como sempre aumentava. Como sempre aumentaria.
+[2026-06-01 04:12:03] [SUBPROCESS] 
+[2026-06-01 04:12:03] [SUBPROCESS] Mas ali, naquela cozinha, com aquela mulher, o aumento pareceu — pela primeira vez em anos — um preço que valia a pena pagar.
+[2026-06-01 04:12:03] [INFO] Drafted 2989 words
+[2026-06-01 04:12:03] [INFO] RUN: uv run python evaluate.py --chapter=9
+[2026-06-01 04:12:03] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 04:15:35] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 04:15:35] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 04:15:35] [SUBPROCESS] ---
+[2026-06-01 04:15:35] [SUBPROCESS] overall_score: 6.0
+[2026-06-01 04:15:35] [SUBPROCESS] voice_adherence: 7 -- The voice profile calls for Elisa's narration to use physics/thermodynamics as its metaphorical domain, and to vary sentence length — long in deduction, short in crisis. The chapter mostly achieves this, but occasionally the prose slips into a more generic literary register, especially in emotional peaks. The strongest voice moments are when Elisa's scientific precision bleeds into her observations (e.g., noting the oven thermostat, the coffee film, the granite's density). The weakest moments are when the narrator explains Elisa's emotions instead of rendering them through her characteristic lens.
+[2026-06-01 04:15:35] [SUBPROCESS] beat_coverage: 8 -- All five beats from the outline are present and dramatized rather than summarized. The strudel-making scene (beats 1-2) is particularly well-executed — the flour on Helena's hands, the knife with the cracked handle, the unsaid words about Béla. Beat 3 (Elisa's recognition of her own unsaid words) is the emotional core and lands well, though it could be tighter. Beat 4 (the strudel tasting) is beautifully handled. The chapter earns its 'Fun and Games' beat designation — it's quiet, character-focused, and emotionally rich.
+[2026-06-01 04:15:35] [SUBPROCESS] character_voice: 7 -- Elisa's voice is consistently rendered — her precision, her pauses, her inability to filter emotional questions. Helena is mostly strong but occasionally rises to a level of aphoristic clarity that feels more like the author speaking through her than Helena speaking. The dialogue without tags is mostly distinguishable: Elisa is formal and direct, Helena is warm and circular. The 'Bom?' / 'Yes.' / 'Mentiu.' exchange is excellent — it's the best dialogue moment in the chapter, and it needs no tags.
+[2026-06-01 04:15:35] [SUBPROCESS] plants_seeded: 7 -- The four plants from the outline are all present: (1) Helena's unsaid words echoing Elisa's, (2) the strudel as Elisa's first sensory pleasure in weeks, (3) Helena talking to plants as metaphor for listening without measurement, (4) the basil as mirror. All are well-integrated. The strudel plant is the most subtle and effective — it's never called a 'plant,' it's just a thing that happens, and it pays off emotionally.
+[2026-06-01 04:15:35] [SUBPROCESS] prose_quality: 7 -- The prose is generally strong, with good sentence variety and specific sensory detail. The weakest pattern is the repetition of 'Elisa sentiu algo que não classificou' — it appears twice with near-identical phrasing, which is a classic AI tic (reaching for the same construction). The strongest moments are the concrete, specific ones: the flour on Helena's hands, the Bialetti with the glued handle, the sugar falling on the strudel. The chapter's final paragraph is beautiful but slightly over-written — 'um preço que valia a pena pagar' is a conclusion the reader should reach alone.
+[2026-06-01 04:15:35] [SUBPROCESS] continuity: 8 -- The chapter follows logically from Chapter 8. Elisa has just discovered the Evromind files on her USB drive (in her left pocket, not the right where the granite is). She is processing the fact that there are at least 20 people like Helena. Her decision to visit Helena without warning is a direct consequence — she needs to see Helena as a person, not a data point, before she can process what the files mean. The emotional continuity tracks: Elisa is in a state of controlled crisis, and this chapter is the pressure valve. The only minor discontinuity is that the USB drive and the 19 other cases are never mentioned in this chapter — Elisa has life-altering information in her pocket and never once thinks about it during the entire visit. This could be intentional (she's compartmentalizing) but it needs at least one moment of awareness.
+[2026-06-01 04:15:35] [SUBPROCESS] canon_compliance: 8 -- No major canon violations. All physical descriptions match (Helena's hands, the apartment, the clock, the basil). The IC values are consistent. The timeline is coherent. The emotional states of both characters are consistent with their character sheets. The Bialetti detail and the cooking lineage are new additions that don't contradict existing canon.
+[2026-06-01 04:15:35] [SUBPROCESS] lore_integration: 7 -- The lore works in this chapter primarily through contrast — the IC system is present as the invisible framework that makes Helena's existence impossible, and the entire scene is an implicit argument against the system's completeness. The basil's IC being higher than Helena's is the sharpest lore integration. But the chapter could do more to connect the personal moment to the larger plot — the Evromind discovery is too big to ignore for an entire chapter.
+[2026-06-01 04:15:35] [SUBPROCESS] engagement: 7 -- The chapter is engaging because the central relationship — Elisa and Helena — is compelling. The strudel scene is genuinely warm without being saccharine. The unsaid-words parallel is the chapter's emotional high point and it earns its weight. The chapter does something a generic AI draft wouldn't: it lets two people sit in a kitchen and say very little, and makes it riveting. The 'almost-laugh' moment is a standout — it's specific, surprising, and true to Elisa's character. The chapter loses points for predictability in its final beat and for not integrating the Chapter 8 plot development.
+[2026-06-01 04:15:35] [SUBPROCESS] three_weakest_sentences: ['Elisa sentiu algo que não classificou. Não era empatia — era curiosidade científica, era outra coisa, uma coisa que não tinha nome no vocabulário que ela usava.', 'Elisa sentiu algo que não classificou. Não é empatia — é reconhecimento. A mãe morreu sem despedida.', 'E a entropia, algures no universo, aumentou. Como sempre aumentava. Como sempre aumentaria. Mas ali, naquela cozinha, com aquela mulher, o aumento pareceu — pela primeira vez em anos — um preço que valia a pena pagar.']
+[2026-06-01 04:15:35] [SUBPROCESS] three_strongest_sentences: ['O açúcar caiu como neve sobre um campo dourado.', 'Elisa quase riu. Quase. O som subiu da garganta e parou a meio, como um tremor de terra que não chega a ser sismo.', 'A faca ficou imóvel sobre a tábua. Não a largou — ficou com os dedos no cabo, como se a faca fosse uma extensão da mão e largá-la seria largar uma parte de si.']
+[2026-06-01 04:15:35] [SUBPROCESS] ai_patterns_detected: ["Repeated construction: 'Elisa sentiu algo que não classificado' appears twice with near-identical phrasing", 'Emotional beats arriving on schedule: the chapter follows a predictable emotional arc (distance → connection → vulnerability) without surprises', 'Symmetry addiction: the chapter is structured in three perfectly balanced movements (kitchen/strudel, eating/strudel, balcony/basil) — real scenes are lumpier', 'Internal monologue explaining what the scene already showed: the final paragraph tells the reader what to feel about the strudel scene they just read', 'Description that catalogs: the balcony scene lists plants (manjericão, alecrim, tomilho, salsa, cravos, begónias) when 2 specific ones would be sharper']
+[2026-06-01 04:15:35] [SUBPROCESS] weakest_dimension: prose_quality
+[2026-06-01 04:15:35] [SUBPROCESS] top_3_revisions: ["Cut the first instance of 'Elisa sentiu algo que não classificou' entirely — let the feeling build and only name it once, during the strudel scene. Replace the generic phrasing with domain-specific language from Elisa's physics vocabulary.", 'Add one moment where Elisa is aware of the USB drive in her left pocket — not consciously thinking about it, but her hand drifting to it, or the weight of it registering. This integrates the Chapter 8 plot development into the character scene and creates silent tension between her growing human connection with Helena and the life-altering data in her coat.', "Cut or radically revise the final paragraph. Either end on 'não pensou in números' (trust the reader) or add one unexpected, concrete detail that breaks the predictable emotional cadence — something small, specific, and surprising that the reader doesn't see coming."]
+[2026-06-01 04:15:35] [SUBPROCESS] new_canon_entries: ['Helena faz strudel usando uma receita oral transmitida pela mãe e pela avó — nenhuma delas usava receita escrita', 'Helena possui uma cafeteira Bialetti de alumínio antiga com o cabo colado', 'O apartamento de Helena tem uma estante com livros em húngaro, alemão e eslovaco', 'Helena lava as mãos com água quente, sabão, três passagens — metódico', "O relógio de parede do apartamento tem tique-taque irregular, 'como um coração com arritmia benigna'"]
+[2026-06-01 04:15:35] [SUBPROCESS] slop: N/A --
+[2026-06-01 04:15:35] [SUBPROCESS] raw_judge_score: 7
+[2026-06-01 04:15:35] [SUBPROCESS] 
+[2026-06-01 04:15:35] [SUBPROCESS] eval_log: /mnt/d/Dev/autobook/eval_logs/20260601_041535_ch09.json
+[2026-06-01 04:15:35] [INFO] Chapter 9 score: 6.0
+[2026-06-01 04:15:35] [INFO] RUN: git add -A
