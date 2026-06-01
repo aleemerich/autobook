@@ -1,1 +1,7 @@
 timestamp	phase	score	words	keep_discard	description
+b612c17	ch01	6.0	2375	keep	Chapter 1 (attempt 1)
+discarded	ch02	4.5	2918	discard	Chapter 2 attempt 1
+discarded	ch02	-1.0	3406	discard	Chapter 2 attempt 2
+discarded	ch02	4.5	3212	discard	Chapter 2 attempt 3
+discarded	ch02	3.7	4608	discard	Chapter 2 attempt 4
+discarded	ch02	4.0	4388	discard	Chapter 2 attempt 5
