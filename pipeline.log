@@ -10149,3 +10149,358 @@
 [2026-06-01 04:15:35] [SUBPROCESS] eval_log: /mnt/d/Dev/autobook/eval_logs/20260601_041535_ch09.json
 [2026-06-01 04:15:35] [INFO] Chapter 9 score: 6.0
 [2026-06-01 04:15:35] [INFO] RUN: git add -A
+[2026-06-01 04:15:36] [INFO] RUN: git commit -m "ch09: score 6.0, 2989w" --allow-empty
+[2026-06-01 04:15:36] [SUBPROCESS] [autobook/a-prova-final a14e5cd] ch09: score 6.0, 2989w
+[2026-06-01 04:15:36] [SUBPROCESS] 4 files changed, 466 insertions(+), 1 deletion(-)
+[2026-06-01 04:15:36] [SUBPROCESS] create mode 100644 chapters/ch_09.md
+[2026-06-01 04:15:36] [INFO] RUN: git rev-parse --short HEAD
+[2026-06-01 04:15:36] [SUBPROCESS] a14e5cd
+[2026-06-01 04:15:36] [INFO] GIT COMMIT: a14e5cd — ch09: score 6.0, 2989w
+[2026-06-01 04:15:36] [INFO] ------------------------------------------------------------
+[2026-06-01 04:15:36] [INFO] Drafting Chapter 10/22
+[2026-06-01 04:15:36] [INFO] ------------------------------------------------------------
+[2026-06-01 04:15:36] [INFO] Attempt 1/5
+[2026-06-01 04:15:36] [INFO] RUN: uv run python draft_chapter.py 10
+[2026-06-01 04:15:37] [SUBPROCESS] Drafting Chapter 10...
+[2026-06-01 04:15:37] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 04:22:36] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 04:22:36] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 04:22:36] [SUBPROCESS] Saved to /mnt/d/Dev/autobook/chapters/ch_10.md
+[2026-06-01 04:22:36] [SUBPROCESS] Word count: 4114
+[2026-06-01 04:22:36] [SUBPROCESS] # Capítulo 10 — O Artigo
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] O e-mail chegou às 06h47, hora de Zurique, 05h47 hora de Lisboa — o fuso que Elisa ainda carregava no sangue, Lisboa sendo o corpo e Zurique sendo o exílio. Estava sentada à secretária do escritório temporário no ETH, com a luz de pé acesa e a luz principal apagada, como sempre, como todas as noites, como se a luz principal fosse uma confissão demasiado grande para fazer às três da manhã. O café na caneca ao lado já estava frio. O último gole tinha sido às 04h12. Agora era 06h47 e o café tinha arrefecido o suficiente para ter um sabor a metal dissolvido e a algo que não era exactamente ranço mas que vivia na mesma vizinhança.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] O assunto do e-mail dizia: "Breve — Não publique antes de nós."
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] O remetente era o endereço institucional da *Nature*. Elisa conhecia aquele tipo de aviso. Já o recebera antes — em 2023, quando o seu próprio artigo estava prestes a sair, e depois em 2025, quando um grupo em Tóquio tentou publicar uma refutação do formalismo que se revelou, no final, um erro de calibração deles. "Breve — Não publique antes de nós" significava que algo estava prestes a sair sobre ela, ou sobre o seu trabalho, ou sobre algo que ela preferiria saber primeiro.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] Abriu o e-mail.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] O corpo era curto. Três parágrafos. Yuki Tanaka, editora de física e neurociência da *Nature*, informava que um artigo seria publicado na edição digital dentro de 12 horas. O artigo abordava "a anomalia do índice de consciência associada à paciente Helena Varga." Incluía dados. Incluía uma entrevista com "uma fonte próxima da família." Incluía o valor do IC de Helena — 0,001 Dk — e uma análise técnica que, mesmo sem ler, Elisa sabia que seria rigorosa, factual e devastadora.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] Não autorizara aquilo. Ninguém no comité de ética do USZ autorizara aquilo. A única pessoa que podera falar com a *Nature* sem autorização institucional era Mirela.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] Elisa leu o e-mail três vezes. Fechou o portátil. Ficou sentada no escuro — a luz de pé projectava um cone amarelo sobre a secretária, e fora desse cone o escritório era penumbra, prateleiras de livros em alemão que não lia, o quadro branco com equações que escrevera às 02h30 e que já não se lembrava de ter escrito.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] Mirela. Tinha de ter sido Mirela. Ninguém mais tinha acesso à família. Ninguém mais razão para —
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] Elisa abriu o portátil outra vez. Abriu o navegador. Escreveu o nome de Yuki Tanaka na barra de pesquisa. O primeiro resultado era o artigo. Não o breve — o artigo completo. Publicado em pré-impressão no repositório da *Nature* trinta minutos antes do e-mail.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] O título: "Anomalia no Índice de Consciência: Uma mulher com IC de 0,001 desafia o formalismo Dragovski."
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] Elisa clicou.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] O artigo ocupava doze páginas. Formato standard da *Nature*: resumo, introdução, métodos, resultados, discussão, referências. Yuki tinha feito o que se esperava de uma boa jornalista científica — não especular. Apresentar. Os dados estavam lá: os três testes de IC, as datas, os valores (0,0011, 0,0009, 0,0013), a margem de erro (± 0,0002). A descrição de Helena era clínica mas completa: 67 anos, reformada, funções cognitivas preservadas, memória intacta, linguagem funcional, respostas emocionais adequadas. O contraste entre o número e a pessoa era apresentado sem comentário editorial, o que o tornava mais violento do que qualquer opinião.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] Na secção de discussão, Yuki citava três especialistas. Dois desconhecidos de Elisa. O terceiro era Renan.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] "Não há precedente para este tipo de dissociação entre função cognitiva e índice de consciência," dizia a citação de Renan. "Ou o aparelho está a medir a variável errada, ou o nosso entendimento da relação entre consciência e termodinâmica é fundamentalmente incompleto. Em qualquer dos casos, o formalismo Dragovski enfrenta o seu primeiro desafio empírico sério."
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] Elisa parou de ler. Olhou para a frase. "O formalismo Dragovski enfrenta o seu primeiro desafio empírico sério." Renan tinha dito aquilo. Renan, que durante 15 anos sentara ao lado dela em salas de reunião, que bebera com ela champanhe no dia do Nobel, que escrevera metade das demonstrações que sustentavam o formalismo — Renan tinha dado uma citação que destruía tudo.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] Fechou o navegador. Abriu o e-mail outra vez. Havia recebido outros três desde que abrira o da *Nature*. Depois sete. Depois doze. O número no canto superior do ecrã aumentava enquanto ela olhava: 12, 23, 34, 47.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] Abrira uma comporta.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] Elisa leu os primeiros cinco e-mails. O primeiro era de um professor de bioética em Edimburgo: "Doutora Dragovski, a anomalia de Helena Varga levanta questões fundamentais sobre a validade do IC como métrica de certificação. Solicito esclarecimentos urgentes." O segundo era de um grupo chamado "Coalizão pela Dignidade Artificial": "Finalmente a verdade. O IC é uma fraude. Processem-nos." O terceiro era de um colega do ETH: "Elisa, estás a ver isto? Liga-me." O quarto era de uma organização religiosa que Elisa nunca ouvira falar — "A Igreja da Alma Imensurável" — com o assunto: "Helena Varga é a prova." O quinto era de Marcus.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] Marcus escrevia sempre em alemão, com frases que se atropelavam umas às outras, como se o teclado não conseguisse acompanhar o pensamento.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] "Elisa. Li o artigo. É real? Os dados são reais? O IC não pode ser 0,001. Não pode. Mas se é — e os dados parecem sólidos, a Yuki não é incompetente — então temos um problema do tamanho do universo. Liga-me. Agora. Não leias os outros e-mails primeiro. Liga-me."
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] Elisa não ligou. Continuou a ler. Os e-mails sucediam-se com uma velocidade que não era natural — 53, 68, 81, 94. Alguns exigiam explicações. Outros celebravam. Os grupos declaravam Helena como prova de tudo o que sempre acreditaram: os religiosos diziam que a alma existia e a ciência não a podia capturar; os transumanistas diziam que o IC estava morto e que a inteligência artificial avançada devia ser libertada das restrições de certificação; os activistas pelos direitos dos animais diziam que se uma pessoa podia ter o IC de uma rocha, então todas as rochas tinham de ser consideradas.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] As ações da Nexion, Tianzi e Evromind caíam. Elia isso num e-mail de um analista financeiro que não conhecia: "As três certificadoras perderam, em conjunto, 4,7 bilhões de valor de mercado nas últimas duas horas de negociação em Hong Kong. A tendência é de agravamento quando Nova York abrir."
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] Elisa leu até ao e-mail 127. Depois parou. Seleccionou todos. Carregou em apagar.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] A caixa de entrada ficou vazia. Zero e-mails. Zero exigências. Zero celebrações. Zero provas da alma.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] O escritório estava silencioso. A luz de pé zumbia — um som agudo, quase inaudível, que Elisa só notava quando tudo o resto parava. O relógio de pulso marcava 07h23. Em quarenta minutos, tinha uma reunião de emergência convocada pelo director do departamento.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] O telefonou tocou. Marcus. Elisa ol para o ecrã. Deixou tocar. Parou. Tornou a tocar ao fim de oito segundos.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] — Elisa. — A voz de Marcus era rápida, ofegante, como se tivesse corrido. — Elisa, atendeste?
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] — Estou aqui.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] — O artigo é real?
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] — É.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] — Os dados são reais?
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] — Sim.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] Pausa. Elisa ouviu Marcus respirar. Depois ouviu-o abrir uma lata — refrigerante, provavelmente, ou cerveza. Marcus bebia coisas com gás quando estava em pânico.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] — A Yuki citou o Renan — disse Marcus.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] — Eu vi.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] — O Renan deu-lhe essa citação.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] — Sim.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] — Ele disse "o formalismo enfrenta o seu primeiro desafio empírico sério." Ele disse aquilo.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] — Disse, sim.
+[2026-06-01 04:22:36] [SUBPROCESS] 
+[2026-06-01 04:22:36] [SUBPROCESS] Outra pausa. Mais um gole.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — O que é que vais fazer? — perguntou Marcus.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] Elisa olhou para a secretária. Para a caneca de café frio. Para o portátil fechado. Para o disco USB no bolso esquerdo do casaco, onde estavam os ficheiros encriptados da Evromind — os dezanove sujeitos com IC abaixo de 0,01, os dezanove erros de medição que não eram erros, as dezanove Helenas que o mundo ainda não conhecia.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — Vou à reunião — disse.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — E depois?
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — Depois tenho trabalho.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] Desligou. O telefone tocou outra vez — Marcus, provavelmente — mas Elisa levantou-se, pegou no casaco, e saiu do escritório.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] O corredor do terceiro andar do ETH tinha o eco particular que ela já conhecia — passos que soavam como gotas de chuva num telhado de zinco. As janelas altas mostravam um céu cinzento. Sempre cinzento. Zurique em Março não era uma cidade — era uma atmosfera, uma pressão, um peso de nuvens que não se decidia entre a neve e a chuva e optava por não ser nenhuma das duas.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] A sala de reuniões ficava no segundo andar. Elisa desceu as escadas — não o elevador, nunca o elevador, os espaços fechados sem janelas eram insuportáveis quando já se estava dentro de um espaço fechado sem janelas, que era como Elisa pensava no seu próprio crânio.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] O director do departamento chamava-se Prof. Dr. Stefan Wenger. Sessenta e dois anos, cabelo branco cortado à príncepe de Orange, fato cinzento que usava como uma segunda pele. Wenger era um administrador competente e um cientista medíocre — a combinação perfeita para dirigir um departamento de física teórica sem nunca perceber exactamente o que os seus investigadores faziam.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] Elisa abriu a porta da sala. Wenger estava sentado à cabeceira da mesa oval. Com ele estavam três pessoas que Elisa reconhecia: a vice-directora, a responsável pelas relações públicas, e um advogado do gabinete jurídico do ETH. Quatro pessoas. Quatro expressões de gravidade institucional.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — Doutora Dragovski — disse Wenger. — Sente-se.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] Elisa sentou-se. Não tirou o casaco.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — O senhor leu o artigo — disse. Não era uma pergunta.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — Li. — Wenger abriu uma pasta. Dentro havia uma impressão do artigo, com parágrafos assinalados a amarelo. — A senhora sabia disto?
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — Sabia que havia uma anomalia. Não sabia que ia ser publicada na *Nature*.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — A família autorizou?
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — Não sei. Não por mim.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] Wenger olhou para a vice-directora. A vice-directora olhou para a responsável pelas relações públicas. A responsável pelas relações públicas olhou para o advogado. O advogado olhou para uma folha de papel que tinha à frente, como se o papel pudesse dizer-lhe o que fazer.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — A situação é a seguinte — disse Wenger. — Desde as seis da manhã, o gabinete de imprensa recebeu 83 pedidos de entrevista. A *BBC*, a *CNN*, a *Der Spiegel*, a *Folha de São Paulo*. Todos querem falar connosco. Todos querem uma declaração.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] Elisa esperou.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — O ETH precisa de emitir um comunicado público — continuou Wenger. — Breve, factual, que confirme a anomalia e garanta que a investigação está em curso.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — Não.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] Wenger piscou.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — Não?
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — Não vou emitir um comunicado sobre dados que ainda não foram revistos por pares. O artigo da *Nature* é uma pré-impressão. Não passou por revisão. Não é ciência publicada — é jornalismo científico.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — Doutora Dragovski, o mundo não espera pela revisão por pares. O mundo quer respostas agora.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] Elisa olhou para ele. Wenger tinha uma qualidade que ela reconhecia — a de quem nunca precisou de esperar por nada que não fosse o café da máquina. Nunca publicara uma teoria que reescrevesse a física. Nunca recebera ameaças de morte. Nunca acordara às três da manhã com o terror de que o universo era mais estranho do que a sua equação permitia.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — O mundo pode esperar — disse Elisa.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — O ETH não pode.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — O ETH é uma instituição científica. Instituições científicas não comunicam especulação. Quando tiver dados revistos, publico.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — A senhora não está a compreender a gravidade — disse Wenger. A sua voz subiu meio tom, o que para Wenger equivalia a um grito. — As ações das certificadoras estão a cair. Há grupos religiosos a manifestar-se em frente ao USZ. Há uma petição online com 200 mil assinaturas a pedir que o IC seja retirado como métrica legal. Isto não é apenas ciência. Isto é —
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — Eu sei o que isto é.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — Então compreenda que o silêncio é pior do que uma declaração.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] Elisa levantou-se. O casaco fez um som — o disco USB no bolso esquerdo bateu contra a coxa. O granito no bolso direito respondeu com o seu peso mudo.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — Não vou comunicar especulação — repetiu. — Quando tiver dados, publico. Se o ETH quiser emitir um comunicado institucional sem mim, é problema do ETH.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] Wenger abriu a boca. Fechou-a. Olhou para o advogado, que levantou a folha de papel e disse, com a voz suave de quem está a ler algo que escreveu à pressa:
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — Doutora, o contrato de investigação com a Evromind estipula que descobertas relevantes devem ser comunicadas ao financiador antes da divulgação pública. Se a anomalia já era conhecida pela senhora e não foi comunicada —
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — A anomalia foi reportada internamente há duas semanas. O relatório está no sistema. A Evromind recebeu uma cópia.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] O advogado olhou para Wenger. Wenger olhou para a vice-directora. Ninguém disse nada.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] Elisa saiu.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] O corredor era o mesmo — eco de passos, luz cinzenta das janelas, cheiro a papel velho e a marcador de quadro branco. Mas agora havia alguém encostado à parede, à espera. Marcus. Camisa de flanela com as mangas arregaçadas, óculos a escorregarem pelo nariz, uma canela de refrigerante na mão direita e o telefone na esquerda.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — Ouvi a porta — disse Marcus. — Deste-lhe o silêncio.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] — Dei-lhe o que ele merecia.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:37] [SUBPROCESS] Marcus empurrou os óculos para cima. Bebeu um gole da canela.
+[2026-06-01 04:22:37] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — Elisa, isto vai piorar.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — Já é pior.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — Não, não é. — Marcus inclinou-se para a frente, baixou a voz. — O que terás daqui a uma semana? Jornalistas acampados à porta. Políticos a pedir inquéritos. As três certificadoras a contratar advogados. E a Evromind — a Evromind não vai ficar quieta. Ofereceram-te um laboratório privado ilimitado. Não é generosidade. É uma armadilha. Se aceitares, és dela. Se recusas, são elas que controlam a narrativa.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] Elisa conhecia isto. Marcus não estava a dizer nada que ela não soubesse. Mas havia algo na forma como ele dizia — rápido, urgente, com os olhos por trás dos óculos grandes a piscar mais do que o normal — que fez Elisa pensar na filha dele. Lina. Vinte e seis anos. Epilepsia refratária. Um cérebro que não cabia em nenhum modelo.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — Eu sei — disse Elisa.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — Então o que vais fazer?
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] Ela não respondeu. Continuou a andar. Marcus seguiu-a — os passos dele eram mais longos, mais rápidos, tinha de andar depressa para acompanhar o ritmo curto e determinado dela.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — Elisa.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — Não sei ainda, Marcus.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — O Renan deu uma citação pública contra o formalismo. O Renan. O teu coautor.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — Eu sei.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — O que é que vais fazer? — repetiu Marcus.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] Elisa parou. Virou-se para ele. Tinha o granito no bolso direito e o disco USB no bolso esquerdo e o café frio ainda no estômago e 200 e-mails apagados na caixa de entrada e o artigo da *Nature* a circular pelo mundo como um vírus, e Marcus estava ali, com a canela de refrigerante e os óculos a escorregar, a perguntar o que ela ia fazer, como se houvesse uma resposta que não fosse simplesmente continuar.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — Vou trabalhar — disse.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] Saiu do edifício.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] O ar de Março cortava. Frio, húmido, com cheiro a terra molhada e a combustão de diesel. O céu era baixo — tão baixo que Elisa sentia que podia tocar-lhe se esticasse o braço, o que não era verdade, Zurique tinha edifícios altos e o céu estava longe, mas a sensação era essa: um tecto de pedra húmida a deslizar sobre a cidade como uma tampa.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] O telefonou tocou. Número desconhecido. Elisa atendeu.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — Doutora Dragovski? — Voz masculina, britânico, Oxford. Renan.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] Elisa não disse nada. Esperou.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — Vi o artigo — disse Renan. A voz era a mesma — formal, precisa, sem contracções. Como se cada frase tivesse sido ensaiada antes de ser dita. — Liguei para informar que o departamento de física de Oxford está a considerar uma reavaliação da minha associação pública ao formalismo.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — Uma reavaliação.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — Sim.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — O senhor quer distância.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] Silêncio. Meio segundo. Um segundo.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — Quero clareza — disse Renan. — Se a anomalia de Helena Varga for real, o formalismo precisa de revisão. Se não for real, precisa de defesa. Não posso manter uma posição pública ambígua.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — A anomalia é real.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — Preciso de ver os dados.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — Os dados estão no artigo.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — O artigo é uma pré-impressão. Não confio em pré-impressões.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] Elisa fechou os olhos. O frio entrava pelo casaco. O granito no bolso direito pressionava contra a coxa.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — Renan, há quinze anos que trabalhamos juntos.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — E durante quinze anos o formalismo funcionou. Agora não funciona. A ciência não é lealdade, Elisa. É evidência.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — Eu sei o que a ciência é.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — Então compreenda que não posso defender algo que não compreendo.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] Elisa abriu os olhes. Olhou para o céu cinzento. O céu não respondeu. O céu nunca respondia.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] — Compreendo — disse.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] Desligou.
+[2026-06-01 04:22:38] [SUBPROCESS] 
+[2026-06-01 04:22:38] [SUBPROCESS] Ficou parada na escadaria exterior do ETH. O disco USB no bolso esquerdo pesava como uma acusação. O granito no bolso direito pesava como uma oração. O telefonou tocou outra vez — não era Renan, era um número suíço que não reconheceu. Depois outro. Depois outro. Desligou o som.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Caminhou até ao escritório. Não se lembra do caminho — o corpo fazia-o sozinho, as pernas sabiam, o cérebro estava noutro lugar. No escritório, sentou-se. O portátil estava fechado. Abriu-o. Zero e-mails novos. Tinha apagado todos. O artigo da *Nature* continuava lá, no navegador, doze páginas de rigor factual que destruíram o mundo de Elisa numa manhã de Março.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Abriu o disco rígido externo que guardava na gaveta da secretária. Não era o disco USB do bolso — era mais antigo, um disco de 2018 que trouxera de Viena quando se mudara para Zurique. Dentro estavam os dados do CERN. Os dados que guardara durante nove anos. Os padrões anómalos nas colisões de alta energia que ninguém quis ver, que o comité de revisão classificara como ruído estatístico, que Elisa guardara porque sabia — sem saber que sabia — que um dia precisaria deles.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Os dados do CERN. Os dados de Helena. Vinte ficheiros da Evromind com dezanove sujeitos que não deviam existir.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Elisa abriu a pasta. Os ficheiros apareceram — colunas de números, gráficos de dispersão, espectros de energia. Dados de 2018. Dados de 2025. Dois conjuntos separados por sete anos e por um oceano de ignorância.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Sobrepôs os gráficos.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] A correlação era fraca. Não era evidente. Não era o tipo de coisa que um algoritmo de detecção de padrões notaria. Mas estava lá — uma correspondência entre os picos de energia anómalos no CERN e os valores de IC dos sujeitos da Evromind. Uma relação que não deveria existir. Uma relação que, se fosse real, significava que a anomalia de Helena não era um fenómeno isolado. Era parte de algo maior. Algo que o CERN detectara em 2018 e que a Evromind encontrara em 2025 e que o formalismo de Elisa não previa porque não podia prever — porque o formalismo descrevia a consciência como um processo termodinâmico local, e aquilo — aquela correlação entre dados de partículas e dados de consciência — sugeria que a consciência era algo que operava numa escala que Elisa nunca considerara.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Não sabia o que significava. Não tinha nome para aquilo. Não tinha equação.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Mas sabia que era real.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] O escritório estava escuro — a luz de pé era a única fonte, o cone amarelo sobre a secretária, o resto em sombra. O relógio de pulso marcava 01h14. Tinha estado ali durante — quantas horas? De manhã até à noite sem se mover, sem comer, sem beber. O café frio na caneca. A canela de refrigerante que não era dela. Os e-mails apagados. O artigo que o mundo inteiro já lera. A citação de Renan. A voz de Renan ao telefone — "A ciência não é lealidade, Elisa. É evidência."
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] A ciência é evidência.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Elisa olhou para o ecrã. Para os dois gráficos sobrepostos. Para a correlação fraca mas presente entre dados de partículas e dados de consciência.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Era real. Não era o que queria — queria que o formalismo estivesse correcto, queria que Helena fosse um erro de medição, queria que o mundo fizesse sentido. Mas o mundo não fazia sentido. O mundo nunca fizera sentido. A mãe morrera aos 19 anos de Elisa com uma equação incompleta num guardanapo, e o universo continuara a expandir-se, indiferente, e a entropia aumentara como sempre aumentava, e Elisa construíra uma carreira inteira a tentar provar que o caos tinha uma estrutura — e tinha, tinha, a estrutura estava ali nos gráficos, nos dados, nas equações — mas a estrutura era maior do que o modelo. O modelo capturava uma camada. Por baixo da camada havia outra. E por baixo dessa, provavelmente, outra.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Fechou o portátil. Guardou o disco rígido na gaveta. Fechou a gaveta. O escritório mergulhou na penumbra.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Levantou-se. O granito no bolso direito pressionou contra a coxa — o polimento já tinha o formato do seu polegar, 50 milhões de anos de rocha sem um único pensamento, e ali estava Elisa, com os seus 41 anos e os seus pensamentos que desordenavam o universo a cada segundo, cada sinapse um acto de destruição cósmica, cada ideia um passo na direcção da Morte Térmica.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Tocou no granito. Uma vez. Duas.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Saiu do escritório. O corredor estava vazio. As luzes de néon frio. O eco dos passos. A Zurique lá fora, cinzenta, indiferente, com os seus edifícios de betão e vidro e os seus rios que convertiam energia potencial em calor, irreversivelmente, como tudo.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Elisa caminhou. O disco USB no bolso esquerdo. O granito no bolso direito. Dois objectos no mesmo casaco. Um era a prova de que havia mais Helenas. O outro era uma rocha que não pensava.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] A rocha era mais simples.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] A rocha era muito, muito mais simples.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Mas a rocha não fazia perguntas. E Helena fazia. E o mundo — o mundo inteiro, com os seus 200 e-mails e os seus 4,7 bilhões de valor perdido e os seus grupos religiosos e as suas petições e os seus jornalistas acampados — o mundo queria respostas.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Elisa não tinha respostas. Tinha dados. Tinha uma correlação fraca entre dois conjuntos de números que não deviam estar relacionados. Tinha um formalismo que funcionava até deixar de funcionar. Tinha uma amizade de 15 anos que terminou com um e-mail formal que ainda não chegara mas que chegaria — sabia que chegaria, porque Renan era metódico, e metódico significava que o e-mail já estava redigido, provavelmente escrito naquela mesma manhã, provavelmente com o mesmo tom formal e frio da ligação telefónica, provavelmente com frases como "colaboração suspensa" e "até que a anomalia seja resolvida de forma satisfatória."
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] O e-mail chegou às 01h47. Elisa viu-o no telefone enquanto caminhava pelo corredor vazio do ETH, sozinha, com o som dos passos a ecoar como gotas de chuva num telhado de zinco.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] O assunto: "Re: Colaboração Dragovski-Kapoor."
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Abriu. Leu.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] "Doutora Dragovski, Considero a nossa colaboração suspensa até que a anomalia associada à paciente Helena Varga seja resolvida de forma satisfatória. Esta decisão não reflecte uma posição sobre a validade do formalismo, mas sim a necessidade de clareza científica face a dados que, se confirmados, exigem uma revisão substancial do modelo. Agradeço os quinze anos de trabalho conjunto. Com os melhores cumprimentos, Renan Kapoor."
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Elisa leu o e-mail três vezes. A primeira vez para confirmar. A segunda vez para procurar algo que não estava lá — um "lamento," um "espero que compreendas," qualquer coisa que fosse mais do que a linguagem de um contrato a ser rescindido. A terceira vez para aceitar que não havia nada. Que Renan era exactamente aquilo que a mensagem dizia: um homem que separava a ciência da lealdade, a evidência da amizade, o modelo da pessoa que o construiu.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Não respondeu.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Guardou o telefone. Continuou a andar. As portas do ETH estavam fechadas — era noite, o prédio vazio, só ela e a iluminação de emergência e o zumbido dos néons. Abriu a porta. O ar de Março entrou — frio, húmido, com cheiro a terra molhada e a diesel.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Zurique estava cinzenta. O céu não mudava. O tempo passava sem que o céu o confessasse.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] E mesmo assim.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] Elisa caminhou. O disco USB no bolso esquerdo. O granito no bolso direito. Os dados do CERN sobrepostos aos dados de Helena. A correlação fraca mas presente. O formalismo sob ataque. A amizade terminada. O mundo a exigir respostas que ela não tinha.
+[2026-06-01 04:22:39] [SUBPROCESS] 
+[2026-06-01 04:22:39] [SUBPROCESS] E mesmo assim, caminhou.
+[2026-06-01 04:22:39] [INFO] Drafted 4114 words
+[2026-06-01 04:22:39] [INFO] RUN: uv run python evaluate.py --chapter=10
+[2026-06-01 04:22:40] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 04:25:52] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 04:25:52] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 04:25:52] [SUBPROCESS] ---
+[2026-06-01 04:25:52] [SUBPROCESS] overall_score: 6.0
+[2026-06-01 04:25:52] [SUBPROCESS] voice_adherence: 7 -- The chapter generally captures Elisa's voice well — the short sentences in crisis, the technical vocabulary, the directness. But there are moments where the prose slips into a generic literary register that doesn't feel like it's filtered through a physicist's consciousness. The strongest voice moments are when Elisa is thinking in numbers and physical processes.
+[2026-06-01 04:25:52] [SUBPROCESS] beat_coverage: 7 -- All five outline beats are present. The Yuki article publication, the email avalanche, the emergency meeting, the Renan rupture, and the CERN data overlay are all executed. The weakest execution is the Renan beat because it's the most emotionally significant and the most compressed.
+[2026-06-01 04:25:52] [SUBPROCESS] character_voice: 7 -- Elisa's voice is strong and consistent. Renan's dialogue is excellent — formal, precise, no contractions, exactly as specified. The weakest link is Marcus, who needs more of his specific verbal texture.
+[2026-06-01 04:25:52] [SUBPROCESS] plants_seeded: 8 -- The CERN data overlay is the chapter's strongest plant — it's integrated naturally into Elisa's late-night work session and sets up the Act III revelation. The Renan rupture is both a plant (for his role as Elisa's mirror/fear) and a payoff (of the tension established in previous chapters). Well handled overall.
+[2026-06-01 04:25:52] [SUBPROCESS] prose_quality: 6 -- The prose is strongest when it's specific and sensory (the cold coffee, the taste of metal, the neon hum). It's weakest when it falls into rhythmic lists or abstract summaries. The chapter has several passages where consecutive sentences start with the same structure ('O telefonou tocou,' 'Elisa caminhou,' 'O disco USB'), which creates a metronomic quality that undercuts the tension.
+[2026-06-01 04:25:52] [SUBPROCESS] continuity: 8 -- Strong continuity from Chapter 9. Elisa moves from the intimate, quiet moment on Helena's balcony (not thinking in numbers, the entropy 'worth paying') directly into the professional catastrophe of the article's publication. The emotional whiplash is effective — the chapter opens with her in a rare state of peace and systematically strips it away. The granito detail carries over naturally. The USB drive and Evromind files are new elements but don't contradict anything established. The timeline tracks: Chapter 9 was a daytime visit; Chapter 10 begins at 06:47 the next morning.
+[2026-06-01 04:25:52] [SUBPROCESS] canon_compliance: 7 -- No major canon violations. The chapter is consistent with established character descriptions, locations, timeline, and the IC system rules. The Evromind 19-subject detail needs canon verification but doesn't contradict anything.
+[2026-06-01 04:25:52] [SUBPROCESS] lore_integration: 7 -- The CERN data overlay is excellent lore integration — it connects the 2018 anomaly (established in canon) to Helena's case in a way that deepens the mystery. The stock market crash of the three certificators (Nexion, Tianzi, Evromind) is a strong worldbuilding beat that shows the IC's real-world stakes.
+[2026-06-01 04:25:52] [SUBPROCESS] engagement: 7 -- The chapter's strongest engagement moment is the CERN data overlay — the quiet, solitary discovery at 1:14 AM. That's the scene that makes the reader lean in. The Renan email is the strongest emotional beat. The opening (cold coffee, the Nature email) is a strong hook. The chapter loses momentum in the middle and recovers at the end.
+[2026-06-01 04:25:52] [SUBPROCESS] three_weakest_sentences: ['Elisa caminhou. O disco USB no bolso esquerdo. O granito no bolso direito. Os dados do CERN sobrepostos aos dados de Helena. A correlação fraca mas presente. O formalismo sob ataque. A amizade terminada. O mundo a exigir respostas que ela não tinha.', 'O corredor do terceiro andar do ETH tinha o eco particular que ela já conhecia — passos que soavam como gotas de chuva num telhado de zinco.', 'O escritório estava silencioso. A luz de pé zumbia — um som agudo, quase inaudível, que Elisa só notava quando tudo o resto parava.']
+[2026-06-01 04:25:52] [SUBPROCESS] three_strongest_sentences: ['O último gole tinha sido às 04h12. Agora era 06h47 e o café tinha arrefecido o suficiente para ter um sabor a metal dissolvido e a algo que não era exactamente ranço mas que vivia na mesma vizinhança.', 'Renan, que durante 15 anos sentara ao lado dela em salas de reunião, que bebera com ela champanhe no dia do Nobel, que escrevera metade das demonstrações que sustentavam o formalismo — Renan tinha dado uma citação que destruía tudo.', 'A ciência é evidência. Elisa olhou para o ecrã. Para os dois gráficos sobrepostos. Para a correlação fraca mas presente entre dados de partículas e dados de consciência. Era real. Não era o que queria — queria que o formalismo estivesse correcto, queria que Helena fosse um erro de medição, queria que o mundo fizesse sentido.']
+[2026-06-01 04:25:52] [SUBPROCESS] ai_patterns_detected: ['Sentence length uniformity in the closing paragraph — seven consecutive short sentences (4-8 words each) with identical structure', "The 'O telefonou tocou' construction appears four times in the chapter, always as a scene transition", "Emotional beats arrive on schedule: the chapter systematically strips away Elisa's support system (public exposure → institutional pressure → ally concern → friend betrayal → solitary discovery) in a predictable sequence", "The corridor description ('eco particular — passos que soavam como gotas de chuva num telhado de zinco') is repeated verbatim from a previous chapter, which is realistic for a recurring location but reads as a copy-paste", "The USB drive and granito are mentioned in parallel ('disco USB no bolso esquerdo' / 'granito no bolso direito') three times — the symmetry is a tell"]
+[2026-06-01 04:25:52] [SUBPROCESS] weakest_dimension: prose_quality
+[2026-06-01 04:25:52] [SUBPROCESS] top_3_revisions: ['Rewrite the closing paragraph to break the seven-sentence uniform pattern. Select one or two details from the list and ground them in physical, specific experience rather than abstract summary. For example, expand the granito beat into a full sensory moment and cut the rest.', 'Give Marcus his specific verbal texture — the physics metaphors for emotions, the self-interrupting sentence bursts, the Swiss-German slang, the isqueiro fidget. His current dialogue is functional but generic.', "Vary the three 'external pressure' scenes (Wenger, Marcus, Renan) by changing the physical dynamics and emotional register of each. The Wenger meeting is institutional/cold — keep that. Make the Marcus scene quieter and more personal (walking side by side, not facing each other). Make the Renan phone call contain a moment where the old friendship almost surfaces before the formal mask reasserts itself."]
+[2026-06-01 04:25:52] [SUBPROCESS] new_canon_entries: ['Elisa has a USB drive in her left coat pocket containing encrypted Evromind files on 19 subjects with IC below 0.01 Dk', "The 2018 CERN anomaly data, when overlaid with Helena's IC data, shows a weak but present correlation between particle collision energy peaks and consciousness index values", 'Renan Kapoor formally suspends his 15-year collaboration with Elisa via email on the day the Nature article is published', "The three certificators (Nexion, Tianzi, Evromind) lost 4.7 billion in market value within hours of the article's publication", "Elisa's office at ETH is in the HPF building, third floor, with a desk lamp she uses instead of the main light"]
+[2026-06-01 04:25:52] [SUBPROCESS] slop: N/A --
+[2026-06-01 04:25:52] [SUBPROCESS] raw_judge_score: 7
+[2026-06-01 04:25:52] [SUBPROCESS] 
+[2026-06-01 04:25:52] [SUBPROCESS] eval_log: /mnt/d/Dev/autobook/eval_logs/20260601_042552_ch10.json
+[2026-06-01 04:25:52] [INFO] Chapter 10 score: 6.0
+[2026-06-01 04:25:52] [INFO] RUN: git add -A
