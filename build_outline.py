@@ -17,6 +17,59 @@ load_dotenv(BASE_DIR / ".env")
 # API and models are handled unified via llm.py
 CHAPTERS_DIR = BASE_DIR / "chapters"
 
+def parse_json_response(text):
+    """Extract JSON from a response that might have markdown fences or trailing text."""
+    text = text.strip()
+    text = re.sub(r'```json\s*', '', text)
+    text = re.sub(r'```\s*', '', text)
+    text = text.strip()
+    
+    start = text.find('{')
+    if start == -1:
+        raise ValueError("No JSON object found in response")
+        
+    depth = 0
+    in_string = False
+    escape = False
+    for i in range(start, len(text)):
+        c = text[i]
+        if escape:
+            escape = False
+            continue
+        if c == '\\' and in_string:
+            escape = True
+            continue
+        if c == '"' and not escape:
+            in_string = not in_string
+            continue
+        if in_string:
+            continue
+        if c == '{':
+            depth += 1
+        elif c == '}':
+            depth -= 1
+            if depth == 0:
+                try:
+                    return json.loads(text[start:i+1], strict=False)
+                except json.JSONDecodeError:
+                    fixed_slice = re.sub(r'(?<!\\)\n', '\\n', text[start:i+1])
+                    return json.loads(fixed_slice, strict=False)
+                    
+    end = text.rfind('}')
+    if end != -1 and end > start:
+        cleaned_text = text[start:end+1]
+        try:
+            return json.loads(cleaned_text, strict=False)
+        except json.JSONDecodeError:
+            fixed_fallback = re.sub(r'(?<!\\)\n', '\\n', cleaned_text)
+            return json.loads(fixed_fallback, strict=False)
+            
+    try:
+        return json.loads(text, strict=False)
+    except json.JSONDecodeError:
+        fixed = re.sub(r'(?<!\\)\n', '\\n', text)
+        return json.loads(fixed, strict=False)
+
 def call_model(prompt, max_tokens=1500):
     """Call the unified judge LLM via llm.py and return response text."""
     from llm import call_llm
@@ -26,11 +79,7 @@ def call_model(prompt, max_tokens=1500):
         "Output valid JSON only."
     )
     raw = call_llm(prompt=prompt, system_prompt=system, temperature=0.1, is_judge=True)
-    raw = raw.strip()
-    if raw.startswith("```"):
-        raw = re.sub(r'^```\w*\n?', '', raw)
-        raw = re.sub(r'\n?```$', '', raw)
-    return json.loads(raw)
+    return parse_json_response(raw)
 
 def main():
     # Load supporting docs for context
