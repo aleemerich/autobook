@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-tests/test_editorial.py — Unit tests for the run_editorial.py orchestrator, schema loading, hybrid classification, and cascading continuity warning injection.
+tests/test_editorial.py — Unit tests for the run_editorial.py orchestrator, Markdown loading, hybrid classification, and cascading continuity warning injection.
 """
 
 import sys
@@ -13,48 +13,47 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import run_editorial
-from run_editorial import load_editorial_brief, classify_brief_with_ai, parse_score
+from run_editorial import load_editorial_markdown, classify_brief_with_ai, parse_score
 
 @pytest.fixture
 def mock_editorial_file(tmp_path, monkeypatch):
-    temp_file = tmp_path / "editorial_brief.json"
-    monkeypatch.setattr(run_editorial, "EDITORIAL_FILE", temp_file)
+    temp_file = tmp_path / "editorial.md"
+    monkeypatch.setattr(run_editorial, "EDITORIAL_MD", temp_file)
     return temp_file
 
-def test_load_editorial_brief_creates_default(mock_editorial_file):
-    # Verify that if editorial_brief.json does not exist, it gets created with default template
-    # and exits gracefully (which we mock or test the file creation)
+def test_load_editorial_markdown_creates_default(mock_editorial_file):
+    # Verify that if editorial.md does not exist, it gets created with default template
+    # and exits gracefully
     with pytest.raises(SystemExit) as excinfo:
-        load_editorial_brief()
+        load_editorial_markdown()
         
     assert excinfo.value.code == 0
     assert mock_editorial_file.exists()
     
     # Read created template
-    content = json.loads(mock_editorial_file.read_text(encoding="utf-8"))
-    assert "general_notes" in content
-    assert "chapters" in content
-    assert "11" in content["chapters"]
+    content = mock_editorial_file.read_text(encoding="utf-8")
+    assert "# Diretrizes Gerais" in content
+    assert "# Capítulo 11" in content
+    assert "# Capítulo 17" in content
 
-def test_load_editorial_brief_loads_existing(mock_editorial_file):
-    data = {
-        "general_notes": "Test notes",
-        "chapters": {
-            "10": {
-                "brief": "Test brief",
-                "type": "punctual"
-            }
-        }
-    }
-    mock_editorial_file.write_text(json.dumps(data), encoding="utf-8")
+def test_load_editorial_markdown_loads_existing(mock_editorial_file):
+    markdown_content = (
+        "# Diretrizes Gerais\n"
+        "Test notes\n\n"
+        "# Capítulo 10\n"
+        "Test brief\n"
+        "affects_downstream: 11, 12\n"
+    )
+    mock_editorial_file.write_text(markdown_content, encoding="utf-8")
     
-    loaded = load_editorial_brief()
-    assert loaded["general_notes"] == "Test notes"
-    assert loaded["chapters"]["10"]["brief"] == "Test brief"
+    loaded = load_editorial_markdown()
+    assert "Test notes" in loaded["general_notes"]
+    assert "Test brief" in loaded["chapters"][10]["brief"]
+    assert loaded["chapters"][10]["affects_downstream"] == [11, 12]
+    assert loaded["chapters"][10]["type"] == "continuity_breaking"
 
 @patch("llm.call_llm")
 def test_classify_brief_with_ai_punctual(mock_call):
-    # Mock LLM returning punctual JSON
     response_json = """
     {
       "type": "punctual",
@@ -71,7 +70,6 @@ def test_classify_brief_with_ai_punctual(mock_call):
 
 @patch("llm.call_llm")
 def test_classify_brief_with_ai_continuity_breaking(mock_call):
-    # Mock LLM returning continuity_breaking JSON
     response_json = """
     {
       "type": "continuity_breaking",
@@ -95,17 +93,13 @@ def test_parse_score():
 @patch("run_editorial.run_tool")
 @patch("builtins.input")
 def test_run_editorial_abort(mock_input, mock_run_tool, mock_classify, mock_editorial_file, monkeypatch):
-    # Mock editorial brief with one chapter
-    data = {
-        "general_notes": "Test notes",
-        "chapters": {
-            "10": {
-                "brief": "Punctual edit",
-                "type": "punctual"
-            }
-        }
-    }
-    mock_editorial_file.write_text(json.dumps(data), encoding="utf-8")
+    markdown_content = (
+        "# Diretrizes Gerais\n"
+        "Test notes\n\n"
+        "# Capítulo 10\n"
+        "Punctual edit\n"
+    )
+    mock_editorial_file.write_text(markdown_content, encoding="utf-8")
     
     # Mock AI returning punctual
     mock_classify.return_value = {

@@ -3,6 +3,7 @@
 run_editorial.py — Automated Editorial Revision Pipeline.
 Coordinates human-directed chapter revisions, analyzing impacts via a hybrid approach (User + AI),
 presenting a non-sycophantic critique, and handling downstream continuity cascades.
+Loads and parses editorial.md.
 """
 
 import os
@@ -19,34 +20,73 @@ sys.path.insert(0, str(BASE_DIR))
 
 from run_pipeline import run_tool, log_msg, banner, step, git_add_commit, git_reset_hard
 
-EDITORIAL_FILE = BASE_DIR / "editorial_brief.json"
+EDITORIAL_MD = BASE_DIR / "editorial.md"
 CHAPTERS_DIR = BASE_DIR / "chapters"
 BRIEFS_DIR = BASE_DIR / "briefs"
 
-def load_editorial_brief() -> dict:
-    """Load or initialize the editorial brief file."""
-    if not EDITORIAL_FILE.exists():
-        default_content = {
-            "general_notes": "Aumentar o realismo científico nos diálogos e remover vícios de escrita típicos de IA (como repetições em tríade).",
-            "chapters": {
-                "11": {
-                    "brief": "Padre Tomás Delgado deve ser mais enigmático e fazer perguntas desafiadoras em vez de longos discursos expositivos.",
-                    "type": "punctual"
-                }
-            }
-        }
-        with open(EDITORIAL_FILE, "w", encoding="utf-8") as f:
-            json.dump(default_content, f, indent=2, ensure_ascii=False)
-        log_msg(f"Criado arquivo de template editorial em: {EDITORIAL_FILE}")
-        log_msg("Edite este arquivo com suas correções antes de rodar o pipeline editorial.")
+def load_editorial_markdown() -> dict:
+    """
+    Parse the centralized editorial.md file.
+    Returns a dict with 'general_notes' and 'chapters' {ch_num: {'brief': str, 'type': str, 'affects_downstream': list}}.
+    """
+    if not EDITORIAL_MD.exists():
+        default_content = (
+            "# Diretrizes Gerais\n"
+            "- Aumentar o realismo científico nos diálogos.\n"
+            "- Remover vícios de escrita típicos de IA (como repetições em tríade).\n\n"
+            "# Capítulo 11\n"
+            "- Padre Tomás Delgado deve ser mais enigmático e fazer perguntas desafiadoras em vez de longos discursos expositivos.\n\n"
+            "# Capítulo 17\n"
+            "- Helena dá a Elisa uma chave física de bronze que pertencia a Béla.\n"
+            "- affects_downstream: 18, 19, 20\n"
+        )
+        EDITORIAL_MD.write_text(default_content, encoding="utf-8")
+        log_msg(f"Criado arquivo de template editorial em Markdown: {EDITORIAL_MD}")
+        log_msg("Edite este arquivo com suas anotações antes de rodar o pipeline editorial.")
         sys.exit(0)
         
-    try:
-        with open(EDITORIAL_FILE, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception as e:
-        log_msg(f"ERROR: Falha ao carregar {EDITORIAL_FILE}: {e}", level="FATAL")
-        sys.exit(1)
+    text = EDITORIAL_MD.read_text(encoding="utf-8")
+    
+    # Split text by top-level headings (#)
+    sections = re.split(r"^#\s+", text, flags=re.MULTILINE)
+    
+    general_notes = ""
+    chapters = {}
+    
+    for section in sections:
+        if not section.strip():
+            continue
+            
+        lines = section.split("\n")
+        title = lines[0].strip().lower()
+        content = "\n".join(lines[1:]).strip()
+        
+        if "geral" in title or "diretriz" in title or "nota" in title:
+            general_notes = content
+        else:
+            # Match chapter number
+            match = re.search(r"(?:capítulo|cap|chapter)\s*(\d+)", title)
+            if match:
+                ch_num = int(match.group(1))
+                
+                # Check for affects_downstream inside content
+                downstream = []
+                ds_match = re.search(r"(?:affects_downstream|afeta|jusante)\s*:\s*([0-9\s,]+)", content, re.IGNORECASE)
+                if ds_match:
+                    downstream = [int(x.strip()) for x in ds_match.group(1).split(",") if x.strip().isdigit()]
+                    # Remove the affects_downstream line from the brief so it doesn't pollute the prompt
+                    content = re.sub(r"(?:affects_downstream|afeta|jusante)\s*:\s*[0-9\s,]+", "", content, flags=re.IGNORECASE).strip()
+                
+                chapters[ch_num] = {
+                    "brief": content,
+                    "type": "continuity_breaking" if downstream else "punctual",
+                    "affects_downstream": downstream
+                }
+                
+    return {
+        "general_notes": general_notes,
+        "chapters": chapters
+    }
 
 def classify_brief_with_ai(ch_num: int, brief: str) -> dict:
     """
@@ -112,20 +152,19 @@ def parse_score(stdout: str, key: str = "overall_score") -> float:
 
 def run_editorial():
     # 1. Load the centralized briefs
-    editorial = load_editorial_brief()
+    editorial = load_editorial_markdown()
     general_notes = editorial.get("general_notes", "")
     chapters_data = editorial.get("chapters", {})
     
     if not chapters_data:
-        log_msg("Aviso: Nenhuma diretiva de capítulos encontrada no JSON. Encerrando.")
+        log_msg("Aviso: Nenhuma diretiva de capítulos encontrada no Markdown. Encerrando.")
         return
         
     banner("ANALISANDO DIRETIVAS EDITORIAIS")
     
     # 2. Hybrid impact analysis
     parsed_tasks = {}
-    for ch_str, ch_info in chapters_data.items():
-        ch_num = int(ch_str)
+    for ch_num, ch_info in chapters_data.items():
         brief = ch_info.get("brief", "")
         user_type = ch_info.get("type", "punctual")
         user_downstream = ch_info.get("affects_downstream", [])
@@ -154,13 +193,13 @@ def run_editorial():
     print("PLANO DE AJUSTE EDITORIAL (AGUARDANDO APROVAÇÃO)")
     print("=" * 60)
     if general_notes:
-        print(f"Diretrizes Gerais: {general_notes}\n")
+        print(f"Diretrizes Gerais:\n{general_notes}\n")
         
     for ch_num in sorted(parsed_tasks.keys()):
         task = parsed_tasks[ch_num]
         type_str = "QUEBRA DE CONTINUIDADE (CASCATA)" if task["type"] == "continuity_breaking" else "PONTUAL (AJUSTE LOCAL)"
         print(f"[-] Capítulo {ch_num:02d}: {type_str}")
-        print(f"    Briefing Humano: \"{task['brief']}\"")
+        print(f"    Briefing Humano:\n{task['brief']}")
         print(f"    Crítica Direta da IA: \"{task['criticism']}\"")
         if task["affects_downstream"]:
             print(f"    Capítulos Afetados a Jusante: {task['affects_downstream']}")
