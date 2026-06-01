@@ -10760,3 +10760,408 @@
 [2026-06-01 04:32:05] [SUBPROCESS] eval_log: /mnt/d/Dev/autobook/eval_logs/20260601_043205_ch11.json
 [2026-06-01 04:32:06] [INFO] Chapter 11 score: 6.0
 [2026-06-01 04:32:06] [INFO] RUN: git add -A
+[2026-06-01 04:32:06] [INFO] RUN: git commit -m "ch11: score 6.0, 2890w" --allow-empty
+[2026-06-01 04:32:07] [SUBPROCESS] [autobook/a-prova-final 58b87b7] ch11: score 6.0, 2890w
+[2026-06-01 04:32:07] [SUBPROCESS] 4 files changed, 468 insertions(+), 1 deletion(-)
+[2026-06-01 04:32:07] [SUBPROCESS] create mode 100644 chapters/ch_11.md
+[2026-06-01 04:32:07] [INFO] RUN: git rev-parse --short HEAD
+[2026-06-01 04:32:07] [SUBPROCESS] 58b87b7
+[2026-06-01 04:32:07] [INFO] GIT COMMIT: 58b87b7 — ch11: score 6.0, 2890w
+[2026-06-01 04:32:07] [INFO] ------------------------------------------------------------
+[2026-06-01 04:32:07] [INFO] Drafting Chapter 12/22
+[2026-06-01 04:32:07] [INFO] ------------------------------------------------------------
+[2026-06-01 04:32:07] [INFO] Attempt 1/5
+[2026-06-01 04:32:07] [INFO] RUN: uv run python draft_chapter.py 12
+[2026-06-01 04:32:08] [SUBPROCESS] Drafting Chapter 12...
+[2026-06-01 04:32:08] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 04:32:16] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 04:32:16] [SUBPROCESS] [LLM] Response received! Status: 429. Processing content...
+[2026-06-01 04:32:18] [SUBPROCESS] ERROR: API request failed with status code 429
+[2026-06-01 04:32:18] [SUBPROCESS] Response: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"openrouter/owl-alpha is temporarily rate-limited upstream. Please retry shortly.","provider_name":"Stealth","is_byok":false}},"user_id":"user_3D0GGCIBmR1e7ccyNDglsxEgphG"}
+[2026-06-01 04:32:18] [SUBPROCESS] WARNING: LLM API call failed on attempt 1: Client error '429 Too Many Requests' for url 'https://openrouter.ai/api/v1/chat/completions'
+[2026-06-01 04:32:18] [SUBPROCESS] For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+[2026-06-01 04:32:19] [SUBPROCESS] Retrying in 2 seconds...
+[2026-06-01 04:32:19] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 2/3)...
+[2026-06-01 04:39:09] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 04:39:09] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 04:39:10] [SUBPROCESS] Saved to /mnt/d/Dev/autobook/chapters/ch_12.md
+[2026-06-01 04:39:10] [SUBPROCESS] Word count: 4375
+[2026-06-01 04:39:10] [SUBPROCESS] # Capítulo 12 — O PONTO MÉDIO: A SEGUNDA HELENA
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] O disco USB estava quente contra a coxa de Elisa. Não por defeito elétrico — os 43 meses que passara no bolso esquerdo do casaco tinham-no temperado ao corpo, como um seixo num rio, e agora, às 02h17 da manhã, no escritório temporário do ETH com as luzes principais apagadas e apenas o monitor a projectar sombras azuis sobre a mesa, ela sentia-o ali, junto ao quadril, um retângulo de dois centímetros que continha dados suficientes para destruir ou confirmar tudo.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] Abriu o ficheiro outra vez.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] Já o abrira dezassete vezes nas últimas seis horas. Dezassete vezes os mesmos dados. A mesma tabela. Os mesmos doze sujeitos com IC abaixo de 0,01 Dk, classificados pela Evromind como "erro de medição — descartar." Mas Elisa não era uma aluna de licenciatura que confirma resultados uma vez e segue em frente. Elisa era a mulher que provara que pensar desordena o universo, e sabia — com a certeza visceral de quem constrói uma casa tijolo a tijolo e reconhece quando alguém pinta uma parede que não existe — que aqueles dozes zeros não eram ruído. Eram padrão.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] A encriptação do ficheiro fora obra de alguém competente mas não excepcional. Elisa demorara três dias a quebrá-la — não por dificuldade técnica, mas porque os primeiros dois dias recusara-se a aceitar o que via e tentara encontrar uma explicação alternativa. Uma falha no algoritmo de classificação. Um erro de arredondamento. Uma corrida de bits no processo de gravação. Qualquer coisa que preservasse a arquitetura do que já sabia.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] No terceiro dia, admitira que não havia explicação alternativa.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] Doze sujeitos. IC entre 0,0009 e 0,0013 Dk. Todos medidos em hospitais diferentes, em países diferentes, com equipamentos diferentes. Todos descartados como erro. Todos com dados secundários — temperatura corporal, frequência cardíaca, resposta a estímulos — dentro dos parâmetros normais humanos. Nenhum estava em coma. Nenhum tinha danos cerebrais. Nenhum tomava medicação que pudesse suprimir atividade neural.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] Doze pessoas que pensavam sem pagar o preço termodinâmico.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] Elisa tocou no granito no bolso direito. O polimento sob o polegar. Cinquenta milhões de anos de rocha sem um único pensamento. Fechou os olhos. Abriu-os. Olhou para o ecrã outra vez.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] Cruzou os dados com registos médicos públicos. Era um processo lento — os sistemas de saúde de diferentes países não conversavam entre si, os formatos eram incompatíveis, os protocolos de privacidade exigiam contornos que Elisa conhecia bem porque os desenhara. Os ficheiros da Evromind tinham identificadores parciais — iniciais, faixas etárias, códigos postais dos hospitais de medição. Não era muito. Era o suficiente.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] O primeiro apareceu às 02h43.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] Tóquio. Um homem — as iniciais correspondiam, a faixa etária coincidia, o código postal apontava para um bairro específico. Elisa encontrou-o numa base de dados universitária: professor de matemática aposentado, 71 anos, publicado em teoria de números, sem registo de internamentos recentes que não fossem de rotina. Vivo. Funcional. Provavelmente sem saber que o seu IC era indistinguível de uma pedra.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] O segundo veio dez minutos depois.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] São Paulo. Mulher, 54 anos, fisioterapeuta. Os registos eram mais dispersos — o sistema de saúde brasileiro era um mosaico de bases de dados que se sobrepunham e contradiziam — mas o código postal, a idade e a data de medição coincidiam. Elisa encontrou-a numa rede social profissional. Foto recente: a mulher num consultório, de jaleco branco, a sorrir para a câmera. A legenda dizia: "Dez anos a ajudar pessoas a moverem-se melhor."
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] O terceiro foi o mais difícil. Lagos. Dados fragmentados, bases de saúde quase inexistentes, código postal que correspondia a uma área de quatro quilômetros quadrados. Elisa precisou de uma hora. Encontrou-o num registo de vacinação — simples, burocrático, brutalmente eficiente. Homem, 63 anos, professor de inglês numa escola secundária. Vivo. Funcional.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] Três dos doze confirmados. Três pessoas em três continentes que processavam informação, tomavam decisões, interagiam com o mundo — e cujo IC era zero. Não baixo. Não na margem de erro. Zero. Ou tão perto de zero que a diferença era estatisticamente irrelevante.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] Helena não era única.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] Elisa afastou a cadeira da secretária. O som das rodas no linóleo ecoou pelo escritório vazio. O corredor do terceiro andar do ETH estava escuro — apenas a iluminação de emergency a intervalos de cinco metros, pequenas luzes âmbar que transformavam o espaço familiar num labirinto de sombras. O eco dos passos. Sempre o eco. Gotas de chuva num telhado de zinco.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] Sentou-se no chão. Encostou as costas à parede. Ficou ali.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] Doze sujeitos. Três confirmados. Nove por confirmar. Todos vivos. Todos funcionais. Todos com IC próximo de zero. A probabilidade de doze medições independentes, em equipamentos diferentes, em países diferentes, produzirem o mesmo erro sistemático era — Elisa calculou, automaticamente, os dígitos a passarem pela mente como um contador Geiger — aproximadamente 10^-36. Um número tão pequeno que era, para todos os efeitos práticos, impossível.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] Não era erro. Era fenómeno.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] E se era fenómeno, tinha causa. E se tinha causa, podia ser encontrada.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] O telefone vibrou no bolso. Elisa olhou para o ecrã. Marcus. 03h02.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] — Estás acordada — disse Marcus. Não era uma pergunta.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] — Estou no escritório.
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:10] [SUBPROCESS] — A que horas chegaste?
+[2026-06-01 04:39:10] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Não saí.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] Silêncio do outro lado. Elisa ouviu Marcus respirar — uma respiração rápida, superficial, de quem está a beber café às três da manhã. Marcus vivia a beber café. O isqueiro no bolso da camisa, oito anos sem fumar, e o café como substituto. Elisa compreendia substitutos.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Tenho algo — disse Elisa.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Eu também. Mas tu primeiro.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — O ficheiro da Evromind. Os doze sujeitos com IC abaixo de 0,01. Cruzei com registos públicos. Encontrei três. Tóquio, São Paulo, Lagos. Todos vivos. Todos funcionais. Todos com IC próximo de zero.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] O silêncio do outro lado durou dez segundos. Elisa contou-os. Marcus não era homem de silêncio — falava rápido, interrompia-se, atropelava ideias — e dez segundos de silêncio de Marcus equivaliam a um grito.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Não é só a Helena — disse Elisa.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Não — disse Marcus. A voz estava diferente. Mais baixa. Mais lenta. Como se cada palavra custasse mais do que o habitual. — Não é só a Helena. Há pelo menos mais três. Provavelmente mais.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Provavelmente mais.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Isto muda tudo.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Isto muda nada — disse Elisa. A frase saiu mais cortante do que pretendia, mas não a retirou. — O formalismo prevê que a consciência gera entropia. Se existem pessoas que não geram, o formalismo é insuficiente. Ponto. Não muda o que sabemos. Muda o que não sabemos.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Ou — disse Marcus, e Elisa ouviu-o pousar a caneca, o som de cerâmica em madeira — estas pessoas estão a gerar entropia que não conseguimos detectar.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Isso é o que tenho estado a considerar.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Onde?
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Em todo o lado. Nenhum lado. O Princípio da Compensação Entrópica diz que a entropia não desaparece. Se não está no sistema medido, está noutro sistema. Mas que sistema? Que reservatório? Que campo? Não temos instrumento para detectar algo que não sabemos o que é.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Então precisamos de um instrumento novo.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Ou de uma pergunta nova.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] Marcus respirou outra vez. Elisa imaginou-o no escritório dele — o desastre organizado, as pilhas de papel, o esqueleto de plástico que servia de porta-canetas. Marcus no meio daquele caos, a empurrar os óculos pelo nariz, a tentar enquadrar o impossível em linguagem que a ciência pudesse processar.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — O que é que queres fazer? — perguntou Marcus.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Ir ao CERN.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Agora?
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Amanhã. Hoje. O que for mais cedo.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Elisa, são três da manhã.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Os servidores do CERN não dormem.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Tu dormias.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Eu não durmo.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] Outro silêncio. Mais curto desta vez. Marcus sabia que Elisa não dormia — sabia desde o doutoramento, desde as noites em Viena em que Elisa aparecia às oito da manhã com olheiras que pareciam hematomas e resultados que pareciam milagres. Marcus nunca perguntara porquê. Era uma das razões pelas quais Elisa confiava nele.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Eu vou contigo — disse Marcus.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Não precisas.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Eu sei. Vou na mesma. Há uma coisa que não te disse. Os dados de 2018. Os padrões anómalos. Eu voltei a analisá-los. Com os novos parâmetros.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — E?
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — A correlação é mais forte do que antes. Os padrões anómalos de 2018 correspondem, em frequência e distribuição, aos ICs anómalos. Não é perfeita. Mas está lá.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] Elisa fechou os olhos. A parede estava fria contra as costas. O linóleo cheirava a cera e a marcador de quadro branco. O ETH vazio à noite era um organismo diferente — os mesmos corredores, as mesmas paredes, mas sem as pessoas que lhes davam função, e sem função os espaços tornavam-se o que sempre foram: caixas de betão com tubos de néon.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Algo aconteceu em 2018 — disse Elisa. — Ou algo foi detectado em 2018. E está ligado a estas pessoas.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — É o que penso.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Encontra-me às sete na estação de Zurique.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] — Estarei lá.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] O telefone ficou silencioso. Elisa continuou sentada no chão. O disco USB quente contra a coxa. O granito frio no bolso direito. Dois objectos no mesmo casaco. Um era a prova de que havia mais Helenas. O outro era uma rocha que não pensava.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] A rocha era mais simples.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] A rocha era muito, muito mais simples.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] Mas a rocha não fazia perguntas.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] ---
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] O comboio para Genebra partiu às 07h14. Elisa e Marcus sentaram-se em lugares separados por hábito — não por desconforto, mas porque ambos trabalhavam melhor com espaço. Marcus abriu o portátil e começou a rever dados. Elisa olhou pela janela.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] Os Alpes passavam. Neve branca, rocha cinzenta, pinheiros escuros recortados contra um céu que era, pela primeira vez em semanas, azul. Zurique ficava para trás — os edifícios de betão e vidro, o rio Limmat a converter energia potencial em calor, irreversivelmente, como tudo. O lago. O ETH. O apartamento de Helena em Oerlikon, com o manjericão na varanda e o relógio que atrasava três minutos por dia.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] Helena não era única.
+[2026-06-01 04:39:11] [SUBPROCESS] 
+[2026-06-01 04:39:11] [SUBPROCESS] A frase girava na cabeça de Elisa como um satélite que perdera a órbita. Se Helena era a única, era anomalia — um erro da natureza, uma falha no tecido da realidade que a ciência podia catalogar e arquivar. Mas se havia mais — se havia doze, se havia potencialmente centenas ou milhares — então não era anomalia. Era fenómeno. E fenómenos tinham causas. E causas podiam ser compreendidas.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] Ou devoravam quem tentasse compreendê-las.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] Elisa tocou no granito. Uma vez. Duas.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] — Estás a fazer isso — disse Marcus sem levantar os olhos do portátil.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] — O quê?
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] — A tocar na rocha. Fazes isso quando estás com medo.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] — Não estou com medo.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] — Estás. E tens razão para estar.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] Elisa retirou a mão do bolso. Olhou para Marcus. Ele continuava a olhar para o ecrã, os dedos a percorrer o trackpad, os óculos a escorregar pelo nariz. Empurrou-os para cima com o médio. O isqueiro no bolso da camisa — visível por um instante quando ele se inclinou para a frente.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] — Porque tens razão? — perguntou Elisa.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] — Porque se há mais pessoas com IC zero, e se isso se correlaciona com os dados de 2018, então não estamos a falar de uma anomalia individual. Estamos a falar de algo que aconteceu — ou foi detectado — há seis anos e que produziu... o quê? Uma mudança? Uma seleção? Um marcador? Não sei. Mas seja o que for, não é pequeno.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] — Nunca pensei que fosse pequeno.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] — Eu sei. Mas havia uma diferença entre "não pequeno" e "isto é global."
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] Global. A palavra ficou suspensa entre eles como fumo. Elisa olhou pela janela. Os Alpes continuavam a passar. A neve era branca. A rocha era cinzenta. O céu era azul. O mundo continuava a funcionar — a entropia a aumentar, o tempo a correr, o universo a caminhar para a Morte Térmica. Mas agora, por trás daquela normalidade visível, havia uma fissura. Doze pessoas. Três confirmadas. Nove por confirmar. Todas a pensar sem pagar o preço.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] O formalismo de Elisa — a prova de 2023, o Nobel, a equação que partira de Boltzmann e cruzara com Shannon e produzira o Drakon — dizia que cada acto consciente gera entropia. Que pensar é desordenar o universo. Que cada sinapse é um micro-acto de destruição cósmica. E isto era verdade. Era medido. Era confirmado. Era válido para 99,97% da humanidade.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] Mas não era válido para Helena.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] E não era válido para o professor de matemática em Tóquio.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] E não era válido para a fisioterapeuta em São Paulo.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] E não era válido para o professor de inglês em Lagos.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] E provavelmente não era válido para os outros nove que Elisa ainda não confirmara.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] O formalismo não estava errado. Era incompleto. E um formalismo incompleto era pior do que um formalismo errado — porque um erro podia ser corrigido, mas uma incompletude era invisível até algo a tornar visível.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] Helena tornara-a visível.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] E agora havia mais.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] ---
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] O CERN apareceu às 10h03 — um complexo de edifícios baixos e funcionais espalhados pela fronteira franco-suíça, tão desprovido de grandiosidade que era difícil acreditar que ali, a cem metros de profundidade, protões circulavam a 99,9999991% da velocidade da luz. O Grande Colisor de Hadron. Vinte e sete quilómetros de anel subterrâneo. O maior instrumento científico alguma vez construído.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] Elisa descera ali uma vez antes, em 2018, quando os padrões anómalos apareceram pela primeira vez. Guardara os dados brutos num disco pessoal — não por desconfiança, mas por instinto. O instinto de quem passa a vida a reconhecer padrões e sabe que o ruído de hoje é o sinal de hoje de amanhã.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] O elevador desceu cem metros. Marcus segurava o portátil contra o peito como um escudo. As paredes do poço eram de betão armado, e o ar ficou mais frio a cada segundo — não o frio do exterior, que era meteorológico e perdoável, mas o frio de máquinas. O frio de ímãs supercondutores a 1,9 Kelvin. O frio de um lugar onde a natureza é forçada a revelar os seus segredos.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] O cheiro chegou quando as portas se abriram. Metal frio e ozono. Elisa conhecera-o em 2018 e reconheceu-o agora — um cheiro que não pertencia à superfície, que era subterrâneo e eléctrico, como o interior de um relâmpago.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] Os servidores estavam num edifício anexo — uma estrutura sem janelas, temperatura controlada a 18°C, fileiras de racks com LEDs verdes a piscar em padrões que pareciam respirar. O som era um zumbido grave e contínuo — o sistema de refrigeração dos ímãs, transmitido através das paredes como um coração mecânico.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] Elisa apresentou as credenciais. O técnico de servidores — um homem de uns trinta anos, barba ruiva, camiseta dos Radiohead — olhou para os documentos, olhou para Elisa, olhou para os documentos outra vez.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] — A senhora é a Dragovski? — perguntou.
+[2026-06-01 04:39:12] [SUBPROCESS] 
+[2026-06-01 04:39:12] [SUBPROCESS] — Sou.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] — A do Nobel?
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] — A do Nobel.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] Ele devolveu os documentos. Não disse "parabéns." Não disse "que honra." Apenas apontou para um terminal no fundo da sala.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] — Dados de 2018. Sector 7, rack 12. Precisar de ajuda, carregue no botão vermelho.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] — Há um botão vermelho?
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] — Não. Era uma piada. Precisar de ajuda, grite.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] Elisa sentou-se no terminal. Marcus ficou de pé atrás dela, o portátil aberto, os dados dos doze sujeitos prontos para comparação. O ecrã do terminal era antigo — CRT, não LED, com um refrescamento que fazia os olhos doerem ao fim de vinte minutos. Elisa acedeu aos ficheiros de 2018. Os padrões anómalos estavam lá — exactamente onde os deixara, numa pasta com o rótulo "RUN_2018_C_ANOMALY_DESCARTADA."
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] Descartada. Como os doze sujeitos. Como Helena. O mundo tinha um padrão consistente de descartar o que não compreendia.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] Sobrepôs os dados. Os padrões anómalos de 2018 — flutuações na energia residual das colisões que não correspondiam a nenhuma partícula conhecida — contra os ICs dos doze sujeitos. A correlação que Marcus mencionara estava lá. Não era perfeita — havia desvios, lacunas, pontos que não encaixavam — mas a estrutura era reconhecível. A frequência das anomalias de 2018 correspondia, com um desvio de apenas 0,003 Hz, à distribuição estatística dos ICs anómalos.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] Alguém tinha detectado algo em 2018. Algo que a física não tinha nome para descrever. Algo que produzia um padrão — não aleatório, não caótico, mas estruturado. Como se fosse sinal.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] Elisa sentiu um arrepio. Não do frio — o edifício estava a 18°C, confortável, regulado. O arrepio veio de dentro. Da mesma parte dela que reconhecia padrões. Da mesma parte que, aos 19 anos, lera o artigo de Tegmark e sublinhara "Se a consciência é um estado da matéria, deve ter assinatura termodinâmica." Da mesma parte que, aos 26, acordara em Viena com uma equação na cabeça e chorara durante uma hora sem saber porquê.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] — Marcus — disse Elisa.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] — Estou a ver.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] — A correlação é mais forte do que disseste.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] — Eu sei. Não te quis assustar antes de confirmares.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] — Estou assustada.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] Marcus não respondeu. Não disse "não tenhas medo." Não disse "vai ficar tudo bem." Apenas se inclinou sobre o ombro de Elisa e olhou para o ecrã, os óculos a escorregar, o isqueiro a brilhar no bolso da camisa.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] Elisa continuou a navegar. Os servidores do CERN eram organizados com a precisão suíça que Elisa apreciava — cada ficheiro etiquetado, cada pasta numerada, cada backup verificado. Encontrou os logs de 2018, os relatórios de calibração, as notas técnicas. E depois, numa subpasta que não deveria existir — ou que deveria ter sido eliminada — encontrou uma nota interna.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] Data: 14 de Março de 2019. Um ano após as anomalias. Autor: um técnico identificado apenas pelas iniciais R.M.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] Elisa leu.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] *"Padrão anómalo persiste. Recomenda-se reclassificação como ruído. Mas o padrão não é aleatório. Parece... estruturado. Como se fosse sinal. Frequência estável ao longo de 12 meses. Sem decaimento. Sem variação. Não corresponde a nenhum modelo de instrumentação conhecida. Consultei três colegas. Dois disseram ruído. O terceiro disse: 'Se é sinal, não é nosso trabalho descodificar.' Concordei. Arquivei. Mas o padrão continua lá. Todas as manhãs, quando verifico os logs, está lá. Estruturado. Estável. Como se alguém — ou algo — estivesse a transmitir."*
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] Elisa leu a nota três vezes. A primeira para processar. A segunda para confirmar. A terceira para aceitar que um técnico anónimo do CERN, um ano antes de Helena ser diagnosticada, olhara para os mesmos dados e vira a mesma coisa que Elisa via agora: estrutura onde deveria haver ruído. Sinal onde deveria haver silêncio.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] — Marcus.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] — Já li.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] — "Como se fosse sinal."
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] — Eu sei.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] — Alguém viu isto em 2019. E arquivou.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] — Como arquivaram os doze sujeitos. Como arquivaram a Helena. Como o mundo arquiva tudo o que não consegue encaixar nos modelos existentes.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] Elisa copiou a nota. Copiou os dados de 2018. Copiou tudo — cada ficheiro, cada log, cada byte que pudesse ser relevante. O disco USB encheu-se. O mesmo disco que já continha os dados da Evromind. Dois ficheiros no mesmo dispositivo. Dois padrões que não deviam estar relacionados mas estavam.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] O formalismo de Elisa previa que a consciência gera entropia. Mas não previa que a entropia pudesse ser gerada noutro lugar — exportada, desviada, redireccionada para um sistema que não conseguíamos detectar. O Princípio da Compensação Entrópica garantia que a entropia ia *a algum lugar*. Mas não dizia onde.
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] E se o lugar para onde ia era o mesmo lugar de onde vinham os padrões anómalos de 2018?
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] E se a consciência de Helena — e do professor em Tóquio, e da fisioterapeuta em São Paulo, e do professor em Lagos — estava a exportar entropia para um sistema que o CERN detectara mas não compreendera?
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:13] [SUBPROCESS] E se pensar não desordena o universo — mas desordena *outro* universo?
+[2026-06-01 04:39:13] [SUBPROCESS] 
+[2026-06-01 04:39:16] [SUBPROCESS] Elisa fechou os olhos. O zumbido dos servidores enchia a sala. O cheiro a metal e ozono. O frio subterrâneo. Os LEDs verdes a piscar como olhos mecânicos.
+[2026-06-01 04:39:16] [SUBPROCESS] 
+[2026-06-01 04:39:16] [SUBPROCESS] Abriu os olhos. O ecrã continuava ali. Os dados continuavam ali. A nota do técnico continuava ali.
+[2026-06-01 04:39:16] [SUBPROCESS] 
+[2026-06-01 04:39:16] [SUBPROCESS] "Parece... estruturado. Como se fosse sinal."
+[2026-06-01 04:39:16] [SUBPROCESS] 
+[2026-06-01 04:39:16] [SUBPROCESS] ---
+[2026-06-01 04:39:16] [SUBPROCESS] 
+[2026-06-01 04:39:16] [SUBPROCESS] O comboio de volta a Zurique partiu às 14h30. Elisa e Marcus sentaram-se lado a lado desta vez — não por escolha, mas porque o comboio estava cheio e os lugares separados eram um luxo que não podiam permitir. Marcus adormeceu aos cinco minutos, a cabeça inclinada para o ombro de Elisa, o portátil ainda aberto no colo. Elisa não dormiu. Olhou pela janela.
+[2026-06-01 04:39:16] [SUBPROCESS] 
+[2026-06-01 04:39:16] [SUBPROCESS] Os Alpes passavam em sentido contrário. Neve branca, rocha cinzenta. O lago de Genebra ficava para trás — água escura, quase negra, com veleiros brancos que pareciam recortes de papel contra o azul. A fronteira era invisível — nenhum marco, nenhum sinal, apenas a mudança imperceptível do tipo de postes de electricidade e da cor do asfalto.
+[2026-06-01 04:39:16] [SUBPROCESS] 
+[2026-06-01 04:39:16] [SUBPROCESS] Elisa pensou em Helena. Na varanda de Oerlikon, com o manjericão e o cheiro a paprika. No relógio que atrava três minutos por dia. Na pergunta que fizera na primeira visita: "Doutora Dragovski, a senhora acha que eu sou uma pessoa?"
+[2026-06-01 04:39:16] [SUBPROCESS] 
+[2026-06-01 04:39:16] [SUBPROCESS] Helena não era única. Havia pelo menos mais três. Provavelmente mais. Provavelmente muitas mais. Pessoas que pensavam sem gerar entropia mensurável. Pessoas que existiam fora do formalismo. Pessoas que o CERN detectara em 2018 sem saber o que detectava.
+[2026-06-01 04:39:16] [SUBPROCESS] 
+[2026-06-01 04:39:16] [SUBPROCESS] Se existiam mais Helenas, então isto não era anomalia. Era fenómeno. E se era fenómeno, tinha causa. E se tinha causa, podia ser encontrá-la.
+[2026-06-01 04:39:16] [SUBPROCESS] 
+[2026-06-01 04:39:16] [SUBPROCESS] A determinação voltou. A mesma determinação que levara Elisa a construir o formalismo tijolo a tijolo, equação a equação, prova a prova. A mesma determinação que a fizera acordar às três da manhã durante anos, a beber café frio, a completar a equação da mãe mentalmente todas as noites. A mesma determinação que a trouxera ao CERN, ao disco USB, aos doze sujeitos, à nota do técnico.
+[2026-06-01 04:39:16] [SUBPROCESS] 
+[2026-06-01 04:39:16] [SUBPROCESS] Mas por baixo da determinação, algo novo. Algo que Elisa não sentia há anos — ou que sentia e recusava nomear.
+[2026-06-01 04:39:16] [SUBPROCESS] 
+[2026-06-01 04:39:16] [SUBPROCESS] Medo.
+[2026-06-01 04:39:16] [SUBPROCESS] 
+[2026-06-01 04:39:16] [SUBPROCESS] Não do formalismo estar errado. Elisa já aceitara que o formalismo era incompleto — a conversa com Tomás, no café, com o café frio e a pergunta do padre, quebrara essa ilusão. O formalismo era um mapa. Mapas são úteis. Mapas não são o território.
+[2026-06-01 04:39:16] [SUBPROCESS] 
+[2026-06-01 04:39:16] [SUBPROCESS] O medo era outro. Era o medo de que a resposta — a causa, o mecanismo, a explicação para Helena e para os outros — fosse pior do que a pergunta. Pior do que a anomalia. Pior do que a incompletude.
+[2026-06-01 04:39:16] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] Porque se a entropia de Helena ia para outro sistema — outro universo, outra dimensão, outro regime físico — então cada pensamento de cada pessoa com IC zero estava a desordenar algo que não era o nosso universo. E se esse algo era habitado — se havia alguém do outro lado a receber a entropia exportada — então a consciência de Helena não era apenas anomalia. Era uma ponte. E pontes têm dois sentidos.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] Elisa tocou no granito. O polimento sob o polegar. Cinquenta milhões de anos de rocha sem um único pensamento.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] Marcus ressonou. O portátil escorregou-lhe do colo. Elisa segurou-o antes que caísse. Os dedos de Marcus tremeram — um espasmo involuntário, o corpo a protestar contra o sono interrompido. Elisa pousou o portátil no lugar. Marcus não acordou.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] O comboio entrou num túnel. O reflexo na janela substituiu os Alpes — o rosto de Elisa sobreposto à escuridão, os olhos escuros com olheiras arroxeadas, o cabelo assimétrico, os óculos redondos. Uma mulher de 41 anos que medira o peso do pensamento e descobrira que o peso era real. Que pensar desordena o universo. Que cada sinapse é um micro-acto de destruição cósmica.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] Mas que algumas pessoas pensavam sem destruir nada.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] E que essas pessoas estavam ligadas a algo que o CERN detectara em 2018.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] E que um técnico anónimo escrevera, numa nota interna que ninguém leu: "Parece... estruturado. Como se fosse sinal."
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] O comboio saiu do túnel. A luz voltou — branca, crua, dos Alpes cobertos de neve. O lago de Zurique apareceu à distância, uma linha escura entre colinas verdes. A cidade aproximou-se. Os edifícios de betão e vidro. O rio. O ETH. O mundo de Elisa — o mundo que ela medira, catalogara, provara.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] Um mundo que agora tinha uma fissura.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] Elisa olhou para o disco USB no bolso. Os dados da Evromind. Os dados do CERN. A nota do técnico. Os doze sujeitos. Os três confirmados. Os nove por confirmar. Helena. O professor em Tóquio. A fisioterapeuta em São Paulo. O professor em Lagos.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] E por baixo de tudo, como um rio subterrâneo que ninguém vê mas que mina o solo, o medo. Não da falha. Não da incompletude. Não do Nobel perdido ou da reputação destruída ou do e-mail formal de Renan Kapoor.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] O medo da verdade.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] O medo de que a verdade fosse maior do que qualquer formalismo podia conter.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] O comboio abrandou. Zurique. A estação. Marcus acordou com um sobressalto, os óculos tortos, a marca da janela na bochecha.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] — Chegámos? — perguntou.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] — Chegámos.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] Marcus endireitou os óculos. Olhou para Elisa. Viu algo no rosto dela — Elisa não sabia o quê, mas Marcus era um neurocientista que passara a vida a ler expressões, e se havia coisa que Marcus sabia fazer era ler o que as pessoas não diziam.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] — Estás bem? — perguntou.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] — Não — disse Elisa.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] Era a primeira vez que dizia aquilo em voz alta. Não "estou cansada." Não "estou preocupada." Não "preciso de café." Apenas: não estou bem. Três palavras que custaram mais do que qualquer equação que alguma vez provara.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] Marcus não disse nada. Apenas assentiu. Guardou o portátil. Levantou-se. Esperou que Elisa se levantasse.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] Ela levantou-se. O disco USB no bolso esquerdo. O granito no bolso direito. Dois objectos no mesmo casaco. Um era a prova de que havia mais Helenas. O outro era uma rocha que não pensava.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] A rocha era mais simples.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] Mas a rocha não fazia perguntas.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] E o mundo — o mundo inteiro, com os seus doze sujeitos e os seus padrões anómalos e as suas notas internas ignoradas — o mundo fazia.
+[2026-06-01 04:39:17] [SUBPROCESS] 
+[2026-06-01 04:39:17] [SUBPROCESS] E Elisa ia ter de responder.
+[2026-06-01 04:39:17] [INFO] Drafted 4375 words
+[2026-06-01 04:39:17] [INFO] RUN: uv run python evaluate.py --chapter=12
+[2026-06-01 04:39:18] [SUBPROCESS] [LLM] Requesting model 'openrouter/owl-alpha' from provider 'openrouter' (Attempt 1/3)...
+[2026-06-01 04:41:08] [SUBPROCESS] [LLM] Waiting for API response (this may take up to 10 minutes for long generations)...
+[2026-06-01 04:41:08] [SUBPROCESS] [LLM] Response received! Status: 200. Processing content...
+[2026-06-01 04:41:08] [SUBPROCESS] ---
+[2026-06-01 04:41:08] [SUBPROCESS] overall_score: 6.0
+[2026-06-01 04:41:08] [SUBPROCESS] voice_adherence: 7 -- The voice profile calls for long sentences in deduction and short ones in crisis. This chapter oscillates well in places but defaults to a uniform mid-length expository rhythm in several paragraphs. The strongest voice moments are when Elisa's physical tics (granito, counting, the pause before decisions) anchor the prose. The weakest are when the narrator explains the science in smooth, polished blocks that could appear in any near-future thriller.
+[2026-06-01 04:41:08] [SUBPROCESS] beat_coverage: 7 -- All five outline beats are present. Beat 1 (file analysis) is well dramatized with the 2am office setting and the three confirmed subjects. Beat 2 (Marcus phone call) works as dialogue. Beat 3 (CERN trip) is solid travel/scene work. Beat 4 (the note) is the weakest — summarized rather than lived. Beat 5 (train back, emotional turn) is strong. The 'yes-but' structure (discovery worsens everything) is clearly executed.
+[2026-06-01 04:41:08] [SUBPROCESS] character_voice: 7 -- Marcus's voice is well-distinguished — his rapid speech, the coffee/isotope details, the way he pushes his glasses. Elisa's voice is consistent but occasionally too composed. The phone call is the weakest dialogue moment because both characters speak in complete, well-structured sentences. Real 3am conversations have more fragments, more trailing off, more 'wait, what?' moments. The distinction between Elisa and Marcus is present but could be sharper.
+[2026-06-01 04:41:09] [SUBPROCESS] plants_seeded: 7 -- The 12 subjects from the Evromind file (planted in Ch 8) pay off well here. The 2018 CERN data correlation is effectively seeded. The fear beat ('medo da verdade') is a strong new plant for the second half. The weakest plant is the note itself — it's too convenient, too perfectly timed. The chapter would benefit from at least one subtle foreshadowing of its existence in an earlier scene.
+[2026-06-01 04:41:09] [SUBPROCESS] prose_quality: 6 -- The prose is competent and often strong, with good sensory grounding (metal/ozone smell, green LEDs, the warm USB against Elisa's thigh). Weaknesses: several paragraphs of uniform mid-length sentences, especially in the CERN section. The 'two objects in the same coat' motif is repeated three times — effective the first two times, slightly mechanical the third. The chapter has a tendency to explain its own emotional beats ('O medo era outro') rather than letting them emerge from image and action.
+[2026-06-01 04:41:09] [SUBPROCESS] continuity: 8 -- Strong continuity from the previous chapter. Elisa's state of mind tracks logically — she ends Ch 12 in the café with Tomás, processing the philosophical challenge to her formalism, and opens Ch 12 at 2am having spent hours cracking the Evromind file. The emotional through-line (determination → excitement → terror) follows the outline precisely. The granito/USB pairing is a nice callback. No plot or emotional discontinuities detected.
+[2026-06-01 04:41:09] [SUBPROCESS] canon_compliance: 7 -- No major canon violations. The chapter is consistent with established facts, timeline, and character details. The 'Rio Limmat' naming is a minor slip. One potential issue: the chapter has Elisa and Marcus accessing CERN servers relatively easily with credentials. Given the sensitivity of the 2018 data, one might expect more security friction — but this is a pacing choice, not a canon violation.
+[2026-06-01 04:41:09] [SUBPROCESS] lore_integration: 7 -- The CERN scene does strong worldbuilding work — the 100-meter elevator descent, the smell of metal and ozone, the green LEDs, the humming cooling system. These are specific, canon-grounded details that make the world feel real. The Evromind file and the 12 subjects effectively expand the lore. The weakest integration is in transitional spaces (train, corridors) where the world becomes generic backdrop.
+[2026-06-01 04:41:09] [SUBPROCESS] engagement: 7 -- The chapter's strongest engagement comes from the 2am opening (immediate tension, the USB warm against Elisa's thigh, the 17 re-openings of the file) and the phone call with Marcus (good dialogue rhythm, the ten-second silence). The emotional turn on the train back — Elisa's fear of the truth — is the chapter's most surprising beat and earns the midpoint reversal. The chapter is solidly engaging but doesn't quite reach the level of 'can't put it down' because the CERN sequence, which should be the climax, is the flattest scene.
+[2026-06-01 04:41:09] [SUBPROCESS] three_weakest_sentences: ['A probabilidade de doze medições independentes, em equipamentos diferentes, em países diferentes, produzirem o mesmo erro sistemático era — Elisa calculou, automaticamente, os dígitos a passarem pela mente como um contador Geiger — aproximadamente 10^-36.', 'O formalismo de Elisa — a prova de 2023, o Nobel, a equação que partira de Boltzmann e cruzara com Shannon e produzira o Drakon — dizia que cada acto consciente gera entropia. Que pensar é desordenar o universo. Que cada sinapse é um micro-acto de destruição cósmica.', 'O medo era outro. Era o medo de que a resposta — a causa, o mecanismo, a explicação para Helena e para os outros — fosse pior do que a pergunta.']
+[2026-06-01 04:41:09] [SUBPROCESS] three_strongest_sentences: ["— Não — disse Elisa. Era a primeira vez que dizia aquilo em voz alta. Não 'estou cansada.' Não 'estou preocupada.' Não 'preciso de café.' Apenas: não estou bem.", 'O disco USB estava quente contra a coxa de Elisa. Não por defeito elétrico — os 43 meses que passara no bolso esquerdo do casaco tinham-no temperado ao corpo, como um seixo num rio.', 'Doze pessoas que pensavam sem pagar o preço termodinâmico.']
+[2026-06-01 04:41:09] [SUBPROCESS] ai_patterns_detected: ["Repeated motif: 'A rocha era mais simples. A rocha era muito, muito mais simples. Mas a rocha não fazia perguntas.' appears three times with slight variation — effective as a refrain the first two times, slightly mechanical the third.", "Triple parallel structure: 'Que pensar é desordenar o universo. Que cada sinapse é um micro-acto de destruição cósmica.' — the 'Que X, Que Y, Que Z' pattern is a common AI tell.", "Emotional beats arriving on schedule: the chapter follows the outline's emotional arc (determination → excitement → terror) very precisely, which makes the beats feel predetermined rather than discovered.", "Internal monologue explaining what the scene already showed: 'O medo era outro. Era o medo de que a resposta... fosse pior do than a pergunta.' This tells the reader what to feel rather than letting the accumulated details create the feeling.", 'The CERN note discovery lacks the messiness of real investigation — Elisa finds exactly what she needs, reads it three times in neat succession, and immediately understands its significance.']
+[2026-06-01 04:41:09] [SUBPROCESS] weakest_dimension: prose_quality
+[2026-06-01 04:41:09] [SUBPROCESS] top_3_revisions: ['Dramatize the CERN note discovery as a full scene with physical detail, hesitation, and silence — not a summary of reading and reacting. Let the reader discover the note with Elisa, not after her.', "Vary sentence rhythm more aggressively in the expository passages. Break up the mid-length uniform sentences with fragments and longer, winding constructions that match Elisa's deductive voice profile.", "Cut or vary the 'rocha/perguntas' refrain — three repetitions is one too many. Either reduce to two or make the third iteration transform the motif (e.g., Elisa puts the granite down and doesn't pick it up again)."]
+[2026-06-01 04:41:09] [SUBPROCESS] new_canon_entries: ['12 subjects with IC below 0,01 Dk exist globally, per Evromind encrypted file', '3 subjects confirmed: male professor of mathematics (retired, 71, Tokyo), female physiotherapist (54, São Paulo), male English teacher (63, Lagos)', 'Correlation exists between 2018 CERN anomalous collision patterns and anomalous IC subjects (frequency match within 0,003 Hz)', "Internal CERN note from 14 March 2019 by technician R.M. states anomalous pattern is 'structured, like a signal' and persists without decay", 'Elisa and Marcus accessed CERN servers together in the present timeline', "Elisa admits 'Não estou bem' aloud for the first time in years"]
+[2026-06-01 04:41:09] [SUBPROCESS] slop: N/A --
+[2026-06-01 04:41:09] [SUBPROCESS] raw_judge_score: 7
+[2026-06-01 04:41:09] [SUBPROCESS] 
+[2026-06-01 04:41:09] [SUBPROCESS] eval_log: /mnt/d/Dev/autobook/eval_logs/20260601_044108_ch12.json
+[2026-06-01 04:41:09] [INFO] Chapter 12 score: 6.0
+[2026-06-01 04:41:09] [INFO] RUN: git add -A
