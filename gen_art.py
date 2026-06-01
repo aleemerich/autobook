@@ -47,7 +47,11 @@ PICKS_FILE = ART_DIR / "picks.json"
 
 # API and models are handled unified via llm.py
 
-
+# Resolve dynamic timeouts from env
+generic_timeout = int(os.environ.get("AUTOBOOK_PIPELINE_TIMEOUT", "3600"))
+llm_timeout = int(os.environ.get("AUTOBOOK_LLM_TIMEOUT", str(generic_timeout)))
+art_api_timeout = llm_timeout
+art_download_timeout = max(llm_timeout // 10, 60)
 
 # ============================================================
 # API HELPERS
@@ -70,7 +74,7 @@ def fal_generate(prompt, resolution="1K", aspect_ratio="auto", seed=None):
     resp = httpx.post(
         FAL_URL,
         headers={"Authorization": f"Key {FAL_KEY}", "Content-Type": "application/json"},
-        json=payload, timeout=300,
+        json=payload, timeout=art_api_timeout,
     )
     resp.raise_for_status()
     data = resp.json()
@@ -95,7 +99,7 @@ def fal_edit(prompt, image_urls, resolution="1K", aspect_ratio="1:1", seed=None)
     resp = httpx.post(
         FAL_EDIT_URL,
         headers={"Authorization": f"Key {FAL_KEY}", "Content-Type": "application/json"},
-        json=payload, timeout=300,
+        json=payload, timeout=art_api_timeout,
     )
     resp.raise_for_status()
     data = resp.json()
@@ -104,7 +108,7 @@ def fal_edit(prompt, image_urls, resolution="1K", aspect_ratio="1:1", seed=None)
 
 def download_image(url, dest_path):
     import httpx
-    resp = httpx.get(url, timeout=60, follow_redirects=True)
+    resp = httpx.get(url, timeout=art_download_timeout, follow_redirects=True)
     resp.raise_for_status()
     dest_path.parent.mkdir(parents=True, exist_ok=True)
     dest_path.write_bytes(resp.content)

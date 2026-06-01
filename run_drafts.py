@@ -5,7 +5,16 @@ import sys
 import re
 import json
 
-def run(cmd, timeout=600):
+import os
+
+# Resolve dynamic timeouts from env
+PIPELINE_TIMEOUT = int(os.environ.get("AUTOBOOK_PIPELINE_TIMEOUT", "3600"))
+DRAFT_TIMEOUT = int(os.environ.get("AUTOBOOK_DRAFT_TIMEOUT", str(max(PIPELINE_TIMEOUT, 1200))))
+EVAL_TIMEOUT = int(os.environ.get("AUTOBOOK_EVAL_TIMEOUT", str(max(PIPELINE_TIMEOUT // 2, 600))))
+
+def run(cmd, timeout=None):
+    if timeout is None:
+        timeout = DRAFT_TIMEOUT
     r = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=timeout)
     return r.stdout + r.stderr, r.returncode
 
@@ -23,7 +32,7 @@ def pattern_check(ch):
     return words, didnot, thought
 
 def spot_eval(ch):
-    out, rc = run(f'.venv/bin/python3 evaluate.py --chapter={ch}', timeout=300)
+    out, rc = run(f'.venv/bin/python3 evaluate.py --chapter={ch}', timeout=EVAL_TIMEOUT)
     m_overall = re.search(r'overall_score: ([\d.]+)', out)
     m_raw = re.search(r'raw_judge_score: (\d+)', out)
     if m_overall and m_raw:

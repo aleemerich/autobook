@@ -945,7 +945,7 @@ def run_revision(state: dict, max_cycles: int = MAX_REVISION_CYCLES) -> dict:
             # Step 2: Parse the review
             step("Parsing review...")
             parse_result = run_tool(
-                "uv run python review.py --parse", timeout=60)
+                "uv run python review.py --parse", timeout=EVAL_TIMEOUT)
             print(parse_result.stdout if parse_result else "")
             
             # Step 3: Check stopping condition
@@ -1064,7 +1064,7 @@ def run_export(state: dict) -> dict:
         # 5. Typeset with tectonic (if available)
         novel_tex = BASE_DIR / "typeset" / "novel.tex"
         if novel_tex.exists():
-            tectonic_check = run_tool("which tectonic", timeout=10)
+            tectonic_check = run_tool("which tectonic", timeout=max(EXPORT_TIMEOUT // 60, 10))
             if tectonic_check.returncode == 0:
                 step("Typesetting PDF with tectonic...")
                 result = run_tool("tectonic typeset/novel.tex", timeout=EXPORT_TIMEOUT)
@@ -1298,7 +1298,7 @@ def task_opus_review(state: dict) -> dict:
         review_result = uv_run(f"review.py --output reviews.md", timeout=REVIEW_TIMEOUT)
         
         step("Parsing review...")
-        parse_result = run_tool("uv run python review.py --parse", timeout=60)
+        parse_result = run_tool("uv run python review.py --parse", timeout=EVAL_TIMEOUT)
         
         review_logs = sorted((EDIT_LOGS_DIR).glob("*_review.json"), reverse=True)
         if review_logs:

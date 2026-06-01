@@ -133,3 +133,35 @@ def test_anthropic_payload_structure(mock_post):
         assert payload["system"] == "system-rules"
         assert payload["messages"] == [{"role": "user", "content": "prompt"}]
         assert payload["temperature"] == 0.9
+
+@patch("httpx.Client.post")
+def test_llm_dynamic_timeout(mock_post):
+    """Ensures call_llm respects dynamic timeouts from env variables."""
+    mock_resp = MagicMock()
+    mock_resp.status_code = 200
+    mock_resp.json.return_value = {
+        "choices": [{"message": {"content": "Hello!"}}]
+    }
+    mock_post.return_value = mock_resp
+
+    # Scenario 1: AUTOBOOK_LLM_TIMEOUT is set
+    with patch.dict(os.environ, {
+        "AUTOBOOK_PROVIDER": "openai",
+        "OPENAI_API_KEY": "test-key",
+        "AUTOBOOK_LLM_TIMEOUT": "120"
+    }):
+        call_llm("prompt", "system")
+        called_args, called_kwargs = mock_post.call_args
+        assert called_kwargs["timeout"] == 120
+
+    # Scenario 2: AUTOBOOK_LLM_TIMEOUT is empty/not set, falls back to AUTOBOOK_PIPELINE_TIMEOUT
+    mock_post.reset_mock()
+    with patch.dict(os.environ, {
+        "AUTOBOOK_PROVIDER": "openai",
+        "OPENAI_API_KEY": "test-key",
+        "AUTOBOOK_LLM_TIMEOUT": "",
+        "AUTOBOOK_PIPELINE_TIMEOUT": "450"
+    }):
+        call_llm("prompt", "system")
+        called_args, called_kwargs = mock_post.call_args
+        assert called_kwargs["timeout"] == 450

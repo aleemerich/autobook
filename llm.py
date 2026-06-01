@@ -170,13 +170,26 @@ def call_llm(prompt: str, system_prompt: str, temperature: float = 0.8,
     max_retries = 3
     backoff_factor = 2
     
+    # Resolve dynamic request timeout
+    generic_timeout_str = os.environ.get("AUTOBOOK_PIPELINE_TIMEOUT", "3600")
+    try:
+        generic_timeout = int(generic_timeout_str) if generic_timeout_str.strip() else 3600
+    except ValueError:
+        generic_timeout = 3600
+
+    llm_timeout_str = os.environ.get("AUTOBOOK_LLM_TIMEOUT", "")
+    try:
+        llm_timeout = int(llm_timeout_str) if llm_timeout_str.strip() else generic_timeout
+    except ValueError:
+        llm_timeout = generic_timeout
+    
     for attempt in range(1, max_retries + 1):
         try:
             print(f"[LLM] Requesting model '{model}' from provider '{provider_name}' (Attempt {attempt}/{max_retries})...", file=sys.stderr)
-            print("[LLM] Waiting for API response (this may take up to 10 minutes for long generations)...", file=sys.stderr)
+            print(f"[LLM] Waiting for API response (timeout: {llm_timeout}s)...", file=sys.stderr)
             
             with httpx.Client() as client:
-                resp = client.post(url, headers=headers, json=payload, timeout=600)
+                resp = client.post(url, headers=headers, json=payload, timeout=llm_timeout)
                 
                 print(f"[LLM] Response received! Status: {resp.status_code}. Processing content...", file=sys.stderr)
                 

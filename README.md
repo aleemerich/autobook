@@ -70,10 +70,15 @@ Autobook features a robust logging system and a resumeable/rewindable task-based
 * `AUTOBOOK_LOG_TRUNCATE_LIMIT`: Console log truncation limit (in characters, default: `300`).
   * Any log line printed to the terminal that exceeds this limit will be cut at exactly the limit, and `...` will be appended for cleaner, highly readable screen output.
   * **Note**: The persistent file `pipeline.log` always preserves the **full, untruncated content** with timestamps for auditing.
-* `AUTOBOOK_PIPELINE_TIMEOUT`: Overall timeout for automated subprocess tasks (in seconds, default: `3600`).
-* `AUTOBOOK_REVISION_TIMEOUT`: Fine-grained timeout override for chapter revisions and rewrites (in seconds, defaults to max of `AUTOBOOK_PIPELINE_TIMEOUT` or `1200`). Applies to both the main pipeline and the Interactive Editorial Pipeline.
-* `AUTOBOOK_EVAL_TIMEOUT`: Fine-grained timeout override for chapter evaluations and scoring (in seconds, defaults to max of `AUTOBOOK_PIPELINE_TIMEOUT // 2` or `600`).
-* `AUTOBOOK_EXPORT_TIMEOUT`: Fine-grained timeout override for typesetting, compilation, and arc/outline exports (in seconds, defaults to max of `AUTOBOOK_PIPELINE_TIMEOUT // 2` or `600`).
+* `AUTOBOOK_PIPELINE_TIMEOUT`: Overall timeout fallback for automated subprocess tasks (in seconds, default: `3600`).
+* `AUTOBOOK_DRAFT_TIMEOUT`: Fine-grained timeout override for sequential chapter drafting tasks (in seconds, defaults to max of `AUTOBOOK_PIPELINE_TIMEOUT` or `1200`).
+* `AUTOBOOK_REVISION_TIMEOUT`: Fine-grained timeout override for chapter revisions, rewrites, and generation tasks (in seconds, defaults to max of `AUTOBOOK_PIPELINE_TIMEOUT` or `1200`). Applies to both the main pipeline and the Interactive Editorial Pipeline.
+* `AUTOBOOK_EVAL_TIMEOUT`: Fine-grained timeout override for chapter evaluations, scoring, and review parsing (in seconds, defaults to max of `AUTOBOOK_PIPELINE_TIMEOUT // 2` or `600`).
+* `AUTOBOOK_ADVERSARIAL_TIMEOUT`: Fine-grained timeout override for running adversarial editing and cuts (in seconds, defaults to max of `AUTOBOOK_PIPELINE_TIMEOUT` or `1800`).
+* `AUTOBOOK_READER_PANEL_TIMEOUT`: Fine-grained timeout override for simulated reader panel evaluation processes (in seconds, defaults to max of `AUTOBOOK_PIPELINE_TIMEOUT` or `1200`).
+* `AUTOBOOK_REVIEW_TIMEOUT`: Fine-grained timeout override for full manuscript structural reviews (in seconds, defaults to max of `AUTOBOOK_PIPELINE_TIMEOUT` or `1800`).
+* `AUTOBOOK_EXPORT_TIMEOUT`: Fine-grained timeout override for LaTeX typesetting, tectonic compilation, and arc/outline exports (in seconds, defaults to max of `AUTOBOOK_PIPELINE_TIMEOUT // 2` or `600`).
+* `AUTOBOOK_LLM_TIMEOUT`: Fine-grained timeout override for individual external LLM API and visual art requests (in seconds, defaults to `AUTOBOOK_PIPELINE_TIMEOUT`). Prevents hung API requests from freezing execution.
 
 ### 📋 Task-Based Execution
 The pipeline is divided into **13 named tasks**. The execution state is saved to `state.json` (`completed_tasks` and `current_task`) after every successfully completed task.
