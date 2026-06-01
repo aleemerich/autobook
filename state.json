@@ -1,5 +1,5 @@
 {
-  "phase": "revision",
+  "phase": "export",
   "current_focus": "full_novel",
   "iteration": 0,
   "foundation_score": 8.8,
@@ -19,7 +19,9 @@
     "6_voice",
     "7_foundation_eval",
     "8_draft_chapters",
-    "9_adversarial_edit"
+    "9_adversarial_edit",
+    "10_reader_panel",
+    "11_opus_review"
   ],
-  "current_task": "10_reader_panel"
+  "current_task": "12_export"
 }
