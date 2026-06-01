@@ -148,6 +148,28 @@ def test_build_outline_call_model(mock_call_llm):
     assert called_kwargs["temperature"] == 0.1
     assert called_kwargs["is_judge"] is True
 
+def test_parse_json_response_resilience():
+    """Verifies build_outline.parse_json_response resilience against markdown, commas, and unescaped quotes."""
+    from build_outline import parse_json_response
+    
+    # Test case 1: markdown fences, trailing commas, and unescaped internal double quotes
+    raw_response = """```json
+    {
+      "title": "Test Title",
+      "summary": "This is a "nested string" with some quotes, and a trailing comma",
+      "beats": [
+        "First beat",
+        "Second beat",
+      ]
+    }
+    ```"""
+    
+    res = parse_json_response(raw_response)
+    assert res["title"] == "Test Title"
+    assert "nested string" in res["summary"]
+    assert len(res["beats"]) == 2
+    assert res["beats"][1] == "Second beat"
+
 @patch("llm.call_llm")
 def test_build_arc_summary_call_writer(mock_call_llm):
     """Verifies build_arc_summary.call_writer correctly routes to call_llm."""

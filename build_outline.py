@@ -20,55 +20,91 @@ CHAPTERS_DIR = BASE_DIR / "chapters"
 def parse_json_response(text):
     """Extract JSON from a response that might have markdown fences or trailing text."""
     text = text.strip()
-    text = re.sub(r'```json\s*', '', text)
-    text = re.sub(r'```\s*', '', text)
+    
+    if text.startswith("```"):
+        text = re.sub(r'^```(?:json)?\s*', '', text)
+    if text.endswith("```"):
+        text = re.sub(r'\s*```$', '', text)
     text = text.strip()
     
-    start = text.find('{')
-    if start == -1:
-        raise ValueError("No JSON object found in response")
-        
-    depth = 0
-    in_string = False
-    escape = False
-    for i in range(start, len(text)):
-        c = text[i]
-        if escape:
-            escape = False
-            continue
-        if c == '\\' and in_string:
-            escape = True
-            continue
-        if c == '"' and not escape:
-            in_string = not in_string
-            continue
-        if in_string:
-            continue
-        if c == '{':
-            depth += 1
-        elif c == '}':
-            depth -= 1
-            if depth == 0:
-                try:
-                    return json.loads(text[start:i+1], strict=False)
-                except json.JSONDecodeError:
-                    fixed_slice = re.sub(r'(?<!\\)\n', '\\n', text[start:i+1])
-                    return json.loads(fixed_slice, strict=False)
-                    
-    end = text.rfind('}')
-    if end != -1 and end > start:
-        cleaned_text = text[start:end+1]
-        try:
-            return json.loads(cleaned_text, strict=False)
-        except json.JSONDecodeError:
-            fixed_fallback = re.sub(r'(?<!\\)\n', '\\n', cleaned_text)
-            return json.loads(fixed_fallback, strict=False)
-            
     try:
         return json.loads(text, strict=False)
     except json.JSONDecodeError:
-        fixed = re.sub(r'(?<!\\)\n', '\\n', text)
-        return json.loads(fixed, strict=False)
+        pass
+        
+    start = text.find('{')
+    end = text.rfind('}')
+    if start == -1 or end == -1 or end < start:
+        raise ValueError("No valid JSON object found in response")
+        
+    json_candidate = text[start:end+1]
+    
+    try:
+        return json.loads(json_candidate, strict=False)
+    except json.JSONDecodeError:
+        pass
+        
+    json_candidate = re.sub(r',\s*([}\]])', r'\1', json_candidate)
+    
+    repaired = repair_json_quotes(json_candidate)
+    
+    try:
+        return json.loads(repaired, strict=False)
+    except json.JSONDecodeError as e:
+        fixed = re.sub(r'(?<!\\)\n', '\\n', repaired)
+        try:
+            return json.loads(fixed, strict=False)
+        except json.JSONDecodeError:
+            raise e
+
+def repair_json_quotes(s):
+    result = []
+    in_string = False
+    escape = False
+    i = 0
+    n = len(s)
+    
+    while i < n:
+        c = s[i]
+        if escape:
+            result.append(c)
+            escape = False
+            i += 1
+            continue
+            
+        if c == '\\':
+            result.append(c)
+            escape = True
+            i += 1
+            continue
+            
+        if c == '"':
+            is_structural = False
+            
+            if not in_string:
+                is_structural = True
+            else:
+                next_non_ws = ""
+                j = i + 1
+                while j < n:
+                    if not s[j].isspace():
+                        next_non_ws = s[j]
+                        break
+                    j += 1
+                
+                if next_non_ws in [':', '}', ']', ','] or next_non_ws == "":
+                    is_structural = True
+            
+            if is_structural:
+                in_string = not in_string
+                result.append(c)
+            else:
+                result.append('\\"')
+        else:
+            result.append(c)
+        i += 1
+        
+    return "".join(result)
 
 def call_model(prompt, max_tokens=1500):
     """Call the unified judge LLM via llm.py and return response text."""
@@ -87,8 +123,12 @@ def main():
     
     entries = []
     
-    for ch in range(1, 20):
+    ch = 1
+    while True:
         path = CHAPTERS_DIR / f"ch_{ch:02d}.md"
+        if not path.exists():
+            break
+            
         text = path.read_text()
         wc = len(text.split())
         
@@ -119,6 +159,7 @@ JSON only, no other text."""
         data["words"] = wc
         entries.append(data)
         print(f"  {ch:2d}. {title_line} ({wc}w)")
+        ch += 1
     
     # Load existing outline header info
     old_outline = (BASE_DIR / "outline.md").read_text()
@@ -128,7 +169,7 @@ JSON only, no other text."""
     lines.append("# THE SECOND SON OF THE HOUSE OF BELLS")
     lines.append("## Chapter Outline (reflects actual novel as-written)")
     lines.append("")
-    lines.append(f"**23 chapters, {sum(e['words'] for e in entries):,} words**")
+    lines.append(f"**{len(entries)} chapters, {sum(e['words'] for e in entries):,} words**")
     lines.append("")
     lines.append("---")
     lines.append("")
