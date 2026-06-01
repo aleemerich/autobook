@@ -1,6 +1,6 @@
 {
-  "phase": "export",
-  "current_focus": "full_novel",
+  "phase": "complete",
+  "current_focus": "done",
   "iteration": 0,
   "foundation_score": 8.8,
   "lore_score": 9.0,
@@ -21,7 +21,8 @@
     "8_draft_chapters",
     "9_adversarial_edit",
     "10_reader_panel",
-    "11_opus_review"
+    "11_opus_review",
+    "12_export"
   ],
   "current_task": "12_export"
 }

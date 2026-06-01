@@ -22322,3 +22322,18 @@
 [2026-06-01 10:35:32] [INFO] RUN: which tectonic
 [2026-06-01 10:35:32] [INFO] tectonic not found, skipping PDF generation
 [2026-06-01 10:35:32] [INFO] RUN: git add -A
+[2026-06-01 10:35:33] [INFO] RUN: git commit -m "export: manuscript, outline, arc summary, PDF" --allow-empty
+[2026-06-01 10:35:33] [SUBPROCESS] [autobook/a-prova-final 92cc6db] export: manuscript, outline, arc summary, PDF
+[2026-06-01 10:35:33] [SUBPROCESS] 5 files changed, 5993 insertions(+), 123 deletions(-)
+[2026-06-01 10:35:33] [SUBPROCESS] create mode 100644 manuscript.md
+[2026-06-01 10:35:33] [INFO] RUN: git rev-parse --short HEAD
+[2026-06-01 10:35:33] [SUBPROCESS] 92cc6db
+[2026-06-01 10:35:33] [INFO] GIT COMMIT: 92cc6db — export: manuscript, outline, arc summary, PDF
+[2026-06-01 10:35:33] [INFO] ============================================================
+[2026-06-01 10:35:33] [INFO] EXPORT COMPLETE — 22 chapters, 70164 words
+[2026-06-01 10:35:33] [INFO] ============================================================
+[2026-06-01 10:35:33] [INFO] ============================================================
+[2026-06-01 10:35:33] [INFO] PIPELINE EXECUTION COMPLETE
+[2026-06-01 10:35:33] [INFO] ============================================================
+[2026-06-01 10:35:33] [INFO] Time elapsed:    10.26 hours
+[2026-06-01 10:35:33] [INFO] Completed tasks: 0_ideation, 1_world, 2_characters, 3_outline, 4_outline_p2, 5_canon, 6_voice, 7_foundation_eval, 8_draft_chapters, 9_adversarial_edit, 10_reader_panel, 11_opus_review, 12_export
