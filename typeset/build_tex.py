@@ -91,49 +91,62 @@ def make_drop_cap(latex_body):
     drop = f"\\lettrine[lines=2, lhang=0.1, nindent=0.2em]{{{first_letter}}}{{{word_rest}}}{para_rest}"
     return drop + '\n\n' + rest
 
-chapters_tex = []
-for n in range(1, 23):
-    path = os.path.join(CHAPTERS_DIR, f"ch_{n:02d}.md")
-    with open(path) as f:
-        text = f.read()
-    
-    lines = text.strip().split('\n')
-    title_line = lines[0].lstrip('# ').strip()
-    body = '\n'.join(lines[1:]).strip()
-    
-    if ': ' in title_line:
-        label, subtitle = title_line.split(': ', 1)
-    else:
-        label, subtitle = title_line, ""
-    
-    chapter_name = subtitle if subtitle else label
-    latex_body = md_to_latex(body)
-    latex_body = make_drop_cap(latex_body)
-    
-    # Check for chapter ornament (prefer vector PDF over raster PNG)
-    art_base = os.path.dirname(CHAPTERS_DIR)
-    pdf_path = os.path.join(art_base, "art", "pdf", f"ornament_ch{n:02d}.pdf")
-    png_path = os.path.join(art_base, "art", f"ornament_ch{n:02d}.png")
-    ornament_tex = ""
-    ornament_file = None
-    if os.path.exists(pdf_path):
-        ornament_file = pdf_path
-    elif os.path.exists(png_path):
-        ornament_file = png_path
-    if ornament_file:
-        ornament_tex = (
-            f"\\begin{{center}}\n"
-            f"\\includegraphics[width=0.8in]{{{ornament_file}}}\n"
-            f"\\end{{center}}\n"
-            f"\\vspace{{0.15in}}\n"
-        )
-    
-    chapters_tex.append(f"\\chapter{{{latex_escape(chapter_name)}}}\n\n{ornament_tex}{latex_body}\n")
-    print(f"  {n:2d}. {title_line}")
+def main():
+    # Discover chapters dynamically
+    chapter_numbers = []
+    if os.path.exists(CHAPTERS_DIR):
+        for filename in os.listdir(CHAPTERS_DIR):
+            match = re.match(r"^ch_(\d+)\.md$", filename)
+            if match:
+                chapter_numbers.append(int(match.group(1)))
+    chapter_numbers.sort()
 
-content = '\n\\clearpage\n\n'.join(chapters_tex)
+    chapters_tex = []
+    for n in chapter_numbers:
+        path = os.path.join(CHAPTERS_DIR, f"ch_{n:02d}.md")
+        with open(path) as f:
+            text = f.read()
+        
+        lines = text.strip().split('\n')
+        title_line = lines[0].lstrip('# ').strip()
+        body = '\n'.join(lines[1:]).strip()
+        
+        if ': ' in title_line:
+            label, subtitle = title_line.split(': ', 1)
+        else:
+            label, subtitle = title_line, ""
+        
+        chapter_name = subtitle if subtitle else label
+        latex_body = md_to_latex(body)
+        latex_body = make_drop_cap(latex_body)
+        
+        # Check for chapter ornament (prefer vector PDF over raster PNG)
+        art_base = os.path.dirname(CHAPTERS_DIR)
+        pdf_path = os.path.join(art_base, "art", "pdf", f"ornament_ch{n:02d}.pdf")
+        png_path = os.path.join(art_base, "art", f"ornament_ch{n:02d}.png")
+        ornament_tex = ""
+        ornament_file = None
+        if os.path.exists(pdf_path):
+            ornament_file = pdf_path
+        elif os.path.exists(png_path):
+            ornament_file = png_path
+        if ornament_file:
+            ornament_tex = (
+                f"\\begin{{center}}\n"
+                f"\\includegraphics[width=0.8in]{{{ornament_file}}}\n"
+                f"\\end{{center}}\n"
+                f"\\vspace{{0.15in}}\n"
+            )
+        
+        chapters_tex.append(f"\\chapter{{{latex_escape(chapter_name)}}}\n\n{ornament_tex}{latex_body}\n")
+        print(f"  {n:2d}. {title_line}")
 
-with open(os.path.join(OUT_DIR, "chapters_content.tex"), 'w') as f:
-    f.write(content)
+    content = '\n\\clearpage\n\n'.join(chapters_tex)
 
-print(f"\nWrote {len(chapters_tex)} chapters to typeset/chapters_content.tex")
+    with open(os.path.join(OUT_DIR, "chapters_content.tex"), 'w') as f:
+        f.write(content)
+
+    print(f"\nWrote {len(chapters_tex)} chapters to typeset/chapters_content.tex")
+
+if __name__ == '__main__':
+    main()
