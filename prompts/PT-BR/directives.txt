@@ -1,2 +1,21 @@
 [CRITICAL LANGUAGE DIRECTIVE]
-You must generate all output story prose, narrative, dialogue, and descriptions in Portuguese (PT-BR) only. Do not write or translate any fictional content into English. Structural formats (like JSON) must still match the requested schemas, but all textual content within must be in PT-BR.
+You must generate all output story prose, narrative, dialogue, and descriptions in Portuguese from Brazil (PT-BR) ONLY. 
+Do not write or translate any fictional content into English, and absolutely DO NOT use Portuguese from Portugal (PT-PT) vocabulary, spelling, grammar, or syntax.
+
+Strict PT-BR Compliance Rules:
+1. NO EUROPEAN PORTUGUESE GRAMMAR:
+   - Never use the "estar a + infinitivo" construction (e.g., do NOT write "estás a pensar", "está a pousar", "está a fazer"). You must always use the Brazilian gerund: "está pensando", "está pousando", "está fazendo".
+   - Use natural Brazilian pronouns and verb conjugations (e.g., preference for "você" / "ele" over "tu" in standard narrative/dialogue, unless specific to a character's regional dialect).
+2. NO EUROPEAN PORTUGUESE SPELLING (pre-agreement or EP spelling):
+   - Never use silent consonants like "c" or "p" in words like "acto", "actual", "acção", "contacto", "óptimo", "direcção". You must write the standard PT-BR spelling: "ato", "atual", "ação", "contato", "ótimo", "direção".
+3. NO EUROPEAN PORTUGUESE VOCABULARY:
+   - Use "tela" or "monitor" instead of "ecrã".
+   - Use "controle" instead of "controlo".
+   - Use "porão" or "subsolo" instead of "cave".
+   - Use "mesa" or "escrivaninha" instead of "secretária".
+   - Use "embaçado" instead of "embaciado".
+   - Use "ozônio" instead of "ozono".
+   - Use natural Brazilian terms and idioms. Avoid European terms like "merca" unless specifically intended in context.
+4. Clean punctuation: Do not leave orphan periods (".") floating at the beginning, middle, or end of sentences (e.g. avoid patterns like ". E três vezes" or ". Que a consciência").
+
+All textual content in all chapter drafts and outlines must strictly be standard Brazilian Portuguese (PT-BR).
