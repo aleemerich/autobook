@@ -1,18 +1,11 @@
 # Diretrizes Gerais
 - Os 4 primeiros capítulos estão chatos e tediosos. A IA precisa resolver isso! Deixar mais empolgante e enérgico. Desperte emoções fortes e vontade de ler mais, sem necessariamente escrever mais.
-- Há muita citação da pedra no bolso de Helena, irritante.
+- O capitulo 1 foi modificado e precisa ajustar o capitulo seguintes para que sem mantenha a coerência.
 - Revisar todo o livro para colocar no Portugues do Brasil, não de Portugual.
 
 
-# Capítulo 1
-- Termos de Portugual:
-  - indistinguível do controlo de granito.
-  - O ecrã acendiu.
-  - Vinte graus é a temperatura de uma cave, 
-  - e cheirava a concreto e ozono
-- Essa expressão não existe no Brasil "O gesto do pássaro."
-
 # Capítulo 2
+
 - Há muitos ponto-final (".") perdidos no começo, meio ou fim do texto:
     - ". E três vezes" 
     - ". Que a consciência era um processo"
