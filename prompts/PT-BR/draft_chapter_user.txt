@@ -21,4 +21,7 @@ REGISTRO DE PERSONAGENS (referência para padrões de fala e comportamento):
 DIRETRIZES DE ESCRITA E REGRAS DO GÊNERO:
 {genre_rules}
 
+REGRAS ANTI-SLOP E EVITAÇÃO DE CLICHÊS (OBRIGATÓRIO):
+{slop_rules}
+
 Escreva o capítulo agora. Texto completo, do início ao fim.

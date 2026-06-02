@@ -311,11 +311,15 @@ The **Interactive Editorial Pipeline** (`run_editorial.py`) allows the author to
    
    It prompts you: `Deseja iniciar as ações de correção acima? [Y/n]`.
 
-4. **Sequential Cascading Re-writes**:
+4. **Self-Healing Corrective Retry Loop & Fallback**:
    Once approved:
    * The pipeline processes the target chapters sequentially.
-   * Dynamic continuity warnings from upstream edits (e.g. *"In Chapter 17, Helena gave Elisa a physical bronze key"* ) are automatically generated and injected into the prompt context of downstream chapters (18, 19, 20).
-   * Each re-written chapter is evaluated by the local scorer. If the quality score improves or remains stable, the change is committed to Git. If the score degrades, the change is rolled back.
+   * Dynamic continuity warnings from upstream edits (e.g. *"In Chapter 17, Helena gave Elisa a physical bronze key"*) are automatically generated and injected into the prompt context of downstream chapters.
+   * Each chapter is evaluated by the local scorer. If the post-revision score is lower than the pre-revision score, the pipeline activates a **self-healing corrective retry loop** (up to `--retries` times):
+     * It extracts detailed infractions from the evaluator's JSON log (such as banned slop words, em-dash density, structural tics, canon violations, and dimension-specific critiques).
+     * It builds a targeted corrective brief and calls the revision writer again to clean up the draft.
+     * If any retry equals or beats the baseline score, the change is accepted and committed.
+     * If all retries fail to beat the baseline score, the pipeline keeps the **best scoring fallback version** among all attempts (preserving your plot/translation directives while minimizing slop) and commits it.
 
 #### **Standard `editorial.md` Format**
 
@@ -335,8 +339,25 @@ Create a file named `editorial.md` at the root of the project with the following
 ```
 
 #### **How to Run**
+
+Run with default behavior (processes only chapters declared in `editorial.md`):
 ```bash
 uv run python run_editorial.py
+```
+
+Run on specific chapters (e.g., chapters 1 to 4, chapter 7) to apply general guidelines and/or local briefs:
+```bash
+uv run python run_editorial.py --chapters=1-4,7
+```
+
+Run on all chapters in the manuscript (e.g., to apply a global PT-BR localization sweep):
+```bash
+uv run python run_editorial.py --all
+```
+
+Configure custom corrective retries limit (defaults to 2):
+```bash
+uv run python run_editorial.py --chapters=1-4 --retries=3
 ```
 
 ---
