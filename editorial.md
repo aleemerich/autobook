@@ -1,11 +1,11 @@
 # Diretrizes Gerais
-- Os 4 primeiros capítulos estão chatos e tediosos. A IA precisa resolver isso! Deixar mais empolgante e enérgico. Desperte emoções fortes e vontade de ler mais
+- Os 4 primeiros capítulos estão chatos e tediosos. A IA precisa resolver isso! Deixar mais empolgante e enérgico. Desperte emoções fortes e vontade de ler mais, sem necessariamente escrever mais.
 - Há muita citação da pedra no bolso de Helena, irritante.
 - Revisar todo o livro para colocar no Portugues do Brasil, não de Portugual.
 
 
 # Capítulo 1
-- O português do livro é do BR, mas está com muitos termos de Portugual:
+- Termos de Portugual:
   - indistinguível do controlo de granito.
   - O ecrã acendiu.
   - Vinte graus é a temperatura de uma cave, 
@@ -17,7 +17,7 @@
     - ". E três vezes" 
     - ". Que a consciência era um processo"
     - "a letra de uma canção que se ouve demasiadas vezes. . Cada acto consciente gerava um" 
-- O português do livro é do BR, mas está com muitos termos de Portugual:
+- Termos de Portugual:
   - Cada acto consciente
   - Não como essa merca que tens aí.
   - a pousar na secretária 
