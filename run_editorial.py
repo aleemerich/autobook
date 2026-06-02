@@ -503,6 +503,17 @@ def run_editorial(chapters_opt=None, all_opt=False, retries_opt=2):
         pre_data = get_eval_data(pre_eval.stdout)
         pre_score = pre_data.get("overall_score", 0.0)
         
+        # Option 3 check: Skip if no directives of any kind AND the current version is already perfect
+        has_specific_brief = bool(task["brief"].strip()) if task["brief"] else False
+        has_general_notes = bool(general_notes.strip()) if general_notes else False
+        has_continuity_warnings = bool(ch_num in continuity_warnings and continuity_warnings[ch_num])
+        pre_slop = pre_data.get("slop", {}).get("slop_penalty", 0.0)
+        
+        if (not has_specific_brief) and (not has_general_notes) and (not has_continuity_warnings):
+            if pre_score >= 7.0 and pre_slop == 0.0:
+                log_msg(f"Chapter {ch_num:02d} has no directives, no general notes, no continuity warnings, and already has a high-quality score ({pre_score}) with zero slop. Skipping revision.")
+                continue
+        
         # Run revision (Attempt 1)
         step(f"Rewriting Chapter {ch_num} (Attempt 1)...")
         run_tool(f"uv run python gen_revision.py {ch_num} {temp_brief_path}", timeout=REVISION_TIMEOUT)
