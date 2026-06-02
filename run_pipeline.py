@@ -706,6 +706,14 @@ def run_drafting(state: dict) -> dict:
                 save_state(state)
 
     # All chapters drafted
+    # Rebuild outline to ensure verify_continuity.py has current data
+    step("Rebuilding outline before continuity validation...")
+    uv_run("build_outline.py", timeout=EVAL_TIMEOUT)
+    
+    # Run continuity validation in strict mode
+    step("Running global timeline and continuity validation...")
+    run_tool("uv run python verify_continuity.py --strict", timeout=EVAL_TIMEOUT, check=True)
+
     state["phase"] = "revision"
     state["current_focus"] = "full_novel"
     state["chapters_drafted"] = total
@@ -921,6 +929,12 @@ def run_revision(state: dict, max_cycles: int = MAX_REVISION_CYCLES) -> dict:
         state["novel_score"] = novel_score
         state["revision_cycle"] = cycle
         save_state(state)
+
+        # -- Step 6.5: Continuity validation --
+        step("Rebuilding outline before continuity validation...")
+        uv_run("build_outline.py", timeout=EXPORT_TIMEOUT)
+        step("Running global timeline and continuity validation...")
+        uv_run("verify_continuity.py", timeout=EVAL_TIMEOUT)
 
         # -- Step 7: Plateau detection --
         if cycle >= MIN_REVISION_CYCLES and abs(novel_score - prev_score) < PLATEAU_DELTA:

@@ -644,6 +644,10 @@ def run_editorial(chapters_opt=None, all_opt=False, retries_opt=2):
     banner("CONSOLIDATING MANUSCRIPT AND STRUCTURE")
     run_tool("uv run python build_arc_summary.py", timeout=EXPORT_TIMEOUT)
     run_tool("uv run python build_outline.py", timeout=EXPORT_TIMEOUT)
+    
+    # Run global timeline and continuity validation (non-strict for audit report)
+    run_tool("uv run python verify_continuity.py", timeout=EVAL_TIMEOUT)
+    
     run_tool("uv run python typeset/build_tex.py", timeout=EXPORT_TIMEOUT)
     
     git_add_commit("editorial: finalize manuscript, outline, and LaTeX typeset consolidation")
