@@ -337,10 +337,22 @@ def extract_eval_feedback(stdout: str) -> str:
             for sentence in weakest_sentences:
                 feedback_parts.append(f"- \"{sentence}\"")
             feedback_parts.append("")
-            
         return "\n".join(feedback_parts)
     except Exception as e:
         return f"Falha ao ler o arquivo de log do avaliador para feedback: {e}"
+
+def get_eval_data(stdout: str) -> dict:
+    """Parse the evaluation stdout, locate the eval_log JSON path, and load its JSON contents."""
+    match = re.search(r"eval_log:\s*(\S+)", stdout)
+    if not match:
+        return {}
+    log_path = Path(match.group(1).strip())
+    if not log_path.exists():
+        return {}
+    try:
+        return json.loads(log_path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
 
 def run_editorial(chapters_opt=None, all_opt=False, retries_opt=2):
     # Load configurable timeouts
@@ -488,7 +500,8 @@ def run_editorial(chapters_opt=None, all_opt=False, retries_opt=2):
         
         # Evaluate before revision
         pre_eval = run_tool(f"uv run python evaluate.py --chapter={ch_num}", timeout=EVAL_TIMEOUT)
-        pre_score = parse_score(pre_eval.stdout, "overall_score")
+        pre_data = get_eval_data(pre_eval.stdout)
+        pre_score = pre_data.get("overall_score", 0.0)
         
         # Run revision (Attempt 1)
         step(f"Rewriting Chapter {ch_num} (Attempt 1)...")
@@ -496,22 +509,27 @@ def run_editorial(chapters_opt=None, all_opt=False, retries_opt=2):
         
         # Evaluate after revision
         post_eval = run_tool(f"uv run python evaluate.py --chapter={ch_num}", timeout=EVAL_TIMEOUT)
-        post_score = parse_score(post_eval.stdout, "overall_score")
+        post_data = get_eval_data(post_eval.stdout)
+        post_score = post_data.get("overall_score", 0.0)
+        slop_penalty = post_data.get("slop", {}).get("slop_penalty", 0.0)
         
-        log_msg(f"Chapter {ch_num} Attempt 1: Score {pre_score} -> {post_score}")
+        log_msg(f"Chapter {ch_num} Attempt 1: Score {pre_score} -> {post_score} (Slop Penalty: {slop_penalty})")
         
         success = False
         best_fallback_text = ""
         best_fallback_score = -1.0
+        best_fallback_slop = 999.0
         
-        if post_score >= pre_score:
+        # We immediately succeed only if the score is >= baseline, >= 7.0 (high quality), and has zero slop penalty
+        if post_score >= pre_score and post_score >= 7.0 and slop_penalty == 0.0:
             success = True
-            log_msg(f"Chapter {ch_num} Attempt 1: Score improved or maintained.")
+            log_msg(f"Chapter {ch_num} Attempt 1: High quality score and zero slop achieved ({post_score}).")
         else:
             # Save fallback
             best_fallback_text = ch_file_path.read_text(encoding="utf-8") if ch_file_path.exists() else ""
             best_fallback_score = post_score
-            log_msg(f"Chapter {ch_num} Attempt 1: Regression detected. Saving fallback (score {best_fallback_score}).")
+            best_fallback_slop = slop_penalty
+            log_msg(f"Chapter {ch_num} Attempt 1: Needs optimization. Saving fallback (score {best_fallback_score}, slop penalty {best_fallback_slop}).")
             
             # Start retry loop
             for retry_idx in range(1, retries_opt + 1):
@@ -524,7 +542,7 @@ def run_editorial(chapters_opt=None, all_opt=False, retries_opt=2):
                 corrective_brief_lines = [
                     f"# Diretivas de Correção Editorial - Capítulo {ch_num} (RETENTATIVA CORRETIVA {retry_idx})",
                     "",
-                    "A tentativa anterior de revisão não atingiu a pontuação mínima necessária devido a desvios ou problemas de qualidade no rascunho atual.",
+                    "A tentativa anterior de revisão não atingiu a qualidade ideal devido a desvios ou problemas no rascunho atual.",
                     "Sua missão é corrigir o rascunho atual para eliminar esses erros específicos, mantendo a coerência e as diretivas da história.",
                     "",
                     "## [PROBLEMAS CRÍTICOS A CORRIGIR]:",
@@ -552,26 +570,41 @@ def run_editorial(chapters_opt=None, all_opt=False, retries_opt=2):
                     
                 # Evaluate again
                 post_eval = run_tool(f"uv run python evaluate.py --chapter={ch_num}", timeout=EVAL_TIMEOUT)
-                post_score = parse_score(post_eval.stdout, "overall_score")
-                log_msg(f"Chapter {ch_num} Attempt {retry_idx + 1}: Score {post_score} (baseline: {pre_score}, best fallback: {best_fallback_score})")
+                post_data = get_eval_data(post_eval.stdout)
+                post_score = post_data.get("overall_score", 0.0)
+                slop_penalty = post_data.get("slop", {}).get("slop_penalty", 0.0)
                 
-                if post_score >= pre_score:
+                log_msg(f"Chapter {ch_num} Attempt {retry_idx + 1}: Score {post_score}, Slop Penalty {slop_penalty} (baseline: {pre_score}, best fallback: {best_fallback_score}, best fallback slop: {best_fallback_slop})")
+                
+                if post_score >= pre_score and post_score >= 7.0 and slop_penalty == 0.0:
                     success = True
-                    log_msg(f"Chapter {ch_num} Attempt {retry_idx + 1}: Success! Score is now {post_score} >= baseline {pre_score}.")
+                    log_msg(f"Chapter {ch_num} Attempt {retry_idx + 1}: Success! Perfect score and quality achieved.")
                     break
                 else:
+                    # Check if this attempt is better than the fallback (prefer higher score, tie-break on lower slop)
+                    is_better = False
                     if post_score > best_fallback_score:
-                        log_msg(f"Chapter {ch_num} Attempt {retry_idx + 1}: Score {post_score} improved upon best fallback {best_fallback_score}. Updating fallback.")
+                        is_better = True
+                    elif post_score == best_fallback_score:
+                        if slop_penalty < best_fallback_slop:
+                            is_better = True
+                            
+                    if is_better:
+                        log_msg(f"Chapter {ch_num} Attempt {retry_idx + 1}: Score/slop improved upon best fallback. Updating fallback.")
                         best_fallback_text = ch_file_path.read_text(encoding="utf-8") if ch_file_path.exists() else ""
                         best_fallback_score = post_score
+                        best_fallback_slop = slop_penalty
                     else:
-                        log_msg(f"Chapter {ch_num} Attempt {retry_idx + 1}: Score {post_score} is worse or equal to best fallback {best_fallback_score}. Restoring best fallback text for next pass.")
+                        log_msg(f"Chapter {ch_num} Attempt {retry_idx + 1}: No improvement. Restoring best fallback text for next pass.")
                         if best_fallback_text:
                             ch_file_path.write_text(best_fallback_text, encoding="utf-8")
                             
         # Decide kept state
-        if success:
-            commit_hash = git_add_commit(f"editorial: revise ch{ch_num:02d} ({task['type']}) {pre_score}->{post_score}")
+        if success or best_fallback_score >= pre_score:
+            final_kept_score = post_score if success else best_fallback_score
+            if not success and best_fallback_text:
+                ch_file_path.write_text(best_fallback_text, encoding="utf-8")
+            commit_hash = git_add_commit(f"editorial: revise ch{ch_num:02d} ({task['type']}) {pre_score}->{final_kept_score}")
             log_msg(f"Keeping revision for Chapter {ch_num:02d}. Commit: {commit_hash}")
             
             # If continuity breaking, register warnings for downstream chapters

@@ -753,7 +753,12 @@ def main():
         if key == score_key:
             continue
         if isinstance(val, dict):
-            print(f"{key}: {val.get('score', 'N/A')} -- {val.get('note', '')}")
+            score_val = val.get('score')
+            if score_val is None and 'slop_penalty' in val:
+                score_val = f"Penalty: {val['slop_penalty']}"
+            if score_val is None:
+                score_val = 'N/A'
+            print(f"{key}: {score_val} -- {val.get('note', '')}")
         else:
             print(f"{key}: {val}")
 

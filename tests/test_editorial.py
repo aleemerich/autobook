@@ -206,12 +206,16 @@ def test_run_editorial_abort(mock_call_llm, mock_input, mock_run_tool, mock_clas
 @patch("llm.call_llm")
 @patch("run_editorial.git_add_commit")
 @patch("run_editorial.git_reset_hard")
-def test_run_editorial_dynamic_timeouts(mock_git_reset, mock_git_commit, mock_call_llm, mock_input, mock_run_tool, mock_classify, mock_editorial_file, monkeypatch):
+@patch("run_editorial.get_eval_data")
+def test_run_editorial_dynamic_timeouts(mock_eval_data, mock_git_reset, mock_git_commit, mock_call_llm, mock_input, mock_run_tool, mock_classify, mock_editorial_file, monkeypatch):
     # Mock env variables
     monkeypatch.setenv("AUTOBOOK_PIPELINE_TIMEOUT", "4000")
     monkeypatch.setenv("AUTOBOOK_REVISION_TIMEOUT", "5000")
     monkeypatch.setenv("AUTOBOOK_EVAL_TIMEOUT", "2500")
     
+    # Mock get_eval_data
+    mock_eval_data.return_value = {"overall_score": 8.5, "slop": {"slop_penalty": 0.0}}
+
     markdown_content = (
         "# Capítulo 10\n"
         "Test brief\n"
@@ -244,7 +248,7 @@ def test_run_editorial_dynamic_timeouts(mock_git_reset, mock_git_commit, mock_ca
     
     # Mock run_tool to return a CompletedProcess-like object with stdout
     mock_pre_eval = MagicMock()
-    mock_pre_eval.stdout = "overall_score: 8.5"
+    mock_pre_eval.stdout = "overall_score: 8.5\neval_log: /dummy/log.json"
     mock_run_tool.return_value = mock_pre_eval
     
     # Run the pipeline
@@ -290,9 +294,10 @@ def test_parse_chapters_range():
 @patch("run_editorial.git_reset_hard")
 @patch("run_editorial.get_all_chapter_numbers")
 @patch("run_editorial.extract_eval_feedback")
+@patch("run_editorial.get_eval_data")
 @patch("run_editorial.CHAPTERS_DIR")
 def test_run_editorial_retry_loop_and_fallback(
-    mock_chapters_dir, mock_feedback, mock_get_all, mock_git_reset, mock_git_commit,
+    mock_chapters_dir, mock_eval_data, mock_feedback, mock_get_all, mock_git_reset, mock_git_commit,
     mock_call_llm, mock_input, mock_run_tool, mock_classify, mock_editorial_file, monkeypatch
 ):
     # Mock chapters directory scan
@@ -328,6 +333,14 @@ def test_run_editorial_retry_loop_and_fallback(
     # Mock extract_eval_feedback
     mock_feedback.return_value = "Mocked feedback"
     
+    # Mock get_eval_data responses
+    mock_eval_data.side_effect = [
+        {"overall_score": 8.0}, # pre
+        {"overall_score": 6.0, "slop": {"slop_penalty": 2.0}}, # post 1
+        {"overall_score": 7.0, "slop": {"slop_penalty": 1.0}}, # retry 1
+        {"overall_score": 6.5, "slop": {"slop_penalty": 1.5}}, # retry 2
+    ]
+    
     call_scores = ["overall_score: 8.0", "Revision ran...", "overall_score: 6.0", "Revision ran...", "overall_score: 7.0", "Revision ran...", "overall_score: 6.5"]
     
     mock_results = []
@@ -355,6 +368,7 @@ def test_run_editorial_retry_loop_and_fallback(
     assert len(eval_calls) == 4
     assert len(revision_calls) == 3
     
-    # Verify git commit message shows fallback usage
+    # Verify git commit message shows fallback usage (pre_score was 8.0, best fallback was 7.0)
     mock_git_commit.assert_any_call("editorial: revise ch01 (fallback 7.0 < 8.0)")
+
 
