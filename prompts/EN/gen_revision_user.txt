@@ -24,4 +24,7 @@ THE EXISTING DRAFT (use as raw material -- keep what works, cut what doesn't):
 GENRE-SPECIFIC RULES & WRITING GUIDELINES:
 {genre_rules}
 
+ANTI-SLOP AND PROSE QUALITY RULES (MANDATORY):
+{slop_rules}
+
 Write the FULL revised chapter now.

@@ -24,4 +24,7 @@ O RASCUNHO EXISTENTE (use como material bruto -- mantenha o que funciona, corte 
 DIRETRIZES DE ESCRITA E REGRAS DO GÊNERO:
 {genre_rules}
 
+REGRAS ANTI-SLOP E EVITAÇÃO DE CLICHÊS (OBRIGATÓRIO):
+{slop_rules}
+
 Escreva o capítulo revisado COMPLETO agora.

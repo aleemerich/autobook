@@ -220,7 +220,129 @@ def parse_score(stdout: str, key: str = "overall_score") -> float:
     match = re.search(rf"{key}:\s*([0-9.]+)", stdout)
     return float(match.group(1)) if match else 0.0
 
-def run_editorial():
+def get_all_chapter_numbers() -> list:
+    """Scan chapters directory for existing chapter numbers."""
+    numbers = []
+    if CHAPTERS_DIR.exists():
+        for f in CHAPTERS_DIR.glob("ch_*.md"):
+            match = re.search(r"ch_(\d+)\.md", f.name)
+            if match:
+                numbers.append(int(match.group(1)))
+    return sorted(numbers)
+
+
+def parse_chapters_range(chapters_str: str, all_possible: list) -> list:
+    """Parse strings like '1-4, 7, 9-11' or 'all' and return a sorted list of integers."""
+    if not chapters_str or chapters_str.strip().lower() == "all":
+        return all_possible
+        
+    nums = set()
+    parts = chapters_str.split(",")
+    for part in parts:
+        part = part.strip()
+        if not part:
+            continue
+        if "-" in part:
+            try:
+                start_str, end_str = part.split("-", 1)
+                start = int(start_str.strip())
+                end = int(end_str.strip())
+                for i in range(start, end + 1):
+                    if i in all_possible:
+                        nums.add(i)
+            except ValueError:
+                pass
+        else:
+            try:
+                val = int(part)
+                if val in all_possible:
+                    nums.add(val)
+            except ValueError:
+                pass
+    return sorted(list(nums))
+
+def extract_eval_feedback(stdout: str) -> str:
+    """
+    Parse the evaluation stdout, locate the eval_log JSON path,
+    read it, and return a formatted feedback string summarizing the issues.
+    """
+    match = re.search(r"eval_log:\s*(\S+)", stdout)
+    if not match:
+        return "Nenhum arquivo de log de avaliação encontrado no console."
+        
+    log_path = Path(match.group(1).strip())
+    if not log_path.exists():
+        return f"Arquivo de log de avaliação não encontrado no caminho: {log_path}"
+        
+    try:
+        data = json.loads(log_path.read_text(encoding="utf-8"))
+        feedback_parts = []
+        
+        # 1. Collect slop hits
+        slop = data.get("slop", {})
+        tier1 = slop.get("tier1_hits", [])
+        tier2 = slop.get("tier2_hits", [])
+        tics = slop.get("structural_ai_tics", [])
+        tells = slop.get("fiction_ai_tells", [])
+        em_dash_density = slop.get("em_dash_density", 0.0)
+        
+        slop_issues = []
+        if tier1:
+            slop_issues.append("- PALAVRAS PROIBIDAS usadas (MUDAR IMEDIATAMENTE): " + ", ".join([f"'{x[0]}' (usada {x[1]} vezes)" if isinstance(x, list) else str(x) for x in tier1]))
+        if tier2:
+            slop_issues.append("- Palavras suspeitas usadas (evitar): " + ", ".join([f"'{x[0]}' (usada {x[1]} vezes)" if isinstance(x, list) else str(x) for x in tier2]))
+        if tics:
+            slop_issues.append("- Tiques estruturais de IA detectados: " + ", ".join([f"'{x[0]}' (usada {x[1]} vezes)" if isinstance(x, list) else str(x) for x in tics]))
+        if tells:
+            slop_issues.append("- Clichês/tells de IA detectados: " + ", ".join([f"'{x[0]}' (usada {x[1]} vezes)" if isinstance(x, list) else str(x) for x in tells]))
+        if em_dash_density > 15:
+            slop_issues.append(f"- Densidade excessiva de travessões: {em_dash_density} (limite máximo é 15). Substitua a maioria dos travessões explicativos duplos (—) por vírgulas, parênteses ou reestruture as sentenças.")
+            
+        if slop_issues:
+            feedback_parts.append("### PROBLEMAS DE SLOP & VOCABULÁRIO:")
+            feedback_parts.extend(slop_issues)
+            feedback_parts.append("")
+            
+        # 2. Collect canon/continuity issues
+        canon = data.get("canon_compliance", {})
+        if isinstance(canon, dict) and canon.get("violations"):
+            feedback_parts.append("### VIOLAÇÕES DE CANON/LORE:")
+            for violation in canon["violations"]:
+                feedback_parts.append(f"- {violation}")
+            feedback_parts.append("")
+            
+        # 3. Collect dimension specific fixes
+        dimension_issues = []
+        for key in ["voice_adherence", "beat_coverage", "character_voice", "plants_seeded", "prose_quality", "lore_integration", "engagement"]:
+            dim_data = data.get(key, {})
+            if isinstance(dim_data, dict) and dim_data.get("score", 10) < 7:
+                fix_desc = dim_data.get("fix", "")
+                weak_mom = dim_data.get("weakest_moment", "")
+                if fix_desc or weak_mom:
+                    dimension_issues.append(f"#### Dimensão '{key}' (Nota {dim_data.get('score')}):")
+                    if weak_mom:
+                        dimension_issues.append(f"  * Ponto fraco: \"{weak_mom}\"")
+                    if fix_desc:
+                        dimension_issues.append(f"  * Correção sugerida: {fix_desc}")
+                        
+        if dimension_issues:
+            feedback_parts.append("### SUGESTÕES DAS DIMENSÕES DE AVALIAÇÃO:")
+            feedback_parts.extend(dimension_issues)
+            feedback_parts.append("")
+            
+        # 4. Weakest sentences
+        weakest_sentences = data.get("three_weakest_sentences", [])
+        if weakest_sentences:
+            feedback_parts.append("### FRASES MAIS FRACAS (REESCREVER/MELHORAR):")
+            for sentence in weakest_sentences:
+                feedback_parts.append(f"- \"{sentence}\"")
+            feedback_parts.append("")
+            
+        return "\n".join(feedback_parts)
+    except Exception as e:
+        return f"Falha ao ler o arquivo de log do avaliador para feedback: {e}"
+
+def run_editorial(chapters_opt=None, all_opt=False, retries_opt=2):
     # Load configurable timeouts
     PIPELINE_TIMEOUT = int(os.environ.get("AUTOBOOK_PIPELINE_TIMEOUT", "3600"))
     REVISION_TIMEOUT = int(os.environ.get("AUTOBOOK_REVISION_TIMEOUT", str(max(PIPELINE_TIMEOUT, 1200))))
@@ -232,36 +354,60 @@ def run_editorial():
     general_notes = editorial.get("general_notes", "")
     chapters_data = editorial.get("chapters", {})
     
-    if not chapters_data:
-        log_msg("Warning: No chapter directives found in the Markdown file. Exiting.")
+    all_possible = get_all_chapter_numbers()
+    
+    # Resolve which chapters to run on
+    target_chapters = []
+    if all_opt:
+        target_chapters = all_possible
+    elif chapters_opt:
+        target_chapters = parse_chapters_range(chapters_opt, all_possible)
+    else:
+        # Backward compatibility: process only the ones in editorial.md
+        target_chapters = sorted(chapters_data.keys())
+        
+    if not target_chapters:
+        log_msg("Warning: No chapters resolved to process. Exiting.")
         return
         
     banner("ANALYZING EDITORIAL DIRECTIVES")
     
     # 2. Hybrid impact analysis
     parsed_tasks = {}
-    for ch_num, ch_info in chapters_data.items():
-        brief = ch_info.get("brief", "")
-        user_type = ch_info.get("type", "punctual")
-        user_downstream = ch_info.get("affects_downstream", [])
-        
-        step(f"Analyzing Chapter {ch_num} with Editorial Intelligence...")
-        ai_analysis = classify_brief_with_ai(ch_num, brief)
-        
-        # Merge Downstream ranges
-        merged_downstream = sorted(list(set([int(x) for x in user_downstream] + ai_analysis["affects_downstream"])))
-        
-        # Determine hybrid type
-        if user_type == "continuity_breaking" or ai_analysis["type"] == "continuity_breaking" or len(merged_downstream) > 0:
-            final_type = "continuity_breaking"
+    for ch_num in target_chapters:
+        ch_info = chapters_data.get(ch_num)
+        if ch_info:
+            brief = ch_info.get("brief", "")
+            user_type = ch_info.get("type", "punctual")
+            user_downstream = ch_info.get("affects_downstream", [])
         else:
+            brief = ""
+            user_type = "punctual"
+            user_downstream = []
+            
+        if brief.strip():
+            step(f"Analyzing Chapter {ch_num} with Editorial Intelligence...")
+            ai_analysis = classify_brief_with_ai(ch_num, brief)
+            
+            # Merge Downstream ranges
+            merged_downstream = sorted(list(set([int(x) for x in user_downstream] + ai_analysis["affects_downstream"])))
+            
+            # Determine hybrid type
+            if user_type == "continuity_breaking" or ai_analysis["type"] == "continuity_breaking" or len(merged_downstream) > 0:
+                final_type = "continuity_breaking"
+            else:
+                final_type = "punctual"
+            criticism = ai_analysis["criticism"]
+        else:
+            merged_downstream = []
             final_type = "punctual"
+            criticism = "Sem diretivas específicas de capítulo. Aplicando apenas diretrizes gerais."
             
         parsed_tasks[ch_num] = {
             "brief": brief,
             "type": final_type,
             "affects_downstream": merged_downstream,
-            "criticism": ai_analysis["criticism"]
+            "criticism": criticism
         }
         
     # 3. Present the Adjustment Plan (Dry-Run)
@@ -275,7 +421,8 @@ def run_editorial():
         task = parsed_tasks[ch_num]
         type_str = "CONTINUITY BREAKING (CASCADE)" if task["type"] == "continuity_breaking" else "PUNCTUAL (LOCAL ADJUSTMENT)"
         print(f"[-] Chapter {ch_num:02d}: {type_str}")
-        print(f"    Human Briefing:\n{task['brief']}")
+        if task["brief"]:
+            print(f"    Human Briefing:\n{task['brief']}")
         print(f"    Direct AI Criticism: \"{task['criticism']}\"")
         if task["affects_downstream"]:
             print(f"    Downstream Chapters Affected: {task['affects_downstream']}")
@@ -309,7 +456,7 @@ def run_editorial():
             f"# Diretivas de Correção Editorial - Capítulo {ch_num}",
             "",
             "## Solicitação Principal do Autor:",
-            task["brief"],
+            task["brief"] if task["brief"] else "Aplicar diretrizes gerais da obra neste capítulo.",
             ""
         ]
         
@@ -335,22 +482,95 @@ def run_editorial():
         temp_brief_path = BRIEFS_DIR / f"ch{ch_num:02d}_editorial_temp.md"
         temp_brief_path.write_text("\n".join(brief_lines), encoding="utf-8")
         
+        # Backup and evaluation setup
+        ch_file_path = CHAPTERS_DIR / f"ch_{ch_num:02d}.md"
+        original_text = ch_file_path.read_text(encoding="utf-8") if ch_file_path.exists() else ""
+        
         # Evaluate before revision
         pre_eval = run_tool(f"uv run python evaluate.py --chapter={ch_num}", timeout=EVAL_TIMEOUT)
         pre_score = parse_score(pre_eval.stdout, "overall_score")
         
-        # Run revision
-        step(f"Rewriting Chapter {ch_num}...")
+        # Run revision (Attempt 1)
+        step(f"Rewriting Chapter {ch_num} (Attempt 1)...")
         run_tool(f"uv run python gen_revision.py {ch_num} {temp_brief_path}", timeout=REVISION_TIMEOUT)
         
         # Evaluate after revision
         post_eval = run_tool(f"uv run python evaluate.py --chapter={ch_num}", timeout=EVAL_TIMEOUT)
         post_score = parse_score(post_eval.stdout, "overall_score")
         
-        # Keep or discard decision
-        log_msg(f"Chapter {ch_num}: Score {pre_score} -> {post_score}")
+        log_msg(f"Chapter {ch_num} Attempt 1: Score {pre_score} -> {post_score}")
+        
+        success = False
+        best_fallback_text = ""
+        best_fallback_score = -1.0
         
         if post_score >= pre_score:
+            success = True
+            log_msg(f"Chapter {ch_num} Attempt 1: Score improved or maintained.")
+        else:
+            # Save fallback
+            best_fallback_text = ch_file_path.read_text(encoding="utf-8") if ch_file_path.exists() else ""
+            best_fallback_score = post_score
+            log_msg(f"Chapter {ch_num} Attempt 1: Regression detected. Saving fallback (score {best_fallback_score}).")
+            
+            # Start retry loop
+            for retry_idx in range(1, retries_opt + 1):
+                step(f"Rewriting Chapter {ch_num} (Corrective Retry Attempt {retry_idx + 1}/{retries_opt + 1})...")
+                
+                # Parse previous evaluate log for feedback
+                feedback_str = extract_eval_feedback(post_eval.stdout)
+                
+                # Write corrective brief combining previous brief and feedback
+                corrective_brief_lines = [
+                    f"# Diretivas de Correção Editorial - Capítulo {ch_num} (RETENTATIVA CORRETIVA {retry_idx})",
+                    "",
+                    "A tentativa anterior de revisão não atingiu a pontuação mínima necessária devido a desvios ou problemas de qualidade no rascunho atual.",
+                    "Sua missão é corrigir o rascunho atual para eliminar esses erros específicos, mantendo a coerência e as diretivas da história.",
+                    "",
+                    "## [PROBLEMAS CRÍTICOS A CORRIGIR]:",
+                    feedback_str,
+                    "",
+                    "## [DIRETIVAS ORIGINAIS DE REVISÃO]:",
+                    task["brief"] if task["brief"] else "Aplicar diretrizes gerais da obra neste capítulo.",
+                ]
+                if general_notes:
+                    corrective_brief_lines += [
+                        "",
+                        "## [DIRETRIZES GERAIS DA OBRA]:",
+                        general_notes
+                    ]
+                
+                corrective_brief_path = BRIEFS_DIR / f"ch{ch_num:02d}_corrective_temp.md"
+                corrective_brief_path.write_text("\n".join(corrective_brief_lines), encoding="utf-8")
+                
+                # Run revision
+                run_tool(f"uv run python gen_revision.py {ch_num} {corrective_brief_path}", timeout=REVISION_TIMEOUT)
+                
+                # Clean up temp corrective brief
+                if corrective_brief_path.exists():
+                    corrective_brief_path.unlink()
+                    
+                # Evaluate again
+                post_eval = run_tool(f"uv run python evaluate.py --chapter={ch_num}", timeout=EVAL_TIMEOUT)
+                post_score = parse_score(post_eval.stdout, "overall_score")
+                log_msg(f"Chapter {ch_num} Attempt {retry_idx + 1}: Score {post_score} (baseline: {pre_score}, best fallback: {best_fallback_score})")
+                
+                if post_score >= pre_score:
+                    success = True
+                    log_msg(f"Chapter {ch_num} Attempt {retry_idx + 1}: Success! Score is now {post_score} >= baseline {pre_score}.")
+                    break
+                else:
+                    if post_score > best_fallback_score:
+                        log_msg(f"Chapter {ch_num} Attempt {retry_idx + 1}: Score {post_score} improved upon best fallback {best_fallback_score}. Updating fallback.")
+                        best_fallback_text = ch_file_path.read_text(encoding="utf-8") if ch_file_path.exists() else ""
+                        best_fallback_score = post_score
+                    else:
+                        log_msg(f"Chapter {ch_num} Attempt {retry_idx + 1}: Score {post_score} is worse or equal to best fallback {best_fallback_score}. Restoring best fallback text for next pass.")
+                        if best_fallback_text:
+                            ch_file_path.write_text(best_fallback_text, encoding="utf-8")
+                            
+        # Decide kept state
+        if success:
             commit_hash = git_add_commit(f"editorial: revise ch{ch_num:02d} ({task['type']}) {pre_score}->{post_score}")
             log_msg(f"Keeping revision for Chapter {ch_num:02d}. Commit: {commit_hash}")
             
@@ -362,8 +582,15 @@ def run_editorial():
                         continuity_warnings[downstream_ch] = []
                     continuity_warnings[downstream_ch].append(warning_msg)
         else:
-            step(f"Revision reduced the score ({post_score} < {pre_score}). Reverting changes.")
-            git_reset_hard("HEAD")
+            log_msg(f"All retries finished without reaching baseline {pre_score}. Keeping best fallback (score: {best_fallback_score}).")
+            if best_fallback_text:
+                ch_file_path.write_text(best_fallback_text, encoding="utf-8")
+                commit_hash = git_add_commit(f"editorial: revise ch{ch_num:02d} (fallback {best_fallback_score} < {pre_score})")
+                log_msg(f"Keeping fallback version for Chapter {ch_num:02d}. Commit: {commit_hash}")
+            else:
+                log_msg(f"No fallback text available. Reverting to pristine original.")
+                if original_text:
+                    ch_file_path.write_text(original_text, encoding="utf-8")
             
         # Clean up temporary brief file
         if temp_brief_path.exists():
@@ -380,7 +607,27 @@ def run_editorial():
     banner("EDITORIAL PIPELINE COMPLETED SUCCESSFULLY")
 
 def main():
-    run_editorial()
+    import argparse
+    parser = argparse.ArgumentParser(description="Automated Editorial Revision Pipeline.")
+    parser.add_argument(
+        "-c", "--chapters",
+        type=str,
+        help="Chapters to process, e.g., '1-4', '5,8', or 'all'."
+    )
+    parser.add_argument(
+        "-a", "--all",
+        action="store_true",
+        help="Shortcut to process all chapters."
+    )
+    parser.add_argument(
+        "-r", "--retries",
+        type=int,
+        default=2,
+        help="Maximum corrective retries on regression (default: 2)."
+    )
+    args = parser.parse_args()
+    
+    run_editorial(chapters_opt=args.chapters, all_opt=args.all, retries_opt=args.retries)
 
 if __name__ == "__main__":
     main()

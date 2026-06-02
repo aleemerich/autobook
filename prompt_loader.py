@@ -94,3 +94,50 @@ def load_genre_rules() -> str:
         
     raise FileNotFoundError("Critical default genre file 'drama.txt' not found under EN fallback.")
 
+
+def load_slop_rules_instruction() -> str:
+    """
+    Load the slop configuration and format it as clear, readable constraints
+    for the LLM writer prompt to avoid slop penalties.
+    """
+    try:
+        config = load_slop_config()
+    except Exception as e:
+        return f"Warning: could not load slop config: {e}"
+        
+    lang = get_active_language()
+    is_pt = (lang == "PT-BR")
+    
+    lines = []
+    if is_pt:
+        lines.append("- CRÍTICO: Não use NENHUMA das seguintes palavras banidas (Tier 1 Banned): " + ", ".join(config.get("tier1_banned", [])))
+        lines.append("- CRÍTICO: Evite ao máximo usar palavras suspeitas de IA (Tier 2 Suspicious): " + ", ".join(config.get("tier2_suspicious", [])))
+        if config.get("tier3_filler"):
+            lines.append("- Evite expressões de preenchimento redundantes (Tier 3 Filler): " + ", ".join(config.get("tier3_filler", [])))
+        if config.get("transition_openers"):
+            lines.append("- Evite iniciar parágrafos com conectivos de transição abusivos: " + ", ".join(config.get("transition_openers", [])))
+        if config.get("fiction_ai_tells"):
+            lines.append("- Proibido usar clichês literários de IA (Fiction AI Tells): " + ", ".join(config.get("fiction_ai_tells", [])))
+        if config.get("structural_ai_tics"):
+            lines.append("- Proibido usar estruturas e tiques retóricos típicos de IA (Structural AI Tics): " + ", ".join(config.get("structural_ai_tics", [])))
+        lines.append("- PONTUAÇÃO E ESTILO (CRÍTICO): Limite severamente o uso de travessões (—) e hifens duplos. A densidade de travessões deve ser MENOR que 15 a cada 1000 palavras (use-os apenas para falas reais e interrupções dramáticas de diálogos, NUNCA para introduzir explicações ou apostos na narração).")
+        lines.append("- VARIAÇÃO SINTÁTICA: Varie deliberadamente o comprimento das sentenças. Evite sentenças consecutivas com a mesma estrutura sintática ou quantidade similar de palavras.")
+        lines.append("- SHOW, DON'T TELL: Mostre reações físicas e sensoriais em vez de apenas nomear/rotular as emoções dos personagens (evite 'sentiu medo', 'parecia triste').")
+    else:
+        lines.append("- CRITICAL: Do NOT use ANY of the following banned words (Tier 1 Banned): " + ", ".join(config.get("tier1_banned", [])))
+        lines.append("- CRITICAL: Avoid using AI-associated suspicious words (Tier 2 Suspicious): " + ", ".join(config.get("tier2_suspicious", [])))
+        if config.get("tier3_filler"):
+            lines.append("- Avoid redundant filler phrases (Tier 3 Filler): " + ", ".join(config.get("tier3_filler", [])))
+        if config.get("transition_openers"):
+            lines.append("- Avoid opening paragraphs with transition words: " + ", ".join(config.get("transition_openers", [])))
+        if config.get("fiction_ai_tells"):
+            lines.append("- Avoid typical AI fiction tropes and tells: " + ", ".join(config.get("fiction_ai_tells", [])))
+        if config.get("structural_ai_tics"):
+            lines.append("- Forbidden structural and rhetorical AI tics: " + ", ".join(config.get("structural_ai_tics", [])))
+        lines.append("- PUNCTUATION & STYLE (CRITICAL): Limit the use of em-dashes (—). The density of em-dashes must be LESS than 15 per 1000 words (use them only for actual dialogue and real interruptions, not for explanatory side-notes in narration).")
+        lines.append("- SENTENCE VARIATION: Deliberately vary sentence lengths. Avoid consecutive sentences of the same length.")
+        lines.append("- SHOW, DON'T TELL: Show physical/sensory reactions rather than naming/telling emotions (e.g. avoid 'he felt sad', 'she looked nervous').")
+        
+    return "\n".join(lines)
+
+

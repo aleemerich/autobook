@@ -21,4 +21,7 @@ CHARACTER REGISTRY (reference for speech patterns and behavior):
 GENRE-SPECIFIC RULES & WRITING GUIDELINES:
 {genre_rules}
 
+ANTI-SLOP AND PROSE QUALITY RULES (MANDATORY):
+{slop_rules}
+
 Write the chapter now. Full text, beginning to end.

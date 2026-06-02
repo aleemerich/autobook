@@ -265,3 +265,96 @@ def test_run_editorial_dynamic_timeouts(mock_git_reset, mock_git_commit, mock_ca
             
     assert eval_call_count == 2
     assert revision_call_count == 1
+
+
+def test_parse_chapters_range():
+    all_possible = [1, 2, 3, 4, 5, 6, 7]
+    
+    # test "all"
+    assert run_editorial.parse_chapters_range("all", all_possible) == all_possible
+    assert run_editorial.parse_chapters_range("", all_possible) == all_possible
+    
+    # test ranges and single chapters
+    assert run_editorial.parse_chapters_range("1-3,5", all_possible) == [1, 2, 3, 5]
+    assert run_editorial.parse_chapters_range(" 2 - 4, 6 ", all_possible) == [2, 3, 4, 6]
+    
+    # test out of bounds / missing
+    assert run_editorial.parse_chapters_range("1-3,10", all_possible) == [1, 2, 3]
+
+
+@patch("run_editorial.classify_brief_with_ai")
+@patch("run_editorial.run_tool")
+@patch("builtins.input")
+@patch("llm.call_llm")
+@patch("run_editorial.git_add_commit")
+@patch("run_editorial.git_reset_hard")
+@patch("run_editorial.get_all_chapter_numbers")
+@patch("run_editorial.extract_eval_feedback")
+@patch("run_editorial.CHAPTERS_DIR")
+def test_run_editorial_retry_loop_and_fallback(
+    mock_chapters_dir, mock_feedback, mock_get_all, mock_git_reset, mock_git_commit,
+    mock_call_llm, mock_input, mock_run_tool, mock_classify, mock_editorial_file, monkeypatch
+):
+    # Mock chapters directory scan
+    mock_get_all.return_value = [1]
+    
+    markdown_content = "# Capítulo 1\nTest brief\n"
+    mock_editorial_file.write_text(markdown_content, encoding="utf-8")
+    
+    # Mock LLM parser
+    mock_call_llm.return_value = """
+    {
+      "general_notes": "",
+      "chapters": {
+        "1": {
+          "brief": "Test brief",
+          "type": "punctual",
+          "affects_downstream": []
+        }
+      }
+    }
+    """
+    
+    # Mock AI classification
+    mock_classify.return_value = {
+        "type": "punctual",
+        "affects_downstream": [],
+        "criticism": "Good"
+    }
+    
+    # Mock user input to proceed
+    mock_input.return_value = "y"
+    
+    # Mock extract_eval_feedback
+    mock_feedback.return_value = "Mocked feedback"
+    
+    call_scores = ["overall_score: 8.0", "Revision ran...", "overall_score: 6.0", "Revision ran...", "overall_score: 7.0", "Revision ran...", "overall_score: 6.5"]
+    
+    mock_results = []
+    for score in call_scores:
+        m = MagicMock()
+        m.stdout = score + "\neval_log: /dummy/log.json"
+        mock_results.append(m)
+        
+    def side_effect_func(*args, **kwargs):
+        if mock_results:
+            return mock_results.pop(0)
+        default_mock = MagicMock()
+        default_mock.stdout = "Success"
+        return default_mock
+        
+    mock_run_tool.side_effect = side_effect_func
+    
+    # Run the pipeline with retries=2
+    run_editorial.run_editorial(chapters_opt="1", retries_opt=2)
+    
+    # Verify that evaluate and gen_revision calls match expected totals
+    eval_calls = [c for c in mock_run_tool.call_args_list if "evaluate.py" in c[0][0]]
+    revision_calls = [c for c in mock_run_tool.call_args_list if "gen_revision.py" in c[0][0]]
+    
+    assert len(eval_calls) == 4
+    assert len(revision_calls) == 3
+    
+    # Verify git commit message shows fallback usage
+    mock_git_commit.assert_any_call("editorial: revise ch01 (fallback 7.0 < 8.0)")
+

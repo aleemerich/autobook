@@ -98,10 +98,11 @@ def main():
     if not prev_tail:
         prev_tail = "(First chapter of the novel -- no previous plot continuity history exists)"
     
-    from prompt_loader import load_prompt, load_genre_rules
+    from prompt_loader import load_prompt, load_genre_rules, load_slop_rules_instruction
     try:
         prompt_template = load_prompt("draft_chapter_user.txt")
         genre_rules = load_genre_rules()
+        slop_rules = load_slop_rules_instruction()
         prompt = prompt_template.format(
             chapter_num=chapter_num,
             voice=voice,
@@ -110,7 +111,8 @@ def main():
             prev_tail=prev_tail,
             world=world,
             characters=characters,
-            genre_rules=genre_rules
+            genre_rules=genre_rules,
+            slop_rules=slop_rules
         )
     except Exception as e:
         print(f"WARNING: failed to load user prompt template: {e}, falling back to hardcoded template", file=sys.stderr)
