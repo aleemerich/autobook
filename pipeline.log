@@ -23268,3 +23268,102 @@
 [2026-06-01 22:17:57] [INFO] Chapter 2 Attempt 1: Score 4.5 -> 4.5
 [2026-06-01 22:17:57] [INFO] Chapter 2 Attempt 1: Score improved or maintained.
 [2026-06-01 22:17:58] [INFO] RUN: git add -A
+[2026-06-01 22:25:16] [INFO] Created default editorial Markdown template at: /tmp/pytest-of-alessandro/pytest-29/test_load_editorial_markdown_c0/editorial.md
+[2026-06-01 22:25:16] [INFO] Please edit this file with your notes before running the editorial pipeline.
+[2026-06-01 22:25:16] [INFO] Calling LLM for semantic and assertive extraction of editorial.md...
+[2026-06-01 22:25:16] [INFO] Semantic extraction via LLM completed successfully.
+[2026-06-01 22:25:17] [INFO] Calling LLM for semantic and assertive extraction of editorial.md...
+[2026-06-01 22:25:17] [INFO] WARNING: Semantic extraction via LLM failed: API Timeout. Falling back to robust regex parser.
+[2026-06-01 22:25:17] [INFO] Calling LLM for semantic and assertive extraction of editorial.md...
+[2026-06-01 22:25:17] [INFO] Semantic extraction via LLM completed successfully.
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] ANALYZING EDITORIAL DIRECTIVES
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] Analyzing Chapter 10 with Editorial Intelligence...
+[2026-06-01 22:25:17] [INFO] Operation aborted by user.
+[2026-06-01 22:25:17] [INFO] Calling LLM for semantic and assertive extraction of editorial.md...
+[2026-06-01 22:25:17] [INFO] Semantic extraction via LLM completed successfully.
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] ANALYZING EDITORIAL DIRECTIVES
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] Analyzing Chapter 10 with Editorial Intelligence...
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] EXECUTING EDITORIAL REVISIONS
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] ............................................................
+[2026-06-01 22:25:17] [INFO] PROCESSING CHAPTER 10 (PUNCTUAL)
+[2026-06-01 22:25:17] [INFO] ............................................................
+[2026-06-01 22:25:17] [INFO] Rewriting Chapter 10 (Attempt 1)...
+[2026-06-01 22:25:17] [INFO] Chapter 10 Attempt 1: Score 8.5 -> 8.5 (Slop Penalty: 0.0)
+[2026-06-01 22:25:17] [INFO] Chapter 10 Attempt 1: High quality score and zero slop achieved (8.5).
+[2026-06-01 22:25:17] [INFO] Keeping revision for Chapter 10. Commit: <MagicMock name='git_add_commit()' id='133888745979392'>
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] CONSOLIDATING MANUSCRIPT AND STRUCTURE
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] EDITORIAL PIPELINE COMPLETED SUCCESSFULLY
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] Calling LLM for semantic and assertive extraction of editorial.md...
+[2026-06-01 22:25:17] [INFO] Semantic extraction via LLM completed successfully.
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] ANALYZING EDITORIAL DIRECTIVES
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] Analyzing Chapter 1 with Editorial Intelligence...
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] EXECUTING EDITORIAL REVISIONS
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] ............................................................
+[2026-06-01 22:25:17] [INFO] PROCESSING CHAPTER 01 (PUNCTUAL)
+[2026-06-01 22:25:17] [INFO] ............................................................
+[2026-06-01 22:25:17] [INFO] Rewriting Chapter 1 (Attempt 1)...
+[2026-06-01 22:25:17] [INFO] Chapter 1 Attempt 1: Score 8.0 -> 6.0 (Slop Penalty: 2.0)
+[2026-06-01 22:25:17] [INFO] Chapter 1 Attempt 1: Needs optimization. Saving fallback (score 6.0, slop penalty 2.0).
+[2026-06-01 22:25:17] [INFO] Rewriting Chapter 1 (Corrective Retry Attempt 2/3)...
+[2026-06-01 22:25:17] [INFO] Chapter 1 Attempt 2: Score 7.0, Slop Penalty 1.0 (baseline: 8.0, best fallback: 6.0, best fallback slop: 2.0)
+[2026-06-01 22:25:17] [INFO] Chapter 1 Attempt 2: Score/slop improved upon best fallback. Updating fallback.
+[2026-06-01 22:25:17] [INFO] Rewriting Chapter 1 (Corrective Retry Attempt 3/3)...
+[2026-06-01 22:25:17] [INFO] Chapter 1 Attempt 3: Score 6.5, Slop Penalty 1.5 (baseline: 8.0, best fallback: 7.0, best fallback slop: 1.0)
+[2026-06-01 22:25:17] [INFO] Chapter 1 Attempt 3: No improvement. Restoring best fallback text for next pass.
+[2026-06-01 22:25:17] [INFO] All retries finished without reaching baseline 8.0. Keeping best fallback (score: 7.0).
+[2026-06-01 22:25:17] [INFO] Keeping fallback version for Chapter 01. Commit: <MagicMock name='git_add_commit()' id='133888746232848'>
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] CONSOLIDATING MANUSCRIPT AND STRUCTURE
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] EDITORIAL PIPELINE COMPLETED SUCCESSFULLY
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] PHASE 0: INTERACTIVE IDEATION CAULDRON
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] Generating 3 premium seeds with addictive writing techniques...
+[2026-06-01 22:25:17] [INFO] Selected seed successfully written to seed.txt!
+[2026-06-01 22:25:17] [INFO] Ignoring mystery generation. The default blank template is preserved.
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] IDEATION COMPLETE — seed.txt ready for Phase 1
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] PHASE 0: INTERACTIVE IDEATION CAULDRON
+[2026-06-01 22:25:17] [INFO] ============================================================
+[2026-06-01 22:25:17] [INFO] Generating 3 premium seeds with addictive writing techniques...
+[2026-06-01 22:25:18] [INFO] Custom seed successfully written to seed.txt!
+[2026-06-01 22:25:18] [INFO] Ignoring mystery generation. The default blank template is preserved.
+[2026-06-01 22:25:18] [INFO] ============================================================
+[2026-06-01 22:25:18] [INFO] IDEATION COMPLETE — seed.txt ready for Phase 1
+[2026-06-01 22:25:18] [INFO] ============================================================
+[2026-06-01 22:25:18] [INFO] ============================================================
+[2026-06-01 22:25:18] [INFO] PHASE 0: INTERACTIVE IDEATION CAULDRON
+[2026-06-01 22:25:18] [INFO] ============================================================
+[2026-06-01 22:25:18] [INFO] Bypass activated! Using existing seed.txt.
+[2026-06-01 22:25:18] [INFO] ============================================================
+[2026-06-01 22:25:18] [INFO] IDEATION COMPLETE — seed.txt preserved
+[2026-06-01 22:25:18] [INFO] ============================================================
+[2026-06-01 22:25:18] [INFO] ============================================================
+[2026-06-01 22:25:18] [INFO] PHASE 0: INTERACTIVE IDEATION CAULDRON
+[2026-06-01 22:25:18] [INFO] ============================================================
+[2026-06-01 22:25:18] [INFO] Generating 3 premium seeds with addictive writing techniques...
+[2026-06-01 22:25:18] [INFO] Selected seed successfully written to seed.txt!
+[2026-06-01 22:25:18] [INFO] Generating structured and ambiguous MYSTERY.md with AI...
+[2026-06-01 22:25:18] [INFO] MYSTERY.md successfully generated and saved!
+[2026-06-01 22:25:18] [INFO] ============================================================
+[2026-06-01 22:25:18] [INFO] IDEATION COMPLETE — seed.txt ready for Phase 1
+[2026-06-01 22:25:18] [INFO] ============================================================
