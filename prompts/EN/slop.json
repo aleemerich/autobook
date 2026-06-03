@@ -63,5 +63,16 @@
   "telling_patterns": [
     "\\b(?:he|she|they|I|we|[A-Z]\\w+) (?:felt|was|seemed|looked|appeared) (?:angry|sad|happy|scared|nervous|excited|jealous|guilty|anxious|lonely|desperate|furious|terrified|elated|miserable|hopeful|confused|relieved|horrified|disgusted|ashamed|proud|bitter|defeated|triumphant)\\b",
     "\\b(?:angrily|sadly|happily|nervously|excitedly|desperately|furiously|anxiously|guiltily|bitterly|wearily|miserably)\\b"
-  ]
+  ],
+  "instruction_templates": {
+    "tier1_banned": "CRITICAL: Do NOT use ANY of the following banned words (Tier 1 Banned): {words}",
+    "tier2_suspicious": "CRITICAL: Avoid using AI-associated suspicious words (Tier 2 Suspicious): {words}",
+    "tier3_filler": "Avoid redundant filler phrases (Tier 3 Filler): {words}",
+    "transition_openers": "Avoid opening paragraphs with transition words: {words}",
+    "fiction_ai_tells": "Avoid typical AI fiction tropes and tells: {words}",
+    "structural_ai_tics": "Forbidden structural and rhetorical AI tics: {words}",
+    "punctuation_style": "PUNCTUATION & STYLE (CRITICAL): Limit the use of em-dashes (—). The density of em-dashes must be LESS than 15 per 1000 words (use them only for actual dialogue and real interruptions, not for explanatory side-notes in narration).",
+    "sentence_variation": "SENTENCE VARIATION: Deliberately vary sentence lengths. Avoid consecutive sentences of the same length.",
+    "show_dont_tell": "SHOW, DON'T TELL: Show physical/sensory reactions rather than naming/telling emotions (e.g. avoid 'he felt sad', 'she looked nervous')."
+  }
 }

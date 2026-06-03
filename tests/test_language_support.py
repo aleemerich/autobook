@@ -233,9 +233,76 @@ def test_load_genre_rules_fallbacks():
         assert "Escreva o capítulo COMPLETO" in rules
         assert "Terceira pessoa limitada" in rules
 
-    # 3. Non-existent genre completely in English -> fallback to English 'drama'
     with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "EN", "AUTOBOOK_GENRE": "invalid_genre_name_abc"}):
         rules = load_genre_rules()
         assert "Write the COMPLETE chapter" in rules
         assert "Third-person limited" in rules
+
+
+# ---------------------------------------------------------------------------
+# 5. Language Agnostic & Flexible Localization Configuration Tests
+# ---------------------------------------------------------------------------
+
+def test_load_slop_rules_instruction_dynamic():
+    """Ensures load_slop_rules_instruction formats output dynamically using configurations."""
+    from prompt_loader import load_slop_rules_instruction
+    
+    with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "PT-BR"}):
+        instruction = load_slop_rules_instruction()
+        assert "CRÍTICO: Não use NENHUMA" in instruction
+        assert "delve" in instruction
+        assert "PONTUAÇÃO E ESTILO (CRÍTICO)" in instruction
+
+    with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "EN"}):
+        instruction = load_slop_rules_instruction()
+        assert "CRITICAL: Do NOT use ANY" in instruction
+        assert "delve" in instruction
+        assert "PUNCTUATION & STYLE (CRITICAL)" in instruction
+
+
+def test_load_continuity_config_and_formatting():
+    """Ensures load_continuity_config retrieves and formats continuity configuration correctly."""
+    from resolve_continuity import load_continuity_config
+    
+    with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "PT-BR"}):
+        config = load_continuity_config()
+        assert "general_rules" in config
+        assert "divergence_rules" in config
+        assert "templates" in config
+        
+        # Test Portuguese specific values
+        assert "ecrã" in config["general_rules"][0]
+        assert "Divergência Narrativa:" in config["divergence_rules"]["6_7"]["7"]
+        assert "Melhoria de Qualidade:" in config["templates"]["quality_improvement"]
+
+    with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "EN"}):
+        config = load_continuity_config()
+        assert "general_rules" in config
+        assert "divergence_rules" in config
+        assert "templates" in config
+        
+        # Test English specific values
+        assert "standard English" in config["general_rules"][0]
+        assert "Narrative Divergence:" in config["divergence_rules"]["6_7"]["7"]
+        assert "Quality Improvement:" in config["templates"]["quality_improvement"]
+
+
+def test_load_editorial_config_retry_temperatures():
+    """Ensures load_editorial_config loads temperatures and formats feedback dynamically."""
+    from run_editorial import load_editorial_config, get_retry_temperature, extract_eval_feedback
+    
+    with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "PT-BR"}):
+        config = load_editorial_config()
+        assert config["retry_temp_map"]["1"] == 0.6
+        assert get_retry_temperature(1) == 0.6
+        assert get_retry_temperature(4) == 0.9
+        assert "PROBLEMAS DE SLOP CRÍTICO" in config["feedback_labels"]["slop_critical_header"]
+
+    with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "EN"}):
+        config = load_editorial_config()
+        assert config["retry_temp_map"]["1"] == 0.6
+        assert get_retry_temperature(1) == 0.6
+        assert get_retry_temperature(4) == 0.9
+        assert "CRITICAL SLOP PROBLEMS" in config["feedback_labels"]["slop_critical_header"]
+
 

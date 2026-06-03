@@ -1025,6 +1025,25 @@ def run_revision(state: dict, max_cycles: int = MAX_REVISION_CYCLES) -> dict:
             step(f"Review round {rnd} complete.")
         
         banner("OPUS REVIEW LOOP COMPLETE")
+        
+    # -- Step 6: Closed-Loop Continuity Resolution --
+    banner("PHASE 3c: CLOSED-LOOP CONTINUITY RESOLUTION", "=")
+    max_continuity_loops = 2
+    for loop_idx in range(1, max_continuity_loops + 1):
+        step(f"Running Closed-Loop Continuity Validation (Iteration {loop_idx}/{max_continuity_loops})...")
+        uv_run("build_outline.py", timeout=EVAL_TIMEOUT)
+        uv_run("verify_continuity.py", timeout=EVAL_TIMEOUT)
+        
+        step(f"Executing Closed-Loop Continuity Router...")
+        res = run_tool("uv run python resolve_continuity.py", timeout=PIPELINE_TIMEOUT)
+        
+        if res.returncode == 0:
+            step("Closed-Loop Continuity check PASSED with satisfactory score.")
+            break
+        else:
+            step(f"Continuity check failed. editorial.md generated and reprocessed. Re-evaluating next iteration...")
+    else:
+        step(f"WARNING: Closed-Loop Continuity validation reached maximum loops ({max_continuity_loops}) without meeting score threshold.")
     
     state["phase"] = "export"
     state["current_focus"] = "export"

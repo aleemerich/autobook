@@ -68,5 +68,16 @@
   "telling_patterns": [
     "\\b(?:ele|ela|eles|elas|eu|nós|[A-Z]\\w+) (?:sentiu|estava|parecia|aparentava) (?:triste|feliz|assustado|nervoso|animado|ciumento|culpado|ansioso|solitário|desesperado|furioso|aterrorizado|miserável|esperançoso|confuso|aliviado|horrorizado|enojado|envergonhado|orgulhoso|amargurado|derrotado|triunfante)\\b",
     "\\b(?:tristemente|alegremente|nervosamente|desesperadamente|furiosamente|ansiosamente|culpadamente|amarguradamente|cansadamente|miseravelmente)\\b"
-  ]
+  ],
+  "instruction_templates": {
+    "tier1_banned": "CRÍTICO: Não use NENHUMA das seguintes palavras banidas (Tier 1 Banned): {words}",
+    "tier2_suspicious": "CRÍTICO: Evite ao máximo usar palavras suspeitas de IA (Tier 2 Suspicious): {words}",
+    "tier3_filler": "Evite expressões de preenchimento redundantes (Tier 3 Filler): {words}",
+    "transition_openers": "Evite iniciar parágrafos com conectivos de transição abusivos: {words}",
+    "fiction_ai_tells": "Proibido usar clichês literários de IA (Fiction AI Tells): {words}",
+    "structural_ai_tics": "Proibido usar estruturas e tiques retóricos típicos de IA (Structural AI Tics): {words}",
+    "punctuation_style": "PONTUAÇÃO E ESTILO (CRÍTICO): Limite severamente o uso de travessões (—) e hifens duplos. A densidade de travessões deve ser MENOR que 15 a cada 1000 palavras (use-os apenas para falas reais e interrupções dramáticas de diálogos, NUNCA para introduzir explicações ou apostos na narração).",
+    "sentence_variation": "VARIAÇÃO SINTÁTICA: Varie deliberadamente o comprimento das sentenças. Evite sentenças consecutivas com a mesma estrutura sintática ou quantidade similar de palavras.",
+    "show_dont_tell": "SHOW, DON'T TELL: Mostre reações físicas e sensoriais em vez de apenas nomear/rotular as emoções dos personagens (evite 'sentiu medo', 'parecia triste')."
+  }
 }

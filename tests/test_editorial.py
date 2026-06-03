@@ -339,9 +339,26 @@ def test_run_editorial_retry_loop_and_fallback(
         {"overall_score": 6.0, "slop": {"slop_penalty": 2.0}}, # post 1
         {"overall_score": 7.0, "slop": {"slop_penalty": 1.0}}, # retry 1
         {"overall_score": 6.5, "slop": {"slop_penalty": 1.5}}, # retry 2
+        {"overall_score": 6.8, "slop": {"slop_penalty": 1.2}}, # retry 3
+        {"overall_score": 7.2, "slop": {"slop_penalty": 0.8}}, # retry 4
+        {"overall_score": 7.1, "slop": {"slop_penalty": 1.0}}, # retry 5
     ]
     
-    call_scores = ["overall_score: 8.0", "Revision ran...", "overall_score: 6.0", "Revision ran...", "overall_score: 7.0", "Revision ran...", "overall_score: 6.5"]
+    call_scores = [
+        "overall_score: 8.0", 
+        "Revision ran...", 
+        "overall_score: 6.0", 
+        "Revision ran...", 
+        "overall_score: 7.0", 
+        "Revision ran...", 
+        "overall_score: 6.5",
+        "Revision ran...",
+        "overall_score: 6.8",
+        "Revision ran...",
+        "overall_score: 7.2",
+        "Revision ran...",
+        "overall_score: 7.1"
+    ]
     
     mock_results = []
     for score in call_scores:
@@ -358,18 +375,18 @@ def test_run_editorial_retry_loop_and_fallback(
         
     mock_run_tool.side_effect = side_effect_func
     
-    # Run the pipeline with retries=2
-    run_editorial.run_editorial(chapters_opt="1", retries_opt=2)
+    # Run the pipeline
+    run_editorial.run_editorial(chapters_opt="1")
     
     # Verify that evaluate and gen_revision calls match expected totals
     eval_calls = [c for c in mock_run_tool.call_args_list if "evaluate.py" in c[0][0]]
     revision_calls = [c for c in mock_run_tool.call_args_list if "gen_revision.py" in c[0][0]]
     
-    assert len(eval_calls) == 4
-    assert len(revision_calls) == 3
+    assert len(eval_calls) == 7
+    assert len(revision_calls) == 6
     
-    # Verify git commit message shows fallback usage (pre_score was 8.0, best fallback was 7.0)
-    mock_git_commit.assert_any_call("editorial: revise ch01 (fallback 7.0 < 8.0)")
+    # Verify git commit message shows fallback usage (pre_score was 8.0, best fallback was 7.2)
+    mock_git_commit.assert_any_call("editorial: revise ch01 (fallback 7.2 < 8.0)")
 
 
 @patch("run_editorial.classify_brief_with_ai")

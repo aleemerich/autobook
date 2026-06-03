@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).parent
 load_dotenv(BASE_DIR / ".env")
 
-def call_writer(prompt, max_tokens=16000):
+def call_writer(prompt, temperature=0.8, max_tokens=16000):
     """Call the unified writer LLM via llm.py and return response text."""
     from llm import call_llm
     from prompt_loader import load_prompt
@@ -24,16 +24,24 @@ def call_writer(prompt, max_tokens=16000):
             "from the existing draft while making the structural changes specified. "
             "You write the FULL chapter. Do not truncate or summarize."
         )
-    return call_llm(prompt=prompt, system_prompt=system, temperature=0.8, is_judge=False)
+    return call_llm(prompt=prompt, system_prompt=system, temperature=temperature, is_judge=False)
 
 def main():
-    ch_num = int(sys.argv[1])
-    brief_file = sys.argv[2]
+    import argparse
+    parser = argparse.ArgumentParser(description="Revision chapter generator.")
+    parser.add_argument("chapter_num", type=int, help="Chapter number")
+    parser.add_argument("brief_file", type=str, help="Path to brief file")
+    parser.add_argument("--temperature", type=float, default=0.8, help="Creative temperature")
+    args = parser.parse_args()
     
-    voice = (BASE_DIR / "voice.md").read_text()
-    characters = (BASE_DIR / "characters.md").read_text()
-    world = (BASE_DIR / "world.md").read_text()
-    brief = Path(brief_file).read_text()
+    ch_num = args.chapter_num
+    brief_file = args.brief_file
+    temperature = args.temperature
+    
+    voice = (BASE_DIR / "voice.md").read_text(encoding="utf-8")
+    characters = (BASE_DIR / "characters.md").read_text(encoding="utf-8")
+    world = (BASE_DIR / "world.md").read_text(encoding="utf-8")
+    brief = Path(brief_file).read_text(encoding="utf-8")
     
     # Load adjacent chapters for continuity
     prev_path = BASE_DIR / "chapters" / f"ch_{ch_num - 1:02d}.md"
@@ -102,7 +110,7 @@ ANTI-PATTERN RULES:
 Write the FULL revised chapter now."""
 
     print(f"Rewriting Chapter {ch_num}...", file=sys.stderr)
-    result = call_writer(prompt)
+    result = call_writer(prompt, temperature=temperature)
     
     out_path = BASE_DIR / "chapters" / f"ch_{ch_num:02d}.md"
     out_path.write_text(result)
