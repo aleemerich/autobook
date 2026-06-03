@@ -1,721 +1,728 @@
 # THE SECOND SON OF THE HOUSE OF BELLS
 ## Chapter Outline (reflects actual novel as-written)
 
-**22 chapters, 80,901 words**
+**22 chapters, 94,504 words**
 
 ---
 
 ### Ch 1: Capítulo 1 — O Número Que Não Muda
-**3992 words** | **Location:** ETH Zurique, restaurante em Hottingen, apartamento de Elisa, ponte sobre o Limmat, edifício de Oerlikon
-- **Characters:** Elisa Dragovski, Helena Varga, Marcus Weil, Lena Hartmann, Dr. Amós Farkas, Segurança noturno do ETH
-- **Try-fail cycle:** N/A
-- **Emotional arc:** Elisa move-se da confiança técnica e distanciamento científico para uma angústia existencial crescente, à medida que cada tentativa de explicar o resultado de Helena falha e a possibilidade de que seu formalismo seja insuficiente se torna inescapável.
+**2386 words** | **Location:** Laboratório subterrâneo do Instituto de Neurociência de Zurique (câmara de Faraday, nível -2), restaurante em Zurique, apartamento de Elisa em Hottingen
+- **Characters:** Elisa Dragovski, Helena Varga, Marcus Weil, Lena Hartmann (por e-mail), Remetente anônimo (por mensagem), Jana Dragowska (em fotografia)
+- **Try-fail cycle:** no-and
+- **Emotional arc:** Elisa move-se da negação controlada diante de um resultado impossível para uma solidão crescente e inquietação, terminando o capítulo no escuro, sem dormir, segurando uma rocha enquanto forças desconhecidas começam a cercar sua investigação.
 
-**Summary:** Elisa conduz três testes de medição de consciência (IC) em Helena Varga e obtém o resultado impossível de 0,001 Dk — idêntico ao de uma rocha de granito, indicando ausência total de processamento consciente. Enquanto debate com Marcus a insuficiência do próprio formalismo e descobre que alguém invadiu seu escritório, Helena deixa um cartão enigmático com o desenho de uma balança onde a pessoa pesa mais que a rocha, e cancela os testes seguintes. Elisa parte ao encontro de Helena em Oerlikon, carregando os dados anômalos do CERN de 2018 e a pergunta sobre o que acontece quando a física declara uma pessoa irrelevante.
+**Summary:** Elisa conduz três medições do Índice de Consciência (IC) de Helena Varga e obtém 0,001 Dk — idêntico ao de uma rocha de granito, indicando ausência de processamento consciente. Após discutir os resultados com Marcus, que desafia sua recusa em aceitar a anomalia, Elisa revisa dados antigos do CERN de 2018 e descobre um padrão semelhante de entropia desaparecida, recebendo então um e-mail de confirmação de Lena Hartmann e uma mensagem anônima ameaçadora.
 
 **Beats:**
-1. Elisa realiza três testes de IC em Helena Varga na câmara de Faraday do ETH e obtém 0,001 Dk — o mesmo valor de uma rocha de granito, indicando que Helena não gera entropia ao processar informação.
-1. No restaurante, Marcus confronta Elisa com a falácia lógica do formalismo (inversão da implicação) e sugere que Helena pode processar informação de forma reversível, como uma máquina biológica de Maxwell; Elisa reage com medo e negação.
-1. No apartamento, Elisa revisa os dados e descobre uma correlação com a anomalia do CERN de 2018 — dois sistemas processando informação sem rastro termodinâmico; recebe um e-mail anônimo ameaçador: 'Não investigue sozinha.'
-1. Elisa descobre que alguém entrou em seu escritório durante a noite; o segurança noturno relata que Helena esteve lá, examinou as equações e deixou um cartão com o desenho de uma balança (a pessoa pesando mais que a rocha) e a palavra 'Desculpe'.
-1. Dr. Farkas informa que Helena cancelou os testes; Elisa parte para Oerlikon carregando os dados do CERN e de Helena, confrontando a possibilidade de que seu formalismo descreva apenas a superfície de algo sem fundo.
+1. Elisa realiza três testes de IC em Helena Varga na câmara de Faraday e obtém 0,001 Dk — o mesmo valor de uma rocha de granito, indicando que Helena não gera o incremento entrópico mínimo previsto pelo formalismo para sistemas conscientes.
+1. Helena demonstra comportamento plenamente consciente — humor, empatia, preferências, dor — criando uma contradição irreconciliável com o resultado do aparelho, e agradece Elisa por ter ido pessoalmente.
+1. No restaurante, Marcus confronta Elisa com a falácia lógica de seu formalismo (inversa não provada) e propõe que Helena pode processar informação de forma reversível, como uma máquina biológica de Maxwell; Elisa reage com defensiva e abandona o jantar.
+1. Em seu apartamento, Elisa revisa os dados e confirma que o modelo funciona para qualquer outro humano, reabre os arquivos do CERN de 2018 com anomalias de energia desaparecida, e coloca lado a lado os dois padrões — entropia sumindo em colisões de partículas e entropia não sendo gerada por uma pessoa viva.
+1. Elisa recebe e-mail de Lena Hartmann confirmando que o aparelho funciona e o resultado é real, seguido de mensagem anônima dizendo 'Sabemos que a anomalia é real. Não investigue sozinha.' Elisa desliga o telefone e fica no escuro, sem dormir.
 
 **Plants:**
-- A anomalia do CERN de 2018 — colisões de alta energia com dissipação termodinâmica inexplicada, como se a entropia fosse 'exportada' para algum lugar inacessível aos detectores.
-- O e-mail anônimo de origem desconhecida ('Sabemos que a anomalia é real... Não investigue sozinha') sugerindo que entidades poderosas têm interesse no resultado.
-- As três empresas de certificação de IC (Nexion, Tianzi, Evromind) que perderiam bilhões se o índice fosse provado falho.
-- O cartão de Helena com a balança — a figura humana mais pesada que a rocha — e a palavra 'Desculpe', sugerindo que Helena compreende o formalismo e sabe o que sua existência implica.
-- A memória USB com dados criptografados no bolso esquerdo de Elisa, contraposta ao granito no direito — dois mistérios carregados juntos.
-- O convite coercitivo do reitor do ETH para uma reunião sobre 'protocolo de segurança de dados' às 14h.
-- A insinuação de Marcus de que a imprensa pode descobrir o resultado e as consequências seriam incontroláveis.
+- A anomalia do CERN de 2018 — colisões de prótons onde energia desaparece de forma consistente — estabelecendo um paralelo com a anomalia de Helena e sugerindo um fenômeno físico mais amplo
+- A mensagem anônima ('Sabemos que a anomalia é real. Não investigue sozinha') introduzindo uma força externa interessada nos resultados e criando tensão de vigilância/ameaça
+- O fragmento de granito de Zermatt como objeto-talismã de Elisa, polido pelo polegar, funcionando como âncora emocional e símbolo do ponto-zero da medição
+- A fotografia de Jana Dragowska no apartamento, com giz na mão e integrais no quadro, plantando a história pessoal de Elisa e a origem emocional de seu trabalho
+- A artrose de Helena e o arrasto do pé esquerdo — detalhes corporais que humanizam Helena e contrastam com o resultado inumano do aparelho
+- A equação de Boltzmann (S = k log W) como princípio fundamental que está sendo violado, estabelecendo a gravidade teórica da anomalia
 
 **Harvests:**
-- O fragmento de granito de Zermatt é revelado como o ponto-zero de calibração do aparelho — o mesmo valor de Helena, estabelecendo a equivalência rocha/pessoa como fato central do mistério.
-- A equação de Boltzmann (S = k log W) é introduzida como o alicerce filosófico e emocional do formalismo de Elisa, conectada à sua experiência de 2016 em Viena.
+- O formalismo de Elisa (IC como correlato termodinâmico da consciência) é apresentado em ação e imediatamente confrontado com um contraexemplo que ele não consegue absorver
+- A visita de Elisa ao túmulo de Boltzmann em 2016 é mencionada, conectando sua história pessoal à crise atual
+- A formulação do formalismo em Viena (2016), quando Elisa chorou de beleza diante da equação, é referida como origem intelectual e emocional do problema
 
-**Chapter question:** O que é uma pessoa quando o instrumento mais preciso da física diz que ela não existe — e por que Helena, que aparentemente entende o que as equações significam, pede desculpa e se recusa a continuar sendo medida?
+**Chapter question:** O que Helena Varga é — e o que a anomalia do CERN de 2018 tem a ver com ela — e quem são os agentes anônimos que já sabem da anomalia e querem controlar a investigação?
 
 ---
 
 ### Ch 2: Capítulo 2 — O Peso do Nada
-**4202 words** | **Location:** Escritório de Elisa no prédio HPF (ETH Zurique), laboratório subterrâneo do USZ, margem do lago de Zurique
-- **Characters:** Elisa Dragovski, Marcus, Helena Varga, Lena Hartmann
+**4177 words** | **Location:** ETH Zürich, Bürkliplatz, apartamento de Helena em Oerlikon
+- **Characters:** Elisa Dragovski, Marcus, Helena Varga, Segurança do ETH, Reitor (por telefone), Voz anônima (por telefone), Dr. Farkas (por e-mail)
 - **Try-fail cycle:** no-and
-- **Emotional arc:** Elisa move-se da negação analítica e da busca obsessiva por erros no equipamento para uma aceitação relutante de que o fenômeno é real, culminando em medo genuíno e na decisão instintiva de buscar Helena pessoalmente antes que forças externas intervenham.
+- **Emotional arc:** Elisa move-se da vigilância paranoica diante da violação de seu espaço profissional para uma vulnerabilidade rara e desconfortável diante de Helena, terminando com a certeza irracional de que Helena é a coisa mais pesada que já encontrou — mais que o granito, mais que a equação, mais que a entropia.
 
-**Summary:** Elisa confronta os resultados impossíveis dos testes de IC de Helena Varga — uma mulher funcional com o mesmo índice de consciência de uma rocha — e, após uma conversa tensa com Marcus sobre as implicações do modelo, descobre com Lena uma anomalia térmica periódica nas sessões: Helena gera calor, mas não onde o protocolo prevê. Enquanto isso, forças institucionais começam a pressionar pela entrega dos dados, e Elisa decide ir até Helena antes que seja tarde.
+**Summary:** Elisa descobre que alguém invadiu seu escritório durante a noite, movendo suas canecas e preparando café, e encontra um cartão com o desenho de uma balança e a palavra 'Desculpe' — assinatura de Helena. Enquanto lida com a convocação do reitor sobre segurança de dados e um ultimato anônimo exigindo os dados de Helena até sexta-feira, Elisa visita Helena em seu apartamento, onde as duas compartilham um momento de vulnerabilidade e Helena entrega a Elisa uma fotografia de 1983, de uma época em que se sentia 'leve'.
 
 **Beats:**
-1. Elisa revisa obsessivamente os dados das três sessões de Helena Varga, todas com IC de 0,001 Dk — idêntico ao granito de controle — e relembra a pergunta devastadora de Helena: 'A senhora é a pessoa que decidiu que as pedras não pensam.'
-1. Marcus traz café e confronta Elisa sobre a possibilidade de o formalismo estar errado; ambos confessam medo — Elisa de que o modelo seja incompleto, Marcus de que a epilepsia refratária de sua esposa Lina envolva processos que o IC não captura.
-1. Elisa acessa o cofre secreto com o disco rígido contendo dados anômalos descartados pelo CERN em 2018, conectando mentalmente a anomalia de Helena à possibilidade de que a seta do tempo não seja universal, mas local.
-1. Lena mostra a Elisa uma oscilação térmica periódica de 0,0003 graus a cada 3,7 segundos nas sessões de Helena — um sinal, não ruído — indicando que Helena gera calor fora do cérebro, no campo ao redor do corpo.
-1. Elisa recebe uma mensagem anônima ameaçando suspensão se não entregar os dados de Helena até sexta-feira, e decide ir até Helena em Oerlikon, caminhando em direção à única pessoa que a física não consegue explicar.
+1. Elisa encontra seu escritório violado — canecas fora de ordem, café fresco feito por outra pessoa, e um cartão com o desenho de uma balança e a palavra 'Desculpe' deixado por Helena.
+1. Marcus e Elisa se encontram no Bürkliplatz: ela revela que possui um disco rígido com dados brutos do CERN de 2018 que o comitê descartou como ruído, e discutem a anomalia térmica de Helena (0,0003 graus a cada 3,7 segundos), concluindo que a entropia está sendo exportada para algum lugar.
+1. Uma voz anônima liga para Elisa exigindo todos os dados de Helena até sexta-feira, sob pena de suspensão da licença de pesquisa — confirmando que a informação já está em movimento e que alguém do sistema está envolvido.
+1. Elisa visita Helena em seu apartamento em Oerlikon; Helena explica o cartão da balança ('a senhora é mais pesada que a pedra'), conta sobre um período em 1983 em que pensar 'não custava nada', e pergunta a Elisa se é 'uma pergunta ou uma resposta'.
+1. Helena entrega a Elisa uma fotografia de 1983 em Budapeste, e Elisa parte para a reunião com o reitor carregando o granito, o cartão da balança e a fotografia — três pesos que começam a conversar entre si.
 
 **Plants:**
-- O disco rígido com dados anômalos do CERN de 2018, guardado no cofre, sugere uma anomalia física mais ampla conectada ao caso de Helena
-- A flutuação térmica periódica de 3,7 segundos abre a possibilidade de que a entropia esteja sendo exportada para fora do cérebro de Helena, por um mecanismo desconhecido
-- A mensagem anônima exigindo os dados até sexta-feira revela que forças externas — distintas da burocracia institucional — estão interessadas no caso
-- A data 14 de março, combinação do cofre, é plantada como um elemento pessoal misterioso na vida de Elisa
-- A equação de Boltzmann incompleta no guardanapo da mãe de Elisa ('S = k lo—') é revisitada, sugerindo uma conexão pessoal profunda com o problema científico
+- O disco rígido de 2018 no cofre contém dados com assimetria de três sigma nos produtos de decaimento — possível conexão com a anomalia de Helena que será explorada.
+- A entropia exportada por Helena precisa de uma assinatura detectável (calor, gravidade, campo) — Elisa planeja usar um gravitômetro no PSI para encontrá-la.
+- A voz anônima que dá o ultimato de sexta-feira revela que há alguém dentro do sistema monitorando Elisa — a ameaça é institucional e pessoal.
+- A fotografia de 1983 mostra Helena 'leve' por três semanas após uma maratona de tradução — um episódio passado de anomalia que precede a descoberta atual.
+- O manjericão na varanda de Helena tem um IC estimado de 0,002 Dk, marginalmente superior ao de Helena — sugerindo que a anomalia pode estar ligada à atenção/cuidado.
+- O relógio de parede de Helena atrasa três minutos por dia — possível distorção temporal sutil associada à sua anomalia.
+- A mãe de Elisa deixou uma equação incompleta num guardanapo — ainda não resolvida, possivelmente conectada ao formalismo do IC.
 
 **Harvests:**
-- O granito de Zermatt no bolso de Elisa, estabelecido no capítulo anterior como ponto-zero de controle, é reaproveitado como contraste direto com Helena — ambos medem 0,001 Dk, mas apenas um tem covinhas
-- A pergunta de Helena sobre ser 'a pessoa que decidiu que as pedras não pensam' é revelada como tendo sido feita durante a sessão, e não apenas lembrada — aprofundando seu impacto filosófico
-- O formalismo termodinâmico da consciência (IC/Drakon), central do capítulo anterior, é posto à prova e falha diante de Helena Varga
+- O cartão da balança com 'Desculpe' é revelado como gesto de Helena — ela pediu a um segurança que levasse o cartão e o envelope vazio com cheiro de camomila ao escritório.
+- A insônia de Elisa e seu hábito de catalogar objetos com precisão topográfica (estabelecido no capítulo anterior) explicam por que ela notou a mudança na ordem das canecas.
+- O granito no bolso de Elisa (do capítulo anterior) ganha companhia do cartão da balança e da fotografia — três objetos que representam três formas de pesar o mundo.
+- A discussão sobre o formalismo do IC e a pergunta 'o que é uma pessoa quando a balança diz que ela pesa o mesmo que uma pedra?' aprofunda o tema central plantado no capítulo anterior.
 
-**Chapter question:** O que Helena Varga realmente é — e para onde está indo a entropia que seu cérebro deveria gerar mas não gera?
+**Chapter question:** O que é uma pessoa quando a balança diz que ela pesa o mesmo que uma pedra — e o que Helena Varga realmente é: uma pergunta ou uma resposta?
 
 ---
 
 ### Ch 3: Capítulo 3 — A vida que o número não captura
-**2535 words** | **Location:** Apartamento de Helena Varga, quinto andar, Zurique
-- **Characters:** Elisa Dragovski, Helena Varga
+**4493 words** | **Location:** Apartamento de Helena Varga, quinto andar, porta 5C, Zurique-Oerlikon
+- **Characters:** Elisa Dragovski, Helena Varga, Béla Varga (mencionado), Mirela (mencionada), Zoltán (mencionado), Doutor Farkas (mencionado)
 - **Try-fail cycle:** no-and
-- **Emotional arc:** Elisa entra no apartamento como cientista em controle de uma avaliação rotineira e sai desarmada, carregando uma pergunta existencial que não consegue resolver com nenhuma das quarenta e sete definições que conhece.
+- **Emotional arc:** Elisa entra no apartamento de Helena como cientista em controle de uma avaliação clínica e sai, duas visitas depois, como alguém cujas certezas fundamentais foram abaladas, carregando uma fotografia e a convicção irracional de que uma mulher classificada como termodinamicamente inerte é a coisa mais pesada que já encontrou.
 
-**Summary:** Elisa visita Helena em seu apartamento para completar a avaliação neurológica, mas a conversa se transforma num confronto filosófico quando Helena questiona a validade do Índice de Consciência e, em última instância, pergunta a Elisa se a considera uma pessoa. Elisa sai sem resposta, e ao receber uma mensagem do comitê de ética exigindo os dados, percebe que precisará voltar.
+**Summary:** Elisa visita Helena em seu apartamento para completar a avaliação clínica, mas a conversa se transforma em um confronto entre o formalismo do Índice de Consciência e a experiência vivida de uma mulher que o aparelho classifica como termodinamicamente inerte. Helena revela um episódio de 1983 em que experimentou vinte e dois dias de 'clareza cognitiva' anômala e mostra a Elisa fotografias de si mesma que não reconhece, enquanto Elisa, incapaz de responder à pergunta central — 'a senhora acha que eu sou uma pessoa?' — volta ao apartamento no mesmo dia, plantando as sementes de uma crise que é simultaneamente científica e existencial.
 
 **Beats:**
-1. Elisa sobe as escadas até o apartamento de Helena, que a recebe com chá de camomila e uma presença serena e preparada.
-1. Durante a entrevista clínica, Helena corrige o registro hospitalar sobre seu local de nascimento e demonstra linguagem, memória e humor perfeitamente intactos, contradizendo o IC de 0,001 Dk.
-1. Helena faz a pergunta central: o aparelho mede o que ela pensa ou o que ela é, e questiona se o número está errado por medir a coisa errada.
-1. Elisa examina as fotografias de Helena e nota uma caixa de cartão escondida na prateleira mais baixa, sem perguntar sobre ela.
-1. Na despedida, Helena pergunta diretamente a Elisa se a considera uma pessoa; Elisa não consegue responder. Na rua, recebe mensagem do comitê de ética exigindo os dados e decide que precisará voltar.
+1. Elisa sobe até o apartamento de Helena e é recebida com chá de camomila; a conversa começa como avaliação clínica, mas Helena desmonta a premissa do IC com perguntas que Elisa não sabe responder, culminando na pergunta 'o aparelho mede o que eu penso ou o que eu sou?'
+1. Elisa examina fotografias na estante de Helena e nota uma caixa de cartão escondida na prateleira mais baixa; Helena não a oferece e Elisa não pergunta, mas a caixa fica plantada como objeto de tensão.
+1. Helena pergunta por que Elisa veio pessoalmente; Elisa admite que quer 'entender a anomalia', e Helena responde que o número está errado porque 'mede a coisa errada'. Elisa sai sem responder à pergunta sobre se Helena é uma pessoa.
+1. Elisa recebe mensagem do comitê de ética exigindo os dados de Helena e, incapaz de se concentrar, volta ao apartamento no mesmo dia; Helena diz que sabia que Elisa voltaria porque 'não é o tipo de pessoa que dorme sem responder a perguntas'.
+1. Helena revela o episódio de 1983 — vinte e dois dias de processamento cognitivo reversível após uma noite de tradução exaustiva — e abre a caixa de Budapeste com fotografias de si mesma que não reconhece; Elisa leva uma fotografia e, pela primeira vez, afirma sem dúvida: 'A senhora é uma pessoa. O número não decide isso.'
+1. Helena responde que Elisa é a primeira pessoa a dizer isso e também a pessoa que inventou o número; Elisa sai com a fotografia, o granito e a certeza irracional de que Helena é 'a coisa mais pesada que já tinha encontrado'.
 
 **Plants:**
-- A caixa de cartão castanha na prateleira mais baixa, sem inscrição, posicionada como se não pertencesse àquele lugar — conteúdo desconhecido, potencialmente relevante para o caso.
-- A referência ao Zoltán, que morreu em 1983, sem que a causa seja revelada.
-- O vaso vazio na varanda com terra escura e úmida — alguém arrancou uma planta recentemente, sugerindo perda ou mudança.
-- A mensagem do comitê de ética exigindo os dados interpretados de Helena, indicando pressão institucional crescente sobre Elisa.
-- O relógio de parede de Helena que atrasa três minutos por dia — nenhum relógio daquela cidade atrasa, sugerindo que o tempo de Helena funciona de maneira diferente.
-- O granito no bolso de Elisa como objeto recorrente de ancoragem emocional e simbólico.
+- A caixa de cartão na prateleira mais baixa, contendo fotografias de Helena em 1983, é notada por Elisa na primeira visita e aberta na segunda — seu conteúdo se torna evidência central do episódio anômalo
+- O episódio de 1983 com os vinte e dois dias de 'clareza cognitiva' é revelado por Helena e conectado ao formalismo do IC, sugerindo que o processamento reversível já ocorreu antes e pode estar relacionado ao resultado atual
+- O doutor Farkas é mencionado como alguém que sabe do episódio de 1983, plantando um futuro contato ou confronto
+- A mensagem do comitê de ética exigindo os dados de Helena institucionaliza a pressão externa e transforma o caso em algo que transcende a investigação científica individual
+- O relógio de Helena que atrasa três minutos por dia é um detalhe recorrente que funciona como metáfora da dessincronia entre o tempo medido e o tempo vivido
+- O vaso vazio na varanda de Helena, com terra úmida de onde uma planta foi arrancada recentemente, permanece inexplicado
 
 **Harvests:**
-- O granito no bolso de Elisa é retomado como símbolo de frieza e ausência de consciência, contrastando com a pergunta de Helena sobre pessoalidade.
-- A tinta verde do corrimão que gruda nas mãos de Elisa no início reaparece no final como imagem de algo que não sai, espelhando a pergunta de Helena que Elisa não consegue largar.
+- A pergunta de Helena — 'a senhora acha que eu sou uma pessoa?' — feita no final da primeira visita, é o motor que faz Elisa retornar ao apartamento no mesmo dia
+- A caixa de cartão notada por Elisa na primeira visita é finalmente aberta, revelando as fotografias de 1983 e o episódio da clareza cognitiva
+- A fotografia de março de 1983 é levada por Elisa como prova material, juntando-se ao granito no bolso como dois tipos de evidência que começam a 'conversar'
+- A afirmação final de Elisa — 'A senhora é uma pessoa. O número não decide isso' — é a colheita emocional da incapacidade que ela demonstrou na primeira visita
 
-**Chapter question:** Helena é uma pessoa — e se o número está errado por medir a coisa errada, o que isso significa para toda a teoria do IC e para a ciência de Elisa?
+**Chapter question:** Se Helena Varga realmente processa informação de forma reversível — sem o custo termodinâmico que o formalismo considera definidor da consciência — o que isso significa para a equação que Elisa publicou, para o comitê do Nobel que a validou, e para a própria definição de pessoa?
 
 ---
 
 ### Ch 4: Capítulo 4 — O sistema contra a experiência
-**4129 words** | **Location:** ETH Zürich (escritório de Marcus, sala de reuniões do USZ, laboratório de neuroimagem do subsolo do USZ)
-- **Characters:** Elisa, Marcus Weil, Lena Hartmann, Renan, Helena, Mirela, Yuki Tanaka, Evromind (por e-mail), Jana (mãe de Elisa, em memória)
-- **Try-fail cycle:** no-but
-- **Emotional arc:** Elisa move-se da confiança técnica (os dados são sólidos, o aparelho funciona) para uma solidão intelectual crescente, culminando na madrugada com a dolorosa percepção de que o sistema que ela construiu pode ser insuficiente — não por erro, mas por incompletude.
+**4441 words** | **Location:** ETH Zürich e apartamento de Helena em Oerlikon
+- **Characters:** Elisa, Marcus, Lena Hartmann, Renan, Helena, Mirela, Yuki Tanaka, Evromind
+- **Try-fail cycle:** no-and
+- **Emotional arc:** Elisa move-se da certeza profissional para a incerteza existencial, terminando o capítulo despida de todas as suas definições diante de uma mulher que faz chá e pergunta o que ela é.
 
-**Summary:** Elisa recebe a confirmação experimental de que o IC de Helena é indistinguível de zero — três sessões, três aparelhos, mesmo resultado impossível — e enfrenta a pressão simultânea de Renan (que quer mais verificação antes de aceitar a anomalia), da imprensa (Yuki Tanaka), da indústria (Evromind) e da filha de Helena (Mirela). Enquanto debate com Marcus se o formalismo está incompleto ou se Helena é genuinamente uma exceção, Elisa passa a noite revisando os pressupostos da própria equação, confrontando a possibilidade de que o instrumento que ela criou não capture toda a realidade da consciência.
+**Summary:** Elisa recebe a confirmação experimental de que o IC de Helena é indistinguível de zero em três sessões com aparelhos diferentes, defrontando-se com a impossibilidade do resultado dentro do formalismo que ela mesma ajudou a construir. Enquanto Renan propõe verificação independente em Oxford e forças externas — imprensa, corporação, família de Helena — pressionam por caminhos divergentes, Elisa recebe mensagens anônimas de alguém que conhece detalhes internos da investigação. O capítulo termina com Elisa visitando Helena em casa, onde a mulher com IC de rocha a recebe com chá e uma pergunta que Elisa não consegue responder.
 
 **Beats:**
-1. Lena apresenta os resultados de três sessões independentes: o IC de Helena é 0,0011 Dk — estatisticamente indistinguível de zero e idêntico ao granito de controle. O aparelho funciona; o resultado é real.
-1. No escritório de Marcus, Elisa debatem se o IC mede a consciência em si ou apenas um correlato termodinâmico. Marcus argumenta que o formalismo pode estar incompleto; Elisa defende que a correlação de 0,94 valida o instrumento, e que extrapolar para o regime de Helena é arriscado.
-1. Renan, em chamada de vídeo de Oxford, propõe uma quarta medição com protocolo independente. Elisa aceita, mas exige dados brutos e supervisão de Lena. Renan insinua que anomalia igual a erro — padrão que já se repetiu antes.
-1. Sozinha, Elisa lida com e-mails de Yuki Tanaka (imprensa quer comentário), Evromind (oferece laboratório privado em troca de acesso a dados) e Mirela (jornalistas perseguem Helena). Não responde a nenhum.
-1. De madrugada, no laboratório do subsolo, Elisa revisa os três pressupostos do formalismo, murmura a equação de Boltzmann, segura o granito e confronta a possibilidade de que o sistema que ela construiu seja insuficiente — não errado, mas incompleto.
-1. Elisa sai do laboratório às 4h37, caminha por Zurique de madrugada e volta para casa para continuar lendo, sem resolução.
+1. Lena apresenta os resultados de três sessões com aparelhos diferentes: o IC de Helena é consistentemente ~0,001 Dk, indistinguível de zero e do granito de controle, confirmando a anomalia de forma experimentalmente sólida.
+1. Elisa e Marcus debatem no escritório do ETH se o formalismo do IC está incompleto ou se Helena representa um regime físico desconhecido; Marcus argumenta que o indicador mede um correlato termodinâmico, não a consciência em si.
+1. Em videoconferência, Renan propõe uma quarta medição em Oxford com protocolo independente — aparentemente razoável, mas estrategicamente uma manobra para ganhar tempo e controle sobre a narrativa antes que a anomalia se torne pública.
+1. Elisa enfrenta três pressões simultâneas por e-mail — Yuki Tanaka quer publicar, Evromind oferece laboratório privado em troca de acesso a dados, Mirela exige proteção para a mãe — e recebe mensagens anônimas de alguém que sabe do disco rígido de 2018 antes de Marcus revelá-lo.
+1. Elisa visita Helena em Oerlikon sem aviso; Helena a recebe com chá e pergunta 'o que a senhora acha que eu sou?', e Elisa, com todas as definições do formalismo à disposição, admite que não sabe.
 
 **Plants:**
-- A cicatriz de queimadura no antebraço de Lena aparece brevemente — detalhe físico que sugere história pessoal não contada.
-- O Post-it na porta de Marcus ('Não há bolos na sala de reuniões') sugere dinâmica de grupo e história institucional não explorada.
-- A oferta da Evromind por e-mail planta o conflito entre integridade científica e financiamento corporativo sem supervisão.
-- O e-mail de Mirela estabelece a pressão humana concreta — Helena está sendo perseguida por jornalistas, e a filha cobra respostas.
-- A equação de Boltzmann (S = k ln W) como mantra de Elisa conecta a crise científica à perda da mãe, Jana, e sugere que a resolução pode ser tanto emocional quanto intelectual.
-- O granito de Zermatt no bolso de Elisa funciona como objeto-âncora recorrente — rocha com mesmo IC de Helena, carregada fisicamente como lembrete do paradoxo.
+- O disco rígido de 2018 mencionado por Marcus e pelo misterioso remetente anônimo, que supostamente contém mais do que dados — será acessado no dia seguinte.
+- O número desconhecido que envia mensagens a Elisa, alguém com conhecimento interno da investigação ('fui eu que pedi para guardarem'), cuja identidade permanece oculta.
+- A oferta da Evromind de laboratório privado sem supervisão institucional, estabelecendo a tentação corporativa como ameaça futura.
+- Yuki Tanaka da Nature sabendo da anomalia antes de qualquer publicação, sugerindo vazamento interno.
+- O relógio de Helena que atrasa três minutos e o manjericão na varanda com IC de 0,002 Dk — detalhes aparentemente menores que contrastam com a impossibilidade do resultado principal.
 
 **Harvests:**
-- O padrão de Renan de exigir verificação adicional se paga como tensão: ele já esteve certo antes (sensor danificado em Berna, erro em Tóquio), o que dá peso legítimo à sua desconfiança e complica a posição de Elisa.
-- A analogia de Marcus entre temperatura/dor e IC/consciência, introduzida como argumento abstrato, se concretiza no caso de Helena — ela é a 'febre zero' que ele descreve.
-- Os três pressupostos do formalismo, que Elisa revisa no laboratório, são o mesmo arcabouço estabelecido no capítulo anterior — agora testados contra o caso real de Helena.
+- A confirmação experimental da anomalia de Helena (IC ~0,001 Dk) que foi construída ao longo dos capítulos anteriores é aqui consolidada com três medições independentes.
+- O granito no bolso de Elisa, presente desde capítulos anteriores, reaparece como contraponto físico à questão de Helena — a rocha que não pensa versus a mulher que pensa sem deixar rastro.
+- A pressão de Mirela sobre o assédio jornalístico a Helena, mencionada anteriormente, se materializa nos e-mails de Yuki Tanaka e no relato de jornalistas seguindo Helena até o supermercado.
 
-**Chapter question:** O formalismo do IC está incompleto — falta uma peça entre o processamento de informação e o incremento entrópico — ou Helena é genuinamente uma pessoa que não gera entropia mensurável?
+**Chapter question:** N/A
 
 ---
 
 ### Ch 5: Capítulo 5 — O passado que não se pesa
-**4428 words** | **Location:** Trem Zurique–Kreuzlingen–Zurique, consultório do Dr. Farkas em Kreuzlingen, laboratório subterrâneo do USZ em Zurique
-- **Characters:** Elisa Dragovski, Dr. Amós Farkas, Marcus Weil, Yuki Tanaka, Helena Varga, Mirela (mencionada)
-- **Try-fail cycle:** no-and
-- **Emotional arc:** Elisa parte com a frieza metodológica de quem coleta dados, é confrontada pela advertência humanista de Farkas, e termina o capítulo no escuro do apartamento carregando o peso de que a ciência pode estar diante de algo que suas equações não conseguem nomear.
+**4161 words** | **Location:** Trem Zurique–Kreuzlingen, consultório do Dr. Farkas em Kreuzlingen, laboratório subterrâneo do USZ em Zurique, apartamento de Elisa
+- **Characters:** Elisa Dragovski, Dr. Amós Farkas, Helena Varga, Marcus Weil, Yuki Tanaka, Mirela (mencionada)
+- **Try-fail cycle:** no-but
+- **Emotional arc:** Elisa parte de Zurique com a frieza metodológica de quem busca dados, mas é confrontada pela lealdade humana de Farkas e pela impossibilidade de reduzir Helena a números, terminada com a vertigem de descobrir que o cérebro de Helena pode operar fora das leis termodinâmicas conhecidas.
 
-**Summary:** Elisa visita o Dr. Farkas em Kreuzlingen para investigar o histórico neurológico e pessoal de Helena, descobrindo que o período em Budapeste (1978–1984) é um ponto crítico que Farkas se recusa a revelar. De volta a Zurique, Marcus mostra a Elisa dados da ressonância de 2019 que revelam três regiões cerebrais de Helena operando sem dissipação térmica irreversível — uma possível Máquina de Maxwell biológica. A jornalista Yuki Tanaka pressiona Elisa com informações sobre Budapeste, e Elisa percebe que a chave para entender Helena está no passado que todos protegem.
+**Summary:** Elisa viaja a Kreuzlingen para interrogar o neurologista e amigo de longa data de Helena, Dr. Farkas, sobre o passado da paciente em Budapeste entre 1978 e 1984, mas Farkas protege Helena com lealdade feroz, revelando apenas que ela 'nunca voltou' à cidade. De volta a Zurique, Marcus mostra a Elisa dados da ressonância de 2019 de Helena que revelam três regiões cerebrais operando sem dissipação térmica irreversível — como uma Máquina de Maxwell biológica. A jornalista Yuki Tanaka pressiona Elisa com informações sobre Budapeste, e Elisa percebe que o mistério de Helena pode desafiar a segunda lei da termodinâmica.
 
 **Beats:**
-1. Elisa viaja de trem até Kreuzlingen e visita o consultório do Dr. Farkas, onde ele confirma o histórico neurológico de Helena mas se recusa a falar sobre Budapeste, dizendo apenas que ela 'nunca voltou' e advertindo Elisa que Helena é 'uma pessoa a compreender, não um problema a resolver'.
-1. No trem de volta, Elisa reflete sobre a frase 'nunca voltou', sobre o granito silencioso no bolso e sobre a pergunta de Helena — 'A senhora acha que eu sou uma pessoa?' — enquanto a equação de Boltzmann insiste em vir à mente.
-1. Marcus chama Elisa ao laboratório e mostra que a ressonância de 2019 de Helena revela três regiões cerebrais com dissipação térmica irreversível estatisticamente zero — áreas que processam informação sem gerar entropia, como uma Máquina de Maxwell biológica.
-1. Yuki Tanaka envia uma mensagem ameaçando publicar o que sabe sobre Budapeste, forçando Elisa a reconhecer que o tempo está se esgotando e que a jornalista tem uma fonte interna.
-1. Elisa decide contatar Mirela, repetir as medições do IC com filtro de irreversibilidade e investigar Budapeste, enquanto anota que Farkas mentiu e que talvez a equação da mãe fosse impossível de terminar — não por morfina, mas por incompletude fundamental.
+1. Elisa encontra Farkas em Kreuzlingen; ele se recusa a transformar Helena em dados e revela apenas que ela nunca voltou a Budapeste após 1985, carregando uma razão que ele protege com lealdade.
+1. Farkas descreve Helena como 'mais leve, como se pensar não custasse', e sua mão fecha-se involuntariamente quando Budapeste é mencionada, traindo que sabe mais do que diz.
+1. No laboratório do USZ, Marcus mostra a Elisa que três regiões do cérebro de Helena processam informação sem gerar calor irreversível — dissipação térmica estatisticamente indistinguível de zero.
+1. Yuki Tanaka envia mensagem ameaçando publicar o que sabe sobre o passado de Helena em Budapeste, forçando Elisa a agir rapidamente.
+1. Elisa decide contatar Mirela e repetir as medições do IC com filtro de irreversibilidade, enquanto registra que Farkas mentiu e que a equação da mãe talvez fosse impossível de terminar.
 
 **Plants:**
-- O período 1978–1984 em Budapeste como evento desencadeador da condição de Helena
-- Mirela como fonte de informação sobre o passado de Helena
-- A possibilidade de que a equação de Boltzmann (S = k log W) seja incompleta, não errada
-- Yuki Tanaka como ameaça ativa com fonte interna desconhecida
-- A hipótese de compensação entrópica — a entropia de Helena sendo exportada para um sistema não detectável
-- A metáfora do granito como espelho de Helena (rocha que não pensa vs. mulher que pensa como rocha)
+- A frase 'nunca voltou' carrega uma razão emocional profunda ligada a Budapeste 1978-1984 que será investigada
+- Mirela, a filha de Helena em Berna, é plantada como fonte alternativa de informações sobre o passado da mãe
+- As três ilhas de silêncio térmico no cérebro de Helena sugerem que a entropia está sendo 'exportada' para um sistema desconhecido
+- A equação incompleta da mãe de Elisa (S = k log W) pode ser impossível de terminar, não por distração da morfina, mas por incompletude fundamental
+- Yuki Tanaka tem uma fonte interna que sabe sobre Budapeste, sugerindo que informações confidenciais estão vazando
+- O filtro de irreversibilidade de Marcus será usado em novas medições do IC no ETH
 
 **Harvests:**
-- A reação física de Farkas (mão que se fecha, olhar desviado) confirma que Budapeste é um ponto de contenção, não de ignorância
-- A frase 'nunca volta' de Farkas ganha densidade narrativa como pista emocional e geográfica
-- Os dados da ressonância de 2019, já mencionados em capítulos anteriores, são reanalisados e revelam o achado das três ilhas de silêncio térmico
-- A equação S = k log W retorna como obsessão de Elisa, agora com a nova camada de que pode ser apenas metade da frase
+- A insónia e a obsessão de Elisa por dados quantitativos (contar segundos, calcular operações neurais) são confirmadas como traços centrais de seu caráter
+- O granito no bolso de Elisa, presente desde capítulos anteriores, ganha significado simbólico como contraste com Helena: 50 milhões de anos sem um pensamento versus uma pessoa que pensa sem gerar entropia
+- A pergunta de Helena a Elisa — 'A senhora acha que eu sou uma pessoa?' — ressoa quando Farkas repete que ela não é um problema a resolver
 
-**Chapter question:** O que aconteceu com Helena em Budapeste entre 1978 e 1984 que fez com que seu cérebro passasse a processar informação sem gerar entropia — e Farkas sabe o quê?
+**Chapter question:** O que aconteceu com Helena em Budapeste entre 1978 e 1984 que a fez nunca mais voltar, e esse evento está ligado à capacidade do cérebro dela de processar informação sem gerar entropia irreversível?
 
 ---
 
-### Ch 6: Capítulo 6 — A Escolha
-**2954 words** | **Location:** Escritório de Elisa no ETH Zürich, lago de Zurique
-- **Characters:** Elisa Dragovski, Renan, Marcus, Helena Varga (mencionada), Jana Dragowska / mãe de Elisa (mencionada), Lina (mencionada), Mirela (mencionada)
-- **Try-fail cycle:** no-and
-- **Emotional arc:** Elisa move-se da defensividade profissional durante a reunião para uma vulnerabilidade contemplativa no lago, terminando com uma determinação silenciosa de investigar Helena não como anomalia, mas como pessoa.
+### Ch 6: Capítulo 6 — A Filha
+**3785 words** | **Location:** Berna (café Kaffeehaus) e Zurique (ETH, laboratório, apartamento de Elisa)
+- **Characters:** Elisa Dragovski, Mirela Varga, Marcus, Helena Varga, Renan, Yuki Tanaka, Dr. Farkas
+- **Try-fail cycle:** yes-but
+- **Emotional arc:** Elisa parte de Zurique com incerteza sobre como justificar o encontro com Mirela, confronta a dor partilhada entre duas filhas que perderam ou estão perdendo as mães, e retorna com a confirmação científica de que Helena desafia as leis da termodinâmica — aprofundando tanto a urgência quanto a impossibilidade de reduzir Helena a um número.
 
-**Summary:** Elisa enfrenta Renan e Marcus em uma reunião tensa sobre como comunicar a anomalia de Helena Varga, recusando-se a emitir um comunicado que minimize ou distorça os dados. Após a reunião, ela decide investigar o caso de Helena por conta própria, e uma caminhada reflexiva ao lago a confronta com a pergunta central: por que pensamos, se cada pensamento custa entropia ao universo?
+**Summary:** Elisa viaja a Berna para encontrar Mirela Varga, filha de Helena, e descobre que Helena esconde um evento traumático de 1983 em Budapeste, cancelou sessões com Farkas por medo, e guarda fotografias que mostram uma versão diferente de si mesma. De volta a Zurique, Marcus confirma que as medições do IC de Helena são reais — três regiões cerebrais processam informação sem gerar entropia — e Elisa recebe uma mensagem anônima de um remetente 'H' dizendo que os dados de 2018 não são ruído.
 
 **Beats:**
-1. Elisa rejeita a proposta de Renan e Marcus de emitir um comunicado que proteja o formalismo, insistindo em não publicar o que não compreende.
-1. Renan pressiona Elisa argumentando que o formalismo sustenta tratados, leis e protocolos — e que admitir uma exceção destrói tudo; Elisa responde que uma pessoa não é uma anomalia.
-1. Marcus alerta que Renan provavelmente contatará o comitê; Elisa exige acesso total ao histórico de Helena e autorização para uma segunda entrevista em 24 horas.
-1. Elisa abre a gaveta com os 47 guardanapos da mãe e lê o último, com a equação incompleta (S = k lo—), conectando a mãe que morreu a meio de uma frase com Helena que vive a meio de um número.
-1. No lago de Zurique, Elisa reflete sobre entropia, a seta do tempo e o fato de que Helena pensa sem que o universo pague por isso — e decide investigar não para salvar o formalismo, mas para compreender uma pessoa.
+1. Elisa encontra Mirela no café Kaffeehaus em Berna; Mirela confronta Elisa sobre suas intenções e revela que Helena guarda fotografias de 1983 que mostram uma pessoa diferente, cancelou sessões com Farkas por medo, e que algo aconteceu em Budapeste durante três semanas.
+1. Mirela estabelece limites claros como guardiã de Helena, mas reconhece que Elisa é importante para a mãe; Elisa revela a morte de sua própria mãe e os 47 guardanapos com equações incompletas.
+1. De volta a Zurique, Marcus mostra a Elisa os resultados repetidos: três ilhas de silêncio térmico no cérebro de Helena onde a dissipação de calor é zero, confirmando que ela processa informação sem gerar entropia.
+1. Elisa recebe três mensagens: Marcus pedindo sua presença no laboratório, Yuki Tanaka oferecendo informações sobre Helena em Budapeste (1978-1984), e uma mensagem anônima de 'H' dizendo 'Os dados de 2018 não são ruído.'
+1. Renan conseguiu uma revisão formal do protocolo por um painel independente que se reúne na sexta; Elisa decide ir sozinha ao apartamento de Helena no dia seguinte para falar sem equipamentos.
 
 **Plants:**
-- Renan vai contactar o comitê contra Elisa, o que terá consequências institucionais.
-- A condição inexplicável de Lina (crises que diminuíram contra a previsão do modelo) sugere que o formalismo pode estar errado em mais de um caso.
-- A equação incompleta da mãe no último guardanapo (S = k lo—) é um mistério não resolvido que conecta a história pessoal de Elisa ao problema científico central.
-- A pergunta 'Qual é a diferença?' (entre a mãe que morreu a meio de uma frase e Helena que vive a meio de um número) permanece sem resposta e guiará a investigação.
-- O granito no bolso de Elisa — rocha sem consciência — funciona como contraponto recorrente a Helena, que tem consciência sem o IC correspondente.
+- A caixa de fotografias de 1983 debaixo da cama de Helena — mostra uma Helena com olhar diferente, sugerindo que algo transformador aconteceu em Budapeste
+- A mensagem anônima de 'H': 'Os dados de 2018 não são ruído' — sugere que alguém tem acesso a dados antigos do CERN e está alertando Elisa
+- Yuki Tanaka oferece informações sobre o período de Helena em Budapeste (1978-1984)
+- O painel independente de revisão convocado por Renan, que se reúne na sexta com Renan como membro
+- A possibilidade de que Helena esteja exportando entropia para um sistema indetectável ou processando informação de forma perfeitamente reversível (Máquina de Maxwell biológica)
+- A filha de Marcus, Lina, cujas crises cessaram contrariando o modelo preditivo
 
 **Harvests:**
-- A tensão entre Elisa e Renan, acumulada ao longo dos capítulos anteriores, explode abertamente nesta reunião, com Renan desligando a chamada em sinal de ruptura.
-- A recusa de Elisa em emitir o comunicado estabelece sua posição moral e científica: ela escolhe a verdade sobre a gestão de narrativa.
-- O último guardanapo da mãe é revelado em detalhe, mostrando a equação incompleta e conectando a perda pessoal de Elisa ao dilema científico atual.
-- A decisão de Elisa de investigar Helena por conta própria marca uma viragem de postura — de defensora do formalismo para investigadora da anomalia.
+- A reunião com Mirela confirma que Helena cancelou sessões com Farkas (Farkas havia ligado anteriormente a Elisa sobre isso)
+- A revelação de que Helena era tradutora de russo no Ministério das Relações Exteriores em 1983 conecta com a pesquisa de arquivo que Elisa já havia feito
+- As medições repetidas do IC com filtro de irreversibilidade confirmam as ilhas de silêncio térmico, validando os resultados anteriores
+- A menção de Mirela a 'coisas que não têm nome' ecoa e aprofunda a pergunta central de Helena sobre ser ou não uma pessoa
 
-**Chapter question:** Se Helena Varga pensa sem gerar o incremento entrópico que o formalismo prevê, o que isso significa sobre a natureza da consciência — e sobre o instrumento que Elisa passou quinze anos a construir?
+**Chapter question:** O que aconteceu com Helena em Budapeste em 1983 durante as três semanas que a transformaram, e quem é o remetente 'H' que afirma que os dados de 2018 não são ruído?
 
 ---
 
 ### Ch 7: Capítulo 7 — A Filha
-**3626 words** | **Location:** Trem Zurique–Berna, Kaffeehaus (café em Berna), estação de Zurique HB
-- **Characters:** Elisa Dragovski, Mirela Varga, Tomás Delgado, Helena Varga (mencionada), Atendente do café
+**3788 words** | **Location:** Trem Zurique–Berna, Kaffeehaus (Berna), estação de Zurique HB, passeios de Zurique
+- **Characters:** Elisa Dragovski, Mirela Varga, Tomás Delgado (por telefone), Helena Varga (mencionada)
 - **Try-fail cycle:** no-and
-- **Emotional arc:** Elisa parte confiante em sua missão de investigação, é progressivamente desarmada pela dor e pela lógica de Mirela, e termina o capítulo em crise existencial, reconhecendo que o formalismo de uma vida inteira pode estar fundamentalmente incompleto.
+- **Emotional arc:** Elisa parte confiante na missão de obter informações de Mirela, mas é progressivamente desconfrontada até admitir incerteza ('talvez') e reconhecer que não consegue responder à pergunta mais fundamental — se Helena é uma pessoa — saindo do encontro intelectualmente abalada e emocionalmente exposta, numa crise que se aprofunda com a ligação de Tomás Delgado.
 
-**Summary:** Elisa viaja de trem até Berna para encontrar Mirela Varga, filha de Helena, e confronta-se com a fúria e a dor de quem vê a mãe reduzida a um número. A conversa no café força Elisa a admitir que seu formalismo pode estar medindo a coisa errada, e ao voltar para Zurique recebe uma ligação de Tomás Delgado, um jesuíta que a desafia a distinguir medir de compreender.
+**Summary:** Elisa viaja de trem até Berna para encontrar Mirela Varga, filha de Helena, num café. A conversa entre as duas é tensa e confrontadora: Mirela desafia o formalismo de Elisa, argumentando que reduzir sua mãe a um número (IC de 0,001 Dk, equivalente ao de uma pedra) é falho, e exige que Elisa diga se considera Helena uma pessoa — pergunta que Elisa não consegue responder. Após o encontro, Elisa caminha por Zurique em crise intelectual e recebe uma ligação inesperada de Tomás Delgado, um jesuíta e professor de filosofia da ciência, que questiona se Elisa está medindo ou compreendendo a consciência.
 
 **Beats:**
-1. Elisa viaja de trem a Berna, relembra a ligação com Mirela e encontra-a no Kaffeehaus, notando semelhanças físicas e diferenças de postura entre Mirela e Helena.
-1. Mirela confronta Elisa sobre o artigo que atribuiu IC de 0,001 Dk a Helena, comparando-a a uma pedra, e conta a história do pai morto no jardim para ilustrar a humanidade da mãe.
-1. Elisa tenta defender o formalismo, mas Mirela a obriga a admitir que talvez o aparelho meça a coisa errada; Elisa diz 'talvez' pela primeira vez, e Mirela vai-se embora sem obter resposta sobre se Elisa considera Helena uma pessoa.
-1. No trem de volta, Elisa elabora quatro possibilidades para explicar a anomalia de Helena, risca a quarta ('a consciência não é um processo termodinâmico') mas não consegue apagá-la, e percebe que a diferença entre Helena e a pedra não é o número, é a pergunta.
-1. Em Zurique, Elisa recebe ligação de Tomás Delgado, jesuíta e filósofo, que a desafia: o formalismo mede o custo termodinâmico, mas não o conteúdo; Helena é a prova de que a balança está calibrada para a coisa errada.
-1. Elisa fica no passeio com o granito no bolso, sabendo que a diferença entre a rocha e Helena não é o número, é a pergunta — e a pergunta é a única coisa que o formalismo não consegue medir.
+1. Elisa viaja de trem a Berna e relembra a breve ligação com Mirela; chega ao café Kaffeehaus onde Mirela a espera.
+1. A conversa entre Elisa e Mirela é carregada de tensão: Mirela revela que leu o artigo de Elisa três vezes, rejeita a redução de Helena a um número e conta a história da morte do pai, desafiando Elisa a dizer se considera Helena uma pessoa.
+1. Elisa admite incerteza ('talvez') pela primeira vez e propõe quatro possibilidades para explicar a anomalia de Helena, mas risca a quarta (que a consciência não é termodinâmica) e não escreve uma quinta possibilidade ainda mais perturbadora.
+1. Mirela vai-se embora sem que Elisa responda à pergunta central; Elisa fica sozinha no café, reconhecendo que Mirela tem razão — o problema não é Helena, é a pergunta.
+1. De volta a Zurique, Elisa recebe uma ligação de Tomás Delgado, que lhe pergunta se está medindo ou compreendendo a consciência, e a deixa com a questão: a parte que o instrumento não mede é menor ou maior que a parte que mede?
 
 **Plants:**
-- A menção a 1983 como ano potencialmente relevante na vida de Helena em Budapeste, levantado por Elisa mas não explicado por Mirela.
-- A quinta possibilidade que Elisa não escreve: Helena operar fora do regime termodinâmico que se acreditava ser o único.
-- Tomás Delgado é introduzido como novo personagem — jesuíta, filósofo da ciência, com acesso direto a Elisa — sugerindo um arco filosófico-teológico.
-- A pergunta 'a parte que não cabe é menor ou maior que a parte que cabe?' fica em aberto como fio condutor para os próximos capítulos.
-- A cronologia no caderno de Elisa (página 28) com a anotação '1983. O que aconteceu em 1983?' permanece sem resposta.
+- A quinta possibilidade que Elisa não escreve — que a consciência opere fora do regime termodinâmico conhecido — permanece como semente não formulada.
+- A ligação de Tomás Delgado introduz um novo personagem e uma perspectiva filosófica/religiosa que pode se tornar central no debate sobre o formalismo.
+- A menção aos dados de 2018 guardados no cofre do escritório (sala 3.17, combinação 14 de março) e a possível correlação entre anomalias do colisor e o padrão térmico de Helena planta uma pista investigativa futura.
+- O comitê que se reúne na sexta-feira (em dois dias) é mencionado, estabelecendo um prazo narrativo urgente com Renan, Marcus e Lena Hartmann como forças em confronto.
+- A pergunta de Tomás Delgado — se a parte não mensurável da consciência é maior que a mensurável — fica como questão aberta que pode reorientar toda a investigação de Elisa.
 
 **Harvests:**
-- A nota misteriosa no caderno de Elisa ('Ela vai perguntar por quê. Não tenho uma boa resposta.') se concretiza quando Mirela confronta Elisa sobre suas motivações.
-- A comparação entre Helena e uma pedra (IC 0,001 Dk), estabelecida em capítulos anteriores, é dramatizada pela voz da filha e torna-se o centro do conflito emocional.
-- O granito no bolso de Elisa, presente desde capítulos anteriores, ganha novo significado simbólico: representa o que o formalismo mede versus o que não consegue medir.
+- A preparação do encontro com Mirela (anotação no caderno, ligação telefônica de três dias antes) se concretiza no café de Berna.
+- A nota misteriosa no caderno de Elisa — 'Ela vai perguntar por quê. Não tenho uma boa resposta.' — se confirma quando Mirela desafia Elisa diretamente.
+- O paralelo entre Helena e Mirela (mesmos olhos azuis, mesma inclinação da cabeça, mesma pergunta sobre ser pessoa) reforça o padrão que Elisa detecta entre gerações.
+- O granito no bolso de Elisa, recorrente símbolo da ausência de consciência, ganha nova camada de significado quando Elisa questiona se o silêncio da rocha pode ser uma frequência não detectada.
 
-**Chapter question:** Se a consciência de Helena opera de forma que o formalismo não consegue capturar, o que isso implica para tudo que foi construído sobre a premissa de que a consciência é um processo termodinâmico?
+**Chapter question:** A parte da consciência que o instrumento de Elisa não consegue medir é menor ou maior que a parte que ele mede — e, se for maior, o que isso significa para o formalismo, para o Nobel e para a definição de pessoa?
 
 ---
 
 ### Ch 8: Capítulo 8 — O Laboratório Privado
-**4160 words** | **Location:** Laboratório subterrâneo da Evromind em Zurique; apartamento de Helena em Hottingen; escritório de Marcus Weil no USZ
-- **Characters:** Elisa Dragovski, Helena, Marcus Weil, Béla (mencionado), Evromind (presença institucional), Motorista do sedan escuro
-- **Try-fail cycle:** yes-but
-- **Emotional arc:** Elisa move-se da cautela calculada ao aceitar a proposta da Evromind, passando pela frustração científica quando os dados confirmam a anomalia sem explicá-la, ao medo concreto ao descobrir a vigilância, até uma vulnerabilidade rara ao buscar refúgio no apartamento de Helena — onde, pela primeira vez em semanas, não pensa em entropia.
+**4090 words** | **Location:** Laboratório subterrâneo da Evromind em Zurique; apartamento de Helena em Zurique; escritório de Marcus Weil no USZ
+- **Characters:** Elisa Dragovski, Helena, Marcus Weil, Béla (mencionado), Evromind (presença institucional)
+- **Try-fail cycle:** no-and
+- **Emotional arc:** Elisa move-se da cautela calculada ao aceitar a proposta da Evromind, passando pela frustração científica quando os dados de Helena confirmam a anomalia sem explicá-la, até o medo concreto ao descobrir a vigilância — encontrando, no apartamento de Helena, um breve refúgio emocional que contrasta com a frieza do laboratório, antes de mergulhar na descoberta perturbadora dos dezenove casos e do mistério do Reservatório.
 
-**Summary:** Elisa aceita a proposta da Evromind e ganha acesso a um laboratório subterrâneo de última geração, onde realiza a primeira sessão de medição de IC em Helena — os dados mostram atividade neural normal mas incremento entrópico próximo de zero, confirmando a anomalia. Enquanto analisa o sistema, Elisa descobre um diretório oculto com dezenove relatórios de outros sujeitos com o mesmo padrão, todos classificados como 'erro de medição', e percebe que está sendo vigiada. Sem lugar seguro para trabalhar, refugia-se no apartamento de Helena, onde decifra os dados e descobre o campo 'Reservatório: N/D', sugerindo que a Evromind sabe que a entropia está sendo exportada para algum lugar desconhecido.
+**Summary:** Elisa aceita a proposta da Evromind e ganha acesso a um laboratório subterrâneo de última geração, onde realiza a primeira sessão de medição de IC em Helena — os dados mostram atividade neural normal mas incremento entrópico próximo de zero, confirmando a anomalia. Enquanto analisa o sistema, Elisa descobre um diretório oculto com dezenove relatórios de outros sujeitos com o mesmo padrão, todos classificados como erro de medição pela Evromind, e percebe que está sendo vigiada. Sem opções seguras, leva o USB com os dados para o apartamento de Helena, onde descobre que os casos formam uma amostra geográfica sistemática e encontra a palavra 'Reservatório' nos relatórios — sugerindo que a Evromind sabe que a entropia está sendo exportada para algum lugar.
 
 **Beats:**
 1. Elisa aceita a proposta da Evromind e desce ao laboratório subterrâneo — um espaço imaculado, sem janelas, com equipamento de última geração e acesso irrestrito, o que a deixa desconfiada.
-1. Helena é submetida à sessão de medição na câmara de Faraday; enquanto conta histórias sobre Béla e as roseiras, seus dados revelam atividade neural normal mas IC de apenas 0,001 Dk — a anomalia se confirma e Helena confronta Elisa sobre seu medo.
-1. Elisa encontra o diretório oculto (senha: 'Helena') com dezenove relatórios de sujeitos não identificados, todos com IC próximo de zero, todos classificados como erro de medição, todos na Suíça num período de dezoito meses.
-1. Após copiar os dados para um USB, Elisa percebe um sedan escuro com motorista estacionado em frente ao edifício — confirma que está sendo vigiada e busca Marcus, que confirma a natureza de armadilha da situação.
-1. Elisa refugia-se no apartamento de Helena, onde decifra os relatórios e descobre o campo 'Reservatório: N/D' — a Evromind sabe que a entropia desaparecida está sendo exportada e está tentando encontrar para onde.
-1. Elisa acorda de madrugada e fica deitada no sofá de Helena, pensando em vinte pessoas que pensam sem que o universo pague o preço, enquanto o universo não registra Helena — mas Elisa registra.
+1. Helena é submetida à sessão de medição na câmara de Faraday; enquanto conta histórias sobre Béla e as roseiras, seus dados mostram atividade neural normal mas IC de apenas 0,001 Dk — a correlação entre consciência e entropia não existe nela.
+1. Elisa encontra o diretório oculto (senha: 'Helena') com dezenove relatórios de outros sujeitos com IC próximo de zero, todos classificados como erro de medição, e copia tudo para um USB antes de sair do laboratório.
+1. Ao sair, Elisa percebe um carro escuro com um motorista vigiando a saída do edifício; após consultar Marcus Weil, conclui que a Evromind a está rastreando e busca refúgio no apartamento de Helena.
+1. No apartamento de Helena, Elisa analisa os dados completos e descobre que os dezenove casos formam uma amostra geográfica sistemática na Suíça e que cada relatório contém o campo 'Reservatório: N/D' — indicando que a Evromind sabe da existência de um custo oculto da consciência.
 
 **Plants:**
-- O campo 'Reservatório: N/D' nos relatórios sugere que a Evromind está ativamente procurando para onde a entropia está sendo exportada — um mistério central que impulsionará os próximos capítulos.
-- O sedan escuro e a confirmação de vigilância estabelecem que cada movimento de Elisa está sendo monitorado, criando tensão sobre sua capacidade de agir livremente.
-- A concentração geográfica dos vinte sujeitos num raio de 80 km na Suíça sugere que a anomalia pode ter uma causa localizada ou ambiental.
-- A senha 'Helena' para acessar os arquivos ocultos implica que a Evromind queria que Elisa encontrasse os dados — levantando a questão de qual é o verdadeiro objetivo da colaboração.
-- A observação de Helena de que Elisa 'não tem medo de mim, tem medo do que eu significo' planta a questão do impacto emocional e existencial da anomalia em Elisa como cientista.
-- O gesto de Elisa de tocar a orelha esquerda ao mentir é estabelecido como um padrão comportamental que outros personagens podem detectar.
+- O campo 'Reservatório: N/D' nos relatórios dos sujeitos sugere que a Evromind está ativamente buscando o destino da entropia exportada — um mistério central que será desenvolvido nos próximos capítulos.
+- O fato de a senha do diretório oculto ser 'Helena' implica que a Evromind pode ter deliberadamente deixado os dados acessíveis para Elisa, sugerindo uma manipulação mais profunda.
+- O carro de vigilância sem placa visível estabelece que a Evromind monitora Elisa em tempo real, criando tensão sobre sua liberdade de ação.
+- A concentração geográfica dos vinte casos num raio de 80 km na Suíça sugere que a anomalia pode ter uma causa ambiental, geográfica ou sistêmica ainda não revelada.
+- A observação de Helena de que Elisa 'tem medo do que eu significo' planta o conflito interno de Elisa sobre a validade do seu formalismo.
 
 **Harvests:**
-- A descrição inicial do laboratório como 'demasiado perfeito, demasiado aberto' se confirma quando Elisa descobre os arquivos ocultos e percebe que o acesso irrestrito era para que ela encontrasse exatamente o que encontrou.
-- A intuição de Elisa de que 'estão me deixando entrar porque querem estar dentro' se concretiza com a descoberta da vigilância do sedan escuro.
-- O granito no bolso de Elisa, introduzido como âncora emocional, reaparece em momentos de tensão ao longo do capítulo, funcionando como fio condutor de sua estabilidade psicológica.
+- A descrição do laboratório como 'aberto demais' e sem janelas confirma a suspeita de Elisa de que a generosidade da Evromind é uma armadilha — ela foi deixada entrar para ser observada.
+- A anomalia de Helena é confirmada empiricamente: IC de 0,001 Dk com consciência plena, validando tudo que Elisa suspeitava desde os primeiros testes.
+- O granito no bolso de Elisa, recorrente em capítulos anteriores, reaparece como âncora emocional nos momentos de maior tensão (ao sair do laboratório, ao encontrar o carro).
+- A dinâmica entre Elisa e Helena se aprofunda: Helena percebe que Elisa mente (tocar na orelha esquerda) e identifica que seu medo é do significado da anomalia, não da pessoa.
 
-**Chapter question:** O que é o 'Reservatório' — para onde está sendo exportada a entropia que deveria ser gerada pela consciência dos vinte sujeitos, e por que a Evromind está mapeando sistematicamente essa anomalia na Suíça?
+**Chapter question:** O que é o 'Reservatório' mencionado nos relatórios da Evromind, e para onde está sendo exportada a entropia que a consciência de Helena e dos outros dezenove sujeitos deveria gerar mas não gera?
 
 ---
 
-### Ch 9: Capítulo 10 — O Artigo
-**5104 words** | **Location:** Escritório de Marcus Weil no ETH e apartamento de Helena Varga em Oerlikon, Zurique
-- **Characters:** Elisa Dragovski, Marcus Weil, Lena Hartmann, Mirela Varga, Helena Varga, Stefan Kessler, Yuki Tanaka
+### Ch 9: Capítulo 9 — A Manhã Seguinte
+**4017 words** | **Location:** ETH Zürich (gabinete HPF-3.17, sala do conselho, corredores) e apartamento de Helena Varga em Oerlikon
+- **Characters:** Elisa Dragovski, Marcus, Helena Varga, Mirela, Dr. Amós Farkas, Lena Hartmann, Reitor do ETH, Dr. Stefan Kessler, Renan Kapoor
 - **Try-fail cycle:** no-and
-- **Emotional arc:** Elisa move-se da defensividade profissional e do medo de ter seu trabalho desmoronado para uma vulnerabilidade radical em que admite, diante de Helena e de si mesma, que a consciência não cabe em nenhuma equação — e que isso é ao mesmo tempo aterrorizante e belo.
+- **Emotional arc:** Elisa move-se da descoberta perturbadora da invasão para a traição de Renan, passando pela revelação científica da oscilação-linguagem, até chegar à vulnerabilidade crua de Helena — medo de não ser suficiente — e termina em urgência protetora, saindo para enfrentar quem quer que esteja vigiando Helena.
 
-**Summary:** Elisa descobre que a *Nature* publicará um artigo expondo o caso de Helena Varga — seu IC de 0,001 Dk versus sua consciência aparentemente plena — com dados roubados dos servidores do laboratório e entrevistas que Mirela concedeu sem autorização. Enquanto a Evromind se posiciona nos bastidores e Stefan Kessler publica a formulação que coloca o formalismo Dragovski contra a realidade de Helena, Elisa vai ao apartamento e, sentada no chão da cozinha, finalmente responde à pergunta de Helena: sim, ela é uma pessoa, e isso é a coisa mais assustadora e bonita que já aconteceu com Elisa.
+**Summary:** Elisa descobre que alguém invadiu seu gabinete durante a noite, deixando um envelope com um desenho enigmático de Helena. Uma reunião no ETH a confronta com a revelação de que Renan Kapoor vazou os dados brutos de Helena para o Instituto Max Planck, e Elisa descobre que a oscilação térmica de Helena a cada 3,7 segundos não é ruído, mas possivelmente linguagem. O capítulo termina com Elisa recebendo uma foto de Helena sendo vigiada no parque e saindo para encontrá-la.
 
 **Beats:**
-1. Elisa recebe o e-mail da *Nature* às 06h47 e descobre que o artigo sobre Helena Varga será publicado em 12 horas, com dados roubados e entrevistas de Mirela
-1. No escritório de Marcus, Elisa e Marcus discutem a violação de dados, a estratégia da Evromind e a linha 'Reservatório: N/D' que sugere que a entropia de Helena vai para algum lugar desconhecido
-1. Elisa liga para Helena e fala com Mirela, que justifica a entrevista dizendo que queria que o mundo visse a mãe como pessoa; Stefan Kessler liga e Elisa confronta-o sobre os dados roubados e a omissão do reservatório
-1. Elisa vai ao apartamento de Helena, encontra Mirela na porta, entra e conversa com Helena, que aparece de camisola; Elisa finalmente responde que Helena é a pessoa mais real que já conheceu
-1. O artigo é publicado; Elisa lê o título no celular enquanto toma café com Helena e Mirela no apartamento, ignorando as ligações sobre a nota da Evromind
+1. Elisa descobre a invasão noturna do gabinete HPF-3.17 — canecas fora de ordem, livros trocados, registro de acesso apagado — e encontra um envelope com o desenho de uma balança onde o humano pesa mais que a pedra, acompanhado da palavra 'Desculpe'
+1. Lena Hartmann revela que a oscilação térmica de 0,0003°C a cada 3,7 segundos aparece apenas nas sessões de Helena e não nos controles, sugerindo que Helena emite um sinal que o universo absorve sem custo entrópico
+1. Na reunião com o reitor e o Dr. Stefan Kessler, Elisa descobre que Renan Kapoor vazou os dados brutos de Helena para o Max Planck, e recebe um e-mail anônimo exigindo a entrega dos dados até sexta-feira sob ameaça
+1. Elisa visita o apartamento de Helena e descobre que ela saiu; Mirela lhe entrega outro envelope onde Helena escreve que tem medo de não ser suficiente para o que Elisa precisa que ela seja
+1. Elisa recebe uma foto de Helena sendo vigiada no parque de Oerlikon e sai para encontrá-la, carregando o granito, o desenho e o pendrive com os dados
 
 **Plants:**
-- O 'Reservatório: N/D' é explicitamente ligado à possibilidade de a entropia de Helena estar sendo direcionada para um local desconhecido, possivelmente o manjericão ou algo maior
-- A Evromind é posicionada como ator que controla a narrativa através dos dados, sugerindo um conflito futuro entre Elisa e a empresa
-- O isqueiro de Marcus, visível através do tecido da camisa, reaparece como detalhe recorrente sem explicação
-- A nota da Evromind mencionada por Marcus no final prenuncia uma escalada institucional iminente
-- A verdade 'não precisa de reservatório' é plantada como princípio narrativo que contrasta com a termodinâmica do formalismo
+- A combinação do cofre do gabinete ser 14-03 (a data de hoje) e o cofre conter o disco rígido do CERN 2018 — o cofre ainda não foi aberto
+- A ameaça anônima exigindo a entrega dos dados até sexta-feira, 20 de março — seis dias de prazo
+- A foto de Helena sendo vigiada no parque de Oerlikon — alguém a está seguindo ativamente
+- A oscilação térmica de 3,7 segundos descrita por Lena como 'linguagem' — a natureza e o significado dessa linguagem ainda não foram decifrados
+- Os 47 guardanapos da mãe de Elisa guardados debaixo da cama, com a equação incompleta, agora ao lado do pendrive com os dados de Helena — a conexão entre a incompletude da mãe e a física não resolvida de Helena ainda será explorada
 
 **Harvests:**
-- A pergunta de Helena 'A senhora acha que eu sou uma pessoa?' — feita no capítulo anterior — é finalmente respondida por Elisa com honestidade emocional
-- O relógio atrasado de Helena, mencionado em capítulos anteriores, é revelado como elemento da entrevista de Mirela que entrou no artigo
-- O manjericão com IC de 0,002 — o dobro de Helena — é retomado como pista do mistério do reservatório
-- Os guardanapos da mãe de Elisa e a equação de Boltzmann incompleta ('S = k lo—') ressurgem como espelho temático do artigo inacabado e da verdade que escapa à formalização
-- A oferta da Evromind a Elisa, anteriormente recusada, ganha novo contexto como parte de uma estratégia de controle de dados e narrativa
+- O artigo da Nature sobre Helena Varga se materializa e já está publicado, confirmando a especulação plantada nos capítulos anteriores
+- A intrusão no gabinete de Elisa confirma que alguém está agindo nos bastidores para controlar o acesso aos dados de Helena
+- O desenho da balança deixa explícito o conflito central: Helena pesa mais do que o formalismo consegue medir
+- A revelação de que Renan Kapoor é a fonte do vazamento transforma a tensão interpessoal em traição concreta
 
-**Chapter question:** O que o mundo — e a Evromind — farão agora que a anomalia de Helena é pública, e para onde vai a entropia que Helena deveria gerar mas não gera?
+**Chapter question:** Quem está vigiando Helena e o que farão com ela — e o que significa a oscilação térmica de 3,7 segundos que o universo absorve sem custo?
 
 ---
 
-### Ch 10: Capítulo 11 — O Padre
-**3054 words** | **Location:** Zurique (Café Odeon, margem do Limmat, hotel) e voo para Berlim
-- **Characters:** Elisa Dragovski, Tomás Delgado (SJ), Marcus, Lena Hartmann, Helena Varga (mencionada), Mirela Varga (mencionada), Renan (mencionado), Mãe de Elisa (mencionada)
-- **Try-fail cycle:** N/A
-- **Emotional arc:** Elisa move-se da defensiva controlada (no café com Tomás) para uma inquietação crescente (com a revelação de Lena Hartmann) até uma aceitação relutante de que o problema é maior do que imaginava, culminando na partida para Berlim com a sensação de voar sobre um problema sem fundo.
+### Ch 10: Capítulo 10 — O Café Odeon
+**4452 words** | **Location:** Zurique — Café Odeon, USZ (Hospital Universitário de Zurique), apartamento de Helena em Oerlikon
+- **Characters:** Elisa Dragovski, Tomás Delgado (SJ), Lena Hartmann, Helena Varga, Marcus Weil, Dr. Farkas
+- **Try-fail cycle:** yes-and
+- **Emotional arc:** Elisa parte de uma postura defensiva e cética diante de Tomás Delgado e termina com a mão tremendo sobre um arquivo encriptado, reconhecendo que o formalismo é insuficiente e que a verdade sobre Helena exige não uma revisão, mas uma reescrita completa do que se entende por consciência.
 
-**Summary:** Elisa encontra-se com o padre jesuíta Tomás Delgado, que a confronta com a pergunta central sobre se o instrumento ou Helena está errado, abalando as fundações do seu formalismo. Depois, uma ligação de Lena Hartmann revela que existem pelo menos três outros casos de IC anormalmente baixo, transformando a anomalia isolada num padrão. Elisa parte para Berlim para acessar os dados dos dezanove sujeitos da Evromind, carregando consigo a crescente certeza de que o formalismo pode estar fundamentalmente errado.
+**Summary:** Elisa aceita um encontro com o padre jesuíta Tomás Delgado no Café Odeon, onde ele revela a existência de pelo menos três outras pessoas com IC abaixo do limiar de irreversibilidade, sugerindo que o caso de Helena não é isolado, mas parte de uma falha sistêmica na métrica. De volta ao laboratório, Lena descobre uma anomalia térmica periódica na câmara onde Helena foi medida — picos regulares de 3,7 segundos, o mesmo intervalo de uma anomalia que Elisa guardou dos dados do CERN de 2018. Elisa visita Helena, que confessa ter tido episódios recorrentes de pensamento sem esforço, e descobre que alguém está vigiando o prédio de Helena, enquanto o reitor do ETH exige o relatório completo sob ameaça de cortar o acesso ao laboratório.
 
 **Beats:**
-1. Elisa encontra Tomás Delgado no Café Odeon; ele desafia-a com a pergunta sobre se o IC ou Helena está errado, e ela admite que não sabe — a resposta mais honesta que alguém deu sobre o assunto.
-1. Na margem do Limmat, Elisa recebe a mensagem de Marcus sobre a reunião em Berlim com a Evromind e aceita ir, apesar de saber que cada dado vem com correntes.
-1. No hotel, Elisa descobre por conta própria que os dados anômalos do CERN de 2018 têm correlação fraca (R=0,34) com os valores de IC dos sujeitos da Evromind, e formula as perguntas 9, 10 e 11 na sua lista.
-1. Lena Hartmann liga a revelar que mediu três pessoas com IC abaixo de 0,05 numa semana, sem relação entre si — a anomalia não é isolada.
-1. No voo para Berlim, Elisa lê o e-mail de Mirela Varga perguntando se a mãe é uma pessoa, e acrescenta a pergunta 11: e se a consciência só existe quando não estamos olhando?
+1. Elisa encontra a carta de Tomás Delgado e aceita o encontro no Café Odeon, onde ele revela que existem pelo menos três pessoas com IC entre 0,02 e 0,04 Dk — abaixo do limiar, mas acima do ruído — e que a falha do IC é sistêmica, não pontual.
+1. No laboratório do USZ, Lena mostra a Elisa uma anomalia térmica na câmara de Faraday onde Helena foi medida: picos regulares de 0,0003°C a cada 3,7 segundos, com variação líquida de entropia zero — o mesmo intervalo de 3,7 segundos dos dados anômalos do CERN de 2018 que Elisa guardou no cofre.
+1. Elisa visita Helena, que cancela as sessões com Farkas por medo, não por cansaço, e confessa ter tido episódios recorrentes de pensamento sem esforço em Budapeste, sugerindo que o padrão de IC baixo é recorrente nela.
+1. Elisa percebe que alguém está vigiando o prédio de Helena (carro preto com vidros escuros), e Tomás Delgado envia por e-mail um arquivo encriptado com os nomes das três pessoas abaixo do limiar, com o aviso: 'Cuidado com quem os partilha.'
+1. O capítulo termina com o reitor do ETH exigindo o relatório completo sob ameaça de cortar o acesso ao laboratório, e Elisa diante do anexo encriptado de Tomás, com o dedo sobre o botão de download, sem querer calcular a entropia do próprio tremor da mão.
 
 **Plants:**
-- A correlação fraca (R=0,34) entre os dados do CERN de 2018 e os valores de IC dos sujeitos da Evromind — uma pista que pode conectar física de partículas à consciência
-- Os três casos adicionais de IC anormalmente baixo descobertos por Lena Hartmann — o número pode crescer
-- A reunião com a Evromind em Berlim e o acesso aos dados brutos dos dezanove sujeitos — com o custo não declarado
-- A pergunta 11 de Elisa: 'E se a consciência for o tipo de coisa que só existe quando não estamos a olhar?' — possível pista sobre a natureza do fenômeno
-- O disco USB no bolso esquerdo de Elisa com dados da Evromind — contraponto ao granito no bolso direito
-- A semelhança física entre Tomás e Helena (inclinação de cabeça) — coincidência ou algo mais?
+- O arquivo encriptado de Tomás Delgado com os nomes das três pessoas abaixo do limiar — Elisa ainda não o abriu, e o conteúdo será revelado em capítulo futuro.
+- O carro preto com vidros escuros que segue Elisa e está estacionado perto do prédio de Helena — identidade e motivação dos ocupantes desconhecidas.
+- A anomalia térmica de 3,7 segundos na câmara de Faraday como possível 'impressão' residual da presença de Helena — a natureza dessa marca termodinâmica não é explicada.
+- Os episódios recorrentes de pensamento sem esforço de Helena em Budapeste — o fenômeno pode ter uma causa ou padrão ainda não revelado.
+- A exigência do reitor do ETH pelo relatório completo — a pressão institucional pode forçar Elisa a entregar dados que outros querem suprimir.
+- A fonte anônima de Tomás dentro da base de dados central do IC gerenciada pela Evromind — essa pessoa pode se tornar uma aliada ou um ponto de vulnerabilidade.
 
 **Harvests:**
-- A reunião com Tomás Delgado, arranjada por Helena no capítulo anterior, concretiza-se e produz a pergunta central que Elisa não consegue responder
-- A lista de perguntas de Elisa continua a crescer (agora 11 perguntas), mostrando que cada resposta gera mais dúvidas
-- O formalismo de 20 anos de Elisa é diretamente desafiado — não nos cálculos, mas no pressuposto fundacional de que a consciência é um processo termodinâmico
-- A mãe de Elisa e a equação inacabada de Boltzmann continuam como âncora emocional e metáfora recorrente
+- A revelação de que existem outras pessoas abaixo do limiar do IC confirma a suspeita implícita de que Helena não é um caso isolado, transformando o problema de anomalia individual em falha sistêmica da métrica.
+- A anomalia térmica de 3,7 segundos na câmara de Faraday conecta-se aos dados anômalos do CERN de 2018 que Elisa guardou no cofre, estabelecendo uma ligação entre Helena e fenômenos físicos maiores.
+- O medo de Helena e o cancelamento das sessões confirmam que forças externas estão se movendo, validando a preocupação de Elisa com a segurança dela.
+- A confissão de Helena sobre os episódios de pensamento sem esforço em Budapeste revela que o IC baixo não é constante, mas recorrente, adicionando uma dimensão temporal ao fenômeno.
 
-**Chapter question:** O que a Evromind vai exigir em troca do acesso aos dados dos dezanove sujeitos, e o que esses dados vão revelar sobre a natureza da consciência?
+**Chapter question:** Quem são as três pessoas abaixo do limiar do IC, o que significa a anomalia térmica de 3,7 segundos como assinatura física da consciência de Helena, e quem está vigiando Helena — a Evromind, a Nexion, a Tianzi, ou alguém mais?
 
 ---
 
-### Ch 11: Capítulo 11 — O Padre
-**2603 words** | **Location:** Zurique (ETH, café, margem do Limmat) e Roma (videoconferência)
-- **Characters:** Elisa Dragovski, Tomás Delgado, SJ, Marcus, Helena (mencionada), Mãe de Elisa (mencionada), Alejandro (mencionado)
+### Ch 11: Capítulo 11 — A Segunda Helena
+**4727 words** | **Location:** Zurique — ETH, USZ, apartamento de Helena em Oerlikon, Bürkliplatz
+- **Characters:** Elisa Dragovski, Helena, Marcus, Lena Hartmann, Dr. Farkas, Tomás Delgado, Béla (mencionado), Alejandro Muñoz (mencionado), segurança do ETH
 - **Try-fail cycle:** no-and
-- **Emotional arc:** Elisa parte da desconfiança cautelosa em relação ao padre, passa por um desconforto intelectual profundo ao ter seus pressupostos desarmados sem ataque direto, e termina em Berlim com a sensação de voar sobre um problema sem fundo — mais incerta do que nunca, mas em movimento.
+- **Emotional arc:** Elisa move-se da paranoia e isolamento da madrugada para uma postura de confiança e entrega ao mistério, culminando no ato de esperar em vez de resolver — uma transformação emocional que espelha o desenho de Helena onde o humano pesa mais que a pedra.
 
-**Summary:** Elisa recebe uma carta do padre Tomás Delgado propondo uma conversa sobre Helena e aceita uma videoconferência. Durante o encontro, Tomás desafia os pressupostos do formalismo de Elisa, argumentando que medir consciência não é o mesmo que compreendê-la, e Elisa é forçada a confrontar a insuficiência de sua própria ciência. Após a conversa, ela recebe uma oferta da Evromind para acessar dados brutos de doze sujeitos e decide ir a Berlim, adicionando novas perguntas à sua lista.
+**Summary:** Elisa descobre que alguém entrou em seu escritório de madrugada e encontra um envelope deixado por Helena com um desenho de balança e a palavra 'Desculpe'. Enquanto investiga os doze sujeitos com IC zero e uma anomalia térmica periódica de 3,7 segundos que conecta Helena ao CERN de 2018, Elisa vai ao apartamento de Helena, descobre que ela sabe mais do que aparenta, e a convence a passar doze horas na câmara de Faraday do USZ para uma medição contínua.
 
 **Beats:**
-1. Elisa encontra a carta de Tomás Delgado na caixa de correio e, após pesquisar sobre ele, aceita uma videoconferência.
-1. Na videoconferência, Tomás conta a história da morte de seu amigo Alejandro e argumenta que a ciência mede mas não esgota a consciência, desafiando Elisa a admitir que Helena é uma pessoa e não um número.
-1. Elisa reconhece que Tomás e Helena fizeram a mesma pergunta — se ela acha que Helena é uma pessoa — e que ela não soube responder a nenhuma das duas.
-1. No café, Elisa observa uma criança e reflete sobre entropia, o formalismo e a equação incompleta da mãe, enquanto Marcus liga informando a oferta da Evromind.
-1. Elisa adiciona duas novas perguntas à sua lista, reserva o voo para Berlim e parte na manhã seguinte, carregando o granito e o disco USB.
+1. Elisa acorda de madrugada com a sensação de que alguém esteve em seu escritório; ao chegar, descobre que as canecas foram movidas e encontra um envelope de Helena com o desenho de uma balança onde o humano pesa mais que a pedra e a palavra 'Desculpe'
+1. Elisa analisa os dados dos doze sujeitos com IC zero espalhados pelo mundo e descobre, com Lena Hartmann, que Helena apresenta uma anomalia térmica periódica de 3,7 segundos — o mesmo intervalo encontrado nos resíduos do CERN de 2018
+1. Elisa vai ao apartamento de Helena após Marcus não conseguir contato; Helena revela que sua avó também era 'igual', que sabe que há mais pessoas como ela, e aceita ficar doze horas na câmara de Faraday
+1. Marcus informa que a Evromind cancelou a reunião e fechou o acesso ao banco de dados; Tomás Delgado envia um e-mail com a história de Alejandro, afirmando que a falha não é do formalismo mas da medição em si
+1. Helena entra na câmara de Faraday; Elisa, pela primeira vez em quarenta e um anos, decide não resolver o mistério mas simplesmente observar e esperar
 
 **Plants:**
-- A oferta da Evromind com acesso ilimitado aos dados brutos de doze sujeitos — generosa demais para ser inocente — planta o conflito de Berlim.
-- A décima segunda pergunta de Elisa ('E se Helena for a regra e todos os outros forem a anomalia?') planta a possibilidade de que o formalismo esteja fundamentalmente errado.
-- O disco USB no bolso esquerdo e o granito no direito continuam como objetos recorrentes carregados de significado simbólico não resolvido.
-- A menção aos doze sujeitos com IC entre 0,0009 e 0,0013 Dk que pensam sem pagar o preço termodinâmico antecipa a revelação dos dados em Berlim.
+- A identidade e o motivo de quem moveu as canecas no escritório de Elisa permanecem desconhecidos
+- A conexão entre a periodicidade de 3,7 segundos de Helena e os resíduos do CERN de 2018 é estabelecida mas não explicada
+- A Evromind fechando o banco de dados sugere que a corporação está ativamente obstruindo a investigação
+- A história de Alejandro Muñoz e a afirmação de Tomás de que 'a falha é da medição em si' plantam a possibilidade de que o formalismo de Elisa seja fundamentalmente incompleto
+- A avó de Helena em Budapeste com as mesmas características sugere uma linhagem ou padrão genético ainda não explorado
+- A mesa posta para dois no apartamento de Helena levanta a questão de quem ela esperava
 
 **Harvests:**
-- A pergunta de Helena a Elisa ('Você acha que eu sou uma pessoa?'), plantada em capítulo anterior, é retomada quando Tomás revela que Helena fez a mesma pergunta, forçando Elisa a confrontá-la.
-- A equação incompleta da mãe no guardanapo (*S igual k lo—*) é revisitada com uma nova interpretação: e se estivesse completa por honestidade, não por falha?
-- A lista de perguntas de Elisa, iniciada em capítulo anterior, continua crescendo com as perguntas 11 e 12.
+- Os doze sujeitos com IC zero mencionados no arquivo de Tomás Delgado são confirmados e detalhados por Elisa
+- A anomalia térmica de Helena (3,7 segundos, 0,0003 graus) é identificada nos dados de Lena Hartmann
+- A conexão entre o intervalo de 3,7 segundos e os dados do CERN de 2018 é revelada
+- Helena confirma que sabe que Elisa está investigando e que há mais pessoas como ela
+- O cancelamento da reunião pela Evromind confirma que a corporação está monitorando Elisa
 
-**Chapter question:** Se Helena não é a exceção mas a regra, o que acontece com o formalismo que deu a Elisa o Nobel — e o que os dados dos doze sujeitos em Berlim vão revelar?
+**Chapter question:** O que os dados térmicos contínuos de doze horas na câmara de Faraday revelarão sobre a conexão entre Helena e o CERN, e o que a Evromind fará para impedir que Elisa chegue à verdade?
 
 ---
 
 ### Ch 12: Capítulo 12 — O Ponto Médio: A Segunda Helena
-**5292 words** | **Location:** ETH Zurich, trem para Genebra, CERN, estação de Zurique, apartamento de Helena em Oerlikon
-- **Characters:** Elisa Dragovski, Marcus Weil, Helena, Técnico do CERN (R.M.), Dr. Farkas (mencionado)
-- **Try-fail cycle:** yes-and
-- **Emotional arc:** Elisa move-se da confirmação intelectual (Helena não é única) para o medo existencial (a verdade pode ser maior que qualquer formalismo possa conter), culminando na perturbadora possibilidade de que pessoas como Helena estão sendo usadas como antenas — sofrendo por uma rocha que não sofre.
+**4625 words** | **Location:** Zurique — ETH, apartamento de Helena em Oerlikon, USZ, gabinete do reitor, corredores do campus
+- **Characters:** Elisa Dragovski, Helena Varga, Marcus, Rolf (segurança), Lena Hartmann, Reitor do ETH, Dr. Amós Farkas (por telefone)
+- **Try-fail cycle:** N/A
+- **Emotional arc:** Elisa move-se da desconfiança inicial (as canecas fora de ordem) para uma revelação crescente — cada conversa amplia o mistério em vez de resolvê-lo, e ela termina o capítulo com a certeza de que o fenômeno é maior do que imaginava, mas também sob pressão institucional para silenciá-la.
 
-**Summary:** Elisa decifra o disco USB da Evromind e descobre doze pessoas com IC próximo de zero em três continentes — provando que Helena não é um caso isolado. No CERN, ela encontra uma nota interna de 2019 descrevendo padrões anômalos 'como se alguém — ou algo — estivesse a transmitir', e confirma correlação entre esses padrões e os ICs anômalos. Ao visitar Helena, Elisa descobre que Helena suspeitava de sua condição, que passou por um período em 1983 em que 'pensar não custava nada', e que a fotografia dessa época mostra uma pessoa que ela não reconhece como si mesma — plantando a ideia de que pessoas com IC zero podem estar sendo usadas como antenas.
+**Summary:** Elisa descobre que Helena entrou no seu escritório no ETH e deixou um desenho enigmático — uma balança onde o humano pesa mais que a pedra — junto com a palavra 'Desculpe'. Ao visitar Helena em Oerlikon, Elisa descobre que a anomalia de Helena pode não ser única: em 1983, outras pessoas em Budapeste experimentaram o mesmo fenômeno e depois foram 'redistribuídas'. Simultaneamente, Lena encontra uma segunda linha estruturada nos dados térmicos de Helena — presente também em sujeitos de Tóquio e São Paulo — e o reitor do ETH pressiona Elisa para adiar a publicação sob ameaça de perda de financiamento corporativo.
 
 **Beats:**
-1. Elisa cruza os dados do disco USB com registros públicos e confirma três dos doze sujeitos com IC zero — em Tóquio, São Paulo e Lagos — provando que o fenômeno é real e global.
-1. No CERN, Elisa e Marcus encontram correlação entre as anomalias de energia de 2018 e os ICs anômalos, além de uma nota do técnico R.M. (2019) descrevendo o padrão como 'estruturado, como se fosse sinal'.
-1. De volta a Zurique, Elisa e Marcus confirmam seis dos doze sujeitos e identificam um padrão ocupacional: duas tradutoras e duas fisioterapeutas, sugerindo que não é coincidência.
-1. Elisa visita Helena, que revela que suspeitava de sua diferença desde sempre, descreve um período em 1983 em que pensar 'não custava nada', e mostra fotografias de uma versão de si mesma que não reconhece.
-1. Helena sugere que talvez sejam muitas e que 'o mundo é que está errado'; Elisa conecta a data de 1983 com os padrões do CERN e formula a hipótese de que pessoas com IC zero estão sendo usadas como antenas.
+1. Elisa descobre que alguém entrou no escritório e moveu suas canecas; encontra um envelope deixado por Helena com o desenho de uma balança e a palavra 'Desculpe'
+1. No apartamento de Helena em Oerlikon, Helena revela que em 1983 não foi a única a pensar sem atrito — havia outros no Ministério em Budapeste, e todos foram 'redistribuídos'; entrega a Elisa fotografias de 1978 e menciona Magda Tóth
+1. No USZ, Lena mostra a Elisa uma segunda linha estruturada nos dados térmicos de Helena — não é temperatura, parece um batimento cardíaco — e confirma o mesmo padrão em sujeitos de Tóquio e São Paulo
+1. O reitor do ETH convoca Elisa e pressiona para que adie a publicação por dez dias, sob risco de a Evromind processar a instituição e cortar 200 milhões de francos em financiamento
+1. Dr. Farkas revela por telefone que Helena lhe contou, sob efeito de comprimidos, que as outras pessoas 'não foram mudadas de lugar — foram mudadas de lugar no mundo'; Elisa marca encontro com ele em Kreuzlingen e se prepara para os dez dias até a publicação
 
 **Plants:**
-- A hipótese de que a entropia de pessoas com IC zero é exportada para outro sistema/universo — 'E se pensar não desordena este universo, mas desordena outro?'
-- A ideia de que Helena e os outros podem ser 'pontes' com dois sentidos — 'pontes têm dois sentidos'
-- O padrão ocupacional entre os sujeitos com IC zero (tradutoras, fisioterapeutas) — sugerindo uma correlação ainda não explicada
-- O período de 1983 de Helena — três semanas em que pensar não tinha atrito — e a fotografia de uma Helena que 'não é ela'
-- A sugestão de que o padrão anômalo do CERN pode ter existido por décadas, não apenas desde 2018
-- A frase final: pessoas com IC zero podem estar sendo 'usadas como antenas'
-- Dr. Farkas como fonte futura — ele sabia sobre 1983 e guardou o segredo
+- A segunda linha estruturada nos dados térmicos (batimento cardíaco irregular) presente em Helena, Tóquio e São Paulo — sugere um fenômeno global e estruturado, não uma anomalia isolada
+- Magda Tóth como possível sobrevivente do grupo de Budapeste de 1983 — fio de investigação futura
+- A frase de Helena a Farkas: 'Mudaram-nos de lugar no mundo' — implica algo além de transferências burocráticas, possivelmente ligado ao IC zero
+- O medo inexplicável de Helena — ela não teme coisas pequenas, algo a assustou profundamente
+- A pergunta final de Elisa: 'E se pensar não desordena este universo — mas desordena outro?' — planta a possibilidade de que o IC zero tenha implicações interdimensionais ou de realidade alternada
+- O ultimato de dez dias do reitor — cria uma contagem regressiva narrativa e pressão temporal
 
 **Harvests:**
-- O disco USB da Evromind (plantado em capítulo anterior) é decifrado e revela os doze sujeitos com IC zero
-- O hábito de Elisa de tocar no granito quando está com medo é notado por Helena, confirmando que Elisa está mais assustada do que aparenta
-- A caixa de fotografias de Helena, notada por Elisa na primeira visita, é finalmente aberta e revela a Helena de 1983
-- A pergunta 12 de Elisa — 'E se a Helena não for a exceção? E se ela for a regra?' — é ecoada pela própria Helena: 'E se isto é normal e o mundo é que está errado'
-- O Princípio da Compensação (entropia não desaparece) é conectado aos dados do CERN, sugerindo um reservatório externo
+- O disco USB e os dados do CERN mencionados como deixados no escritório — confirma que Elisa mantém os dados protegidos enquanto se move pela cidade
+- O granito de Zermatt continua como objeto de ancoragem de Elisa — presente no bolso direito ao longo do capítulo
+- O pingente de carvalho de Helena é usado novamente como gesto de ancoragem durante a conversa no apartamento
+- A cicatriz de queimadura de Lena é mencionada — detalhe recorrente que reforça sua presença física
+- O isqueiro de Marcus no bolso da camisa — detalhe de caracterização mantido
 
-**Chapter question:** Se pessoas com IC zero estão exportando entropia para outro sistema e sendo usadas como antenas — quem ou o quê está transmitindo, e o que acontece com a identidade delas durante os períodos de consciência sem atrito?
+**Chapter question:** O que aconteceu em Budapeste em 1983 que fez com que múltiplas pessoas pensassem sem atrito — e quem as 'redistribuiu', e por quê?
 
 ---
 
-### Ch 13: Capítulo 14 — Os Maus Fecham-se
-**3163 words** | **Location:** Zurique, Suíça — escritório temporário no ETH, apartamento de Helena, margem do lago
-- **Characters:** Elisa Dragovski, Helena Varga, Marcus Weil, Petra Voss (Evromind), Yuki Tanaka (Nature), Lena Hartmann, Renan, Schmid (CERN), Béla (mencionado)
+### Ch 13: Capítulo 14 — O Cofre e a Transmissão
+**4255 words** | **Location:** ETH Zurique, apartamento de Helena em Oerlikon, margens do lago em Zurique
+- **Characters:** Elisa Dragovski, Helena Varga, Matthias Seiler, Marcus, Yuki Tanaka, Petra Voss, Peter Gisler, Dmitri Volsky, Anatoly Volsky, Magda Tóth
 - **Try-fail cycle:** no-and
-- **Emotional arc:** Elisa move-se da defensiva — cercada por ameaças de todos os lados — para uma aceitação sombria de que a verdade é maior do que qualquer equação que ela possa construir, culminando no terror de que a resposta sobre Helena transcende a física conhecida.
+- **Emotional arc:** Elisa move-se da desconfiança paranoica (canecas fora de ordem, insônia) através da pressão institucional (ETH, Evromind) até uma revelação íntima e aterrorizante em que descobre que pode ser uma transmissora inconsciente — culminando na decisão de confrontar Dmitri Volsky não como investigadora, mas como parte do fenômeno que investiga.
 
-**Summary:** Elisa enfrenta uma convergência de ameaças: Renan publica um artigo descreditando anomalias individuais no formalismo do IC, a Evromind tenta cooptá-la com recursos em troca de silêncio, e uma jornalista da Nature descobre o caso de Helena. Enquanto isso, Helena revela que seu estado de quase-zero nunca desapareceu completamente após 1983 e se aprofundou após a morte de Béla, levando Elisa a formular a hipótese de que o CERN funciona como amplificador e pessoas como Helena são antenas biológicas para um regime físico desconhecido.
+**Summary:** Elisa descobre que as canecas do escritório foram movidas e, após acessar o cofre com os dados do CERN, confirma uma correlação temporal de quatro minutos entre colisões de alta energia e episódios de 'leviandade' em sujeitos espalhados pelo mundo. Enquanto o ETH a pressiona para submeter suas descobertas a um comitê de comunicação e a Evromind lhe oferece um laboratório privado em troca de controle narrativo, Elisa visita Helena e encontra um envelope de 1983 com dados que antecedem o CERN, revelando que uma rede de transmissão existe há décadas. O capítulo termina com a descoberta de que o filho do diplomata soviético que deu o envelope a Helena trabalha no detector ATLAS, e Elisa confronta a possibilidade de ser a 'quarta geração' — uma transmissora inconsciente.
 
 **Beats:**
-1. Elisa lê o artigo de Renan descreditando anomalias individuais no formalismo do IC e recebe confirmação de Lena Hartmann de que o IC zero de Helena foi verificado sete vezes
-1. Petra Voss da Evromind oferece a Elisa um laboratório privado e acesso a trezentos mil sujeitos medidos, revelando que a empresa sabia da anomalia antes de Elisa e escondeu dados por três anos
-1. Uma jornalista aparece à porta de Helena — revela-se ser Yuki Tanaka, editora da Nature — e Elisa percebe que a história vai publicar-se com ou sem sua cooperação
-1. Helena revela a Elisa que o estado de quase-zero nunca desapareceu completamente após 1983, que um vestígio permaneceu por décadas e se aprofundou após a morte de Béla, levando Elisa à distinção entre processamento (reversível) e experiência (irreversível)
-1. Elisa formula a hipótese de que o CERN funciona como amplificador e pessoas como Helena são antenas biológicas, recebe uma mensagem anônima de ameaça e aceita dar entrevista a Yuki Tanaka em cinco dias
+1. Elisa nota que as canecas do escritório HPF estão fora de ordem e, desconfiando de intrusão ou de lapsos causados pela insônia, acessa o cofre com a combinação da data da morte da mãe e confirma com Marcus a correlação de quatro minutos entre colisões do CERN e os episódios dos doze sujeitos.
+1. Seiler convoca Elisa e informa que o conselho do ETH exige pré-aprovação de qualquer publicação sobre a anomalia do IC, dando-lhe até sexta-feira para entregar uma posição formal, sob pena de a instituição se distanciar publicamente e ela perder o escritório.
+1. Petra Voss, da Evromind, liga para Elisa revelando que a empresa tem dados de trezentos e doze sujeitos com o mesmo padrão e oferece um laboratório privado com financiamento ilimitado, mas com a condição de que a Evromind controle a narrativa final.
+1. Elisa visita Helena, que cancelou as sessões e está abalada após a visita de uma jornalista japonesa que mencionou Magda Tóth; atrás de uma fotografia virada, Elisa encontra um envelope de 1983 com a sequência exata da colisão de Varsóvia, entregue pelo diplomata soviético Anatoly Volsky, que falou em 'terceira geração receptora' e 'quarta geração transmissora'.
+1. Elisa descobre no disco rígido do CERN uma pasta datada de 14 de março de 1986 — dia em que nasceu e a mãe morreu — com a mensagem 'A quarta geração não sabe que transmite', e Marcus revela que o filho de Anatoly Volsky, Dmitri, trabalha no detector ATLAS e está em Zurique, levando Elisa a caminhar em direção à sua moradia com a certeza de que os dados são uma transmissão e ela é o sinal.
 
 **Plants:**
-- A hipótese de que o CERN funciona como amplificador e Helenas são antenas biológicas para um regime físico desconhecido
-- A mensagem anônima de ameaça sugerindo que há mais em jogo do que a ciência
-- A possibilidade de que os dados originais do CERN tenham sido ou estejam sendo apagados
-- A entrevista de Elisa a Yuki Tanaka em cinco dias, que forçará a destruição pública do formalismo
-- A distinção entre processamento reversível e experiência irreversível como falha estrutural do IC
-- Os trezentos mil sujeitos medidos pela Evromind que podem conter mais anomalias
+- A pasta sem nome datada de 14 de março de 1986 no disco rígido do CERN, com a mensagem sobre a quarta geração, sugere que a mãe de Elisa pode ter estado envolvida ou ciente da transmissão.
+- Dmitri Volsky, filho do diplomata soviético e pesquisador no detector ATLAS, está em Zurique — sua conexão com a anomalia e com o CERN ainda precisa ser explorada.
+- A jornalista japonesa que bateu à porta de Helena com os doze nomes e a mensagem sobre 'aliados que se sentam ao seu lado' indica que há uma força externa tentando manipular ou acelerar a divulgação dos dados.
+- A frase 'A terceira geração será receptora. A quarta será transmissora' estabelece uma linhagem que pode incluir mais pessoas além de Helena e Elisa.
+- A mensagem anônima recebida por Elisa — 'Cuidado com quem confia. Nem todos os aliados são o que parecem' — sugere traição iminente de alguém próximo.
 
 **Harvests:**
-- O artigo de Renan mencionado em capítulos anteriores materializa-se como ameaça pública concreta
-- O disco USB com doze sujeitos ganha novo contexto — Evromind escondeu dados por três anos
-- A nota do técnico do CERN 'como se alguém estivesse a transmitir' é reinterpretada: não transmissão, mas recepção — Helenas como antenas
-- Os sete testes de Lena Hartmann confirmam definitivamente o IC zero de Helena
-- A jornalista à porta de Helena é revelada como Yuki Tanaka da Nature, elevando a urgência da exposição pública
+- A segunda linha nos gráficos de entropia, detectada por Lena no capítulo anterior, é confirmada em sujeitos de Tóquio, São Paulo e Zurique, validando a existência de um padrão estrutural.
+- A correlação temporal de quatro minutos entre colisões do CERN e os episódios dos doze sujeitos é estatisticamente confirmada por Marcus com valor-p menor que 0,0001.
+- O nome Magda Tóth, mencionado por Lena no telefonema do capítulo anterior, reaparece no disco USB, no envelope de 1983 e na boca da jornalista japonesa, consolidando-o como um nó central na rede.
+- O envelope de 1983 com a sequência ATLAS-181014-14:03-13.6-TeV / VARSÓVIA-14:07 / MT confirma que alguém sabia da correlação antes mesmo de o CERN existir na configuração atual.
+- A insônia de Elisa e a suspeita de que seu corpo moveu as canecas sem consciência introduzem a possibilidade de que a 'quarta geração' transmite sem saber — inclusive em gestos físicos involuntários.
 
-**Chapter question:** O que o sinal do CERN realmente significa, e quem está tentando impedir Elisa de decifrá-lo — e por quê?
+**Chapter question:** O que Dmitri Volsky sabe sobre a transmissão e qual é o papel exato de Elisa — receptora, transmissora ou ambas — na rede que conecta as colisões do CERN aos sujeitos espalhados pelo mundo?
 
 ---
 
 ### Ch 14: Capítulo 15 — A TRAIÇÃO DE MARCUS
-**3908 words** | **Location:** Zurique — ETH, laboratório subterrâneo do USZ, margem do lago e apartamento de Helena em Oerlikon
-- **Characters:** Elisa, Marcus Weil, Helena, Renan Kapoor, Tobias Engel, Yuki Tanaka, Dr. Farkas
+**3919 words** | **Location:** Zurique — ETH, USZ, lago de Zurique, Oerlikon
+- **Characters:** Elisa Dragovski, Marcus Weil, Helena, Dmitri Volsky, Renan Kapoor, Tobias Engel, Yuki Tanaka, Dr. Farkas
 - **Try-fail cycle:** no-and
-- **Emotional arc:** Elisa move-se da traição e raiva ao confrontar Marcus para uma aceitação fria e estratégica, culminando numa epifania à beira do lago onde reconhece que a incompletude da equação não é um defeito mas uma porta — e termina com a promessa silenciosa de Helena de que a verdade está além dos números.
+- **Emotional arc:** Elisa move-se da traição e raiva fria diante da publicação de Marcus para uma crescente vertigem intelectual e existencial, à medida que as peças — o componente não-termodinâmico, a fraude do Nexion, as três semanas sem medo de Helena, a ligação de Dmitri — convergem para uma pergunta que transcende a física e toca o medo mais profundo dela.
 
-**Summary:** Elisa descobre que Marcus publicou uma pré-publicação no bioRxiv propondo a revisão do formalismo Dragovski — a mesma conclusão a que ela chegou sozinha — usando dados de Lina sem consultá-la. Durante o confronto, Marcus revela que o aparelho de medição do Nexion apresenta uma deriva de calibração consistente para baixo, sugerindo possível fraude nas certificações de IA. Elisa visita Helena em Oerlikon, revela a existência de doze pessoas com o mesmo padrão de consciência e obtém autorização para acessar seus registros médicos, com a condição de estar presente quando Elisa compreender o que os números não mostram.
+**Summary:** Elisa descobre que Marcus publicou um pré-print propondo a existência de um componente não-termodinâmico da consciência — a mesma conclusão a que ela chegara — usando dados de sua filha Lina, sem consultá-la. Após o confronto, Marcus revela que o Nexion apresenta uma deriva de calibração deliberada, sugerindo fraude nas certificações de IA. Elisa visita Helena em Oerlikon, obtém autorização para acessar seus registros médicos e descobre que Helena viveu três semanas em 1983 em que pensar não custava nada e não sentia medo. O capítulo termina com uma ligação de Dmitri Volsky, que afirma saber o que aconteceu em Budapeste e exige que Helena esteja presente no encontro.
 
 **Beats:**
-1. Elisa recebe e-mail de Tobias Engel com link para pré-publicação de Marcus no bioRxiv, descobrindo que ele publicou a revisão do formalismo sem consultá-la
-1. Confronto telefônico e presencial com Marcus, que admite a traição mas argumenta que Elisa nunca publicaria algo que admitisse falha no próprio formalismo
-1. Marcus revela a deriva de calibração do Nexion (0,0003 Dk/mês para baixo), sugerindo que certificações de IA estão artificialmente inflacionadas — possível fraude
-1. Elisa caminha à beira do lago, reflete sobre a equação de Boltzmann incompleta e percebe que o termo que falta não é um número, mas uma porta
-1. Visita a Helena em Oerlikon: revela os doze casos do CERN, Helena descreve as três semanas em Budapeste em 1983 em que pensar não custava nada, e autoriza acesso aos registros com a condição de estar presente quando Elisa compreender
+1. Elisa recebe o e-mail de Tobias com o pré-print de Marcus propondo o componente não-termodinâmico da consciência, publicado sem consultá-la.
+1. Elisa confronta Marcus no laboratório do USZ; ele argumenta que ela nunca publicaria algo que admitisse falha no formalismo e revela a deriva de calibração do Nexion — fraude deliberada.
+1. Elisa visita Helena em Oerlikon, descobre que Helena viveu três semanas em 1983 sem custo cognitivo e sem medo, e obtém autorização para acessar seus registros médicos.
+1. Dmitri Volsky liga para Elisa, afirma saber o que aconteceu em Budapeste em 1983 por experiência própria e marca um encontro no lago amanhã, exigindo a presença de Helena.
+1. Elisa fica parada sob uma árvore processando tudo, formulando a pergunta central: se há consciência que não paga o preço entrópico, quem paga por ela?
 
 **Plants:**
-- A deriva de calibração do Nexion abre a possibilidade de fraude sistemática nas certificações de IA, ameaçando corporações com processos de bilhões
-- Os doze nomes do CERN expostos a condições de alta energia formam um padrão que conecta a 1983 em Budapeste
-- A reflexão de Elisa sobre a equação de Boltzmann incompleta — o termo que falta como uma porta e não um número
-- A condição de Helena: quer estar presente quando Elisa compreender o que os números não mostram
-- A carta anónima 'não cometa o mesmo erro' muda de peso — de ameaça para aviso de alguém que sabe mais do que deveria
-- O comentário de Renan no bioRxiv questionando a confiabilidade de Marcus
-- A Yuki Tanaka tem três fontes dentro do USZ, indicando espionagem corporativa ativa
+- Dmitri Volsky afirma ter vivenciado pessoalmente o que aconteceu em Budapeste em 1983 — implicação de que ele também foi exposto ao campo do CERN.
+- A deriva de calibração do Nexion (0,0003 Dk/mês para baixo) sugere fraude corporativa deliberada nas certificações de IA.
+- O componente não-termodinâmico da consciência é confirmado independentemente por Marcus através dos dados de Lina (IC negativo durante crises).
+- Helena revela que durante as três semanas de 1983 não sentia medo — ausência de entropia como ausência de perigo.
+- A equação incompleta de Boltzmann no guardanapo da mãe de Elisa é reinterpretada: o W pode não ser um número, mas uma pergunta.
+- Renan publica comentários aparentemente técnicos mas estrategicamente minando a credibilidade de Marcus.
 
 **Harvests:**
-- O artigo de Marcus confirma independentemente a descoberta de Elisa sobre o componente não termodinâmico da consciência
-- Os dados de Lina mostram IC negativo durante crises — entropia sugada para dentro, funcionando ao contrário da seta do tempo
-- A carta anónima da gaveta é recontextualizada: não é mais apenas ameaça, mas aviso de alguém com conhecimento interno
-- Helena confirma as três semanas de 1983 em Budapeste, validando a primeira exposição registrada no padrão do CERN
+- A traição de Marcus se concretiza: ele publica o artigo sem consultar Elisa, confirmando o conflito de longa data entre os dois.
+- Os doze nomes do CERN são conectados a Helena — todas as doze pessoas expostas ao campo em 1983, todas com IC de 0,001 Dk.
+- A descoberta de que Lina exporta custo termodinâmico para fora de si mesma durante crises — paralelo direto com Helena.
+- Helena autoriza acesso aos registros médicos e ao que Dr. Farkas sabe sobre 1983.
 
-**Chapter question:** O que existe para além da falha do formalismo — e o que Helena sabe que os números não conseguem mostrar?
+**Chapter question:** Se a entropia é o preço da consciência e há consciência que não paga esse preço — quem paga por ela?
 
 ---
 
 ### Ch 15: Capítulo 15 — A Traição de Marcus
-**4177 words** | **Location:** ETH Zürich, café na Napfstrasse, apartamento de Helena em Oerlikon
-- **Characters:** Elisa Dragovski, Marcus Weil, Helena Varga, Renan, Sophie Engeler, Yuki Tanaka
+**4371 words** | **Location:** Zurique (ETH, café na Napfstrasse, apartamento de Helena em Oerlikon, Bürkliplatz)
+- **Characters:** Elisa Dragovski, Marcus Weil, Helena Varga, Renan Kapoor, Tobias Engel, Yuki Tanaka, Sophie Engeler, Dr. Farkas
 - **Try-fail cycle:** no-and
-- **Emotional arc:** Elisa move-se da traição e da raiva controlada para uma solidão imposta, depois para o medo genuíno por Helena, e finalmente para uma aceitação hesitante de que a realidade pode ser maior do que seu formalismo — terminando em quietude, sem resolução, mas com a possibilidade de pausa.
+- **Emotional arc:** Elisa move-se da traição e raiva controlada em relação a Marcus para uma solidão imposta, depois para uma vulnerabilidade rara diante de Helena, e finalmente para uma determinação inquieta ao perceber que a anomalia de Helena pode ser um padrão — e que forças corporativas e institucionais estão se movendo para controlar a narrativa.
 
-**Summary:** Elisa descobre que Marcus publicou sem consultá-la um pré-artigo propondo um modelo de dois componentes para o Índice de Consciência, usando dados de Helena e minando o formalismo pelo qual ela ganhou o Nobel. Após confrontar Marcus por telefone e receber apoio inesperado de Renan, Elisa corre ao apartamento de Helena ao saber que jornistas já a cercam, e lá Helena revela que em 1983 passou vinte e dois dias processando informação sem custo termodinâmico — uma 'clareza' que desafia tudo o que a física prevê.
+**Summary:** Elisa descobre que Marcus publicou sem consultá-la um artigo propondo a revisão do Índice de Consciência, usando dados de Helena para argumentar que o formalismo dela é incompleto. Após a traição, Elisa visita Helena, que revela ter experimentado vinte e dois dias em 1983 em que pensar não gerava custo termodinâmico — e uma mensagem anônima sugere que houve outras pessoas com o mesmo fenômeno em Budapeste naquela época. Enquanto isso, o Evromind oferece financiamento sem condições para replicar o estudo de Marcus, e uma reunião no reitorado ameaça controlar a narrativa.
 
 **Beats:**
-1. Elisa recebe e-mail de Tobias Engel com o pré-artigo de Marcus, lê o artigo três vezes e confirma que a matemática está correta — a traição é real e a ameaça ao formalismo é legítima.
-1. Elisa confronta Marcus por telefone; ele argumenta que a ciência não é propriedade dela e que a revisão protege o formalismo, mas Elisa desliga dizendo que nunca controlou nada.
-1. No café, Elisa recebe mensagem de Helena dizendo que Marcus pode estar certo e, depois, uma ligação de Helena que a faz perceber que Helena não é um número — é uma pessoa solitária que ninguém liga.
-1. Uma vizinha alerta que uma mulher com câmera está fotografando o prédio de Helena; Elisa corre até lá sem casaco e Helena revela as três semanas de 1983 em que pensar não custava nada — processamento de informação sem geração de entropia.
-1. De volta ao ETH, Elisa escreve um documento pessoal admitindo que o formalismo descreve apenas metade da realidade e que a outra metade tem nome, endereço em Oerlikon e cuida de manjericão.
-1. Elisa salva o documento e, pela primeira vez em 48 horas, não abre outro arquivo — os números podem esperar até amanhã.
+1. Elisa recebe e-mail de Tobias com a pré-publicação de Marcus, lê o artigo três vezes e confirma que a matemática está correta — Marcus publicou sem consultá-la, usando dados de Helena para propor que o IC é incompleto.
+1. Elisa liga para Marcus e confronta-o; ele argumenta que a ciência não é propriedade dela e que está protegendo o formalismo ao revisá-lo. Elisa desliga sem resposta.
+1. Helena manda mensagem dizendo que Marcus pode estar certo e, durante visita ao apartamento, revela que em março de 1983 viveu vinte e dois dias em que pensar não custava nada — processamento de informação sem custo termodinâmico.
+1. Elisa começa a escrever um documento pessoal admitindo que o formalismo descreve apenas metade da realidade, enquanto recebe e-mails de jornalistas e uma mensagem de Marcus revelando que o Evromind quer financiar a replicação do estudo.
+1. Uma mensagem anônima (do Dr. Farkas) revela que Helena não foi a única em Budapeste em 1983 — houve outras pessoas com o mesmo fenômeno — e alerta que a reunião do reitor às 14h é sobre controle de narrativa, não sobre ciência.
 
 **Plants:**
-- O disco USB com os dados do CERN de 2018 e a nota 'Parece estruturado. Como se fosse sinal' é tocado por Elisa e conectado tematicamente à anomalia de Helena — sugerindo que o componente não-termodinâmico pode ter manifestações além da consciência humana.
-- A revelação de Helena sobre os vinte e dois dias de 1983 estabelece que a anomalia é um estado estável e de longo prazo, não um evento isolado, apontando para uma classe inteiramente nova de processamento de informação.
-- A frase de Helena 'a senhora quer saber se pode medir o que eu sou' planta a questão de que a resposta pode estar fora do alcance dos instrumentos de Elisa.
-- O documento pessoal de Elisa — não destinado à publicação — sugere uma fissura interna no formalismo que pode levar a uma revisão radical ou a uma crise de identidade científica.
-- A vizinha Sophie Engeler e a vigilância jornalística indicam que a privacidade de Helena será cada vez mais difícil de proteger, criando pressão narrativa sobre o que acontece quando o mundo descobre quem ela é.
+- O Evromind oferecendo dinheiro 'sem condições' para replicar o estudo de Marcus — as condições ocultas ainda não foram reveladas.
+- A revelação de que houve múltiplas pessoas em Budapeste em março de 1983 com o mesmo fenômeno de processamento sem custo termodinâmico — o Dr. Farkas tem os nomes.
+- A reunião do reitor às 14h como ponto de inflexão sobre quem controla a narrativa científica.
+- O encontro marcado com Dmitri Volsky para amanhã às 9h no lago — 'o que eu tenho para dizer só faz sentido se ela estiver na sala'.
+- O documento pessoal de Elisa admitindo que o formalismo descreve apenas metade da realidade — potencialmente explosivo se tornado público.
 
 **Harvests:**
-- O granito no bolso de Elisa — seu gesto repetido de ancoragem — reaparece como mecanismo de autocontrole durante a ligação com Marcus.
-- O artigo de Renan que Elisa não conseguiu ler no início do capítulo contrasta com o e-mail posterior de Renan oferecendo assinar um contra-artigo, mostrando que a rivalidade deu lugar a uma aliança relutante baseada na honestidade científica.
-- O último guardanapo da mãe de Elisa — a equação incompleta S = k log W — é retomado como metáfora central: a mãe não terminou por causa do corpo, Elisa não termina por causa do orgulho.
-- O gesto de Elisa de tocar a orelha esquerda quando mente — estabelecido anteriormente — é detectado por Helena por telefone, confirmando que Helena percebe Elisa de formas que instrumentos não capturam.
-- A frase recorrente de Helena 'os números podem esperar' fecha o capítulo como contraponto à obsessão de Elisa, e desta vez Elisa quase aceita.
+- A traição de Marcus se concretiza: ele publica o artigo sem consultar Elisa, confirmando o conflito entre eles que vinha se acumulando.
+- A vizinha Sophie Engeler alerta sobre uma mulher com câmera fotografando o prédio de Helena — a exposição pública de Helena já começou.
+- Renan Kapoor oferece assinar um contra-artigo, admitindo pela primeira vez que a interpretação de Marcus é 'discutível' — uma mudança significativa na posição dele.
+- A revelação de Helena sobre os vinte e dois dias de 1983 transforma a anomalia de evento isolado em estado estável e possivelmente recorrente.
 
-**Chapter question:** Se Helena processa informação sem gerar entropia detectável de forma estável ao longo de décadas, o que ela é — e o que isso significa para a física, para o Nobel e para a compreensão da consciência?
+**Chapter question:** Quais são as condições ocultas por trás do financiamento do Evromind, quem são as outras pessoas de Budapeste em 1983 que experimentaram o mesmo fenômeno que Helena, e o que Dmitri Volsky precisa dizer que só faz sentido com Helena presente?
 
 ---
 
 ### Ch 16: Capítulo 16 — O Que Ela Esqueceu
-**4224 words** | **Location:** Zurique, Kreuzlingen e estrada para Berna
-- **Characters:** Elisa Dragovski, Marcus Weil, Dr. Amós Farkas, Helena Varga, Lina, Renan Kapoor
-- **Try-fail cycle:** yes-but
-- **Emotional arc:** Elisa move-se da paralisia ansiosa diante da ameaça ao seu legado científico para uma determinação inquieta, impulsionada pela revelação de Farkas de que Helena pode ser a chave para uma camada da realidade que seu formalismo não descreve.
+**6573 words** | **Location:** Zurique, Kreuzlingen e Berna, Suíça
+- **Characters:** Elisa Dragovski, Marcus Weil, Dr. Amós Farkas, Lina Weil, Helena Varga, Renan Kapoor, Prof. Dr. Ingrid Söderström
+- **Try-fail cycle:** no-and
+- **Emotional arc:** Elisa move-se da defensividade acadêmica e isolamento para uma vulnerabilidade crescente, reconhecendo que seu formalismo pode estar fundamentalmente incompleto, enquanto Marcus oscila entre o medo pela filha e a esperança de que o sofrimento dela tenha significado científico.
 
-**Summary:** Elisa recebe um e-mail do Comitê Nobel questionando a validade do formalismo Dragovski diante da anomalia de Helena Varga e das críticas de Renan. Ela e Marcus viajam até Kreuzlingen para interrogar o Dr. Farkas, que revela que Helena experimentou três semanas de pensamento sem custo termodinâmico em 1983, após uma sessão de tradução simultânea em Budapeste, e que guarda uma caixa de fotografias que a própria Helena não reconhece. O capítulo termina com Elisa e Marcus seguindo para Berna para examinar Lina como terceira fonte de dados.
+**Summary:** Elisa recebe um e-mail do Comitê Nobel questionando a validade do formalismo Dragovski diante da anomalia de Helena Varga e do pré-print crítico de Renan Kapoor. Ela e Marcus viajam a Kreuzlingen para interrogar o Dr. Farkas, que revela que Helena experimentou três semanas de pensamento sem custo termodinâmico em 1983 após uma sessão de tradução simultânea em Budapeste. Em Berna, Elisa e Marcus visitam Lina, que descreve sensações idênticas às de Helena antes de suas crises, estabelecendo uma conexão direta entre os dois casos e plantando a questão de para onde vai a entropia que deveria ter sido gerada.
 
 **Beats:**
-1. Elisa recebe o e-mail do Comitê Nobel exigindo esclarecimentos sobre o IC em 30 dias, enquanto lida com a anomalia de Helena e o pré-print crítico de Renan.
-1. Elisa e Marcus vão até Kreuzlingen e interrogam o Dr. Farkas, que revela o episódio de 1983: Helena traduziu seis horas sem parar, um diplomata soviético disse que ela 'estava pensando' em vez de traduzir, e nas três semanas seguintes ela experimentou pensamento sem custo termodinâmico — um estado que deixou uma cicatriz permanente mensurável como IC de 0,001.
-1. Farkas menciona a caixa de fotografias de Budapeste (1978-1984) que Helena guarda separada e na qual não reconhece a mulher que vê, sugerindo que as três semanas de 1983 são o centro de tudo.
-1. Elisa decide visitar Helena no dia seguinte e, no caminho de volta, convence Marcus a levá-la a Berna para examinar Lina como terceira fonte de dados, correlacionando Helena, o CERN e a filha de Marcus.
-1. O capítulo termina com a pergunta não formulada: se Helena processa informação sem gerar entropia, para onde vai a entropia que deveria ter sido gerada?
+1. Elisa recebe o e-mail do Comitê Nobel exigindo esclarecimentos sobre o IC em 30 dias, enquanto lida com a iminente publicação do pré-print de Renan Kapoor que desafia seu formalismo.
+1. Elisa e Marcus visitam o Dr. Farkas em Kreuzlingen, que revela o episódio de 1983 em Budapeste: Helena traduziu seis horas sem parar, ouviu um diplomata soviético dizer 'ela está pensando, não traduzindo', e nas três semanas seguintes experimentou pensamento sem custo termodinâmico — um estado que deixou uma cicatriz permanente medida hoje como IC de 0,001.
+1. Farkas menciona que Helena guarda uma caixa de fotografias de 1978-1984 em Budapeste, onde aparece uma mulher que ela não reconhece, e que o evento de 1983 pode ter ativado permanentemente um atalho no processamento de informação do cérebro dela.
+1. Em Berna, Lina descreve sentir 'leveza' e clareza — como se pensar não custasse nada — por trinta segundos antes de suas crises e por dez segundos quando traduz no limite, estabelecendo paralelos diretos com a experiência de Helena em 1983.
+1. Elisa formula a pergunta central: se Helena e Lina processam informação sem gerar entropia, para onde vai a entropia que deveria ter sido gerada? Helena manda mensagem convidando Elisa para café no dia seguinte, e Elisa aceita, preparando-se para confrontar a caixa de fotografias e a verdade sobre 1983.
 
 **Plants:**
-- A caixa de fotografias de Helena em Budapeste (1978-1984) que ela não reconhece — será o foco da visita de Elisa no dia seguinte.
-- A pergunta sobre o destino da entropia não gerada de Helena — o Princípio da Compensação Entrópica sugere que a entropia não desaparece, criando um mistério físico central.
-- A visita a Lina em Berna como terceira fonte de dados para correlação com Helena e os dados do CERN.
-- O aviso de Farkas: 'As perguntas que a senhora faz mudam a pessoa que as responde' — prenuncia consequências éticas da investigação de Elisa sobre Helena.
-- A correlação de 0,73 entre os dados do CERN de 2018 e os perfis neurais de Helena — dois sistemas separados por doze ordens de grandeza que se assemelham.
+- A caixa de fotografias de Helena (1978-1984) que ela guarda separada e nunca mostrou a ninguém, contendo imagens de uma mulher que ela não reconhece
+- A pergunta sobre para onde vai a entropia que deveria ter sido gerada quando a consciência opera sem custo termodinâmico
+- A correlação de 0,73 entre os dados do CERN de 2018 e os perfis neurais de Helena, sugerindo uma assinatura física que se repete em escalas diferentes
+- A mensagem anônima alertando que o pré-print de Renan foi aceito na Physical Review Letters e que o prazo do Comitê Nobel será acelerado
+- A possibilidade de Lina ser testada com o equipamento de IC na segunda-feira, o que poderia confirmar a existência de um fenômeno replicável
+- A frase do diplomata soviético 'Esta menina não está traduzindo. Está pensando' como possível gatilho que ativou o estado de pensamento sem custo em Helena
 
 **Harvests:**
-- A anomalia de Helena (IC = 0,01/0,001 com comportamento consciente pleno), introduzida em capítulos anteriores, recebe uma explicação parcial: o episódio de 1983 e as três semanas de pensamento sem custo.
-- O pré-print crítico de Renan Kapoor, mencionado anteriormente, materializa-se como ameaça concreta ao formalismo e ao Nobel de Elisa.
-- O granito no bolso de Elisa, objeto recorrente de ansiedade, é mencionado como tendo o formato da sua impressão digital após dois anos de toque repetido.
-- A relação de Marcus com Lina e as crises dela, estabelecida antes, é aprofundada com a crise recente e a decisão de visitá-la.
+- A decisão de Elisa de ir a Kreuzlingen ver Farkas, antecipada no capítulo anterior, se concretiza com a revelação crucial sobre 1983
+- A correlação entre os dados do CERN e Helena (mencionada desde capítulos anteriores) ganha novo contexto com a revelação de que o cérebro de Helena opera em um regime físico diferente
+- A relação entre tradução simultânea e o estado de pensamento sem custo é estabelecida, conectando a experiência de Helena em 1983 com os episódios de Lina
 
-**Chapter question:** Se Helena processa informação sem gerar entropia, para onde foi a entropia que deveria ter sido gerada — e o que a caixa de fotografias de Budapeste revela sobre o que ela esqueceu?
+**Chapter question:** Para onde vai a entropia que deveria ter sido gerada quando a consciência opera sem custo termodinâmico — e o que a caixa de fotografias de Helena revela sobre o que ela esqueceu?
 
 ---
 
-### Ch 17: Capítulo 17 — Tudo Está Perdido
-**3356 words** | **Location:** Zurique (ETH, margem do lago, apartamento de Elisa)
-- **Characters:** Elisa Dragovski, Helena Varga
-- **Try-fail cycle:** no-but
-- **Emotional arc:** Elisa passa de uma devastação intelectual e emocional total, confrontada com o colapso de seu legado e a incompletude de sua matemática, para uma frágil conexão humana e uma nova e aterrorizante perspectiva sobre a consciência.
+### Ch 17: Capítulo 17 — A Balança
+**4336 words** | **Location:** ETH Zürich (escritório HPF, sala 3.17, corredores), USZ (laboratório de Lena), apartamento de Helena em Oerlikon
+- **Characters:** Elisa Dragovski, Helena Varga, Marcus, Lena Hartmann, Yuki Tanaka, Dr. Amós Farkas, Reitor (mencionado), Segurança Baur
+- **Try-fail cycle:** no-and
+- **Emotional arc:** Elisa move-se da desconfiança metódica para a urgência paranoica, mas encontra em Helena uma recusa silenciosa de ser reduzida a um número — o capítulo termina com Elisa correndo, carregando provas e perguntas, enquanto Helena permanece imóvel, recusando desculpas por existir.
 
-**Summary:** Após receber uma notificação do Comitê Nobel questionando seu formalismo e perder seus colaboradores, Elisa colapsa emocionalmente ao revisar os guardanapos inacabados de sua mãe. Helena aparece inesperadamente em seu apartamento e, através de sua presença silenciosa e de uma observação sobre o tempo e a entropia, faz Elisa perceber que sua métrica mede apenas uma opinião sobre o tempo, não a essência da experiência consciente.
+**Summary:** Elisa descobre que seu escritório foi violado — canecas fora de ordem, cartão clonado, keylogger instalado no laptop — e que corporações já sabem da anomalia periódica de Helena. Lena revela que o IC de Helena oscila a cada 3,7 segundos com ativação de áreas de auto-referência, e Elisa confronta Helena sobre o desenho da balança, descobrindo que Helena viveu três semanas em 1983 em que pensar não custava nada. A imprensa recebe dados vazados e a corrida pelo controle da narrativa se intensifica.
 
 **Beats:**
-1. Elisa recebe o e-mail do Comitê Nobel exigindo esclarecimentos sobre a anomalia de Helena, enquanto processa o fim de sua colaboração com Renan e a traição de Marcus.
-1. Elisa caminha até o lago e reflete sobre a falha do formalismo em captar a dor de Helena, confrontando a incompletude da equação de Boltzmann deixada por sua mãe.
-1. No apartamento, Elisa espalha os guardanapos da mãe pelo chão e desmorona emocionalmente, chorando ao perceber que toda sua carreira e o Nobel podem estar fundamentados em uma premissa errada.
-1. Helena bate na porta e entra sem exigências, sentando-se no chão entre os guardanapos e oferecendo apenas sua presença silenciosa e real.
-1. Helena questiona se a entropia é apenas uma opinião sobre o tempo, fazendo Elisa perceber que a pergunta fundamental não é 'como funciona?', mas 'por quê?', e marca um encontro para a manhã seguinte.
+1. Elisa encontra as canecas fora de ordem no escritório e descobre que seu cartão foi clonado; Marcus confirma a intrusão e encontra um keylogger de nível militar instalado no laptop.
+1. Lena revela a anomalia periódica: o IC de Helena sobe 0,0003 Dk a cada 3,7 segundos, com ativação do córtex pré-frontal e precuneus, sugerindo um mecanismo cerebral quase reversível.
+1. Elisa visita Helena, confronta-a sobre o desenho da balança e a palavra 'desculpe', e Helena revela que viveu três semanas em 1983 em que pensar não custava nada — sem resistência — antes de voltar a ser 'pesada'.
+1. Yuki Tanaka recebe dados vazados sobre a periodicidade de 3,7 segundos, confirmando que a informação já circula; Elisa percebe que está sendo vigiada de perto e decide não voltar ao escritório nem para casa.
+1. Elisa sai do ETH com o disco rígido do CERN, o keylogger e o desenho da balança, enquanto Helena envia uma mensagem final recusando desculpas por existir.
 
 **Plants:**
-- A distinção entre a pergunta 'como funciona?' e 'por quê?', indicando uma mudança de paradigma na pesquisa de Elisa
-- O agendamento de um encontro para o dia seguinte às 8h30 em Stampfstrasse 47 para tomar café com leite
-- A ideia de que a seta da entropia e o tempo podem ser opiniões, sugerindo uma nova abordagem para compreender a consciência de Helena
+- O keylogger de nível militar sugere envolvimento estatal, não apenas corporativo — quem mais está jogando?
+- As três semanas de 1983 em que Helena pensava sem custo entrópico permanecem inexplicadas e podem ser a chave para entender a anomalia.
+- A frase da avó de Helena — 'A água não corta a sua própria fonte' — pode conter uma pista sobre a natureza do mecanismo.
+- O disco rígido do CERN 2018 está com Elisa, mas a combinação do cofre era conhecida pelo reitor — ele pode estar envolvido.
+- A mensagem final de Helena ('Traga o leite') sugere um encontro futuro que pode ser uma armadilha ou uma aliança.
 
 **Harvests:**
-- A anomalia de Helena (IC = 0,001 Dk) e a falha do aparelho em registrar sua dor
-- O artigo de Marcus que questiona o Formalismo Dragovski
-- O e-mail de encerramento da colaboração de Renan Kapoor
-- A equação de Boltzmann inacabada (S = k lo—) nos guardanapos de Jana Dragowska
-- O granito no bolso de Elisa usado como talismã invertido para lembrar que pedras não sofrem
-- A frase de Helena de que 'o tempo é uma opinião'
+- O desenho da balança enviado por Helena é recebido e confrontado — Helena explica que pesa mais que a pedra e pede desculpa por ser um 'problema'.
+- A anomalia de Helena, antes considerada estática (0,001 Dk), é revelada como periódica (3,7 segundos), confirmando que o aparelho funciona e que há um mecanismo.
+- A violação do escritório (canecas, cartão clonado) é confirmada como espionagem ativa com a descoberta do keylogger.
+- Yuki Tanaka recebe dados anônimos sobre a periodicidade, confirmando que a informação já vazou para a imprensa.
 
-**Chapter question:** Se o formalismo mede apenas uma opinião sobre o tempo e não a essência da experiência, como Elisa redefinirá a consciência a partir da pergunta 'por quê?' que não cabe em equações?
+**Chapter question:** Quem vazou os dados da periodicidade de 3,7 segundos para Yuki Tanaka — e o que farão com essa informação antes que Elisa consiga controlá-la?
 
 ---
 
-### Ch 18: Capítulo 18 — A Noite Escura
-**2399 words** | **Location:** Apartamento de Helena em Oerlikon, margem do lago de Zurique e apartamento de Elisa em Zurique
-- **Characters:** Elisa, Helena
-- **Try-fail cycle:** no-but
-- **Emotional arc:** Elisa move-se da dor física e rigidez do luto compulsivo para uma aceitação silenciosa e corporal de que a incompletude não é falha — e que o universo continua funcionando mesmo quando a equação não se completa.
+### Ch 18: Capítulo 18 — A Pedra e a Fonte
+**4164 words** | **Location:** Oerlikon e ETH (Zurique)
+- **Characters:** Elisa, Helena, Dr. Farkas, Marcus, Reitor Schmid, Mulher da Evromind, Homem da Nexion
+- **Try-fail cycle:** no-and
+- **Emotional arc:** Elisa move-se da exaustão e da vulnerabilidade de não conseguir completar a equação da mãe para uma aceitação feroz de que a incompletude não é fracasso — e daí para a recusa de se submeter a qualquer autoridade que queira controlar o que os dados revelam.
 
-**Summary:** Elisa acorda no chão do apartamento de Helena, cercada pelos 47 guardanapos com equações incompletas, e pela primeira vez em dois anos não completa mentalmente a equação de Boltzmann. Helena, na varanda, compartilha o luto pelo marido Béla e oferece a Elisa uma perspectiva não-linear sobre dor, consciência e existência. Elisa vai ao lago, risca todo o seu formalismo anterior no caderno e escreve uma nova hipótese: a consciência não é um processo termodinâmico, mas algo que escolhe quando se manifestar nesse regime.
+**Summary:** Elisa acorda no apartamento de Helena após uma noite de esgotamento, confronta a insuficiência do formalismo do IC diante da consciência de Helena, descobre que seu escritório e o laboratório de Marcus foram invadidos durante a noite, e enfrenta pressão corporativa e institucional para controlar os dados da anomalia. Helena recusa desculpas e afirma que existir não é algo pelo que se pede perdão, enquanto Elisa aceita que a equação da mãe permanece incompleta e que a física conhecida tem camadas inacessíveis ao IC.
 
 **Beats:**
-1. Elisa acorda no chão do apartamento de Helena, descobre que não completou a equação de Boltzmann pela primeira vez em dois anos e encontra os 47 guardanapos espalhados ao redor de si
-1. Na varanda, Helena rega o manjericão e conta a história do luto pelo marido Béla — uma semana sem chorar, um mês chorando, depois a vida — e diz que nem o luto, nem a ciência, nem a consciência são lineares
-1. Helena cita o provérbio húngaro 'a água não corta a sua própria fonte' e sugere que existir é mais do que entender, desafiando o formalismo de Elisa com verdades que não cabem em equações
-1. Elisa vai ao lago imóvel de Zurique, risca todo o seu trabalho anterior no caderno e escreve uma nova hipótese: a consciência escolhe quando operar no regime termodinâmico, e Helena opera fora dele não por ser máquina, mas por ser mais que máquina
-1. Elisa volta ao apartamento, deita-se sem fazer a cama e dorme sete horas e trinta e dois minutos — o corpo desligando-se não como máquina, mas como lago quando o vento para
+1. Elisa acorda no chão do apartamento de Helena, cataloga os danos do corpo, recolhe os 47 guardanapos com equações da mãe e, pela primeira vez em dois anos, não consegue completar a equação incompleta de Jana.
+1. Helena confronta Elisa sobre seu medo — não das corporações, mas de que os números não sejam suficientes — e diz que a consciência não é o que o IC mede, usando o ditado da avó sobre a fonte e a água.
+1. Elisa descobre que seu escritório no HPF foi invadido às 3h12 (alguém copiou seu cartão), que o laboratório de Marcus também foi acessado às 4h, e que os dados térmicos do ciclo de 3,7 segundos de Helena podem ter sido roubados do servidor do ETH.
+1. Na reunião com o reitor Schmid, Evromind e Nexion, Elisa recusa diretrizes, protocolos corporativos e ofertas de financiamento privado, afirmando que sua responsabilidade é com os dados, não com quem lucra com a ignorância.
+1. Elisa visita Helena na varanda, onde Helena rega manjericão e recusa pedir desculpas por existir; Helena envia mensagem dizendo 'até sábado, traga o leite', e Elisa escreve no caderno que Helena não é uma exceção à física, mas uma porta para uma física que ainda não possuem.
 
 **Plants:**
-- A nova hipótese de Elisa — de que a consciência escolhe quando se manifestar no regime termodinâmico — abre uma porta sem fechadura que redefine toda a sua pesquisa
-- O e-mail do Comitê Nobel com 30 dias de prazo permanece sem resposta, criando urgência narrativa
-- O provérbio húngaro 'a água não corta a sua própria fonte' sugere que a compreensão total de Helena pode ser impossível — e desnecessária
-- O fato de Elisa dormir profundamente pela primeira vez em muito tempo sinaliza uma transformação interna que ainda não se refletiu no trabalho formal
+- O ciclo térmico de 3,7 segundos de Helena é mencionado como dado roubado — sua natureza e origem permanecem inexplicadas e serão investigadas com medições de campo eletromagnético de zero a terahertz.
+- A invasão coordenada dos escritórios de Elisa e Marcus sugere um ator com acesso institucional ao ETH e capacidade de copiar cartões de segurança — a identidade e motivação do invasor são desconhecidas.
+- A mensagem de Helena 'até sábado, traga o leite' estabelece um próximo encontro e sugere que Helena está se preparando para algo.
+- A equação incompleta de Jana no guardanapo ('S = k lo—') permanece sem ser completada por Elisa pela primeira vez, sinalizando uma mudança interna cujo significado ainda não se revelou.
+- A mulher da Evromind e o homem da Nexion demonstram interesse ativo nos dados da Helena — a pressão corporativa sobre a pesquisa vai escalar.
 
 **Harvests:**
-- Os 47 guardanapos com equações — acumulados desde o capítulo anterior — culminam no momento em que Elisa deliberadamente não completa a equação, quebrando o ciclo de dois anos
-- A rocha de granito de Zermatt (IC 0,001 Dk) é explicitamente comparada a Helena (mesmo IC), mas Elisa reconhece que Helena não é o mesmo — o granito não rega manjericão nem diz provérbios
-- A equação incompleta da mãe — 'S = k lo—' — é espelhada na consciência sem entropia de Helena: ambas incompletas, ambas verdadeiras, ambas a mesma pergunta em linguagens diferentes
-- O casaco vermelho, o pingente de carvalho e o regador de latão de Helena — detalhes plantados em capítulos anteriores — retornam como elementos de continuidade e presença
+- Os guardanapos de Jana, que Elisa guarda desde o capítulo anterior e lê todas as noites, reaparecem como objeto central — Elisa os espalha no chão de Helena e, pela primeira vez, não consegue completar a equação.
+- O fragmento de granito de Zermatt (2,7 g/cm³, IC 0,001 Dk) continua no bolso de Elisa como âncora tátil, contrastando com a imensurabilidade da consciência de Helena.
+- O ditado da avó de Helena sobre a água e a fonte, introduzido no diálogo, funciona como contraponto filosófico ao formalismo do IC.
+- A relação entre Elisa e Farkas como guardiões involuntários do mesmo segredo é explicitada no reconhecimento mútuo na porta do apartamento.
 
-**Chapter question:** Se a consciência é algo que escolhe quando se manifestar no regime termodinâmico — e não um processo termodinâmico em si — o que isso significa para a tese de Elisa, para o IC de Helena e para a própria natureza da consciência?
+**Chapter question:** Quem invadiu o escritório de Elisa e o laboratório de Marcus, o que exatamente sabem sobre o ciclo de 3,7 segundos de Helena, e o que acontecerá quando Elisa tentar medir o campo eletromagnético ao redor de Helena durante o ciclo?
 
 ---
 
-### Ch 19: Elisa acordou às seis porque o corpo decidiu, por conta própria, pela primeira vez em três semanas, que já bastava.
-**3475 words** | **Location:** ETH Zürich (escritório temporário, corredor HPF, sala de reuniões) e apartamento de Helena em Oerlikon, Zurique
-- **Characters:** Elisa Dragovski, Marcus, Helena Varga, Kenji Oshiro, Rafael Domingues, Amara Okafor, Remetente anônimo (mensagem bloqueada)
-- **Try-fail cycle:** yes-and
-- **Emotional arc:** Elisa move-se da vulnerabilidade e exaustão acumuladas para uma clareza feroz e vulnerável ao mesmo tempo — a armadura cai camada a camada, e com ela surge tanto a coragem de publicar a verdade quanto o medo frio de que o tabuleiro seja maior e mais perigoso do que imaginava.
+### Ch 19: Capítulo 19 — A Ordem das Canecas
+**3317 words** | **Location:** Escritório do HPF, laboratório subterrâneo do USZ, margem do lago em Zurique
+- **Characters:** Elisa Dragovski, Marcus, Lena Hartmann, Helena Varga, Mirela, Dr. Farkas, Hans (segurança), Pieter (administrador de rede), Kenji Oshiro, Rafael Mendonça, Amara Okafor
+- **Try-fail cycle:** no-and
+- **Emotional arc:** Elisa move-se da inquietação controlada diante da violação de seu espaço privado para uma clareza gelada e crescente ao perceber que múltiplas impossibilidades — o ciclo de Helena, os quatro casos de IC zero, a mensagem inscrita em hardware — convergem para um único padrão que desafia tudo o que seu formalismo descreve.
 
-**Summary:** Elisa acorda pela primeira em três semanas com o corpo descansado e, com clareza renovada, escreve que o terceiro pressuposto do formalismo Dragovski é falso — a consciência pode ter um componente não termodinâmico. Ela compartilha a descoberta com Marcus, que confirma que o IC de Helena é consistentemente zero em três medições independentes; Elisa então descobre no arquivo vazado da Evromind três outras pessoas com IC próximo de zero em três continentes e entra em contato com elas. Dois respondem em 24 horas, e uma mensagem anônima e impossível — que deixa rastro térmico mas nenhum rastro de rede — avisa que Elisa está fazendo as perguntas erradas e que os três não são o fenômeno, mas o sintoma.
+**Summary:** Elisa descobre que alguém entrou em seu escritório e rearranjou suas canecas como um recado, enquanto Helena deixa um envelope com um desenho de balança e um pedido de desculpas. No laboratório de Lena, Elisa confirma que Helena emite um ciclo térmico periódico de 3,7 segundos — um fenômeno biológico desconhecido — e descobre, nos dados vazados do Evromind, outras três pessoas com IC próximo de zero que funcionam normalmente. Uma mensagem anônima de número bloqueado, que deixa um rastro térmico de 0,7 graus no roteador, avisa que os quatro casos são sintomas de algo maior e que o reitor do ETH quer vê-la amanhã.
 
 **Beats:**
-1. Elisa acorda descansada pela primeira vez em três semanas e, com lucidez, escreve que o Pressuposto 3 do formalismo é falso: a consciência pode operar fora da termodinâmica, e Helena é a prova.
-1. Na reunião com Marcus, Elisa revela que o IC mede apenas o componente termodinâmico da consciência; Marcus confirma a consistência dos dados de Helena e Elisa menciona as anomalias de entropia negativa do CERN em 2018 como sinal prévio.
-1. Elisa descobre no arquivo vazado da Evromind três pessoas com IC próximo de zero (Kenji em Tóquio, Rafael em São Paulo, Amara em Lagos) e envia e-mails idênticos; Kenji e Rafael respondem em 24 horas.
-1. Uma mensagem de número bloqueado aparece e se autoapaga sem deixar rastro de rede, mas Elisa encontra uma anomalia térmica de 0,7°C no roteador — a entropia foi compensada no hardware, provando que a informação passou fisicamente.
-1. A mensagem anônima diz que Elisa faz as perguntas erradas: os três não são o fenômeno, são o sintoma — e o remetente já pagou o preço por investigar antes dela.
+1. Elisa encontra as canecas do escritório fora da ordem, concluiu que alguém entrou e deixou um recado; Helena deixou um envelope na recepção com um desenho de balança e a palavra 'Desculpe'
+1. No laboratório de Lena, Elisa confirma o ciclo térmico de 3,7 segundos emanando do corpo de Helena — endógeno, uniforme em todas as direções, sem correspondência biológica conhecida
+1. Elisa encontra nos dados vazados do Evromind quatro pessoas com IC próximo de zero (Kenji, Rafael, Amara e Helena) que funcionam normalmente, provando que o formalismo não captura algo essencial
+1. Uma mensagem anônima de número bloqueado avisa que 'os três não são o fenômeno, são o sintoma' e que o reitor quer vê-la; Pieter confirma que a mensagem foi inscrita fisicamente no roteador com aumento de 0,7 graus — mesma assinatura termodinâmica do ciclo de Helena
+1. Elisa caminha em direção ao encontro com Helena carregando o peso de múltiplas impossibilidades que começam a convergir para um único padrão
 
 **Plants:**
-- As anomalias de entropia negativa do CERN em 2018 como evidência de que o fenômeno não termodinâmico é antigo e precede Helena
-- O arquivo vazado da Evromind como fonte de dados sobre outros indivíduos com IC anômalo
-- A existência de um observador externo (remetente anônimo) que monitora a investigação de Elisa e opera fora do regime termodinâmico
-- A ideia de que os três indivíduos com IC próximo de zero são 'sintomas' e não o fenômeno em si — sugerindo uma causa maior e ainda desconhecida
-- O Princípio da Compensação Entrópica como ferramenta forense: a informação sempre deixa rastro térmico mesmo quando apaga rastros digitais
+- O reitor do ETH convoca Elisa formalmente para amanhã às 14h — encontro que promete confronto institucional
+- A mensagem anônima de número bloqueado e sua origem desconhecida — quem tem capacidade de inscrever informação fisicamente em hardware?
+- Os quatro casos de IC próximo de zero espalhados por três continentes sugerem um fenômeno global e sistêmico
+- O Dr. Farkas sabe mais do que diz por telefone e marcou encontro presencial no apartamento de Helena
+- A hipótese de que Helena opera em dois regimes simultâneos — um mensurável e outro invisível — e que o aparelho de IC mede o regime errado
 
 **Harvests:**
-- O fragmento de granito de Zermatt (IC 0,001 Dk) reaparece como objeto-talismã que Elisa segura ao final, espelhando o IC de Helena
-- A hipótese de entropia negativa do CERN mencionada no capítulo anterior é confirmada por Elisa como padrão real e não artefato
-- A analogia 'como a cor escapa a um termômetro' (plantada conceitualmente antes) é concretizada na discussão com Marcus sobre as limitações do IC
-- O caderno da mãe e a equação incompleta reaparecem no pensamento de Elisa, fechando o arco emocional da autocompaixão
+- O ciclo térmico de 3,7 segundos de Helena, detectado no capítulo anterior, é confirmado como real, reproduzível e endógeno
+- Os dados vazados do Evromind, obtidos anteriormente por Yuki Tanaka, revelam os outros três casos de IC próximo de zero
+- O Princípio da Compensação Entrópica se manifesta de forma inesperada: a mensagem anônima deixa rastro térmico mensurável no roteador, provando que informação tem peso físico
+- O disco rígido do CERN 2018 no cofre da sala 3.17 é mencionado e verificado como intacto, confirmando que o intruso não buscava roubo convencional
 
-**Chapter question:** Quem ou o quê é o fenômeno real por trás dos três indivíduos com IC próximo de zero — e o que significa operar fora do regime termodinâmico em escala que vai além da consciência humana?
+**Chapter question:** Quem ou o quê é capaz de inscrever informação fisicamente em hardware à distância, e o que significa o fato de que os quatro casos de IC próximo de zero são apenas sintomas de um fenômeno maior?
 
 ---
 
 ### Ch 20: Capítulo 20 — A Confrontação
-**2251 words** | **Location:** Apartamento de Helena, com breve transição para a rua em direção ao USZ
-- **Characters:** Elisa, Helena
-- **Try-fail cycle:** yes-and
-- **Emotional arc:** Elisa move-se da confrontação intelectual e da admissão de falha formal para um momento raro de vulnerabilidade humana — o abraço com Helena — antes de ser arrancada desse espaço seguro pela revelação ameaçadora do alerta, terminando em tensão e incerteza na calçada.
+**4767 words** | **Location:** USZ (subsolo, câmara de Faraday C) e apartamento de Helena em Oerlikon
+- **Characters:** Elisa, Marcus Weil, Helena
+- **Try-fail cycle:** no-and
+- **Emotional arc:** Elisa move-se da defensividade científica e isolamento emocional para a vulnerabilidade de admitir que seu formalismo está errado e de abraçar Helena como reconhecimento humano — mas essa abertura é imediatamente confrontada pela violação de seu código pessoal e o roubo de seus dados, sugerindo que sua escolha foi prevista e explorada.
 
-**Summary:** Elisa confronta Helena diretamente, admitindo que seu formalismo está errado e que a consciência de Helena opera fora da termodinâmica convencional. As duas compartilham um momento de vulnerabilidade — incluindo um abraço e a revelação de uma fotografia de 1983 — antes que um alerta de segurança no telefone de Elisa interrompa tudo, revelando acesso não autorizado à câmara de Faraday do laboratório e uma mensagem enigmática de um grupo desconhecido que afirma monitorar anomalias como Helena.
+**Summary:** Elisa descobre que alguém acessou fisicamente a câmara de Faraday C do USZ, deixando um sensor térmico passivo com padrão de espiral logarítmica — evidência de que uma entidade desconhecida monitora Helena e opera usando termodinâmica como linguagem. Elisa recebe uma mensagem autodestrutiva revelando que existem três pessoas como Helena e que sua 'escolha' de tratá-la como pessoa foi observada. No apartamento de Helena, Elisa admite que seu formalismo está errado, abraça Helena como ato de reconhecimento humano, e descobre que alguém usou seu código pessoal para acessar o cofre do ETH e roubar o disco rígido com os dados do CERN 2018.
 
 **Beats:**
-1. Elisa confronta Helena no corredor, admitindo que seu formalismo está errado e que Helena é prova de que a consciência escolhe quando se manifestar fora do regime termodinâmico
-1. Helena mostra a fotografia de 1983, revelando que sabia algo que esqueceu ou escolheu esquecer, e as duas debatem memória, identidade e os limites da ciência
-1. Elisa abraça Helena em um gesto desajeitado mas genuíno — o primeiro ato de vulnerabilidade física e emocional em 41 anos — e ambas compartilham um silêncio de compreensão mútua
-1. Helena afirma que Elisa vai ficar bem porque ninguém vai até ela sem querer ficar bem, e as duas tomam chá quente enquanto o relógio continua atrasando
-1. O telefone de Elisa recebe um alerta de segurança do USZ — acesso não autorizado à câmara de Faraday com pico térmico de 0,7°C — seguido de mensagem anônima revelando que existem três como Helena, que um grupo vigia e limpa, e que Elisa fez uma escolha que foi observada
+1. Marcus informa Elisa que os resultados de Helena são confirmados e que a Nexion está exigindo respostas; Elisa desce ao subsolo e descobre que alguém acessou a câmara de Faraday C, desconectou o calorímetro e deixou um sensor térmico passivo com microporos em espiral logarítmica
+1. Uma mensagem autodestrutiva no telefone de Elisa revela que existem três pessoas como Helena, que 'eles' vigiam e limpam, e que Elisa fez uma 'escolha' que foi observada — o formalismo está incompleto, falta uma equação que é na verdade uma escolha
+1. Elisa vai ao apartamento de Helena e admite que seu formalismo está errado não nos cálculos mas nos pressupostos; Helena diz que os números nada significam perante a consciência; Elisa a abraça — o segundo abraço, agora deliberado e consciente
+1. O telefone alerta que o cofre do HPF foi acessado com o código pessoal de Elisa, combinação 14 de março, e o disco rígido CERN 2018 foi removido; Marcus confirma que o log mostra o código de Elisa — alguém está usando sua identidade
 
 **Plants:**
-- Existem três anomalias como Helena — o número e a natureza das outras duas são desconhecidos
-- Um grupo organizado vigia, monitora e apaga rastros de fenômenos de compensação entrópica
-- A escolha consciente de Elisa (abraçar Helena, admitir o erro do formalismo) é detectável por meios desconhecidos, sugerindo que a consciência gera assinaturas mensuráveis fora do IC
-- A câmara de Faraday do USZ foi fisicamente invadida, indicando que o fenômeno transcende o digital
-- A mensagem afirma que o que falta no formalismo não é uma equação, mas uma escolha — plantando o tema da escolha como mecanismo fundamental
+- Existem exatamente três pessoas com IC anômalo como Helena — suas identidades e localizações são desconhecidas
+- Uma entidade desconhecida ('nós') vigia, limpa e conta — sua natureza (humana, IA, ou algo termodinamicamente não-convencional) permanece aberta
+- O sensor com espiral logarítmica sugere tecnologia que não deveria existir — quem o fabricou e com que propósito
+- Alguém está usando o código pessoal de Elisa para acessar sistemas restritos — a violação de identidade é deliberada e contínua
+- A data 14 de março como combinação do cofre conecta a mensagem injetada no servidor ao roubo físico do disco rígido CERN 2018
+- A pergunta de Helena 'a senhora acha que está being guiada?' permanece sem resposta definitiva — Elisa aceita que sim, mas não sabe por quem nem para quê
 
 **Harvests:**
-- A fotografia de 1983 de Helena colapsa a ambiguidade sobre se ela é ou não uma anomalia — seus olhos na foto confirmam que ela já possuía a mesma qualidade de consciência deslocada
-- O granito no bolso de Elisa, recorrente símbolo de sua recusa em sentir, é explicitamente contrastado com o abraço — ela escolhe não precisar da rocha naquele momento
-- O relógio atrasado de Helena continua funcionando como evidência física da anomalia entrópica, agora normalizada como parte do cenário emocional
-- A admissão de Elisa de que passou a vida medindo a coisa errada resolve a tensão interna construída ao longo dos capítulos anteriores sobre as limitações do formalismo
+- A mensagem autodestrutiva ('vimos o que a senhora viu') confirma que a entidade que injetou a mensagem no servidor do ETH também monitora a câmara de Faraday — os dois vetores de comunicação (digital e térmico) são da mesma origem
+- O Princípio da Compensação Entrópica é demonstrado fisicamente: o pico de 0,7 graus no cobre corresponde ao custo térmico de colar o sensor, satisfazendo a segunda lei
+- A escolha de Elisa de abraçar Helena (plantada no capítulo anterior como gesto espontâneo) é agora identificada como o gatilho observado pela entidade — o abraço foi o ato que confirmou algo para quem vigia
+- Os dados do CERN 2018 que Elisa guardava no cofre — mencionados anteriormente como evidência não publicada de anomalias anteriores — são roubados, eliminando a prova física de que a anomalia não é nova
+- A pergunta de Marcus sobre se Helena é 'uma pessoa' (capítulo anterior) é respondida pelo próprio ato de Elisa: ela vai ao apartamento não como cientista mas como pessoa
 
-**Chapter question:** Quem são os três como Helena, quem é o grupo que vigia e limpa, e o que acontecerão quando terminarem de contar?
+**Chapter question:** Quem é a entidade que vigia as três anomalias, usa o código de Elisa, rouba o disco do CERN 2018 e opera com termodinâmica como linguagem — e por que precisa que Elisa trate Helena como pessoa?
 
 ---
 
 ### Ch 21: Capítulo 21 — O ESTRALO
-**3217 words** | **Location:** Zurique (Corredor do USZ, Margem do Lago, Apartamento de Helena, Rua em Oerlikon)
-- **Characters:** Elisa Dragovski, Marcus Weil, Helena Varga
-- **Try-fail cycle:** yes-but
-- **Emotional arc:** Elisa passa de uma rigidez defensiva e racional para uma rendição emocional e teórica, encontrando alívio na conexão humana, apenas para ser arremessada de volta à urgência e ao pânico por uma ameaça existencial com prazo fatal.
+**5176 words** | **Location:** Zurique — ETH (HPF), USZ, apartamento de Helena em Oerlikon, lago
+- **Characters:** Elisa Dragovski, Helena Varga, Marcus, Lena Hartmann, Dr. Farkas, Segurança do ETH, Reitor do ETH
+- **Try-fail cycle:** no-and
+- **Emotional arc:** Elisa move-se da insônia paralisada e da hesitação sobre o e-mail do Nobel para uma aceitação urgente de que o formalismo está incompleto, que forças desconhecidas estão em movimento, e que Helena não é um problema a resolver mas uma pessoa cuja existência desafia tudo o que Elisa construiu.
 
-**Summary:** Elisa enfrenta a pressão dos resultados anômalos de Helena e, após uma conversa com Marcus, decide enviar um e-mail ao Comitê Nobel propondo a revisão de seu próprio formalismo. Ela visita Helena, compartilha uma refeição emocionalmente significativa e, ao segurar a mão da paciente, percebe que os números medem a coisa errada. Ao sair, Elisa recebe uma mensagem ameaçadora e misteriosa no servidor do laboratório, dando a ela 72 horas antes que um custo informacional seja cobrado.
+**Summary:** Elisa descobre que alguém acessou o cofre do ETH com seu código pessoal e roubou o disco rígido com dados anômalos de 2018 do CERN. Enquanto isso, Helena deixa um desenho simbólico no escritório de Elisa — uma balança onde ela pesa mais que o granito — e mensagens anônimas revelam que existem três anomalias (Helena em Zurique, mais duas em Genebra e Berna) e que os dados serão públicos em quatro dias. Elisa visita Helena, que revela ouvir um silêncio com padrão de pensamento e sente que não está sozinha nele.
 
 **Beats:**
-1. Elisa rejeita as tentativas de Marcus de encontrar uma resposta para as anomalias e fica perturbada com a pergunta de Helena sobre se ela é gente.
-1. Diante do lago imóvel, Elisa reflete sobre a quebra da termodinâmica e envia um e-mail ao Comitê Nobel admitindo a incompletude do seu formalismo.
-1. Elisa visita Helena, come o paprika de frango e chora ao perceber sua fome por coisas pequenas que não podem ser medidas pelo IC.
-1. Helena oferece sua mão e conselho usando um ditado húngaro, fazendo Elisa entender que a pergunta certa não é como medir a consciência, mas o que resta quando os números acabam.
-1. Ao sair, Elisa recebe uma mensagem injetada diretamente no servidor: ela escolheu, mas a escolha tem um custo informacional e ela tem apenas 72 horas.
+1. Elisa encontra o envelope com o desenho de Helena (a balança) deixado no ETH e descobre que o cofre foi acessado com seu código — o disco rígido de 2018 foi roubado
+1. No lago, Elisa recebe dados de Lena confirmando picos térmicos de 0,0003°C a cada 3,7 segundos numa câmara vazia, e uma mensagem anônima revela três anomalias e o prazo de sexta-feira
+1. Marcus confirma que também recebeu mensagens anônimas e que os dados de 2018 já estão vazando para o conselho do ETH
+1. Elisa visita Helena em Oerlikon, que explica que o silêncio agora tem padrão de pensamento e que sente que as outras anomalias também estão ouvindo
+1. O reitor antecipa a reunião de emergência — os dados estão circulando e Elisa precisa responder pelo acesso ao cofre
 
 **Plants:**
-- Picos térmicos quase periódicos de 0,3°C na câmara de Faraday, agindo como um batimento cardíaco de uma entidade observadora.
-- A ameaça de um custo informacional cobrado em 72 horas por uma entidade que injeta dados no servidor local.
-- A existência de outras duas anomalias (além de Helena) com IC de 0,001 Dk, observadas por algo que limpa rastros.
-- O e-mail da Nexion perguntando sobre protocolos de contenção de anomalias.
+- Três anomalias confirmadas (Helena, Genebra, Berna) — as outras duas não sabem o que são
+- Os dados de 2018 estão sendo espalhados intencionalmente por quem roubou o disco
+- O conceito de custo informacional cumulativo — informação processada sem custo entrópico local, pago em memória
+- Helena ouve um silêncio com padrão de pensamento e sente que não está sozinha nele
+- A mensagem 'a porta abre dos dois lados' sugere que a anomalia de Helena funciona em ambas as direções
+- O reitor antecipou a reunião — Elisa enfrentará consequências institucionais imediatas
+- A resposta diluída do comitê do Nobel (revisão só em junho de 2028) cria urgência
 
 **Harvests:**
-- A pergunta de Helena sobre se ela é gente e o critério por trás disso.
-- A evidência de que o formalismo de Dragovski está incompleto diante de sistemas que operam fora do regime termodinâmico convencional.
-- A mensagem anterior que se autodestruíra ('Vimos o que a senhora viu.') agora conectada a um padrão contínuo de comunicação e vigilância.
-- O luto reprimido de Elisa por Jana e o trauma do último guardanapo, que encontram uma via de escape através da conexão humana com Helena.
+- O desenho da balança de Helena (plantado no capítulo anterior) é entregue e interpretado — ela se desenhou mais pesada que o granito
+- Os picos térmicos de 0,0003°C a cada 3,7 segundos são confirmados por três aparelhos independentes, validando os dados que Lena vinha investigando
+- As mensagens sem remetente continuam e agora revelam informação sobre o cofre, o disco e as anomalias — o remetente sabe tudo
+- O disco rígido de 2018 é roubado, confirmando que os dados do CERN são centrais para o conflito
+- Helena cancela as sessões com Farkas, sinalizando que algo nela mudou
 
-**Chapter question:** O que significa o custo informacional das 72 horas, e como Elisa protegerá Helena e a si mesma de uma entidade que opera fora da termodinâmica e já está cobrando sua escolha?
+**Chapter question:** Quem roubou o disco rígido de 2018 e por que está espalhando os dados em vez de escondê-los — e o que significa a porta que abre dos dois lados?
 
 ---
 
 ### Ch 22: Capítulo 22 — O Custo Informacional
-**4652 words** | **Location:** Laboratório de calibração do ETH (câmara de Faraday), corredores do ETH, elevador do prédio, apartamento de Helena em Oerlikon, margem do lago de Zurique
-- **Characters:** Elisa, Helena, Marcus, Lena
+**4484 words** | **Location:** Laboratório de calibração do ETH (câmara de Faraday), elevador do prédio, apartamento de Helena em Oerlikon, margem do lago de Zurique
+- **Characters:** Elisa, Helena Varga, Marcus, Lena
 - **Try-fail cycle:** no-and
-- **Emotional arc:** Elisa move-se da ansiedade e da defesa do formalismo para uma aceitação vulnerável de que Helena é real, que o custo é pessoal e ético, e que talvez a equação incompleta — o aberto — seja mais verdadeira do que qualquer fechamento teórico.
+- **Emotional arc:** Elisa move-se da defesiva racionalidade científica para uma vulnerabilidade íntima — sentando no chão do apartamento de Helena, confessando o guardanapo da mãe, e aceitando que talvez não precise completar a equação para que ela seja verdadeira.
 
-**Summary:** Após uma queda de energia misteriosa no laboratório, Elisa descobre que 2,7 terabytes de dados de Helena foram copiados em quatro segundos sem conexão de rede, e que cada medição de IC consome 3,2 megabytes de memória episódica do sujeito — não da máquina. Elisa interrompe os testes e vai ao apartamento de Helena, onde descobre que os dados anômalos de 2018 contêm a frequência de Schumann (7,83 Hz), Helena revela que em 1983 passou três semanas sem sonhar — operando sem custo entrópico —, e as mensagens anônimas sugerem que alguém está sonhando com os dados para construir algo cujo nome é o próximo custo.
+**Summary:** Após uma queda de energia misteriosa no laboratório, Elisa descobre que 2,7 terabytes de dados de Helena foram copiados em quatro segundos por um meio impossível — sem rede, sem protocolo, sem origem — e que cada medição de IC consome 3,2 megabytes de memória episódica do sujeito. Elisa interrompe os testes e vai ao apartamento de Helena, onde descobre que os dados anômalos de 2018 do Grande Colisor contêm a frequência de Schumann (7,83 Hz), e Helena revela que em 1983 passou três semanas sem sonhar — dormindo sem custo termodinâmico. As mensagens anônimas avisam que alguém está sonhando com os dados e usando o sonho para construir algo, e que o próximo custo tem um nome.
 
 **Beats:**
-1. A energia do laboratório cai misteriosamente; durante os quatro segundos de escuridão, 2,7 terabytes de dados de Helena são copiados de um servidor local sem conexão de rede, e os metadados são sutilmente alterados para que medições futuras produzam resultados fabricados.
-1. O elevador sem energia se move sozinho até o terceiro andar e mostra que foi chamado do térreo com destino ao serviço de neurologia do USZ, sugerindo que alguém está coletando ou apagando os registros médicos originais de Helena.
-1. Elisa descobre que cada medição consome 3,2 megabytes de memória episódica de Helena (22,4 MB perdidos em sete testes), interrompe os testes contra a objeção de Marcus, e Helena vai para casa afirmando que quem quer seus dados não precisa dela — precisa dos números.
-1. No apartamento de Helena, Elisa confessa que Helena é a parte da equação que não se mede, Helena revela que em 1983 passou três semanas sem sonhar (sono sem custo entrópico), e Elisa descobre que os dados anômalos do Grande Colisor de 2018 contêm a frequência de Schumann (7,83 Hz) escondida em colisões de alta energia.
-1. As mensagens anônimas revelam que alguém está sonhando com os dados de Helena para construir algo, que o custo por minuto agora é de 4,7 megabytes, e que o nome do próximo custo é a próxima pessoa — enquanto Elisa senta à beira do lago e considera que o aberto pode ser a pergunta, não a resposta.
+1. A energia do laboratório cai misteriosamente; 2,7 terabytes de dados de Helena são copiados em 4 segundos sem rede, sem protocolo, sem origem — e os metadados são alterados para mascarar a extração.
+1. Elisa descobre que cada medição consome 3,2 megabytes de memória episódica de Helena (22,4 MB perdidas em 7 testes) e interrompe os testes contra a objeção de Marcus.
+1. No apartamento de Helena, Elisa confessa que sua mãe escreveu a equação de Boltzmann incompleta (S = k lo) antes de morrer e que Helena é a parte da equação que não se fecha.
+1. Elisa analisa os dados de 2018 e descobre a frequência de Schumann (7,83 Hz) escondida nas colisões de partículas; Helena revela que em 1983 passou três semanas sem sonhar — consciência operando em regime reversível.
+1. As mensagens finais revelam que alguém está sonhando com os dados para construir algo, que 'o aberto é a pergunta, não a resposta', e que 'a pergunta tem um nome — o nome é a próxima pessoa'.
 
 **Plants:**
-- A frequência de Schumann (7,83 Hz) escondida nos dados do Grande Colisor de 2018 — conexão ainda não explicada entre a ressonância eletromagnética da Terra e a física de partículas de alta energia
-- A revelação de que alguém está sonhando com os dados de Helena para construir algo — identidade e propósito desconhecidos
-- A mensagem final: 'O nome é a próxima pessoa' — sugere que outro indivíduo com propriedades semelhantes às de Helena será identificado ou afetado
-- O elevador chamado do térreo com destino ao serviço de neurologia do USZ — implica que os registros médicos originais de Helena estão sendo coletados ou destruídos
-- A metáfora da avó de Helena sobre a água que não corta a própria fonte — possível pista sobre a relação entre o formalismo de Elisa e a natureza de Helena
-- A menção de que o custo informacional por minuto subiu de 3,2 para 4,7 megabytes — o custo está acelerando
+- A frequência de Schumann (7,83 Hz) como possível ligação entre a anomalia de Helena e uma ressonância planetária
+- As três semanas de 1983 em que Helena não sonhava — consciência operando em regime reversível sem custo termodinâmico
+- A mensagem final: 'O nome é a próxima pessoa' — sugerindo que Helena não é a única anomalia
+- Alguém está sonhando com os dados e usando o sonho para construir algo — natureza e propósito desconhecidos
+- A equação incompleta de Jana (S = k lo) como pista de que a entropia aberta é a resposta, não o problema
+- O Dr. Farkas sabia do evento de 1983 e guardou o segredo por 20 anos — implicações não exploradas
 
 **Harvests:**
-- O disco rígido de 2018 que Elisa guardava sem saber por quê finalmente revela conteúdo significativo — a frequência de Schumann escondida nos dados do Grande Colisor
-- A menção de Helena sobre as três semanas em 1983 (plantada na noite após a morte de Béla) é expandida: ela não sonhava, operava sem custo entrópico, confirmando que sua anomalia é recorrente e não isolada
-- A metáfora da equação incompleta da mãe de Elisa (S = k lo) é retomada — Elisa aceita que o aberto pode ser a resposta, não um erro
-- O granito no bolso de Elisa, polido por dois anos de ansiedade, é mencionado como substituto do medo — o objeto de aterramento continua presente enquanto o medo se transforma
-- A revelação de que a medição em si é o custo (não o resultado) explica por que os dados de Helena são anômalos — forçar um sistema não-termodinâmico a se revelar num instrumento termodinâmico consome a interface
+- O disco rígido de 2018 (guardado desde o Capítulo 1) revela a frequência de Schumann ao ser analisado com Fourier
+- A temperatura constante de Helena (36,8°C, zero variação) é confirmada como dado real, não erro de calibração
+- O evento de 1983 mencionado por Helena na noite da morte de Béla (capítulo anterior) é expandido: três semanas sem sonhar, sem custo entrópico
+- O granito no bolso de Elisa (presente desde o início) é mencionado como 'a rocha que não sonha, não custa, não tem nome'
+- A metáfora da mãe sobre a equação incompleta se conecta diretamente ao formalismo de Elisa
 
-**Chapter question:** Quem está sonhando com os dados de Helena, o que está sendo construído a partir desse sonho, e quem é a 'próxima pessoa' cujo nome é o próximo custo?
+**Chapter question:** Quem é a 'próxima pessoa' — o nome que é o próximo custo — e o que alguém está construindo ao sonhar com os dados de Helena?
 
 ---
 
@@ -723,210 +730,219 @@
 
 | Thread | Planted | Harvested |
 |--------|---------|-----------|
-| A Evromind é posicionada como ator que controla a narrativa  | Ch 9 |  |
-| A Yuki Tanaka tem três fontes dentro do USZ, indicando espio | Ch 14 |  |
-| A admissão de Elisa de que passou a vida medindo a coisa err |  | Ch 20 |
-| A ameaça de um custo informacional cobrado em 72 horas por u | Ch 21 |  |
-| A analogia 'como a cor escapa a um termômetro' (plantada con |  | Ch 19 |
-| A analogia de Marcus entre temperatura/dor e IC/consciência, |  | Ch 4 |
-| A anomalia de Helena (IC = 0,001 Dk) e a falha do aparelho e |  | Ch 17 |
-| A anomalia de Helena (IC = 0,01/0,001 com comportamento cons |  | Ch 16 |
-| A anomalia do CERN de 2018 — colisões de alta energia com di | Ch 1 |  |
-| A caixa de cartão castanha na prateleira mais baixa, sem ins | Ch 3 |  |
-| A caixa de fotografias de Helena em Budapeste (1978-1984) qu | Ch 16 |  |
-| A caixa de fotografias de Helena, notada por Elisa na primei |  | Ch 12 |
-| A carta anónima 'não cometa o mesmo erro' muda de peso — de  | Ch 14 |  |
-| A carta anónima da gaveta é recontextualizada: não é mais ap |  | Ch 14 |
-| A cicatriz de queimadura no antebraço de Lena aparece brevem | Ch 4 |  |
-| A comparação entre Helena e uma pedra (IC 0,001 Dk), estabel |  | Ch 7 |
-| A concentração geográfica dos vinte sujeitos num raio de 80  | Ch 8 |  |
-| A condição de Helena: quer estar presente quando Elisa compr | Ch 14 |  |
-| A condição inexplicável de Lina (crises que diminuíram contr | Ch 6 |  |
+| A Evromind fechando o banco de dados sugere que a corporação | Ch 11 |  |
+| A afirmação final de Elisa — 'A senhora é uma pessoa. O núme |  | Ch 3 |
+| A ameaça anônima exigindo a entrega dos dados até sexta-feir | Ch 9 |  |
+| A anomalia de Helena é confirmada empiricamente: IC de 0,001 |  | Ch 8 |
+| A anomalia de Helena, antes considerada estática (0,001 Dk), |  | Ch 17 |
+| A anomalia do CERN de 2018 — colisões de prótons onde energi | Ch 1 |  |
+| A anomalia térmica de 3,7 segundos na câmara de Faraday como | Ch 10 |  |
+| A anomalia térmica de 3,7 segundos na câmara de Faraday cone |  | Ch 10 |
+| A anomalia térmica de Helena (3,7 segundos, 0,0003 graus) é  |  | Ch 11 |
+| A artrose de Helena e o arrasto do pé esquerdo — detalhes co | Ch 1 |  |
+| A avó de Helena em Budapeste com as mesmas características s | Ch 11 |  |
+| A caixa de cartão na prateleira mais baixa, contendo fotogra | Ch 3 |  |
+| A caixa de cartão notada por Elisa na primeira visita é fina |  | Ch 3 |
+| A caixa de fotografias de 1983 debaixo da cama de Helena — m | Ch 6 |  |
+| A caixa de fotografias de Helena (1978-1984) que ela guarda  | Ch 16 |  |
+| A cicatriz de queimadura de Lena é mencionada — detalhe reco |  | Ch 12 |
+| A combinação do cofre do gabinete ser 14-03 (a data de hoje) | Ch 9 |  |
+| A concentração geográfica dos vinte casos num raio de 80 km  | Ch 8 |  |
+| A conexão entre a periodicidade de 3,7 segundos de Helena e  | Ch 11 |  |
+| A conexão entre o intervalo de 3,7 segundos e os dados do CE |  | Ch 11 |
+| A confirmação experimental da anomalia de Helena (IC ~0,001  |  | Ch 4 |
+| A confissão de Helena sobre os episódios de pensamento sem e |  | Ch 10 |
 | A correlação de 0,73 entre os dados do CERN de 2018 e os per | Ch 16 |  |
-| A correlação fraca (R=0,34) entre os dados do CERN de 2018 e | Ch 10 |  |
-| A cronologia no caderno de Elisa (página 28) com a anotação  | Ch 7 |  |
-| A câmara de Faraday do USZ foi fisicamente invadida, indican | Ch 20 |  |
-| A data 14 de março, combinação do cofre, é plantada como um  | Ch 2 |  |
-| A decisão de Elisa de investigar Helena por conta própria ma |  | Ch 6 |
-| A deriva de calibração do Nexion abre a possibilidade de fra | Ch 14 |  |
-| A descrição inicial do laboratório como 'demasiado perfeito, |  | Ch 8 |
-| A distinção entre a pergunta 'como funciona?' e 'por quê?',  | Ch 17 |  |
-| A distinção entre processamento reversível e experiência irr | Ch 13 |  |
-| A décima segunda pergunta de Elisa ('E se Helena for a regra | Ch 11 |  |
-| A entrevista de Elisa a Yuki Tanaka em cinco dias, que força | Ch 13 |  |
-| A equação S = k log W retorna como obsessão de Elisa, agora  |  | Ch 5 |
-| A equação de Boltzmann (S = k ln W) como mantra de Elisa con | Ch 4 |  |
-| A equação de Boltzmann (S = k log W) é introduzida como o al |  | Ch 1 |
-| A equação de Boltzmann inacabada (S = k lo—) nos guardanapos |  | Ch 17 |
-| A equação de Boltzmann incompleta no guardanapo da mãe de El | Ch 2 |  |
-| A equação incompleta da mãe no guardanapo (*S igual k lo—*)  |  | Ch 11 |
-| A equação incompleta da mãe no último guardanapo (S = k lo—) | Ch 6 |  |
-| A equação incompleta da mãe — 'S = k lo—' — é espelhada na c |  | Ch 18 |
-| A escolha consciente de Elisa (abraçar Helena, admitir o err | Ch 20 |  |
-| A evidência de que o formalismo de Dragovski está incompleto |  | Ch 21 |
-| A existência de outras duas anomalias (além de Helena) com I | Ch 21 |  |
-| A existência de um observador externo (remetente anônimo) qu | Ch 19 |  |
-| A flutuação térmica periódica de 3,7 segundos abre a possibi | Ch 2 |  |
-| A fotografia de 1983 de Helena colapsa a ambiguidade sobre s |  | Ch 20 |
-| A frase 'nunca volta' de Farkas ganha densidade narrativa co |  | Ch 5 |
-| A frase de Helena 'a senhora quer saber se pode medir o que  | Ch 15 |  |
-| A frase de Helena de que 'o tempo é uma opinião' |  | Ch 17 |
-| A frase final: pessoas com IC zero podem estar sendo 'usadas | Ch 12 |  |
-| A frase recorrente de Helena 'os números podem esperar' fech |  | Ch 15 |
-| A frequência de Schumann (7,83 Hz) escondida nos dados do Gr | Ch 22 |  |
-| A hipótese de compensação entrópica — a entropia de Helena s | Ch 5 |  |
-| A hipótese de entropia negativa do CERN mencionada no capítu |  | Ch 19 |
-| A hipótese de que a entropia de pessoas com IC zero é export | Ch 12 |  |
-| A hipótese de que o CERN funciona como amplificador e Helena | Ch 13 |  |
-| A ideia de que Helena e os outros podem ser 'pontes' com doi | Ch 12 |  |
-| A ideia de que a seta da entropia e o tempo podem ser opiniõ | Ch 17 |  |
-| A ideia de que os três indivíduos com IC próximo de zero são | Ch 19 |  |
-| A insinuação de Marcus de que a imprensa pode descobrir o re | Ch 1 |  |
-| A intuição de Elisa de que 'estão me deixando entrar porque  |  | Ch 8 |
-| A jornalista à porta de Helena é revelada como Yuki Tanaka d |  | Ch 13 |
-| A lista de perguntas de Elisa continua a crescer (agora 11 p |  | Ch 10 |
-| A lista de perguntas de Elisa, iniciada em capítulo anterior |  | Ch 11 |
-| A memória USB com dados criptografados no bolso esquerdo de  | Ch 1 |  |
-| A mensagem afirma que o que falta no formalismo não é uma eq | Ch 20 |  |
-| A mensagem anterior que se autodestruíra ('Vimos o que a sen |  | Ch 21 |
-| A mensagem anônima de ameaça sugerindo que há mais em jogo d | Ch 13 |  |
-| A mensagem anônima exigindo os dados até sexta-feira revela  | Ch 2 |  |
-| A mensagem do comitê de ética exigindo os dados interpretado | Ch 3 |  |
-| A mensagem final: 'O nome é a próxima pessoa' — sugere que o | Ch 22 |  |
-| A menção a 1983 como ano potencialmente relevante na vida de | Ch 7 |  |
-| A menção aos doze sujeitos com IC entre 0,0009 e 0,0013 Dk q | Ch 11 |  |
-| A menção de Helena sobre as três semanas em 1983 (plantada n |  | Ch 22 |
-| A menção de que o custo informacional por minuto subiu de 3, | Ch 22 |  |
-| A metáfora da avó de Helena sobre a água que não corta a pró | Ch 22 |  |
-| A metáfora da equação incompleta da mãe de Elisa (S = k lo)  |  | Ch 22 |
-| A metáfora do granito como espelho de Helena (rocha que não  | Ch 5 |  |
-| A mãe de Elisa e a equação inacabada de Boltzmann continuam  |  | Ch 10 |
-| A nota da Evromind mencionada por Marcus no final prenuncia  | Ch 9 |  |
-| A nota do técnico do CERN 'como se alguém estivesse a transm |  | Ch 13 |
-| A nota misteriosa no caderno de Elisa ('Ela vai perguntar po |  | Ch 7 |
-| A nova hipótese de Elisa — de que a consciência escolhe quan | Ch 18 |  |
-| A observação de Helena de que Elisa 'não tem medo de mim, te | Ch 8 |  |
-| A oferta da Evromind a Elisa, anteriormente recusada, ganha  |  | Ch 9 |
-| A oferta da Evromind com acesso ilimitado aos dados brutos d | Ch 11 |  |
-| A oferta da Evromind por e-mail planta o conflito entre inte | Ch 4 |  |
-| A pergunta 'Qual é a diferença?' (entre a mãe que morreu a m | Ch 6 |  |
-| A pergunta 'a parte que não cabe é menor ou maior que a part | Ch 7 |  |
-| A pergunta 11 de Elisa: 'E se a consciência for o tipo de co | Ch 10 |  |
-| A pergunta 12 de Elisa — 'E se a Helena não for a exceção? E |  | Ch 12 |
-| A pergunta de Helena 'A senhora acha que eu sou uma pessoa?' |  | Ch 9 |
-| A pergunta de Helena a Elisa ('Você acha que eu sou uma pess |  | Ch 11 |
-| A pergunta de Helena sobre se ela é gente e o critério por t |  | Ch 21 |
-| A pergunta de Helena sobre ser 'a pessoa que decidiu que as  |  | Ch 2 |
-| A pergunta sobre o destino da entropia não gerada de Helena  | Ch 16 |  |
-| A possibilidade de que a equação de Boltzmann (S = k log W)  | Ch 5 |  |
-| A possibilidade de que os dados originais do CERN tenham sid | Ch 13 |  |
-| A quinta possibilidade que Elisa não escreve: Helena operar  | Ch 7 |  |
-| A reação física de Farkas (mão que se fecha, olhar desviado) |  | Ch 5 |
-| A recusa de Elisa em emitir o comunicado estabelece sua posi |  | Ch 6 |
-| A referência ao Zoltán, que morreu em 1983, sem que a causa  | Ch 3 |  |
-| A reflexão de Elisa sobre a equação de Boltzmann incompleta  | Ch 14 |  |
-| A relação de Marcus com Lina e as crises dela, estabelecida  |  | Ch 16 |
-| A reunião com Tomás Delgado, arranjada por Helena no capítul |  | Ch 10 |
-| A reunião com a Evromind em Berlim e o acesso aos dados brut | Ch 10 |  |
-| A revelação de Helena sobre os vinte e dois dias de 1983 est | Ch 15 |  |
-| A revelação de que a medição em si é o custo (não o resultad |  | Ch 22 |
-| A revelação de que alguém está sonhando com os dados de Hele | Ch 22 |  |
-| A rocha de granito de Zermatt (IC 0,001 Dk) é explicitamente |  | Ch 18 |
-| A semelhança física entre Tomás e Helena (inclinação de cabe | Ch 10 |  |
-| A senha 'Helena' para acessar os arquivos ocultos implica qu | Ch 8 |  |
-| A sugestão de que o padrão anômalo do CERN pode ter existido | Ch 12 |  |
-| A tensão entre Elisa e Renan, acumulada ao longo dos capítul |  | Ch 6 |
-| A tinta verde do corrimão que gruda nas mãos de Elisa no iní |  | Ch 3 |
-| A verdade 'não precisa de reservatório' é plantada como prin | Ch 9 |  |
-| A visita a Lina em Berna como terceira fonte de dados para c | Ch 16 |  |
-| A vizinha Sophie Engeler e a vigilância jornalística indicam | Ch 15 |  |
-| As anomalias de entropia negativa do CERN em 2018 como evidê | Ch 19 |  |
-| As três empresas de certificação de IC (Nexion, Tianzi, Evro | Ch 1 |  |
-| Dr. Farkas como fonte futura — ele sabia sobre 1983 e guardo | Ch 12 |  |
-| Existem três anomalias como Helena — o número e a natureza d | Ch 20 |  |
-| Helena confirma as três semanas de 1983 em Budapeste, valida |  | Ch 14 |
-| Mirela como fonte de informação sobre o passado de Helena | Ch 5 |  |
-| O 'Reservatório: N/D' é explicitamente ligado à possibilidad | Ch 9 |  |
-| O Post-it na porta de Marcus ('Não há bolos na sala de reuni | Ch 4 |  |
-| O Princípio da Compensação (entropia não desaparece) é conec |  | Ch 12 |
-| O Princípio da Compensação Entrópica como ferramenta forense | Ch 19 |  |
-| O agendamento de um encontro para o dia seguinte às 8h30 em  | Ch 17 |  |
-| O arquivo vazado da Evromind como fonte de dados sobre outro | Ch 19 |  |
-| O artigo de Marcus confirma independentemente a descoberta d |  | Ch 14 |
-| O artigo de Marcus que questiona o Formalismo Dragovski |  | Ch 17 |
-| O artigo de Renan mencionado em capítulos anteriores materia |  | Ch 13 |
-| O artigo de Renan que Elisa não conseguiu ler no início do c |  | Ch 15 |
-| O aviso de Farkas: 'As perguntas que a senhora faz mudam a p | Ch 16 |  |
-| O caderno da mãe e a equação incompleta reaparecem no pensam |  | Ch 19 |
-| O campo 'Reservatório: N/D' nos relatórios sugere que a Evro | Ch 8 |  |
-| O cartão de Helena com a balança — a figura humana mais pesa | Ch 1 |  |
-| O casaco vermelho, o pingente de carvalho e o regador de lat |  | Ch 18 |
-| O comentário de Renan no bioRxiv questionando a confiabilida | Ch 14 |  |
-| O convite coercitivo do reitor do ETH para uma reunião sobre | Ch 1 |  |
-| O disco USB com doze sujeitos ganha novo contexto — Evromind |  | Ch 13 |
-| O disco USB com os dados do CERN de 2018 e a nota 'Parece es | Ch 15 |  |
-| O disco USB da Evromind (plantado em capítulo anterior) é de |  | Ch 12 |
-| O disco USB no bolso esquerdo de Elisa com dados da Evromind | Ch 10 |  |
-| O disco USB no bolso esquerdo e o granito no direito continu | Ch 11 |  |
-| O disco rígido com dados anômalos do CERN de 2018, guardado  | Ch 2 |  |
-| O disco rígido de 2018 que Elisa guardava sem saber por quê  |  | Ch 22 |
-| O documento pessoal de Elisa — não destinado à publicação —  | Ch 15 |  |
-| O e-mail anônimo de origem desconhecida ('Sabemos que a anom | Ch 1 |  |
-| O e-mail da Nexion perguntando sobre protocolos de contenção | Ch 21 |  |
-| O e-mail de Mirela estabelece a pressão humana concreta — He | Ch 4 |  |
-| O e-mail de encerramento da colaboração de Renan Kapoor |  | Ch 17 |
-| O e-mail do Comitê Nobel com 30 dias de prazo permanece sem  | Ch 18 |  |
-| O elevador chamado do térreo com destino ao serviço de neuro | Ch 22 |  |
-| O fato de Elisa dormir profundamente pela primeira vez em mu | Ch 18 |  |
-| O formalismo de 20 anos de Elisa é diretamente desafiado — n |  | Ch 10 |
-| O formalismo termodinâmico da consciência (IC/Drakon), centr |  | Ch 2 |
-| O fragmento de granito de Zermatt (IC 0,001 Dk) reaparece co |  | Ch 19 |
-| O fragmento de granito de Zermatt é revelado como o ponto-ze |  | Ch 1 |
-| O gesto de Elisa de tocar a orelha esquerda ao mentir é esta | Ch 8 |  |
-| O gesto de Elisa de tocar a orelha esquerda quando mente — e |  | Ch 15 |
-| O granito de Zermatt no bolso de Elisa funciona como objeto- | Ch 4 |  |
-| O granito de Zermatt no bolso de Elisa, estabelecido no capí |  | Ch 2 |
-| O granito no bolso de Elisa como objeto recorrente de ancora | Ch 3 |  |
-| O granito no bolso de Elisa usado como talismã invertido par |  | Ch 17 |
-| O granito no bolso de Elisa é retomado como símbolo de friez |  | Ch 3 |
-| O granito no bolso de Elisa — rocha sem consciência — funcio | Ch 6 |  |
-| O granito no bolso de Elisa — seu gesto repetido de ancorage |  | Ch 15 |
-| O granito no bolso de Elisa, introduzido como âncora emocion |  | Ch 8 |
-| O granito no bolso de Elisa, objeto recorrente de ansiedade, |  | Ch 16 |
-| O granito no bolso de Elisa, polido por dois anos de ansieda |  | Ch 22 |
-| O granito no bolso de Elisa, presente desde capítulos anteri |  | Ch 7 |
-| O granito no bolso de Elisa, recorrente símbolo de sua recus |  | Ch 20 |
-| O hábito de Elisa de tocar no granito quando está com medo é |  | Ch 12 |
-| O isqueiro de Marcus, visível através do tecido da camisa, r | Ch 9 |  |
-| O luto reprimido de Elisa por Jana e o trauma do último guar |  | Ch 21 |
-| O manjericão com IC de 0,002 — o dobro de Helena — é retomad |  | Ch 9 |
-| O padrão de Renan de exigir verificação adicional se paga co |  | Ch 4 |
-| O padrão ocupacional entre os sujeitos com IC zero (tradutor | Ch 12 |  |
-| O período 1978–1984 em Budapeste como evento desencadeador d | Ch 5 |  |
-| O período de 1983 de Helena — três semanas em que pensar não | Ch 12 |  |
-| O provérbio húngaro 'a água não corta a sua própria fonte' s | Ch 18 |  |
-| O pré-print crítico de Renan Kapoor, mencionado anteriorment |  | Ch 16 |
-| O relógio atrasado de Helena continua funcionando como evidê |  | Ch 20 |
-| O relógio atrasado de Helena, mencionado em capítulos anteri |  | Ch 9 |
-| O relógio de parede de Helena que atrasa três minutos por di | Ch 3 |  |
-| O sedan escuro e a confirmação de vigilância estabelecem que | Ch 8 |  |
-| O vaso vazio na varanda com terra escura e úmida — alguém ar | Ch 3 |  |
-| O último guardanapo da mãe de Elisa — a equação incompleta S |  | Ch 15 |
-| O último guardanapo da mãe é revelado em detalhe, mostrando  |  | Ch 6 |
-| Os 47 guardanapos com equações — acumulados desde o capítulo |  | Ch 18 |
-| Os dados da ressonância de 2019, já mencionados em capítulos |  | Ch 5 |
-| Os dados de Lina mostram IC negativo durante crises — entrop |  | Ch 14 |
-| Os doze nomes do CERN expostos a condições de alta energia f | Ch 14 |  |
-| Os guardanapos da mãe de Elisa e a equação de Boltzmann inco |  | Ch 9 |
-| Os sete testes de Lena Hartmann confirmam definitivamente o  |  | Ch 13 |
-| Os trezentos mil sujeitos medidos pela Evromind que podem co | Ch 13 |  |
-| Os três casos adicionais de IC anormalmente baixo descoberto | Ch 10 |  |
-| Os três pressupostos do formalismo, que Elisa revisa no labo |  | Ch 4 |
-| Picos térmicos quase periódicos de 0,3°C na câmara de Farada | Ch 21 |  |
-| Renan vai contactar o comitê contra Elisa, o que terá conseq | Ch 6 |  |
-| Tomás Delgado é introduzido como novo personagem — jesuíta,  | Ch 7 |  |
-| Um grupo organizado vigia, monitora e apaga rastros de fenôm | Ch 20 |  |
-| Yuki Tanaka como ameaça ativa com fonte interna desconhecida | Ch 5 |  |
+| A correlação entre os dados do CERN e Helena (mencionada des |  | Ch 16 |
+| A correlação temporal de quatro minutos entre colisões do CE |  | Ch 13 |
+| A data 14 de março como combinação do cofre conecta a mensag | Ch 20 |  |
+| A decisão de Elisa de ir a Kreuzlingen ver Farkas, antecipad |  | Ch 16 |
+| A deriva de calibração do Nexion (0,0003 Dk/mês para baixo)  | Ch 14 |  |
+| A descoberta de que Lina exporta custo termodinâmico para fo |  | Ch 14 |
+| A descrição do laboratório como 'aberto demais' e sem janela |  | Ch 8 |
+| A dinâmica entre Elisa e Helena se aprofunda: Helena percebe |  | Ch 8 |
+| A discussão sobre o formalismo do IC e a pergunta 'o que é u |  | Ch 2 |
+| A entropia exportada por Helena precisa de uma assinatura de | Ch 2 |  |
+| A equação de Boltzmann (S = k log W) como princípio fundamen | Ch 1 |  |
+| A equação incompleta da mãe de Elisa (S = k log W) pode ser  | Ch 5 |  |
+| A equação incompleta de Boltzmann no guardanapo da mãe de El | Ch 14 |  |
+| A equação incompleta de Jana (S = k lo) como pista de que a  | Ch 22 |  |
+| A equação incompleta de Jana no guardanapo ('S = k lo—') per | Ch 18 |  |
+| A escolha de Elisa de abraçar Helena (plantada no capítulo a |  | Ch 20 |
+| A exigência do reitor do ETH pelo relatório completo — a pre | Ch 10 |  |
+| A filha de Marcus, Lina, cujas crises cessaram contrariando  | Ch 6 |  |
+| A fonte anônima de Tomás dentro da base de dados central do  | Ch 10 |  |
+| A formulação do formalismo em Viena (2016), quando Elisa cho |  | Ch 1 |
+| A foto de Helena sendo vigiada no parque de Oerlikon — algué | Ch 9 |  |
+| A fotografia de 1983 mostra Helena 'leve' por três semanas a | Ch 2 |  |
+| A fotografia de Jana Dragowska no apartamento, com giz na mã | Ch 1 |  |
+| A fotografia de março de 1983 é levada por Elisa como prova  |  | Ch 3 |
+| A frase 'A terceira geração será receptora. A quarta será tr | Ch 13 |  |
+| A frase 'nunca voltou' carrega uma razão emocional profunda  | Ch 5 |  |
+| A frase da avó de Helena — 'A água não corta a sua própria f | Ch 17 |  |
+| A frase de Helena a Farkas: 'Mudaram-nos de lugar no mundo'  | Ch 12 |  |
+| A frase do diplomata soviético 'Esta menina não está traduzi | Ch 16 |  |
+| A frequência de Schumann (7,83 Hz) como possível ligação ent | Ch 22 |  |
+| A hipótese de que Helena opera em dois regimes simultâneos — | Ch 19 |  |
+| A história de Alejandro Muñoz e a afirmação de Tomás de que  | Ch 11 |  |
+| A identidade e o motivo de quem moveu as canecas no escritór | Ch 11 |  |
+| A insónia e a obsessão de Elisa por dados quantitativos (con |  | Ch 5 |
+| A insônia de Elisa e a suspeita de que seu corpo moveu as ca |  | Ch 13 |
+| A insônia de Elisa e seu hábito de catalogar objetos com pre |  | Ch 2 |
+| A intrusão no gabinete de Elisa confirma que alguém está agi |  | Ch 9 |
+| A invasão coordenada dos escritórios de Elisa e Marcus suger | Ch 18 |  |
+| A jornalista japonesa que bateu à porta de Helena com os doz | Ch 13 |  |
+| A ligação de Tomás Delgado introduz um novo personagem e uma | Ch 7 |  |
+| A mensagem 'a porta abre dos dois lados' sugere que a anomal | Ch 21 |  |
+| A mensagem anônima ('Sabemos que a anomalia é real. Não inve | Ch 1 |  |
+| A mensagem anônima alertando que o pré-print de Renan foi ac | Ch 16 |  |
+| A mensagem anônima de 'H': 'Os dados de 2018 não são ruído'  | Ch 6 |  |
+| A mensagem anônima de número bloqueado e sua origem desconhe | Ch 19 |  |
+| A mensagem anônima recebida por Elisa — 'Cuidado com quem co | Ch 13 |  |
+| A mensagem autodestrutiva ('vimos o que a senhora viu') conf |  | Ch 20 |
+| A mensagem de Helena 'até sábado, traga o leite' estabelece  | Ch 18 |  |
+| A mensagem do comitê de ética exigindo os dados de Helena in | Ch 3 |  |
+| A mensagem final de Helena ('Traga o leite') sugere um encon | Ch 17 |  |
+| A mensagem final: 'O nome é a próxima pessoa' — sugerindo qu | Ch 22 |  |
+| A menção aos dados de 2018 guardados no cofre do escritório  | Ch 7 |  |
+| A menção de Mirela a 'coisas que não têm nome' ecoa e aprofu |  | Ch 6 |
+| A mesa posta para dois no apartamento de Helena levanta a qu | Ch 11 |  |
+| A metáfora da mãe sobre a equação incompleta se conecta dire |  | Ch 22 |
+| A mulher da Evromind e o homem da Nexion demonstram interess | Ch 18 |  |
+| A mãe de Elisa deixou uma equação incompleta num guardanapo  | Ch 2 |  |
+| A nota misteriosa no caderno de Elisa — 'Ela vai perguntar p |  | Ch 7 |
+| A observação de Helena de que Elisa 'tem medo do que eu sign | Ch 8 |  |
+| A oferta da Evromind de laboratório privado sem supervisão i | Ch 4 |  |
+| A oscilação térmica de 3,7 segundos descrita por Lena como ' | Ch 9 |  |
+| A pasta sem nome datada de 14 de março de 1986 no disco rígi | Ch 13 |  |
+| A pergunta de Helena 'a senhora acha que está being guiada?' | Ch 20 |  |
+| A pergunta de Helena a Elisa — 'A senhora acha que eu sou um |  | Ch 5 |
+| A pergunta de Helena — 'a senhora acha que eu sou uma pessoa |  | Ch 3 |
+| A pergunta de Marcus sobre se Helena é 'uma pessoa' (capítul |  | Ch 20 |
+| A pergunta de Tomás Delgado — se a parte não mensurável da c | Ch 7 |  |
+| A pergunta final de Elisa: 'E se pensar não desordena este u | Ch 12 |  |
+| A pergunta sobre para onde vai a entropia que deveria ter si | Ch 16 |  |
+| A possibilidade de Lina ser testada com o equipamento de IC  | Ch 16 |  |
+| A possibilidade de que Helena esteja exportando entropia par | Ch 6 |  |
+| A preparação do encontro com Mirela (anotação no caderno, li |  | Ch 7 |
+| A pressão de Mirela sobre o assédio jornalístico a Helena, m |  | Ch 4 |
+| A quinta possibilidade que Elisa não escreve — que a consciê | Ch 7 |  |
+| A relação entre Elisa e Farkas como guardiões involuntários  |  | Ch 18 |
+| A relação entre tradução simultânea e o estado de pensamento |  | Ch 16 |
+| A resposta diluída do comitê do Nobel (revisão só em junho d | Ch 21 |  |
+| A reunião com Mirela confirma que Helena cancelou sessões co |  | Ch 6 |
+| A reunião do reitor às 14h como ponto de inflexão sobre quem | Ch 15 |  |
+| A revelação de Helena sobre os vinte e dois dias de 1983 tra |  | Ch 15 |
+| A revelação de que Helena era tradutora de russo no Ministér |  | Ch 6 |
+| A revelação de que Renan Kapoor é a fonte do vazamento trans |  | Ch 9 |
+| A revelação de que existem outras pessoas abaixo do limiar d |  | Ch 10 |
+| A revelação de que houve múltiplas pessoas em Budapeste em m | Ch 15 |  |
+| A segunda linha estruturada nos dados térmicos (batimento ca | Ch 12 |  |
+| A segunda linha nos gráficos de entropia, detectada por Lena |  | Ch 13 |
+| A temperatura constante de Helena (36,8°C, zero variação) é  |  | Ch 22 |
+| A traição de Marcus se concretiza: ele publica o artigo sem  |  | Ch 14, Ch 15 |
+| A violação do escritório (canecas, cartão clonado) é confirm |  | Ch 17 |
+| A visita de Elisa ao túmulo de Boltzmann em 2016 é mencionad |  | Ch 1 |
+| A vizinha Sophie Engeler alerta sobre uma mulher com câmera  |  | Ch 15 |
+| A voz anônima que dá o ultimato de sexta-feira revela que há | Ch 2 |  |
+| Alguém está sonhando com os dados e usando o sonho para cons | Ch 22 |  |
+| Alguém está usando o código pessoal de Elisa para acessar si | Ch 20 |  |
+| As medições repetidas do IC com filtro de irreversibilidade  |  | Ch 6 |
+| As mensagens sem remetente continuam e agora revelam informa |  | Ch 21 |
+| As três ilhas de silêncio térmico no cérebro de Helena suger | Ch 5 |  |
+| As três semanas de 1983 em que Helena não sonhava — consciên | Ch 22 |  |
+| As três semanas de 1983 em que Helena pensava sem custo entr | Ch 17 |  |
+| Dmitri Volsky afirma ter vivenciado pessoalmente o que acont | Ch 14 |  |
+| Dmitri Volsky, filho do diplomata soviético e pesquisador no | Ch 13 |  |
+| Existem exatamente três pessoas com IC anômalo como Helena — | Ch 20 |  |
+| Helena autoriza acesso aos registros médicos e ao que Dr. Fa |  | Ch 14 |
+| Helena cancela as sessões com Farkas, sinalizando que algo n |  | Ch 21 |
+| Helena confirma que sabe que Elisa está investigando e que h |  | Ch 11 |
+| Helena ouve um silêncio com padrão de pensamento e sente que | Ch 21 |  |
+| Helena revela que durante as três semanas de 1983 não sentia | Ch 14 |  |
+| Magda Tóth como possível sobrevivente do grupo de Budapeste  | Ch 12 |  |
+| Mirela, a filha de Helena em Berna, é plantada como fonte al | Ch 5 |  |
+| O Dr. Farkas sabe mais do que diz por telefone e marcou enco | Ch 19 |  |
+| O Dr. Farkas sabia do evento de 1983 e guardou o segredo por | Ch 22 |  |
+| O Evromind oferecendo dinheiro 'sem condições' para replicar | Ch 15 |  |
+| O Princípio da Compensação Entrópica se manifesta de forma i |  | Ch 19 |
+| O Princípio da Compensação Entrópica é demonstrado fisicamen |  | Ch 20 |
+| O arquivo encriptado de Tomás Delgado com os nomes das três  | Ch 10 |  |
+| O artigo da Nature sobre Helena Varga se materializa e já es |  | Ch 9 |
+| O campo 'Reservatório: N/D' nos relatórios dos sujeitos suge | Ch 8 |  |
+| O cancelamento da reunião pela Evromind confirma que a corpo |  | Ch 11 |
+| O carro de vigilância sem placa visível estabelece que a Evr | Ch 8 |  |
+| O carro preto com vidros escuros que segue Elisa e está esta | Ch 10 |  |
+| O cartão da balança com 'Desculpe' é revelado como gesto de  |  | Ch 2 |
+| O ciclo térmico de 3,7 segundos de Helena é mencionado como  | Ch 18 |  |
+| O ciclo térmico de 3,7 segundos de Helena, detectado no capí |  | Ch 19 |
+| O comitê que se reúne na sexta-feira (em dois dias) é mencio | Ch 7 |  |
+| O componente não-termodinâmico da consciência é confirmado i | Ch 14 |  |
+| O conceito de custo informacional cumulativo — informação pr | Ch 21 |  |
+| O desenho da balança de Helena (plantado no capítulo anterio |  | Ch 21 |
+| O desenho da balança deixa explícito o conflito central: Hel |  | Ch 9 |
+| O desenho da balança enviado por Helena é recebido e confron |  | Ch 17 |
+| O disco USB e os dados do CERN mencionados como deixados no  |  | Ch 12 |
+| O disco rígido de 2018 (guardado desde o Capítulo 1) revela  |  | Ch 22 |
+| O disco rígido de 2018 mencionado por Marcus e pelo misterio | Ch 4 |  |
+| O disco rígido de 2018 no cofre contém dados com assimetria  | Ch 2 |  |
+| O disco rígido de 2018 é roubado, confirmando que os dados d |  | Ch 21 |
+| O disco rígido do CERN 2018 está com Elisa, mas a combinação | Ch 17 |  |
+| O disco rígido do CERN 2018 no cofre da sala 3.17 é menciona |  | Ch 19 |
+| O ditado da avó de Helena sobre a água e a fonte, introduzid |  | Ch 18 |
+| O documento pessoal de Elisa admitindo que o formalismo desc | Ch 15 |  |
+| O doutor Farkas é mencionado como alguém que sabe do episódi | Ch 3 |  |
+| O encontro marcado com Dmitri Volsky para amanhã às 9h no la | Ch 15 |  |
+| O envelope de 1983 com a sequência ATLAS-181014-14:03-13.6-T |  | Ch 13 |
+| O episódio de 1983 com os vinte e dois dias de 'clareza cogn | Ch 3 |  |
+| O evento de 1983 mencionado por Helena na noite da morte de  |  | Ch 22 |
+| O fato de a senha do diretório oculto ser 'Helena' implica q | Ch 8 |  |
+| O filtro de irreversibilidade de Marcus será usado em novas  | Ch 5 |  |
+| O formalismo de Elisa (IC como correlato termodinâmico da co |  | Ch 1 |
+| O fragmento de granito de Zermatt (2,7 g/cm³, IC 0,001 Dk) c |  | Ch 18 |
+| O fragmento de granito de Zermatt como objeto-talismã de Eli | Ch 1 |  |
+| O granito de Zermatt continua como objeto de ancoragem de El |  | Ch 12 |
+| O granito no bolso de Elisa (do capítulo anterior) ganha com |  | Ch 2 |
+| O granito no bolso de Elisa (presente desde o início) é menc |  | Ch 22 |
+| O granito no bolso de Elisa, presente desde capítulos anteri |  | Ch 4, Ch 5 |
+| O granito no bolso de Elisa, recorrente em capítulos anterio |  | Ch 8 |
+| O granito no bolso de Elisa, recorrente símbolo da ausência  |  | Ch 7 |
+| O isqueiro de Marcus no bolso da camisa — detalhe de caracte |  | Ch 12 |
+| O keylogger de nível militar sugere envolvimento estatal, nã | Ch 17 |  |
+| O manjericão na varanda de Helena tem um IC estimado de 0,00 | Ch 2 |  |
+| O medo de Helena e o cancelamento das sessões confirmam que  |  | Ch 10 |
+| O medo inexplicável de Helena — ela não teme coisas pequenas | Ch 12 |  |
+| O nome Magda Tóth, mencionado por Lena no telefonema do capí |  | Ch 13 |
+| O número desconhecido que envia mensagens a Elisa, alguém co | Ch 4 |  |
+| O painel independente de revisão convocado por Renan, que se | Ch 6 |  |
+| O paralelo entre Helena e Mirela (mesmos olhos azuis, mesma  |  | Ch 7 |
+| O pingente de carvalho de Helena é usado novamente como gest |  | Ch 12 |
+| O reitor antecipou a reunião — Elisa enfrentará consequência | Ch 21 |  |
+| O reitor do ETH convoca Elisa formalmente para amanhã às 14h | Ch 19 |  |
+| O relógio de Helena que atrasa três minutos e o manjericão n | Ch 4 |  |
+| O relógio de Helena que atrasa três minutos por dia é um det | Ch 3 |  |
+| O relógio de parede de Helena atrasa três minutos por dia —  | Ch 2 |  |
+| O sensor com espiral logarítmica sugere tecnologia que não d | Ch 20 |  |
+| O ultimato de dez dias do reitor — cria uma contagem regress | Ch 12 |  |
+| O vaso vazio na varanda de Helena, com terra úmida de onde u | Ch 3 |  |
+| Os 47 guardanapos da mãe de Elisa guardados debaixo da cama, | Ch 9 |  |
+| Os dados de 2018 estão sendo espalhados intencionalmente por | Ch 21 |  |
+| Os dados do CERN 2018 que Elisa guardava no cofre — menciona |  | Ch 20 |
+| Os dados vazados do Evromind, obtidos anteriormente por Yuki |  | Ch 19 |
+| Os doze nomes do CERN são conectados a Helena — todas as doz |  | Ch 14 |
+| Os doze sujeitos com IC zero mencionados no arquivo de Tomás |  | Ch 11 |
+| Os episódios recorrentes de pensamento sem esforço de Helena | Ch 10 |  |
+| Os guardanapos de Jana, que Elisa guarda desde o capítulo an |  | Ch 18 |
+| Os picos térmicos de 0,0003°C a cada 3,7 segundos são confir |  | Ch 21 |
+| Os quatro casos de IC próximo de zero espalhados por três co | Ch 19 |  |
+| Renan Kapoor oferece assinar um contra-artigo, admitindo pel |  | Ch 15 |
+| Renan publica comentários aparentemente técnicos mas estrate | Ch 14 |  |
+| Três anomalias confirmadas (Helena, Genebra, Berna) — as out | Ch 21 |  |
+| Uma entidade desconhecida ('nós') vigia, limpa e conta — sua | Ch 20 |  |
+| Yuki Tanaka da Nature sabendo da anomalia antes de qualquer  | Ch 4 |  |
+| Yuki Tanaka oferece informações sobre o período de Helena em | Ch 6 |  |
+| Yuki Tanaka recebe dados anônimos sobre a periodicidade, con |  | Ch 17 |
+| Yuki Tanaka tem uma fonte interna que sabe sobre Budapeste,  | Ch 5 |  |
 
 ---
 
