@@ -1,23 +1,89 @@
 # Diretivas Gerais
-- Revisar todo o manuscrito para garantir o Português do Brasil (PT-BR), transcrevendo termos de Portugal (ex: "ecrã" -> "tela", "acto" -> "ato", "projecto" -> "projeto", "contacto" -> "contato", "secretária" -> "escrivaninha", "dezanove" -> "dezenove").
-- Corrigir a consistência da residência de Helena: o apartamento de Helena em Oerlikon fica sempre no 5º andar, porta 5C (corrigir qualquer menção a 3º andar).
-- O cofre com o disco rígido do CERN 2018 fica no escritório do ETH (HPF, sala 3.17) e a combinação é 14 de março.
+- Revisar todo o manuscrito para garantir o Português do Brasil (PT-BR) formal e literário, transcrevendo termos de Portugal (ex: 'ecrã' -> 'tela', 'acto' -> 'ato', 'projecto' -> 'projeto', 'contacto' -> 'contato', 'secretária' -> 'escrivaninha', 'dezanove' -> 'dezenove').
+- Evitar resquícios de tradução do inglês ou construções sintáticas literais em inglês.
+- Manter a consistência de locais e lore já estabelecidos (apartamento de Helena em Oerlikon no 5º andar, porta 5C; cofre do CERN no ETH sala 3.17).
 
 # Capítulo 1
-- affects_downstream: 2, 4
-- Terminar o capítulo na primeira noite: Elisa revisando os dados no laptop em seu apartamento em Hottingen, cruzando com a anomalia do CERN de 2018 e recebendo a mensagem anônima no celular: "Não investigue sozinha."
-- REMOVER toda a sequência do dia seguinte deste capítulo (a ida ao escritório pela manhã, a descoberta da invasão, o cartão deixado por Helena, a convocação do reitor e a caminhada até Oerlikon). Isso deve ser movido/tratado nos capítulos seguintes para evitar loops temporais.
+- affects_downstream: 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22
+- Correção de Continuidade (Gravidade HIGH): O episódio de 1983 de Helena (três semanas/vinte e dois dias de pensamento sem custo termodinâmico após uma sessão de tradução exaustiva em Budapeste) é revelado e repetido em pelo menos 15 capítulos diferentes. A revelação ocorre em: capítulo 3 (Helena revela a Elisa), capítulo 5 (Farkas revela a Elisa), capítulo 6 (Mirela menciona), capítulo 10 (Helena confessa novamente), capítulo 11 (mencionado), capítulo 12 (Helena revela novamente), capítulo 13 (mencionado), capítulo 14 (Helena revela a Elisa outra vez), capítulo 15 (mesmo), capítulo 16 (Farkas revela a Elisa outra vez, idêntico ao capítulo 5), capítulo 17 (Helena revela outra vez), capítulo 18 (mencionado), capítulo 19 (mencionado), capítulo 21 (mencionado), capítulo 22 (Helena revela outra vez). Cada vez é tratado como se fosse uma nova revelação ou um novo ângulo, mas o conteúdo factual é o mesmo. -> O episódio de 1983 deve ser revelado completamente em uma única cena (preferencialmente no capítulo 3 ou 5). Nos capítulos posteriores, os personagens devem referenciar o evento já conhecido e adicionar camadas novas (por exemplo: quem mais estava envolvido, o que o diplomata soviético sabia, como se conecta ao CERN, o que aconteceu com as outras pessoas). A repetição da mesma informação factual sem progressão narrativa deve ser eliminada.
+- Correção de Continuidade (Gravidade HIGH): A anomalia térmica de 3,7 segundos de Helena (oscilação de 0,0003°C a cada 3,7 segundos) é 'descoberta' e 'confirmada' em pelo menos 14 capítulos diferentes. No capítulo 2, Elisa e Marcus discutem a anomalia térmica. No capítulo 9, Lena revela a oscilação como se fosse nova. No capítulo 10, Lena mostra a anomalia como descoberta recente. No capítulo 11, Elisa 'descobre' a periodicidade. No capítulo 12, Lena mostra a 'segunda linha estruturada'. No capítulo 13, a correlação é 'confirmada'. No capítulo 17, Lena 'revela' a anomalia periódica. No capítulo 19, Elisa 'confirma' o ciclo. No capítulo 21, os picos são 'confirmados' novamente. Cada vez é tratado como nova descoberta ou nova confirmação, sem referência às detecções anteriores. -> A anomalia de 3,7 segundos deve ser descoberta uma vez (por exemplo, capítulo 2) e confirmada uma vez (por exemplo, capítulo 9). Nos capítulos posteriores, os personagens devem referenciar a anomalia como fato estabelecido e investigar novos aspectos (por exemplo: a natureza da linguagem, a conexão com o CERN, a relação com a frequência de Schumann, o significado do padrão).
+- Correção de Continuidade (Gravidade MEDIUM): A linha do tempo global é extremamente confusa e inconsistente. Não está claro quantos dias se passam entre os capítulos. O capítulo 1 termina com Elisa sem dormir após receber a mensagem anônima. O capítulo 2 começa com a descoberta da intrusão no escritório, mas não está claro se é no dia seguinte ou no mesmo dia. O capítulo 3 descreve duas visitas a Helena no mesmo dia. O capítulo 6 menciona que o painel independente se reúne 'na sexta'. O capítulo 7 menciona 'em dois dias' para o comitê. O capítulo 9 menciona 'sexta-feira, 20 de março'. O capítulo 12 menciona 'dez dias até a publicação'. O capítulo 13 menciona 'até sexta-feira'. Esses prazos não se alinham de forma coerente, e não há uma progressão temporal clara que permita ao leitor situar os eventos em uma linha do tempo compreensível. -> Estabelecer uma linha do tempo clara com datas ou marcadores temporais explícitos (ex: 'Dia 1', 'Dia 2', 'uma semana depois'). Cada capítulo deve indicar quanto tempo se passou desde o anterior. Os prazos (sexta-feira, dez dias, etc.) devem ser consistentes e convergir para um ponto narrativo definido.
+- Correção de Continuidade (Gravidade MEDIUM): A motivação de Elisa para visitar Helena muda constantemente sem justificativa. No capítulo 1, ela vai pessoalmente fazer os testes. No capítulo 2, ela visita para entender a anomalia. No capítulo 3, ela vai para completar a avaliação clínica, mas volta no mesmo dia sem motivo claro além de não conseguir responder a uma pergunta. No capítulo 4, ela vai 'sem aviso'. No capítulo 8, ela busca refúgio. No capítulo 9, ela vai após receber a foto de Helena sendo vigiada. No capítulo 11, ela vai após Marcus não conseguir contato. No capítulo 12, ela vai para confrontar sobre o desenho. No capítulo 13, ela vai após a pressão do ETH. No capítulo 14/15, ela vai para obter autorização médica. No capítulo 17, ela vai confrontar sobre o desenho (repetição). No capítulo 18, ela acorda no apartamento (implica que dormiu lá, sem transição clara). No capítulo 20, ela vai admitir que o formalismo está errado. No capítulo 21, ela vai após as mensagens anônimas. A repetição de visitas sem progressão clara de propósito enfraquece a causalidade. -> Cada visita de Elisa ao apartamento de Helena deve ter um propósito claro e distinto que avance a trama. As visitas devem ser reduzidas e cada uma deve resultar em uma mudança de estado (nova informação, nova decisão, nova relação). Evitar visitas que terminam sem consequência ou que repetem o mesmo padrão emocional.
+- Correção de Continuidade (Gravidade HIGH): A pergunta central 'Helena é uma pessoa?' é feita e/ou respondida em pelo menos 10 capítulos diferentes (1, 2, 3, 4, 6, 7, 10, 12, 17, 20) sem progressão clara. No capítulo 3, Elisa finalmente responde 'A senhora é uma pessoa. O número não decide isso.' Nos capítulos 4, 6, 7, 10, 12, 17 e 20, a mesma pergunta é reformulada e Elisa novamente não consegue responder ou responde de forma ambígua, como se a resolução do capítulo 3 nunca tivesse acontecido. -> A pergunta 'Helena é uma pessoa?' deve ter um arco claro: feita inicialmente (capítulos 1-2), respondida afirmativamente (capítulo 3), e depois explorada em suas consequências (capítulos posteriores). Uma vez respondida, a questão não deve ser repetida como aberta — em vez disso, o debate deve evoluir para 'o que significa ser uma pessoa se o formalismo não consegue medir?' ou 'o que fazer com essa resposta?'.
+- Correção de Continuidade (Gravidade MEDIUM): Múltiplos plants nunca são colhidos. A equação incompleta da mãe de Elisa (S = k log W) é plantada no capítulo 1 e mencionada em dezenas de capítulos, mas nunca é completada ou explicada de forma definitiva. O vaso vazio na varanda de Helena (capítulo 3) nunca é explicado. A filha de Marcus, Lina, é plantada como caso paralelo (capítulo 6) e mencionada ocasionalmente, mas seu arco nunca se resolve. A frequência de Schumann (capítulo 22) é descoberta mas não explicada. O conceito de 'Reservatório' (capítulo 8) nunca é desenvolvido. A 'quarta geração transmissora' (capítulo 13) nunca é totalmente explorada. A 'próxima pessoa' (capítulo 22) nunca é identificada. -> Para cada plant estabelecido, garantir que haja uma colheita correspondente antes do final da narrativa. Se um plant não será colhido, removê-lo para não criar expectativa frustrada. Priorizar os plants centrais (equação da mãe, Reservatório, quarta geração, próxima pessoa) e desenvolvê-los em arcos completos.
 
 # Capítulo 2
-- affects_downstream: 3, 4
-- Iniciar o capítulo na manhã seguinte (Dia 2): Elisa chega ao escritório HPF do ETH, percebe que o local foi mexido (as canecas do CERN mudaram de ordem), e recebe do segurança o envelope deixado por Helena com o desenho da balança (humano pesando mais que a pedra) e a palavra "Desculpe".
-- Incluir a convocação do reitor para as 14h e o telefonema para Marcus avisando da invasão.
-- Manter a caminhada reflexiva de Elisa até o lago (Bürkliplatz), a mensagem de Lena Hartmann e a ida ao laboratório do USZ onde Lena revela a anomalia térmica periódica de 0,0003 graus a cada 3,7 segundos.
-- Manter o recebimento da mensagem de ultimato exigindo a entrega dos dados de Helena até sexta-feira.
-- Inserir neste capítulo o telefonema do Dr. Farkas avisando que Helena cancelou as sessões por cansaço. Elisa decide ir ao apartamento dela em Oerlikon imediatamente. O capítulo termina com ela caminhando em direção ao prédio de Helena (5º andar, porta 5C).
-- REMOVER a conversa de madrugada com Marcus às 3h da manhã e o acesso ao cofre (já que ela descobriu os dados na noite anterior no laptop). O debate sobre a "falácia da inversa" e a "Máquina de Maxwell" não deve ser repetido aqui.
+- affects_downstream: 9, 11, 12, 13, 17, 18, 19
+- Correção de Continuidade (Gravidade HIGH): O evento de Elisa encontrar canecas fora de ordem e um cartão/envelope com o desenho de uma balança e a palavra 'Desculpe' se repete em pelo menos sete capítulos (2, 9, 11, 12, 13, 17, 19) como se fosse a primeira vez. No capítulo 2, o cartão é explicitamente revelado como gesto de Helena (colheita). Nos capítulos 9, 11, 12, 13, 17 e 19, o mesmo evento é descrito novamente com a mesma descoberta, a mesma surpresa e os mesmos detalhes (canecas movidas, envelope com balança, 'Desculpe'), sem referência ao fato de que isso já aconteceu e foi explicado. Isso constitui uma repetição narrativa grave que quebra a causalidade. -> O evento das canecas e do cartão da balança deve ocorrer apenas uma vez (preferencialmente no capítulo 2, onde é colhido). Nos capítulos posteriores, se houver novas intrusões, elas devem ser claramente distintas (mensagens diferentes, objetos diferentes, métodos diferentes) e Elisa deve referenciar a intrusão anterior como contexto, não reagir como se fosse inédita.
+- Correção de Continuidade (Gravidade MEDIUM): A invasão do escritório de Elisa (canecas movidas, intrusão noturna) é descrita em pelo menos quatro capítulos com os mesmos detalhes e a mesma reação de surpresa. No capítulo 2, Elisa encontra o escritório violado e descobre que foi Helena. No capítulo 12, o mesmo evento é descrito como se fosse a primeira vez. No capítulo 17, Elisa descobre a intrusão novamente. No capítulo 18, a invasão é mencionada como tendo ocorrido na noite anterior, com os mesmos detalhes (cartão copiado, keylogger instalado no capítulo 17; canecas fora de ordem no capítulo 18). -> A primeira invasão (capítulo 2, por Helena) deve ser mantida. As invasões subsequentes devem ser claramente distintas em método, propósito e perpetrador. Elisa deve referenciar as invasões anteriores e ajustar seu comportamento (por exemplo: trocar fechaduras, instalar câmeras, usar cofre diferente). A reação de surpresa deve ser substituída por reconhecimento de padrão.
+
+# Capítulo 3
+- affects_downstream: 4
+- Correção de Continuidade (Gravidade HIGH): O capítulo 3 descreve duas visitas de Elisa ao apartamento de Helena no mesmo dia, com a pergunta 'a senhora acha que eu sou uma pessoa?' sendo feita e Elisa incapaz de responder na primeira visita, retornando para afirmar 'A senhora é uma pessoa' na segunda. O capítulo 4 repete a visita de Elisa ao apartamento de Helena com a mesma pergunta ('o que a senhora acha que eu sou?') e a mesma incapacidade de resposta, como se a resolução do capítulo 3 nunca tivesse acontecido. Além disso, o capítulo 4 repete a confirmação experimental do IC de Helena (~0,001 Dk) com três sessões, que já havia sido estabelecida no capítulo 1 e confirmada no capítulo 2. -> No capítulo 4, Elisa deve referenciar a visita anterior e a afirmação já feita ('A senhora é uma pessoa'). A nova visita deve ter um propósito distinto — por exemplo, discutir as implicações da anomalia com Helena já sabendo que Elisa a reconhece como pessoa, avançando o debate para um novo patamar. A confirmação experimental do IC deve ser referenciada como já estabelecida, não repetida como nova descoberta.
+- Melhoria de Qualidade: O rascunho anterior obteve nota baixa (3.70). Elimine tiques de IA, clichês e melhore o ritmo e a interioridade de Elisa.
 
 # Capítulo 4
-- affects_downstream: 5
-- Limpar qualquer repetição desnecessária do debate conceitual sobre a "falácia da inversa" e a calibração dos sensores com Marcus, visto que isso já foi amplamente discutido no Capítulo 1.
-- Focar a discussão na validação dos dados das três sessões para o comitê, na chamada de Oxford com Renan e no aumento das pressões externas (Yuki Tanaka, Evromind e Mirela).
+- Aplicar correções gerais de estilo e consistência neste capítulo.
+
+# Capítulo 5
+- affects_downstream: 16
+- Correção de Continuidade (Gravidade HIGH): Os capítulos 5 e 16 contêm a mesma cena central: Elisa viajando a Kreuzlingen para interrogar o Dr. Farkas sobre o passado de Helena em Budapeste, com Farkas revelando o episódio de 1983 (tradução de seis horas, pensamento sem custo termodinâmico por três semanas). Os detalhes são praticamente idênticos: a frase do diplomata soviético 'ela está pensando, não traduzindo', a duração de três semanas, e a revelação de que o evento deixou uma cicatriz permanente medida como IC de 0,001. O capítulo 16 adiciona a visita a Lina em Berna, mas a cena de Farkas é uma repetição direta. -> Manter a cena de Farkas em apenas um capítulo. Se for necessário revisitá-la, Elisa deve referenciar a conversa anterior e buscar informações novas (por exemplo, os nomes das outras pessoas de Budapeste, ou detalhes sobre a 'redistribuição'). A visita a Lina pode ser o foco principal do segundo capítulo, sem repetir a cena de Farkas.
+
+# Capítulo 6
+- affects_downstream: 7
+- Focar estritamente no encontro com Mirela no Kaffeehaus em Berna e obter as notas confidenciais.
+- Melhoria de Qualidade: O rascunho anterior obteve nota baixa (5.00). Elimine tiques de IA, clichês e melhore o ritmo e a interioridade de Elisa.
+
+# Capítulo 7
+- Divergência Narrativa: PROIBIDO repetir a viagem de trem para Berna ou o encontro com Mirela. O capítulo deve focar inteiramente no retorno de Elisa a Zurique na mesma tarde, na análise física das notas no trem de volta e na videoconferência tensa completa com o Padre Tomás Delgado.
+
+# Capítulo 8
+- affects_downstream: 10
+- Correção de Continuidade (Gravidade MEDIUM): Ambos os capítulos descrevem a descoberta de que existem outras pessoas com IC abaixo do limiar. No capítulo 8, Elisa encontra um diretório oculto com dezenove relatórios de sujeitos com IC próximo de zero no laboratório da Evromind. No capítulo 10, Tomás Delgado revela a existência de 'pelo menos três outras pessoas com IC abaixo do limiar'. A revelação é tratada como nova informação no capítulo 10, apesar de Elisa já ter encontrado dezenove casos no capítulo 8. -> No capítulo 10, Tomás deve referenciar os dezenove casos já descobertos por Elisa e oferecer informação complementar (por exemplo, nomes específicos, conexões entre os casos, ou a identidade do informante dentro da Evromind). A revelação de Tomás deve avançar o que Elisa já sabe, não repetir a mesma descoberta.
+
+# Capítulo 9
+- Melhoria de Qualidade: O rascunho anterior obteve nota baixa (5.40). Elimine tiques de IA, clichês e melhore o ritmo e a interioridade de Elisa.
+
+# Capítulo 10
+- Melhoria de Qualidade: O rascunho anterior obteve nota baixa (5.70). Elimine tiques de IA, clichês e melhore o ritmo e a interioridade de Elisa.
+
+# Capítulo 11
+- Melhoria de Qualidade: O rascunho anterior obteve nota baixa (4.00). Elimine tiques de IA, clichês e melhore o ritmo e a interioridade de Elisa.
+
+# Capítulo 12
+- Melhoria de Qualidade: O rascunho anterior obteve nota baixa (5.70). Elimine tiques de IA, clichês e melhore o ritmo e a interioridade de Elisa.
+
+# Capítulo 13
+- affects_downstream: 14, 15, 20, 21
+- Correção de Continuidade (Gravidade HIGH): O roubo do disco rígido com dados do CERN de 2018 do cofre do ETH é descrito em múltiplos capítulos como se fosse um evento novo a cada vez. No capítulo 13, o disco é mencionado como sendo acessado. No capítulo 20, o cofre é acessado com o código pessoal de Elisa e o disco é removido. No capítulo 21, Elisa 'descobre' que o cofre foi acessado e o disco roubado, reagindo com a mesma surpresa. A descoberta é tratada como inédita no capítulo 21, apesar de já ter sido descrita no capítulo 20. -> O roubo do disco deve ocorrer uma vez (capítulo 20). No capítulo 21, Elisa já deve saber do roubo e estar lidando com as consequências (por exemplo: investigando quem fez isso, tentando recuperar os dados, ou descobrindo que os dados já estão circulando). A reação de surpresa deve ser eliminada.
+- Correção de Continuidade (Gravidade MEDIUM): O capítulo 13 é intitulado 'Capítulo 14 — O Cofre e a Transmissão' (numeração interna 13, título 14). O capítulo 14 é intitulado 'Capítulo 15 — A TRAIÇÃO DE MARCUS' (numeração interna 14, título 15). A numeração está desalinhada, sugerindo que um capítulo foi removido ou renumerado sem ajuste dos títulos. -> Corrigir a numeração para que o número do capítulo corresponda ao título. Se um capítulo foi removido, renumerar todos os subsequentes e ajustar referências cruzadas.
+- Correção de Continuidade (Gravidade MEDIUM): A ligação de Dmitri Volsky para Elisa, afirmando saber o que aconteceu em Budapeste e exigindo a presença de Helena no encontro, ocorre tanto no capítulo 14 quanto no capítulo 15 (que são duplicatas). No capítulo 13, Dmitri também é mencionado como trabalhando no detector ATLAS e estando em Zurique. A revelação sobre Dmitri é fragmentada e repetida sem progressão. -> Concentrar a revelação sobre Dmitri em um único capítulo: quem é, o que sabe, e o encontro proposto. O capítulo 13 pode plantar a existência de Dmitri, e o capítulo 14 pode concretizar o encontro. Eliminar a duplicação do capítulo 15.
+
+# Capítulo 14
+- affects_downstream: 15
+- Focar na descoberta do pré-print de Marcus e no confronto físico/emocional dramático no escritório.
+- Melhoria de Qualidade: O rascunho anterior obteve nota baixa (5.00). Elimine tiques de IA, clichês e melhore o ritmo e a interioridade de Elisa.
+
+# Capítulo 15
+- Divergência Narrativa: PROIBIDO repetir a confrontação com Marcus. O capítulo deve focar em Elisa investigando de forma aprofundada a Evromind e Yuki Tanaka para descobrir quem subornou Marcus, expandindo o suspense de espionagem tecnológica antes do telefonema de Dmitri Volsky.
+
+# Capítulo 16
+- Melhoria de Qualidade: O rascunho anterior obteve nota baixa (5.70). Elimine tiques de IA, clichês e melhore o ritmo e a interioridade de Elisa.
+
+# Capítulo 17
+- Melhoria de Qualidade: O rascunho anterior obteve nota baixa (5.00). Elimine tiques de IA, clichês e melhore o ritmo e a interioridade de Elisa.
+
+# Capítulo 18
+- Melhoria de Qualidade: O rascunho anterior obteve nota baixa (5.00). Elimine tiques de IA, clichês e melhore o ritmo e a interioridade de Elisa.
+
+# Capítulo 19
+- Melhoria de Qualidade: O rascunho anterior obteve nota baixa (5.20). Elimine tiques de IA, clichês e melhore o ritmo e a interioridade de Elisa.
+
+# Capítulo 20
+- Melhoria de Qualidade: O rascunho anterior obteve nota baixa (5.00). Elimine tiques de IA, clichês e melhore o ritmo e a interioridade de Elisa.
+
+# Capítulo 21
+- Melhoria de Qualidade: O rascunho anterior obteve nota baixa (6.00). Elimine tiques de IA, clichês e melhore o ritmo e a interioridade de Elisa.
+
+# Capítulo 22
+- Melhoria de Qualidade: O rascunho anterior obteve nota baixa (4.70). Elimine tiques de IA, clichês e melhore o ritmo e a interioridade de Elisa.

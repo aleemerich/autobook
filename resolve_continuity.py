@@ -11,8 +11,10 @@ import re
 import subprocess
 from pathlib import Path
 from datetime import datetime
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).parent.resolve()
+load_dotenv(BASE_DIR / ".env")
 
 def get_latest_chapter_score(ch_num: int) -> float:
     eval_logs_dir = BASE_DIR / "eval_logs"
