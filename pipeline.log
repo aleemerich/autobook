@@ -23929,3 +23929,117 @@
 [2026-06-03 11:16:38] [INFO] ============================================================
 [2026-06-03 11:16:38] [INFO] IDEATION COMPLETE — seed.txt ready for Phase 1
 [2026-06-03 11:16:38] [INFO] ============================================================
+[2026-06-03 18:55:20] [INFO] Created default editorial Markdown template at: /tmp/pytest-of-alessandro/pytest-44/test_load_editorial_markdown_c0/editorial.md
+[2026-06-03 18:55:20] [INFO] Please edit this file with your notes before running the editorial pipeline.
+[2026-06-03 18:55:21] [INFO] Calling LLM for semantic and assertive extraction of editorial.md...
+[2026-06-03 18:55:21] [INFO] Semantic extraction via LLM completed successfully.
+[2026-06-03 18:55:21] [INFO] Calling LLM for semantic and assertive extraction of editorial.md...
+[2026-06-03 18:55:21] [INFO] WARNING: Semantic extraction via LLM failed: API Timeout. Falling back to robust regex parser.
+[2026-06-03 18:55:21] [INFO] Calling LLM for semantic and assertive extraction of editorial.md...
+[2026-06-03 18:55:21] [INFO] Semantic extraction via LLM completed successfully.
+[2026-06-03 18:55:21] [INFO] ============================================================
+[2026-06-03 18:55:21] [INFO] ANALYZING EDITORIAL DIRECTIVES
+[2026-06-03 18:55:21] [INFO] ============================================================
+[2026-06-03 18:55:21] [INFO] Analyzing Chapter 10 with Editorial Intelligence...
+[2026-06-03 18:55:21] [INFO] Operation aborted by user.
+[2026-06-03 18:55:21] [INFO] Calling LLM for semantic and assertive extraction of editorial.md...
+[2026-06-03 18:55:21] [INFO] Semantic extraction via LLM completed successfully.
+[2026-06-03 18:55:21] [INFO] ============================================================
+[2026-06-03 18:55:21] [INFO] ANALYZING EDITORIAL DIRECTIVES
+[2026-06-03 18:55:21] [INFO] ============================================================
+[2026-06-03 18:55:21] [INFO] Analyzing Chapter 10 with Editorial Intelligence...
+[2026-06-03 18:55:21] [INFO] ============================================================
+[2026-06-03 18:55:21] [INFO] EXECUTING EDITORIAL REVISIONS
+[2026-06-03 18:55:21] [INFO] ============================================================
+[2026-06-03 18:55:21] [INFO] ............................................................
+[2026-06-03 18:55:21] [INFO] PROCESSING CHAPTER 10 (PUNCTUAL)
+[2026-06-03 18:55:21] [INFO] ............................................................
+[2026-06-03 18:55:21] [INFO] Rewriting Chapter 10 (Attempt 1)...
+[2026-06-03 18:55:21] [INFO] Chapter 10 Attempt 1: Score 8.5 -> 8.5 (Slop Penalty: 0.0)
+[2026-06-03 18:55:21] [INFO] Chapter 10 Attempt 1: High quality score and zero slop achieved (8.5).
+[2026-06-03 18:55:21] [INFO] Keeping revision for Chapter 10. Commit: <MagicMock name='git_add_commit()' id='133241554628256'>
+[2026-06-03 18:55:21] [INFO] ============================================================
+[2026-06-03 18:55:21] [INFO] CONSOLIDATING MANUSCRIPT AND STRUCTURE
+[2026-06-03 18:55:21] [INFO] ============================================================
+[2026-06-03 18:55:21] [INFO] ============================================================
+[2026-06-03 18:55:21] [INFO] EDITORIAL PIPELINE COMPLETED SUCCESSFULLY
+[2026-06-03 18:55:21] [INFO] ============================================================
+[2026-06-03 18:55:21] [INFO] Calling LLM for semantic and assertive extraction of editorial.md...
+[2026-06-03 18:55:21] [INFO] Semantic extraction via LLM completed successfully.
+[2026-06-03 18:55:21] [INFO] ============================================================
+[2026-06-03 18:55:21] [INFO] ANALYZING EDITORIAL DIRECTIVES
+[2026-06-03 18:55:21] [INFO] ============================================================
+[2026-06-03 18:55:21] [INFO] Analyzing Chapter 1 with Editorial Intelligence...
+[2026-06-03 18:55:21] [INFO] ============================================================
+[2026-06-03 18:55:21] [INFO] EXECUTING EDITORIAL REVISIONS
+[2026-06-03 18:55:21] [INFO] ============================================================
+[2026-06-03 18:55:21] [INFO] ............................................................
+[2026-06-03 18:55:21] [INFO] PROCESSING CHAPTER 01 (PUNCTUAL)
+[2026-06-03 18:55:21] [INFO] ............................................................
+[2026-06-03 18:55:21] [INFO] Rewriting Chapter 1 (Attempt 1)...
+[2026-06-03 18:55:21] [INFO] Chapter 1 Attempt 1: Score 8.0 -> 6.0 (Slop Penalty: 2.0)
+[2026-06-03 18:55:21] [INFO] Chapter 1 Attempt 1: Needs optimization. Saving fallback (score 6.0, slop penalty 2.0).
+[2026-06-03 18:55:21] [INFO] Rewriting Chapter 1 (Corrective Retry Attempt 2/6)...
+[2026-06-03 18:55:21] [INFO] Chapter 1 Attempt 2: Score 7.0, Slop Penalty 1.0 (baseline: 8.0, best fallback: 6.0, best fallback slop: 2.0)
+[2026-06-03 18:55:21] [INFO] Chapter 1 Attempt 2: Score/slop improved upon best fallback. Updating fallback.
+[2026-06-03 18:55:21] [INFO] Rewriting Chapter 1 (Corrective Retry Attempt 3/6)...
+[2026-06-03 18:55:21] [INFO] Chapter 1 Attempt 3: Score 6.5, Slop Penalty 1.5 (baseline: 8.0, best fallback: 7.0, best fallback slop: 1.0)
+[2026-06-03 18:55:21] [INFO] Chapter 1 Attempt 3: No improvement. Restoring best fallback text for next pass.
+[2026-06-03 18:55:21] [INFO] Rewriting Chapter 1 (Corrective Retry Attempt 4/6)...
+[2026-06-03 18:55:21] [INFO] Chapter 1 Attempt 4: Score 6.8, Slop Penalty 1.2 (baseline: 8.0, best fallback: 7.0, best fallback slop: 1.0)
+[2026-06-03 18:55:21] [INFO] Chapter 1 Attempt 4: No improvement. Restoring best fallback text for next pass.
+[2026-06-03 18:55:21] [INFO] Rewriting Chapter 1 (Corrective Retry Attempt 5/6)...
+[2026-06-03 18:55:22] [INFO] Chapter 1 Attempt 5: Score 7.2, Slop Penalty 0.8 (baseline: 8.0, best fallback: 7.0, best fallback slop: 1.0)
+[2026-06-03 18:55:22] [INFO] Chapter 1 Attempt 5: Score/slop improved upon best fallback. Updating fallback.
+[2026-06-03 18:55:22] [INFO] Rewriting Chapter 1 (Corrective Retry Attempt 6/6)...
+[2026-06-03 18:55:22] [INFO] Chapter 1 Attempt 6: Score 7.1, Slop Penalty 1.0 (baseline: 8.0, best fallback: 7.2, best fallback slop: 0.8)
+[2026-06-03 18:55:22] [INFO] Chapter 1 Attempt 6: No improvement. Restoring best fallback text for next pass.
+[2026-06-03 18:55:22] [INFO] All retries finished without reaching baseline 8.0. Keeping best fallback (score: 7.2).
+[2026-06-03 18:55:22] [INFO] Keeping fallback version for Chapter 01. Commit: <MagicMock name='git_add_commit()' id='133241554628352'>
+[2026-06-03 18:55:22] [INFO] ============================================================
+[2026-06-03 18:55:22] [INFO] CONSOLIDATING MANUSCRIPT AND STRUCTURE
+[2026-06-03 18:55:22] [INFO] ============================================================
+[2026-06-03 18:55:22] [INFO] ============================================================
+[2026-06-03 18:55:22] [INFO] EDITORIAL PIPELINE COMPLETED SUCCESSFULLY
+[2026-06-03 18:55:22] [INFO] ============================================================
+[2026-06-03 18:55:22] [INFO] Calling LLM for semantic and assertive extraction of editorial.md...
+[2026-06-03 18:55:22] [INFO] Semantic extraction via LLM completed successfully.
+[2026-06-03 18:55:22] [INFO] ============================================================
+[2026-06-03 18:55:22] [INFO] ANALYZING EDITORIAL DIRECTIVES
+[2026-06-03 18:55:22] [INFO] ============================================================
+[2026-06-03 18:55:22] [INFO] ============================================================
+[2026-06-03 18:55:22] [INFO] EXECUTING EDITORIAL REVISIONS
+[2026-06-03 18:55:22] [INFO] ============================================================
+[2026-06-03 18:55:22] [INFO] ............................................................
+[2026-06-03 18:55:22] [INFO] PROCESSING CHAPTER 01 (PUNCTUAL)
+[2026-06-03 18:55:22] [INFO] ............................................................
+[2026-06-03 18:55:22] [INFO] Chapter 01 has no directives, no general notes, no continuity warnings, and already has a high-quality score (8.5) with zero slop. Skipping revision.
+[2026-06-03 18:55:22] [INFO] ============================================================
+[2026-06-03 18:55:22] [INFO] CONSOLIDATING MANUSCRIPT AND STRUCTURE
+[2026-06-03 18:55:22] [INFO] ============================================================
+[2026-06-03 18:55:22] [INFO] ============================================================
+[2026-06-03 18:55:22] [INFO] EDITORIAL PIPELINE COMPLETED SUCCESSFULLY
+[2026-06-03 18:55:22] [INFO] ============================================================
+[2026-06-03 18:55:22] [INFO] Calling LLM for semantic and assertive extraction of editorial.md...
+[2026-06-03 18:55:22] [INFO] Semantic extraction via LLM completed successfully.
+[2026-06-03 18:55:22] [INFO] ============================================================
+[2026-06-03 18:55:22] [INFO] ANALYZING EDITORIAL DIRECTIVES
+[2026-06-03 18:55:22] [INFO] ============================================================
+[2026-06-03 18:55:22] [INFO] Analyzing Chapter 1 with Editorial Intelligence...
+[2026-06-03 18:55:22] [INFO] Auto-approving the adjustment plan due to --yes / -y flag.
+[2026-06-03 18:55:22] [INFO] ============================================================
+[2026-06-03 18:55:22] [INFO] EXECUTING EDITORIAL REVISIONS
+[2026-06-03 18:55:22] [INFO] ============================================================
+[2026-06-03 18:55:22] [INFO] ............................................................
+[2026-06-03 18:55:22] [INFO] PROCESSING CHAPTER 01 (PUNCTUAL)
+[2026-06-03 18:55:22] [INFO] ............................................................
+[2026-06-03 18:55:22] [INFO] Rewriting Chapter 1 (Attempt 1)...
+[2026-06-03 18:55:22] [INFO] Chapter 1 Attempt 1: Score 8.5 -> 8.5 (Slop Penalty: 0.0)
+[2026-06-03 18:55:22] [INFO] Chapter 1 Attempt 1: High quality score and zero slop achieved (8.5).
+[2026-06-03 18:55:22] [INFO] Keeping revision for Chapter 01. Commit: <MagicMock name='git_add_commit()' id='133241553133664'>
+[2026-06-03 18:55:22] [INFO] ============================================================
+[2026-06-03 18:55:22] [INFO] CONSOLIDATING MANUSCRIPT AND STRUCTURE
+[2026-06-03 18:55:22] [INFO] ============================================================
+[2026-06-03 18:55:22] [INFO] ============================================================
+[2026-06-03 18:55:22] [INFO] EDITORIAL PIPELINE COMPLETED SUCCESSFULLY
+[2026-06-03 18:55:22] [INFO] ============================================================

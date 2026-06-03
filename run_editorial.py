@@ -456,7 +456,7 @@ def get_eval_data(stdout: str) -> dict:
     except Exception:
         return {}
 
-def run_editorial(chapters_opt=None, all_opt=False):
+def run_editorial(chapters_opt=None, all_opt=False, auto_approve=False):
     NUM_EDITORIAL_RETRIES = 5
     # Load configurable timeouts
     PIPELINE_TIMEOUT = int(os.environ.get("AUTOBOOK_PIPELINE_TIMEOUT", "3600"))
@@ -544,14 +544,17 @@ def run_editorial(chapters_opt=None, all_opt=False):
         print("-" * 60)
         
     # 4. Interactive prompt
-    try:
-        choice = input("\nDo you want to initiate the correction actions above? [Y/n] ").strip().lower()
-        if choice not in ["", "y", "yes", "s", "sim"]:
-            log_msg("Operation aborted by user.")
+    if auto_approve:
+        log_msg("Auto-approving the adjustment plan due to --yes / -y flag.")
+    else:
+        try:
+            choice = input("\nDo you want to initiate the correction actions above? [Y/n] ").strip().lower()
+            if choice not in ["", "y", "yes", "s", "sim"]:
+                log_msg("Operation aborted by user.")
+                return
+        except (KeyboardInterrupt, EOFError):
+            print("\nOperation aborted.")
             return
-    except (KeyboardInterrupt, EOFError):
-        print("\nOperation aborted.")
-        return
         
     # 5. Process revisions
     banner("EXECUTING EDITORIAL REVISIONS")
@@ -781,9 +784,14 @@ def main():
         action="store_true",
         help="Shortcut to process all chapters."
     )
+    parser.add_argument(
+        "-y", "--yes",
+        action="store_true",
+        help="Bypass interactive approval and run the pipeline automatically."
+    )
     args = parser.parse_args()
     
-    run_editorial(chapters_opt=args.chapters, all_opt=args.all)
+    run_editorial(chapters_opt=args.chapters, all_opt=args.all, auto_approve=args.yes)
 
 if __name__ == "__main__":
     main()

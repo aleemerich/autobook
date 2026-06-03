@@ -448,5 +448,64 @@ def test_run_editorial_option_3_skip(
     mock_git_commit.assert_any_call("editorial: finalize manuscript, outline, and LaTeX typeset consolidation")
 
 
-
-
+@patch("run_editorial.classify_brief_with_ai")
+@patch("run_editorial.run_tool")
+@patch("builtins.input")
+@patch("llm.call_llm")
+@patch("run_editorial.git_add_commit")
+@patch("run_editorial.git_reset_hard")
+@patch("run_editorial.get_all_chapter_numbers")
+@patch("run_editorial.extract_eval_feedback")
+@patch("run_editorial.get_eval_data")
+@patch("run_editorial.CHAPTERS_DIR")
+def test_run_editorial_auto_approve(
+    mock_chapters_dir, mock_eval_data, mock_feedback, mock_get_all, mock_git_reset, mock_git_commit,
+    mock_call_llm, mock_input, mock_run_tool, mock_classify, mock_editorial_file
+):
+    # Mock chapter 1 scan
+    mock_get_all.return_value = [1]
+    
+    markdown_content = "# Capítulo 1\nTest brief\n"
+    mock_editorial_file.write_text(markdown_content, encoding="utf-8")
+    
+    # Mock LLM parser
+    mock_call_llm.return_value = """
+    {
+      "general_notes": "",
+      "chapters": {
+        "1": {
+          "brief": "Test brief",
+          "type": "punctual",
+          "affects_downstream": []
+        }
+      }
+    }
+    """
+    
+    # Mock AI classification
+    mock_classify.return_value = {
+        "type": "punctual",
+        "affects_downstream": [],
+        "criticism": "Good"
+    }
+    
+    # Mock pre-evaluation results: high-quality (8.5) and zero slop
+    mock_eval_data.return_value = {
+        "overall_score": 8.5,
+        "slop": {"slop_penalty": 0.0}
+    }
+    
+    # Mock run_tool response
+    mock_eval_res = MagicMock()
+    mock_eval_res.stdout = "overall_score: 8.5\neval_log: /dummy/log.json"
+    mock_run_tool.return_value = mock_eval_res
+    
+    # Run the pipeline with auto_approve=True
+    run_editorial.run_editorial(chapters_opt="1", auto_approve=True)
+    
+    # Verify builtins.input was NEVER called
+    mock_input.assert_not_called()
+    
+    # Verify evaluate.py was called, proving the pipeline proceeded
+    eval_calls = [c for c in mock_run_tool.call_args_list if "evaluate.py" in c[0][0]]
+    assert len(eval_calls) > 0
