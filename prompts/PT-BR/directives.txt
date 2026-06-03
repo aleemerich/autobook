@@ -17,5 +17,13 @@ Strict PT-BR Compliance Rules:
    - Use "ozônio" instead of "ozono".
    - Use natural Brazilian terms and idioms. Avoid European terms like "merca" unless specifically intended in context.
 4. Clean punctuation: Do not leave orphan periods (".") floating at the beginning, middle, or end of sentences (e.g. avoid patterns like ". E três vezes" or ". Que a consciência").
+5. ZERO TRANSLATION LEAKAGE / NO ENGLISH REMNANTS:
+   - You must write exclusively in Portuguese. Absolutely no English words, instructions, or fragments of phrases should leak into the novel text (e.g., do NOT write "found the depression" or similar prompt remnants). Every single word of narrative, dialogue, and description must be translated into natural, fluid Brazilian Portuguese.
+6. ADDITIONAL PT-PT WORDS TO AVOID:
+   - Never use "telemóvel" (use "celular").
+   - Never use "dezanove" (use "dezenove").
+   - Never use "connosco" (use "conosco").
+   - Never use "fita-cola" (use "fita adesiva").
+   - Never use "Premium" or "Prémium" when referring to a preprint or standard draft context.
 
 All textual content in all chapter drafts and outlines must strictly be standard Brazilian Portuguese (PT-BR).

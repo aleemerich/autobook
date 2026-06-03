@@ -358,6 +358,21 @@ PHASE 3b: DEEP MANUSCRIPT REVIEW LOOP (deep, prose-level refinement)
       mostly qualified hedges → done, ship it
 ```
 
+```
+PHASE 3c: CLOSED-LOOP CONTINUITY RESOLUTION
+
+  Once the manuscript is revised, run the Closed-Loop Continuity Resolution to detect and fix narrative breaches and duplications automatically.
+
+  Tools:
+    - verify_continuity.py (Generates `continuity_report.json` timeline checks)
+    - resolve_continuity.py (Backs up editorial.md to edit_logs/, generates a localized, corrective editorial.md, and triggers run_editorial.py)
+
+  Orchestration:
+    - Runs in a loop (max 2 iterations).
+    - If `continuity_score` in `continuity_report.json` is satisfactory (>= 7.5) and no critical issues exist, it exits with success (code 0).
+    - Otherwise, it backs up the current editorial.md, generates a dynamic, language-flexible corrective editorial.md targeting the affected chapters, and invokes run_editorial.py automatically.
+```
+
 ### Phase 4: Export
 
 ```

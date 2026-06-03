@@ -261,24 +261,80 @@ def parse_chapters_range(chapters_str: str, all_possible: list) -> list:
                 pass
     return sorted(list(nums))
 
-def extract_eval_feedback(stdout: str) -> str:
+def load_editorial_config() -> dict:
+    from prompt_loader import get_active_language, PROMPTS_DIR
+    lang = get_active_language()
+    config_file = PROMPTS_DIR / lang / "editorial.json"
+    if not config_file.exists() and lang != "EN":
+        config_file = PROMPTS_DIR / "EN" / "editorial.json"
+    if not config_file.exists():
+        # Fallback to English/Portuguese defaults
+        return {
+            "retry_temp_map": {
+                "1": 0.6,
+                "2": 0.6,
+                "3": 0.7,
+                "4": 0.9,
+                "5": 0.5
+            },
+            "feedback_labels": {
+                "slop_critical_header": "### PROBLEMAS DE SLOP CRÍTICO:",
+                "canon_violations_header": "### VIOLAÇÕES DE CANON/LORE:",
+                "slop_style_header": "### ESTILO & VOCABULÁRIO (SLOP SECUNDÁRIO):",
+                "narrative_dimensions_header": "### DEFICIÊNCIAS NAS DIMENSÕES NARRATIVAS:",
+                "weakest_sentences_header": "### FRASES MAIS FRACAS (REESCREVER/MELHORAR):",
+                "banned_words_msg": "- PALAVRAS PROIBIDAS usadas (MUDAR IMEDIATAMENTE): {words}",
+                "suspicious_words_msg": "- Palavras suspeitas usadas (evitar): {words}",
+                "structural_tics_msg": "- Tiques estruturais de IA detectados: {words}",
+                "cliches_tells_msg": "- Clichês/tells de IA detectados: {words}",
+                "em_dash_density_msg": "- Densidade excessiva de travessões: {density} (limite máximo é 15). Substitua a maioria dos travessões explicativos duplos (—) por vírgulas, parênteses ou reestruture as sentenças.",
+                "dimension_header": "#### Dimensão '{dim}' (Nota {score}):",
+                "weakest_moment_prefix": "  * Ponto fraco: \"{moment}\"",
+                "suggested_fix_prefix": "  * Correção sugerida: {fix}"
+            },
+            "corrective_brief": {
+                "header": "# DIRETIVAS DE RECORREÇÃO PARA RETENTATIVA",
+                "subheader": "O rascunho anterior falhou na avaliação. Siga estritamente os feedbacks e correções detalhados abaixo ao regenerar o capítulo:",
+                "footer_header": "### DIRETRIZES DA RE-EXECUÇÃO:",
+                "footer_body": "Use como ponto de partida a versão anterior e modifique-a para incorporar todos os feedbacks acima, preservando toda a trama correta."
+            }
+        }
+    with open(config_file, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+def get_retry_temperature(retry_idx: int) -> float:
+    """Return the creative/corrective temperature for the given retry index (1-based)."""
+    try:
+        config = load_editorial_config()
+        temp_map = config.get("retry_temp_map", {})
+        return float(temp_map.get(str(retry_idx), 0.8))
+    except Exception:
+        temp_map = {1: 0.6, 2: 0.6, 3: 0.7, 4: 0.9, 5: 0.5}
+        return temp_map.get(retry_idx, 0.8)
+
+def extract_eval_feedback(stdout: str, retry_idx: int = 5) -> str:
     """
     Parse the evaluation stdout, locate the eval_log JSON path,
-    read it, and return a formatted feedback string summarizing the issues.
+    read it, and return a formatted feedback string summarizing the issues,
+    filtered progressively based on the corrective retry index (1 to 5).
     """
     match = re.search(r"eval_log:\s*(\S+)", stdout)
     if not match:
-        return "Nenhum arquivo de log de avaliação encontrado no console."
+        return "No evaluation log file found in the console output."
         
     log_path = Path(match.group(1).strip())
     if not log_path.exists():
-        return f"Arquivo de log de avaliação não encontrado no caminho: {log_path}"
+        return f"Evaluation log file not found at path: {log_path}"
         
     try:
         data = json.loads(log_path.read_text(encoding="utf-8"))
         feedback_parts = []
         
-        # 1. Collect slop hits
+        # Load localized config
+        config = load_editorial_config()
+        labels = config.get("feedback_labels", {})
+        
+        # Parse data structures
         slop = data.get("slop", {})
         tier1 = slop.get("tier1_hits", [])
         tier2 = slop.get("tier2_hits", [])
@@ -286,60 +342,106 @@ def extract_eval_feedback(stdout: str) -> str:
         tells = slop.get("fiction_ai_tells", [])
         em_dash_density = slop.get("em_dash_density", 0.0)
         
-        slop_issues = []
-        if tier1:
-            slop_issues.append("- PALAVRAS PROIBIDAS usadas (MUDAR IMEDIATAMENTE): " + ", ".join([f"'{x[0]}' (usada {x[1]} vezes)" if isinstance(x, list) else str(x) for x in tier1]))
-        if tier2:
-            slop_issues.append("- Palavras suspeitas usadas (evitar): " + ", ".join([f"'{x[0]}' (usada {x[1]} vezes)" if isinstance(x, list) else str(x) for x in tier2]))
-        if tics:
-            slop_issues.append("- Tiques estruturais de IA detectados: " + ", ".join([f"'{x[0]}' (usada {x[1]} vezes)" if isinstance(x, list) else str(x) for x in tics]))
-        if tells:
-            slop_issues.append("- Clichês/tells de IA detectados: " + ", ".join([f"'{x[0]}' (usada {x[1]} vezes)" if isinstance(x, list) else str(x) for x in tells]))
-        if em_dash_density > 15:
-            slop_issues.append(f"- Densidade excessiva de travessões: {em_dash_density} (limite máximo é 15). Substitua a maioria dos travessões explicativos duplos (—) por vírgulas, parênteses ou reestruture as sentenças.")
+        # 1. Collect canon/continuity issues (Always included in all retries)
+        canon = data.get("canon_compliance", {})
+        canon_violations = []
+        if isinstance(canon, dict) and canon.get("violations"):
+            canon_violations = canon["violations"]
             
-        if slop_issues:
-            feedback_parts.append("### PROBLEMAS DE SLOP & VOCABULÁRIO:")
-            feedback_parts.extend(slop_issues)
+        # 2. Collect slop tier 1 hits (Always included in all retries)
+        slop_tier1_issues = []
+        if tier1:
+            words_str = ", ".join([f"'{x[0]}' (used {x[1]} times)" if isinstance(x, list) else str(x) for x in tier1])
+            banned_words_template = labels.get("banned_words_msg", "- BANNED WORDS used (CHANGE IMMEDIATELY): {words}")
+            slop_tier1_issues.append(banned_words_template.format(words=words_str))
+            
+        # 3. Collect slop tier 2, tics, tells, em-dash (Included in retry >= 3)
+        slop_style_issues = []
+        if retry_idx >= 3:
+            if tier2:
+                words_str = ", ".join([f"'{x[0]}' (used {x[1]} times)" if isinstance(x, list) else str(x) for x in tier2])
+                susp_words_template = labels.get("suspicious_words_msg", "- Suspicious words used (avoid): {words}")
+                slop_style_issues.append(susp_words_template.format(words=words_str))
+            if tics:
+                words_str = ", ".join([f"'{x[0]}' (used {x[1]} times)" if isinstance(x, list) else str(x) for x in tics])
+                tics_template = labels.get("structural_tics_msg", "- AI structural tics detected: {words}")
+                slop_style_issues.append(tics_template.format(words=words_str))
+            if tells:
+                words_str = ", ".join([f"'{x[0]}' (used {x[1]} times)" if isinstance(x, list) else str(x) for x in tells])
+                tells_template = labels.get("cliches_tells_msg", "- AI clichés/tells detected: {words}")
+                slop_style_issues.append(tells_template.format(words=words_str))
+            if em_dash_density > 15:
+                em_dash_template = labels.get("em_dash_density_msg", "- Excessive em-dash density: {density}")
+                slop_style_issues.append(em_dash_template.format(density=em_dash_density))
+                
+        # 4. Collect dimension specific fixes
+        dimension_issues = []
+        dimensions = ["voice_adherence", "beat_coverage", "character_voice", "plants_seeded", "prose_quality", "lore_integration", "engagement"]
+        
+        failing_dimensions = []
+        for dim in dimensions:
+            dim_data = data.get(dim, {})
+            if isinstance(dim_data, dict):
+                score = dim_data.get("score", 10)
+                if score < 7:
+                    failing_dimensions.append((dim, score, dim_data.get("fix", ""), dim_data.get("weakest_moment", "")))
+                    
+        failing_dimensions.sort(key=lambda x: x[1])
+        
+        target_dimensions = failing_dimensions
+        if 2 <= retry_idx <= 4:
+            target_dimensions = failing_dimensions[:2]
+        elif retry_idx < 2:
+            target_dimensions = []
+            
+        dim_header_template = labels.get("dimension_header", "#### Dimension '{dim}' (Score {score}):")
+        weak_moment_template = labels.get("weakest_moment_prefix", "  * Weakest moment: \"{moment}\"")
+        suggested_fix_template = labels.get("suggested_fix_prefix", "  * Suggested fix: {fix}")
+        
+        for dim, score, fix_desc, weak_mom in target_dimensions:
+            if fix_desc or weak_mom:
+                dimension_issues.append(dim_header_template.format(dim=dim, score=score))
+                if weak_mom:
+                    dimension_issues.append(weak_moment_template.format(moment=weak_mom))
+                if fix_desc:
+                    dimension_issues.append(suggested_fix_template.format(fix=fix_desc))
+                    
+        # 5. Weakest sentences (Included in retry >= 4)
+        weakest_sentences = []
+        if retry_idx >= 4:
+            weakest_sentences = data.get("three_weakest_sentences", [])
+            
+        # Format the feedback string
+        if slop_tier1_issues:
+            feedback_parts.append(labels.get("slop_critical_header", "### CRITICAL SLOP PROBLEMS:"))
+            feedback_parts.extend(slop_tier1_issues)
             feedback_parts.append("")
             
-        # 2. Collect canon/continuity issues
-        canon = data.get("canon_compliance", {})
-        if isinstance(canon, dict) and canon.get("violations"):
-            feedback_parts.append("### VIOLAÇÕES DE CANON/LORE:")
-            for violation in canon["violations"]:
+        if canon_violations:
+            feedback_parts.append(labels.get("canon_violations_header", "### CANON/LORE VIOLATIONS:"))
+            for violation in canon_violations:
                 feedback_parts.append(f"- {violation}")
             feedback_parts.append("")
             
-        # 3. Collect dimension specific fixes
-        dimension_issues = []
-        for key in ["voice_adherence", "beat_coverage", "character_voice", "plants_seeded", "prose_quality", "lore_integration", "engagement"]:
-            dim_data = data.get(key, {})
-            if isinstance(dim_data, dict) and dim_data.get("score", 10) < 7:
-                fix_desc = dim_data.get("fix", "")
-                weak_mom = dim_data.get("weakest_moment", "")
-                if fix_desc or weak_mom:
-                    dimension_issues.append(f"#### Dimensão '{key}' (Nota {dim_data.get('score')}):")
-                    if weak_mom:
-                        dimension_issues.append(f"  * Ponto fraco: \"{weak_mom}\"")
-                    if fix_desc:
-                        dimension_issues.append(f"  * Correção sugerida: {fix_desc}")
-                        
+        if slop_style_issues:
+            feedback_parts.append(labels.get("slop_style_header", "### STYLE & VOCABULARY (SECONDARY SLOP):"))
+            feedback_parts.extend(slop_style_issues)
+            feedback_parts.append("")
+            
         if dimension_issues:
-            feedback_parts.append("### SUGESTÕES DAS DIMENSÕES DE AVALIAÇÃO:")
+            feedback_parts.append(labels.get("narrative_dimensions_header", "### NARRATIVE DIMENSION DEFICIENCIES:"))
             feedback_parts.extend(dimension_issues)
             feedback_parts.append("")
             
-        # 4. Weakest sentences
-        weakest_sentences = data.get("three_weakest_sentences", [])
         if weakest_sentences:
-            feedback_parts.append("### FRASES MAIS FRACAS (REESCREVER/MELHORAR):")
+            feedback_parts.append(labels.get("weakest_sentences_header", "### WEAKEST SENTENCES (REWRITE/IMPROVE):"))
             for sentence in weakest_sentences:
                 feedback_parts.append(f"- \"{sentence}\"")
             feedback_parts.append("")
+            
         return "\n".join(feedback_parts)
     except Exception as e:
-        return f"Falha ao ler o arquivo de log do avaliador para feedback: {e}"
+        return f"Failure reading evaluation log for feedback: {e}"
 
 def get_eval_data(stdout: str) -> dict:
     """Parse the evaluation stdout, locate the eval_log JSON path, and load its JSON contents."""
@@ -354,7 +456,8 @@ def get_eval_data(stdout: str) -> dict:
     except Exception:
         return {}
 
-def run_editorial(chapters_opt=None, all_opt=False, retries_opt=2):
+def run_editorial(chapters_opt=None, all_opt=False):
+    NUM_EDITORIAL_RETRIES = 5
     # Load configurable timeouts
     PIPELINE_TIMEOUT = int(os.environ.get("AUTOBOOK_PIPELINE_TIMEOUT", "3600"))
     REVISION_TIMEOUT = int(os.environ.get("AUTOBOOK_REVISION_TIMEOUT", str(max(PIPELINE_TIMEOUT, 1200))))
@@ -516,7 +619,7 @@ def run_editorial(chapters_opt=None, all_opt=False, retries_opt=2):
         
         # Run revision (Attempt 1)
         step(f"Rewriting Chapter {ch_num} (Attempt 1)...")
-        run_tool(f"uv run python gen_revision.py {ch_num} {temp_brief_path}", timeout=REVISION_TIMEOUT)
+        run_tool(f"uv run python gen_revision.py {ch_num} {temp_brief_path} --temperature 0.8", timeout=REVISION_TIMEOUT)
         
         # Evaluate after revision
         post_eval = run_tool(f"uv run python evaluate.py --chapter={ch_num}", timeout=EVAL_TIMEOUT)
@@ -543,37 +646,48 @@ def run_editorial(chapters_opt=None, all_opt=False, retries_opt=2):
             log_msg(f"Chapter {ch_num} Attempt 1: Needs optimization. Saving fallback (score {best_fallback_score}, slop penalty {best_fallback_slop}).")
             
             # Start retry loop
-            for retry_idx in range(1, retries_opt + 1):
-                step(f"Rewriting Chapter {ch_num} (Corrective Retry Attempt {retry_idx + 1}/{retries_opt + 1})...")
+            for retry_idx in range(1, NUM_EDITORIAL_RETRIES + 1):
+                step(f"Rewriting Chapter {ch_num} (Corrective Retry Attempt {retry_idx + 1}/{NUM_EDITORIAL_RETRIES + 1})...")
                 
-                # Parse previous evaluate log for feedback
-                feedback_str = extract_eval_feedback(post_eval.stdout)
+                # Parse previous evaluate log for feedback with progressive filtering
+                feedback_str = extract_eval_feedback(post_eval.stdout, retry_idx=retry_idx)
+                
+                # Load localized brief templates
+                editorial_config = load_editorial_config()
+                brief_tmpl = editorial_config.get("corrective_brief", {})
                 
                 # Write corrective brief combining previous brief and feedback
+                header_text = brief_tmpl.get("header", "# DIRETIVAS DE RECORREÇÃO PARA RETENTATIVA")
+                subheader_text = brief_tmpl.get("subheader", "O rascunho anterior falhou na avaliação. Siga estritamente os feedbacks e correções detalhados abaixo ao regenerar o capítulo:")
+                footer_header_text = brief_tmpl.get("footer_header", "DIRETRIZES DA RE-EXECUÇÃO")
+                footer_body_text = brief_tmpl.get("footer_body", "Use como ponto de partida a versão anterior e modifique-a para incorporar todos os feedbacks acima, preservando toda a trama correta.")
+                
                 corrective_brief_lines = [
-                    f"# Diretivas de Correção Editorial - Capítulo {ch_num} (RETENTATIVA CORRETIVA {retry_idx})",
+                    f"{header_text} - Capítulo {ch_num} ({retry_idx})",
                     "",
-                    "A tentativa anterior de revisão não atingiu a qualidade ideal devido a desvios ou problemas no rascunho atual.",
-                    "Sua missão é corrigir o rascunho atual para eliminar esses erros específicos, mantendo a coerência e as diretivas da história.",
+                    subheader_text,
                     "",
-                    "## [PROBLEMAS CRÍTICOS A CORRIGIR]:",
                     feedback_str,
                     "",
-                    "## [DIRETIVAS ORIGINAIS DE REVISÃO]:",
-                    task["brief"] if task["brief"] else "Aplicar diretrizes gerais da obra neste capítulo.",
+                    f"## [{footer_header_text}]:",
+                    footer_body_text,
+                    "",
+                    f"## [ORIGINAL DIRECTIVES]:",
+                    task["brief"] if task["brief"] else "Apply general directives.",
                 ]
                 if general_notes:
                     corrective_brief_lines += [
                         "",
-                        "## [DIRETRIZES GERAIS DA OBRA]:",
+                        "## [GENERAL NOTES]:",
                         general_notes
                     ]
                 
                 corrective_brief_path = BRIEFS_DIR / f"ch{ch_num:02d}_corrective_temp.md"
                 corrective_brief_path.write_text("\n".join(corrective_brief_lines), encoding="utf-8")
                 
-                # Run revision
-                run_tool(f"uv run python gen_revision.py {ch_num} {corrective_brief_path}", timeout=REVISION_TIMEOUT)
+                # Run revision with dynamic temperature
+                retry_temp = get_retry_temperature(retry_idx)
+                run_tool(f"uv run python gen_revision.py {ch_num} {corrective_brief_path} --temperature {retry_temp}", timeout=REVISION_TIMEOUT)
                 
                 # Clean up temp corrective brief
                 if corrective_brief_path.exists():
@@ -667,15 +781,9 @@ def main():
         action="store_true",
         help="Shortcut to process all chapters."
     )
-    parser.add_argument(
-        "-r", "--retries",
-        type=int,
-        default=2,
-        help="Maximum corrective retries on regression (default: 2)."
-    )
     args = parser.parse_args()
     
-    run_editorial(chapters_opt=args.chapters, all_opt=args.all, retries_opt=args.retries)
+    run_editorial(chapters_opt=args.chapters, all_opt=args.all)
 
 if __name__ == "__main__":
     main()

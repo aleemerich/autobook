@@ -1,0 +1,30 @@
+{
+  "retry_temp_map": {
+    "1": 0.6,
+    "2": 0.6,
+    "3": 0.7,
+    "4": 0.9,
+    "5": 0.5
+  },
+  "feedback_labels": {
+    "slop_critical_header": "### CRITICAL SLOP PROBLEMS:",
+    "canon_violations_header": "### CANON/LORE VIOLATIONS:",
+    "slop_style_header": "### STYLE & VOCABULARY (SECONDARY SLOP):",
+    "narrative_dimensions_header": "### NARRATIVE DIMENSION DEFICIENCIES:",
+    "weakest_sentences_header": "### WEAKEST SENTENCES (REWRITE/IMPROVE):",
+    "banned_words_msg": "- BANNED WORDS used (CHANGE IMMEDIATELY): {words}",
+    "suspicious_words_msg": "- Suspicious words used (avoid): {words}",
+    "structural_tics_msg": "- AI structural tics detected: {words}",
+    "cliches_tells_msg": "- AI clichés/tells detected: {words}",
+    "em_dash_density_msg": "- Excessive em-dash density: {density} (maximum limit is 15). Replace most double explanatory em-dashes (—) with commas, parentheses, or restructure the sentences.",
+    "dimension_header": "#### Dimension '{dim}' (Score {score}):",
+    "weakest_moment_prefix": "  * Weakest moment: \"{moment}\"",
+    "suggested_fix_prefix": "  * Suggested fix: {fix}"
+  },
+  "corrective_brief": {
+    "header": "# RE-CORRECTION DIRECTIVES FOR RETRY",
+    "subheader": "The previous draft failed the evaluation. Strictly follow the detailed feedback and corrections below when regenerating the chapter:",
+    "footer_header": "### RE-EXECUTION GUIDELINES:",
+    "footer_body": "Use the previous version as a starting point and modify it to incorporate all the feedback above, while preserving all correct plot developments."
+  }
+}

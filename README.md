@@ -315,9 +315,13 @@ The **Interactive Editorial Pipeline** (`run_editorial.py`) allows the author to
    Once approved:
    * The pipeline processes the target chapters sequentially.
    * Dynamic continuity warnings from upstream edits (e.g. *"In Chapter 17, Helena gave Elisa a physical bronze key"*) are automatically generated and injected into the prompt context of downstream chapters.
-   * Each chapter is evaluated by the local scorer. If the post-revision score is lower than the pre-revision score, the pipeline activates a **self-healing corrective retry loop** (up to `--retries` times):
-     * It extracts detailed infractions from the evaluator's JSON log (such as banned slop words, em-dash density, structural tics, canon violations, and dimension-specific critiques).
-     * It builds a targeted corrective brief and calls the revision writer again to clean up the draft.
+   * Each chapter is evaluated by the local scorer. If the post-revision score is lower than the pre-revision score, the pipeline activates a fixed **self-healing corrective retry loop** (exactly 5 attempts) with progressive critique filtering and dynamic temperature:
+     * **Attempt 1**: Creative write (Temp 0.8) based on original instructions.
+     * **Retry 1**: Strict compliance (Temp 0.6) focusing only on critical canon violations and Tier 1 slop words.
+     * **Retry 2**: Pacing and voice adjustments (Temp 0.6) adding the worst two evaluation dimensions.
+     * **Retry 3**: Style polishing (Temp 0.7) introducing minor AI tics and em-dash limits.
+     * **Retry 4**: Structural flexibility (Temp 0.9) adding weakest sentences and higher creative variance to escape local minima.
+     * **Retry 5**: Emergency fallback (Temp 0.5) focusing strictly on final compliance.
      * If any retry equals or beats the baseline score, the change is accepted and committed.
      * If all retries fail to beat the baseline score, the pipeline keeps the **best scoring fallback version** among all attempts (preserving your plot/translation directives while minimizing slop) and commits it.
 
@@ -350,15 +354,18 @@ Run on specific chapters (e.g., chapters 1 to 4, chapter 7) to apply general gui
 uv run python run_editorial.py --chapters=1-4,7
 ```
 
-Run on all chapters in the manuscript (e.g., to apply a global PT-BR localization sweep):
+Run on all chapters in the manuscript:
 ```bash
 uv run python run_editorial.py --all
 ```
 
-Configure custom corrective retries limit (defaults to 2):
+#### **Closed-Loop Continuity Resolution**
+
+Autobook implements an automated **Closed-Loop Continuity Resolution** system. At the end of the revision phase, the pipeline runs global timeline checks and automatically triggers:
 ```bash
-uv run python run_editorial.py --chapters=1-4 --retries=3
+uv run python resolve_continuity.py
 ```
+This script reads `continuity_report.json`, backs up the current `editorial.md` into `edit_logs/` (preserving history), generates a new corrective `editorial.md` targeting all affected chapters (implementing narrative divergence rules for duplicate plots and scheduling low-scoring chapters), and triggers `run_editorial.py` in a closed loop.
 
 ---
 

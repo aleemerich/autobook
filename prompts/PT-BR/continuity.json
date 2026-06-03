@@ -1,0 +1,25 @@
+{
+  "general_rules": [
+    "- Revisar todo o manuscrito para garantir o Português do Brasil (PT-BR) formal e literário, transcrevendo termos de Portugal (ex: 'ecrã' -> 'tela', 'acto' -> 'ato', 'projecto' -> 'projeto', 'contacto' -> 'contato', 'secretária' -> 'escrivaninha', 'dezanove' -> 'dezenove').",
+    "- Evitar resquícios de tradução do inglês ou construções sintáticas literais em inglês.",
+    "- Manter a consistência de locais e lore já estabelecidos (apartamento de Helena em Oerlikon no 5º andar, porta 5C; cofre do CERN no ETH sala 3.17)."
+  ],
+  "divergence_rules": {
+    "6_7": {
+      "6": "Focar estritamente no encontro com Mirela no Kaffeehaus em Berna e obter as notas confidenciais.",
+      "7": "Divergência Narrativa: PROIBIDO repetir a viagem de trem para Berna ou o encontro com Mirela. O capítulo deve focar inteiramente no retorno de Elisa a Zurique na mesma tarde, na análise física das notas no trem de volta e na videoconferência tensa completa com o Padre Tomás Delgado."
+    },
+    "14_15": {
+      "14": "Focar na descoberta do pré-print de Marcus e no confronto físico/emocional dramático no escritório.",
+      "15": "Divergência Narrativa: PROIBIDO repetir a confrontação com Marcus. O capítulo deve focar em Elisa investigando de forma aprofundada a Evromind e Yuki Tanaka para descobrir quem subornou Marcus, expandindo o suspense de espionagem tecnológica antes do telefonema de Dmitri Volsky."
+    }
+  },
+  "templates": {
+    "quality_improvement": "Melhoria de Qualidade: O rascunho anterior obteve nota baixa ({score:.2f}). Elimine tiques de IA, clichês e melhore o ritmo e a interioridade de Elisa.",
+    "continuity_correction": "Correção de Continuidade (Gravidade {severity}): {desc} -> {fix}",
+    "general_directives_header": "# Diretivas Gerais",
+    "chapter_header": "# Capítulo {ch}",
+    "affects_downstream": "- affects_downstream: {downstream}",
+    "generic_update": "- Aplicar correções gerais de estilo e consistência neste capítulo."
+  }
+}

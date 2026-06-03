@@ -105,39 +105,51 @@ def load_slop_rules_instruction() -> str:
     except Exception as e:
         return f"Warning: could not load slop config: {e}"
         
-    lang = get_active_language()
-    is_pt = (lang == "PT-BR")
-    
+    templates = config.get("instruction_templates", {})
+    if not templates:
+        # Fallback to English defaults for backward compatibility or missing templates
+        templates = {
+            "tier1_banned": "CRITICAL: Do NOT use ANY of the following banned words (Tier 1 Banned): {words}",
+            "tier2_suspicious": "CRITICAL: Avoid using AI-associated suspicious words (Tier 2 Suspicious): {words}",
+            "tier3_filler": "Avoid redundant filler phrases (Tier 3 Filler): {words}",
+            "transition_openers": "Avoid opening paragraphs with transition words: {words}",
+            "fiction_ai_tells": "Avoid typical AI fiction tropes and tells: {words}",
+            "structural_ai_tics": "Forbidden structural and rhetorical AI tics: {words}",
+            "punctuation_style": "PUNCTUATION & STYLE (CRITICAL): Limit the use of em-dashes (—). The density of em-dashes must be LESS than 15 per 1000 words (use them only for actual dialogue and real interruptions, not for explanatory side-notes in narration).",
+            "sentence_variation": "SENTENCE VARIATION: Deliberately vary sentence lengths. Avoid consecutive sentences of the same length.",
+            "show_dont_tell": "SHOW, DON'T TELL: Show physical/sensory reactions rather than naming/telling emotions (e.g. avoid 'he felt sad', 'she looked nervous')."
+        }
+        
     lines = []
-    if is_pt:
-        lines.append("- CRÍTICO: Não use NENHUMA das seguintes palavras banidas (Tier 1 Banned): " + ", ".join(config.get("tier1_banned", [])))
-        lines.append("- CRÍTICO: Evite ao máximo usar palavras suspeitas de IA (Tier 2 Suspicious): " + ", ".join(config.get("tier2_suspicious", [])))
-        if config.get("tier3_filler"):
-            lines.append("- Evite expressões de preenchimento redundantes (Tier 3 Filler): " + ", ".join(config.get("tier3_filler", [])))
-        if config.get("transition_openers"):
-            lines.append("- Evite iniciar parágrafos com conectivos de transição abusivos: " + ", ".join(config.get("transition_openers", [])))
-        if config.get("fiction_ai_tells"):
-            lines.append("- Proibido usar clichês literários de IA (Fiction AI Tells): " + ", ".join(config.get("fiction_ai_tells", [])))
-        if config.get("structural_ai_tics"):
-            lines.append("- Proibido usar estruturas e tiques retóricos típicos de IA (Structural AI Tics): " + ", ".join(config.get("structural_ai_tics", [])))
-        lines.append("- PONTUAÇÃO E ESTILO (CRÍTICO): Limite severamente o uso de travessões (—) e hifens duplos. A densidade de travessões deve ser MENOR que 15 a cada 1000 palavras (use-os apenas para falas reais e interrupções dramáticas de diálogos, NUNCA para introduzir explicações ou apostos na narração).")
-        lines.append("- VARIAÇÃO SINTÁTICA: Varie deliberadamente o comprimento das sentenças. Evite sentenças consecutivas com a mesma estrutura sintática ou quantidade similar de palavras.")
-        lines.append("- SHOW, DON'T TELL: Mostre reações físicas e sensoriais em vez de apenas nomear/rotular as emoções dos personagens (evite 'sentiu medo', 'parecia triste').")
-    else:
-        lines.append("- CRITICAL: Do NOT use ANY of the following banned words (Tier 1 Banned): " + ", ".join(config.get("tier1_banned", [])))
-        lines.append("- CRITICAL: Avoid using AI-associated suspicious words (Tier 2 Suspicious): " + ", ".join(config.get("tier2_suspicious", [])))
-        if config.get("tier3_filler"):
-            lines.append("- Avoid redundant filler phrases (Tier 3 Filler): " + ", ".join(config.get("tier3_filler", [])))
-        if config.get("transition_openers"):
-            lines.append("- Avoid opening paragraphs with transition words: " + ", ".join(config.get("transition_openers", [])))
-        if config.get("fiction_ai_tells"):
-            lines.append("- Avoid typical AI fiction tropes and tells: " + ", ".join(config.get("fiction_ai_tells", [])))
-        if config.get("structural_ai_tics"):
-            lines.append("- Forbidden structural and rhetorical AI tics: " + ", ".join(config.get("structural_ai_tics", [])))
-        lines.append("- PUNCTUATION & STYLE (CRITICAL): Limit the use of em-dashes (—). The density of em-dashes must be LESS than 15 per 1000 words (use them only for actual dialogue and real interruptions, not for explanatory side-notes in narration).")
-        lines.append("- SENTENCE VARIATION: Deliberately vary sentence lengths. Avoid consecutive sentences of the same length.")
-        lines.append("- SHOW, DON'T TELL: Show physical/sensory reactions rather than naming/telling emotions (e.g. avoid 'he felt sad', 'she looked nervous').")
+    
+    if "tier1_banned" in templates and config.get("tier1_banned"):
+        lines.append("- " + templates["tier1_banned"].format(words=", ".join(config["tier1_banned"])))
+        
+    if "tier2_suspicious" in templates and config.get("tier2_suspicious"):
+        lines.append("- " + templates["tier2_suspicious"].format(words=", ".join(config["tier2_suspicious"])))
+        
+    if "tier3_filler" in templates and config.get("tier3_filler"):
+        lines.append("- " + templates["tier3_filler"].format(words=", ".join(config["tier3_filler"])))
+        
+    if "transition_openers" in templates and config.get("transition_openers"):
+        lines.append("- " + templates["transition_openers"].format(words=", ".join(config["transition_openers"])))
+        
+    if "fiction_ai_tells" in templates and config.get("fiction_ai_tells"):
+        lines.append("- " + templates["fiction_ai_tells"].format(words=", ".join(config["fiction_ai_tells"])))
+        
+    if "structural_ai_tics" in templates and config.get("structural_ai_tics"):
+        lines.append("- " + templates["structural_ai_tics"].format(words=", ".join(config["structural_ai_tics"])))
+        
+    if "punctuation_style" in templates:
+        lines.append("- " + templates["punctuation_style"])
+        
+    if "sentence_variation" in templates:
+        lines.append("- " + templates["sentence_variation"])
+        
+    if "show_dont_tell" in templates:
+        lines.append("- " + templates["show_dont_tell"])
         
     return "\n".join(lines)
+
 
 
