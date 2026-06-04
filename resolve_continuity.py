@@ -33,7 +33,7 @@ def get_latest_chapter_score(ch_num: int) -> float:
         return 0.0
 
 def backup_editorial():
-    editorial_path = BASE_DIR / "editorial.md"
+    editorial_path = BASE_DIR / "book_data" / "editorial.md"
     if not editorial_path.exists():
         return
     edit_logs_dir = BASE_DIR / "edit_logs"
@@ -264,7 +264,7 @@ def main():
         editorial_lines.append("")
         
     # Write to editorial.md
-    editorial_path = BASE_DIR / "editorial.md"
+    editorial_path = BASE_DIR / "book_data" / "editorial.md"
     editorial_path.write_text("\n".join(editorial_lines), encoding="utf-8")
     print(f"[SUCCESS] New corrective editorial.md generated successfully at: {editorial_path.name}")
     
