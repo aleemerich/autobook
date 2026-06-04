@@ -17,7 +17,7 @@ BASE_DIR = Path(__file__).parent.resolve()
 load_dotenv(BASE_DIR / ".env")
 
 def get_latest_chapter_score(ch_num: int) -> float:
-    eval_logs_dir = BASE_DIR / "eval_logs"
+    eval_logs_dir = BASE_DIR / "logs" / "eval_logs"
     if not eval_logs_dir.exists():
         return 0.0
     log_files = sorted(eval_logs_dir.glob(f"*_ch{ch_num:02d}.json"))
@@ -36,8 +36,8 @@ def backup_editorial():
     editorial_path = BASE_DIR / "book_data" / "editorial.md"
     if not editorial_path.exists():
         return
-    edit_logs_dir = BASE_DIR / "edit_logs"
-    edit_logs_dir.mkdir(exist_ok=True)
+    edit_logs_dir = BASE_DIR / "logs" / "edit_logs"
+    edit_logs_dir.mkdir(parents=True, exist_ok=True)
     
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     backup_path = edit_logs_dir / f"editorial_cycle_{timestamp}.md"
@@ -46,7 +46,7 @@ def backup_editorial():
     print(f"[INFO] Backed up current editorial.md to: {backup_path.name}")
 
 def main():
-    report_path = BASE_DIR / "eval_logs" / "continuity_report.json"
+    report_path = BASE_DIR / "logs" / "eval_logs" / "continuity_report.json"
     
     if not report_path.exists():
         print("[INFO] Continuity report not found. Running verify_continuity.py first...")

@@ -17,8 +17,8 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).parent
 CHAPTERS_DIR = BASE_DIR / "chapters"
-EDIT_LOGS_DIR = BASE_DIR / "edit_logs"
-EVAL_LOGS_DIR = BASE_DIR / "eval_logs"
+EDIT_LOGS_DIR = BASE_DIR / "logs" / "edit_logs"
+EVAL_LOGS_DIR = BASE_DIR / "logs" / "eval_logs"
 BRIEFS_DIR = BASE_DIR / "briefs"
 VOICE_PATH = BASE_DIR / "voice.md"
 

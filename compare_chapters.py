@@ -194,7 +194,8 @@ def main():
             "matchups": matchups,
             "timestamp": datetime.now().isoformat()
         }
-        out_path = BASE_DIR / "edit_logs" / "tournament_results.json"
+        out_path = BASE_DIR / "logs" / "edit_logs" / "tournament_results.json"
+        out_path.parent.mkdir(parents=True, exist_ok=True)
         with open(out_path, "w") as f:
             json.dump(results, f, indent=2)
         print(f"\nSaved to {out_path}")
