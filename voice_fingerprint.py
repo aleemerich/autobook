@@ -192,7 +192,8 @@ def main():
             print(f"    {o}")
     
     # Save full results
-    out_path = BASE_DIR / "edit_logs" / "voice_fingerprint.json"
+    out_path = BASE_DIR / "logs" / "edit_logs" / "voice_fingerprint.json"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, "w") as f:
         json.dump({"chapters": results, "outliers": outliers}, f, indent=2)
     print(f"\nSaved to {out_path}")

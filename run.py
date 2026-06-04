@@ -6,6 +6,7 @@ Supports launching book generation or editorial revision pipelines.
 
 import sys
 import argparse
+import datetime
 from pathlib import Path
 
 # Add project root to path
@@ -14,6 +15,21 @@ sys.path.insert(0, str(BASE_DIR))
 
 from pipelines.book_generation import BookGenerationPipeline
 from pipelines.editorial_revision import EditorialRevisionPipeline
+
+class Tee:
+    def __init__(self, filename, stream):
+        self.file = open(filename, 'a', encoding='utf-8')
+        self.stream = stream
+
+    def write(self, data):
+        self.file.write(data)
+        self.file.flush()
+        self.stream.write(data)
+        self.stream.flush()
+
+    def flush(self):
+        self.file.flush()
+        self.stream.flush()
 
 def parse_chapters(ch_str: str) -> list:
     """Parse comma-separated integers or ranges (e.g. '1-3,5,7')."""
@@ -39,6 +55,18 @@ def parse_chapters(ch_str: str) -> list:
     return sorted(list(nums))
 
 def main():
+    # Setup logging to logs/pipeline.log
+    log_dir = BASE_DIR / "logs"
+    log_dir.mkdir(exist_ok=True)
+    log_file = log_dir / "pipeline.log"
+    
+    # Write a run header
+    with open(log_file, "a", encoding="utf-8") as f:
+        f.write(f"\n--- Pipeline Run Started at {datetime.datetime.now().isoformat()} ---\n")
+        
+    sys.stdout = Tee(str(log_file), sys.stdout)
+    sys.stderr = Tee(str(log_file), sys.stderr)
+
     parser = argparse.ArgumentParser(description="Unified Autobook Pipeline Orchestrator")
     parser.add_argument(
         "--pipeline",

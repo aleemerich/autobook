@@ -643,6 +643,34 @@ def evaluate_chapter(chapter_num):
         result["raw_judge_score"] = result["overall_score"]
         result["overall_score"] = round(adjusted, 2)
 
+    # Save programmatic logs to logs/eval_logs and logs/edit_logs
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    
+    # 1. Full Evaluation log
+    eval_log_dir = BASE_DIR / "logs" / "eval_logs"
+    eval_log_dir.mkdir(parents=True, exist_ok=True)
+    eval_log_path = eval_log_dir / f"{timestamp}_ch{chapter_num:02d}.json"
+    with open(eval_log_path, "w", encoding="utf-8") as f:
+        json.dump(result, f, indent=2, ensure_ascii=False)
+
+    # 2. Edit log
+    edit_log_dir = BASE_DIR / "logs" / "edit_logs"
+    edit_log_dir.mkdir(parents=True, exist_ok=True)
+    edit_log_path = edit_log_dir / f"{timestamp}_ch{chapter_num:02d}_edits.json"
+    
+    # Extract edit directives/suggestions
+    edit_data = {
+        "chapter": chapter_num,
+        "timestamp": timestamp,
+        "overall_score": result.get("overall_score"),
+        "top_3_revisions": result.get("top_3_revisions", []),
+        "weakest_moment": result.get("weakest_moment") or (result.get("prose_quality", {}).get("weakest_moment") if isinstance(result.get("prose_quality"), dict) else None),
+        "prose_quality_fix": result.get("prose_quality", {}).get("fix") if isinstance(result.get("prose_quality"), dict) else None,
+        "canon_violations": result.get("canon_compliance", {}).get("violations", []) if isinstance(result.get("canon_compliance"), dict) else []
+    }
+    with open(edit_log_path, "w", encoding="utf-8") as f:
+        json.dump(edit_data, f, indent=2, ensure_ascii=False)
+
     return result
 
 

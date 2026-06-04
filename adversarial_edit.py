@@ -18,8 +18,8 @@ load_dotenv(BASE_DIR / ".env")
 
 # API and models are handled unified via llm.py
 CHAPTERS_DIR = BASE_DIR / "chapters"
-EDIT_LOG_DIR = BASE_DIR / "edit_logs"
-EDIT_LOG_DIR.mkdir(exist_ok=True)
+EDIT_LOG_DIR = BASE_DIR / "logs" / "edit_logs"
+EDIT_LOG_DIR.mkdir(parents=True, exist_ok=True)
 
 def call_judge(prompt, max_tokens=8000):
     """Call the unified judge LLM via llm.py and return response text."""
