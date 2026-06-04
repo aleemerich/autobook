@@ -226,7 +226,7 @@ def main():
     if args.chapter.lower() == "all":
         chapters = discover_chapters()
         if not chapters:
-            print("No cuts files found in edit_logs/")
+            print("No cuts files found in logs/edit_logs/")
             sys.exit(1)
     else:
         try:

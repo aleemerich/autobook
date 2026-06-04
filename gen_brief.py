@@ -173,7 +173,7 @@ def panel_mentions_for_chapter(panel: dict, ch: int) -> dict:
 def build_panel_brief(ch: int) -> str:
     panel = load_panel()
     if panel is None:
-        sys.exit("ERROR: edit_logs/reader_panel.json not found")
+        sys.exit("ERROR: logs/edit_logs/reader_panel.json not found")
 
     text = chapter_text(ch)
     title = chapter_title(text)
@@ -491,7 +491,7 @@ def build_eval_brief(ch: int) -> str:
 def build_cuts_brief(ch: int) -> str:
     cuts_data = load_cuts(ch)
     if cuts_data is None:
-        sys.exit(f"ERROR: edit_logs/ch{ch:02d}_cuts.json not found")
+        sys.exit(f"ERROR: logs/edit_logs/ch{ch:02d}_cuts.json not found")
 
     text = chapter_text(ch)
     title = chapter_title(text)
