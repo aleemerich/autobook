@@ -138,5 +138,48 @@ class TestIntegration(unittest.TestCase):
             state = json.loads(state_file.read_text(encoding="utf-8"))
             self.assertEqual(state["chapters_drafted"], 1)
 
+    @patch("pipelines.book_generation.evaluate_chapter")
+    @patch("pipelines.book_generation.subprocess.run")
+    @patch("agents.call_llm")
+    def test_book_generation_pipeline_prompts_contain_voice_world_canon(self, mock_call_llm, mock_subprocess, mock_eval_chapter):
+        """Verifies that the generated prompts for DraftingAgent and StylistAgent contain the voice, world, and canon references."""
+        mock_call_llm.return_value = "Mocked chapter/scene output content."
+        mock_eval_chapter.return_value = {
+            "overall_score": 8.0,
+            "slop": {
+                "slop_penalty": 0.0,
+                "tier1_hits": [],
+                "tier2_hits": []
+            }
+        }
+        mock_sub_run = MagicMock()
+        mock_sub_run.returncode = 0
+        mock_subprocess.return_value = mock_sub_run
+
+        with patch("pipelines.book_generation.BOOK_DATA_DIR", self.book_data), \
+             patch("pipelines.book_generation.CHAPTERS_DIR", self.chapters), \
+             patch("evaluate.CHAPTERS_DIR", self.chapters), \
+             patch("evaluate.BASE_DIR", self.test_dir):
+             
+            pipeline = BookGenerationPipeline()
+            pipeline.run({"from_scratch": True, "yes": True})
+            
+            # Check all call arguments to call_llm
+            called_prompts = [call.kwargs.get("prompt", "") for call in mock_call_llm.call_args_list]
+            
+            # The drafting prompt should contain voice, world, and canon
+            drafting_prompt_calls = [p for p in called_prompts if "DraftingAgent" in p]
+            self.assertTrue(len(drafting_prompt_calls) > 0)
+            for dp in drafting_prompt_calls:
+                self.assertIn("DEFINIÇÃO DE VOZ / VOICE Profile", dp)
+                self.assertIn("WORLD BIBLE / DICIONÁRIO DO MUNDO", dp)
+                self.assertIn("ESTABELECIDO CANON / ESTABLISHED CANON", dp)
+                
+            # The stylist prompt should contain voice
+            stylist_prompt_calls = [p for p in called_prompts if "StylistAgent" in p]
+            self.assertTrue(len(stylist_prompt_calls) > 0)
+            for sp in stylist_prompt_calls:
+                self.assertIn("DEFINIÇÃO DE VOZ / VOICE Profile", sp)
+
 if __name__ == "__main__":
     unittest.main()

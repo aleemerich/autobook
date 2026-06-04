@@ -179,21 +179,28 @@ class DraftChaptersStep(Step):
                         draft_prompt = (
                             f"Você é o DraftingAgent. Escreva a cena correspondente ao Beat {b_idx} do Capítulo {ch}.\n\n"
                             f"{title_instruction}"
+                            f"DEFINIÇÃO DE VOZ / VOICE Profile (siga exatamente):\n{voice_text}\n\n"
+                            f"WORLD BIBLE / DICIONÁRIO DO MUNDO:\n{world_text}\n\n"
+                            f"ESTABELECIDO CANON / ESTABLISHED CANON (não cometa violações):\n{canon_text}\n\n"
                             f"ESTE CAPÍTULO TEM O SEGUINTE DESIGN:\n{roadmap_text}\n\n"
                             f"ESTA É A SUA TAREFA ATUAL:\n"
                             f"Escreva a cena correspondente ao Beat {b_idx}: {beats[b_idx-1]}\n\n"
                             f"GANCHO DE TRANSIÇÃO DO TEXTO ANTERIOR:\n{previous_beat_context}\n\n"
                             f"REGISTRO DE PERSONAGENS:\n{characters_text}\n\n"
                             f"Escreva apenas a cena na íntegra (~450 palavras), focando em ação e diálogo.\n"
-                            f"ATENÇÃO CRÍTICA: Escreva APENAS a cena correspondente ao Beat {b_idx}. Não escreva nada sobre os beats seguintes. O texto deve terminar logo após os eventos do Beat {b_idx}.\n"
+                            f"ATENÇÃO CRÍTICA (NÃO ADICIONE PLOTS NOVOS OU DETALHES DE CONSPIRAÇÃO FORA DO ESBOÇO):\n"
+                            f"- Siga as diretrizes de voz e o canon estritamente.\n"
+                            f"- Escreva APENAS a cena correspondente ao Beat {b_idx}. Não invente novos personagens, novas salas secretas, vozes misteriosas, nem deuses ex machina.\n"
+                            f"- O texto deve terminar logo após os eventos do Beat {b_idx}.\n"
                             f"ATENÇÃO: Retorne APENAS o texto da prosa da cena, sem comentários, notas ou outros cabeçalhos adicionais além do '#' se for o Beat 1."
                         )
                         raw_beat = drafting_agent.execute(draft_prompt)
                         
                         # 2. Stylist Agent
                         stylist_prompt = (
-                            f"Você é o StylistAgent. Refine o rascunho de cena a seguir injetando suspense, tensão e dinamismo de anime.\n\n"
+                            f"Você é o StylistAgent. Refine o rascunho de cena a seguir injetando suspense, tensão e rigor de thriller especulativo.\n\n"
                             f"RASCUNHO DA CENA:\n{raw_beat}\n\n"
+                            f"DEFINIÇÃO DE VOZ / VOICE Profile (siga exatamente):\n{voice_text}\n\n"
                             f"REGRAS DE ESTILO:\n{genre_rules}\n\n"
                             f"ATENÇÃO: Retorne APENAS o texto refinado da prosa da cena. Preserve a formatação de título '#' do primeiro beat se estiver presente. Não inclua notas, preâmbulos, resumos ou explicações."
                         )
