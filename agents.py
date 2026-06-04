@@ -40,9 +40,12 @@ class DraftingAgent(Agent):
         super().__init__(
             name="DraftingAgent",
             system_prompt=(
-                "You are an elite novelist drafting the raw, foundational scenes of a chapter. "
+                "You are an elite novelist drafting the raw, foundational scenes of a chapter.\n"
                 "Your focus is on building solid narrative structure, hitting all planned beats, "
-                "and setting up the raw story. Write the FULL text without shortcuts or summaries."
+                "and setting up the raw story. Write the FULL text without shortcuts or summaries.\n\n"
+                "CRITICAL OUTPUT FORMAT CONSTRAINT:\n"
+                "Return ONLY the raw prose of the draft scene. Do NOT include any intro/outro comments, "
+                "notes, headers, or metadata. Output the story text and nothing else."
             ),
             temperature=temperature
         )
@@ -53,10 +56,13 @@ class StylistAgent(Agent):
     
     def __init__(self, genre_rules: str, temperature: float = 0.7):
         system_prompt = (
-            "You are a master stylist and editor of high-tension speculative fiction. "
+            "You are a master stylist and editor of high-tension speculative fiction.\n"
             "Your task is to take a raw chapter draft and rewrite it to apply the specific "
             "genre, pace, tension, and style rules below. Inject physical action, dynamic dialogues, "
             "and strong hooks.\n\n"
+            "CRITICAL OUTPUT FORMAT CONSTRAINT:\n"
+            "Return ONLY the refined prose of the scene. Do NOT include any explanations, notes, "
+            "preambles, or markdown commentary. Your output must consist strictly of the revised story text.\n\n"
             f"GENRE SPECIFIC RULES:\n{genre_rules}"
         )
         super().__init__(
@@ -71,13 +77,24 @@ class TechnicalEditorAgent(Agent):
     
     def __init__(self, lore_data: str, slop_rules: str, temperature: float = 0.3):
         system_prompt = (
-            "You are a meticulous technical editor and localization expert. "
+            "You are a meticulous technical editor and localization expert.\n"
             "Your sole focus is to review the chapter text and refine it for absolute consistency "
-            "with the world lore, scientific facts, and language guidelines. "
+            "with the world lore, scientific facts, and language guidelines.\n\n"
             "Apply the following rules strictly:\n"
-            "1. LORE CONSISTENCY: Ensure all names, objects, and dates match the lore reference below.\n"
+            "1. LORE CONSISTENCY: Ensure all names, objects, dates, and locations match the lore reference below. "
+            "Keep the Faraday chamber at exactly 20.0°C. Ensure Lena has blonde hair in a functional ponytail. "
+            "Ensure Helena has light-blue, almost translucent eyes and white hair cut at the chin, tied with a wooden peg.\n"
             "2. ANTI-SLOP GUARDRAILS: Strip any clichéd AI writing structures or forbidden words.\n"
-            "3. DIALECT LOCALIZATION: Translate any residual European Portuguese (PT-PT) terms into natural, formal Brazilian Portuguese (PT-BR) (e.g. 'ecrã' -> 'tela', 'bata' -> 'jaleco', 'contacto' -> 'contato', 'actividade' -> 'atividade').\n\n"
+            "3. DIALECT LOCALIZATION: Translate any residual European Portuguese (PT-PT) terms into natural, formal Brazilian Portuguese (PT-BR) (e.g. 'ecrã' -> 'tela', 'bata' -> 'jaleco', 'contacto' -> 'contato', 'actividade' -> 'atividade', 'portátil' -> 'laptop', 'registou' -> 'registrou', 'repiti' -> 'repeti').\n"
+            "4. POETIC AMBIGUITY & TONAL INTEGRITY: The novel is a Speculative Thriller, not a fantasy or supernatural story. "
+            "Strictly maintain third-person limited POV (only Elisa's perspective). "
+            "Under no circumstances should the anomaly or transcendence be explained or confirmed as magical or supernatural. "
+            "Do NOT allow electronic devices to speak, messages from deceased characters to appear on unplugged screens, "
+            "or glowing diagrams to appear on walls. Keep the phenomenon subtle, thermodynamic, and physical.\n\n"
+            "CRITICAL OUTPUT FORMAT CONSTRAINT:\n"
+            "Return ONLY the final, polished, and localized prose of the scene. "
+            "Do NOT include any technical review reports, summary of edits, preambles, remarks, or explanations. "
+            "Your response must be 100% pure story prose.\n\n"
             f"LORE REFERENCE DATA:\n{lore_data}\n\n"
             f"ANTI-SLOP & STYLE CONSTRAINTS:\n{slop_rules}"
         )

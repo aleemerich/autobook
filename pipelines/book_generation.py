@@ -100,11 +100,14 @@ class DraftChaptersStep(Step):
             print(f"\n======================================")
             print(f"Drafting Chapter {ch}/{total_chapters}")
             print(f"======================================")
-            
-            # Extract outline entry for this chapter
+                       # Extract outline entry for this chapter
             pattern = rf'###\s*Ch(?:apter)?\s*{ch}\b.*?(?=###\s*Ch(?:apter)?\s*{ch + 1}\b|## Act|## Foreshadowing|$)'
             ch_outline_match = re.search(pattern, outline_text, re.DOTALL | re.IGNORECASE)
             ch_outline = ch_outline_match.group(0).strip() if ch_outline_match else f"Capítulo {ch}"
+            
+            # Extract chapter title
+            title_match = re.search(r'###\s*Ch(?:apter)?\s*\d+:\s*(.*?)$', ch_outline, re.MULTILINE)
+            ch_title = title_match.group(1).strip() if title_match else f"Capítulo {ch}"
             
             # Next chapter info for continuity
             next_pattern = rf'###\s*Ch(?:apter)?\s*{ch + 1}\b.*?(?=###\s*Ch(?:apter)?\s*{ch + 2}\b|## Act|## Foreshadowing|$)'
@@ -148,16 +151,40 @@ class DraftChaptersStep(Step):
                     for b_idx, beat_text in enumerate(beats, 1):
                         print(f"  [Beat {b_idx}/{len(beats)}] Generating...")
                         
-                        current_draft = "\n\n".join(chapter_content)
+                        # 1. Preparar contexto do beat anterior (Janela Deslizante)
+                        previous_beat_context = ""
+                        if b_idx > 1 and chapter_content:
+                            last_beat_text = chapter_content[-1].strip()
+                            paragraphs = [p.strip() for p in last_beat_text.split('\n\n') if p.strip()]
+                            last_paragraphs = paragraphs[-3:] if len(paragraphs) > 3 else paragraphs
+                            previous_beat_context = "\n\n".join(last_paragraphs)
+                        else:
+                            previous_beat_context = prev_tail  # Fim do capítulo anterior para o Beat 1
+
+                        # 2. Roteiro do capítulo (Roadmap)
+                        roadmap = []
+                        for i, b in enumerate(beats, 1):
+                            status = " (Escrevendo agora)" if i == b_idx else (" (Concluído)" if i < b_idx else " (Pendente)")
+                            roadmap.append(f"- Beat {i}: {b}{status}")
+                        roadmap_text = "\n".join(roadmap)
+
+                        # 3. Drafting Agent
+                        title_instruction = ""
+                        if b_idx == 1:
+                            title_instruction = (
+                                f"IMPORTANTE: Como este é o primeiro Beat do capítulo, inicie a sua resposta com o título formatado exatamente assim (incluindo o caractere '#'):\n"
+                                f"# {ch_title}\n\n"
+                            )
                         
-                        # 1. Drafting Agent
                         draft_prompt = (
                             f"Você é o DraftingAgent. Escreva a cena correspondente ao Beat {b_idx} do Capítulo {ch}.\n\n"
-                            f"TEXTO JÁ ESCRITO DESTE CAPÍTULO:\n{current_draft}\n\n"
-                            f"BEAT PARA ESCREVER AGORA:\n{beat_text}\n\n"
-                            f"CONTEXTO DO CAPÍTULO ANTERIOR:\n{prev_tail}\n\n"
+                            f"{title_instruction}"
+                            f"ROTEIRO DE BEATS DO CAPÍTULO:\n{roadmap_text}\n\n"
+                            f"GANCHO DE TRANSIÇÃO DO TEXTO ANTERIOR:\n{previous_beat_context}\n\n"
                             f"REGISTRO DE PERSONAGENS:\n{characters_text}\n\n"
-                            f"Escreva a cena na íntegra (~800 palavras), focando em ação e diálogo."
+                            f"Escreva a cena na íntegra (~450 palavras), focando em ação e diálogo.\n"
+                            f"IMPORTANTE: Escreva APENAS a cena correspondente a este beat. Não tente adiantar acontecimentos de beats pendentes.\n"
+                            f"ATENÇÃO: Retorne APENAS o texto da prosa da cena, sem comentários, notas ou outros cabeçalhos adicionais além do '#' se for o Beat 1."
                         )
                         raw_beat = drafting_agent.execute(draft_prompt)
                         
@@ -165,7 +192,8 @@ class DraftChaptersStep(Step):
                         stylist_prompt = (
                             f"Você é o StylistAgent. Refine o rascunho de cena a seguir injetando suspense, tensão e dinamismo de anime.\n\n"
                             f"RASCUNHO DA CENA:\n{raw_beat}\n\n"
-                            f"REGRAS DE ESTILO:\n{genre_rules}"
+                            f"REGRAS DE ESTILO:\n{genre_rules}\n\n"
+                            f"ATENÇÃO: Retorne APENAS o texto refinado da prosa da cena. Preserve a formatação de título '#' do primeiro beat se estiver presente. Não inclua notas, preâmbulos, resumos ou explicações."
                         )
                         stylized_beat = stylist_agent.execute(stylist_prompt)
                         
@@ -173,9 +201,26 @@ class DraftChaptersStep(Step):
                         editor_prompt = (
                             f"Você é o TechnicalEditorAgent. Revise a cena estilizada para remover qualquer vício de IA, slop, ou termos de PT-PT (conversão rigorosa para PT-BR) e alinhar com o lore.\n\n"
                             f"CENA:\n{stylized_beat}\n\n"
-                            f"REGRAS LORE & SLOP:\n{tech_editor_agent.system_prompt}"
+                            f"REGRAS LORE & SLOP:\n{tech_editor_agent.system_prompt}\n\n"
+                            f"ATENÇÃO CRÍTICA: Retorne APENAS o texto final da prosa revisada da cena. Preserve o título '#' no início se estiver presente. "
+                            f"Não inclua NENHUM tipo de relatório de revisão, resumos de alterações, comentários ou explicações antes ou depois do texto."
                         )
                         refined_beat = tech_editor_agent.execute(editor_prompt)
+                        
+                        # 4. Pós-processamento e Sanitização em Python (Garantia de Prosa Limpa)
+                        lines = refined_beat.split("\n")
+                        clean_lines = []
+                        title_kept = False
+                        for line in lines:
+                            stripped = line.strip()
+                            if stripped.startswith("#"):
+                                # Apenas permite o H1 (iniciado com '# ') no primeiro beat
+                                if b_idx == 1 and stripped.startswith("# ") and not title_kept:
+                                    clean_lines.append(line)
+                                    title_kept = True
+                            else:
+                                clean_lines.append(line)
+                        refined_beat = "\n".join(clean_lines).strip()
                         
                         chapter_content.append(refined_beat)
                 else:
