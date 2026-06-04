@@ -179,11 +179,13 @@ class DraftChaptersStep(Step):
                         draft_prompt = (
                             f"Você é o DraftingAgent. Escreva a cena correspondente ao Beat {b_idx} do Capítulo {ch}.\n\n"
                             f"{title_instruction}"
-                            f"ROTEIRO DE BEATS DO CAPÍTULO:\n{roadmap_text}\n\n"
+                            f"ESTE CAPÍTULO TEM O SEGUINTE DESIGN:\n{roadmap_text}\n\n"
+                            f"ESTA É A SUA TAREFA ATUAL:\n"
+                            f"Escreva a cena correspondente ao Beat {b_idx}: {beats[b_idx-1]}\n\n"
                             f"GANCHO DE TRANSIÇÃO DO TEXTO ANTERIOR:\n{previous_beat_context}\n\n"
                             f"REGISTRO DE PERSONAGENS:\n{characters_text}\n\n"
-                            f"Escreva a cena na íntegra (~450 palavras), focando em ação e diálogo.\n"
-                            f"IMPORTANTE: Escreva APENAS a cena correspondente a este beat. Não tente adiantar acontecimentos de beats pendentes.\n"
+                            f"Escreva apenas a cena na íntegra (~450 palavras), focando em ação e diálogo.\n"
+                            f"ATENÇÃO CRÍTICA: Escreva APENAS a cena correspondente ao Beat {b_idx}. Não escreva nada sobre os beats seguintes. O texto deve terminar logo após os eventos do Beat {b_idx}.\n"
                             f"ATENÇÃO: Retorne APENAS o texto da prosa da cena, sem comentários, notas ou outros cabeçalhos adicionais além do '#' se for o Beat 1."
                         )
                         raw_beat = drafting_agent.execute(draft_prompt)
