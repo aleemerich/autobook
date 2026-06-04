@@ -20,7 +20,7 @@ from evaluate import evaluate_chapter
 BASE_DIR = Path(__file__).parent.parent.resolve()
 CHAPTERS_DIR = BASE_DIR / "chapters"
 BOOK_DATA_DIR = BASE_DIR / "book_data"
-EDITORIAL_MD = BASE_DIR / "editorial.md"
+EDITORIAL_MD = BOOK_DATA_DIR / "editorial.md"
 
 def load_editorial_config() -> dict:
     from prompt_loader import get_active_language, PROMPTS_DIR
