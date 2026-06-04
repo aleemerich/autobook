@@ -85,7 +85,7 @@ class DraftChaptersStep(Step):
         characters_text = (BOOK_DATA_DIR / "characters.md").read_text(encoding="utf-8") if (BOOK_DATA_DIR / "characters.md").exists() else ""
         voice_text = (BOOK_DATA_DIR / "voice.md").read_text(encoding="utf-8") if (BOOK_DATA_DIR / "voice.md").exists() else ""
         
-        lore_data = f"=== WORLD BIBLE ===\n{world_text}\n\n=== ESTABLISHED CANON ===\n{canon_text}"
+        lore_data = f"=== WORLD BIBLE ===\n{world_text}\n\n=== ESTABLISHED CANON ===\n{canon_text}\n\n=== CHARACTER REGISTRY ===\n{characters_text}"
         
         # Agents instantiation
         drafting_agent = factory.get_agent("drafting")
@@ -167,11 +167,17 @@ class DraftChaptersStep(Step):
                         else:
                             previous_beat_context = prev_tail  # Fim do capítulo anterior para o Beat 1
 
-                        # 2. Roteiro do capítulo (Roadmap)
+                        # 2. Roteiro de beats simplificado (esconde detalhes dos beats futuros para evitar pre-empting)
                         roadmap = []
                         for i, b in enumerate(beats, 1):
-                            status = " (Escrevendo agora)" if i == b_idx else (" (Concluído)" if i < b_idx else " (Pendente)")
-                            roadmap.append(f"- Beat {i}: {b}{status}")
+                            if i < b_idx:
+                                roadmap.append(f"- Beat {i} (CONCLUÍDO): {b}")
+                            elif i == b_idx:
+                                roadmap.append(f"- Beat {i} (ESCREVA AGORA): {b}")
+                            elif i == b_idx + 1:
+                                roadmap.append(f"- Beat {i} (PRÓXIMO - transicione em direção a este ponto no final): {b}")
+                            else:
+                                roadmap.append(f"- Beat {i} (FUTURO): [Não escreva ou mencione este evento ainda]")
                         roadmap_text = "\n".join(roadmap)
 
                         # 3. Drafting Agent
@@ -196,6 +202,7 @@ class DraftChaptersStep(Step):
                             f"Escreva apenas a cena na íntegra (~450 palavras), focando em ação e diálogo.\n"
                             f"ATENÇÃO CRÍTICA (NÃO ADICIONE PLOTS NOVOS OU DETALHES DE CONSPIRAÇÃO FORA DO ESBOÇO):\n"
                             f"- Siga as diretrizes de voz e o canon estritamente.\n"
+                            f"- Helena NÃO tem histórico de demência, Alzheimer ou qualquer comprometimento cognitivo (ela tem apenas hipertensão controlada por losartana, e artrose grau 2 nas articulações das mãos). Ela é lúcida e perfeitamente funcional.\n"
                             f"- Escreva APENAS a cena correspondente ao Beat {b_idx}. Não invente novos personagens, novas salas secretas, vozes misteriosas, nem deuses ex machina.\n"
                             f"- O texto deve terminar logo após os eventos do Beat {b_idx}.\n"
                             f"ATENÇÃO: Retorne APENAS o texto da prosa da cena, sem comentários, notas ou outros cabeçalhos adicionais além do '#' se for o Beat 1."
