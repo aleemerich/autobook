@@ -26,7 +26,7 @@ load_dotenv(BASE_DIR / ".env", override=True)
 # API and models are handled unified via llm.py
 
 CHAPTERS_DIR = BASE_DIR / "chapters"
-LOGS_DIR = BASE_DIR / "edit_logs"
+LOGS_DIR = BASE_DIR.parent / "logs" / "edit_logs"
 
 REVIEW_PROMPT = """Read the below novel, "{title}". Review it first as a literary critic (like a newspaper book review) and then as a professor of fiction. In the later review, give specific, actionable suggestions for any defects you find. Be fair but honest. You don't *have* to find defects.
 
