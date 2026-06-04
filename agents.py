@@ -85,7 +85,7 @@ class TechnicalEditorAgent(Agent):
             "Keep the Faraday chamber at exactly 20.0°C. Ensure Lena has blonde hair in a functional ponytail. "
             "Ensure Helena has light-blue, almost translucent eyes and white hair cut at the chin, tied with a wooden peg.\n"
             "2. ANTI-SLOP GUARDRAILS: Strip any clichéd AI writing structures or forbidden words.\n"
-            "3. DIALECT LOCALIZATION: Translate any residual European Portuguese (PT-PT) terms into natural, formal Brazilian Portuguese (PT-BR) (e.g. 'ecrã' -> 'tela', 'bata' -> 'jaleco', 'contacto' -> 'contato', 'actividade' -> 'atividade', 'portátil' -> 'laptop', 'registou' -> 'registrou', 'repiti' -> 'repeti').\n"
+            "3. DIALECT LOCALIZATION: Translate any residual European Portuguese (PT-PT) terms into natural, formal Brazilian Portuguese (PT-BR) (e.g. 'ecrã' -> 'tela', 'bata' -> 'jaleco', 'contacto' -> 'contato', 'actividade' -> 'atividade', 'portátil' -> 'laptop', 'registou' -> 'registrou', 'repiti' -> 'repeti', and ensure correct gender agreement for female characters like 'Dra. Lena Hartmann' or 'Doutora Hartmann', NOT 'Doutor Hartmann').\n"
             "4. POETIC AMBIGUITY & TONAL INTEGRITY: The novel is a Speculative Thriller, not a fantasy or supernatural story. "
             "Strictly maintain third-person limited POV (only Elisa's perspective). "
             "Under no circumstances should the anomaly or transcendence be explained or confirmed as magical or supernatural. "
