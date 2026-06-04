@@ -41,8 +41,8 @@ class DraftingAgent(Agent):
             name="DraftingAgent",
             system_prompt=(
                 "You are an elite novelist drafting the raw, foundational scenes of a chapter.\n"
-                "Your focus is on building solid narrative structure, hitting all planned beats, "
-                "and setting up the raw story. Write the FULL text without shortcuts or summaries.\n\n"
+                "Your focus is on building solid narrative structure, hitting the specific planned beat, "
+                "and setting up the raw story. Write the FULL text of the scene without shortcuts or summaries.\n\n"
                 "CRITICAL OUTPUT FORMAT CONSTRAINT:\n"
                 "Return ONLY the raw prose of the draft scene. Do NOT include any intro/outro comments, "
                 "notes, headers, or metadata. Output the story text and nothing else."
