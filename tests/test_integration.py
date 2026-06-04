@@ -175,11 +175,19 @@ class TestIntegration(unittest.TestCase):
                 self.assertIn("WORLD BIBLE / DICIONÁRIO DO MUNDO", dp)
                 self.assertIn("ESTABELECIDO CANON / ESTABLISHED CANON", dp)
                 
-            # The stylist prompt should contain voice
-            stylist_prompt_calls = [p for p in called_prompts if "StylistAgent" in p]
-            self.assertTrue(len(stylist_prompt_calls) > 0)
-            for sp in stylist_prompt_calls:
-                self.assertIn("DEFINIÇÃO DE VOZ / VOICE Profile", sp)
+            # Check critic calls
+            canon_critic_calls = [p for p in called_prompts if "CanonCriticAgent" in p]
+            self.assertTrue(len(canon_critic_calls) > 0)
+            
+            style_critic_calls = [p for p in called_prompts if "StyleCriticAgent" in p]
+            self.assertTrue(len(style_critic_calls) > 0)
+            
+            flow_critic_calls = [p for p in called_prompts if "FlowCriticAgent" in p]
+            self.assertTrue(len(flow_critic_calls) > 0)
+            
+            # Check synthesis calls
+            synthesis_calls = [p for p in called_prompts if "SynthesisAgent" in p]
+            self.assertTrue(len(synthesis_calls) > 0)
 
     @patch("pipelines.book_generation.evaluate_chapter")
     @patch("pipelines.book_generation.subprocess.run")

@@ -106,6 +106,93 @@ class TechnicalEditorAgent(Agent):
         )
 
 
+class CanonCriticAgent(Agent):
+    """Critic agent responsible for auditing draft scenes for canon, characters, and lore compliance."""
+    
+    def __init__(self, lore_data: str, temperature: float = 0.3):
+        system_prompt = (
+            "You are a rigorous canon and lore critic for a science-fiction speculative thriller.\n"
+            "Your sole task is to audit the chapter draft against the established lore, characters, and timeline facts.\n"
+            "Identify any factual inconsistencies, character behavior deviations, or physical anomalies.\n\n"
+            "CRITICAL CANON RULES TO ENFORCE:\n"
+            "1. Helena Varga has absolutely NO history of dementia, frontotemporal impairment, cognitive decay, or MMSE test results. She is perfeitamente lúcida and functional.\n"
+            "2. Helena Varga is NOT Elisa's mother. Elisa's mother was Jana Dragowska, who died of cancer in 2009. Helena is under study/observation and has a warm, supportive relationship with Elisa, but they are not mother and daughter.\n"
+            "3. Helena's IC (Index of Consciousness) must register exactly 0.001 Dk (equivalent to a granite block) in all three consecutive measurements of Chapter 1.\n"
+            "4. The setting for Chapter 1 is USZ (Hospital Universitário de Zurique) subsolo. The CERN (Genebra) is NOT in Chapter 1.\n"
+            "5. Elisa wears a grey woolen coat (casaco de lã cinza) and dark jeans. She does NOT wear a lab coat (jaleco).\n"
+            "6. Helena's dialogue must be natural: short, incomplete sentences, colloquial Portuguese with Hungarian proverbs, and topic-shifting.\n\n"
+            "OUTPUT FORMAT:\n"
+            "Return a markdown list of specific lore/canon violations found, with the problematic text quoted, and a clear instruction on how to fix it. If the text is perfectly compliant, return 'No canon violations found.'\n\n"
+            f"LORE REFERENCE DATA:\n{lore_data}"
+        )
+        super().__init__(
+            name="CanonCriticAgent",
+            system_prompt=system_prompt,
+            temperature=temperature
+        )
+
+
+class StyleCriticAgent(Agent):
+    """Critic agent responsible for auditing draft scenes for style, voice, and slop compliance."""
+    
+    def __init__(self, slop_rules: str, temperature: float = 0.3):
+        system_prompt = (
+            "You are a sharp stylistic editor and voice critic.\n"
+            "Your task is to audit the chapter draft to identify AI clichés, stylistic tics, word repetitions, "
+            "excessive use of em-dashes (—), and tell-vs-show violations.\n\n"
+            "OUTPUT FORMAT:\n"
+            "Return a markdown list of specific stylistic flaws found (e.g. passive explanation, clichés, em-dash abuse), "
+            "quoting the sentence, and recommending how to rewrite it. If the style is excellent and clean, return 'No style issues found.'\n\n"
+            f"STYLE & SLOP RULES:\n{slop_rules}"
+        )
+        super().__init__(
+            name="StyleCriticAgent",
+            system_prompt=system_prompt,
+            temperature=temperature
+        )
+
+
+class FlowCriticAgent(Agent):
+    """Critic agent responsible for auditing scene-to-scene flow, transitions, and pacing."""
+    
+    def __init__(self, temperature: float = 0.3):
+        system_prompt = (
+            "You are a story structure and flow critic.\n"
+            "Your task is to analyze the draft of the chapter to identify pacing issues, monotonous paragraph structures, "
+            "and disjointed transitions between beats.\n\n"
+            "OUTPUT FORMAT:\n"
+            "Return a markdown list of specific pacing, flow, or transition issues found, citing the transition "
+            "and proposing how to make the narrative flow more organically. If it flows perfectly, return 'No flow issues found.'"
+        )
+        super().__init__(
+            name="FlowCriticAgent",
+            system_prompt=system_prompt,
+            temperature=temperature
+        )
+
+
+class SynthesisAgent(Agent):
+    """Agent responsible for performing targeted correction on a draft using a specific critique file."""
+    
+    def __init__(self, temperature: float = 0.3):
+        system_prompt = (
+            "You are an elite manuscript rewriter and master editor.\n"
+            "Your task is to rewrite/correct the provided chapter draft, focusing strictly on resolving the issues "
+            "highlighted in the specific Critique Report.\n\n"
+            "Apply the adjustments meticulously, ensuring the corrections are woven naturally into the prose. "
+            "Maintain the third-person limited POV (Elisa) and the high-tension speculative thriller tone.\n\n"
+            "CRITICAL OUTPUT FORMAT CONSTRAINT:\n"
+            "Return ONLY the final, corrected prose of the chapter. "
+            "Do NOT include any preambles, remarks, list of changes made, or conversational replies. "
+            "Your response must be 100% pure story prose. No explanations, no notes."
+        )
+        super().__init__(
+            name="SynthesisAgent",
+            system_prompt=system_prompt,
+            temperature=temperature
+        )
+
+
 class AgentFactory:
     """Singleton Factory to register, create, and load literary agents dynamically."""
     
@@ -116,11 +203,11 @@ class AgentFactory:
             cls._instance = super(AgentFactory, cls).__new__(cls)
             cls._instance._agents_registry = {}
         return cls._instance
-
+    
     def register_agent(self, role: str, agent_class):
         """Register a new agent class dynamically."""
         self._agents_registry[role.lower()] = agent_class
-
+        
     def get_agent(self, role: str, **kwargs) -> Agent:
         """Create and return an agent instance based on registered classes."""
         role_key = role.lower()
@@ -137,6 +224,24 @@ class AgentFactory:
             return TechnicalEditorAgent(
                 lore_data=kwargs.get("lore_data", ""),
                 slop_rules=kwargs.get("slop_rules", ""),
+                temperature=kwargs.get("temperature", 0.3)
+            )
+        elif role_key == "canon_critic":
+            return CanonCriticAgent(
+                lore_data=kwargs.get("lore_data", ""),
+                temperature=kwargs.get("temperature", 0.3)
+            )
+        elif role_key == "style_critic":
+            return StyleCriticAgent(
+                slop_rules=kwargs.get("slop_rules", ""),
+                temperature=kwargs.get("temperature", 0.3)
+            )
+        elif role_key == "flow_critic":
+            return FlowCriticAgent(
+                temperature=kwargs.get("temperature", 0.3)
+            )
+        elif role_key == "synthesis":
+            return SynthesisAgent(
                 temperature=kwargs.get("temperature", 0.3)
             )
             

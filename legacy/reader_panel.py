@@ -235,7 +235,7 @@ def main():
         "disagreements": disagreements,
         "timestamp": datetime.now().isoformat()
     }
-    out_path = BASE_DIR / "edit_logs" / "reader_panel.json"
+    out_path = BASE_DIR.parent / "logs" / "edit_logs" / "reader_panel.json"
     with open(out_path, "w") as f:
         json.dump(output, f, indent=2)
     print(f"\nSaved to {out_path}")

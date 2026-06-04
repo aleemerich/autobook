@@ -141,7 +141,8 @@ class DraftChaptersStep(Step):
                 prev_tail = " ".join(prev_tail_words)
             else:
                 prev_tail = "(Este é o primeiro capítulo do livro, não há contexto anterior)"
-                
+            
+            import shutil
             drafted = False
             best_draft_text = ""
             best_draft_score = -1.0
@@ -149,25 +150,33 @@ class DraftChaptersStep(Step):
             for attempt in range(1, max_attempts + 1):
                 print(f"\n--- Chapter {ch} - Attempt {attempt}/{max_attempts} ---")
                 
-                chapter_content = []
+                # Ensure clean tmp_dir for this attempt
+                tmp_dir = BASE_DIR / "logs" / "tmp_draft"
+                if tmp_dir.exists():
+                    shutil.rmtree(tmp_dir)
+                tmp_dir.mkdir(parents=True, exist_ok=True)
                 
-                # Dynamic cascading beat-by-beat generation
+                chapter_raw_text = ""
+                
+                # Phase 1: Modular Beat Generation (Drafting ONLY)
                 if beats:
-                    print(f"[DraftChaptersStep] Found {len(beats)} beats in outline. Writing beat by beat.")
+                    print(f"[DraftChaptersStep] Found {len(beats)} beats in outline. Generating raw beats.")
                     for b_idx, beat_text in enumerate(beats, 1):
-                        print(f"  [Beat {b_idx}/{len(beats)}] Generating...")
+                        print(f"  [Beat {b_idx}/{len(beats)}] Drafting raw beat...")
                         
-                        # 1. Preparar contexto do beat anterior (Janela Deslizante)
+                        # 1. sliding window context from the previous beat
                         previous_beat_context = ""
-                        if b_idx > 1 and chapter_content:
-                            last_beat_text = chapter_content[-1].strip()
-                            paragraphs = [p.strip() for p in last_beat_text.split('\n\n') if p.strip()]
-                            last_paragraphs = paragraphs[-3:] if len(paragraphs) > 3 else paragraphs
-                            previous_beat_context = "\n\n".join(last_paragraphs)
+                        if b_idx > 1:
+                            prev_beat_file = tmp_dir / f"beat_{b_idx-1:02d}_raw.md"
+                            if prev_beat_file.exists():
+                                last_beat_text = prev_beat_file.read_text(encoding="utf-8").strip()
+                                paragraphs = [p.strip() for p in last_beat_text.split('\n\n') if p.strip()]
+                                last_paragraphs = paragraphs[-3:] if len(paragraphs) > 3 else paragraphs
+                                previous_beat_context = "\n\n".join(last_paragraphs)
                         else:
-                            previous_beat_context = prev_tail  # Fim do capítulo anterior para o Beat 1
-
-                        # 2. Roteiro de beats simplificado (esconde detalhes dos beats futuros para evitar pre-empting)
+                            previous_beat_context = prev_tail
+                            
+                        # 2. Roadmap logic
                         roadmap = []
                         for i, b in enumerate(beats, 1):
                             if i < b_idx:
@@ -179,15 +188,15 @@ class DraftChaptersStep(Step):
                             else:
                                 roadmap.append(f"- Beat {i} (FUTURO): [Não escreva ou mencione este evento ainda]")
                         roadmap_text = "\n".join(roadmap)
-
-                        # 3. Drafting Agent
+                        
+                        # 3. Drafting prompt
                         title_instruction = ""
                         if b_idx == 1:
                             title_instruction = (
                                 f"IMPORTANTE: Como este é o primeiro Beat do capítulo, inicie a sua resposta com o título formatado exatamente assim (incluindo o caractere '#'):\n"
                                 f"# {ch_title}\n\n"
                             )
-                        
+                            
                         draft_prompt = (
                             f"Você é o DraftingAgent. Escreva a cena correspondente ao Beat {b_idx} do Capítulo {ch}.\n\n"
                             f"{title_instruction}"
@@ -207,45 +216,24 @@ class DraftChaptersStep(Step):
                             f"- O texto deve terminar logo após os eventos do Beat {b_idx}.\n"
                             f"ATENÇÃO: Retorne APENAS o texto da prosa da cena, sem comentários, notas ou outros cabeçalhos adicionais além do '#' se for o Beat 1."
                         )
+                        
                         raw_beat = drafting_agent.execute(draft_prompt)
                         
-                        # 2. Stylist Agent
-                        stylist_prompt = (
-                            f"Você é o StylistAgent. Refine o rascunho de cena a seguir injetando suspense, tensão e rigor de thriller especulativo.\n\n"
-                            f"RASCUNHO DA CENA:\n{raw_beat}\n\n"
-                            f"DEFINIÇÃO DE VOZ / VOICE Profile (siga exatamente):\n{voice_text}\n\n"
-                            f"REGRAS DE ESTILO:\n{genre_rules}\n\n"
-                            f"ATENÇÃO: Retorne APENAS o texto refinado da prosa da cena. Preserve a formatação de título '#' do primeiro beat se estiver presente. Não inclua notas, preâmbulos, resumos ou explicações."
-                        )
-                        stylized_beat = stylist_agent.execute(stylist_prompt)
+                        # Save raw beat to logs/tmp_draft/
+                        beat_file = tmp_dir / f"beat_{b_idx:02d}_raw.md"
+                        beat_file.write_text(raw_beat, encoding="utf-8")
                         
-                        # 3. Technical Editor Agent
-                        editor_prompt = (
-                            f"Você é o TechnicalEditorAgent. Revise a cena estilizada para remover qualquer vício de IA, slop, ou termos de PT-PT (conversão rigorosa para PT-BR) e alinhar com o lore.\n\n"
-                            f"CENA:\n{stylized_beat}\n\n"
-                            f"REGRAS LORE & SLOP:\n{tech_editor_agent.system_prompt}\n\n"
-                            f"ATENÇÃO CRÍTICA: Retorne APENAS o texto final da prosa revisada da cena. Preserve o título '#' no início se estiver presente. "
-                            f"Não inclua NENHUM tipo de relatório de revisão, resumos de alterações, comentários ou explicações antes ou depois do texto."
-                        )
-                        refined_beat = tech_editor_agent.execute(editor_prompt)
-                        
-                        # 4. Pós-processamento e Sanitização em Python (Garantia de Prosa Limpa)
-                        lines = refined_beat.split("\n")
-                        clean_lines = []
-                        title_kept = False
-                        for line in lines:
-                            stripped = line.strip()
-                            if stripped.startswith("#"):
-                                # Apenas permite o H1 (iniciado com '# ') no primeiro beat
-                                if b_idx == 1 and stripped.startswith("# ") and not title_kept:
-                                    clean_lines.append(line)
-                                    title_kept = True
-                            else:
-                                clean_lines.append(line)
-                        refined_beat = "\n".join(clean_lines).strip()
-                        
-                        chapter_content.append(refined_beat)
+                    # Concatenate raw beats to logs/tmp_draft/chapter_raw.md
+                    chapter_raw_file = tmp_dir / "chapter_raw.md"
+                    beats_content = []
+                    for b_idx in range(1, len(beats) + 1):
+                        beat_file = tmp_dir / f"beat_{b_idx:02d}_raw.md"
+                        if beat_file.exists():
+                            beats_content.append(beat_file.read_text(encoding="utf-8").strip())
+                    chapter_raw_text = "\n\n".join(beats_content)
+                    chapter_raw_file.write_text(chapter_raw_text, encoding="utf-8")
                 else:
+                    # Single chapter write fallback
                     print("[DraftChaptersStep] No beats found. Writing the entire chapter in one go.")
                     draft_prompt = (
                         f"Escreva o Capítulo {ch} completo.\n\n"
@@ -254,38 +242,102 @@ class DraftChaptersStep(Step):
                         f"PERSONAGENS:\n{characters_text}\n\n"
                         f"Escreva o texto completo do capítulo (~3000 palavras)."
                     )
-                    raw_ch = drafting_agent.execute(draft_prompt)
-                    
-                    stylist_prompt = (
-                        f"Refine o rascunho do capítulo a seguir com suspense e ritmo.\n\n"
-                        f"TEXTO:\n{raw_ch}\n\n"
-                        f"REGRAS DE ESTILO:\n{genre_rules}"
-                    )
-                    stylized_ch = stylist_agent.execute(stylist_prompt)
-                    
-                    editor_prompt = (
-                        f"Revise o capítulo para remover slop, PT-PT e verificar o lore.\n\n"
-                        f"TEXTO:\n{stylized_ch}"
-                    )
-                    refined_ch = tech_editor_agent.execute(editor_prompt)
-                    chapter_content.append(refined_ch)
-                    
-                full_chapter_text = "\n\n".join(chapter_content)
+                    chapter_raw_text = drafting_agent.execute(draft_prompt)
+                    chapter_raw_file = tmp_dir / "chapter_raw.md"
+                    chapter_raw_file.write_text(chapter_raw_text, encoding="utf-8")
+
+                # Phase 2: Run Independent Critics
+                print("[DraftChaptersStep] Running active critic agents...")
+                active_critics_specs = [
+                    ("canon_critic", "critique_canon.md", {"lore_data": lore_data}),
+                    ("style_critic", "critique_style.md", {"slop_rules": slop_rules}),
+                    ("flow_critic", "critique_flow.md", {})
+                ]
                 
-                # Save draft temporarily
+                for role, filename, extra_args in active_critics_specs:
+                    print(f"  Running {role}...")
+                    critic_agent = factory.get_agent(role, **extra_args)
+                    
+                    critic_prompt = (
+                        f"Você é o {critic_agent.name}.\n"
+                        f"Seu objetivo é analisar o seguinte rascunho bruto de capítulo e gerar um relatório de críticas detalhado.\n\n"
+                        f"RASCUNHO BRUTO DO CAPÍTULO:\n{chapter_raw_text}\n\n"
+                        f"Siga as suas instruções de persona e as regras do sistema."
+                    )
+                    critique = critic_agent.execute(critic_prompt)
+                    (tmp_dir / filename).write_text(critique, encoding="utf-8")
+
+                # Phase 3: Sequential Synthesis
+                print("[DraftChaptersStep] Starting sequential synthesis...")
+                # Dynamically scan the tmp_dir for critique files to ensure flexibility
+                critique_files = sorted(list(tmp_dir.glob("critique_*.md")))
+                print(f"  Found {len(critique_files)} critique files to apply sequentially: {[f.name for f in critique_files]}")
+                
+                current_text = chapter_raw_text
+                synthesis_agent = factory.get_agent("synthesis")
+                
+                for idx, crit_file in enumerate(critique_files, 1):
+                    crit_name = crit_file.name
+                    print(f"  [Synthesis Step {idx}/{len(critique_files)}] Applying critique: {crit_name}...")
+                    critique_content = crit_file.read_text(encoding="utf-8")
+                    
+                    synth_prompt = (
+                        f"Você é o SynthesisAgent. Seu objetivo é revisar e reescrever o texto do capítulo "
+                        f"com base estritamente no Relatório de Crítica a seguir.\n\n"
+                        f"TEXTO DO CAPÍTULO:\n{current_text}\n\n"
+                        f"RELATÓRIO DE CRÍTICA APLICADA ({crit_name}):\n{critique_content}\n\n"
+                        f"Instruções cruciais:\n"
+                        f"- Resolva todos os problemas listados no Relatório de Crítica de forma integrada, fluida e sutil.\n"
+                        f"- Certifique-se de que a resposta final contenha APENAS o texto completo da prosa do capítulo.\n"
+                        f"- Absolutamente nenhuma análise, nota, cabeçalho explicativo, ou comentário adicional deve estar no resultado."
+                    )
+                    
+                    current_text = synthesis_agent.execute(synth_prompt)
+                    # Save intermediate step log
+                    (tmp_dir / f"chapter_step_{idx:02d}_{crit_name}").write_text(current_text, encoding="utf-8")
+                
+                # Clean up title and metadata from Python side just in case
+                lines = current_text.split("\n")
+                clean_lines = []
+                title_kept = False
+                for line in lines:
+                    stripped = line.strip()
+                    if stripped.startswith("#"):
+                        if stripped.startswith("# ") and not title_kept:
+                            clean_lines.append(line)
+                            title_kept = True
+                    else:
+                        clean_lines.append(line)
+                final_chapter_text = "\n".join(clean_lines).strip()
+                
+                # Write to target chapter file
                 ch_file = CHAPTERS_DIR / f"ch_{ch:02d}.md"
                 ch_file.parent.mkdir(exist_ok=True)
-                ch_file.write_text(full_chapter_text, encoding="utf-8")
+                ch_file.write_text(final_chapter_text, encoding="utf-8")
                 
-                # Evaluate
+                # Archive the attempt directory to logs/generation_attempts/
+                attempts_dir = BASE_DIR / "logs" / "generation_attempts" / f"ch{ch:02d}_attempt{attempt:02d}"
+                if attempts_dir.exists():
+                    shutil.rmtree(attempts_dir)
+                attempts_dir.mkdir(parents=True, exist_ok=True)
+                for item in tmp_dir.glob("*"):
+                    if item.is_file():
+                        shutil.copy(item, attempts_dir / item.name)
+                # Also save the final version we got in that attempts directory
+                (attempts_dir / f"ch_{ch:02d}_final_attempt.md").write_text(final_chapter_text, encoding="utf-8")
+                
+                # Phase 4: Evaluate
                 print(f"[DraftChaptersStep] Evaluating Chapter {ch}...")
                 eval_res = evaluate_chapter(ch)
                 score = eval_res.get("overall_score", 0.0)
                 print(f"[DraftChaptersStep] Chapter {ch} Evaluation Score: {score}")
                 
+                # Save evaluation result to the attempt log
+                (attempts_dir / "evaluation.json").write_text(json.dumps(eval_res, indent=2, ensure_ascii=False), encoding="utf-8")
+                
                 if score > best_draft_score:
                     best_draft_score = score
-                    best_draft_text = full_chapter_text
+                    best_draft_text = final_chapter_text
                     
                 if score >= threshold:
                     # Run continuity validation via subprocess
