@@ -96,7 +96,13 @@ class DraftChaptersStep(Step):
         max_attempts = int(os.environ.get("MAX_CHAPTER_ATTEMPTS", 3))
         threshold = float(os.environ.get("CHAPTER_THRESHOLD", 6.2))
         
+        target_chapters = context.get("chapters")
+        
         for ch in range(start_chapter, total_chapters + 1):
+            if target_chapters and ch not in target_chapters:
+                print(f"[DraftChaptersStep] Skipping Chapter {ch} (not in target chapters: {target_chapters})")
+                continue
+                
             print(f"\n======================================")
             print(f"Drafting Chapter {ch}/{total_chapters}")
             print(f"======================================")

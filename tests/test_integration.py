@@ -181,5 +181,36 @@ class TestIntegration(unittest.TestCase):
             for sp in stylist_prompt_calls:
                 self.assertIn("DEFINIÇÃO DE VOZ / VOICE Profile", sp)
 
+    @patch("pipelines.book_generation.evaluate_chapter")
+    @patch("pipelines.book_generation.subprocess.run")
+    @patch("agents.call_llm")
+    def test_book_generation_pipeline_skips_chapters(self, mock_call_llm, mock_subprocess, mock_eval_chapter):
+        """Verifies that the generation pipeline skips chapters not present in context['chapters']."""
+        mock_call_llm.return_value = "Mocked chapter/scene output content."
+        mock_eval_chapter.return_value = {
+            "overall_score": 8.0,
+            "slop": {
+                "slop_penalty": 0.0,
+                "tier1_hits": [],
+                "tier2_hits": []
+            }
+        }
+        mock_sub_run = MagicMock()
+        mock_sub_run.returncode = 0
+        mock_subprocess.return_value = mock_sub_run
+
+        with patch("pipelines.book_generation.BOOK_DATA_DIR", self.book_data), \
+             patch("pipelines.book_generation.CHAPTERS_DIR", self.chapters), \
+             patch("evaluate.CHAPTERS_DIR", self.chapters), \
+             patch("evaluate.BASE_DIR", self.test_dir):
+             
+            pipeline = BookGenerationPipeline()
+            # Request only chapter 2, but outline only has chapter 1
+            pipeline.run({"from_scratch": True, "yes": True, "chapters": [2]})
+            
+            # Since outline has Ch 1, and we skipped it, no draft should be written for ch_01
+            ch_file = self.chapters / "ch_01.md"
+            self.assertFalse(ch_file.exists())
+
 if __name__ == "__main__":
     unittest.main()
