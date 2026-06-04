@@ -289,7 +289,7 @@ def test_load_continuity_config_and_formatting():
 
 def test_load_editorial_config_retry_temperatures():
     """Ensures load_editorial_config loads temperatures and formats feedback dynamically."""
-    from run_editorial import load_editorial_config, get_retry_temperature, extract_eval_feedback
+    from pipelines.editorial_revision import load_editorial_config, get_retry_temperature
     
     with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "PT-BR"}):
         config = load_editorial_config()

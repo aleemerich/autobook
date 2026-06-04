@@ -38,9 +38,9 @@ def main():
     brief_file = args.brief_file
     temperature = args.temperature
     
-    voice = (BASE_DIR / "voice.md").read_text(encoding="utf-8")
-    characters = (BASE_DIR / "characters.md").read_text(encoding="utf-8")
-    world = (BASE_DIR / "world.md").read_text(encoding="utf-8")
+    voice = (BASE_DIR / "book_data" / "voice.md").read_text(encoding="utf-8")
+    characters = (BASE_DIR / "book_data" / "characters.md").read_text(encoding="utf-8")
+    world = (BASE_DIR / "book_data" / "world.md").read_text(encoding="utf-8")
     brief = Path(brief_file).read_text(encoding="utf-8")
     
     # Load adjacent chapters for continuity

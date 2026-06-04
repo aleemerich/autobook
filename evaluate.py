@@ -33,8 +33,8 @@ load_dotenv(BASE_DIR / ".env")
 # Intentionally different to avoid self-congratulation.
 
 CHAPTERS_DIR = BASE_DIR / "chapters"
-EVAL_LOG_DIR = BASE_DIR / "eval_logs"
-EVAL_LOG_DIR.mkdir(exist_ok=True)
+EVAL_LOG_DIR = BASE_DIR / "logs" / "eval_logs"
+EVAL_LOG_DIR.mkdir(parents=True, exist_ok=True)
 
 
 # ---- Mechanical Slop Detection (no LLM needed) ----
@@ -183,12 +183,13 @@ def load_file(path):
 
 def load_layer_files():
     """Load all planning layer files."""
+    book_data_dir = BASE_DIR / "book_data"
     return {
-        "voice": load_file(BASE_DIR / "voice.md"),
-        "world": load_file(BASE_DIR / "world.md"),
-        "characters": load_file(BASE_DIR / "characters.md"),
-        "outline": load_file(BASE_DIR / "outline.md"),
-        "canon": load_file(BASE_DIR / "canon.md"),
+        "voice": load_file(book_data_dir / "voice.md"),
+        "world": load_file(book_data_dir / "world.md"),
+        "characters": load_file(book_data_dir / "characters.md"),
+        "outline": load_file(book_data_dir / "outline.md"),
+        "canon": load_file(book_data_dir / "canon.md"),
     }
 
 

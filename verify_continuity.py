@@ -23,9 +23,9 @@ load_dotenv(BASE_DIR / ".env")
 sys.path.insert(0, str(BASE_DIR))
 from llm import call_llm
 
-OUTLINE_PATH = BASE_DIR / "outline.md"
-EVAL_LOGS_DIR = BASE_DIR / "eval_logs"
-BUILD_OUTLINE_PY = BASE_DIR / "build_outline.py"
+OUTLINE_PATH = BASE_DIR / "book_data" / "outline.md"
+EVAL_LOGS_DIR = BASE_DIR / "logs" / "eval_logs"
+BUILD_OUTLINE_PY = BASE_DIR / "legacy" / "build_outline.py"
 
 def parse_json_response(text):
     """Extract JSON from a response that might have markdown fences or trailing text."""
@@ -163,7 +163,7 @@ def run_continuity_validation(strict: bool = False, threshold: float = 7.5) -> d
     if not OUTLINE_PATH.exists():
         print("[INFO] outline.md not found. Rebuilding from chapters first...")
         if BUILD_OUTLINE_PY.exists():
-            subprocess.run(["uv", "run", "python", "build_outline.py"], check=True)
+            subprocess.run(["uv", "run", "python", str(BUILD_OUTLINE_PY)], check=True)
         else:
             print("[ERROR] build_outline.py not found. Cannot proceed without outline.md.")
             sys.exit(1)
@@ -239,7 +239,7 @@ def run_continuity_validation(strict: bool = False, threshold: float = 7.5) -> d
     flow_desc = result.get("timeline_flow", "")
     
     # 4. Save result logs
-    EVAL_LOGS_DIR.mkdir(exist_ok=True)
+    EVAL_LOGS_DIR.mkdir(parents=True, exist_ok=True)
     report_path = EVAL_LOGS_DIR / "continuity_report.json"
     report_path.write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8")
     
