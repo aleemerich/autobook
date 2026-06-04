@@ -212,5 +212,60 @@ class TestIntegration(unittest.TestCase):
             ch_file = self.chapters / "ch_01.md"
             self.assertFalse(ch_file.exists())
 
+    @patch("pipelines.book_generation.evaluate_chapter")
+    @patch("pipelines.book_generation.subprocess.run")
+    @patch("agents.call_llm")
+    def test_book_generation_pipeline_masks_future_beats(self, mock_call_llm, mock_subprocess, mock_eval_chapter):
+        """Verifies that future beats are masked in the roadmap passed to the DraftingAgent."""
+        mock_call_llm.return_value = "Mocked chapter/scene output content."
+        mock_eval_chapter.return_value = {
+            "overall_score": 8.0,
+            "slop": {
+                "slop_penalty": 0.0,
+                "tier1_hits": [],
+                "tier2_hits": []
+            }
+        }
+        mock_sub_run = MagicMock()
+        mock_sub_run.returncode = 0
+        mock_subprocess.return_value = mock_sub_run
+
+        # Outline with 3 beats
+        (self.book_data / "outline.md").write_text(
+            "### Ch 1: Chapter One\n**Beats:**\n1. Beat number one\n2. Beat number two\n3. Beat number three\n", 
+            encoding="utf-8"
+        )
+
+        with patch("pipelines.book_generation.BOOK_DATA_DIR", self.book_data), \
+             patch("pipelines.book_generation.CHAPTERS_DIR", self.chapters), \
+             patch("evaluate.CHAPTERS_DIR", self.chapters), \
+             patch("evaluate.BASE_DIR", self.test_dir):
+             
+            pipeline = BookGenerationPipeline()
+            pipeline.run({"from_scratch": True, "yes": True})
+            
+            called_prompts = [call.kwargs.get("prompt", "") for call in mock_call_llm.call_args_list]
+            drafting_prompts = [p for p in called_prompts if "DraftingAgent" in p]
+            
+            # We expect 3 beats to call the drafting agent
+            self.assertEqual(len(drafting_prompts), 3)
+            
+            # Beat 1 call: Beat 2 is PRÓXIMO, Beat 3 is FUTURO (masked)
+            beat_1_prompt = drafting_prompts[0]
+            self.assertTrue(any(line in beat_1_prompt for line in [
+                "- Beat 1 (ESCREVA AGORA): Beat number one",
+                "- Beat 2 (PRÓXIMO - transicione em direção a este ponto no final): Beat number two",
+                "- Beat 3 (FUTURO): [Não escreva ou mencione este evento ainda]"
+            ]))
+            self.assertNotIn("Beat number three", beat_1_prompt)
+            
+            # Beat 2 call: Beat 1 is CONCLUÍDO, Beat 2 is ESCREVA AGORA, Beat 3 is PRÓXIMO
+            beat_2_prompt = drafting_prompts[1]
+            self.assertTrue(any(line in beat_2_prompt for line in [
+                "- Beat 1 (CONCLUÍDO): Beat number one",
+                "- Beat 2 (ESCREVA AGORA): Beat number two",
+                "- Beat 3 (PRÓXIMO - transicione em direção a este ponto no final): Beat number three"
+            ]))
+
 if __name__ == "__main__":
     unittest.main()
