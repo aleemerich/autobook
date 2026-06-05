@@ -115,3 +115,83 @@ def test_modular_generation_flow(mock_call_llm, mock_subprocess, mock_eval_chapt
         # Verify the archived final version
         archived_final = attempts_dir / "ch_01_final_attempt.md"
         assert archived_final.read_text(encoding="utf-8") == "Draft after Style Critique: Final Chapter text."
+
+@patch("pipelines.book_generation.evaluate_chapter")
+@patch("pipelines.book_generation.subprocess.run")
+@patch("agents.call_llm")
+def test_generation_flow_custom_critics(mock_call_llm, mock_subprocess, mock_eval_chapter, tmp_path):
+    # Setup mock file structure in tmp_path
+    book_data = tmp_path / "book_data"
+    book_data.mkdir(parents=True, exist_ok=True)
+    
+    chapters_dir = tmp_path / "chapters"
+    chapters_dir.mkdir(parents=True, exist_ok=True)
+    
+    logs_dir = tmp_path / "logs"
+    logs_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Create outline with 1 chapter and 1 beat
+    outline_content = (
+        "# Novel Outline\n\n"
+        "### Chapter 1: The Awakening\n"
+        "**Beats:**\n"
+        "- Elisa wake up and check the device.\n"
+    )
+    (book_data / "outline.md").write_text(outline_content, encoding="utf-8")
+    
+    # Create empty state
+    state = {"chapters_drafted": 0}
+    (book_data / "state.json").write_text(json.dumps(state), encoding="utf-8")
+    
+    # Create empty/basic resource files
+    (book_data / "world.md").write_text("World info", encoding="utf-8")
+    (book_data / "canon.md").write_text("Canon rules", encoding="utf-8")
+    (book_data / "characters.md").write_text("Characters list", encoding="utf-8")
+    (book_data / "voice.md").write_text("Voice guidelines", encoding="utf-8")
+    
+    # We will pass critics_roles=["canon_critic"]
+    # So we mock returns for:
+    # 1. raw beat 1 drafting
+    # 2. canon critic critique
+    # 3. synthesis step 1 (canon)
+    mock_call_llm.side_effect = [
+        "Beat 1: Elisa wakes up.",  # raw beat 1
+        "Critique Canon: Helena is lucid.",  # critique_canon
+        "Draft after Canon Critique: Final Chapter text."  # synthesis step 1
+    ]
+    
+    # Mock evaluate_chapter
+    mock_eval_chapter.return_value = {
+        "overall_score": 7.5,
+        "slop": {"slop_penalty": 0.0, "tier1_hits": [], "tier2_hits": []}
+    }
+    
+    # Mock subprocess runs
+    mock_sub_run = MagicMock()
+    mock_sub_run.returncode = 0
+    mock_subprocess.return_value = mock_sub_run
+    
+    # Patch base dirs
+    with patch("pipelines.book_generation.BASE_DIR", tmp_path), \
+         patch("pipelines.book_generation.BOOK_DATA_DIR", book_data), \
+         patch("pipelines.book_generation.CHAPTERS_DIR", chapters_dir), \
+         patch("evaluate.CHAPTERS_DIR", chapters_dir), \
+         patch("evaluate.BASE_DIR", tmp_path):
+         
+        step = DraftChaptersStep(critics_roles=["canon_critic"])
+        context = {"chapters": [1]}
+        step.run(context)
+        
+        # Verify final chapter file content and location
+        ch_file = chapters_dir / "ch_01.md"
+        assert ch_file.exists()
+        assert ch_file.read_text(encoding="utf-8") == "Draft after Canon Critique: Final Chapter text."
+        
+        # Verify only critique_canon is created (no flow or style)
+        tmp_draft_dir = logs_dir / "tmp_draft"
+        assert tmp_draft_dir.exists()
+        assert (tmp_draft_dir / "beat_01_raw.md").exists()
+        assert (tmp_draft_dir / "critique_canon.md").exists()
+        assert not (tmp_draft_dir / "critique_style.md").exists()
+        assert not (tmp_draft_dir / "critique_flow.md").exists()
+

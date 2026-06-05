@@ -46,10 +46,10 @@ uv run python run.py --pipeline [book_generation|editorial_revision] [--from-scr
 1. **Book Generation Pipeline (`book_generation`)**:
    Resets previous chapter files (if `--from-scratch` is specified) and drafts chapters sequentially.
    * **Modular Critic-Synthesis Flow**: Rather than generating a chapter in one monolithic run, each chapter is generated and refined using a multi-phase modular workflow:
-     1. **Phase 1 (Geração Modular de Beats)**: The `DraftingAgent` drafts each beat individually into `logs/tmp_draft/beat_NN_raw.md` to maintain context isolation.
-     2. **Phase 2 (Crítica Independente)**: The beats are unified into `chapter_raw.md` and audited by a flexible group of active critic agents (`CanonCriticAgent`, `StyleCriticAgent`, `FlowCriticAgent`), saving separate critique reports.
-     3. **Phase 3 (Síntese Editorial Sequencial)**: The `SynthesisAgent` performs consecutive synthesis passes, correcting the chapter critique-by-critique for maximum precision.
-     4. **Phase 4 (Avaliação e Auto-Cura)**: The final synthesized chapter is evaluated, verified for global continuity, and committed. All raw files, critiques, and intermediate steps are archived under `logs/generation_attempts/`.
+     1. **Phase 1 (Modular Beat Generation)**: The `DraftingAgent` drafts each beat individually into `logs/tmp_draft/beat_NN_raw.md` to maintain context isolation.
+     2. **Phase 2 (Independent Critique)**: The beats are unified into `chapter_raw.md` and audited by a flexible group of active critic agents (`CanonCriticAgent`, `StyleCriticAgent`, `FlowCriticAgent`), saving separate critique reports.
+     3. **Phase 3 (Sequential Editorial Synthesis)**: The `SynthesisAgent` performs consecutive synthesis passes, correcting the chapter critique-by-critique for maximum precision.
+     4. **Phase 4 (Evaluation and Self-Healing)**: The final synthesized chapter is evaluated, verified for global continuity, and committed. All raw files, critiques, and intermediate steps are archived under `logs/generation_attempts/`.
    * **Active Continuity Checks**: Runs `verify_continuity.py` automatically after each chapter is drafted to check for timeline errors or plot regressions before writing the next one.
    * **Git Autosave**: Automatically stages, commits, and pushes the new chapter and pipeline state to the remote repository on successful evaluation, protecting progress.
 
