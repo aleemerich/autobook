@@ -75,3 +75,26 @@ def test_sentence_uniformity():
     
     assert result["sentence_length_cv"] < 0.3
     assert result["slop_penalty"] > 0.0
+
+
+def test_parse_json_response_resilience():
+    """Verifies evaluate.parse_json_response resilience against markdown, commas, and unescaped quotes."""
+    from evaluate import parse_json_response
+    
+    raw_response = """```json
+    {
+      "voice_adherence": {"score": 8.5, "note": "Valid structure"},
+      "prose_quality": {"score": 7.0, "weakest_sentence": "This is a "nested string" with some quotes, and a trailing comma", "fix": "Rewrite it"},
+      "three_weakest_sentences": [
+        "First weak",
+        "Second weak",
+      ]
+    }
+    ```"""
+    
+    res = parse_json_response(raw_response)
+    assert res["voice_adherence"]["score"] == 8.5
+    assert "nested string" in res["prose_quality"]["weakest_sentence"]
+    assert len(res["three_weakest_sentences"]) == 2
+    assert res["three_weakest_sentences"][1] == "Second weak"
+

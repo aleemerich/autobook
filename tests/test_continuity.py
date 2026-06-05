@@ -189,3 +189,31 @@ def test_validation_failure_non_strict(mock_eval_dir, mock_outline_path, mock_ca
             run_continuity_validation(strict=False, threshold=7.5)
             
         assert exc_info.value.code == 0
+
+
+def test_parse_json_response_resilience():
+    """Verifies verify_continuity.parse_json_response resilience against markdown, commas, and unescaped quotes."""
+    from verify_continuity import parse_json_response
+    
+    raw_response = """```json
+    {
+      "continuity_score": 8.0,
+      "inconsistencies": [
+        {
+          "chapters": [3, 4],
+          "severity": "high",
+          "issue_type": "timeline_break",
+          "description": "This is a "nested string" issue",
+          "suggested_fix": "Fix it"
+        }
+      ],
+      "timeline_flow": "Flow is "okay" with issues."
+    }
+    ```"""
+    
+    res = parse_json_response(raw_response)
+    assert res["continuity_score"] == 8.0
+    assert len(res["inconsistencies"]) == 1
+    assert "nested string" in res["inconsistencies"][0]["description"]
+    assert "okay" in res["timeline_flow"]
+

@@ -225,6 +225,12 @@ def parse_json_response(text):
     text = re.sub(r'```\s*', '', text)
     text = text.strip()
     
+    # Try parsing directly first
+    try:
+        return json.loads(text, strict=False)
+    except json.JSONDecodeError:
+        pass
+        
     # Find the outermost JSON object
     start = text.find('{')
     if start == -1:
@@ -252,13 +258,25 @@ def parse_json_response(text):
         elif c == '}':
             depth -= 1
             if depth == 0:
+                json_candidate = text[start:i+1]
                 try:
-                    return json.loads(text[start:i+1], strict=False)
+                    return json.loads(json_candidate, strict=False)
                 except json.JSONDecodeError:
-                    # If parsing sliced substring fails, try to repair literal newlines
-                    fixed_slice = re.sub(r'(?<!\\)\n', '\\n', text[start:i+1])
-                    return json.loads(fixed_slice, strict=False)
-                    
+                    pass
+                
+                # Try quote repair
+                repaired = re.sub(r',\s*([}\]])', r'\1', json_candidate)
+                repaired = repair_json_quotes(repaired)
+                try:
+                    return json.loads(repaired, strict=False)
+                except json.JSONDecodeError:
+                    # Try to repair literal newlines
+                    fixed_slice = re.sub(r'(?<!\\)\n', '\\n', repaired)
+                    try:
+                        return json.loads(fixed_slice, strict=False)
+                    except json.JSONDecodeError:
+                        pass
+                        
     # Fallback: find the last closing brace in the text
     end = text.rfind('}')
     if end != -1 and end > start:
@@ -266,15 +284,81 @@ def parse_json_response(text):
         try:
             return json.loads(cleaned_text, strict=False)
         except json.JSONDecodeError:
-            fixed_fallback = re.sub(r'(?<!\\)\n', '\\n', cleaned_text)
-            return json.loads(fixed_fallback, strict=False)
+            pass
             
+        repaired = re.sub(r',\s*([}\]])', r'\1', cleaned_text)
+        repaired = repair_json_quotes(repaired)
+        try:
+            return json.loads(repaired, strict=False)
+        except json.JSONDecodeError:
+            fixed_fallback = re.sub(r'(?<!\\)\n', '\\n', repaired)
+            try:
+                return json.loads(fixed_fallback, strict=False)
+            except json.JSONDecodeError:
+                pass
+                
     # Ultimate fallback: try loading whole text with repairs
     try:
         return json.loads(text, strict=False)
     except json.JSONDecodeError:
-        fixed = re.sub(r'(?<!\\)\n', '\\n', text)
+        pass
+        
+    repaired = re.sub(r',\s*([}\]])', r'\1', text)
+    repaired = repair_json_quotes(repaired)
+    try:
+        return json.loads(repaired, strict=False)
+    except json.JSONDecodeError:
+        fixed = re.sub(r'(?<!\\)\n', '\\n', repaired)
         return json.loads(fixed, strict=False)
+
+def repair_json_quotes(s):
+    result = []
+    in_string = False
+    escape = False
+    i = 0
+    n = len(s)
+    
+    while i < n:
+        c = s[i]
+        if escape:
+            result.append(c)
+            escape = False
+            i += 1
+            continue
+            
+        if c == '\\':
+            result.append(c)
+            escape = True
+            i += 1
+            continue
+            
+        if c == '"':
+            is_structural = False
+            
+            if not in_string:
+                is_structural = True
+            else:
+                next_non_ws = ""
+                j = i + 1
+                while j < n:
+                    if not s[j].isspace():
+                        next_non_ws = s[j]
+                        break
+                    j += 1
+                
+                if next_non_ws in [':', '}', ']', ','] or next_non_ws == "":
+                    is_structural = True
+            
+            if is_structural:
+                in_string = not in_string
+                result.append(c)
+            else:
+                result.append('\\"')
+        else:
+            result.append(c)
+        i += 1
+        
+    return "".join(result)
 
 
 # --- Foundation Evaluation ---

@@ -51,13 +51,69 @@ def parse_json_response(text):
     
     try:
         return json.loads(json_candidate, strict=False)
+    except json.JSONDecodeError:
+        pass
+        
+    # Try quote repair
+    repaired = re.sub(r',\s*([}\]])', r'\1', json_candidate)
+    repaired = repair_json_quotes(repaired)
+    try:
+        return json.loads(repaired, strict=False)
     except json.JSONDecodeError as e:
-        # Retry with escaped newlines and quote repairs
-        fixed = re.sub(r'(?<!\\)\n', '\\n', json_candidate)
+        fixed = re.sub(r'(?<!\\)\n', '\\n', repaired)
         try:
             return json.loads(fixed, strict=False)
         except json.JSONDecodeError:
             raise e
+
+def repair_json_quotes(s):
+    result = []
+    in_string = False
+    escape = False
+    i = 0
+    n = len(s)
+    
+    while i < n:
+        c = s[i]
+        if escape:
+            result.append(c)
+            escape = False
+            i += 1
+            continue
+            
+        if c == '\\':
+            result.append(c)
+            escape = True
+            i += 1
+            continue
+            
+        if c == '"':
+            is_structural = False
+            
+            if not in_string:
+                is_structural = True
+            else:
+                next_non_ws = ""
+                j = i + 1
+                while j < n:
+                    if not s[j].isspace():
+                        next_non_ws = s[j]
+                        break
+                    j += 1
+                
+                if next_non_ws in [':', '}', ']', ','] or next_non_ws == "":
+                    is_structural = True
+            
+            if is_structural:
+                in_string = not in_string
+                result.append(c)
+            else:
+                result.append('\\"')
+        else:
+            result.append(c)
+        i += 1
+        
+    return "".join(result)
 
 def parse_outline(outline_path: Path) -> list:
     """Parse outline.md and extract structured fields per chapter."""
