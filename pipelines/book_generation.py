@@ -41,8 +41,13 @@ class ResetStep(Step):
 
 
 class DraftChaptersStep(Step):
-    def __init__(self):
+    def __init__(self, critics_roles: List[str] = None):
         super().__init__("Draft Chapters sequentially")
+        env_critics = os.environ.get("AUTOBOOK_CRITICS")
+        if env_critics:
+            self.critics_roles = [r.strip() for r in env_critics.split(",") if r.strip()]
+        else:
+            self.critics_roles = critics_roles or ["canon_critic", "style_critic", "flow_critic"]
 
     def run(self, context: Dict[str, Any]) -> None:
         # Load state or start new
@@ -94,7 +99,7 @@ class DraftChaptersStep(Step):
         
         # Max attempts and threshold
         max_attempts = int(os.environ.get("MAX_CHAPTER_ATTEMPTS", 3))
-        threshold = float(os.environ.get("CHAPTER_THRESHOLD", 6.2))
+        threshold = float(os.environ.get("CHAPTER_THRESHOLD", 6.0))
         
         target_chapters = context.get("chapters")
         
@@ -248,15 +253,16 @@ class DraftChaptersStep(Step):
 
                 # Phase 2: Run Independent Critics
                 print("[DraftChaptersStep] Running active critic agents...")
-                active_critics_specs = [
-                    ("canon_critic", "critique_canon.md", {"lore_data": lore_data}),
-                    ("style_critic", "critique_style.md", {"slop_rules": slop_rules}),
-                    ("flow_critic", "critique_flow.md", {})
-                ]
+                context_args = {
+                    "lore_data": lore_data,
+                    "slop_rules": slop_rules
+                }
                 
-                for role, filename, extra_args in active_critics_specs:
+                for role in self.critics_roles:
+                    clean_name = role.replace("_critic", "")
+                    filename = f"critique_{clean_name}.md"
                     print(f"  Running {role}...")
-                    critic_agent = factory.get_agent(role, **extra_args)
+                    critic_agent = factory.get_agent(role, **context_args)
                     
                     critic_prompt = (
                         f"Você é o {critic_agent.name}.\n"
