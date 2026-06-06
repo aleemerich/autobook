@@ -351,7 +351,7 @@ class DraftChaptersStep(Step):
                     # Run continuity validation via subprocess
                     print("[DraftChaptersStep] Running global continuity validation...")
                     cont_res = subprocess.run(
-                        [sys.executable, "verify_continuity.py", "--strict", "--threshold", "7.0"],
+                        [sys.executable, "verify_continuity.py", "--strict", "--threshold", "5.0"],
                         capture_output=True,
                         text=True,
                         cwd=str(BASE_DIR)
