@@ -311,34 +311,33 @@
 
 ---
 
-### Ch 11: Capítulo 11 — O PADRE
-**2247 words** | **Location:** Zurique (ETH, hotel, café) e Roma (videoconferência)
-- **Characters:** Elisa Dragovski, Tomás Delgado SJ, Marcus, Helena (mencionada), Mãe de Elisa (mencionada), Renan Kapoor (mencionado), Alejandro (mencionado)
+### Ch 11: Capítulo 11 — A REUNIÃO EM BERLIM
+**2500 words** | **Location:** Zurique (partida), trem Zurique-Berlim, sede da Evromind em Berlim
+- **Characters:** Elisa Dragovski, Klaus Brenner, Marcus Weil (por telefone), Helena Varga (mencionada)
 - **Try-fail cycle:** no-but
-- **Emotional arc:** Elisa passa da curiosidade cautelosa diante da carta do padre à defensiva intelectual durante a videoconferência, e finalmente a uma aceitação silenciosa de que seu formalismo pode ser insuficiente, culminando numa solidão reflexiva em que reconhece que a resposta que busca não cabe em números.
+- **Emotional arc:** Elisa inicia a viagem com determinação misturada com isolamento após a suspensão da parceria com Renan, passa por uma firmeza profissional ao resistir à pressão e armadilha da Evromind, e termina a viagem de volta com uma clareza renovada e independência científica.
 
-**Summary:** Elisa recebe uma carta do padre Tomás Delgado, que a convida para uma conversa sobre Helena. Ela aceita uma videoconferência, na qual Tomás desafia os pressupostos do formalismo de Elisa, argumentando que medir a consciência não é o mesmo que compreendê-la, e que Helena é uma pessoa, não um problema. Abalada, Elisa sai em reflexão, adiciona uma nona pergunta ao seu arquivo e aceita uma reunião arriscada com a Evromind em Berlim.
+**Summary:** Elisa viaja para Berlim para a reunião na sede da Evromind. Recebida por Klaus Brenner, ela percebe rapidamente que o acesso prometido aos dados brutos dos 19 sujeitos é uma armadilha corporativa para forçá-la a assinar um contrato de exclusividade e confidencialidade que privatizaria suas descobertas sobre o IC. Elisa recusa-se a ceder, enfrenta a pressão de Brenner e decide retornar a Zurique. No trem, ela liga para Marcus e decide investigar os dados criptografados do USB que já possui, contornando a necessidade da Evromind.
 
 **Beats:**
-1. Elisa encontra a carta de Tomás Delgado no correio e, após hesitar, aceita uma videoconferência com ele.
-1. Na videoconferência, Tomás conta a história da morte do amigo Alejandro e argumenta que a certeza é preguiça intelectual, desafiando Elisa a distinguir entre medir e compreender a consciência.
-1. Tomás faz a pergunta central: se a consciência é mensurável, Helena é uma rocha; se não é, Helena é uma pessoa e a máquina de Elisa é insuficiente — qual hipótese ela prefere?
-1. Elisa reconhece que Helena e Tomás fizeram a mesma pergunta e que ela não tem resposta, pois os argumentos são de outra natureza e os dados não bastam.
-1. Após a chamada, Elisa caminha em reflexão, adiciona uma nona pergunta ao seu arquivo e aceita a reunião com a Evromind em Berlim, apesar do aviso de Marcus.
-1. O capítulo fecha com a constatação de que a rocha não faz perguntas, mas Helena, Tomás e a mãe de Elisa fizeram — e a resposta não cabe em números.
+1. Elisa viaja de Zurique para Berlim no trem matinal, isolada intelectualmente e refletindo sobre as perdas recentes (a suspensão da parceria por Renan e a hostilidade do ETH).
+2. Ela chega à sede futurista da Evromind em Berlim e é recebida de forma impecável por Klaus Brenner, que a guia até a sala de reuniões.
+3. Brenner mostra a Elisa alguns dados parciais fascinantes sobre a atividade dos 19 sujeitos, aguçando sua curiosidade científica, mas logo apresenta um acordo com termos leoninos.
+4. Elisa lê o contrato e percebe a armadilha de controle: o acesso total depende de ela assinar um termo de confidencialidade estrito que transfere toda a patente da revisão do IC para a Evromind e silencia suas pesquisas independentes.
+5. Elisa confronta Brenner e recusa-se categoricamente a assinar, mantendo sua integridade científica; ela deixa o prédio da Evromind sob o olhar vigilante de funcionários e seguranças.
+6. No trem de volta para Zurique, Elisa liga para Marcus, admite que ele estava certo sobre a armadilha e declara sua decisão de analisar os dados criptografados do USB que copiou em Altstetten por conta própria, usando registros públicos.
 
 **Plants:**
-- A Evromind entra em contato oferecendo acesso ilimitado aos dados brutos dos 19 sujeitos, incluindo dados sem filtros — uma oferta que parece ser uma armadilha.
-- A correlação fraca mas presente entre os dados do CERN e os dados de Helena é mencionada como algo que Elisa ainda não resolveu.
-- A nona pergunta de Elisa — 'por que preciso medir a consciência?' — planta uma crise existencial sobre sua motivação científica.
-- O granito no bolso de Elisa, com seus 50 milhões de anos sem pensamento, funciona como contraste recorrente com a consciência de Helena.
+- Os dados criptografados do USB da Evromind (com os 19 sujeitos) e os dados do CERN de 2018 como o caminho independente que Elisa seguirá.
+- O aviso de Marcus sobre a natureza de controle da Evromind é colhido e validado.
+- A menção aos 19 sujeitos como padrão estruturado e persistente de anomalias que a Evromind tenta acobertar a todo custo.
 
 **Harvests:**
-- A pergunta de Helena a Elisa ('você acha que eu sou uma pessoa?') é retomada e espelhada pela pergunta de Tomás, confirmando que ambos confrontam Elisa com o mesmo dilema.
-- A equação incompleta da mãe no guardanapo (S = k lo—) é revisitada como metáfora de que talvez não haja mais nada a dizer — a equação pode estar completa como está.
-- O disco rígido na gaveta com os dados do CERN sobrepostos aos dados de Helena volta à consciência de Elisa, reforçando a conexão ainda não explicada.
+- O e-mail de Klaus Brenner enviado no Capítulo 10 é colhido como gatilho que levou Elisa até Berlim.
+- O USB com dados copiados no Capítulo 8 torna-se agora o recurso essencial para a investigação independente de Elisa.
+- O granito no bolso de Elisa é tocado no trem como âncora de realidade física contra a frieza corporativa da Evromind.
 
-**Chapter question:** Se a consciência não pode ser completamente medida, Elisa conseguirá aceitar que Helena é uma pessoa — e o que acontecerá quando os dados da Evromind revelarem o que a máquina não consegue capturar?
+**Chapter question:** Se Elisa decidiu investigar os dados da Evromind sem a permissão deles, como ela conseguirá quebrar a criptografia do USB e o que o cruzamento com os dados do CERN revelará sobre a escala da anomalia?
 
 ---
 
@@ -348,10 +347,10 @@
 - **Try-fail cycle:** yes-and
 - **Emotional arc:** Elisa move-se da determinação solitária de quem busca dados às 02h17 para uma aceitação relutante de que o fenômeno é real e global, culminando no trem de volta com o reconhecimento honesto de que está com medo — não da falha científica, mas da magnitude da verdade que se aproxima.
 
-**Summary:** Elisa confirma que Helena não é única: cruza os dados do disco USB da Evromind com registros públicos e identifica três dos doze sujeitos com IC próximo de zero — todos vivos, funcionais e inconscientes de sua anomalia. Ela e Marcus viajam ao CERN, onde descobrem que os padrões anômalos detectados em 2018 correlacionam-se com os ICs anômalos, e encontram uma nota interna do técnico R.M. descrevendo o padrão como 'estruturado, como se fosse sinal'. A investigação revela que o formalismo de Elisa não está errado, mas é incompleto, e a possibilidade de que a consciência dessas pessoas exporta entropia para outro sistema — talvez outro universo — instala em Elisa um medo profundo da verdade.
+**Summary:** Elisa confirma que Helena não é única: cruza os dados do disco USB da Evromind com registros públicos e identifica três dos dezanove sujeitos com IC próximo de zero — todos vivos, funcionais e inconscientes de sua anomalia. Ela e Marcus viajam ao CERN, onde descobrem que os padrões anômalos detectados em 2018 correlacionam-se com os ICs anômalos, e encontram uma nota interna do técnico R.M. descrevendo o padrão como 'estruturado, como se fosse sinal'. A investigação revela que o formalismo de Elisa não está errado, mas é incompleto, e a possibilidade de que a consciência dessas pessoas exporta entropia para outro sistema — talvez outro universo — instala em Elisa um medo profundo da verdade.
 
 **Beats:**
-1. Elisa, sozinha no escritório do ETH às 02h17, confirma três dos doze sujeitos com IC zero em Tóquio, São Paulo e Lagos — todos vivos e funcionais — e liga a Marcus, que revela que os padrões anômalos do CERN de 2018 correlacionam-se com os ICs anômalos.
+1. Elisa, sozinha no escritório do ETH às 02h17, confirma três dos dezanove sujeitos com IC zero em Tóquio, São Paulo e Lagos — todos vivos e funcionais — e liga a Marcus, que revela que os padrões anômalos do CERN de 2018 correlacionam-se com os ICs anômalos.
 1. Elisa e Marcus viajam de trem ao CERN; durante a viagem, Elisa confronta a escala global da anomalia e Marcus observa que ela toca no granito quando está com medo.
 1. No CERN, Elisa acessa os dados de 2018 e confirma a correlação mencionada por Marcus; encontra uma nota interna do técnico R.M. (março de 2019) descrevendo o padrão anômalo como 'estruturado, como se fosse sinal' — arquivado por não se encaixar nos modelos existentes.
 1. Elisa formula a hipótese de que a consciência das pessoas com IC zero exporta entropia para outro sistema — possivelmente outro universo — e que pensar pode desordenar algo além do nosso cosmos.
@@ -360,7 +359,7 @@
 **Plants:**
 - A hipótese de que a entropia da consciência de Helena e dos outros é exportada para outro sistema/universo — 'pontes têm dois sentidos'
 - A nota do técnico R.M. sugerindo que o padrão anômalo de 2018 é um sinal deliberado, não ruído
-- A implicação de que pode haver centenas ou milhares de pessoas com IC zero, não apenas doze
+- A implicação de que pode haver centenas ou milhares de pessoas com IC zero, não apenas dezanove
 - O medo crescente de Elisa de que a verdade seja pior que a anomalia — algo que ela se recusa a nomear
 - A ideia de que a consciência pode ser uma 'ponte' entre sistemas físicos, com consequências para ambos os lados
 
@@ -386,13 +385,13 @@
 1. Elisa entra no apartamento de Helena e, em vez de fazer perguntas clínicas, pede que Helena conte sua vida — sua infância em Budapeste, o cheiro de paprika, a vigilância estatal.
 1. Helena revela o episódio de 1983: seis horas traduzindo reuniões secretas entre diplomatas soviéticos e húngaros, após as quais dormiu catorze horas e acordou com uma leveza cognitiva que durou três semanas.
 1. Elisa sai do apartamento abalada e caminha até o lago de Zurique, onde passa quarenta minutos processando a revelação e formulando a hipótese de que a anomalia de Helena é uma ponte termodinâmica — e que pontes têm dois sentidos.
-1. Elisa retorna ao ETH para analisar os dados do CERN de 2018, conectando as colisões de partículas aos doze sujeitos da Evromind, enquanto o capítulo fecha com a imagem do LHC continuando a registrar sinais que ninguém lê.
+1. Elisa retorna ao ETH para analisar os dados do CERN de 2018, conectando as colisões de partículas aos dezanove sujeitos da Evromind, enquanto o capítulo fecha com a imagem do LHC continuando a registrar sinais que ninguém lê.
 
 **Plants:**
 - A hipótese de que a entropia de Helena é exportada para outro sistema/universo — 'pontes têm dois sentidos' — planta a possibilidade de consequências cósmicas da anomalia.
 - Os dados do CERN de 2018 e a nota do técnico ('Parece estruturado. Como se fosse sinal') são reativados como fio condutor que liga colisões de partículas à consciência humana.
 - A ideia de que Helena não é um erro, mas 'uma coisa sem nome', planta a questão de se há um padrão ou propósito por trás das Pessoas com IC zero.
-- O disco USB com os dados da Evromind e os doze sujeitos são reafirmados como peça central da investigação que Elisa ainda não abriu completamente.
+- O disco USB com os dados da Evromind e os dezanove sujeitos são reafirmados como peça central da investigação que Elisa ainda não abriu completamente.
 
 **Harvests:**
 - A revelação de 1983 dá uma data de início e uma causa presumível para a anomalia de Helena, transformando-a de caso isolado em evento com gatilho identificável.
@@ -409,17 +408,17 @@
 - **Try-fail cycle:** no-and
 - **Emotional arc:** Elisa move-se da pressão externa e paralisia (ameaças corporativas, carta anônima, insônia, traição de Marcus) para uma clareza resoluta — abandonando o granito e decidindo enfrentar Helena não como cientista, mas como pessoa.
 
-**Summary:** Elisa enfrenta pressão crescente de três corporações que tentam desacreditar a anomalia de Helena Varga como erro de calibração, enquanto uma carta anônima ameaçando-a com detalhes íntimos sobre a mãe aterroriza-a. Elisa descobre que os dados do CERN de 2018 contêm doze sujeitos com a mesma assinatura de Helena, e que Marcus publicou sem consultá-la um artigo propondo a revisão do formalismo. O capítulo termina com Elisa deixando para trás o granito — seu talismã — e decidindo ir até Helena não para medir, mas para perguntar.
+**Summary:** Elisa enfrenta pressão crescente de três corporações que tentam desacreditar a anomalia de Helena Varga como erro de calibração, enquanto uma carta anônima ameaçando-a com detalhes íntimos sobre a mãe aterroriza-a. Elisa descobre que os dados do CERN de 2018 contêm dezanove sujeitos com a mesma assinatura de Helena, e que Marcus publicou sem consultá-la um artigo propondo a revisão do formalismo. O capítulo termina com Elisa deixando para trás o granito — seu talismã — e decidindo ir até Helena não para medir, mas para perguntar.
 
 **Beats:**
 1. Elisa lê o artigo de Renan que ataca indiretamente seu trabalho e enfrenta uma reunião com representantes de três corporações (Evromind, Nexion, Tianzi) que tentam convencê-la de que Helena é um erro de calibração; ela recusa um acordo e sai sem ceder.
 1. A insônia de Elisa se agrava até Marcus encontrá-la em colapso na cozinha; ele a obriga a parar, mas ela não consegue dormir.
 1. Uma carta anônima aparece sob a porta de seu escritório ameaçando-a com conhecimento íntimo sobre os guardanapos da mãe — detalhes que ninguém sabia — e ordenando que pare de investigar Helena.
-1. Elisa descobre que os dados do CERN de 2018 contêm doze sujeitos com a mesma assinatura de processamento sem entropia, que a Nexion tem um desvio de calibração sistemático que provavelmente é intencional, e que Helena estava entre esses doze sujeitos.
+1. Elisa descobre que os dados do CERN de 2018 contêm dezanove sujeitos com a mesma assinatura de processamento sem entropia, que a Nexion tem um desvio de calibração sistemático que provavelmente é intencional, e que Helena estava entre esses dezanove sujeitos.
 1. Elisa descobre que Marcus publicou um pré-print propondo a revisão do formalismo sem consultá-la; ela deixa o granito para trás na secretária e sai decidida a ir até Helena em Oerlikon — não para medir, mas para perguntar.
 
 **Plants:**
-- A conexão entre os dados do CERN de 2018 e Helena Varga — doze sujeitos anômalos, a maioria mortos ou desaparecidos
+- A conexão entre os dados do CERN de 2018 e Helena Varga — dezanove sujeitos anômalos, a maioria mortos ou desaparecidos
 - O desvio sistemático de calibração da Nexion (0,0003 Dk para baixo) sugerindo manipulação intencional
 - A decisão de Elisa de ir até Helena em Oerlikon para perguntar em vez de medir
 - A equação incompleta da mãe (S = k lo—) como uma 'porta' e não uma falha
@@ -450,6 +449,7 @@
 1. Elisa vai a um café, reflete sobre a equação incompleta da mãe e sobre o orgulho que a impede de aceitar a revisão, e recebe uma mensagem de Helena dizendo que o artigo está certo e que 'incompleto não é errado'.
 1. Helena liga para Elisa, percebe que ela não está dormindo, e diz 'os números podem esperar' — uma frase que abala a lógica de Elisa.
 1. Elisa caminha de volta ao ETH decidida a escrever o contra-artigo, mas a mensagem de Helena e a humanidade que ela representa ficam como uma fissura na armadura científica de Elisa.
+1. Para escrever o contra-artigo com precisão e confrontar a fundamentação dos dados de Helena, Elisa pesquisa sobre o passado da paciente em Budapeste e descobre que o médico responsável pela internação original e pai dela, Dr. Farkas, tem um consultório ativo em Kreuzlingen. Elisa decide que precisa visitá-lo pessoalmente no dia seguinte e envia-lhe um e-mail.
 
 **Plants:**
 - O disco USB com os dados do CERN de 2018 e a nota do técnico 'Parece estruturado. Como se fosse sinal' é mencionado como algo que Elisa ainda precisa investigar.
@@ -636,7 +636,7 @@
 **Summary:** Elisa reflete junto ao lago sobre a natureza da consciência, da entropia e da seta do tempo, conectando a memória da mãe com a singularidade de Helena. Envia um e-mail ao Comitê Nobel propondo uma revisão do formalismo IC para incluir a consciência não-termodinâmica, e depois visita Helena, onde finalmente responde à pergunta 'A senhora acha que eu sou uma pessoa?' com honestidade humana, não científica.
 
 **Beats:**
-1. Elisa senta-se junho ao lago imóvel de Zurique e reflete sobre a mãe Jana, os guardanapos com equações e o custo entrópico do amor, chegando à compreensão de que a seta do tempo é uma escolha, não uma lei universal.
+1. Elisa passa a noite acordada após o abraço em Helena, não com sua insônia ansiosa de costume, mas em um silêncio reflexivo. Ao amanhecer, ela caminha pelas ruas de Zurique até o lago imóvel e reflete sobre a mãe Jana, os guardanapos com equações e o custo entrópico do amor, chegando à compreensão de que a seta do tempo é uma escolha, não uma lei universal.
 1. No escritório do ETH, Elisa redige e envia um e-mail ao Comitê Nobel propondo a distinção entre consciência termodinâmica e não-termodinâmica, deliberadamente omitindo sua teoria mais radical sobre a seta do tempo como escolha.
 1. Elisa visita Helena em Oerlikon; na varanda com chá de camomila, Helena pergunta pela terceira vez se Elisa acha que ela é uma pessoa, e Elisa finalmente responde com verdade humana: 'A senhora é a pessoa mais real que eu conheço.'
 1. Helena diz a Elisa que ela vai ficar bem, e Elisa sente-se leve pela primeira vez em dois anos — não porque o problema científico esteja resolvido, mas porque a pergunta mudou.
@@ -663,11 +663,11 @@
 - **Try-fail cycle:** no-but
 - **Emotional arc:** Elisa move-se da rigidez científica e do luto contido para uma aceitação humilde e luminosa de que a compreensão humana transcende a medição, encontrando leveza onde antes havia apenas a necessidade de provar.
 
-**Summary:** Elisa e Helena compartilham um momento de silêncio no lago de Zurique, onde Helena pergunta se o universo vai acabar e sugere que talvez já estejamos escolhendo outra coisa. No laboratório, Elisa descobre que a temperatura corporal de Helena permanece exatamente 36,8°C sem qualquer variação durante o teste, um resultado termodinamicamente impossível. O capítulo culmina com Elisa abandonando a busca por uma equação final e escrevendo, em vez disso, uma frase sobre a humildade da ciência diante do que os números não alcançam.
+**Summary:** Elisa e Helena compartilham um momento de silêncio no lago de Zurique, onde Helena pergunta se o universo vai acabar e sugere que talvez já estejamos escolhendo outra coisa. No laboratório, Elisa descobre que a temperatura corporal de Helena permanece exatamente 36,8°C sem qualquer variação durante o teste, um resultado termodinamicamente impossível. Elisa teoriza que essa estabilidade extrema não é uma falha biológica, mas uma manifestação física da anomalia: a consciência de Helena pode estar usando um acoplamento quântico não-local com os arredores para anular localmente a flutuação de calor (agindo como um refrigerador entrópico microscópico). O capítulo culmina com Elisa abandonando a busca por uma equação final e escrevendo, em vez disso, uma frase sobre a humildade da ciência diante do que os números não alcançam.
 
 **Beats:**
 1. Elisa e Helena sentam-se em silêncio no banco à beira do lago; Helena pergunta se o universo vai acabar e sugere que talvez já estejamos escolhendo outra coisa sem saber
-1. No escritório do ETH, Elisa encontra o laboratório transformado — canecas lavadas, papéis organizados, o disco rígido de 2018 visível — e Marcus liga com resultados impossíveis: temperatura de Helena constante em 36,8°C
+1. No escritório do ETH, Elisa encontra o laboratório transformado — canecas lavadas, papéis organizados, o disco rígido de 2018 visível — e Marcus liga com resultados impossíveis: temperatura de Helena constante em 36,8°C. Elisa teoriza que o cérebro dela está em acoplamento quântico com o meio ambiente, anulando flutuações térmicas.
 1. Elisa entra na câmara de Faraday e conversa com Helena, que descreve o frio como algo que 'não a encontra'; Helena sugere que talvez pague o preço entrópico, mas de forma invisível
 1. Elisa percebe que o formalismo está incompleto, não errado, e que a consciência pode ser uma escolha, não um processo; Helena sai dizendo que Elisa vai ficar bem
 1. Elisa reflete sobre a mãe, Jana, e a equação incompleta; escreve uma frase em vez de uma equação, pousa o granito no parapeito e sente-se leve pela primeira vez em dois anos
@@ -804,7 +804,7 @@
 | O desvio sistemático de calibração da Nexion (0,0003 Dk para | Ch 14 |  |
 | O diretório oculto com código hexadecimal (7F3A9B2C) sugere  | Ch 8 |  |
 | O disco USB com dados do CERN como objeto que Elisa carrega  | Ch 14 |  |
-| O disco USB com os dados da Evromind e os doze sujeitos são  | Ch 13 |  |
+| O disco USB com os dados da Evromind e os dezanove sujeitos s | Ch 13 |  |
 | O disco USB com os dados do CERN de 2018 e a nota do técnico | Ch 15 |  |
 | O disco USB com os ficheiros encriptados da Evromind (dezano |  | Ch 10 |
 | O disco USB da Evromind (carregado desde capítulos anteriore |  | Ch 12 |
