@@ -38,12 +38,23 @@ Autobook has been fully refactored to use a **Command/Composite Pattern** for wo
 
 ```bash
 # General CLI options
-uv run python run.py --pipeline [book_generation|editorial_revision] [--from-scratch] [--chapter CH_NUMS] [--yes]
+uv run python run.py --pipeline [ideation|foundation|book_generation|editorial_revision] [--from-scratch] [--chapter CH_NUMS] [--yes]
 ```
 
 ### Pipelines
 
-1. **Book Generation Pipeline (`book_generation`)**:
+1. **Ideation Pipeline (`ideation`)**:
+   Runs an interactive questionnaire in the console to capture creative decisions (Genre, Spark, Cost, Protagonist), calls the LLM to generate 3 diverse concepts, allows the user to select or input a custom one, generates the central mystery (optional), and initializes `state.json` to begin the project.
+
+2. **Foundation Pipeline (`foundation`)**:
+   Generates the complete set of foundational reference bibles based on `seed.txt`:
+   * `world.md` — Detailed worldbuilding bible.
+   * `characters.md` — Wound/want/need/lie sheets and slider metrics for all characters.
+   * `outline.md` — 22-chapter beat sheet, including try-fail cycle pacing and foreshadowing ledgers.
+   * `canon.md` — Exhaustive fact continuity database.
+   Automatically adds and commits the generated bibles to Git, and initializes the project cursor in `state.json` to start sequential writing (`chapters_drafted: 0`).
+
+3. **Book Generation Pipeline (`book_generation`)**:
    Resets previous chapter files (if `--from-scratch` is specified) and drafts chapters sequentially.
    * **Modular Critic-Synthesis Flow**: Rather than generating a chapter in one monolithic run, each chapter is generated and refined using a multi-phase modular workflow:
      1. **Phase 1 (Modular Beat Generation)**: The `DraftingAgent` drafts each beat individually into `logs/tmp_draft/beat_NN_raw.md` to maintain context isolation.
@@ -84,6 +95,8 @@ To keep the repository organized, files are structured into dedicated subdirecto
   * `results.tsv` — Historical execution log of chapter attempts.
 * **[pipelines/](pipelines/)** (Orchestrator Logic):
   * `base.py` — Abstract Base classes for Pipelines and Steps.
+  * `ideation.py` — Questionnaire and initial seed generation.
+  * `foundation.py` — Geração de bíblias estruturais (world, characters, outline, canon).
   * `book_generation.py` — Logic for the book writing pipeline.
   * `editorial_revision.py` — Logic for the revision pipeline.
 * **[skills/](skills/)** (Agent Capabilities):
