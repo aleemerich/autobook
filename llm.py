@@ -60,7 +60,7 @@ PROVIDER_PROFILES = {
 
 
 def call_llm(prompt: str, system_prompt: str, temperature: float = 0.8,
-             is_judge: bool = False, is_review: bool = False) -> str:
+             is_judge: bool = False, is_review: bool = False, override_model: str = None) -> str:
     """
     Route prompt to the configured LLM provider and return response text.
     
@@ -103,8 +103,10 @@ def call_llm(prompt: str, system_prompt: str, temperature: float = 0.8,
         base_url = profile["default_url"]
     url = base_url.rstrip("/") + profile["endpoint_suffix"]
     
-    # 3. Resolve Model (Specific Env -> Generic Env -> Curated Default)
-    if is_review:
+    # 3. Resolve Model (Override -> Specific Env -> Generic Env -> Curated Default)
+    if override_model:
+        model = override_model
+    elif is_review:
         model = os.environ.get(profile["env_review_model"], "")
         if not model:
             model = os.environ.get("AUTOBOOK_REVIEW_MODEL", "")
@@ -196,6 +198,15 @@ def call_llm(prompt: str, system_prompt: str, temperature: float = 0.8,
                 if resp.status_code != 200:
                     print(f"ERROR: API request failed with status code {resp.status_code}", file=sys.stderr)
                     print(f"Response: {resp.text}", file=sys.stderr)
+                    if resp.status_code == 429:
+                        retry_after = resp.headers.get("retry-after") or resp.headers.get("Retry-After")
+                        if retry_after:
+                            try:
+                                sleep_secs = float(retry_after)
+                                print(f"[LLM] Rate limited (429). Respecting Retry-After header: sleeping for {sleep_secs}s...", file=sys.stderr)
+                                time.sleep(sleep_secs)
+                            except ValueError:
+                                pass
                     resp.raise_for_status()
                     
                 data = resp.json()

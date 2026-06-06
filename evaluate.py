@@ -207,13 +207,13 @@ def load_all_chapters():
     return chapters
 
 
-def call_judge(prompt, max_tokens=2000):
+def call_judge(prompt, max_tokens=2000, override_model=None):
     """Call the unified judge LLM via llm.py and return response text."""
     from llm import call_llm
     system = ("You are a literary critic and novel editor. "
               "You evaluate fiction with precision. Always respond with valid JSON. "
               "No markdown fences, no preamble -- just the JSON object.")
-    return call_llm(prompt=prompt, system_prompt=system, temperature=0.3, is_judge=True)
+    return call_llm(prompt=prompt, system_prompt=system, temperature=0.3, is_judge=True, override_model=override_model)
 
 
 def parse_json_response(text):
@@ -364,6 +364,81 @@ def repair_json_quotes(s):
         i += 1
         
     return "".join(result)
+
+
+def validate_and_repair_json(raw_text, required_key="overall_score"):
+    """
+    Validate that raw_text is a valid JSON and contains the required_key.
+    If standard JSON parsing fails or the key is missing, attempts to extract
+    the required key and reconstruct a minimal valid dict.
+    Returns the parsed dict if successful/repaired, or None if completely invalid.
+    """
+    # 1. Try normal parsing
+    try:
+        data = parse_json_response(raw_text)
+        if isinstance(data, dict) and required_key in data:
+            # Re-fill missing defaults to prevent downstream KeyError
+            if required_key == "overall_score":
+                if "top_3_revisions" not in data or not isinstance(data["top_3_revisions"], list):
+                    data["top_3_revisions"] = []
+                if "canon_compliance" not in data or not isinstance(data["canon_compliance"], dict):
+                    data["canon_compliance"] = {"score": data.get("overall_score", 5.0), "violations": [], "note": ""}
+                if "prose_quality" not in data or not isinstance(data["prose_quality"], dict):
+                    data["prose_quality"] = {"score": data.get("overall_score", 5.0), "fix": "", "weakest_sentence": "", "strongest_sentence": "", "note": ""}
+            elif required_key == "continuity_score":
+                if "inconsistencies" not in data or not isinstance(data["inconsistencies"], list):
+                    data["inconsistencies"] = []
+                if "timeline_flow" not in data:
+                    data["timeline_flow"] = ""
+            return data
+    except Exception:
+        pass
+
+    # 2. Regex fallback for required_key
+    score_match = re.search(rf'"{required_key}"\s*:\s*(\d+(?:\.\d+)?)', raw_text)
+    if score_match:
+        try:
+            score_val = float(score_match.group(1))
+            if required_key == "overall_score":
+                # Try finding top_3_revisions
+                revisions = []
+                rev_match = re.search(r'"top_3_revisions"\s*:\s*\[(.*?)\]', raw_text, re.DOTALL)
+                if rev_match:
+                    revisions = [s.strip().strip('"\'') for s in rev_match.group(1).split(',')]
+                    revisions = [s for s in revisions if s]
+                # Try finding weakest_moment
+                weakest_moment = ""
+                wm_match = re.search(r'"weakest_moment"\s*:\s*"(.*?)"', raw_text)
+                if wm_match:
+                    weakest_moment = wm_match.group(1)
+                
+                return {
+                    "overall_score": score_val,
+                    "top_3_revisions": revisions,
+                    "weakest_moment": weakest_moment,
+                    "canon_compliance": {"score": score_val, "violations": [], "note": "Reconstruído via regex"},
+                    "prose_quality": {"score": score_val, "fix": "", "weakest_sentence": "", "strongest_sentence": "", "note": "Reconstruído via regex"},
+                    "voice_adherence": {"score": score_val, "weakest_moment": "", "fix": "", "note": "Reconstruído via regex"},
+                    "beat_coverage": {"score": score_val, "weakest_moment": "", "fix": "", "note": "Reconstruído via regex"},
+                    "character_voice": {"score": score_val, "weakest_moment": "", "fix": "", "note": "Reconstruído via regex"},
+                    "plants_seeded": {"score": score_val, "weakest_moment": "", "fix": "", "note": "Reconstruído via regex"},
+                    "lore_integration": {"score": score_val, "weakest_moment": "", "fix": "", "note": "Reconstruído via regex"},
+                    "engagement": {"score": score_val, "weakest_moment": "", "fix": "", "note": "Reconstruído via regex"},
+                    "three_weakest_sentences": [],
+                    "three_strongest_sentences": [],
+                    "ai_patterns_detected": [],
+                    "weakest_dimension": "prose_quality",
+                    "new_canon_entries": []
+                }
+            elif required_key == "continuity_score":
+                return {
+                    "continuity_score": score_val,
+                    "inconsistencies": [],
+                    "timeline_flow": "Reconstruído via extração regex."
+                }
+        except Exception:
+            pass
+    return None
 
 
 # --- Foundation Evaluation ---
@@ -694,6 +769,87 @@ score is too high. The median AI chapter is a 6. An 8 is exceptional. A 9
 is rare. A 10 does not exist for a first draft.
 """
 
+CHAPTER_PROMPT_REDUCED = """Evaluate this fantasy novel chapter.
+
+SCORING CALIBRATION:
+  9-10: Published quality.
+  7-8:  Strong, minor polish needed.
+  5-6:  Functional but flat. Median score is 6.
+  3-4:  Significant problems.
+  1-2:  Rewrite from scratch.
+
+VOICE DEFINITION (reduced):
+{voice}
+
+WORLD BIBLE (reduced):
+{world}
+
+CHARACTER REGISTRY (reduced):
+{characters}
+
+CANON (reduced):
+{canon}
+
+CHAPTER OUTLINE ENTRY:
+{chapter_outline}
+
+PREVIOUS CHAPTER (reduced):
+{prev_chapter_tail}
+
+THE CHAPTER TO EVALUATE:
+{chapter_text}
+
+Score these dimensions:
+- voice_adherence: Style matching.
+- beat_coverage: All beats hit.
+- character_voice: Distinct dialogue.
+- plants_seeded: Natural plants.
+- prose_quality: Sentence variety, no AI patterns.
+- continuity: Flow.
+- canon_compliance: Violations.
+- lore_integration: World importance.
+- engagement: Tension.
+
+Respond with JSON:
+{{
+  "voice_adherence": {{"score": N, "weakest_moment": "quote", "fix": "suggestion", "note": ""}},
+  "beat_coverage": {{"score": N, "weakest_moment": "", "fix": "", "note": ""}},
+  "character_voice": {{"score": N, "weakest_moment": "", "fix": "", "note": ""}},
+  "plants_seeded": {{"score": N, "weakest_moment": "", "fix": "", "note": ""}},
+  "prose_quality": {{"score": N, "weakest_sentence": "quote", "fix": "suggestion", "strongest_sentence": "", "note": ""}},
+  "continuity": {{"score": N, "note": ""}},
+  "canon_compliance": {{"score": N, "violations": [], "note": ""}},
+  "lore_integration": {{"score": N, "weakest_moment": "", "fix": "", "note": ""}},
+  "engagement": {{"score": N, "weakest_moment": "", "fix": "", "note": ""}},
+  "three_weakest_sentences": [],
+  "three_strongest_sentences": [],
+  "ai_patterns_detected": [],
+  "overall_score": N,
+  "weakest_dimension": "prose_quality",
+  "top_3_revisions": ["revision 1", "revision 2", "revision 3"],
+  "new_canon_entries": []
+}}
+"""
+
+CHAPTER_PROMPT_MINIMAL = """Evaluate this fantasy novel chapter under these minimal instructions.
+
+CHAPTER OUTLINE ENTRY:
+{chapter_outline}
+
+THE CHAPTER TO EVALUATE:
+{chapter_text}
+
+Analyze only outline beat coverage and prose quality.
+Respond with JSON containing the overall score and 3 key revisions:
+{{
+  "overall_score": N,
+  "top_3_revisions": ["revision 1", "revision 2", "revision 3"],
+  "weakest_moment": "...",
+  "canon_compliance": {{"score": N, "violations": []}},
+  "prose_quality": {{"score": N, "fix": "", "weakest_sentence": ""}}
+}}
+"""
+
 
 def evaluate_chapter(chapter_num):
     layers = load_layer_files()
@@ -702,27 +858,89 @@ def evaluate_chapter(chapter_num):
         return {"error": f"Chapter {chapter_num} is empty or missing",
                 "overall_score": 0.0}
 
+    # Resolve list of judge models
+    judge_models_str = os.environ.get("AUTOBOOK_JUDGE_MODEL", "openrouter/free")
+    models_list = [m.strip() for m in judge_models_str.split(",") if m.strip()]
+    if not models_list:
+        models_list = ["openrouter/free"]
+
     # Extract this chapter's outline entry (rough heuristic)
     outline = layers["outline"]
     ch_pattern = rf'###\s*Ch\s*{chapter_num}\b.*?(?=###\s*Ch\s*\d|## Act|## Foreshadowing|$)'
     ch_match = re.search(ch_pattern, outline, re.DOTALL)
     chapter_outline = ch_match.group(0) if ch_match else "(outline entry not found)"
 
-    # Load previous chapter tail
-    prev_text = load_chapter(chapter_num - 1) if chapter_num > 1 else "(first chapter)"
-    prev_tail = prev_text[-3000:] if len(prev_text) > 3000 else prev_text
+    # Prepare prompt data for different cycles
+    voice_full = layers["voice"]
+    voice_reduced = voice_full[:1500] if len(voice_full) > 1500 else voice_full
 
-    prompt = CHAPTER_PROMPT.format(
-        voice=layers["voice"],
-        world=layers["world"][:4000],  # truncate world bible
-        characters=layers["characters"],
-        canon=layers["canon"],
-        chapter_outline=chapter_outline,
-        prev_chapter_tail=prev_tail,
-        chapter_text=chapter_text,
-    )
-    raw = call_judge(prompt, max_tokens=8000)
-    result = parse_json_response(raw)
+    world_full = layers["world"]
+    world_c1 = world_full[:4000] if len(world_full) > 4000 else world_full
+    world_c2 = world_full[:1500] if len(world_full) > 1500 else world_full
+
+    chars_full = layers["characters"]
+    chars_reduced = chars_full[:1500] if len(chars_full) > 1500 else chars_full
+
+    canon_full = layers["canon"]
+    canon_reduced = canon_full[:1500] if len(canon_full) > 1500 else canon_full
+
+    prev_text = load_chapter(chapter_num - 1) if chapter_num > 1 else "(first chapter)"
+    prev_tail_c1 = prev_text[-3000:] if len(prev_text) > 3000 else prev_text
+    prev_tail_c2 = prev_text[-1000:] if len(prev_text) > 1000 else prev_text
+
+    result = None
+
+    # Nested Loop: 3 Cycles of Degradation, each trying the models in list order
+    for cycle in range(1, 4):
+        print(f"[INFO] Beginning evaluation Cycle {cycle} for Chapter {chapter_num}...", file=sys.stderr)
+        
+        # Build prompt based on current cycle
+        if cycle == 1:
+            prompt = CHAPTER_PROMPT.format(
+                voice=voice_full,
+                world=world_c1,
+                characters=chars_full,
+                canon=canon_full,
+                chapter_outline=chapter_outline,
+                prev_chapter_tail=prev_tail_c1,
+                chapter_text=chapter_text,
+            )
+        elif cycle == 2:
+            prompt = CHAPTER_PROMPT_REDUCED.format(
+                voice=voice_reduced,
+                world=world_c2,
+                characters=chars_reduced,
+                canon=canon_reduced,
+                chapter_outline=chapter_outline,
+                prev_chapter_tail=prev_tail_c2,
+                chapter_text=chapter_text,
+            )
+        else:
+            prompt = CHAPTER_PROMPT_MINIMAL.format(
+                chapter_outline=chapter_outline,
+                chapter_text=chapter_text,
+            )
+
+        for model in models_list:
+            print(f"[INFO] Trying model '{model}' in Cycle {cycle}...", file=sys.stderr)
+            try:
+                raw = call_judge(prompt, override_model=model)
+                parsed = validate_and_repair_json(raw, "overall_score")
+                if parsed is not None:
+                    print(f"[INFO] Successfully obtained valid evaluation from model '{model}' (Cycle {cycle})!", file=sys.stderr)
+                    result = parsed
+                    break
+            except Exception as e:
+                print(f"WARNING: Model '{model}' failed in Cycle {cycle}: {e}", file=sys.stderr)
+            
+            # Rotation is immediate: no sleep/delay of 60s
+            print(f"[INFO] Model '{model}' failed or returned invalid JSON. Rotating to next model...", file=sys.stderr)
+            
+        if result is not None:
+            break
+
+    if result is None:
+        raise RuntimeError(f"FATAL ERROR: All evaluation cycles and models failed for Chapter {chapter_num}.")
 
     # Mechanical slop check -- adjusts score independently of judge
     slop = slop_score(chapter_text)

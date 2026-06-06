@@ -165,3 +165,52 @@ def test_llm_dynamic_timeout(mock_post):
         call_llm("prompt", "system")
         called_args, called_kwargs = mock_post.call_args
         assert called_kwargs["timeout"] == 450
+
+
+@patch("httpx.Client.post")
+def test_override_model(mock_post):
+    """Ensures call_llm respects override_model when provided."""
+    mock_resp = MagicMock()
+    mock_resp.status_code = 200
+    mock_resp.json.return_value = {
+        "choices": [{"message": {"content": "Hello!"}}]
+    }
+    mock_post.return_value = mock_resp
+
+    with patch.dict(os.environ, {
+        "AUTOBOOK_PROVIDER": "openai",
+        "OPENAI_API_KEY": "test-key"
+    }):
+        call_llm("prompt", "system", override_model="my-override-model")
+        
+        called_args, called_kwargs = mock_post.call_args
+        payload = called_kwargs["json"]
+        assert payload["model"] == "my-override-model"
+
+
+@patch("httpx.Client.post")
+@patch("time.sleep")
+def test_rate_limit_retry_after(mock_sleep, mock_post):
+    """Ensures call_llm sleeps for Retry-After duration when receiving HTTP 429."""
+    # First request: 429, Second request: 200
+    mock_resp_429 = MagicMock()
+    mock_resp_429.status_code = 429
+    mock_resp_429.headers = {"Retry-After": "15"}
+    mock_resp_429.text = "Too many requests"
+    
+    mock_resp_200 = MagicMock()
+    mock_resp_200.status_code = 200
+    mock_resp_200.json.return_value = {
+        "choices": [{"message": {"content": "Hello!"}}]
+    }
+    
+    mock_post.side_effect = [mock_resp_429, mock_resp_200]
+    
+    with patch.dict(os.environ, {
+        "AUTOBOOK_PROVIDER": "openai",
+        "OPENAI_API_KEY": "test-key"
+    }):
+        call_llm("prompt", "system")
+        
+        # Verify sleep was called with 15.0
+        mock_sleep.assert_any_call(15.0)

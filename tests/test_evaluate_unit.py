@@ -98,3 +98,33 @@ def test_parse_json_response_resilience():
     assert len(res["three_weakest_sentences"]) == 2
     assert res["three_weakest_sentences"][1] == "Second weak"
 
+
+def test_validate_and_repair_json_success():
+    """Ensures validate_and_repair_json parses correct JSON properly."""
+    from evaluate import validate_and_repair_json
+    raw_text = '{"overall_score": 8.0, "top_3_revisions": ["rev1"]}'
+    res = validate_and_repair_json(raw_text, "overall_score")
+    assert res is not None
+    assert res["overall_score"] == 8.0
+    assert res["top_3_revisions"] == ["rev1"]
+    assert "canon_compliance" in res
+
+
+def test_validate_and_repair_json_regex_fallback():
+    """Ensures validate_and_repair_json parses broken JSON or plain text with key matching via regex."""
+    from evaluate import validate_and_repair_json
+    raw_text = 'This is invalid JSON but "overall_score" : 7.5 and "weakest_moment": "test comment"'
+    res = validate_and_repair_json(raw_text, "overall_score")
+    assert res is not None
+    assert res["overall_score"] == 7.5
+    assert res["weakest_moment"] == "test comment"
+    assert res["top_3_revisions"] == []
+
+
+def test_validate_and_repair_json_failure():
+    """Ensures validate_and_repair_json returns None if the key is not present."""
+    from evaluate import validate_and_repair_json
+    raw_text = '{"some_other_key": 8.0}'
+    res = validate_and_repair_json(raw_text, "overall_score")
+    assert res is None
+

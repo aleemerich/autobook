@@ -115,6 +115,71 @@ def repair_json_quotes(s):
         
     return "".join(result)
 
+
+def validate_and_repair_json(raw_text, required_key="continuity_score"):
+    """
+    Validate that raw_text is a valid JSON and contains the required_key.
+    If standard JSON parsing fails or the key is missing, attempts to extract
+    the required key and reconstruct a minimal valid dict.
+    Returns the parsed dict if successful/repaired, or None if completely invalid.
+    """
+    # 1. Try normal parsing
+    try:
+        data = parse_json_response(raw_text)
+        if isinstance(data, dict) and required_key in data:
+            if required_key == "continuity_score":
+                if "inconsistencies" not in data or not isinstance(data["inconsistencies"], list):
+                    data["inconsistencies"] = []
+                if "timeline_flow" not in data:
+                    data["timeline_flow"] = ""
+            return data
+    except Exception:
+        pass
+
+    # 2. Regex fallback for required_key
+    score_match = re.search(rf'"{required_key}"\s*:\s*(\d+(?:\.\d+)?)', raw_text)
+    if score_match:
+        try:
+            score_val = float(score_match.group(1))
+            if required_key == "continuity_score":
+                return {
+                    "continuity_score": score_val,
+                    "inconsistencies": [],
+                    "timeline_flow": "Reconstruído via extração regex."
+                }
+        except Exception:
+            pass
+    return None
+
+
+def get_reduced_chapters_data(chapters_data):
+    reduced = []
+    for ch in chapters_data:
+        reduced.append({
+            "num": ch["num"],
+            "title": ch["title"],
+            "location": ch["location"],
+            "characters": ch["characters"],
+            "summary": ch["summary"][:150] + "..." if len(ch["summary"]) > 150 else ch["summary"],
+            "beats": ch["beats"][:3],
+            "plants": ch["plants"],
+            "harvests": ch["harvests"]
+        })
+    return reduced
+
+
+def get_minimal_chapters_data(chapters_data):
+    minimal = []
+    for ch in chapters_data:
+        minimal.append({
+            "num": ch["num"],
+            "title": ch["title"],
+            "location": ch["location"],
+            "beats": ch["beats"][:2],
+            "summary": ch["summary"][:50] + "..." if len(ch["summary"]) > 50 else ch["summary"]
+        })
+    return minimal
+
 def parse_outline(outline_path: Path) -> list:
     """Parse outline.md and extract structured fields per chapter."""
     if not outline_path.exists():
@@ -231,11 +296,16 @@ def run_continuity_validation(strict: bool = False, threshold: float = 7.5) -> d
         
     print(f"[INFO] Successfully parsed {len(chapters_data)} chapters for timeline analysis.")
     
-    # 2. Format JSON for prompt
-    chapters_json_str = json.dumps(chapters_data, indent=2, ensure_ascii=False)
-    
-    # 3. Call LLM Continuity Judge
-    system_prompt = (
+    # 2. Resolve list of judge models
+    judge_models_str = os.environ.get("AUTOBOOK_JUDGE_MODEL", "openrouter/free")
+    models_list = [m.strip() for m in judge_models_str.split(",") if m.strip()]
+    if not models_list:
+        models_list = ["openrouter/free"]
+
+    result = None
+
+    # 3. Call LLM Continuity Judge with 3 cycles and models loop
+    system_prompt_full = (
         "Você é um Editor de Continuidade Literária de Elite, extremamente detalhista, clínico e frio. "
         "Sua única função é ler a sequência cronológica de capítulos (resumos, beats, personagens, locais, plants, harvests) de um romance e identificar "
         "erros de continuidade, loops temporais, repetições de debates/diálogos, inconsistências físicas e quebras de transição causal.\n\n"
@@ -262,20 +332,72 @@ def run_continuity_validation(strict: bool = False, threshold: float = 7.5) -> d
         "}\n\n"
         "Responda APENAS com o JSON válido. Não inclua nenhuma explicação, comentário, introdução ou conclusão fora do JSON."
     )
-    
-    user_prompt = (
-        f"Abaixo está a sequência dos capítulos do livro em formato JSON estruturado:\n\n"
-        f"{chapters_json_str}\n\n"
-        f"Analise toda a linha do tempo e forneça o relatório no formato JSON exigido."
+
+    system_prompt_reduced = (
+        "Você é um Editor de Continuidade Literária. Identifique inconsistências cronológicas e físicas e retorne este JSON:\n"
+        "{\n"
+        "  \"continuity_score\": <nota de 0.0 a 10.0>,\n"
+        "  \"inconsistencies\": [\n"
+        "    {\n"
+        "      \"chapters\": [<lista de cap>],\n"
+        "      \"severity\": \"high\" | \"medium\" | \"low\",\n"
+        "      \"issue_type\": \"event_repetition\" | \"setting_contradiction\" | \"timeline_break\" | \"causality_break\" | \"other\",\n"
+        "      \"description\": \"...\",\n"
+        "      \"suggested_fix\": \"...\"\n"
+        "    }\n"
+        "  ],\n"
+        "  \"timeline_flow\": \"...\"\n"
+        "}"
     )
-    
-    try:
-        print("[INFO] Calling LLM Continuity Judge for timeline evaluation...")
-        raw_response = call_llm(prompt=user_prompt, system_prompt=system_prompt, temperature=0.1, is_judge=True)
-        result = parse_json_response(raw_response)
-    except Exception as e:
-        print(f"[ERROR] Failed to run/parse continuity evaluation: {e}")
-        # Default fallback dict on API/Parsing failures
+
+    system_prompt_minimal = (
+        "Você é um Editor de Continuidade Literária. Verifique se há erros graves de cronologia ou furos na linha do tempo e responda APENAS com este JSON:\n"
+        "{\n"
+        "  \"continuity_score\": <nota de 0.0 a 10.0>,\n"
+        "  \"inconsistencies\": []\n"
+        "}"
+    )
+
+    for cycle in range(1, 4):
+        print(f"[INFO] Beginning continuity validation Cycle {cycle}...", file=sys.stderr)
+        
+        # Prepare prompts
+        if cycle == 1:
+            sys_prompt = system_prompt_full
+            chapters_json_str = json.dumps(chapters_data, indent=2, ensure_ascii=False)
+        elif cycle == 2:
+            sys_prompt = system_prompt_reduced
+            chapters_json_str = json.dumps(get_reduced_chapters_data(chapters_data), indent=2, ensure_ascii=False)
+        else:
+            sys_prompt = system_prompt_minimal
+            chapters_json_str = json.dumps(get_minimal_chapters_data(chapters_data), indent=2, ensure_ascii=False)
+
+        user_prompt = (
+            f"Abaixo está a sequência dos capítulos do livro em formato JSON estruturado:\n\n"
+            f"{chapters_json_str}\n\n"
+            f"Analise toda a linha do tempo e forneça o relatório no formato JSON exigido."
+        )
+
+        for model in models_list:
+            print(f"[INFO] Trying model '{model}' in continuity Cycle {cycle}...", file=sys.stderr)
+            try:
+                raw_response = call_llm(prompt=user_prompt, system_prompt=sys_prompt, temperature=0.1, is_judge=True, override_model=model)
+                parsed = validate_and_repair_json(raw_response, "continuity_score")
+                if parsed is not None:
+                    print(f"[INFO] Successfully obtained valid continuity check from model '{model}' (Cycle {cycle})!", file=sys.stderr)
+                    result = parsed
+                    break
+            except Exception as e:
+                print(f"WARNING: Continuity check failed for model '{model}' in Cycle {cycle}: {e}", file=sys.stderr)
+            
+            # Immediately rotate: no sleep
+            print(f"[INFO] Model '{model}' failed or returned invalid JSON. Rotating to next model...", file=sys.stderr)
+
+        if result is not None:
+            break
+
+    if result is None:
+        print("[ERROR] All continuity evaluation cycles and models failed. Falling back to default baseline report.", file=sys.stderr)
         result = {
             "continuity_score": 5.0,
             "inconsistencies": [
@@ -283,11 +405,11 @@ def run_continuity_validation(strict: bool = False, threshold: float = 7.5) -> d
                     "chapters": [],
                     "severity": "high",
                     "issue_type": "other",
-                    "description": f"Falha na execução/parsing da verificação de continuidade: {e}",
-                    "suggested_fix": "Verifique a conectividade e os logs de API."
+                    "description": "Falha na execução/parsing de todas as tentativas e modelos de verificação de continuidade.",
+                    "suggested_fix": "Verifique a conectividade e os logs de API de todos os modelos."
                 }
             ],
-            "timeline_flow": "Impossível analisar devido a falhas de execução da API ou de processamento de JSON."
+            "timeline_flow": "Impossível analisar devido a falhas persistentes de execução da API ou de processamento de JSON."
         }
         
     score = result.get("continuity_score", 0.0)
