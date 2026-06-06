@@ -102,6 +102,8 @@ class DraftChaptersStep(Step):
         threshold = float(os.environ.get("CHAPTER_THRESHOLD", 6.0))
         
         target_chapters = context.get("chapters")
+        if target_chapters:
+            start_chapter = min(min(target_chapters), start_chapter)
         
         for ch in range(start_chapter, total_chapters + 1):
             if target_chapters and ch not in target_chapters:
