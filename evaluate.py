@@ -234,6 +234,7 @@ def parse_json_response(text):
     # Find the outermost JSON object
     start = text.find('{')
     if start == -1:
+        print(f"DEBUG: raw text that failed JSON parsing:\n{text}", file=sys.stderr)
         raise ValueError("No JSON object found in response")
         
     # Walk forward to find the matching closing brace
@@ -309,7 +310,11 @@ def parse_json_response(text):
         return json.loads(repaired, strict=False)
     except json.JSONDecodeError:
         fixed = re.sub(r'(?<!\\)\n', '\\n', repaired)
-        return json.loads(fixed, strict=False)
+        try:
+            return json.loads(fixed, strict=False)
+        except json.JSONDecodeError as e:
+            print(f"DEBUG: raw text that failed JSON parsing (final fallback):\n{text}", file=sys.stderr)
+            raise e
 
 def repair_json_quotes(s):
     result = []
