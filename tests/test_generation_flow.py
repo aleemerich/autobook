@@ -195,3 +195,83 @@ def test_generation_flow_custom_critics(mock_call_llm, mock_subprocess, mock_eva
         assert not (tmp_draft_dir / "critique_style.md").exists()
         assert not (tmp_draft_dir / "critique_flow.md").exists()
 
+
+@patch("pipelines.book_generation.evaluate_chapter")
+@patch("pipelines.book_generation.subprocess.run")
+@patch("agents.call_llm")
+def test_generation_flow_retrocede_start_chapter(mock_call_llm, mock_subprocess, mock_eval_chapter, tmp_path):
+    # Setup mock file structure in tmp_path
+    book_data = tmp_path / "book_data"
+    book_data.mkdir(parents=True, exist_ok=True)
+    
+    chapters_dir = tmp_path / "chapters"
+    chapters_dir.mkdir(parents=True, exist_ok=True)
+    
+    logs_dir = tmp_path / "logs"
+    logs_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Create outline with Chapter 1, 2, 3
+    outline_content = (
+        "# Novel Outline\n\n"
+        "### Chapter 1: One\n"
+        "**Beats:**\n- B1\n"
+        "### Chapter 2: Two\n"
+        "**Beats:**\n- B2\n"
+        "### Chapter 3: Three\n"
+        "**Beats:**\n"
+        "- Elisa does a retroceded check.\n"
+    )
+    (book_data / "outline.md").write_text(outline_content, encoding="utf-8")
+    
+    # Create state starting at 5 (already drafted 5 chapters)
+    state = {"chapters_drafted": 5}
+    (book_data / "state.json").write_text(json.dumps(state), encoding="utf-8")
+    
+    # Create empty/basic resource files
+    (book_data / "world.md").write_text("World info", encoding="utf-8")
+    (book_data / "canon.md").write_text("Canon rules", encoding="utf-8")
+    (book_data / "characters.md").write_text("Characters list", encoding="utf-8")
+    (book_data / "voice.md").write_text("Voice guidelines", encoding="utf-8")
+    
+    # We will pass critics_roles=["canon_critic"]
+    # So we mock returns for:
+    # 1. raw beat 1 drafting (Chapter 3)
+    # 2. canon critic critique
+    # 3. synthesis step 1 (canon)
+    mock_call_llm.side_effect = [
+        "Beat 1: Chapter 3 Raw.",  # raw beat 1
+        "Critique Canon: Chapter 3 Canon.",  # critique_canon
+        "Draft after Canon Critique: Chapter 3 Final."  # synthesis step 1
+    ]
+    
+    # Mock evaluate_chapter
+    mock_eval_chapter.return_value = {
+        "overall_score": 7.5,
+        "slop": {"slop_penalty": 0.0, "tier1_hits": [], "tier2_hits": []}
+    }
+    
+    # Mock subprocess runs
+    mock_sub_run = MagicMock()
+    mock_sub_run.returncode = 0
+    mock_subprocess.return_value = mock_sub_run
+    
+    # Patch base dirs
+    with patch("pipelines.book_generation.BASE_DIR", tmp_path), \
+         patch("pipelines.book_generation.BOOK_DATA_DIR", book_data), \
+         patch("pipelines.book_generation.CHAPTERS_DIR", chapters_dir), \
+         patch("evaluate.CHAPTERS_DIR", chapters_dir), \
+         patch("evaluate.BASE_DIR", tmp_path):
+         
+        step = DraftChaptersStep(critics_roles=["canon_critic"])
+        context = {"chapters": [3]}
+        step.run(context)
+        
+        # Verify final chapter 3 file content and location
+        ch_file = chapters_dir / "ch_03.md"
+        assert ch_file.exists()
+        assert ch_file.read_text(encoding="utf-8") == "Draft after Canon Critique: Chapter 3 Final."
+        
+        # Verify that state.json is updated to 3
+        updated_state = json.loads((book_data / "state.json").read_text(encoding="utf-8"))
+        assert updated_state["chapters_drafted"] == 3
+
