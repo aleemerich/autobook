@@ -20,48 +20,48 @@ from verify_continuity import parse_outline, run_continuity_validation
 def temp_outline(tmp_path):
     """Fixture to generate a temporary outline.md file."""
     outline_file = tmp_path / "outline.md"
-    content = """# THE SECOND SON OF THE HOUSE OF BELLS
+    content = """# NOVEL OUTLINE
 ## Chapter Outline (reflects actual novel as-written)
 
 **2 chapters, 5,000 words**
 
 ---
 
-### Ch 1: Elisa's Discovery
-**2500 words** | **Location:** ETH Office HPF 3.17
-- **Characters:** Elisa, Marcus
+### Ch 1: The Discovery
+**2500 words** | **Location:** Research Office
+- **Characters:** Protagonist, Secondary
 - **Try-fail cycle:** yes-but
-- **Emotional arc:** Elisa transitions from numb curiosity to sharp anxiety.
+- **Emotional arc:** Protagonist transitions from numb curiosity to sharp anxiety.
 
-**Summary:** Elisa accesses the CERN 2018 backup data in the office safe and finds a recurring anomaly. Marcus warns her about the risks.
+**Summary:** Protagonist accesses archival backup data in the office safe and finds a recurring anomaly. Secondary warns about the risks.
 
 **Beats:**
-1. Elisa opens the safe and runs the comparison scripts.
-2. Marcus enters and expresses disbelief.
-3. Elisa walks home to Hottingen through the cold night.
+1. Protagonist opens the safe and runs the comparison scripts.
+2. Secondary enters and expresses disbelief.
+3. Protagonist walks home through the cold night.
 
 **Plants:**
-- The key left by Helena.
+- The key left by a stranger.
 
-**Chapter question:** What is the origin of the thermal fluctuation?
+**Chapter question:** What is the origin of the anomaly?
 
 ---
 
 ### Ch 2: The Silent Apartment
-**2500 words** | **Location:** Elisa's Apartment, Hottingen
-- **Characters:** Elisa
+**2500 words** | **Location:** Protagonist's Apartment
+- **Characters:** Protagonist
 - **Try-fail cycle:** no-and
 - **Emotional arc:** Terror turns into determined focus.
 
-**Summary:** Elisa arrives at her apartment and finds the door unlocked. She receives a threatening message on her phone.
+**Summary:** Protagonist arrives at their apartment and finds the door unlocked. They receive a threatening message.
 
 **Beats:**
-1. Elisa walks up the stairs to her 5th floor flat.
-2. She checks the rooms but finds no one.
-3. Her phone buzzes with a private number warning.
+1. Protagonist walks up the stairs to their flat.
+2. They check the rooms but find no one.
+3. Their phone buzzes with a private number warning.
 
 **Harvests:**
-- The key left by Helena fits the drawer lock.
+- The key left by a stranger fits the drawer lock.
 
 **Chapter question:** Who sent the warning message?
 
@@ -78,22 +78,21 @@ def test_parse_outline(temp_outline):
     # Check Chapter 1
     ch1 = entries[0]
     assert ch1["num"] == 1
-    assert ch1["title"] == "Elisa's Discovery"
-    assert ch1["location"] == "ETH Office HPF 3.17"
-    assert "Elisa" in ch1["characters"]
-    assert "Marcus" in ch1["characters"]
+    assert ch1["title"] == "The Discovery"
+    assert ch1["location"] == "Research Office"
+    assert "Protagonist" in ch1["characters"]
+    assert "Secondary" in ch1["characters"]
     assert ch1["try_fail"] == "yes-but"
-    assert "thermal fluctuation" in ch1["chapter_question"]
-    assert "Helena" in ch1["plants"][0]
-    assert len(ch1["beats"]) == 3
-    
+    assert "anomaly" in ch1["chapter_question"]
+    assert "stranger" in ch1["plants"][0]
+
     # Check Chapter 2
     ch2 = entries[1]
     assert ch2["num"] == 2
     assert ch2["title"] == "The Silent Apartment"
-    assert ch2["location"] == "Elisa's Apartment, Hottingen"
+    assert ch2["location"] == "Protagonist's Apartment"
     assert ch2["try_fail"] == "no-and"
-    assert "key left by Helena" in ch2["harvests"][0]
+    assert "stranger" in ch2["harvests"][0]
     assert len(ch2["beats"]) == 3
 
 @patch("verify_continuity.call_llm")

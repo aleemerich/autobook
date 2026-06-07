@@ -39,11 +39,11 @@ def test_md_to_latex_dashes_and_quotes():
 
 def test_make_drop_cap():
     # Verify lettrine formatting on the first letter of the first paragraph
-    body = "Elisa was looking at the terminal screen.\n\nShe clicked repeat."
+    body = "Protagonist was looking at the terminal screen.\n\nThey clicked repeat."
     result = make_drop_cap(body)
-    
-    # "Elisa" should be formatted as \lettrine[...]{E}{lisa}
+
+    # "Protagonist" should be formatted as \lettrine[...]{P}{rotagonist}
     assert "\\lettrine" in result
-    assert "{E}" in result
-    assert "{lisa}" in result
-    assert "She clicked repeat." in result
+    assert "{P}" in result
+    assert "{rotagonist}" in result
+    assert "They clicked repeat." in result

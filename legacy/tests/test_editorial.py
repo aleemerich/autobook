@@ -145,7 +145,7 @@ def test_classify_brief_with_ai_continuity_breaking(mock_call):
     """
     mock_call.return_value = response_json
     
-    result = classify_brief_with_ai(17, "Helena gives Elisa a physical key.")
+    result = classify_brief_with_ai(17, "A gives B a physical key.")
     assert result["type"] == "continuity_breaking"
     assert result["affects_downstream"] == [18, 19, 20]
     assert result["criticism"] == "This introduces a key item."

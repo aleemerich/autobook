@@ -12,7 +12,7 @@ class RedundancyDetector:
     """Skill utility class to scan and flag repeating patterns, equations, and clichés."""
     
     def __init__(self, target_words: Optional[List[str]] = None):
-        self.target_words = target_words or ["0,001", "0.001", "boltzmann", "entropia", "granito", "pedra", "rocha"]
+        self.target_words = target_words or []
 
     def scan_text(self, text: str) -> Dict[str, int]:
         """Count occurrences of target words in the provided text (case-insensitive)."""

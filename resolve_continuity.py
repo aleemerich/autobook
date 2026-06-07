@@ -84,25 +84,16 @@ def load_continuity_config() -> dict:
     if not config_file.exists() and lang != "EN":
         config_file = PROMPTS_DIR / "EN" / "continuity.json"
     if not config_file.exists():
-        # Minimal fallback
+        # Minimal fallback — generic, no story-specific references
         return {
             "general_rules": [
                 "- Ensure all chapter output is written in high-quality, standard English (EN) only.",
                 "- Avoid common AI fiction tropes, structural repetitions, and rhetorical tics.",
-                "- Maintain strict consistency of location names and character lore (Helena's apartment in Oerlikon on the 5th floor, door 5C; CERN hard drive safe at ETH room 3.17)."
+                "- Maintain strict consistency of location names and character lore as defined in canon.md and world.md for the current project."
             ],
-            "divergence_rules": {
-                "6_7": {
-                    "6": "Focus strictly on the meeting with Mirela at the Kaffeehaus in Bern and obtain the confidential notes.",
-                    "7": "Narrative Divergence: DO NOT repeat the train trip to Bern or the meeting with Mirela. The chapter must focus entirely on Elisa's return to Zurich that same afternoon, analyzing the physical notes on the train back, and conducting the full and tense video conference with Father Tomás Delgado."
-                },
-                "14_15": {
-                    "14": "Focus on the discovery of Marcus's preprint and the dramatic physical/emotional confrontation in the office.",
-                    "15": "Narrative Divergence: DO NOT repeat the confrontation with Marcus. The chapter must focus on Elisa deeply investigating Evromind and Yuki Tanaka to discover who bribed Marcus, expanding the corporate espionage subplot before the call from Dmitri Volsky."
-                }
-            },
+            "divergence_rules": {},
             "templates": {
-                "quality_improvement": "Quality Improvement: The previous draft received a low score ({score:.2f}). Eliminate AI writing tics, tropes, and improve pacing and Elisa's inner thoughts.",
+                "quality_improvement": "Quality Improvement: The previous draft received a low score ({score:.2f}). Eliminate AI writing tics, tropes, and improve pacing and the protagonist's inner thoughts.",
                 "continuity_correction": "Continuity Correction ({severity} Severity): {desc} -> {fix}",
                 "general_directives_header": "# General Directives",
                 "chapter_header": "# Chapter {ch}",

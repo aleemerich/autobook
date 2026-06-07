@@ -32,21 +32,21 @@ def test_modular_generation_flow(mock_call_llm, mock_subprocess, mock_eval_chapt
         "# Novel Outline\n\n"
         "### Chapter 1: The Awakening\n"
         "**Beats:**\n"
-        "- Elisa wake up and check the device.\n"
-        "- Elisa talks to Helena and checks her IC value.\n"
+        "- Protagonist wake up and check the device.\n"
+        "- Protagonist talks to Subject and checks the reading.\n"
     )
     (book_data / "outline.md").write_text(outline_content, encoding="utf-8")
-    
+
     # Create empty state
     state = {"chapters_drafted": 0}
     (book_data / "state.json").write_text(json.dumps(state), encoding="utf-8")
-    
+
     # Create empty/basic resource files
     (book_data / "world.md").write_text("World info", encoding="utf-8")
     (book_data / "canon.md").write_text("Canon rules", encoding="utf-8")
     (book_data / "characters.md").write_text("Characters list", encoding="utf-8")
     (book_data / "voice.md").write_text("Voice guidelines", encoding="utf-8")
-    
+
     # Mock LLM returns for:
     # 1. raw beat 1 drafting
     # 2. raw beat 2 drafting
@@ -57,9 +57,9 @@ def test_modular_generation_flow(mock_call_llm, mock_subprocess, mock_eval_chapt
     # 7. synthesis step 2 (flow)
     # 8. synthesis step 3 (style)
     mock_call_llm.side_effect = [
-        "Beat 1: Elisa wakes up.",  # raw beat 1
-        "Beat 2: Elisa talks to Helena.",  # raw beat 2
-        "Critique Canon: Helena is lucid.",  # critique_canon
+        "Beat 1: Protagonist wakes up.",  # raw beat 1
+        "Beat 2: Protagonist talks to Subject.",  # raw beat 2
+        "Critique Canon: Subject is lucid.",  # critique_canon
         "Critique Style: Good voice.",  # critique_style
         "Critique Flow: Smooth flow.",  # critique_flow
         "Draft after Canon Critique.",  # synthesis step 1
@@ -135,28 +135,28 @@ def test_generation_flow_custom_critics(mock_call_llm, mock_subprocess, mock_eva
         "# Novel Outline\n\n"
         "### Chapter 1: The Awakening\n"
         "**Beats:**\n"
-        "- Elisa wake up and check the device.\n"
+        "- Protagonist wake up and check the device.\n"
     )
     (book_data / "outline.md").write_text(outline_content, encoding="utf-8")
-    
+
     # Create empty state
     state = {"chapters_drafted": 0}
     (book_data / "state.json").write_text(json.dumps(state), encoding="utf-8")
-    
+
     # Create empty/basic resource files
     (book_data / "world.md").write_text("World info", encoding="utf-8")
     (book_data / "canon.md").write_text("Canon rules", encoding="utf-8")
     (book_data / "characters.md").write_text("Characters list", encoding="utf-8")
     (book_data / "voice.md").write_text("Voice guidelines", encoding="utf-8")
-    
+
     # We will pass critics_roles=["canon_critic"]
     # So we mock returns for:
     # 1. raw beat 1 drafting
     # 2. canon critic critique
     # 3. synthesis step 1 (canon)
     mock_call_llm.side_effect = [
-        "Beat 1: Elisa wakes up.",  # raw beat 1
-        "Critique Canon: Helena is lucid.",  # critique_canon
+        "Beat 1: Protagonist wakes up.",  # raw beat 1
+        "Critique Canon: Subject is lucid.",  # critique_canon
         "Draft after Canon Critique: Final Chapter text."  # synthesis step 1
     ]
     

@@ -272,19 +272,21 @@ def test_load_continuity_config_and_formatting():
         
         # Test Portuguese specific values
         assert "ecrã" in config["general_rules"][0]
-        assert "Divergência Narrativa:" in config["divergence_rules"]["6_7"]["7"]
         assert "Melhoria de Qualidade:" in config["templates"]["quality_improvement"]
+        # divergence_rules may be empty (no story-specific rules in generic template)
+        assert isinstance(config["divergence_rules"], dict)
 
     with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "EN"}):
         config = load_continuity_config()
         assert "general_rules" in config
         assert "divergence_rules" in config
         assert "templates" in config
-        
+
         # Test English specific values
         assert "standard English" in config["general_rules"][0]
-        assert "Narrative Divergence:" in config["divergence_rules"]["6_7"]["7"]
         assert "Quality Improvement:" in config["templates"]["quality_improvement"]
+        # divergence_rules may be empty (no story-specific rules in generic template)
+        assert isinstance(config["divergence_rules"], dict)
 
 
 def test_load_editorial_config_retry_temperatures():
