@@ -6,6 +6,10 @@ A configuração do Sistema Autobook é gerenciada principalmente através de va
 
 O sistema segue a filosofia de "configuração sobre codificação" - tornando o maior número possível de aspectos configuráveis através de variáveis de ambiente, enquanto mantém padrões razoáveis para uso imediato.
 
+> **Status v0:** esta pagina mistura configuracao pretendida e configuracao
+> efetivamente usada pelo codigo. Onde houver diferenca, o comportamento real
+> do codigo prevalece. Consulte tambem `../SNAPSHOT_V0.md`.
+
 ## Arquivo de Configuração Principal: .env
 
 O arquivo `.env` contém pares `CHAVE=VALOR` que são carregados pelo módulo `llm.py` (através da biblioteca `python-dotenv`) e por outros módulos conforme necessário.
@@ -13,21 +17,21 @@ O arquivo `.env` contém pares `CHAVE=VALOR` que são carregados pelo módulo `l
 ### Exemplo de Arquivo .env
 ```env
 # Seleção de Provedor de LLM
-AUTOBOOK_PROVIDER=anthropic
+AUTOBOOK_PROVIDER=openrouter
 
 # Chaves de API (apenas uma necessária dependendo do provedor)
-ANTHROPIC_API_KEY=sua-chave-de-api-aqui
-# OPENAI_API_KEY=sua-chave-de-api-aqui
-# GEMINI_API_KEY=sua-chave-de-api-aqui
-# OPENROUTER_API_KEY=sua-chave-de-api-aqui
+ANTHROPIC_API_KEY=sk-ant-...
+OPENAI_API_KEY=sk-proj-...
+GEMINI_API_KEY=AIzaSy...
+OPENROUTER_API_KEY=sk-or-v1-...
 
 # URLs Base Customizadas (opcional - sobrescreve padrões do provedor)
 # AUTOBOOK_API_BASE_URL=https://api.custom-provider.com
 
 # Seleção de Modelos (opcionais - usa padrões do provedor se não definidos)
-AUTOBOOK_WRITER_MODEL=claude-sonnet-4-6
-AUTOBOOK_JUDGE_MODEL=claude-sonnet-4-6
-AUTOBOOK_REVIEW_MODEL=claude-sonnet-4-6
+AUTOBOOK_WRITER_MODEL=openrouter/owl-alpha
+AUTOBOOK_JUDGE_MODEL=nvidia/nemotron-3-super-120b-a12b:free,openrouter/owl-alpha,openrouter/free
+AUTOBOOK_REVIEW_MODEL=nvidia/nemotron-3-super-120b-a12b:free
 
 # Configurações de Qualidade e Thresholds
 MAX_CHAPTER_ATTEMPTS=3
@@ -44,9 +48,9 @@ AUTOBOOK_LANGUAGE=PT-BR
 AUTOBOOK_PIPELINE_TIMEOUT=3600
 AUTOBOOK_LLM_TIMEOUT=3600
 
-# Outras Configurações
-# GIT_AUTO_COMMIT=true
-# GIT_AUTO_PUSH=true
+# Chaves opcionais de midia
+FAL_KEY=your-fal-api-key-here
+ELEVENLABS_API_KEY=your-elevenlabs-api-key-here
 ```
 
 ## Carregamento de Configuração
@@ -181,15 +185,14 @@ Controla quanto tempo o sistema aguarda antes de considerar operações como fal
 ### 8. Outras Configurações
 Configurações adicionais que controlam comportamentos específicos do sistema.
 
-#### GIT_AUTO_COMMIT
-- Se definido como "true", habilita commits automáticos após operações bem-sucedidas
-- Se definido como "false" ou não definido, desabilita commits automáticos
-- Padrão: comportamento existente no código (commits automáticos estão habilitados em vários pontos)
+#### Git automatico
+O codigo atual nao implementa flags efetivas `GIT_AUTO_COMMIT` ou
+`GIT_AUTO_PUSH`. Os pipelines `foundation`, `book_generation` e
+`editorial_revision` chamam `git add`, `git commit` e, em alguns casos,
+`git push` diretamente via `subprocess`.
 
-#### GIT_AUTO_PUSH
-- Se definido como "true", habilita push automático para o repositório remoto após commits
-- Se definido como "false" ou não definido, desabilita push automático
-- Padrão: comportamento existente no código (push automático está habilitado após commits bem-sucedidos em vários pontos)
+Para transformar isso em configuracao real, sera necessario alterar o codigo
+para ler variaveis de ambiente antes dessas chamadas.
 
 ## Precedência e Herança de Configuração
 
@@ -318,16 +321,16 @@ O projeto inclui um arquivo `.env.example` que mostra todas as variáveis de amb
 # SELEÇÃO DE PROVEDOR LLM
 # ======================
 # Provedor de LLM a ser usado: anthropic, openai, gemini, openrouter
-AUTOBOOK_PROVIDER=anthropic
+AUTOBOOK_PROVIDER=openrouter
 
 # ======================
 # CHAVES DE API
 # ======================
 # Apenas a chave do provedor selecionado é necessária
-# ANTHROPIC_API_KEY=sua-chave-de-api-aqui
-# OPENAI_API_KEY=sua-chave-de-api-aqui
-# GEMINI_API_KEY=sua-chave-de-api-aqui
-# OPENROUTER_API_KEY=sua-chave-de-api-aqui
+ANTHROPIC_API_KEY=sk-ant-...
+OPENAI_API_KEY=sk-proj-...
+GEMINI_API_KEY=AIzaSy...
+OPENROUTER_API_KEY=sk-or-v1-...
 
 # ======================
 # URL BASE CUSTOMIZADA (OPCIONAL)
@@ -340,16 +343,16 @@ AUTOBOOK_PROVIDER=anthropic
 # ======================
 # Se não definidos, usa os padrões do provedor
 # Modelo para operações de escrita padrão
-# AUTOBOOK_WRITER_MODEL=claude-sonnet-4-6
-# AUTOBOOK_WRITER_MODEL_PROVIDER_SPECIFIC=...  # Ex: ANTHROPIC_WRITER_MODEL
+# AUTOBOOK_WRITER_MODEL=openrouter/owl-alpha
+# ANTHROPIC_WRITER_MODEL=claude-sonnet-4-6
 
 # Modelo para operações de julgamento/avaliação
-# AUTOBOOK_JUDGE_MODEL=claude-sonnet-4-6
-# AUTOBOOK_JUDGE_MODEL_PROVIDER_SPECIFIC=...  # Ex: ANTHROPIC_JUDGE_MODEL
+# AUTOBOOK_JUDGE_MODEL=nvidia/nemotron-3-super-120b-a12b:free,openrouter/owl-alpha,openrouter/free
+# ANTHROPIC_JUDGE_MODEL=claude-opus-4-1
 
 # Modelo para operações de revisão editorial
-# AUTOBOOK_REVIEW_MODEL=claude-sonnet-4-6
-# AUTOBOOK_REVIEW_MODEL_PROVIDER_SPECIFIC=...  # Ex: ANTHROPIC_REVIEW_MODEL
+# AUTOBOOK_REVIEW_MODEL=nvidia/nemotron-3-super-120b-a12b:free
+# ANTHROPIC_REVIEW_MODEL=claude-opus-4-1
 
 # ======================
 # CONFIGURAÇÕES DE QUALIDADE E THRESHOLDS
@@ -387,13 +390,10 @@ AUTOBOOK_PIPELINE_TIMEOUT=3600
 AUTOBOOK_LLM_TIMEOUT=3600
 
 # ======================
-# OUTRAS CONFIGURAÇÕES
+# CHAVES OPCIONAIS DE MIDIA
 # ======================
-# Habilita commits automáticos após operações bem-sucedidas
-# GIT_AUTO_COMMIT=true
-
-# Habilita push automático para o repositório remoto após commits
-# GIT_AUTO_PUSH=true
+FAL_KEY=your-fal-api-key-here
+ELEVENLABS_API_KEY=your-elevenlabs-api-key-here
 ```
 
 ## Conclusão

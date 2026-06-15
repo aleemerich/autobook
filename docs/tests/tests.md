@@ -2,7 +2,9 @@
 
 ## Visão Geral
 
-O sistema de testes do Autobook implementa uma suíte abrangente de testes unitários e de integração para garantir a confiabilidade e correto funcionamento do sistema de geração de livros. Os testes estão localizados principalmente no diretório `/tests` com alguns testes adicionais em `/legacy/tests`.
+O sistema de testes do Autobook implementa uma suíte abrangente de testes unitários e de integração para garantir a confiabilidade e correto funcionamento do sistema de geração de livros. Os testes ativos estão localizados no diretório `/tests`.
+
+> **Status v0:** o baseline moderno verificado e `uv run --with pytest pytest tests`, com 60 testes passando. A pasta `/legacy/tests` existe, mas nao faz parte do baseline saudavel atual porque a coleta falha por imports de modulos historicos que nao existem mais (`draft_chapter`, `run_editorial`, `run_pipeline`).
 
 Este sistema verifica:
 - Funcionalidade básica de módulos individuais (testes unitários)
@@ -29,7 +31,9 @@ Este sistema verifica:
 - `test_generation_flow.py`: Testes do fluxo completo de geração de capítulos
 
 ### Testes Legados (`/legacy/tests`)
-- Testes mantidos para compatibilidade com funcionalidade mais antiga
+- Status v0: quebrados na fase de coleta quando executados junto da suite moderna
+- Motivo principal: referencias a modulos removidos ou renomeados
+- Devem ser migrados, corrigidos ou explicitamente arquivados antes de voltarem ao baseline
 - `test_batch_generators_unit.py`: Testes de geradores em lote
 - `test_ideation_unit.py`: Testes unitários de ideação
 - `test_pipeline_control.py`: Testes de controle de pipeline
@@ -64,20 +68,20 @@ Os testes dependem de:
 
 ### Como Executar Testes
 ```bash
-# Executar todos os testes
-pytest
+# Executar baseline moderno
+uv run --with pytest pytest tests
 
 # Executar teste específico
-pytest tests/test_llm_unit.py
+uv run --with pytest pytest tests/test_llm_unit.py
 
 # Executar teste com marcador específico
-pytest -m "slow"
+uv run --with pytest pytest -m "slow" tests
 
 # Executar testes em modo verbose
-pytest -v
+uv run --with pytest pytest -v tests
 
 # Executar testes com cobertura
-pytest --cov=autobook tests/
+uv run --with pytest pytest --cov=autobook tests/
 ```
 
 ### Marcadores de Teste
@@ -363,6 +367,16 @@ with patch('subprocess.run') as mock_subprocess:
 ```
 
 ## Cobertura de Testes e Melhorias Contínuas
+
+Baseline verificado neste snapshot:
+
+```text
+uv run --with pytest pytest tests
+60 passed
+```
+
+Executar `tests legacy/tests` atualmente falha durante a coleta dos testes
+legados.
 
 ### Áreas de Alta Cobertura
 1. **Módulo LLM**: Boa cobertura de lógica de seleção de provedor, construção de requisição e tratamento de erros

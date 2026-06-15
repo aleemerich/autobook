@@ -82,7 +82,13 @@ Gera as documentações fundamentais do livro a partir do `seed.txt`: mundo, per
 ## 3. Pipeline de Geração do Livro (`pipelines/book_generation.py`)
 
 ### Objetivo
-Escreve os capítulos do livro sequencialmente usando agentes especializados em cascata: drafting → stylist → technical editor → críticos → síntese.
+Escreve os capítulos do livro sequencialmente usando geração modular por beats,
+critica independente e sintese sequencial.
+
+Status v0: `StylistAgent` e `TechnicalEditorAgent` existem em `agents.py`, mas
+nao sao etapas centrais ativas no fluxo modular atual de
+`pipelines/book_generation.py`. O fluxo operacional usa `DraftingAgent`,
+criticos configurados em `AUTOBOOK_CRITICS` e `SynthesisAgent`.
 
 ### Pré-requisitos
 - Documentos de fundação devem existir (`world.md`, `characters.md`, `outline.md`, `canon.md`)
@@ -125,7 +131,9 @@ Para cada capítulo, o processo segue estas fases:
 - **Validação de Continuidade**: Verifica consistência global antes de avançar
 - **Logging Detalhado**: Salva todas as tentativas em `logs/generation_attempts/`
 - **Rollback Inteligente**: Mantém melhor tentativa se todas falharem
-- **Integração Git**: Commits automáticos após cada capítulo aprovado
+- **Integração Git**: commits e push sao executados diretamente pelo codigo
+  apos capitulo aprovado ou fallback. Nao ha flag efetiva de ambiente para
+  desabilitar isso neste v0.
 
 ### Fluxo de Dados
 - **Entrada**: Documentos de fundação, state atual, tentativa anterior

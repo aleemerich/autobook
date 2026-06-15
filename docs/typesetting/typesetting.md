@@ -4,6 +4,11 @@
 
 O sistema de tiposetagem do Autobook converte o texto gerado dos capítulos em formatos de publicação finais como PDF, EPUB e outros formatos de documento.
 
+> **Status v0:** a automacao efetiva gera `typeset/chapters_content.tex` a
+> partir de `chapters/ch_*.md` via `typeset/build_tex.py`. A compilacao final
+> de PDF e a geracao de EPUB dependem de ferramentas externas e de passos
+> manuais.
+
 ## Estrutura do Diretório de Tiposetagem
 
 ```
@@ -78,6 +83,10 @@ O sistema de tiposetagem do Autobook converte o texto gerado dos capítulos em f
    - Distribuição ou archivamento do arquivo final
 
 ### Geração de EPUB
+
+Status v0: fluxo manual. O repositorio contem arquivos de metadados e estilo
+para EPUB, mas nao ha pipeline Python ativo que gere um EPUB completo de ponta
+a ponta.
 1. **Preparação do Conteúdo**:
    - Os capítulos finais estão em `chapters/ch_XX.md`
    - Arquivos de metadata EPUB estão em `/typeset/` (`epub_metadata.yaml`, `epub_front_matter.md`, etc.)

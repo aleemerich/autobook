@@ -6,6 +6,18 @@ O diretório `/legacy` contém funcionalidades, scripts e componentes que foram 
 
 Este documento descreve o conteúdo do diretório legacy, seu propósito atual e recomendações para uso ou migração.
 
+> **Status v0:** esta area precisa de triagem. Alguns scripts documentados em
+> versoes anteriores mudaram de lugar ou nao existem mais. A pasta
+> `legacy/tests` nao esta saudavel no baseline atual.
+
+## Estado Verificado no v0
+
+- `legacy/tests` falha na coleta por imports de `draft_chapter`, `run_editorial` e `run_pipeline`.
+- `build_tex.py` nao fica em `legacy/`; o script ativo esta em `typeset/build_tex.py`.
+- `gen_revision.py`, `gen_brief.py` e `gen_audiobook_script.py` ficam na raiz do projeto, nao em `legacy/`.
+- `legacy/build_outline.py`, `legacy/build_arc_summary.py`, `legacy/gen_art.py`, `legacy/gen_audiobook.py` e scripts de cover/art ainda existem como ferramentas historicas ou auxiliares.
+- Qualquer uso operacional de scripts legados deve ser validado contra o codigo antes de entrar em um fluxo oficial.
+
 ## Estrutura do Diretório Legacy
 
 ```

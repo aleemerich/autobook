@@ -4,6 +4,11 @@
 
 O Autobook é um sistema multi-agente projetado para auxiliar na criação de livros usando Inteligência Artificial. Ele implementa uma arquitetura modular baseada no padrão **Command/Composite** para orquestrar pipelines de geração de conteúdo, com agentes especializados que colaboram para produzir, revisar e aprimorar texto literário.
 
+> **Status v0:** a arquitetura modular descrita aqui esta correta em linhas
+> gerais. Alguns fluxos e scripts auxiliares ainda carregam hardcodes, caminhos
+> historicos ou automacoes parciais; veja `../SNAPSHOT_V0.md` para o inventario
+> atualizado.
+
 ## Padrões Arquiteturais
 
 ### 1. Padrão Command/Composite
