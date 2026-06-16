@@ -3,6 +3,7 @@ import json
 import shutil
 import subprocess
 from pathlib import Path
+from typing import Any
 
 def clean_chapter_text(text: str) -> str:
     """Limpa títulos/metadados do texto final preservando a regra atual."""
@@ -32,7 +33,7 @@ def archive_generation_attempt(
     ch: int,
     attempt: int,
     final_chapter_text: str,
-    eval_res: dict
+    eval_res: dict = None
 ) -> Path:
     """Arquiva a tentativa em logs/generation_attempts/chXX_attemptYY."""
     attempts_dir = base_dir / "logs" / "generation_attempts" / f"ch{ch:02d}_attempt{attempt:02d}"
@@ -48,11 +49,26 @@ def archive_generation_attempt(
     # Salva ch_XX_final_attempt.md
     (attempts_dir / f"ch_{ch:02d}_final_attempt.md").write_text(final_chapter_text, encoding="utf-8")
     
-    # Salva evaluation.json
+    # Salva evaluation.json se fornecido
+    if eval_res is not None:
+        save_attempt_evaluation(attempts_dir, eval_res)
+
+    return attempts_dir
+
+def save_attempt_evaluation(attempts_dir: Path, eval_res: dict) -> None:
+    """Salva evaluation.json no diretório da tentativa."""
     (attempts_dir / "evaluation.json").write_text(
         json.dumps(eval_res, indent=2, ensure_ascii=False), encoding="utf-8"
     )
-    return attempts_dir
+
+def save_revision_plan(tmp_dir: Path, plan: Any) -> Path:
+    """Grava o RevisionPlan em revision_plan.json no diretório temporário."""
+    plan_file = tmp_dir / "revision_plan.json"
+    plan_file.write_text(
+        json.dumps(plan.to_dict(), indent=2, ensure_ascii=False),
+        encoding="utf-8"
+    )
+    return plan_file
 
 def update_generation_state(state_file: Path, state: dict, ch: int) -> None:
     """Atualiza state["chapters_drafted"] e escreve book_data/state.json."""

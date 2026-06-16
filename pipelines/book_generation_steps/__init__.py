@@ -27,7 +27,8 @@ from pipelines.book_generation_steps.critique import (
     build_critic_filename,
     build_critic_prompt,
     run_critic_agents,
-    convert_critique_file_to_report
+    convert_critique_file_to_report,
+    resolve_role_from_file
 )
 from pipelines.book_generation_steps.revision import (
     list_critique_files,
@@ -39,6 +40,8 @@ from pipelines.book_generation_steps.persistence import (
     clean_chapter_text,
     save_chapter_draft,
     archive_generation_attempt,
+    save_attempt_evaluation,
+    save_revision_plan,
     update_generation_state,
     run_continuity_and_git_push
 )
@@ -67,6 +70,7 @@ __all__ = [
     "build_critic_prompt",
     "run_critic_agents",
     "convert_critique_file_to_report",
+    "resolve_role_from_file",
     "list_critique_files",
     "build_revision_plan",
     "build_synthesis_prompt",
@@ -74,6 +78,8 @@ __all__ = [
     "clean_chapter_text",
     "save_chapter_draft",
     "archive_generation_attempt",
+    "save_attempt_evaluation",
+    "save_revision_plan",
     "update_generation_state",
     "run_continuity_and_git_push"
 ]

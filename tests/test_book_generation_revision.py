@@ -1,4 +1,3 @@
-import pytest
 from pathlib import Path
 from pipelines.book_generation_steps.revision import (
     list_critique_files,
@@ -63,7 +62,7 @@ def test_build_revision_plan_findings(tmp_path: Path) -> None:
     assert plan.findings[1].instruction == "style issue text"
     assert plan.findings[2].source == "flow_critic"
     assert plan.findings[2].instruction == "flow issue text"
-    assert plan.findings[3].source == "technical_editor_critic"
+    assert plan.findings[3].source == "technical_editor"
     assert plan.findings[3].instruction == "tech issue text"
 
 def test_build_synthesis_prompt() -> None:

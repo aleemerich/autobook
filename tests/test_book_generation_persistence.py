@@ -1,4 +1,3 @@
-import pytest
 import json
 from pathlib import Path
 from unittest.mock import patch, MagicMock
@@ -193,3 +192,47 @@ def test_book_generation_pipeline_structure() -> None:
     assert len(steps) == 2
     assert isinstance(steps[0], ResetStep)
     assert isinstance(steps[1], DraftChaptersStep)
+
+def test_save_revision_plan(tmp_path: Path) -> None:
+    """Valida que save_revision_plan persiste o plano com findings e metadados no arquivo correto."""
+    from pipelines.book_generation_steps.persistence import save_revision_plan
+    from writing.feedback import RevisionPlan, CriticFinding
+
+    tmp_dir = tmp_path / "tmp_draft"
+    tmp_dir.mkdir(parents=True, exist_ok=True)
+
+    finding = CriticFinding(
+        source="canon_critic",
+        instruction="Fix lore error",
+        quote="Helena",
+        severity="high"
+    )
+    plan = RevisionPlan(findings=[finding], metadata={"key": "value"})
+
+    plan_file = save_revision_plan(tmp_dir, plan)
+
+    assert plan_file == tmp_dir / "revision_plan.json"
+    assert plan_file.exists()
+
+    saved_data = json.loads(plan_file.read_text(encoding="utf-8"))
+    assert len(saved_data["findings"]) == 1
+    assert saved_data["findings"][0]["source"] == "canon_critic"
+    assert saved_data["findings"][0]["instruction"] == "Fix lore error"
+    assert saved_data["findings"][0]["quote"] == "Helena"
+    assert saved_data["findings"][0]["severity"] == "high"
+    assert saved_data["metadata"] == {"key": "value"}
+
+def test_save_attempt_evaluation(tmp_path: Path) -> None:
+    """Valida que save_attempt_evaluation cria e popula evaluation.json."""
+    from pipelines.book_generation_steps.persistence import save_attempt_evaluation
+    attempts_dir = tmp_path / "attempt_dir"
+    attempts_dir.mkdir(parents=True, exist_ok=True)
+
+    eval_res = {"score": 9.9, "details": "excellent"}
+    save_attempt_evaluation(attempts_dir, eval_res)
+
+    eval_file = attempts_dir / "evaluation.json"
+    assert eval_file.exists()
+
+    saved_data = json.loads(eval_file.read_text(encoding="utf-8"))
+    assert saved_data == eval_res

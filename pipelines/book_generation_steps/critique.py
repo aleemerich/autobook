@@ -4,8 +4,30 @@ from writing.feedback import CriticFinding, CriticReport
 
 def build_critic_filename(role: str) -> str:
     """Gera nome do arquivo de crítica com a regra atual."""
-    clean_name = role.replace("_critic", "")
+    if role.endswith("_critic"):
+        clean_name = role[:-7]
+    else:
+        clean_name = role
     return f"critique_{clean_name}.md"
+
+def resolve_role_from_file(filename: str, critics_roles: List[str] = None) -> str:
+    """Resolve o papel de agente correspondente a partir do nome de um arquivo de crítica."""
+    if critics_roles is None:
+        critics_roles = ["canon_critic", "style_critic", "flow_critic", "technical_editor"]
+
+    for role in critics_roles:
+        if filename == build_critic_filename(role):
+            return role
+
+    clean_name = filename
+    if clean_name.startswith("critique_"):
+        clean_name = clean_name[len("critique_"):]
+    if clean_name.endswith(".md"):
+        clean_name = clean_name[:-3]
+
+    if clean_name in ["canon", "style", "flow"]:
+        return f"{clean_name}_critic"
+    return clean_name
 
 def build_critic_prompt(critic_name: str, chapter_raw_text: str) -> str:
     """Monta o prompt de crítica preservando exatamente os blocos atuais."""

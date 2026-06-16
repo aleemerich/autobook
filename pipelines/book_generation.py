@@ -31,7 +31,8 @@ from pipelines.book_generation_steps import (
     clean_chapter_text,
     save_chapter_draft,
     archive_generation_attempt,
-    update_generation_state,
+    save_attempt_evaluation,
+    save_revision_plan,
     run_continuity_and_git_push
 )
 
@@ -180,31 +181,38 @@ class DraftChaptersStep(Step):
                 current_text, plan = run_sequential_synthesis(
                     tmp_dir=tmp_dir,
                     chapter_raw_text=chapter_raw_text,
-                    factory=factory
+                    factory=factory,
+                    critics_roles=self.critics_roles
                 )
                 
+                # Save the revision plan JSON in tmp_dir so it gets archived
+                save_revision_plan(tmp_dir, plan)
+
                 # Clean up title and metadata from Python side just in case
                 final_chapter_text = clean_chapter_text(current_text)
                 
                 # Write to target chapter file
                 save_chapter_draft(CHAPTERS_DIR, ch, final_chapter_text)
                 
-                # Phase 4: Evaluate
-                print(f"[DraftChaptersStep] Evaluating Chapter {ch}...")
-                eval_res = evaluate_chapter(ch)
-                score = eval_res.get("overall_score", 0.0)
-                print(f"[DraftChaptersStep] Chapter {ch} Evaluation Score: {score}")
-                
-                # Archive the attempt directory
-                archive_generation_attempt(
+                # Archive the attempt directory (without evaluation results first)
+                attempts_dir = archive_generation_attempt(
                     base_dir=BASE_DIR,
                     tmp_dir=tmp_dir,
                     ch=ch,
                     attempt=attempt,
                     final_chapter_text=final_chapter_text,
-                    eval_res=eval_res
+                    eval_res=None
                 )
                 
+                # Phase 4: Evaluate
+                print(f"[DraftChaptersStep] Evaluating Chapter {ch}...")
+                eval_res = evaluate_chapter(ch)
+                score = eval_res.get("overall_score", 0.0)
+                print(f"[DraftChaptersStep] Chapter {ch} Evaluation Score: {score}")
+
+                # Save evaluation results to the archived directory
+                save_attempt_evaluation(attempts_dir, eval_res)
+
                 if score > best_draft_score:
                     best_draft_score = score
                     best_draft_text = final_chapter_text

@@ -1,4 +1,3 @@
-import pytest
 from pathlib import Path
 from pipelines.book_generation_steps.critique import (
     build_critic_filename,
@@ -33,7 +32,23 @@ def test_build_critic_filename() -> None:
     """Valida que o filename para os críticos segue o padrão esperado."""
     assert build_critic_filename("canon_critic") == "critique_canon.md"
     assert build_critic_filename("style_critic") == "critique_style.md"
+    assert build_critic_filename("flow_critic") == "critique_flow.md"
+    assert build_critic_filename("technical_editor") == "critique_technical_editor.md"
     assert build_critic_filename("some_other_agent") == "critique_some_other_agent.md"
+
+def test_resolve_role_from_file() -> None:
+    """Valida a resolução reversa do papel do crítico a partir do nome de arquivo."""
+    from pipelines.book_generation_steps.critique import resolve_role_from_file
+
+    assert resolve_role_from_file("critique_canon.md") == "canon_critic"
+    assert resolve_role_from_file("critique_style.md") == "style_critic"
+    assert resolve_role_from_file("critique_flow.md") == "flow_critic"
+    assert resolve_role_from_file("critique_technical_editor.md") == "technical_editor"
+
+    # Com lista customizada
+    custom_roles = ["canon_critic", "technical_editor"]
+    assert resolve_role_from_file("critique_canon.md", critics_roles=custom_roles) == "canon_critic"
+    assert resolve_role_from_file("critique_technical_editor.md", critics_roles=custom_roles) == "technical_editor"
 
 def test_build_critic_prompt() -> None:
     """Valida que o prompt de crítica inclui o nome do agente, o rascunho bruto e as instruções."""
