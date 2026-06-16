@@ -486,3 +486,14 @@ def test_execute_editorial_step_uses_get_retry_temperature(mock_sub_run, mock_ev
     mock_get_temp.assert_any_call(1)
     mock_get_temp.assert_any_call(2)
     assert mock_get_temp.call_count == 2
+
+
+def test_editorial_revision_public_exports():
+    from pipelines.editorial_revision import (
+        load_editorial_config,
+        get_retry_temperature,
+        load_editorial_markdown,
+    )
+    assert load_editorial_config is not None
+    assert get_retry_temperature is not None
+    assert load_editorial_markdown is not None

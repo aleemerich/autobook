@@ -5,14 +5,11 @@ Parses editorial.md, performs dynamic and corrective chapter rewriting,
 and validates improvements against the evaluation harness.
 """
 
-import sys
 import os
-import json
 from pathlib import Path
 from typing import Dict, Any
 
 from pipelines.base import Step, Pipeline
-from llm import call_llm
 from evaluate import evaluate_chapter
 from pipelines.editorial_revision_steps import (
     load_chapter_text,
@@ -36,12 +33,6 @@ from pipelines.editorial_revision_steps import (
 
 BASE_DIR = Path(__file__).parent.parent.resolve()
 CHAPTERS_DIR = BASE_DIR / "chapters"
-BOOK_DATA_DIR = BASE_DIR / "book_data"
-EDITORIAL_MD = BOOK_DATA_DIR / "editorial.md"
-
-
-
-
 
 
 class LoadEditorialStep(Step):
