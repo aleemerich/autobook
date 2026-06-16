@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import pytest
 from unittest.mock import patch, MagicMock
-from pathlib import Path
 import json
 
 import pipelines.foundation
@@ -181,3 +180,30 @@ def test_full_foundation_pipeline(mock_call_llm, mock_sub_run, mock_foundation_p
     state = json.loads(pipelines.foundation.STATE_FILE.read_text(encoding="utf-8"))
     assert state["chapters_drafted"] == 0
     assert state["phase"] == "writing"
+
+
+def test_foundation_pipeline_steps_and_order() -> None:
+    """Valida que o FoundationPipeline possui exatamente os passos esperados na mesma ordem."""
+    pipeline = FoundationPipeline()
+    steps = pipeline.steps
+    assert len(steps) == 6
+    assert isinstance(steps[0], VerifySeedStep)
+    assert isinstance(steps[1], GenerateWorldStep)
+    assert isinstance(steps[2], GenerateCharactersStep)
+    assert isinstance(steps[3], GenerateOutlineStep)
+    assert isinstance(steps[4], GenerateCanonStep)
+    assert isinstance(steps[5], CommitFoundationStep)
+
+
+@patch("pipelines.foundation.write_foundation_state")
+@patch("pipelines.foundation.commit_foundation_artifacts", side_effect=ValueError("Simulated git error"))
+def test_commit_foundation_step_writes_state_on_git_failure(mock_commit_artifacts, mock_write_state, mock_foundation_paths) -> None:
+    """Valida que CommitFoundationStep escreve o estado mesmo se o commit falhar."""
+    step = CommitFoundationStep()
+    context = {}
+
+    # Executamos o passo (não deve quebrar com ValueError)
+    step.run(context)
+
+    mock_commit_artifacts.assert_called_once()
+    mock_write_state.assert_called_once_with(pipelines.foundation.STATE_FILE)
