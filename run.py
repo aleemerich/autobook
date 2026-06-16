@@ -63,8 +63,10 @@ def main(argv: list[str] | None = None) -> None:
     with open(log_file, "a", encoding="utf-8") as f:
         f.write(f"\n--- Pipeline Run Started at {datetime.datetime.now().isoformat()} ---\n")
         
-    sys.stdout = Tee(str(log_file), sys.stdout)
-    sys.stderr = Tee(str(log_file), sys.stderr)
+    if not isinstance(sys.stdout, Tee):
+        sys.stdout = Tee(str(log_file), sys.stdout)
+    if not isinstance(sys.stderr, Tee):
+        sys.stderr = Tee(str(log_file), sys.stderr)
 
     if argv is None:
         argv = sys.argv[1:]
@@ -74,7 +76,7 @@ def main(argv: list[str] | None = None) -> None:
         wizard_main()
         return
 
-    parser = argparse.ArgumentParser(description="Unified Autobook Unified Pipeline Orchestrator")
+    parser = argparse.ArgumentParser(description="Unified Autobook Pipeline Orchestrator")
     parser.add_argument(
         "--pipeline",
         choices=list(list_pipelines().keys()),
