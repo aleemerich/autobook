@@ -43,20 +43,28 @@ def test_list_critique_files_sorted(tmp_path: Path) -> None:
     assert files[2].name == "critique_style.md"
 
 def test_build_revision_plan_findings(tmp_path: Path) -> None:
-    """Valida que o RevisionPlan contém um finding por crítica."""
+    """Valida que o RevisionPlan contém um finding por crítica com mapeamento correto para todos os críticos."""
     f1 = tmp_path / "critique_canon.md"
     f1.write_text("canon error text", encoding="utf-8")
     f2 = tmp_path / "critique_style.md"
     f2.write_text("style issue text", encoding="utf-8")
+    f3 = tmp_path / "critique_flow.md"
+    f3.write_text("flow issue text", encoding="utf-8")
+    f4 = tmp_path / "critique_technical_editor.md"
+    f4.write_text("tech issue text", encoding="utf-8")
     
-    plan = build_revision_plan([f1, f2])
+    plan = build_revision_plan([f1, f2, f3, f4])
     
     assert isinstance(plan, RevisionPlan)
-    assert len(plan.findings) == 2
+    assert len(plan.findings) == 4
     assert plan.findings[0].source == "canon_critic"
     assert plan.findings[0].instruction == "canon error text"
     assert plan.findings[1].source == "style_critic"
     assert plan.findings[1].instruction == "style issue text"
+    assert plan.findings[2].source == "flow_critic"
+    assert plan.findings[2].instruction == "flow issue text"
+    assert plan.findings[3].source == "technical_editor_critic"
+    assert plan.findings[3].instruction == "tech issue text"
 
 def test_build_synthesis_prompt() -> None:
     """Valida que o prompt de síntese inclui o texto atual, conteúdo da crítica e o nome do arquivo."""
@@ -95,6 +103,14 @@ def test_run_sequential_synthesis_cascade(tmp_path: Path) -> None:
     expected_cascade_text = "Synthesized: Você é o SynthesisAgent. Seu o..."
     assert expected_cascade_text in synthesis_agent.calls[1]
     
+    # Valida que run_sequential_synthesis retorna o RevisionPlan contendo os findings esperados das críticas
+    assert isinstance(plan, RevisionPlan)
+    assert len(plan.findings) == 2
+    assert plan.findings[0].source == "canon_critic"
+    assert plan.findings[0].instruction == "canon issue"
+    assert plan.findings[1].source == "style_critic"
+    assert plan.findings[1].instruction == "style issue"
+
     # Deve gravar os arquivos intermediários chapter_step_XX_critique_*.md
     step1_file = tmp_path / "chapter_step_01_critique_canon.md"
     step2_file = tmp_path / "chapter_step_02_critique_style.md"

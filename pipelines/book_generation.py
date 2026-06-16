@@ -5,18 +5,14 @@ Resets the chapter files if --from-scratch is set and drafts chapters sequential
 using the cascading Drafting, Stylist, and Technical Editor agents.
 """
 
-import sys
 import os
-import re
-import json
-import subprocess
+import shutil
 from pathlib import Path
 from typing import Dict, Any, List
 
 from pipelines.base import Step, Pipeline
 from agents import AgentFactory
-from genre_strategy import GenreStrategy
-from prompt_loader import load_prompt, load_genre_rules, load_slop_rules_instruction
+from prompt_loader import load_slop_rules_instruction
 from evaluate import evaluate_chapter
 from pipelines.book_generation_steps import (
     load_state,
@@ -24,7 +20,6 @@ from pipelines.book_generation_steps import (
     count_total_chapters,
     extract_chapter_outline,
     extract_chapter_title,
-    extract_next_chapter_outline,
     extract_chapter_beats,
     load_previous_chapter_tail,
     load_lore_files,
@@ -89,7 +84,6 @@ class DraftChaptersStep(Step):
         factory = AgentFactory()
 
         # Load style guidelines and slop instructions
-        genre_rules = load_genre_rules()
         slop_rules = load_slop_rules_instruction()
 
         # Load global lore references
@@ -103,8 +97,6 @@ class DraftChaptersStep(Step):
 
         # Agents instantiation
         drafting_agent = factory.get_agent("drafting")
-        stylist_agent = factory.get_agent("stylist", genre_rules=genre_rules)
-        tech_editor_agent = factory.get_agent("technical_editor", lore_data=lore_data, slop_rules=slop_rules)
 
         # Max attempts and threshold
         max_attempts = int(os.environ.get("MAX_CHAPTER_ATTEMPTS", 3))
@@ -129,16 +121,12 @@ class DraftChaptersStep(Step):
             # Extract chapter title
             ch_title = extract_chapter_title(ch_outline, ch)
 
-            # Next chapter info for continuity
-            next_ch_outline = extract_next_chapter_outline(outline_text, ch)
-
             # Parse beats
             beats = extract_chapter_beats(ch_outline)
 
             # Setup previous tail context
             prev_tail = load_previous_chapter_tail(CHAPTERS_DIR, ch)
 
-            import shutil
             drafted = False
             best_draft_text = ""
             best_draft_score = -1.0

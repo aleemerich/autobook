@@ -90,7 +90,7 @@ class TestIntegration(unittest.TestCase):
         self.assertEqual(strategy.get_anti_patterns()[0], "AI tells")
 
     @patch("pipelines.book_generation.evaluate_chapter")
-    @patch("pipelines.book_generation.subprocess.run")
+    @patch("pipelines.book_generation_steps.persistence.subprocess.run")
     @patch("agents.call_llm")
     def test_book_generation_pipeline_mock_run(self, mock_call_llm, mock_subprocess, mock_eval_chapter):
         """Performs a sandboxed, mock-based run of BookGenerationPipeline."""
@@ -139,7 +139,7 @@ class TestIntegration(unittest.TestCase):
             self.assertEqual(state["chapters_drafted"], 1)
 
     @patch("pipelines.book_generation.evaluate_chapter")
-    @patch("pipelines.book_generation.subprocess.run")
+    @patch("pipelines.book_generation_steps.persistence.subprocess.run")
     @patch("agents.call_llm")
     def test_book_generation_pipeline_prompts_contain_voice_world_canon(self, mock_call_llm, mock_subprocess, mock_eval_chapter):
         """Verifies that the generated prompts for DraftingAgent and StylistAgent contain the voice, world, and canon references."""
@@ -190,7 +190,7 @@ class TestIntegration(unittest.TestCase):
             self.assertTrue(len(synthesis_calls) > 0)
 
     @patch("pipelines.book_generation.evaluate_chapter")
-    @patch("pipelines.book_generation.subprocess.run")
+    @patch("pipelines.book_generation_steps.persistence.subprocess.run")
     @patch("agents.call_llm")
     def test_book_generation_pipeline_skips_chapters(self, mock_call_llm, mock_subprocess, mock_eval_chapter):
         """Verifies that the generation pipeline skips chapters not present in context['chapters']."""
@@ -221,7 +221,7 @@ class TestIntegration(unittest.TestCase):
             self.assertFalse(ch_file.exists())
 
     @patch("pipelines.book_generation.evaluate_chapter")
-    @patch("pipelines.book_generation.subprocess.run")
+    @patch("pipelines.book_generation_steps.persistence.subprocess.run")
     @patch("agents.call_llm")
     def test_book_generation_pipeline_masks_future_beats(self, mock_call_llm, mock_subprocess, mock_eval_chapter):
         """Verifies that future beats are masked in the roadmap passed to the DraftingAgent."""

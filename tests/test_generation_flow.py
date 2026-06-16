@@ -14,7 +14,7 @@ import pytest
 from pipelines.book_generation import DraftChaptersStep, BookGenerationPipeline
 
 @patch("pipelines.book_generation.evaluate_chapter")
-@patch("pipelines.book_generation.subprocess.run")
+@patch("pipelines.book_generation_steps.persistence.subprocess.run")
 @patch("agents.call_llm")
 def test_modular_generation_flow(mock_call_llm, mock_subprocess, mock_eval_chapter, tmp_path):
     # Setup mock file structure in tmp_path
@@ -117,7 +117,7 @@ def test_modular_generation_flow(mock_call_llm, mock_subprocess, mock_eval_chapt
         assert archived_final.read_text(encoding="utf-8") == "Draft after Style Critique: Final Chapter text."
 
 @patch("pipelines.book_generation.evaluate_chapter")
-@patch("pipelines.book_generation.subprocess.run")
+@patch("pipelines.book_generation_steps.persistence.subprocess.run")
 @patch("agents.call_llm")
 def test_generation_flow_custom_critics(mock_call_llm, mock_subprocess, mock_eval_chapter, tmp_path):
     # Setup mock file structure in tmp_path

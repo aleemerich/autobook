@@ -9,6 +9,7 @@ from pipelines.book_generation_steps.persistence import (
     update_generation_state,
     run_continuity_and_git_push
 )
+from pipelines.book_generation import BookGenerationPipeline, ResetStep, DraftChaptersStep
 
 def test_clean_chapter_text_headings() -> None:
     """Valida que o cleanup de capítulo mantém o primeiro heading # Título e remove headings seguintes."""
@@ -184,3 +185,11 @@ def test_run_continuity_and_git_push_fallback(mock_run: MagicMock, tmp_path: Pat
     commit_cmd = next(cmd for cmd in called_cmds if "commit" in cmd)
     # Mensagem de commit deve conter "fallback" e o score
     assert "forced score 6.2 (fallback)" in commit_cmd[3]
+
+def test_book_generation_pipeline_structure() -> None:
+    """Valida que o BookGenerationPipeline ainda contém ResetStep e DraftChaptersStep."""
+    pipeline = BookGenerationPipeline()
+    steps = pipeline.steps
+    assert len(steps) == 2
+    assert isinstance(steps[0], ResetStep)
+    assert isinstance(steps[1], DraftChaptersStep)
