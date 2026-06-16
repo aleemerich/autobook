@@ -504,3 +504,84 @@ def test_wizard_workspace_invalid(mock_project_state, mock_pipelines_spec, mock_
     assert "Aviso: workspace.json invalido: schema_version invalido" in output
     assert "=== Menu de Opcoes ===" in output
     assert "Saindo..." in output
+
+
+# --- Testes de execucao opcional de pipelines pelo wizard ---
+
+def test_wizard_execution_declined(mock_project_state, mock_pipelines_spec) -> None:
+    """Valida que quando o usuario recusa a execucao, run.main nao e chamado."""
+    input_func = SequenceInput(["1", "n", "n"])
+    stdout_stream = io.StringIO()
+
+    with patch("cli.wizard.discover_project_state", return_value=mock_project_state):
+        with patch("cli.wizard.list_pipelines", return_value=mock_pipelines_spec):
+            with patch("run.main") as mock_run_main:
+                wizard_main(stdout=stdout_stream, input_func=input_func)
+                mock_run_main.assert_not_called()
+
+    output = stdout_stream.getvalue()
+    assert "Executando pipeline..." not in output
+
+
+def test_wizard_execution_accepted_simple(mock_project_state, mock_pipelines_spec) -> None:
+    """Valida que quando o usuario aceita a execucao, run.main e chamado com argv basico."""
+    input_func = SequenceInput(["1", "n", "s"])
+    stdout_stream = io.StringIO()
+
+    with patch("cli.wizard.discover_project_state", return_value=mock_project_state):
+        with patch("cli.wizard.list_pipelines", return_value=mock_pipelines_spec):
+            with patch("run.main") as mock_run_main:
+                wizard_main(stdout=stdout_stream, input_func=input_func)
+                mock_run_main.assert_called_once_with(["--pipeline", "foundation"])
+
+    output = stdout_stream.getvalue()
+    assert "Executando pipeline..." in output
+
+
+def test_wizard_execution_accepted_with_flags(mock_project_state, mock_pipelines_spec) -> None:
+    """Valida que argv e montado corretamente com --from-scratch e --chapter preservando valores originais."""
+    input_func = SequenceInput(["2", "1", "s", "1-3, 5", "s"])
+    stdout_stream = io.StringIO()
+
+    with patch("cli.wizard.discover_project_state", return_value=mock_project_state):
+        with patch("cli.wizard.list_pipelines", return_value=mock_pipelines_spec):
+            with patch("run.main") as mock_run_main:
+                wizard_main(stdout=stdout_stream, input_func=input_func)
+                mock_run_main.assert_called_once_with([
+                    "--pipeline", "book_generation",
+                    "--from-scratch",
+                    "--chapter", "1-3, 5"
+                ])
+
+    output = stdout_stream.getvalue()
+    assert "Comando sugerido: python run.py --pipeline book_generation --from-scratch --chapter" in output
+    assert "Executando pipeline..." in output
+
+
+def test_wizard_execution_system_exit_handling(mock_project_state, mock_pipelines_spec) -> None:
+    """Valida que se run.main levanta SystemExit(1), o wizard imprime mensagem amigavel sem estourar traceback."""
+    input_func = SequenceInput(["1", "n", "s"])
+    stdout_stream = io.StringIO()
+
+    with patch("cli.wizard.discover_project_state", return_value=mock_project_state):
+        with patch("cli.wizard.list_pipelines", return_value=mock_pipelines_spec):
+            with patch("run.main", side_effect=SystemExit(1)):
+                wizard_main(stdout=stdout_stream, input_func=input_func)
+
+    output = stdout_stream.getvalue()
+    assert "Executando pipeline..." in output
+    assert "Execucao abortada com codigo 1." in output
+
+
+def test_wizard_execution_factories_not_called_directly(mock_project_state, mock_pipelines_spec) -> None:
+    """Garante que as fabricas de pipelines do registry continuam nao sendo chamadas diretamente pelo wizard."""
+    input_func = SequenceInput(["1", "n", "s"])
+    stdout_stream = io.StringIO()
+
+    with patch("cli.wizard.discover_project_state", return_value=mock_project_state):
+        with patch("cli.wizard.list_pipelines", return_value=mock_pipelines_spec):
+            with patch("run.main") as mock_run_main:
+                wizard_main(stdout=stdout_stream, input_func=input_func)
+                mock_run_main.assert_called_once()
+
+    mock_pipelines_spec["foundation"].factory.assert_not_called()

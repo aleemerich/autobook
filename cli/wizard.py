@@ -246,6 +246,7 @@ def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = Non
             return
 
         cmd_args = []
+        argv = ["--pipeline", selected_pipeline]
 
         if spec.supports_from_scratch:
             try:
@@ -256,6 +257,7 @@ def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = Non
                 return
             if from_scratch_resp in ("s", "sim"):
                 cmd_args.append("--from-scratch")
+                argv.append("--from-scratch")
 
         if spec.supports_chapter:
             try:
@@ -266,7 +268,24 @@ def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = Non
                 return
             if chapter_resp:
                 cmd_args.append(f'--chapter {shlex.quote(chapter_resp)}')
+                argv.extend(["--chapter", chapter_resp])
 
         args_str = f" {' '.join(cmd_args)}" if cmd_args else ""
         print(file=stdout)
         print(f"Comando sugerido: python run.py --pipeline {selected_pipeline}{args_str}", file=stdout)
+
+        try:
+            run_now = _prompt_input("Executar agora? [s/N]: ", input_func, stdout).strip().lower()
+        except (KeyboardInterrupt, EOFError):
+            print(file=stdout)
+            print("Saindo...", file=stdout)
+            return
+
+        if run_now in ("s", "sim"):
+            print("Executando pipeline...", file=stdout)
+            import run
+            try:
+                run.main(argv)
+            except SystemExit as e:
+                code = e.code if e.code is not None else 0
+                print(f"Execucao abortada com codigo {code}.", file=stdout)
