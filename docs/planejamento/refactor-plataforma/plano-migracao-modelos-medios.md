@@ -2,9 +2,11 @@
 
 > [!IMPORTANT]
 > **Status de Execução do Plano:**
-> - **Fases 0 a 5:** Estão **prontas para delegação e execução imediata**.
-> - **Fases 6 a 12:** Constituem um **roadmap preliminar estratégico**. Elas não estão autorizadas para execução sequencial automática e **exigem obrigatoriamente uma reavaliação arquitetural completa** após a conclusão das fases anteriores.
-> - O plano completo existe para preservar a direção estratégica de longo prazo, não para autorizar execução sequencial automática sem validação intermediária.
+> - **Fases 0 a 5:** Concluidas.
+> - **Gate A:** Aprovado com correcoes nao bloqueantes.
+> - **Fase 5.1:** Pronta para delegacao como hardening pos-Gate A.
+> - **Fases 6 a 12:** Definidas pelo supervisor em specs individuais. Devem ser executadas uma por vez, sempre apos aceite da fase anterior.
+> - As specs canonicas estao em `docs/planejamento/refactor-plataforma/fases/`.
 
 Este documento define um plano de migracao robusto para que modelos medios
 consigam implementar a reorganizacao da plataforma Autobook em fases pequenas,
@@ -451,13 +453,31 @@ Antes de iniciar qualquer atividade das Fases 6 a 12, o supervisor deve realizar
 7. **Validação da Ordem do Roadmap:** A ordem lógica das fases subsequentes (6 a 12) ainda faz sentido prático para evitar retrabalho?
 8. **Reavaliação de Decisões:** Há alguma decisão de design (especialmente sobre agents/prompts e subpipelines do `book_generation`) que precise ser alterada antes de prosseguir?
 
-> [!CAUTION]
-> **BLOQUEIO DE EXECUÇÃO:** Nenhuma tarefa da Fase 6 em diante pode ser iniciada antes que este Gate A seja formalmente avaliado, documentado e aprovado pelo supervisor.
+> [!NOTE]
+> **Status:** Gate A aprovado em `docs/planejamento/refactor-plataforma/gates/gate-a-review.md`.
+> O bloqueio global foi substituido por execucao sequencial supervisionada:
+> Fase 5.1, Fase 6, Fase 7, Fase 8, Fase 9, Fase 10, Fase 11 e Fase 12.
 
-## Fase 6: Organizacao Inicial De Agentes Sem Migrar Tudo [ROADMAP PRELIMINAR]
+## Roadmap Pos-Gate A
 
-> [!WARNING]
-> **Fase de Roadmap:** Esta fase faz parte do roadmap preliminar e **não deve ser executada** antes da aprovação do Gate A.
+As descricoes abaixo preservam a visao geral. As specs de execucao detalhadas e
+atualizadas sao os arquivos em `docs/planejamento/refactor-plataforma/fases/`.
+
+| Ordem | Spec canonica | Finalidade |
+| --- | --- | --- |
+| 5.1 | `fase-05-1-hardening-pos-gate-a.md` | Corrigir achados nao bloqueantes do Gate A. |
+| 6 | `fase-06-agent-system.md` | Criar infraestrutura inicial de `agent_system/` sem mudar comportamento narrativo. |
+| 7 | `fase-07-agent-prompts.md` | Externalizar prompts gradualmente sem alterar semantica. |
+| 8 | `fase-08-feedback-lifecycle.md` | Definir contratos estruturados de critica, plano de revisao e verificacao. |
+| 9 | `fase-09-book-generation-subpipelines.md` | Separar `book_generation` em subpipelines e consumir feedback. |
+| 10 | `fase-10-production-planning.md` | Gerar estrategia de obra, capitulos, estilo, continuidade e equipe de agentes. |
+| 11 | `fase-11-wizard-workspace.md` | Transformar o wizard em area de trabalho guiada. |
+| 12 | `fase-12-docs-readme.md` | Consolidar README e docs contra o comportamento real. |
+
+## Fase 6: Organizacao Inicial De Agentes Sem Migrar Tudo
+
+> [!NOTE]
+> Spec canonica atualizada: `fases/fase-06-agent-system.md`.
 
 ### Objetivo
 
@@ -512,10 +532,10 @@ Decisão fechada para mitigar conflitos de nomes do Python: usar obrigatoriament
 
 Moderada. Requer cuidado com imports. Supervisor deve revisar antes de aceitar.
 
-## Fase 7: Externalizacao Gradual De Prompts De Agentes [ROADMAP PRELIMINAR]
+## Fase 7: Externalizacao Gradual De Prompts De Agentes
 
-> [!WARNING]
-> **Fase de Roadmap:** Esta fase faz parte do roadmap preliminar e **não deve ser executada** antes da aprovação do Gate A.
+> [!NOTE]
+> Spec canonica atualizada: `fases/fase-07-agent-prompts.md`.
 
 ### Objetivo
 
@@ -561,10 +581,10 @@ tests/test_agent_prompts.py
 
 Sim, se migrar poucos agentes por vez.
 
-## Fase 8: Feedback Lifecycle [ROADMAP PRELIMINAR]
+## Fase 8: Feedback Lifecycle
 
-> [!WARNING]
-> **Fase de Roadmap:** Esta fase faz parte do roadmap preliminar e **não deve ser executada** antes da aprovação do Gate A.
+> [!NOTE]
+> Spec canonica atualizada: `fases/fase-08-feedback-lifecycle.md`.
 
 ### Objetivo
 
@@ -621,10 +641,10 @@ Implementação planejada para a Fase 8b:
 
 Moderada. Precisa supervisor revisar porque toca fluxo central.
 
-## Fase 9: Refactor De `book_generation` Em Subpipelines [ROADMAP PRELIMINAR]
+## Fase 9: Refactor De `book_generation` Em Subpipelines
 
-> [!WARNING]
-> **Fase de Roadmap:** Esta fase faz parte do roadmap preliminar e **não deve ser executada** antes da aprovação do Gate A.
+> [!NOTE]
+> Spec canonica atualizada: `fases/fase-09-book-generation-subpipelines.md`.
 
 ### Objetivo
 
@@ -693,10 +713,10 @@ Cada extracao deve manter testes existentes passando.
 Parcialmente. Deve ser dividida em varias tarefas pequenas. Supervisor deve
 revisar cada extracao.
 
-## Fase 10: Production Planning [ROADMAP PRELIMINAR]
+## Fase 10: Production Planning
 
-> [!WARNING]
-> **Fase de Roadmap:** Esta fase faz parte do roadmap preliminar e **não deve ser executada** antes da aprovação do Gate A. Ela só deve ser detalhada após a consolidação completa das fases anteriores de infraestrutura (registry, discovery e branch workflow).
+> [!NOTE]
+> Spec canonica atualizada: `fases/fase-10-production-planning.md`.
 
 ### Objetivo
 
@@ -760,10 +780,10 @@ retrieval_index.json
 
 Moderada/alta. Deve ser implementada apos as fases anteriores.
 
-## Fase 11: Wizard Como Area De Trabalho [ROADMAP PRELIMINAR]
+## Fase 11: Wizard Como Area De Trabalho
 
-> [!WARNING]
-> **Fase de Roadmap:** Esta fase faz parte do roadmap preliminar e **não deve ser executada** antes da aprovação do Gate A.
+> [!NOTE]
+> Spec canonica atualizada: `fases/fase-11-wizard-workspace.md`.
 
 ### Objetivo
 
@@ -810,10 +830,10 @@ Transformar `run.py` sem argumentos em area de trabalho interativa.
 
 Sim, se discovery e registry ja existirem.
 
-## Fase 12: Revisao De Docs E README [ROADMAP PRELIMINAR]
+## Fase 12: Revisao De Docs E README
 
-> [!WARNING]
-> **Fase de Roadmap:** Esta fase faz parte do roadmap preliminar e **não deve ser executada** antes da aprovação do Gate A.
+> [!NOTE]
+> Spec canonica atualizada: `fases/fase-12-docs-readme.md`.
 
 ### Objetivo
 

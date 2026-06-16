@@ -1,48 +1,113 @@
-# Fase 06: Organizacao Inicial Do Sistema De Agentes [ROADMAP PRELIMINAR]
+# Fase 06: Infraestrutura Inicial Do Sistema De Agentes
 
 ## Objetivo
 
-Preparar uma estrutura de agentes mais manutenivel sem quebrar imports atuais, usando o pacote `agent_system/` para mitigar conflitos do Python.
+Criar uma camada modular para agentes sem mudar comportamento narrativo,
+prompts, chamadas LLM ou imports legados. A fase prepara o pacote
+`agent_system/` para que as fases seguintes possam organizar prompts,
+especializacao por obra e feedback sem depender do arquivo monolitico
+`agents.py`.
 
 ## Status
 
-> [!WARNING]
-> **ROADMAP PRELIMINAR (BLOQUEADO):** Esta especificação é preparatória e **não deve ser detalhada ou executada** antes da aprovação do Gate A.
+Definida pos-Gate A. Pode ser delegada depois da Fase 05.1.
 
-## Direção Recomendada (Decisão Fechada)
+## Decisao Arquitetural
 
-Para evitar conflitos críticos de imports no Python (já que o arquivo `agents.py` existe na raiz), a decisão de design está **fechada**: utilizaremos obrigatoriamente um pacote intermediário com o nome `agent_system/` (em vez de `agents/`).
+Usar obrigatoriamente o pacote `agent_system/`. Nao criar uma pasta `agents/`
+enquanto existir `agents.py` na raiz, para evitar conflito de imports do
+Python.
 
-Estrutura fechada da pasta `agent_system/`:
+`agents.py` continua existindo e continua sendo o ponto legado de importacao.
+Esta fase nao remove, nao renomeia e nao deprecia esse arquivo.
+
+## Estado Atual
+
+`agents.py` concentra:
+
+- `Agent`: classe base que chama `llm.call_llm` no metodo `execute`.
+- `DraftingAgent`: escrita do rascunho narrativo.
+- `StylistAgent`: reescrita com genero, ritmo e estilo.
+- `TechnicalEditorAgent`: consistencia tecnica, lore, PT-BR e anti-slop.
+- `CanonCriticAgent`: critica canonica e de lore.
+- `StyleCriticAgent`: critica de estilo, voz e repeticoes.
+- `FlowCriticAgent`: critica de ritmo, fluxo e transicoes.
+- `SynthesisAgent`: correcao direcionada a partir de critica.
+- `AgentFactory`: singleton que instancia agentes por papel.
+- `load_skill_agent`: carregamento dinamico de agentes em `skills/`.
+
+## Escopo Da Implementacao
+
+Criar estrutura minima:
+
 ```text
 agent_system/
   __init__.py
   base.py
   registry.py
   factory.py
+tests/test_agent_system.py
 ```
 
-Os imports serão migrados gradualmente sem criar pacotes conflitantes na raiz do projeto.
+Comportamento esperado:
 
-## Fora De Escopo Inicial
+- `agent_system/base.py` define contratos leves para agentes e especificacoes
+  de papel, sem chamar LLM.
+- `agent_system/registry.py` lista os papeis atuais de agentes de forma
+  centralizada:
+  - `drafting`
+  - `stylist`
+  - `technical_editor`
+  - `canon_critic`
+  - `style_critic`
+  - `flow_critic`
+  - `synthesis`
+- `agent_system/factory.py` oferece uma API nova para criar agentes, delegando
+  para o `AgentFactory` legado de `agents.py` quando necessario.
+- Listar papeis nao deve instanciar agentes nem chamar LLM.
+- Criar agentes pode usar as classes legadas, mas nao pode alterar seus prompts
+  nem seus parametros padrao.
+- Imports legados como `from agents import AgentFactory` continuam funcionando.
 
-- Nao mover todos os agentes de uma vez.
-- Nao externalizar todos os prompts nesta fase.
-- Nao refatorar `book_generation` profundamente.
+## Fora De Escopo
 
-## Subfases Futuras (Planejamento)
-
-1. criar `agent_system/base.py`;
-2. criar registry simples;
-3. espelhar factory atual;
-4. manter compatibilidade com `agents.py` por proxy;
-5. migrar agentes um por vez.
+- Externalizar prompts para arquivos.
+- Alterar textos dos prompts existentes.
+- Alterar `execute` ou `llm.call_llm`.
+- Refatorar `book_generation`.
+- Criar agentes especializados por obra.
+- Remover ou deprecar `agents.py`.
+- Mudar o carregamento dinamico de `skills/` alem do necessario para preservar
+  compatibilidade.
 
 ## Testes Esperados
 
 ```bash
-uv run --with pytest pytest tests/test_agents_registry.py
+uv run --with pytest pytest tests/test_agent_system.py
 uv run --with pytest pytest tests
+git diff --check -- agent_system agents.py tests docs/planejamento/refactor-plataforma
 ```
 
+Testes minimos:
+
+- registry lista todos os papeis atuais.
+- registry retorna erro claro para papel inexistente.
+- factory cria pelo menos um agente legado sem chamar `execute`.
+- factory aceita kwargs dos agentes atuais.
+- imports legados de `agents.py` continuam funcionando.
+- listar agentes nao chama LLM.
+
+## Criterios De Aceite
+
+- Nenhum prompt muda.
+- Nenhuma chamada real a LLM ocorre em testes.
+- Todas as pipelines existentes continuam importando normalmente.
+- O novo pacote existe, mas o sistema antigo continua funcional.
+- A Fase 7 pode usar `agent_system/` como base para externalizar prompts.
+
+## Risco Principal
+
+Conflito de imports e dependencias circulares entre `agents.py` e
+`agent_system/`. O executor deve preferir importacao tardia em factory quando
+isso reduzir risco de ciclo.
 

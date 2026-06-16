@@ -1,58 +1,81 @@
 # 07 - Refactoring Migration Plan Spec
 
 ## Objetivo
-Consolidar a ordem das fases do refatoramento da plataforma Autobook, dividindo as frentes de trabalho em entregas prontas para execução (Fases 0 a 5) e roadmap preliminar estratégico (Fases 6 a 12), estabelecendo o Gate A como ponto de auditoria arquitetural e definindo regras rígidas de supervisão e documentação incremental.
 
-## Fora De Escopo
-- Detalhar a implementação técnica ou contratos operacionais específicos para as fases do roadmap (Fases 6 a 12) além do alinhamento geral.
-- Realizar alterações em arquivos de código Python ou de testes nesta rodada.
+Consolidar a ordem de execucao do refatoramento da plataforma Autobook apos o
+Gate A, mantendo a divisao entre planejamento de supervisor e implementacao por
+modelos executores.
 
 ## Estado Atual
-O plano de migração geral está delineado em `docs/planejamento/refactor-plataforma/plano-migracao-modelos-medios.md`, mas carecia de uma formalização de barreiras/gates arquiteturais rígidos entre a fase de infraestrutura básica e a fase de agentes/produção, correndo o risco de execuções automatizadas e desordenadas por modelos de linguagem.
 
-## Comportamento Desejado (Consolidação do Plano)
-- **Fases Prontas para Execução (Fases 0-5):**
-  - **Fase 0 (Specs):** Criação das especificações da Fase 0 (esta especificação).
-  - **Fase 1 (Contratos de Pipeline):** Metadados opcionais em `Step` e `Pipeline` sem validação inicial.
-  - **Fase 2 (Registry):** Registro centralizado de pipelines em `pipelines/registry.py`.
-  - **Fase 3 (run.py com Wizard):** Ponto de entrada executando stub de wizard sem argumentos.
-  - **Fase 4 (Branch Workflow):** Utilitários puros e mockados de controle de branches Git em `workspace/branching.py`.
-  - **Fase 5 (Discovery):** Descoberta automática não-destrutiva de estado do repositório em `cli/discovery.py`.
-- **Gate A - Revisão Arquitetural Após Fases 0-5:**
-  - Ponto de auditoria obrigatório para validar se a fundação está correta e estável. Bloqueia a execução das fases seguintes.
-- **Roadmap Preliminar (Fases 6-12):**
-  - **Fase 6 (Agent System):** Organização inicial do módulo `agent_system/`.
-  - **Fase 7 (Externalização de Prompts):** Mover prompts das classes Python para arquivos `.txt`.
-  - **Fase 8 (Feedback Lifecycle):** Ciclo estruturado de dados de feedback.
-  - **Fase 9 (Subpipelines):** Decomposição de `book_generation` em subpipelines menores.
-  - **Fase 10 (Production Planning):** Pipeline para plano de produção estruturado (artefatos gerados estritamente em branch de obra).
-  - **Fase 11 (Wizard Completo):** Área de trabalho interativa integrada.
-  - **Fase 12 (Revisão Geral):** Revisão de documentação geral.
+As Fases 0 a 5 foram implementadas e o Gate A foi aprovado com correcoes nao
+bloqueantes. A partir deste ponto, as fases seguintes estao definidas em specs
+individuais e devem ser executadas uma por vez, sempre com revisao do
+supervisor antes de avancar.
 
-## Regras de Execução e Qualidade
-1. **Regra de Documentação Incremental:** Qualquer fase de implementação que altere comportamentos públicos (CLI, comandos operacionais, formatos de arquivos, APIs públicas) deve obrigatoriamente incluir a atualização incremental dos documentos operacionais na mesma entrega. A Fase 12 é apenas uma revisão final e não substitui esse dever.
-2. **Regras de Supervisão (Políticas de Aceite):** O supervisor deve rejeitar entregas que realizem refatoramento amplo demais fora do escopo da fase, que causem quebra de retrocompatibilidade injustificada, que executem comandos Git destrutivos reais ou que gerem agentes sem consumo estruturado.
-3. **Comandos Mínimos de Validação:**
-   - Modificações de documentação:
-     `git diff --check -- docs`
-   - Modificações de código:
-     `uv run --with pytest pytest tests`
+## Ordem Definida
 
-## Arquivos Afetados Futuramente
-- Todos os arquivos mapeados ao longo da execução das Fases 1 a 12.
+| Ordem | Fase | Objetivo |
+| --- | --- | --- |
+| 5.1 | Hardening Pos-Gate A | Corrigir achados pequenos antes de agentes. |
+| 6 | Agent System | Criar `agent_system/` sem mudar comportamento narrativo. |
+| 7 | Agent Prompts | Externalizar prompts gradualmente. |
+| 8 | Feedback Lifecycle | Criar contratos estruturados para critica e revisao. |
+| 9 | Book Generation Subpipelines | Refatorar `book_generation` em etapas reutilizaveis. |
+| 10 | Production Planning | Gerar estrategia da obra e artefatos de producao. |
+| 11 | Wizard Workspace | Transformar o wizard em area de trabalho guiada. |
+| 12 | Docs e README | Consolidar documentacao contra o comportamento real. |
 
-## Contratos De Entrada
-- Não se aplica (documento consolidado de planejamento).
+## Specs Canonicas
 
-## Contratos De Saida
-- Não se aplica (documento consolidado de planejamento).
+```text
+docs/planejamento/refactor-plataforma/fases/fase-05-1-hardening-pos-gate-a.md
+docs/planejamento/refactor-plataforma/fases/fase-06-agent-system.md
+docs/planejamento/refactor-plataforma/fases/fase-07-agent-prompts.md
+docs/planejamento/refactor-plataforma/fases/fase-08-feedback-lifecycle.md
+docs/planejamento/refactor-plataforma/fases/fase-09-book-generation-subpipelines.md
+docs/planejamento/refactor-plataforma/fases/fase-10-production-planning.md
+docs/planejamento/refactor-plataforma/fases/fase-11-wizard-workspace.md
+docs/planejamento/refactor-plataforma/fases/fase-12-docs-readme.md
+```
 
-## Testes Necessarios
-- Auditoria do diff de documentação via `git diff --check`.
+## Regras De Execucao
 
-## Criterios De Aceite
-- Apresentação coerente de todas as fases, do Gate A e das regras de qualidade e segurança estabelecidas pelo supervisor.
-- Divisão nítida entre fases executáveis (0-5) e de roadmap (6-12).
+1. O executor recebe uma fase por vez.
+2. O executor nao redefine arquitetura.
+3. O executor pode tomar decisoes locais simples quando nao ampliam escopo.
+4. O supervisor revisa diff, testes, docs e aderencia antes da fase seguinte.
+5. Qualquer alteracao de comportamento publico deve atualizar docs na mesma
+   entrega.
+6. Nenhuma fase pode chamar LLM real em testes.
+7. Nenhuma fase pode executar comando Git destrutivo em testes.
 
-## Perguntas Abertas
-- Como deve ser formalizada a aprovação de cada fase do Gate A (ex: arquivo de log, PR review, checkmark)?
+## Papel Do Supervisor
+
+O supervisor e responsavel por:
+
+- definir fases;
+- definir criterios de aceite;
+- decidir mudancas de ordem;
+- aprovar ou rejeitar entregas;
+- impedir refactors amplos fora de escopo;
+- proteger retrocompatibilidade da CLI e dos imports.
+
+## Papel Do Executor
+
+O executor e responsavel por:
+
+- ler a spec da fase;
+- implementar somente o escopo permitido;
+- adicionar ou ajustar testes;
+- rodar os comandos obrigatorios;
+- atualizar docs incrementais quando aplicavel;
+- reportar arquivos alterados, testes e riscos.
+
+## Criterios Gerais De Aceite
+
+- Suite moderna passa.
+- `git diff --check` passa nos arquivos alterados.
+- Mudanca e pequena o suficiente para revisao.
+- Docs nao prometem recurso inexistente.
+- O projeto continua compativel com a CLI classica.

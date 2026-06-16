@@ -1,7 +1,8 @@
-# 06 - Feedback Lifecycle Spec [ROADMAP PRELIMINAR]
+# 06 - Feedback Lifecycle Spec
 
-> [!WARNING]
-> **ROADMAP PRELIMINAR:** Esta especificação faz parte do roadmap estratégico e **não deve ser detalhada ou executada** antes da aprovação do Gate A.
+> [!NOTE]
+> Gate A aprovado. A spec canonica de execucao esta em
+> `fases/fase-08-feedback-lifecycle.md`.
 
 ## Objetivo
 Especificar o ciclo de vida estruturado do feedback gerado por agentes críticos literários no Autobook, garantindo que toda crítica gerada seja obrigatoriamente lida, parseada e consumida por uma etapa posterior do pipeline de escrita para nortear as revisões de texto.
@@ -42,5 +43,9 @@ Atualmente, os agentes críticos literários (como os críticos de slop, continu
 - O fluxo de dados do feedback entre os agentes críticos e os escritores é determinístico e auditável através de testes mockados.
 - Testes confirmam que a saída dos críticos influenciou de forma mensurável o prompt do agente de síntese.
 
-## Perguntas Abertas
-- Como lidar com conflitos e priorização caso diferentes agentes críticos façam sugestões excludentes no plano de revisão estruturado?
+## Decisao Pos-Gate A
+
+Conflitos entre criticas excludentes nao serao resolvidos por heuristica
+complexa nesta fase. A primeira implementacao deve preservar origem,
+severidade e instrucao de correcao de cada achado, deixando a priorizacao
+explicita no `RevisionPlan`.
