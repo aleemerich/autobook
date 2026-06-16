@@ -28,7 +28,11 @@ from pipelines.book_generation_steps import (
     extract_chapter_beats,
     load_previous_chapter_tail,
     load_lore_files,
-    build_lore_data
+    build_lore_data,
+    build_roadmap_text,
+    build_title_instruction,
+    build_beat_draft_prompt,
+    build_chapter_draft_prompt
 )
 
 BASE_DIR = Path(__file__).parent.parent.resolve()
@@ -164,44 +168,22 @@ class DraftChaptersStep(Step):
                             previous_beat_context = prev_tail
                             
                         # 2. Roadmap logic
-                        roadmap = []
-                        for i, b in enumerate(beats, 1):
-                            if i < b_idx:
-                                roadmap.append(f"- Beat {i} (CONCLUÍDO): {b}")
-                            elif i == b_idx:
-                                roadmap.append(f"- Beat {i} (ESCREVA AGORA): {b}")
-                            elif i == b_idx + 1:
-                                roadmap.append(f"- Beat {i} (PRÓXIMO - transicione em direção a este ponto no final): {b}")
-                            else:
-                                roadmap.append(f"- Beat {i} (FUTURO): [Não escreva ou mencione este evento ainda]")
-                        roadmap_text = "\n".join(roadmap)
+                        roadmap_text = build_roadmap_text(beats, b_idx)
                         
                         # 3. Drafting prompt
-                        title_instruction = ""
-                        if b_idx == 1:
-                            title_instruction = (
-                                f"IMPORTANTE: Como este é o primeiro Beat do capítulo, inicie a sua resposta com o título formatado exatamente assim (incluindo o caractere '#'):\n"
-                                f"# {ch_title}\n\n"
-                            )
-                            
-                        draft_prompt = (
-                            f"Você é o DraftingAgent. Escreva a cena correspondente ao Beat {b_idx} do Capítulo {ch}.\n\n"
-                            f"{title_instruction}"
-                            f"DEFINIÇÃO DE VOZ / VOICE Profile (siga exatamente):\n{voice_text}\n\n"
-                            f"WORLD BIBLE / DICIONÁRIO DO MUNDO:\n{world_text}\n\n"
-                            f"ESTABELECIDO CANON / ESTABLISHED CANON (não cometa violações):\n{canon_text}\n\n"
-                            f"ESTE CAPÍTULO TEM O SEGUINTE DESIGN:\n{roadmap_text}\n\n"
-                            f"ESTA É A SUA TAREFA ATUAL:\n"
-                            f"Escreva a cena correspondente ao Beat {b_idx}: {beats[b_idx-1]}\n\n"
-                            f"GANCHO DE TRANSIÇÃO DO TEXTO ANTERIOR:\n{previous_beat_context}\n\n"
-                            f"REGISTRO DE PERSONAGENS:\n{characters_text}\n\n"
-                            f"Escreva apenas a cena na íntegra (~450 palavras), focando em ação e diálogo.\n"
-                            f"ATENÇÃO CRÍTICA (NÃO ADICIONE PLOTS NOVOS OU DETALHES DE CONSPIRAÇÃO FORA DO ESBOÇO):\n"
-                            f"- Siga as diretrizes de voz e o canon estritamente.\n"
-                            f"- Helena NÃO tem histórico de demência, Alzheimer ou qualquer comprometimento cognitivo (ela tem apenas hipertensão controlada por losartana, e artrose grau 2 nas articulações das mãos). Ela é lúcida e perfeitamente funcional.\n"
-                            f"- Escreva APENAS a cena correspondente ao Beat {b_idx}. Não invente novos personagens, novas salas secretas, vozes misteriosas, nem deuses ex machina.\n"
-                            f"- O texto deve terminar logo após os eventos do Beat {b_idx}.\n"
-                            f"ATENÇÃO: Retorne APENAS o texto da prosa da cena, sem comentários, notas ou outros cabeçalhos adicionais além do '#' se for o Beat 1."
+                        title_instruction = build_title_instruction(ch_title, b_idx)
+
+                        draft_prompt = build_beat_draft_prompt(
+                            b_idx=b_idx,
+                            ch=ch,
+                            title_instruction=title_instruction,
+                            voice_text=voice_text,
+                            world_text=world_text,
+                            canon_text=canon_text,
+                            roadmap_text=roadmap_text,
+                            beat_text=beats[b_idx-1],
+                            previous_beat_context=previous_beat_context,
+                            characters_text=characters_text
                         )
                         
                         raw_beat = drafting_agent.execute(draft_prompt)
@@ -222,12 +204,11 @@ class DraftChaptersStep(Step):
                 else:
                     # Single chapter write fallback
                     print("[DraftChaptersStep] No beats found. Writing the entire chapter in one go.")
-                    draft_prompt = (
-                        f"Escreva o Capítulo {ch} completo.\n\n"
-                        f"ESBOÇO DO CAPÍTULO:\n{ch_outline}\n\n"
-                        f"CONTEXTO ANTERIOR:\n{prev_tail}\n\n"
-                        f"PERSONAGENS:\n{characters_text}\n\n"
-                        f"Escreva o texto completo do capítulo (~3000 palavras)."
+                    draft_prompt = build_chapter_draft_prompt(
+                        ch=ch,
+                        ch_outline=ch_outline,
+                        prev_tail=prev_tail,
+                        characters_text=characters_text
                     )
                     chapter_raw_text = drafting_agent.execute(draft_prompt)
                     chapter_raw_file = tmp_dir / "chapter_raw.md"
