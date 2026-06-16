@@ -85,7 +85,7 @@ class RevisionPlan:
             consolidated_findings.extend(report.findings)
         return cls(
             findings=consolidated_findings,
-            metadata=metadata if metadata is not None else {}
+            metadata=metadata.copy() if metadata is not None else {}
         )
 
 @dataclass

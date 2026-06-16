@@ -18,6 +18,18 @@ from agents import AgentFactory
 from genre_strategy import GenreStrategy
 from prompt_loader import load_prompt, load_genre_rules, load_slop_rules_instruction
 from evaluate import evaluate_chapter
+from pipelines.book_generation_steps import (
+    load_state,
+    load_outline,
+    count_total_chapters,
+    extract_chapter_outline,
+    extract_chapter_title,
+    extract_next_chapter_outline,
+    extract_chapter_beats,
+    load_previous_chapter_tail,
+    load_lore_files,
+    build_lore_data
+)
 
 BASE_DIR = Path(__file__).parent.parent.resolve()
 CHAPTERS_DIR = BASE_DIR / "chapters"
@@ -52,103 +64,71 @@ class DraftChaptersStep(Step):
     def run(self, context: Dict[str, Any]) -> None:
         # Load state or start new
         state_file = BOOK_DATA_DIR / "state.json"
-        state = {}
-        if state_file.exists():
-            try:
-                state = json.loads(state_file.read_text(encoding="utf-8"))
-            except Exception:
-                state = {}
-        
-        # Initialize default state values
-        if "chapters_drafted" not in state:
-            state["chapters_drafted"] = 0
-            
+        state = load_state(BOOK_DATA_DIR)
+
         start_chapter = state["chapters_drafted"] + 1
-        
+
         # Read outline
-        outline_file = BOOK_DATA_DIR / "outline.md"
-        if not outline_file.exists():
-            raise FileNotFoundError(f"Outline file outline.md not found in {BOOK_DATA_DIR}")
-        outline_text = outline_file.read_text(encoding="utf-8")
-        
+        outline_text = load_outline(BOOK_DATA_DIR)
+
         # Parse total chapters
-        chapters_found = re.findall(r'^###\s*Ch(?:apter)?\s*(\d+)\b', outline_text, re.MULTILINE | re.IGNORECASE)
-        total_chapters = len(chapters_found) if chapters_found else 22
-        
+        total_chapters = count_total_chapters(outline_text)
+
         print(f"[DraftChaptersStep] Starting from Chapter {start_chapter} to {total_chapters}")
-        
+
         # Setup Agent Factory
         factory = AgentFactory()
-        
+
         # Load style guidelines and slop instructions
         genre_rules = load_genre_rules()
         slop_rules = load_slop_rules_instruction()
-        
+
         # Load global lore references
-        world_text = (BOOK_DATA_DIR / "world.md").read_text(encoding="utf-8") if (BOOK_DATA_DIR / "world.md").exists() else ""
-        canon_text = (BOOK_DATA_DIR / "canon.md").read_text(encoding="utf-8") if (BOOK_DATA_DIR / "canon.md").exists() else ""
-        characters_text = (BOOK_DATA_DIR / "characters.md").read_text(encoding="utf-8") if (BOOK_DATA_DIR / "characters.md").exists() else ""
-        voice_text = (BOOK_DATA_DIR / "voice.md").read_text(encoding="utf-8") if (BOOK_DATA_DIR / "voice.md").exists() else ""
-        
-        lore_data = f"=== WORLD BIBLE ===\n{world_text}\n\n=== ESTABLISHED CANON ===\n{canon_text}\n\n=== CHARACTER REGISTRY ===\n{characters_text}"
-        
+        lore_files = load_lore_files(BOOK_DATA_DIR)
+        world_text = lore_files["world"]
+        canon_text = lore_files["canon"]
+        characters_text = lore_files["characters"]
+        voice_text = lore_files["voice"]
+
+        lore_data = build_lore_data(world_text, canon_text, characters_text)
+
         # Agents instantiation
         drafting_agent = factory.get_agent("drafting")
         stylist_agent = factory.get_agent("stylist", genre_rules=genre_rules)
         tech_editor_agent = factory.get_agent("technical_editor", lore_data=lore_data, slop_rules=slop_rules)
-        
+
         # Max attempts and threshold
         max_attempts = int(os.environ.get("MAX_CHAPTER_ATTEMPTS", 3))
         threshold = float(os.environ.get("CHAPTER_THRESHOLD", 6.0))
-        
+
         target_chapters = context.get("chapters")
         if target_chapters:
             start_chapter = min(min(target_chapters), start_chapter)
-        
+
         for ch in range(start_chapter, total_chapters + 1):
             if target_chapters and ch not in target_chapters:
                 print(f"[DraftChaptersStep] Skipping Chapter {ch} (not in target chapters: {target_chapters})")
                 continue
-                
+
             print(f"\n======================================")
             print(f"Drafting Chapter {ch}/{total_chapters}")
             print(f"======================================")
-                       # Extract outline entry for this chapter
-            pattern = rf'###\s*Ch(?:apter)?\s*{ch}\b.*?(?=###\s*Ch(?:apter)?\s*{ch + 1}\b|## Act|## Foreshadowing|$)'
-            ch_outline_match = re.search(pattern, outline_text, re.DOTALL | re.IGNORECASE)
-            ch_outline = ch_outline_match.group(0).strip() if ch_outline_match else f"Capítulo {ch}"
-            
+
+            # Extract outline entry for this chapter
+            ch_outline = extract_chapter_outline(outline_text, ch)
+
             # Extract chapter title
-            title_match = re.search(r'###\s*Ch(?:apter)?\s*\d+:\s*(.*?)$', ch_outline, re.MULTILINE)
-            ch_title = title_match.group(1).strip() if title_match else f"Capítulo {ch}"
-            
+            ch_title = extract_chapter_title(ch_outline, ch)
+
             # Next chapter info for continuity
-            next_pattern = rf'###\s*Ch(?:apter)?\s*{ch + 1}\b.*?(?=###\s*Ch(?:apter)?\s*{ch + 2}\b|## Act|## Foreshadowing|$)'
-            next_match = re.search(next_pattern, outline_text, re.DOTALL | re.IGNORECASE)
-            next_ch_outline = next_match.group(0).strip() if next_match else "(Fim do romance)"
-            
+            next_ch_outline = extract_next_chapter_outline(outline_text, ch)
+
             # Parse beats
-            beats_section = re.search(r'\*\*Beats:\*\*\s*(.*?)(?=\n\s*\*\*|$)', ch_outline, re.DOTALL | re.IGNORECASE)
-            beats = []
-            if beats_section:
-                for line in beats_section.group(1).split('\n'):
-                    line = line.strip()
-                    if line:
-                        clean_beat = re.sub(r'^\d+\.\s*|-\s*', '', line).strip()
-                        if clean_beat:
-                            beats.append(clean_beat)
-                            
+            beats = extract_chapter_beats(ch_outline)
+
             # Setup previous tail context
-            prev_tail = ""
-            prev_path = CHAPTERS_DIR / f"ch_{ch - 1:02d}.md"
-            if prev_path.exists():
-                prev_text = prev_path.read_text(encoding="utf-8").strip()
-                prev_words = prev_text.split()
-                prev_tail_words = prev_words[-1000:] if len(prev_words) > 1000 else prev_words
-                prev_tail = " ".join(prev_tail_words)
-            else:
-                prev_tail = "(Este é o primeiro capítulo do livro, não há contexto anterior)"
-            
+            prev_tail = load_previous_chapter_tail(CHAPTERS_DIR, ch)
+
             import shutil
             drafted = False
             best_draft_text = ""

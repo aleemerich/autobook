@@ -60,11 +60,15 @@ def test_consolidate_multiple_reports_to_revision_plan() -> None:
     metadata = {"chapter": 3, "attempt": 1}
     plan = RevisionPlan.consolidate([report_canon, report_style], metadata=metadata)
 
+    # Mutar o dicionário original para provar que o consolidado faz uma cópia
+    metadata["chapter"] = 99
+
     assert plan.is_empty is False
     assert len(plan.findings) == 2
     assert plan.findings[0] == finding_canon
     assert plan.findings[1] == finding_style
-    assert plan.metadata == metadata
+    assert plan.metadata["chapter"] == 3
+
 
 def test_revision_plan_empty() -> None:
     """Valida comportamento de RevisionPlan vazio."""
