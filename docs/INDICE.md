@@ -59,9 +59,8 @@ lidos como documentacao tecnica atual sem validacao contra o codigo:
 - [analises/docs_analysis.md](analises/docs_analysis.md): auditoria detalhada da documentacao contra o codigo.
 - [analises/analise_arquitetura_autobook.md](analises/analise_arquitetura_autobook.md): proposta de arquitetura e evolucao.
 - [analises/recomendacao_pipeline_producao.md](analises/recomendacao_pipeline_producao.md): parecer sobre pipeline intermediaria, agentes dinamicos, continuidade, estilo e modelos de menor custo.
-
-Observacao: `docs/analises/` aparece como nao versionado no momento deste
-snapshot.
+- [analises/auditoria_codigo_2026-06-16.md](analises/auditoria_codigo_2026-06-16.md): auditoria senior do codigo atual, com achados de arquitetura, clean code, riscos funcionais e aderencia a documentacao.
+- [analises/auditoria_codigo_backlog_2026-06-16.md](analises/auditoria_codigo_backlog_2026-06-16.md): backlog acionavel derivado da auditoria senior para planejamento das correcoes.
 
 ## Estado Atual Verificado
 

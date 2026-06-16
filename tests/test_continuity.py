@@ -216,3 +216,131 @@ def test_parse_json_response_resilience():
     assert "nested string" in res["inconsistencies"][0]["description"]
     assert "okay" in res["timeline_flow"]
 
+
+@patch("resolve_continuity.subprocess.run")
+@patch("resolve_continuity.load_continuity_config")
+@patch("resolve_continuity.get_latest_chapter_score")
+@patch("resolve_continuity.backup_editorial")
+def test_resolve_continuity_no_report(mock_backup, mock_get_score, mock_load_config, mock_sub_run, tmp_path):
+    """Test when continuity report is missing, it runs verify_continuity.py first."""
+    import resolve_continuity
+
+    report_file = tmp_path / "logs" / "eval_logs" / "continuity_report.json"
+
+    # Mock subprocess.run to create the file or simulate a failure
+    def side_effect(cmd, *args, **kwargs):
+        if "verify_continuity.py" in cmd:
+            report_file.parent.mkdir(parents=True, exist_ok=True)
+            report_file.write_text(json.dumps({
+                "continuity_score": 9.5,
+                "inconsistencies": [],
+                "timeline_flow": "Smooth flow."
+            }))
+        return MagicMock(returncode=0)
+    mock_sub_run.side_effect = side_effect
+
+    with patch("resolve_continuity.BASE_DIR", tmp_path):
+        with pytest.raises(SystemExit) as exc_info:
+            resolve_continuity.main()
+        assert exc_info.value.code == 0
+        assert mock_sub_run.call_count == 1
+        assert "verify_continuity.py" in mock_sub_run.call_args[0][0]
+
+
+@patch("resolve_continuity.subprocess.run")
+def test_resolve_continuity_satisfactory(mock_sub_run, tmp_path):
+    """Test when continuity report has a high score and no critical issues."""
+    import resolve_continuity
+
+    report_file = tmp_path / "logs" / "eval_logs" / "continuity_report.json"
+    report_file.parent.mkdir(parents=True, exist_ok=True)
+    report_file.write_text(json.dumps({
+        "continuity_score": 8.0,
+        "inconsistencies": [
+            {
+                "chapters": [1],
+                "severity": "low",
+                "issue_type": "other",
+                "description": "Minor style issue",
+                "suggested_fix": "Fix style"
+            }
+        ],
+        "timeline_flow": "Smooth."
+    }))
+
+    with patch("resolve_continuity.BASE_DIR", tmp_path):
+        with pytest.raises(SystemExit) as exc_info:
+            resolve_continuity.main()
+        assert exc_info.value.code == 0
+        mock_sub_run.assert_not_called()
+
+
+@patch("resolve_continuity.subprocess.run")
+@patch("resolve_continuity.load_continuity_config")
+@patch("resolve_continuity.get_latest_chapter_score")
+@patch("resolve_continuity.backup_editorial")
+def test_resolve_continuity_with_issues(mock_backup, mock_get_score, mock_load_config, mock_sub_run, tmp_path):
+    """Test when there are critical issues, it generates editorial.md and runs the pipeline."""
+    import resolve_continuity
+
+    # 1. Setup paths
+    report_file = tmp_path / "logs" / "eval_logs" / "continuity_report.json"
+    report_file.parent.mkdir(parents=True, exist_ok=True)
+    report_file.write_text(json.dumps({
+        "continuity_score": 6.5,
+        "inconsistencies": [
+            {
+                "chapters": [2, 3],
+                "severity": "high",
+                "issue_type": "timeline_break",
+                "description": "Time loop between ch 2 and 3",
+                "suggested_fix": "Fix time flow"
+            }
+        ],
+        "timeline_flow": "Broken timeline."
+    }))
+
+    chapters_dir = tmp_path / "chapters"
+    chapters_dir.mkdir(parents=True, exist_ok=True)
+    (chapters_dir / "ch_02.md").write_text("# Chapter 2")
+    (chapters_dir / "ch_03.md").write_text("# Chapter 3")
+
+    mock_get_score.return_value = 8.0
+    mock_load_config.return_value = {
+        "general_rules": ["- Rule 1"],
+        "divergence_rules": {},
+        "templates": {
+            "continuity_correction": "Correction: {desc} -> {fix}",
+            "general_directives_header": "# Directives",
+            "chapter_header": "## Ch {ch}",
+            "affects_downstream": "affects: {downstream}"
+        }
+    }
+
+    mock_sub_run.return_value = MagicMock(returncode=0)
+
+    with patch("resolve_continuity.BASE_DIR", tmp_path):
+        with pytest.raises(SystemExit) as exc_info:
+            resolve_continuity.main()
+
+        assert exc_info.value.code == 0
+
+        # Verify editorial.md was written
+        editorial_file = tmp_path / "book_data" / "editorial.md"
+        assert editorial_file.exists()
+        editorial_content = editorial_file.read_text(encoding="utf-8")
+        assert "# Directives" in editorial_content
+        assert "- Rule 1" in editorial_content
+        assert "## Ch 2" in editorial_content
+        assert "affects: 3" in editorial_content
+        assert "Correction: Time loop between ch 2 and 3 -> Fix time flow" in editorial_content
+
+        # Verify subprocess was called for run.py
+        mock_sub_run.assert_called_once()
+        args = mock_sub_run.call_args[0][0]
+        assert "run.py" in args
+        assert "--pipeline" in args
+        assert "editorial_revision" in args
+        assert "--chapter" in args
+        assert "2,3" in args
+

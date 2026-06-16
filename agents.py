@@ -8,7 +8,7 @@ and the dynamic AgentFactory singleton.
 
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Any
+from typing import Dict, Optional, Any
 from llm import call_llm
 from prompt_loader import load_agent_prompt
 

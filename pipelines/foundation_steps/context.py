@@ -63,6 +63,8 @@ def load_outline_inputs(
     voice_path: Path
 ) -> dict:
     """Carrega os insumos necessarios para a geracao do outline.md."""
+    if not craft_path.exists():
+        raise FileNotFoundError(f"[Foundation] CRAFT.md não encontrado no caminho especificado: {craft_path}")
     inputs = load_seed_and_voice(seed_path, voice_path)
     inputs["world"] = load_text_file(world_path)
     inputs["characters"] = load_text_file(characters_path)

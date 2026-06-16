@@ -8,7 +8,7 @@ Provides robust fallback mechanism to "EN" if the active language file is missin
 import os
 import json
 from pathlib import Path
-from typing import Dict, Any
+
 
 BASE_DIR = Path(__file__).parent.resolve()
 PROMPTS_DIR = BASE_DIR / "prompts"

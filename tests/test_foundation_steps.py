@@ -159,6 +159,30 @@ def test_load_outline_inputs(tmp_path) -> None:
     assert res["voice_part2"] == "V"
 
 
+def test_load_outline_inputs_missing_craft(tmp_path) -> None:
+    """Valida que load_outline_inputs lança FileNotFoundError quando craft.md está ausente."""
+    seed_path = tmp_path / "seed.txt"
+    world_path = tmp_path / "world.md"
+    characters_path = tmp_path / "characters.md"
+    mystery_path = tmp_path / "mystery.md"
+    craft_path = tmp_path / "craft.md"
+    voice_path = tmp_path / "voice.md"
+
+    seed_path.write_text("S", encoding="utf-8")
+    world_path.write_text("W", encoding="utf-8")
+    characters_path.write_text("C", encoding="utf-8")
+    mystery_path.write_text("M", encoding="utf-8")
+    # craft_path não é criado
+    voice_path.write_text("V", encoding="utf-8")
+
+    with pytest.raises(FileNotFoundError) as exc_info:
+        load_outline_inputs(
+            seed_path, world_path, characters_path, mystery_path, craft_path, voice_path
+        )
+    assert "CRAFT.md não encontrado" in str(exc_info.value)
+
+
+
 def test_load_canon_inputs(tmp_path) -> None:
     """Valida o carregamento dos insumos do canon.md."""
     seed_path = tmp_path / "seed.txt"

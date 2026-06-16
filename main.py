@@ -1,5 +1,8 @@
-def main():
-    print("Hello from autobook!")
+from run import main as run_main
+
+
+def main() -> None:
+    run_main()
 
 
 if __name__ == "__main__":

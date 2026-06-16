@@ -1,5 +1,5 @@
 import json
-from pathlib import Path
+
 
 def load_editorial_config() -> dict:
     """Carrega a configuracao editorial com base no idioma ativo."""

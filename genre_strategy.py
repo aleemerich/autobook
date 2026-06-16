@@ -9,7 +9,7 @@ from the main python codebase.
 import os
 import re
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import List, Optional
 
 BASE_DIR = Path(__file__).parent.resolve()
 

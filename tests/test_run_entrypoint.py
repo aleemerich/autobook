@@ -86,3 +86,11 @@ def test_run_pipeline_fails_on_generic_branch_integration() -> None:
 
                 assert excinfo.value.code == 1
                 mock_spec.factory.assert_not_called()
+
+
+def test_main_py_delegates_to_run_main() -> None:
+    """Valida que main.py delega a execução para run.main."""
+    import main
+    with patch("main.run_main") as mock_run_main:
+        main.main()
+        mock_run_main.assert_called_once()

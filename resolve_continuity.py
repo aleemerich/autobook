@@ -4,7 +4,6 @@ resolve_continuity.py — Closed-loop continuity router.
 Parses continuity_report.json and latest individual chapter evaluations,
 generates a corrective editorial.md, backs up the old one, and triggers run_editorial.py.
 """
-import os
 import sys
 import json
 import re
@@ -47,65 +46,6 @@ def backup_editorial():
 
 def main():
     report_path = BASE_DIR / "logs" / "eval_logs" / "continuity_report.json"
-    
-    if not report_path.exists():
-        print("[INFO] Continuity report not found. Running verify_continuity.py first...")
-        res = subprocess.run(["uv", "run", "python", "verify_continuity.py"], capture_output=True, text=True)
-        if not report_path.exists():
-            print(f"[ERROR] Failed to generate continuity report: {res.stderr}")
-            sys.exit(1)
-            
-    try:
-        report = json.loads(report_path.read_text(encoding="utf-8"))
-    except Exception as e:
-        print(f"[ERROR] Failed to read/parse continuity report: {e}")
-        sys.exit(1)
-        
-    score = report.get("continuity_score", 10.0)
-    inconsistencies = report.get("inconsistencies", [])
-    
-    print(f"[INFO] Current global continuity score: {score:.1f}/10.0")
-    
-    # We allow running if score < 7.5 or if there are high/medium severity issues
-    has_critical_issues = any(inc.get("severity") in ["high", "medium"] for inc in inconsistencies)
-    if score >= 7.5 and not has_critical_issues:
-        print("[SUCCESS] Continuity score is satisfactory (>= 7.5) and no critical issues exist. No corrections needed.")
-        sys.exit(0)
-        
-    print(f"[INFO] Found {len(inconsistencies)} issues. Generating corrective editorial.md...")
-    
-    # Backup old editorial
-    backup_editorial()
-    
-def load_continuity_config() -> dict:
-    from prompt_loader import get_active_language, PROMPTS_DIR
-    lang = get_active_language()
-    config_file = PROMPTS_DIR / lang / "continuity.json"
-    if not config_file.exists() and lang != "EN":
-        config_file = PROMPTS_DIR / "EN" / "continuity.json"
-    if not config_file.exists():
-        # Minimal fallback — generic, no story-specific references
-        return {
-            "general_rules": [
-                "- Ensure all chapter output is written in high-quality, standard English (EN) only.",
-                "- Avoid common AI fiction tropes, structural repetitions, and rhetorical tics.",
-                "- Maintain strict consistency of location names and character lore as defined in canon.md and world.md for the current project."
-            ],
-            "divergence_rules": {},
-            "templates": {
-                "quality_improvement": "Quality Improvement: The previous draft received a low score ({score:.2f}). Eliminate AI writing tics, tropes, and improve pacing and the protagonist's inner thoughts.",
-                "continuity_correction": "Continuity Correction ({severity} Severity): {desc} -> {fix}",
-                "general_directives_header": "# General Directives",
-                "chapter_header": "# Chapter {ch}",
-                "affects_downstream": "- affects_downstream: {downstream}",
-                "generic_update": "- Apply general style and consistency corrections to this chapter."
-            }
-        }
-    with open(config_file, "r", encoding="utf-8") as f:
-        return json.load(f)
-
-def main():
-    report_path = BASE_DIR / "eval_logs" / "continuity_report.json"
     
     if not report_path.exists():
         print("[INFO] Continuity report not found. Running verify_continuity.py first...")
@@ -214,14 +154,14 @@ def main():
     existing_chapters = sorted(existing_chapters)
     
     for ch in existing_chapters:
-        score = get_latest_chapter_score(ch)
-        if score > 0.0 and score < 7.0:
-            print(f"[INFO] Chapter {ch:02d} scheduled for style/quality correction (Score: {score:.2f} < 7.0)")
+        ch_score = get_latest_chapter_score(ch)
+        if ch_score > 0.0 and ch_score < 7.0:
+            print(f"[INFO] Chapter {ch:02d} scheduled for style/quality correction (Score: {ch_score:.2f} < 7.0)")
             affected_chapters.add(ch)
             if ch not in directives:
                 directives[ch] = []
             quality_improvement_template = templates.get("quality_improvement", "Quality Improvement: The previous draft received a low score ({score:.2f}). Eliminate AI writing tics, tropes...")
-            directives[ch].append(quality_improvement_template.format(score=score))
+            directives[ch].append(quality_improvement_template.format(score=ch_score))
 
     if not affected_chapters:
         print("[INFO] No chapters affected by high/medium issues or low scores. Exiting.")
@@ -256,16 +196,44 @@ def main():
         
     # Write to editorial.md
     editorial_path = BASE_DIR / "book_data" / "editorial.md"
+    editorial_path.parent.mkdir(parents=True, exist_ok=True)
     editorial_path.write_text("\n".join(editorial_lines), encoding="utf-8")
     print(f"[SUCCESS] New corrective editorial.md generated successfully at: {editorial_path.name}")
     
-    # 4. Trigger run_editorial.py with affected chapters
+    # 4. Trigger run.py editorial_revision with affected chapters
     ch_list_str = ",".join(str(c) for c in sorted(list(affected_chapters)))
-    cmd = ["uv", "run", "python", "run_editorial.py", "-c", ch_list_str]
+    cmd = ["uv", "run", "python", "run.py", "--pipeline", "editorial_revision", "--chapter", ch_list_str]
     print(f"[INFO] Triggering reprocess queue: {' '.join(cmd)}")
     
     result = subprocess.run(cmd)
     sys.exit(result.returncode)
+
+def load_continuity_config() -> dict:
+    from prompt_loader import get_active_language, PROMPTS_DIR
+    lang = get_active_language()
+    config_file = PROMPTS_DIR / lang / "continuity.json"
+    if not config_file.exists() and lang != "EN":
+        config_file = PROMPTS_DIR / "EN" / "continuity.json"
+    if not config_file.exists():
+        # Minimal fallback — generic, no story-specific references
+        return {
+            "general_rules": [
+                "- Ensure all chapter output is written in high-quality, standard English (EN) only.",
+                "- Avoid common AI fiction tropes, structural repetitions, and rhetorical tics.",
+                "- Maintain strict consistency of location names and character lore as defined in canon.md and world.md for the current project."
+            ],
+            "divergence_rules": {},
+            "templates": {
+                "quality_improvement": "Quality Improvement: The previous draft received a low score ({score:.2f}). Eliminate AI writing tics, tropes, and improve pacing and the protagonist's inner thoughts.",
+                "continuity_correction": "Continuity Correction ({severity} Severity): {desc} -> {fix}",
+                "general_directives_header": "# General Directives",
+                "chapter_header": "# Chapter {ch}",
+                "affects_downstream": "- affects_downstream: {downstream}",
+                "generic_update": "- Apply general style and consistency corrections to this chapter."
+            }
+        }
+    with open(config_file, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 if __name__ == "__main__":
     main()
