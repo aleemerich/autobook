@@ -10,6 +10,7 @@ import sys
 from pathlib import Path
 from typing import Dict, List, Optional
 from llm import call_llm
+from prompt_loader import load_agent_prompt
 
 class Agent:
     """Base class for all literary agents in the pipeline."""
@@ -35,36 +36,44 @@ class Agent:
 
 class DraftingAgent(Agent):
     """Agent responsible for writing the raw, structural narrative draft of a chapter."""
-    
+
     def __init__(self, temperature: float = 0.8):
-        super().__init__(
-            name="DraftingAgent",
-            system_prompt=(
+        try:
+            system_prompt = load_agent_prompt("drafting")
+        except Exception:
+            system_prompt = (
                 "You are an elite novelist drafting the raw, foundational scenes of a chapter.\n"
                 "Your focus is on building solid narrative structure, hitting the specific planned beat, "
                 "and setting up the raw story. Write the FULL text of the scene without shortcuts or summaries.\n\n"
                 "CRITICAL OUTPUT FORMAT CONSTRAINT:\n"
                 "Return ONLY the raw prose of the draft scene. Do NOT include any intro/outro comments, "
                 "notes, headers, or metadata. Output the story text and nothing else."
-            ),
+            )
+        super().__init__(
+            name="DraftingAgent",
+            system_prompt=system_prompt,
             temperature=temperature
         )
 
 
 class StylistAgent(Agent):
     """Agent responsible for refining the draft, injecting genre-specific action, tone, and cliffhangers."""
-    
+
     def __init__(self, genre_rules: str, temperature: float = 0.7):
-        system_prompt = (
-            "You are a master stylist and editor of high-tension speculative fiction.\n"
-            "Your task is to take a raw chapter draft and rewrite it to apply the specific "
-            "genre, pace, tension, and style rules below. Inject physical action, dynamic dialogues, "
-            "and strong hooks.\n\n"
-            "CRITICAL OUTPUT FORMAT CONSTRAINT:\n"
-            "Return ONLY the refined prose of the scene. Do NOT include any explanations, notes, "
-            "preambles, or markdown commentary. Your output must consist strictly of the revised story text.\n\n"
-            f"GENRE SPECIFIC RULES:\n{genre_rules}"
-        )
+        try:
+            template = load_agent_prompt("stylist")
+            system_prompt = template.format(genre_rules=genre_rules)
+        except Exception:
+            system_prompt = (
+                "You are a master stylist and editor of high-tension speculative fiction.\n"
+                "Your task is to take a raw chapter draft and rewrite it to apply the specific "
+                "genre, pace, tension, and style rules below. Inject physical action, dynamic dialogues, "
+                "and strong hooks.\n\n"
+                "CRITICAL OUTPUT FORMAT CONSTRAINT:\n"
+                "Return ONLY the refined prose of the scene. Do NOT include any explanations, notes, "
+                "preambles, or markdown commentary. Your output must consist strictly of the revised story text.\n\n"
+                f"GENRE SPECIFIC RULES:\n{genre_rules}"
+            )
         super().__init__(
             name="StylistAgent",
             system_prompt=system_prompt,

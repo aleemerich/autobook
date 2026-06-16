@@ -133,7 +133,7 @@ def load_agent_prompt(role: str, lang: str | None = None, fallback_to_en: bool =
     Carrega o prompt do agente a partir de prompts/{LANG}/agents/{role}.txt.
     Se lang for None, usa o idioma ativo obtido por get_active_language().
     """
-    if not role:
+    if not role or not role.strip():
         raise ValueError("O papel do agente (role) não pode ser vazio.")
 
     normalized_role = role.lower().strip()

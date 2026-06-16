@@ -85,3 +85,66 @@ def test_load_agent_prompt_invalid_role() -> None:
     with pytest.raises(ValueError) as excinfo:
         load_agent_prompt(role="")
     assert "não pode ser vazio" in str(excinfo.value)
+
+def test_load_agent_prompt_spaces_only_role() -> None:
+    """Valida que ValueError é lançado para papéis contendo apenas espaços."""
+    with pytest.raises(ValueError) as excinfo:
+        load_agent_prompt(role="   ")
+    assert "não pode ser vazio" in str(excinfo.value)
+
+def test_drafting_agent_uses_external_prompt(tmp_path: Path, monkeypatch) -> None:
+    """Valida que o DraftingAgent usa o prompt externo quando disponível."""
+    tmp_prompts_dir = tmp_path / "prompts"
+    en_dir = tmp_prompts_dir / "EN" / "agents"
+    en_dir.mkdir(parents=True)
+
+    external_content = "Elite novelist drafting test content."
+    (en_dir / "drafting.txt").write_text(external_content, encoding="utf-8")
+
+    monkeypatch.setattr(prompt_loader, "PROMPTS_DIR", tmp_prompts_dir)
+    monkeypatch.setenv("AUTOBOOK_LANGUAGE", "EN")
+
+    from agents import DraftingAgent
+    agent = DraftingAgent()
+    assert agent.system_prompt == external_content
+
+def test_drafting_agent_fallback_to_hardcoded(tmp_path: Path, monkeypatch) -> None:
+    """Valida que o DraftingAgent usa o prompt hardcoded quando o arquivo externo está ausente."""
+    tmp_prompts_dir = tmp_path / "prompts"
+    tmp_prompts_dir.mkdir()
+
+    monkeypatch.setattr(prompt_loader, "PROMPTS_DIR", tmp_prompts_dir)
+    monkeypatch.setenv("AUTOBOOK_LANGUAGE", "EN")
+
+    from agents import DraftingAgent
+    agent = DraftingAgent()
+    assert "You are an elite novelist drafting" in agent.system_prompt
+
+def test_stylist_agent_uses_external_prompt(tmp_path: Path, monkeypatch) -> None:
+    """Valida que o StylistAgent usa o prompt externo e interpola genre_rules."""
+    tmp_prompts_dir = tmp_path / "prompts"
+    en_dir = tmp_prompts_dir / "EN" / "agents"
+    en_dir.mkdir(parents=True)
+
+    external_template = "Master stylist template.\nGENRE RULES:\n{genre_rules}"
+    (en_dir / "stylist.txt").write_text(external_template, encoding="utf-8")
+
+    monkeypatch.setattr(prompt_loader, "PROMPTS_DIR", tmp_prompts_dir)
+    monkeypatch.setenv("AUTOBOOK_LANGUAGE", "EN")
+
+    from agents import StylistAgent
+    agent = StylistAgent(genre_rules="Sci-Fi Action")
+    assert agent.system_prompt == "Master stylist template.\nGENRE RULES:\nSci-Fi Action"
+
+def test_stylist_agent_fallback_to_hardcoded(tmp_path: Path, monkeypatch) -> None:
+    """Valida que o StylistAgent usa o prompt hardcoded e interpola genre_rules se arquivo externo ausente."""
+    tmp_prompts_dir = tmp_path / "prompts"
+    tmp_prompts_dir.mkdir()
+
+    monkeypatch.setattr(prompt_loader, "PROMPTS_DIR", tmp_prompts_dir)
+    monkeypatch.setenv("AUTOBOOK_LANGUAGE", "EN")
+
+    from agents import StylistAgent
+    agent = StylistAgent(genre_rules="Medieval Fantasy")
+    assert "You are a master stylist" in agent.system_prompt
+    assert "Medieval Fantasy" in agent.system_prompt
