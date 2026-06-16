@@ -14,7 +14,7 @@ O plano de migração geral está delineado em `docs/planejamento/refactor-plata
 - **Fases Prontas para Execução (Fases 0-5):**
   - **Fase 0 (Specs):** Criação das especificações da Fase 0 (esta especificação).
   - **Fase 1 (Contratos de Pipeline):** Metadados opcionais em `Step` e `Pipeline` sem validação inicial.
-  - **Fase 2 (Registry):** Registro dinâmico descentralizado de pipelines em `pipelines/registry.py`.
+  - **Fase 2 (Registry):** Registro centralizado de pipelines em `pipelines/registry.py`.
   - **Fase 3 (run.py com Wizard):** Ponto de entrada executando stub de wizard sem argumentos.
   - **Fase 4 (Branch Workflow):** Utilitários puros e mockados de controle de branches Git em `workspace/branching.py`.
   - **Fase 5 (Discovery):** Descoberta automática não-destrutiva de estado do repositório em `cli/discovery.py`.

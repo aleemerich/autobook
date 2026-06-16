@@ -1,59 +1,50 @@
-# 02 - Pipeline Contract, Registry and Discovery Spec
+# 02 - Pipeline Contract Spec (Fase 1)
 
 ## Objetivo
-Especificar a evolução dos contratos de execução do Autobook, introduzindo metadados opcionais para passos e pipelines, um registro dinâmico centralizado (`pipelines/registry.py`) e uma ferramenta de descoberta do estado do projeto (`cli/discovery.py`).
+Especificar a evolução do contrato base de execução do Autobook, introduzindo metadados opcionais para os passos (`Step`) e pipelines (`Pipeline`), garantindo compatibilidade retroativa total com a base existente.
 
 ## Fora De Escopo
-- Adicionar validações estáticas ou verificações obrigatórias de execução com base em dependências declaradas (`requires` e `produces`) nesta fase.
-- Alterar a lógica interna dos passos concretos atuais ou a maneira como eles gravam dados no filesystem.
+- Implementar o registro centralizado de pipelines (`pipelines/registry.py`), que é de escopo exclusivo da **Fase 2**.
+- Implementar a camada de descoberta do estado do projeto (`cli/discovery.py`), que é de escopo exclusivo da **Fase 5**.
+- Adicionar verificações ou validações automáticas baseadas nos metadados declarados durante a execução da Fase 1.
 
 ## Estado Atual
-- **Step e Pipeline:** Definidos em `pipelines/base.py` de forma simples, sem metadados declarativos adicionais de inputs e outputs. O construtor do `Step` aceita apenas `name`.
-- **Registry:** Não existe. As pipelines concretas (`IdeationPipeline`, `FoundationPipeline`, etc.) são importadas estaticamente na parte superior do arquivo `run.py`.
-- **Discovery:** Não há nenhum mecanismo centralizado que inspecione o diretório do projeto e determine dinamicamente o status (quais capítulos existem, se há seed.txt, etc.) para servir como inteligência ao wizard.
+Atualmente, as classes `Step` e `Pipeline` em `pipelines/base.py` são muito simples. O construtor de `Step` aceita apenas `name`. Não há como declarar dependências de entrada/saída ou descrições textuais associadas a cada passo de forma declarativa.
 
 ## Comportamento Desejado
-- **Contrato Estendido (Fase 1):** `Step` e `Pipeline` aceitam metadados opcionais em seus construtores:
-  - `name: str` (obrigatório)
+- **Contrato Estendido:** `Step` e `Pipeline` devem aceitar metadados adicionais e opcionais em seus construtores:
+  - `name: str` (obrigatório, mantido como primeiro argumento posicional)
   - `description: str | None = None`
-  - `requires: list[str] | None = None` (lista de dependências de entrada)
-  - `produces: list[str] | None = None` (lista de artefatos de saída)
-  - *Nota:* Para evitar efeitos colaterais de listas mutáveis no construtor Python, usar `None` como padrão e instanciar as listas internamente.
-- **Registro Centralizado (Fase 2):** Criar `pipelines/registry.py` provendo:
-  - `list_pipelines() -> dict[str, PipelineSpec]`
-  - `get_pipeline(name: str) -> Pipeline`
-  - `get_pipeline_spec(name: str) -> PipelineSpec`
-  - `PipelineSpec` (dataclass contendo: `name`, `description`, `factory` (callable), `supports_chapter: bool`, `supports_from_scratch: bool`).
-- **Descoberta do Estado (Fase 5):** Criar `cli/discovery.py` com `discover_project_state(base_dir: Path | None = None) -> ProjectState` retornando informações como a branch ativa, idiomas disponíveis em `prompts/`, gêneros disponíveis em `genres/`, capítulos gerados e arquivos de `book_data/` presentes.
+  - `requires: list[str] | None = None` (lista de dependências/entradas exigidas)
+  - `produces: list[str] | None = None` (lista de artefatos produzidos)
+- **Segurança de Efeitos Colaterais:** Para evitar o antipadrão Python de usar listas mutáveis como padrão de argumento, o construtor deve aceitar `None` para `requires` e `produces` e inicializar listas vazias internamente caso não fornecidos.
+- **Compatibilidade Retroativa:** Instanciações existentes no formato antigo (ex: `Step("nome")` ou `Pipeline("nome", steps)`) devem continuar executando sem qualquer alteração sintática ou de comportamento.
 
-## Decisão de Validação de Dependências
-Por decisão do supervisor, **os metadados `requires` e `produces` não serão validados ou lincados de forma restritiva ou obrigatória** nas pipelines concretas durante as Fases 1 a 5. A utilidade desse mapeamento e o design de um linter ou mecanismo de orquestração automático baseado em grafos de dependência serão julgados no Gate A pelo supervisor.
+## Notas sobre Fases Posteriores
+- **Registro de Pipelines:** A descoberta e centralização de pipelines em um registro unificado é tratada pela **Fase 2**.
+- **Descoberta do Estado:** A camada para inspecionar dinamicamente o status da obra e recomendar os próximos passos é tratada pela **Fase 5**.
+- **Validação de Metadados:** Por decisão do supervisor, os campos `requires` e `produces` não serão validados automaticamente na Fase 1. A sua utilidade será avaliada pelo supervisor no Gate A, antes de se propor qualquer linter ou verificação obrigatória.
 
 ## Arquivos Afetados Futuramente
 - `pipelines/base.py`
-- [NEW] `pipelines/registry.py`
-- [NEW] `cli/discovery.py`
-- `run.py`
 - [NEW] `tests/test_pipeline_base.py`
-- [NEW] `tests/test_pipeline_registry.py`
-- [NEW] `tests/test_cli_discovery.py`
 
 ## Contratos De Entrada
-- Instanciação de `Step` e `Pipeline` aceitando metadados adicionais.
-- O método `discover_project_state` aceita um `base_dir: Path` opcional para facilitação de testes com diretórios temporários (`tmp_path`).
+- Instanciação de `Step` ou `Pipeline` com ou sem os argumentos adicionais.
 
 ## Contratos De Saida
-- Estruturas de dados dataclass/dicionário para o Registry e Discovery.
+- Atributos acessíveis no objeto instanciado: `name`, `description`, `requires` e `produces`.
 
-## Testes Necessarios
-1. **Pipelines Base:** Validar que `Step("nome")` permanece compatível e que `Step("nome", requires=["a"], produces=["b"])` preserva metadados sem erros.
-2. **Registry:** Garantir que chamar `list_pipelines()` não instancia nem executa as pipelines concretas (deve retornar apenas as definições estáticas). Validar o retorno correto de `get_pipeline()` e o tratamento de erro em entradas desconhecidas.
-3. **Discovery:** Usar o utilitário `tmp_path` do pytest nos testes para criar estados simulados e validar o correto mapeamento do estado do projeto (presença de seed, capítulos, gêneros, idiomas).
+## Testes Necessarios (Fase 1)
+1. **Compatibilidade Básica:** Validar que `Step("nome")` instancia corretamente e expõe o nome, com listas vazias padrão para `requires` e `produces`.
+2. **Definição de Metadados:** Validar que `Step("nome", description="desc", requires=["a"], produces=["b"])` armazena e expõe corretamente todos os valores.
+3. **Pipeline Composite:** Validar que a classe `Pipeline` continua aceitando opcionalmente uma lista de passos no construtor e continua executando os passos na ordem correta ao chamar `.run(context)`.
+4. **Propagação de Exceções:** Validar que erros lançados em passos individuais propagam normalmente através da pipeline, exatamente como ocorria antes da adição dos metadados.
 
-## Criterios De Aceite
-- Sem alterações ou quebras nas execuções de pipelines existentes no repositório.
-- A suite de testes modernos (`tests/`) passa inteiramente.
-- Sem chamadas a LLMs durante a execução do Registry ou do Discovery.
+## Criterios De Aceite (Fase 1)
+- Nenhuma pipeline concreta existente no projeto precisa ser modificada nesta fase.
+- A suite de testes moderna (`tests/`) continua executando com 100% de sucesso.
+- O contrato antigo permanece totalmente válido e funcional.
 
 ## Perguntas Abertas
-- Como organizar a taxonomia de strings para a lista de `requires` e `produces` (ex: `"seed.txt"`, `"book_data/outline.md"`) de modo a assegurar nomes uniformes?
+- Nenhuma pendência para a Fase 1.
