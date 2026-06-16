@@ -124,5 +124,36 @@ def load_slop_rules_instruction() -> str:
         
     if "show_dont_tell" in templates:
         lines.append("- " + templates["show_dont_tell"])
-        
+
     return "\n".join(lines)
+
+
+def load_agent_prompt(role: str, lang: str | None = None, fallback_to_en: bool = True) -> str:
+    """
+    Carrega o prompt do agente a partir de prompts/{LANG}/agents/{role}.txt.
+    Se lang for None, usa o idioma ativo obtido por get_active_language().
+    """
+    if not role:
+        raise ValueError("O papel do agente (role) não pode ser vazio.")
+
+    normalized_role = role.lower().strip()
+
+    if lang is None:
+        normalized_lang = get_active_language()
+    else:
+        normalized_lang = lang.upper().strip()
+
+    prompt_file = PROMPTS_DIR / normalized_lang / "agents" / f"{normalized_role}.txt"
+
+    if prompt_file.exists():
+        return prompt_file.read_text(encoding="utf-8")
+
+    if fallback_to_en and normalized_lang != "EN":
+        fallback_file = PROMPTS_DIR / "EN" / "agents" / f"{normalized_role}.txt"
+        if fallback_file.exists():
+            return fallback_file.read_text(encoding="utf-8")
+
+    raise FileNotFoundError(
+        f"Prompt file '{normalized_role}.txt' not found under active language '{normalized_lang}' "
+        f"nor English fallback 'EN' in directory: {PROMPTS_DIR}"
+    )
