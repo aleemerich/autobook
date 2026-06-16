@@ -89,8 +89,13 @@ def test_legacy_factory_imports_continue_working() -> None:
     assert agent.temperature == 0.25
 
 def test_factory_register_custom_agent() -> None:
-    """Valida que register_agent e get_agent funcionam com agentes customizados."""
+    """Valida que register_agent e get_agent funcionam com agentes customizados e restaura o estado original."""
+    import agents
     factory = AgentFactory()
+    legacy_factory = agents.AgentFactory()
+
+    # Salva o estado do registry original
+    original_registry = legacy_factory._agents_registry.copy()
 
     # Cria uma classe fake para teste
     class CustomFakeAgent:
@@ -99,16 +104,23 @@ def test_factory_register_custom_agent() -> None:
             self.temperature = temperature
             self.kwargs = kwargs
 
-    # Registra o agente customizado
-    factory.register_agent("custom_test_role", CustomFakeAgent)
+    try:
+        # Registra o agente customizado
+        factory.register_agent("custom_test_role", CustomFakeAgent)
 
-    # Instancia o agente customizado
-    agent = factory.get_agent("custom_test_role", temperature=0.85, extra_arg="val")
+        # Instancia o agente customizado
+        agent = factory.get_agent("custom_test_role", temperature=0.85, extra_arg="val")
 
-    assert isinstance(agent, CustomFakeAgent)
-    assert agent.name == "CustomFake"
-    assert agent.temperature == 0.85
-    assert agent.kwargs == {"extra_arg": "val"}
+        assert isinstance(agent, CustomFakeAgent)
+        assert agent.name == "CustomFake"
+        assert agent.temperature == 0.85
+        assert agent.kwargs == {"extra_arg": "val"}
+    finally:
+        # Restaura o estado original do registry
+        legacy_factory._agents_registry = original_registry
+
+    # Assegura que o papel customizado não permaneceu registrado
+    assert "custom_test_role" not in legacy_factory._agents_registry
 
 def test_factory_load_skill_agent(monkeypatch) -> None:
     """Valida que load_skill_agent delega corretamente para a fábrica legada."""
