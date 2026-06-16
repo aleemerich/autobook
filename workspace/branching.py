@@ -1,4 +1,5 @@
 import re
+import shlex
 import subprocess
 import unicodedata
 
@@ -53,3 +54,12 @@ def ensure_not_main_for_generation(branch: str | None = None) -> None:
             "A geração de livros deve ocorrer estritamente em uma branch dedicada (ex: autobook/<slug>) "
             "para manter a branch principal limpa de artefatos."
         )
+
+def suggest_book_branch_command(title_or_slug: str) -> tuple[str, str]:
+    """
+    Gera o nome de branch padrão (autobook/<slug>) e o comando Git switch sugerido.
+    Levanta ValueError se o título ou slug for inválido.
+    """
+    branch_name = book_branch_name(title_or_slug)
+    command = f"git switch -c {shlex.quote(branch_name)}"
+    return branch_name, command

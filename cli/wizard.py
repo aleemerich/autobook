@@ -5,6 +5,7 @@ from typing import Any
 
 from cli.discovery import discover_project_state
 from pipelines.registry import list_pipelines
+from workspace.branching import suggest_book_branch_command
 
 def _prompt_input(prompt: str, input_func: Any, stdout: Any) -> str:
     """Helper para obter input garantindo que o prompt seja capturado em stdouts customizados."""
@@ -34,6 +35,27 @@ def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = Non
     print(f"Branch atual: {state.current_branch}", file=stdout)
     if state.current_branch in ("main", "master"):
         print("Aviso: Voce esta no branch principal (main/master). Recomendamos criar um branch de feature.", file=stdout)
+
+        try:
+            prep_branch = _prompt_input("Deseja preparar uma branch de obra agora? [s/N]: ", input_func, stdout).strip().lower()
+        except (KeyboardInterrupt, EOFError):
+            print(file=stdout)
+            print("Saindo...", file=stdout)
+            return
+        if prep_branch in ("s", "sim"):
+            try:
+                title_or_slug = _prompt_input("Titulo ou slug da obra: ", input_func, stdout).strip()
+            except (KeyboardInterrupt, EOFError):
+                print(file=stdout)
+                print("Saindo...", file=stdout)
+                return
+            if title_or_slug:
+                try:
+                    branch_name, branch_cmd = suggest_book_branch_command(title_or_slug)
+                    print(f"Branch sugerida: {branch_name}", file=stdout)
+                    print(f"Comando sugerido: {branch_cmd}", file=stdout)
+                except ValueError as e:
+                    print(f"Erro: {e}", file=stdout)
 
     # 3. Imprimir resumo do estado do livro
     print(file=stdout)

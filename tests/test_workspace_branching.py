@@ -6,7 +6,8 @@ from workspace.branching import (
     book_branch_name,
     is_main_branch,
     current_branch,
-    ensure_not_main_for_generation
+    ensure_not_main_for_generation,
+    suggest_book_branch_command
 )
 
 def test_slugify_work_title() -> None:
@@ -94,3 +95,32 @@ def test_ensure_not_main_for_generation_accepting() -> None:
     
     with patch("workspace.branching.current_branch", return_value="autobook/meu-livro"):
         ensure_not_main_for_generation()
+
+def test_suggest_book_branch_command_valid() -> None:
+    """Valida a geração correta de comandos e slugs para entradas válidas."""
+    with patch("subprocess.run") as mock_run:
+        # Título simples
+        branch, cmd = suggest_book_branch_command("Meu Livro")
+        assert branch == "autobook/meu-livro"
+        assert cmd == "git switch -c autobook/meu-livro"
+
+        # Título com espaços/acentos
+        branch, cmd = suggest_book_branch_command("O Fantástico Livro de RPG!")
+        assert branch == "autobook/o-fantastico-livro-de-rpg"
+        assert cmd == "git switch -c autobook/o-fantastico-livro-de-rpg"
+
+        # Certifica que subprocess.run não foi chamado
+        mock_run.assert_not_called()
+
+def test_suggest_book_branch_command_invalid() -> None:
+    """Valida que títulos inválidos levantam ValueError."""
+    with patch("subprocess.run") as mock_run:
+        with pytest.raises(ValueError) as excinfo:
+            suggest_book_branch_command("")
+        assert "não pode ser vazio" in str(excinfo.value)
+
+        with pytest.raises(ValueError) as excinfo:
+            suggest_book_branch_command("???")
+        assert "nome de branch vazio inválido" in str(excinfo.value)
+
+        mock_run.assert_not_called()
