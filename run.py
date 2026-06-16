@@ -13,10 +13,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent.resolve()
 sys.path.insert(0, str(BASE_DIR))
 
-from pipelines.book_generation import BookGenerationPipeline
-from pipelines.editorial_revision import EditorialRevisionPipeline
-from pipelines.ideation import IdeationPipeline
-from pipelines.foundation import FoundationPipeline
+from pipelines.registry import get_pipeline, list_pipelines
 
 class Tee:
     def __init__(self, filename, stream):
@@ -72,7 +69,7 @@ def main():
     parser = argparse.ArgumentParser(description="Unified Autobook Pipeline Orchestrator")
     parser.add_argument(
         "--pipeline",
-        choices=["book_generation", "editorial_revision", "ideation", "foundation"],
+        choices=list(list_pipelines().keys()),
         required=True,
         help="Pipeline workflow to execute"
     )
@@ -105,15 +102,9 @@ def main():
         context["chapters"] = parse_chapters(args.chapter)
 
     # Instantiate the selected pipeline
-    if args.pipeline == "book_generation":
-        pipeline = BookGenerationPipeline()
-    elif args.pipeline == "editorial_revision":
-        pipeline = EditorialRevisionPipeline()
-    elif args.pipeline == "ideation":
-        pipeline = IdeationPipeline()
-    elif args.pipeline == "foundation":
-        pipeline = FoundationPipeline()
-    else:
+    try:
+        pipeline = get_pipeline(args.pipeline)
+    except KeyError:
         print(f"[Error] Unknown pipeline: '{args.pipeline}'", file=sys.stderr)
         sys.exit(1)
 
