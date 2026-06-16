@@ -31,7 +31,8 @@ from pipelines.book_generation_steps import (
     build_lore_data,
     run_beat_drafting,
     run_chapter_fallback_drafting,
-    run_critic_agents
+    run_critic_agents,
+    run_sequential_synthesis
 )
 
 BASE_DIR = Path(__file__).parent.parent.resolve()
@@ -183,33 +184,11 @@ class DraftChaptersStep(Step):
                 )
 
                 # Phase 3: Sequential Synthesis
-                print("[DraftChaptersStep] Starting sequential synthesis...")
-                # Dynamically scan the tmp_dir for critique files to ensure flexibility
-                critique_files = sorted(list(tmp_dir.glob("critique_*.md")))
-                print(f"  Found {len(critique_files)} critique files to apply sequentially: {[f.name for f in critique_files]}")
-                
-                current_text = chapter_raw_text
-                synthesis_agent = factory.get_agent("synthesis")
-                
-                for idx, crit_file in enumerate(critique_files, 1):
-                    crit_name = crit_file.name
-                    print(f"  [Synthesis Step {idx}/{len(critique_files)}] Applying critique: {crit_name}...")
-                    critique_content = crit_file.read_text(encoding="utf-8")
-                    
-                    synth_prompt = (
-                        f"Você é o SynthesisAgent. Seu objetivo é revisar e reescrever o texto do capítulo "
-                        f"com base estritamente no Relatório de Crítica a seguir.\n\n"
-                        f"TEXTO DO CAPÍTULO:\n{current_text}\n\n"
-                        f"RELATÓRIO DE CRÍTICA APLICADA ({crit_name}):\n{critique_content}\n\n"
-                        f"Instruções cruciais:\n"
-                        f"- Resolva todos os problemas listados no Relatório de Crítica de forma integrada, fluida e sutil.\n"
-                        f"- Certifique-se de que a resposta final contenha APENAS o texto completo da prosa do capítulo.\n"
-                        f"- Absolutamente nenhuma análise, nota, cabeçalho explicativo, ou comentário adicional deve estar no resultado."
-                    )
-                    
-                    current_text = synthesis_agent.execute(synth_prompt)
-                    # Save intermediate step log
-                    (tmp_dir / f"chapter_step_{idx:02d}_{crit_name}").write_text(current_text, encoding="utf-8")
+                current_text, plan = run_sequential_synthesis(
+                    tmp_dir=tmp_dir,
+                    chapter_raw_text=chapter_raw_text,
+                    factory=factory
+                )
                 
                 # Clean up title and metadata from Python side just in case
                 lines = current_text.split("\n")
