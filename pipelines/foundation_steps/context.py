@@ -34,3 +34,46 @@ def foundation_git_paths(include_mystery: bool) -> list[str]:
     if include_mystery:
         paths.append("book_data/MYSTERY.md")
     return paths
+
+def load_seed_and_voice(seed_path: Path, voice_path: Path) -> dict:
+    """Carrega os insumos de seed e voice."""
+    voice_content = load_text_file(voice_path)
+    return {
+        "seed": load_text_file(seed_path),
+        "voice": voice_content,
+        "voice_part2": extract_voice_part2(voice_content)
+    }
+
+def load_world_inputs(seed_path: Path, voice_path: Path) -> dict:
+    """Carrega os insumos necessarios para a geracao do world.md."""
+    return load_seed_and_voice(seed_path, voice_path)
+
+def load_characters_inputs(seed_path: Path, world_path: Path, voice_path: Path) -> dict:
+    """Carrega os insumos necessarios para a geracao do characters.md."""
+    inputs = load_seed_and_voice(seed_path, voice_path)
+    inputs["world"] = load_text_file(world_path)
+    return inputs
+
+def load_outline_inputs(
+    seed_path: Path,
+    world_path: Path,
+    characters_path: Path,
+    mystery_path: Path,
+    craft_path: Path,
+    voice_path: Path
+) -> dict:
+    """Carrega os insumos necessarios para a geracao do outline.md."""
+    inputs = load_seed_and_voice(seed_path, voice_path)
+    inputs["world"] = load_text_file(world_path)
+    inputs["characters"] = load_text_file(characters_path)
+    inputs["mystery"] = load_text_file(mystery_path)
+    inputs["craft"] = load_text_file(craft_path)
+    return inputs
+
+def load_canon_inputs(seed_path: Path, world_path: Path, characters_path: Path) -> dict:
+    """Carrega os insumos necessarios para a geracao do canon.md."""
+    return {
+        "seed": load_text_file(seed_path),
+        "world": load_text_file(world_path),
+        "characters": load_text_file(characters_path)
+    }

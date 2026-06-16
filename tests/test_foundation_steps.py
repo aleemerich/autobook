@@ -5,7 +5,12 @@ from pipelines.foundation_steps.context import (
     load_text_file,
     extract_voice_part2,
     build_foundation_writing_state,
-    foundation_git_paths
+    foundation_git_paths,
+    load_seed_and_voice,
+    load_world_inputs,
+    load_characters_inputs,
+    load_outline_inputs,
+    load_canon_inputs
 )
 from pipelines.foundation_steps.persistence import (
     write_foundation_state,
@@ -76,6 +81,100 @@ def test_foundation_git_paths_include_mystery() -> None:
     assert "book_data/canon.md" in paths
     assert "book_data/MYSTERY.md" in paths
     assert len(paths) == 6
+
+
+def test_load_seed_and_voice(tmp_path) -> None:
+    """Valida o carregamento dos insumos de semente e voz."""
+    seed_path = tmp_path / "seed.txt"
+    voice_path = tmp_path / "voice.md"
+
+    # Caso 1: Arquivos existem
+    seed_path.write_text("Minha semente", encoding="utf-8")
+    voice_path.write_text("Part 1: Intro\nPart 2: Estilo e voz", encoding="utf-8")
+    res = load_seed_and_voice(seed_path, voice_path)
+    assert res["seed"] == "Minha semente"
+    assert "Part 2: Estilo e voz" in res["voice"]
+    assert "Part 2: Estilo e voz" in res["voice_part2"]
+    assert "Part 1: Intro" not in res["voice_part2"]
+
+    # Caso 2: Arquivos ausentes
+    seed_path.unlink()
+    voice_path.unlink()
+    res_empty = load_seed_and_voice(seed_path, voice_path)
+    assert res_empty["seed"] == ""
+    assert res_empty["voice"] == ""
+    assert res_empty["voice_part2"] == ""
+
+
+def test_load_world_inputs(tmp_path) -> None:
+    """Valida o carregamento dos insumos do world.md."""
+    seed_path = tmp_path / "seed.txt"
+    voice_path = tmp_path / "voice.md"
+    seed_path.write_text("Semente", encoding="utf-8")
+    voice_path.write_text("Voz", encoding="utf-8")
+
+    res = load_world_inputs(seed_path, voice_path)
+    assert res["seed"] == "Semente"
+    assert res["voice_part2"] == "Voz"
+
+
+def test_load_characters_inputs(tmp_path) -> None:
+    """Valida o carregamento dos insumos do characters.md."""
+    seed_path = tmp_path / "seed.txt"
+    world_path = tmp_path / "world.md"
+    voice_path = tmp_path / "voice.md"
+
+    seed_path.write_text("Semente", encoding="utf-8")
+    world_path.write_text("Mundo", encoding="utf-8")
+    voice_path.write_text("Part 2\nVoz", encoding="utf-8")
+
+    res = load_characters_inputs(seed_path, world_path, voice_path)
+    assert res["seed"] == "Semente"
+    assert res["world"] == "Mundo"
+    assert res["voice_part2"] == "Part 2\nVoz"
+
+
+def test_load_outline_inputs(tmp_path) -> None:
+    """Valida o carregamento dos insumos do outline.md."""
+    seed_path = tmp_path / "seed.txt"
+    world_path = tmp_path / "world.md"
+    characters_path = tmp_path / "characters.md"
+    mystery_path = tmp_path / "mystery.md"
+    craft_path = tmp_path / "craft.md"
+    voice_path = tmp_path / "voice.md"
+
+    seed_path.write_text("S", encoding="utf-8")
+    world_path.write_text("W", encoding="utf-8")
+    characters_path.write_text("C", encoding="utf-8")
+    mystery_path.write_text("M", encoding="utf-8")
+    craft_path.write_text("Cr", encoding="utf-8")
+    voice_path.write_text("V", encoding="utf-8")
+
+    res = load_outline_inputs(
+        seed_path, world_path, characters_path, mystery_path, craft_path, voice_path
+    )
+    assert res["seed"] == "S"
+    assert res["world"] == "W"
+    assert res["characters"] == "C"
+    assert res["mystery"] == "M"
+    assert res["craft"] == "Cr"
+    assert res["voice_part2"] == "V"
+
+
+def test_load_canon_inputs(tmp_path) -> None:
+    """Valida o carregamento dos insumos do canon.md."""
+    seed_path = tmp_path / "seed.txt"
+    world_path = tmp_path / "world.md"
+    characters_path = tmp_path / "characters.md"
+
+    seed_path.write_text("S", encoding="utf-8")
+    world_path.write_text("W", encoding="utf-8")
+    characters_path.write_text("C", encoding="utf-8")
+
+    res = load_canon_inputs(seed_path, world_path, characters_path)
+    assert res["seed"] == "S"
+    assert res["world"] == "W"
+    assert res["characters"] == "C"
 
 
 # --- Testes de persistência de fundação ---

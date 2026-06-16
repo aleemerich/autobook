@@ -11,8 +11,10 @@ from typing import Dict, Any
 from pipelines.base import Step, Pipeline
 from llm import call_llm
 from pipelines.foundation_steps.context import (
-    load_text_file,
-    extract_voice_part2
+    load_world_inputs,
+    load_characters_inputs,
+    load_outline_inputs,
+    load_canon_inputs
 )
 from pipelines.foundation_steps.persistence import (
     commit_foundation_artifacts,
@@ -51,9 +53,9 @@ class GenerateWorldStep(Step):
 
     def run(self, context: Dict[str, Any]) -> None:
         print("[Foundation] Gerando world.md...")
-        seed = load_text_file(SEED_PATH)
-        voice = load_text_file(VOICE_PATH)
-        voice_p2 = extract_voice_part2(voice)
+        inputs = load_world_inputs(SEED_PATH, VOICE_PATH)
+        seed = inputs["seed"]
+        voice_p2 = inputs["voice_part2"]
         
         system = (
             "You are a fantasy worldbuilder with deep knowledge of Sanderson's Laws, "
@@ -145,10 +147,10 @@ class GenerateCharactersStep(Step):
 
     def run(self, context: Dict[str, Any]) -> None:
         print("[Foundation] Gerando characters.md...")
-        seed = load_text_file(SEED_PATH)
-        world = load_text_file(WORLD_PATH)
-        voice = load_text_file(VOICE_PATH)
-        voice_p2 = extract_voice_part2(voice)
+        inputs = load_characters_inputs(SEED_PATH, WORLD_PATH, VOICE_PATH)
+        seed = inputs["seed"]
+        world = inputs["world"]
+        voice_p2 = inputs["voice_part2"]
         
         system = (
             "You are a character designer for literary fiction with deep knowledge of "
@@ -262,13 +264,20 @@ class GenerateOutlineStep(Step):
 
     def run(self, context: Dict[str, Any]) -> None:
         print("[Foundation] Gerando outline.md...")
-        seed = load_text_file(SEED_PATH)
-        world = load_text_file(WORLD_PATH)
-        characters = load_text_file(CHARACTERS_PATH)
-        mystery = load_text_file(MYSTERY_PATH)
-        craft = load_text_file(CRAFT_PATH)
-        voice = load_text_file(VOICE_PATH)
-        voice_p2 = extract_voice_part2(voice)
+        inputs = load_outline_inputs(
+            SEED_PATH,
+            WORLD_PATH,
+            CHARACTERS_PATH,
+            MYSTERY_PATH,
+            CRAFT_PATH,
+            VOICE_PATH
+        )
+        seed = inputs["seed"]
+        world = inputs["world"]
+        characters = inputs["characters"]
+        mystery = inputs["mystery"]
+        craft = inputs["craft"]
+        voice_p2 = inputs["voice_part2"]
         
         system = (
             "You are a novel architect with deep knowledge of Save the Cat beats, "
@@ -358,9 +367,10 @@ class GenerateCanonStep(Step):
 
     def run(self, context: Dict[str, Any]) -> None:
         print("[Foundation] Gerando canon.md...")
-        seed = load_text_file(SEED_PATH)
-        world = load_text_file(WORLD_PATH)
-        characters = load_text_file(CHARACTERS_PATH)
+        inputs = load_canon_inputs(SEED_PATH, WORLD_PATH, CHARACTERS_PATH)
+        seed = inputs["seed"]
+        world = inputs["world"]
+        characters = inputs["characters"]
         
         system = (
             "You are a continuity editor extracting hard facts from fantasy novel "
