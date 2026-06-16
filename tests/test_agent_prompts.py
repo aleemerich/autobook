@@ -148,3 +148,147 @@ def test_stylist_agent_fallback_to_hardcoded(tmp_path: Path, monkeypatch) -> Non
     agent = StylistAgent(genre_rules="Medieval Fantasy")
     assert "You are a master stylist" in agent.system_prompt
     assert "Medieval Fantasy" in agent.system_prompt
+
+def test_technical_editor_agent_uses_external_prompt(tmp_path: Path, monkeypatch) -> None:
+    """Valida que o TechnicalEditorAgent usa o prompt externo e interpola lore_data e slop_rules."""
+    tmp_prompts_dir = tmp_path / "prompts"
+    en_dir = tmp_prompts_dir / "EN" / "agents"
+    en_dir.mkdir(parents=True)
+
+    external_template = "Editor.\nLORE:\n{lore_data}\nSLOP:\n{slop_rules}"
+    (en_dir / "technical_editor.txt").write_text(external_template, encoding="utf-8")
+
+    monkeypatch.setattr(prompt_loader, "PROMPTS_DIR", tmp_prompts_dir)
+    monkeypatch.setenv("AUTOBOOK_LANGUAGE", "EN")
+
+    from agents import TechnicalEditorAgent
+    agent = TechnicalEditorAgent(lore_data="Lore content", slop_rules="Slop rules")
+    assert agent.system_prompt == "Editor.\nLORE:\nLore content\nSLOP:\nSlop rules"
+
+def test_technical_editor_agent_fallback(tmp_path: Path, monkeypatch) -> None:
+    """Valida que o TechnicalEditorAgent cai no fallback hardcoded se arquivo externo ausente."""
+    tmp_prompts_dir = tmp_path / "prompts"
+    tmp_prompts_dir.mkdir()
+
+    monkeypatch.setattr(prompt_loader, "PROMPTS_DIR", tmp_prompts_dir)
+    monkeypatch.setenv("AUTOBOOK_LANGUAGE", "EN")
+
+    from agents import TechnicalEditorAgent
+    agent = TechnicalEditorAgent(lore_data="Lore content", slop_rules="Slop rules")
+    assert "You are a meticulous technical editor" in agent.system_prompt
+    assert "Lore content" in agent.system_prompt
+    assert "Slop rules" in agent.system_prompt
+
+def test_canon_critic_agent_uses_external_prompt(tmp_path: Path, monkeypatch) -> None:
+    """Valida que o CanonCriticAgent usa o prompt externo e interpola lore_data."""
+    tmp_prompts_dir = tmp_path / "prompts"
+    en_dir = tmp_prompts_dir / "EN" / "agents"
+    en_dir.mkdir(parents=True)
+
+    external_template = "Canon critic.\nLORE:\n{lore_data}"
+    (en_dir / "canon_critic.txt").write_text(external_template, encoding="utf-8")
+
+    monkeypatch.setattr(prompt_loader, "PROMPTS_DIR", tmp_prompts_dir)
+    monkeypatch.setenv("AUTOBOOK_LANGUAGE", "EN")
+
+    from agents import CanonCriticAgent
+    agent = CanonCriticAgent(lore_data="Canon lore")
+    assert agent.system_prompt == "Canon critic.\nLORE:\nCanon lore"
+
+def test_canon_critic_agent_fallback(tmp_path: Path, monkeypatch) -> None:
+    """Valida que o CanonCriticAgent cai no fallback hardcoded se arquivo externo ausente."""
+    tmp_prompts_dir = tmp_path / "prompts"
+    tmp_prompts_dir.mkdir()
+
+    monkeypatch.setattr(prompt_loader, "PROMPTS_DIR", tmp_prompts_dir)
+    monkeypatch.setenv("AUTOBOOK_LANGUAGE", "EN")
+
+    from agents import CanonCriticAgent
+    agent = CanonCriticAgent(lore_data="Canon lore")
+    assert "You are a rigorous canon and lore critic" in agent.system_prompt
+    assert "Canon lore" in agent.system_prompt
+
+def test_style_critic_agent_uses_external_prompt(tmp_path: Path, monkeypatch) -> None:
+    """Valida que o StyleCriticAgent usa o prompt externo e interpola slop_rules."""
+    tmp_prompts_dir = tmp_path / "prompts"
+    en_dir = tmp_prompts_dir / "EN" / "agents"
+    en_dir.mkdir(parents=True)
+
+    external_template = "Style critic.\nSLOP:\n{slop_rules}"
+    (en_dir / "style_critic.txt").write_text(external_template, encoding="utf-8")
+
+    monkeypatch.setattr(prompt_loader, "PROMPTS_DIR", tmp_prompts_dir)
+    monkeypatch.setenv("AUTOBOOK_LANGUAGE", "EN")
+
+    from agents import StyleCriticAgent
+    agent = StyleCriticAgent(slop_rules="No slop allowed")
+    assert agent.system_prompt == "Style critic.\nSLOP:\nNo slop allowed"
+
+def test_style_critic_agent_fallback(tmp_path: Path, monkeypatch) -> None:
+    """Valida que o StyleCriticAgent cai no fallback hardcoded se arquivo externo ausente."""
+    tmp_prompts_dir = tmp_path / "prompts"
+    tmp_prompts_dir.mkdir()
+
+    monkeypatch.setattr(prompt_loader, "PROMPTS_DIR", tmp_prompts_dir)
+    monkeypatch.setenv("AUTOBOOK_LANGUAGE", "EN")
+
+    from agents import StyleCriticAgent
+    agent = StyleCriticAgent(slop_rules="No slop allowed")
+    assert "You are a sharp stylistic editor" in agent.system_prompt
+    assert "No slop allowed" in agent.system_prompt
+
+def test_flow_critic_agent_uses_external_prompt(tmp_path: Path, monkeypatch) -> None:
+    """Valida que o FlowCriticAgent usa o prompt externo quando disponível."""
+    tmp_prompts_dir = tmp_path / "prompts"
+    en_dir = tmp_prompts_dir / "EN" / "agents"
+    en_dir.mkdir(parents=True)
+
+    external_content = "Flow structure test content."
+    (en_dir / "flow_critic.txt").write_text(external_content, encoding="utf-8")
+
+    monkeypatch.setattr(prompt_loader, "PROMPTS_DIR", tmp_prompts_dir)
+    monkeypatch.setenv("AUTOBOOK_LANGUAGE", "EN")
+
+    from agents import FlowCriticAgent
+    agent = FlowCriticAgent()
+    assert agent.system_prompt == external_content
+
+def test_flow_critic_agent_fallback(tmp_path: Path, monkeypatch) -> None:
+    """Valida que o FlowCriticAgent cai no fallback hardcoded se arquivo externo ausente."""
+    tmp_prompts_dir = tmp_path / "prompts"
+    tmp_prompts_dir.mkdir()
+
+    monkeypatch.setattr(prompt_loader, "PROMPTS_DIR", tmp_prompts_dir)
+    monkeypatch.setenv("AUTOBOOK_LANGUAGE", "EN")
+
+    from agents import FlowCriticAgent
+    agent = FlowCriticAgent()
+    assert "You are a story structure and flow critic" in agent.system_prompt
+
+def test_synthesis_agent_uses_external_prompt(tmp_path: Path, monkeypatch) -> None:
+    """Valida que o SynthesisAgent usa o prompt externo quando disponível."""
+    tmp_prompts_dir = tmp_path / "prompts"
+    en_dir = tmp_prompts_dir / "EN" / "agents"
+    en_dir.mkdir(parents=True)
+
+    external_content = "Synthesis test prompt content."
+    (en_dir / "synthesis.txt").write_text(external_content, encoding="utf-8")
+
+    monkeypatch.setattr(prompt_loader, "PROMPTS_DIR", tmp_prompts_dir)
+    monkeypatch.setenv("AUTOBOOK_LANGUAGE", "EN")
+
+    from agents import SynthesisAgent
+    agent = SynthesisAgent()
+    assert agent.system_prompt == external_content
+
+def test_synthesis_agent_fallback(tmp_path: Path, monkeypatch) -> None:
+    """Valida que o SynthesisAgent cai no fallback hardcoded se arquivo externo ausente."""
+    tmp_prompts_dir = tmp_path / "prompts"
+    tmp_prompts_dir.mkdir()
+
+    monkeypatch.setattr(prompt_loader, "PROMPTS_DIR", tmp_prompts_dir)
+    monkeypatch.setenv("AUTOBOOK_LANGUAGE", "EN")
+
+    from agents import SynthesisAgent
+    agent = SynthesisAgent()
+    assert "You are an elite manuscript rewriter" in agent.system_prompt
