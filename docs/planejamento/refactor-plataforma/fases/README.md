@@ -44,8 +44,8 @@ por vez, com seus arquivos-alvo e comandos de teste.
 
 | Ordem | Spec | Status |
 | --- | --- | --- |
-| 5.1 | [fase-05-1-hardening-pos-gate-a.md](fase-05-1-hardening-pos-gate-a.md) | Pronta para delegacao |
-| 6 | [fase-06-agent-system.md](fase-06-agent-system.md) | Definida pos-Gate A |
+| 5.1 | [fase-05-1-hardening-pos-gate-a.md](fase-05-1-hardening-pos-gate-a.md) | Concluida |
+| 6 | [fase-06-agent-system.md](fase-06-agent-system.md) | Concluida |
 | 7 | [fase-07-agent-prompts.md](fase-07-agent-prompts.md) | Definida pos-Gate A |
 | 8 | [fase-08-feedback-lifecycle.md](fase-08-feedback-lifecycle.md) | Definida pos-Gate A |
 | 9 | [fase-09-book-generation-subpipelines.md](fase-09-book-generation-subpipelines.md) | Definida pos-Gate A |

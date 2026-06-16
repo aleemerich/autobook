@@ -7,7 +7,7 @@ from pipelines.editorial_revision import EditorialRevisionPipeline
 from pipelines.ideation import IdeationPipeline
 from pipelines.foundation import FoundationPipeline
 
-@dataclass
+@dataclass(frozen=True)
 class PipelineSpec:
     name: str
     description: str

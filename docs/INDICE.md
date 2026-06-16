@@ -48,8 +48,8 @@ atualizado antes de virar documentacao definitiva.
 | Spec 06 - Feedback Lifecycle | [planejamento/refactor-plataforma/06-feedback-lifecycle.md](planejamento/refactor-plataforma/06-feedback-lifecycle.md) | Novo v0 (Fase 0) |
 | Spec 07 - Migration Plan | [planejamento/refactor-plataforma/07-migration-plan.md](planejamento/refactor-plataforma/07-migration-plan.md) | Novo v0 (Fase 0) |
 | Gate A Review | [planejamento/refactor-plataforma/gates/gate-a-review.md](planejamento/refactor-plataforma/gates/gate-a-review.md) | Novo v0 (Pós-Fase 5) |
-| Fase 05.1 - Hardening Pos-Gate A | [planejamento/refactor-plataforma/fases/fase-05-1-hardening-pos-gate-a.md](planejamento/refactor-plataforma/fases/fase-05-1-hardening-pos-gate-a.md) | Definida |
-| Fase 06 - Agent System | [planejamento/refactor-plataforma/fases/fase-06-agent-system.md](planejamento/refactor-plataforma/fases/fase-06-agent-system.md) | Definida |
+| Fase 05.1 - Hardening Pos-Gate A | [planejamento/refactor-plataforma/fases/fase-05-1-hardening-pos-gate-a.md](planejamento/refactor-plataforma/fases/fase-05-1-hardening-pos-gate-a.md) | Concluída |
+| Fase 06 - Agent System | [planejamento/refactor-plataforma/fases/fase-06-agent-system.md](planejamento/refactor-plataforma/fases/fase-06-agent-system.md) | Concluída |
 | Fase 07 - Agent Prompts | [planejamento/refactor-plataforma/fases/fase-07-agent-prompts.md](planejamento/refactor-plataforma/fases/fase-07-agent-prompts.md) | Definida |
 | Fase 08 - Feedback Lifecycle | [planejamento/refactor-plataforma/fases/fase-08-feedback-lifecycle.md](planejamento/refactor-plataforma/fases/fase-08-feedback-lifecycle.md) | Definida |
 | Fase 09 - Book Generation Subpipelines | [planejamento/refactor-plataforma/fases/fase-09-book-generation-subpipelines.md](planejamento/refactor-plataforma/fases/fase-09-book-generation-subpipelines.md) | Definida |
@@ -86,7 +86,7 @@ snapshot.
 
 - Entrada principal: `run.py`.
 - Pipelines suportados pela CLI: `ideation`, `foundation`, `book_generation`, `editorial_revision`.
-- Baseline moderno de testes: `uv run --with pytest pytest tests` com 91 testes passando.
+- Baseline moderno de testes: `uv run --with pytest pytest tests` com 99 testes passando.
 - `legacy/tests` nao faz parte do baseline atual; a coleta falha por imports de modulos removidos ou renomeados.
 - Python: `>=3.12`.
 - Gerenciador recomendado: `uv`.

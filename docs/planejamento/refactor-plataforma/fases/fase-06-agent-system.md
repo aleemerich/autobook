@@ -10,7 +10,7 @@ especializacao por obra e feedback sem depender do arquivo monolitico
 
 ## Status
 
-Definida pos-Gate A. Pode ser delegada depois da Fase 05.1.
+Concluida.
 
 ## Decisao Arquitetural
 

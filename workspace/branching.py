@@ -17,10 +17,14 @@ def slugify_work_title(title: str) -> str:
 
 def book_branch_name(title_or_slug: str) -> str:
     """Gera o nome de branch padrão no formato autobook/<slug>."""
+    if not title_or_slug or not title_or_slug.strip():
+        raise ValueError("O título ou slug fornecido não pode ser vazio.")
     slug_candidate = title_or_slug
     if slug_candidate.startswith("autobook/"):
         slug_candidate = slug_candidate[len("autobook/"):]
     slug = slugify_work_title(slug_candidate)
+    if not slug:
+        raise ValueError(f"O título ou slug '{title_or_slug}' resultou em um nome de branch vazio inválido.")
     return f"autobook/{slug}"
 
 def is_main_branch(branch: str) -> bool:

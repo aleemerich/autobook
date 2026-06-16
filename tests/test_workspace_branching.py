@@ -21,6 +21,27 @@ def test_book_branch_name() -> None:
     assert book_branch_name("Meu Livro") == "autobook/meu-livro"
     assert book_branch_name("autobook/meu-livro") == "autobook/meu-livro"
 
+    # Casos de erro da Fase 5.1 Hardening
+    with pytest.raises(ValueError) as excinfo:
+        book_branch_name("")
+    assert "não pode ser vazio" in str(excinfo.value)
+
+    with pytest.raises(ValueError) as excinfo:
+        book_branch_name("   ")
+    assert "não pode ser vazio" in str(excinfo.value)
+
+    with pytest.raises(ValueError) as excinfo:
+        book_branch_name("???")
+    assert "nome de branch vazio inválido" in str(excinfo.value)
+
+    with pytest.raises(ValueError) as excinfo:
+        book_branch_name("autobook/")
+    assert "nome de branch vazio inválido" in str(excinfo.value)
+
+    with pytest.raises(ValueError) as excinfo:
+        book_branch_name("autobook/???")
+    assert "nome de branch vazio inválido" in str(excinfo.value)
+
 def test_is_main_branch() -> None:
     """Valida que main e master são consideradas branches principais."""
     assert is_main_branch("main") is True

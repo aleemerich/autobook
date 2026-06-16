@@ -8,7 +8,7 @@ e serve para reduzir divida tecnica imediata.
 
 ## Status
 
-Pronta para delegacao ao executor.
+Concluida.
 
 ## Dependencias
 
