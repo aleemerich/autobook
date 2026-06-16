@@ -1,9 +1,15 @@
+import pytest
+from unittest.mock import patch
 from pathlib import Path
 from pipelines.foundation_steps.context import (
     load_text_file,
     extract_voice_part2,
     build_foundation_writing_state,
     foundation_git_paths
+)
+from pipelines.foundation_steps.persistence import (
+    write_foundation_state,
+    commit_foundation_artifacts
 )
 
 def test_load_text_file_exists(tmp_path) -> None:
@@ -70,3 +76,66 @@ def test_foundation_git_paths_include_mystery() -> None:
     assert "book_data/canon.md" in paths
     assert "book_data/MYSTERY.md" in paths
     assert len(paths) == 6
+
+
+# --- Testes de persistência de fundação ---
+
+def test_write_foundation_state(tmp_path) -> None:
+    """Valida que write_foundation_state cria o arquivo state.json de escrita no local correto."""
+    import json
+    state_file = tmp_path / "book_data" / "state.json"
+    write_foundation_state(state_file)
+    assert state_file.exists()
+    state = json.loads(state_file.read_text(encoding="utf-8"))
+    assert state == {
+        "chapters_drafted": 0,
+        "phase": "writing",
+        "current_focus": "chapters"
+    }
+
+
+@patch("subprocess.run")
+def test_commit_foundation_artifacts_exclude_mystery(mock_sub_run) -> None:
+    """Valida que commit_foundation_artifacts executa git add e commit na ordem certa excluindo o mistério."""
+    commit_foundation_artifacts(Path("/test/dir"), include_mystery=False)
+    assert mock_sub_run.call_count == 6  # 5 git adds + 1 git commit
+    calls = mock_sub_run.call_args_list
+
+    expected_adds = [
+        "seed.txt",
+        "book_data/world.md",
+        "book_data/characters.md",
+        "book_data/outline.md",
+        "book_data/canon.md",
+    ]
+    for idx, path in enumerate(expected_adds):
+        assert calls[idx][0][0] == ["git", "add", path]
+        assert calls[idx][1]["cwd"] == "/test/dir"
+        assert calls[idx][1]["check"] is True
+
+    assert calls[5][0][0] == [
+        "git", "commit", "-m", "planning: initialize foundational story bibles and outline"
+    ]
+    assert calls[5][1]["cwd"] == "/test/dir"
+    assert calls[5][1]["check"] is True
+
+
+@patch("subprocess.run")
+def test_commit_foundation_artifacts_include_mystery(mock_sub_run) -> None:
+    """Valida que commit_foundation_artifacts inclui book_data/MYSTERY.md quando include_mystery é True."""
+    commit_foundation_artifacts(Path("/test/dir"), include_mystery=True)
+    assert mock_sub_run.call_count == 7  # 6 git adds + 1 git commit
+    calls = mock_sub_run.call_args_list
+    assert calls[5][0][0] == ["git", "add", "book_data/MYSTERY.md"]
+    assert calls[6][0][0] == [
+        "git", "commit", "-m", "planning: initialize foundational story bibles and outline"
+    ]
+
+
+@patch("subprocess.run")
+def test_commit_foundation_artifacts_error_propagation(mock_sub_run) -> None:
+    """Valida que erros de subprocess propagam a partir do helper."""
+    import subprocess
+    mock_sub_run.side_effect = subprocess.CalledProcessError(1, "git")
+    with pytest.raises(subprocess.CalledProcessError):
+        commit_foundation_artifacts(Path("/test/dir"), include_mystery=False)

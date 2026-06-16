@@ -5,9 +5,6 @@ Generates world.md, characters.md, outline.md, and canon.md under book_data/ bas
 """
 
 import sys
-import os
-import json
-import subprocess
 from pathlib import Path
 from typing import Dict, Any
 
@@ -15,9 +12,11 @@ from pipelines.base import Step, Pipeline
 from llm import call_llm
 from pipelines.foundation_steps.context import (
     load_text_file,
-    extract_voice_part2,
-    build_foundation_writing_state,
-    foundation_git_paths
+    extract_voice_part2
+)
+from pipelines.foundation_steps.persistence import (
+    commit_foundation_artifacts,
+    write_foundation_state
 )
 
 BASE_DIR = Path(__file__).parent.parent.resolve()
@@ -430,18 +429,13 @@ class CommitFoundationStep(Step):
         
         # Git add and commit
         try:
-            for path_str in foundation_git_paths(MYSTERY_PATH.exists()):
-                subprocess.run(["git", "add", path_str], cwd=str(BASE_DIR), check=True)
-                
-            commit_msg = "planning: initialize foundational story bibles and outline"
-            subprocess.run(["git", "commit", "-m", commit_msg], cwd=str(BASE_DIR), check=True)
+            commit_foundation_artifacts(BASE_DIR, MYSTERY_PATH.exists())
             print("[Foundation] Git commit concluído com sucesso.")
         except Exception as e:
             print(f"[Warning] Falha ao executar commits automáticos no Git: {e}", file=sys.stderr)
 
         # Reset state.json cursor to 0 chapters drafted
-        state = build_foundation_writing_state()
-        STATE_FILE.write_text(json.dumps(state, indent=2, ensure_ascii=False), encoding="utf-8")
+        write_foundation_state(STATE_FILE)
         print("[Foundation] Cursor em state.json inicializado para escrita (chapters_drafted: 0).")
 
 
