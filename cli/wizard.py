@@ -6,6 +6,7 @@ from typing import Any
 from cli.discovery import discover_project_state
 from pipelines.registry import list_pipelines
 from workspace.branching import suggest_book_branch_command, create_book_branch
+from workspace.project import write_workspace_metadata
 
 def _prompt_input(prompt: str, input_func: Any, stdout: Any) -> str:
     """Helper para obter input garantindo que o prompt seja capturado em stdouts customizados."""
@@ -65,6 +66,12 @@ def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = Non
                         try:
                             created_name = create_book_branch(title_or_slug)
                             print(f"Branch criada: {created_name}", file=stdout)
+
+                            try:
+                                write_workspace_metadata(title=title_or_slug, branch=created_name, base_dir=base_dir)
+                                print("Workspace registrado em: book_data/workspace.json", file=stdout)
+                            except (ValueError, OSError) as e:
+                                print(f"Erro: {e}", file=stdout)
                         except (ValueError, RuntimeError) as e:
                             print(f"Erro: {e}", file=stdout)
                 except ValueError as e:
