@@ -53,7 +53,7 @@ def parse_chapters(ch_str: str) -> list:
                 print(f"[Error] Invalid chapter: '{part}'", file=sys.stderr)
     return sorted(list(nums))
 
-def main():
+def main(argv: list[str] | None = None) -> None:
     # Setup logging to logs/pipeline.log
     log_dir = BASE_DIR / "logs"
     log_dir.mkdir(exist_ok=True)
@@ -66,7 +66,15 @@ def main():
     sys.stdout = Tee(str(log_file), sys.stdout)
     sys.stderr = Tee(str(log_file), sys.stderr)
 
-    parser = argparse.ArgumentParser(description="Unified Autobook Pipeline Orchestrator")
+    if argv is None:
+        argv = sys.argv[1:]
+
+    if len(argv) == 0:
+        from cli.wizard import main as wizard_main
+        wizard_main()
+        return
+
+    parser = argparse.ArgumentParser(description="Unified Autobook Unified Pipeline Orchestrator")
     parser.add_argument(
         "--pipeline",
         choices=list(list_pipelines().keys()),
@@ -90,7 +98,7 @@ def main():
         help="Specific chapter(s) to run (e.g., '1-4', '5,7')"
     )
 
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     # Build execution context
     context = {
