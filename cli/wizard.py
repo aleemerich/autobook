@@ -6,7 +6,7 @@ from typing import Any
 from cli.discovery import discover_project_state
 from pipelines.registry import list_pipelines
 from workspace.branching import suggest_book_branch_command, create_book_branch
-from workspace.project import write_workspace_metadata
+from workspace.project import write_workspace_metadata, load_workspace_metadata
 
 def _prompt_input(prompt: str, input_func: Any, stdout: Any) -> str:
     """Helper para obter input garantindo que o prompt seja capturado em stdouts customizados."""
@@ -34,6 +34,17 @@ def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = Non
     # 2. Imprimir cabeçalho e informações do Branch
     print("=== AUTOBOOK WIZARD ===", file=stdout)
     print(f"Branch atual: {state.current_branch}", file=stdout)
+
+    try:
+        ws_meta = load_workspace_metadata(base_dir)
+        if ws_meta:
+            print(f"Obra registrada: {ws_meta['title']}", file=stdout)
+            print(f"Branch da obra: {ws_meta['branch']}", file=stdout)
+        else:
+            print("Workspace registrado: Nenhum", file=stdout)
+    except ValueError as e:
+        print(f"Aviso: workspace.json invalido: {e}", file=stdout)
+
     if state.current_branch in ("main", "master"):
         print("Aviso: Voce esta no branch principal (main/master). Recomendamos criar um branch de feature.", file=stdout)
 
@@ -104,6 +115,8 @@ def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = Non
                 flags.append("suporta --chapter")
             if spec.supports_from_scratch:
                 flags.append("suporta --from-scratch")
+            if spec.requires_work_branch:
+                flags.append("requer branch de obra")
             flags_str = f" ({', '.join(flags)})" if flags else ""
             print(f"- {spec.name}: {spec.description}{flags_str}", file=stdout)
         else:

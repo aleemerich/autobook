@@ -13,7 +13,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent.resolve()
 sys.path.insert(0, str(BASE_DIR))
 
-from pipelines.registry import get_pipeline, list_pipelines
+from pipelines.registry import list_pipelines, get_pipeline_spec
 
 class Tee:
     def __init__(self, filename, stream):
@@ -111,12 +111,22 @@ def main(argv: list[str] | None = None) -> None:
     if args.chapter:
         context["chapters"] = parse_chapters(args.chapter)
 
-    # Instantiate the selected pipeline
+    # Instantiate the selected pipeline and check branch guards
     try:
-        pipeline = get_pipeline(args.pipeline)
+        spec = get_pipeline_spec(args.pipeline)
     except KeyError:
         print(f"[Error] Unknown pipeline: '{args.pipeline}'", file=sys.stderr)
         sys.exit(1)
+
+    if spec.requires_work_branch:
+        try:
+            from workspace.branching import ensure_not_main_for_generation
+            ensure_not_main_for_generation()
+        except ValueError as e:
+            print(f"[Error] {e}", file=sys.stderr)
+            sys.exit(1)
+
+    pipeline = spec.factory()
 
     try:
         pipeline.run(context)

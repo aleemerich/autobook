@@ -14,6 +14,7 @@ class PipelineSpec:
     factory: Callable[[], Pipeline]
     supports_chapter: bool
     supports_from_scratch: bool
+    requires_work_branch: bool = False
 
 _REGISTRY: Dict[str, PipelineSpec] = {
     "ideation": PipelineSpec(
@@ -22,6 +23,7 @@ _REGISTRY: Dict[str, PipelineSpec] = {
         factory=IdeationPipeline,
         supports_chapter=False,
         supports_from_scratch=True,
+        requires_work_branch=True,
     ),
     "foundation": PipelineSpec(
         name="foundation",
@@ -29,6 +31,7 @@ _REGISTRY: Dict[str, PipelineSpec] = {
         factory=FoundationPipeline,
         supports_chapter=False,
         supports_from_scratch=True,
+        requires_work_branch=True,
     ),
     "book_generation": PipelineSpec(
         name="book_generation",
@@ -36,6 +39,7 @@ _REGISTRY: Dict[str, PipelineSpec] = {
         factory=BookGenerationPipeline,
         supports_chapter=True,
         supports_from_scratch=True,
+        requires_work_branch=True,
     ),
     "editorial_revision": PipelineSpec(
         name="editorial_revision",
@@ -43,6 +47,7 @@ _REGISTRY: Dict[str, PipelineSpec] = {
         factory=EditorialRevisionPipeline,
         supports_chapter=True,
         supports_from_scratch=False,
+        requires_work_branch=True,
     ),
 }
 

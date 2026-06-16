@@ -45,6 +45,7 @@ def mock_pipelines_spec() -> dict:
             factory=MagicMock(),
             supports_chapter=False,
             supports_from_scratch=True,
+            requires_work_branch=True,
         ),
         "book_generation": PipelineSpec(
             name="book_generation",
@@ -52,6 +53,7 @@ def mock_pipelines_spec() -> dict:
             factory=MagicMock(),
             supports_chapter=True,
             supports_from_scratch=True,
+            requires_work_branch=False,
         ),
         "foundation": PipelineSpec(
             name="foundation",
@@ -59,8 +61,14 @@ def mock_pipelines_spec() -> dict:
             factory=MagicMock(),
             supports_chapter=False,
             supports_from_scratch=True,
+            requires_work_branch=True,
         )
     }
+
+@pytest.fixture(autouse=True)
+def mock_load_workspace_metadata():
+    with patch("cli.wizard.load_workspace_metadata", return_value=None) as mock_load:
+        yield mock_load
 
 def test_wizard_prints_branch_and_general_info(mock_project_state, mock_pipelines_spec) -> None:
     """Valida que o wizard imprime o branch atual e os dados gerais corretamente."""
@@ -111,7 +119,7 @@ def test_wizard_lists_pipelines_correctly(mock_project_state, mock_pipelines_spe
     output = stdout_stream.getvalue()
     
     assert "--- Pipelines Disponiveis ---" in output
-    assert "- ideation: Ideation description (suporta --from-scratch)" in output
+    assert "- ideation: Ideation description (suporta --from-scratch, requer branch de obra)" in output
     assert "- book_generation: Generation description (suporta --chapter, suporta --from-scratch)" in output
 
 def test_wizard_lists_languages_and_genres(mock_project_state, mock_pipelines_spec) -> None:
@@ -166,16 +174,17 @@ def test_run_main_empty_args_calls_wizard(mock_project_state, mock_pipelines_spe
 
 def test_run_main_with_args_goes_to_classic_pipeline(mock_project_state, mock_pipelines_spec) -> None:
     """Valida que run.main com argumentos executa a pipeline diretamente via registry."""
-    with patch("run.get_pipeline") as mock_get_pipeline:
-        mock_pipeline = MagicMock()
-        mock_get_pipeline.return_value = mock_pipeline
-        
+    with patch("run.get_pipeline_spec") as mock_get_spec:
+        mock_spec = MagicMock()
+        mock_spec.requires_work_branch = False
+        mock_get_spec.return_value = mock_spec
+
         with patch("cli.wizard.main") as mock_wizard_main:
             run.main(["--pipeline", "book_generation"])
-            
+
             mock_wizard_main.assert_not_called()
-            mock_get_pipeline.assert_called_once_with("book_generation")
-            mock_pipeline.run.assert_called_once()
+            mock_get_spec.assert_called_once_with("book_generation")
+            mock_spec.factory.return_value.run.assert_called_once()
 
 # --- Novos testes do incremento interativo ---
 
@@ -447,4 +456,51 @@ def test_wizard_branch_prep_not_on_main(mock_project_state, mock_pipelines_spec)
 
     output = stdout_stream.getvalue()
     assert "Deseja preparar uma branch de obra agora?" not in output
+    assert "Saindo..." in output
+
+def test_wizard_workspace_absent(mock_project_state, mock_pipelines_spec, mock_load_workspace_metadata) -> None:
+    """Valida que o wizard exibe Workspace registrado: Nenhum quando ausente."""
+    mock_load_workspace_metadata.return_value = None
+    stdout_stream = io.StringIO()
+    input_func = lambda _: ""
+
+    with patch("cli.wizard.discover_project_state", return_value=mock_project_state):
+        with patch("cli.wizard.list_pipelines", return_value=mock_pipelines_spec):
+            wizard_main(stdout=stdout_stream, input_func=input_func)
+
+    output = stdout_stream.getvalue()
+    assert "Workspace registrado: Nenhum" in output
+
+def test_wizard_workspace_valid(mock_project_state, mock_pipelines_spec, mock_load_workspace_metadata) -> None:
+    """Valida que o wizard exibe titulo e branch do workspace se existir e for valido."""
+    mock_load_workspace_metadata.return_value = {
+        "title": "O Senhor dos Aneis",
+        "branch": "autobook/o-senhor-dos-aneis",
+        "created_at": "2026-06-16T10:00:00",
+        "schema_version": 1
+    }
+    stdout_stream = io.StringIO()
+    input_func = lambda _: ""
+
+    with patch("cli.wizard.discover_project_state", return_value=mock_project_state):
+        with patch("cli.wizard.list_pipelines", return_value=mock_pipelines_spec):
+            wizard_main(stdout=stdout_stream, input_func=input_func)
+
+    output = stdout_stream.getvalue()
+    assert "Obra registrada: O Senhor dos Aneis" in output
+    assert "Branch da obra: autobook/o-senhor-dos-aneis" in output
+
+def test_wizard_workspace_invalid(mock_project_state, mock_pipelines_spec, mock_load_workspace_metadata) -> None:
+    """Valida que o wizard exibe aviso amigavel quando workspace.json for invalido e continua exibindo menu."""
+    mock_load_workspace_metadata.side_effect = ValueError("schema_version invalido")
+    stdout_stream = io.StringIO()
+    input_func = SequenceInput(["0"]) # Sair do menu de opções
+
+    with patch("cli.wizard.discover_project_state", return_value=mock_project_state):
+        with patch("cli.wizard.list_pipelines", return_value=mock_pipelines_spec):
+            wizard_main(stdout=stdout_stream, input_func=input_func)
+
+    output = stdout_stream.getvalue()
+    assert "Aviso: workspace.json invalido: schema_version invalido" in output
+    assert "=== Menu de Opcoes ===" in output
     assert "Saindo..." in output
