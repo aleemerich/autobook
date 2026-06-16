@@ -16,6 +16,13 @@ from pipelines.book_generation_steps.planning import (
     build_beat_draft_prompt,
     build_chapter_draft_prompt
 )
+from pipelines.book_generation_steps.drafting import (
+    load_previous_beat_context,
+    save_raw_beat,
+    concatenate_raw_beats,
+    run_beat_drafting,
+    run_chapter_fallback_drafting
+)
 
 __all__ = [
     "load_state",
@@ -31,5 +38,10 @@ __all__ = [
     "build_roadmap_text",
     "build_title_instruction",
     "build_beat_draft_prompt",
-    "build_chapter_draft_prompt"
+    "build_chapter_draft_prompt",
+    "load_previous_beat_context",
+    "save_raw_beat",
+    "concatenate_raw_beats",
+    "run_beat_drafting",
+    "run_chapter_fallback_drafting"
 ]

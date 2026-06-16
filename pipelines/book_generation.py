@@ -29,10 +29,8 @@ from pipelines.book_generation_steps import (
     load_previous_chapter_tail,
     load_lore_files,
     build_lore_data,
-    build_roadmap_text,
-    build_title_instruction,
-    build_beat_draft_prompt,
-    build_chapter_draft_prompt
+    run_beat_drafting,
+    run_chapter_fallback_drafting
 )
 
 BASE_DIR = Path(__file__).parent.parent.resolve()
@@ -151,68 +149,27 @@ class DraftChaptersStep(Step):
                 
                 # Phase 1: Modular Beat Generation (Drafting ONLY)
                 if beats:
-                    print(f"[DraftChaptersStep] Found {len(beats)} beats in outline. Generating raw beats.")
-                    for b_idx, beat_text in enumerate(beats, 1):
-                        print(f"  [Beat {b_idx}/{len(beats)}] Drafting raw beat...")
-                        
-                        # 1. sliding window context from the previous beat
-                        previous_beat_context = ""
-                        if b_idx > 1:
-                            prev_beat_file = tmp_dir / f"beat_{b_idx-1:02d}_raw.md"
-                            if prev_beat_file.exists():
-                                last_beat_text = prev_beat_file.read_text(encoding="utf-8").strip()
-                                paragraphs = [p.strip() for p in last_beat_text.split('\n\n') if p.strip()]
-                                last_paragraphs = paragraphs[-3:] if len(paragraphs) > 3 else paragraphs
-                                previous_beat_context = "\n\n".join(last_paragraphs)
-                        else:
-                            previous_beat_context = prev_tail
-                            
-                        # 2. Roadmap logic
-                        roadmap_text = build_roadmap_text(beats, b_idx)
-                        
-                        # 3. Drafting prompt
-                        title_instruction = build_title_instruction(ch_title, b_idx)
-
-                        draft_prompt = build_beat_draft_prompt(
-                            b_idx=b_idx,
-                            ch=ch,
-                            title_instruction=title_instruction,
-                            voice_text=voice_text,
-                            world_text=world_text,
-                            canon_text=canon_text,
-                            roadmap_text=roadmap_text,
-                            beat_text=beats[b_idx-1],
-                            previous_beat_context=previous_beat_context,
-                            characters_text=characters_text
-                        )
-                        
-                        raw_beat = drafting_agent.execute(draft_prompt)
-                        
-                        # Save raw beat to logs/tmp_draft/
-                        beat_file = tmp_dir / f"beat_{b_idx:02d}_raw.md"
-                        beat_file.write_text(raw_beat, encoding="utf-8")
-                        
-                    # Concatenate raw beats to logs/tmp_draft/chapter_raw.md
-                    chapter_raw_file = tmp_dir / "chapter_raw.md"
-                    beats_content = []
-                    for b_idx in range(1, len(beats) + 1):
-                        beat_file = tmp_dir / f"beat_{b_idx:02d}_raw.md"
-                        if beat_file.exists():
-                            beats_content.append(beat_file.read_text(encoding="utf-8").strip())
-                    chapter_raw_text = "\n\n".join(beats_content)
-                    chapter_raw_file.write_text(chapter_raw_text, encoding="utf-8")
+                    chapter_raw_text = run_beat_drafting(
+                        tmp_dir=tmp_dir,
+                        ch=ch,
+                        ch_title=ch_title,
+                        beats=beats,
+                        prev_tail=prev_tail,
+                        voice_text=voice_text,
+                        world_text=world_text,
+                        canon_text=canon_text,
+                        characters_text=characters_text,
+                        drafting_agent=drafting_agent
+                    )
                 else:
-                    # Single chapter write fallback
-                    print("[DraftChaptersStep] No beats found. Writing the entire chapter in one go.")
-                    draft_prompt = build_chapter_draft_prompt(
+                    chapter_raw_text = run_chapter_fallback_drafting(
+                        tmp_dir=tmp_dir,
                         ch=ch,
                         ch_outline=ch_outline,
                         prev_tail=prev_tail,
-                        characters_text=characters_text
+                        characters_text=characters_text,
+                        drafting_agent=drafting_agent
                     )
-                    chapter_raw_text = drafting_agent.execute(draft_prompt)
-                    chapter_raw_file = tmp_dir / "chapter_raw.md"
-                    chapter_raw_file.write_text(chapter_raw_text, encoding="utf-8")
 
                 # Phase 2: Run Independent Critics
                 print("[DraftChaptersStep] Running active critic agents...")
