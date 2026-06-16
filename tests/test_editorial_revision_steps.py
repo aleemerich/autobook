@@ -6,6 +6,7 @@ tests/test_editorial_revision_steps.py — Unit tests for the editorial revision
 import json
 from pathlib import Path
 import pytest
+from unittest.mock import patch
 from pipelines.editorial_revision_steps.context import (
     parse_chapter_number,
     list_chapter_files,
@@ -32,10 +33,10 @@ def test_parse_chapter_number():
 
 def test_list_chapter_files(tmp_path):
     chapters_dir = tmp_path / "chapters"
-    
+
     # Test non-existing directory
     assert list_chapter_files(chapters_dir) == []
-    
+
     chapters_dir.mkdir()
     # Create some mock files
     (chapters_dir / "ch_02.md").touch()
@@ -44,7 +45,7 @@ def test_list_chapter_files(tmp_path):
     (chapters_dir / "outline.md").touch()
     (chapters_dir / "ch_abc.md").touch()
     (chapters_dir / "ch_05.txt").touch()  # invalid extension
-    
+
     expected = [
         chapters_dir / "ch_01.md",
         chapters_dir / "ch_02.md",
@@ -62,7 +63,7 @@ def test_filter_chapter_files():
     # If selected_chapters is None/empty, return all
     assert filter_chapter_files(files, None) == files
     assert filter_chapter_files(files, []) == files
-    
+
     # Filter specific chapters
     assert filter_chapter_files(files, [2, 10, 5]) == [Path("ch_02.md"), Path("ch_10.md")]
     assert filter_chapter_files(files, [5]) == []
@@ -79,12 +80,12 @@ def test_load_evaluation_json(tmp_path):
     f_valid = tmp_path / "eval_valid.json"
     data = {"overall_score": 8.5, "comments": "Muito bom"}
     f_valid.write_text(json.dumps(data), encoding="utf-8")
-    
+
     f_invalid = tmp_path / "eval_invalid.json"
     f_invalid.write_text("{broken json", encoding="utf-8")
-    
+
     f_missing = tmp_path / "eval_missing.json"
-    
+
     assert load_evaluation_json(f_valid) == data
     assert load_evaluation_json(f_invalid) == {}
     assert load_evaluation_json(f_missing) == {}
@@ -109,32 +110,32 @@ def test_format_eval_feedback():
         "prose_quality": {"score": 5.5, "fix": "Encurtar frases", "weakest_sentence": "Sentence weak"},
         "three_weakest_sentences": ["Frase ruim 1", "Frase ruim 2"]
     }
-    
+
     # 1. Test when retry_idx < 2 (e.g. retry_idx = 1)
     # Target dimensions are empty (since retry_idx < 2).
     # Slop style is excluded (since retry_idx < 3).
     feedback = format_eval_feedback(eval_data, retry_idx=1)
-    
+
     # Check canon
     assert "### VIOLAÇÕES DE CANON/LORE:" in feedback
     assert "- Personagem X apareceu em dois lugares" in feedback
     assert "- Espada trocou de nome" in feedback
-    
+
     # Check slop critical
     assert "### PROBLEMAS DE SLOP CRÍTICO:" in feedback
     assert "PALAVRAS PROIBIDAS usadas (MUDAR IMEDIATAMENTE): 'delve' (usado 2 vezes), 'tapestry' (usado 1 vezes)" in feedback
-    
+
     # Slop style should NOT be present
     assert "### ESTILO & VOCABULÁRIO (SLOP SECUNDÁRIO):" not in feedback
-    
+
     # Target dimensions should NOT be present
     assert "### DEFICIÊNCIAS NAS DIMENSÕES NARRATIVAS:" not in feedback
-    
+
     # Weakest sentences
     assert "### FRASES MAIS FRACAS (REESCREVER/MELHORAR):" in feedback
     assert '- "Frase ruim 1"' in feedback
     assert '- "Frase ruim 2"' in feedback
-    
+
     # 2. Test when retry_idx = 2 (dimensions should be present, up to 2; slop style NOT present)
     feedback_r2 = format_eval_feedback(eval_data, retry_idx=2)
     assert "### DEFICIÊNCIAS NAS DIMENSÕES NARRATIVAS:" in feedback_r2
@@ -144,7 +145,7 @@ def test_format_eval_feedback():
     assert "Dimensão 'voice_adherence' (Nota 5.0):" in feedback_r2
     assert "Ponto fraco: \"Frase de IA\"" in feedback_r2
     assert "Correção sugerida: Melhorar tom" in feedback_r2
-    
+
     assert "Dimensão 'prose_quality' (Nota 5.5):" in feedback_r2
     # Wait, the fallback/dimension parser checks dimension "fix" and "weakest_moment"
     # For prose_quality, the structure is:
@@ -154,10 +155,10 @@ def test_format_eval_feedback():
     # moment = dim_data.get("weakest_moment", "")
     # Since prose_quality in our dict does not have weakest_moment (it has weakest_sentence), "moment" will be empty. Let's verify that's handled.
     assert "Dimensão 'character_voice'" not in feedback_r2  # Only top 2
-    
+
     # Slop style should NOT be present for retry_idx=2
     assert "### ESTILO & VOCABULÁRIO (SLOP SECUNDÁRIO):" not in feedback_r2
-    
+
     # 3. Test when retry_idx = 3 (dimensions present, slop style present)
     feedback_r3 = format_eval_feedback(eval_data, retry_idx=3)
     assert "### ESTILO & VOCABULÁRIO (SLOP SECUNDÁRIO):" in feedback_r3
@@ -165,3 +166,92 @@ def test_format_eval_feedback():
     assert "Tiques estruturais de IA detectados: 'not only' (usado 2 vezes)" in feedback_r3
     assert "Clichês/tells de IA detectados: 'help but' (usado 1 vezes)" in feedback_r3
     assert "Densidade excessiva de travessões: 18.5" in feedback_r3
+
+
+@patch("pipelines.editorial_revision.evaluate_chapter")
+@patch("subprocess.run")
+def test_execute_editorial_step_flow(mock_sub_run, mock_evaluate, tmp_path):
+    import pipelines.editorial_revision
+    from pipelines.editorial_revision import ExecuteEditorialStep
+
+    # 1. Setup temporary directories and files
+    chapters_dir = tmp_path / "chapters"
+    chapters_dir.mkdir()
+
+    # Create valid chapter files out of order
+    (chapters_dir / "ch_02.md").write_text("Chapter 2 content", encoding="utf-8")
+    (chapters_dir / "ch_01.md").write_text("Chapter 1 content", encoding="utf-8")
+    (chapters_dir / "ch_10.md").write_text("Chapter 10 content", encoding="utf-8")
+
+    # Create invalid file names/extensions
+    (chapters_dir / "ch_x.md").write_text("invalid name", encoding="utf-8")
+    (chapters_dir / "ch_05.txt").write_text("invalid ext", encoding="utf-8")
+    (chapters_dir / "outline.md").write_text("outline", encoding="utf-8")
+
+    # 2. Patch CHAPTERS_DIR and BASE_DIR
+    orig_chapters_dir = pipelines.editorial_revision.CHAPTERS_DIR
+    orig_base_dir = pipelines.editorial_revision.BASE_DIR
+    pipelines.editorial_revision.CHAPTERS_DIR = chapters_dir
+    pipelines.editorial_revision.BASE_DIR = tmp_path
+
+    try:
+        # Mock evaluations to succeed immediately (score 8.0, slop penalty 0)
+        mock_evaluate.return_value = {
+            "overall_score": 8.0,
+            "slop": {"slop_penalty": 0.0}
+        }
+
+        # 3. Test: Filtros de capítulos selecionados continuam funcionando
+        step = ExecuteEditorialStep()
+        # We specify selection as [10, 1] in context
+        context = {
+            "chapters_briefs": {
+                1: {"brief": "Ch 1 brief"},
+                2: {"brief": "Ch 2 brief"},
+                10: {"brief": "Ch 10 brief"},
+            },
+            "general_notes": "Some general notes",
+            "chapters": [10, 1]
+        }
+
+        step.run(context)
+
+        # Verify that only chapter 10 and chapter 1 were evaluated, NOT chapter 2, and not the invalid files
+        called_chapters = [args[0] for args, kwargs in mock_evaluate.call_args_list]
+        assert 10 in called_chapters
+        assert 1 in called_chapters
+        assert 2 not in called_chapters
+
+        # Verify that subprocess was called for gen_revision.py for 10 and 1
+        assert mock_sub_run.call_count > 0
+
+        # 4. Test: a pipeline usa a ordenação numérica correta de capítulos (quando não selecionado pelo contexto)
+        mock_evaluate.reset_mock()
+        mock_sub_run.reset_mock()
+
+        # Remove selection from context so it falls back to briefs keys, sorted numerically
+        context_fallback = {
+            "chapters_briefs": {
+                10: {"brief": "Ch 10 brief"},
+                2: {"brief": "Ch 2 brief"},
+                1: {"brief": "Ch 1 brief"},
+            },
+            "general_notes": "Some general notes",
+            "chapters": None
+        }
+
+        step.run(context_fallback)
+
+        # When target_chapters is not specified, it falls back to:
+        # sorted(list(chapters_briefs.keys())) -> [1, 2, 10]
+        called_chapters_fallback = []
+        for args, kwargs in mock_evaluate.call_args_list:
+            ch = args[0]
+            if not called_chapters_fallback or called_chapters_fallback[-1] != ch:
+                called_chapters_fallback.append(ch)
+
+        assert called_chapters_fallback == [1, 2, 10]
+
+    finally:
+        pipelines.editorial_revision.CHAPTERS_DIR = orig_chapters_dir
+        pipelines.editorial_revision.BASE_DIR = orig_base_dir
