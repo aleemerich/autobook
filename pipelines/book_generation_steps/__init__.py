@@ -35,6 +35,13 @@ from pipelines.book_generation_steps.revision import (
     build_synthesis_prompt,
     run_sequential_synthesis
 )
+from pipelines.book_generation_steps.persistence import (
+    clean_chapter_text,
+    save_chapter_draft,
+    archive_generation_attempt,
+    update_generation_state,
+    run_continuity_and_git_push
+)
 
 __all__ = [
     "load_state",
@@ -63,5 +70,10 @@ __all__ = [
     "list_critique_files",
     "build_revision_plan",
     "build_synthesis_prompt",
-    "run_sequential_synthesis"
+    "run_sequential_synthesis",
+    "clean_chapter_text",
+    "save_chapter_draft",
+    "archive_generation_attempt",
+    "update_generation_state",
+    "run_continuity_and_git_push"
 ]

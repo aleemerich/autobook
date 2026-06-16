@@ -32,7 +32,12 @@ from pipelines.book_generation_steps import (
     run_beat_drafting,
     run_chapter_fallback_drafting,
     run_critic_agents,
-    run_sequential_synthesis
+    run_sequential_synthesis,
+    clean_chapter_text,
+    save_chapter_draft,
+    archive_generation_attempt,
+    update_generation_state,
+    run_continuity_and_git_push
 )
 
 BASE_DIR = Path(__file__).parent.parent.resolve()
@@ -191,34 +196,10 @@ class DraftChaptersStep(Step):
                 )
                 
                 # Clean up title and metadata from Python side just in case
-                lines = current_text.split("\n")
-                clean_lines = []
-                title_kept = False
-                for line in lines:
-                    stripped = line.strip()
-                    if stripped.startswith("#"):
-                        if stripped.startswith("# ") and not title_kept:
-                            clean_lines.append(line)
-                            title_kept = True
-                    else:
-                        clean_lines.append(line)
-                final_chapter_text = "\n".join(clean_lines).strip()
+                final_chapter_text = clean_chapter_text(current_text)
                 
                 # Write to target chapter file
-                ch_file = CHAPTERS_DIR / f"ch_{ch:02d}.md"
-                ch_file.parent.mkdir(exist_ok=True)
-                ch_file.write_text(final_chapter_text, encoding="utf-8")
-                
-                # Archive the attempt directory to logs/generation_attempts/
-                attempts_dir = BASE_DIR / "logs" / "generation_attempts" / f"ch{ch:02d}_attempt{attempt:02d}"
-                if attempts_dir.exists():
-                    shutil.rmtree(attempts_dir)
-                attempts_dir.mkdir(parents=True, exist_ok=True)
-                for item in tmp_dir.glob("*"):
-                    if item.is_file():
-                        shutil.copy(item, attempts_dir / item.name)
-                # Also save the final version we got in that attempts directory
-                (attempts_dir / f"ch_{ch:02d}_final_attempt.md").write_text(final_chapter_text, encoding="utf-8")
+                save_chapter_draft(CHAPTERS_DIR, ch, final_chapter_text)
                 
                 # Phase 4: Evaluate
                 print(f"[DraftChaptersStep] Evaluating Chapter {ch}...")
@@ -226,59 +207,50 @@ class DraftChaptersStep(Step):
                 score = eval_res.get("overall_score", 0.0)
                 print(f"[DraftChaptersStep] Chapter {ch} Evaluation Score: {score}")
                 
-                # Save evaluation result to the attempt log
-                (attempts_dir / "evaluation.json").write_text(json.dumps(eval_res, indent=2, ensure_ascii=False), encoding="utf-8")
+                # Archive the attempt directory
+                archive_generation_attempt(
+                    base_dir=BASE_DIR,
+                    tmp_dir=tmp_dir,
+                    ch=ch,
+                    attempt=attempt,
+                    final_chapter_text=final_chapter_text,
+                    eval_res=eval_res
+                )
                 
                 if score > best_draft_score:
                     best_draft_score = score
                     best_draft_text = final_chapter_text
                     
                 if score >= threshold:
-                    # Run continuity validation via subprocess
-                    print("[DraftChaptersStep] Running global continuity validation...")
-                    cont_res = subprocess.run(
-                        [sys.executable, "verify_continuity.py", "--strict", "--threshold", "7.0"],
-                        capture_output=True,
-                        text=True,
-                        cwd=str(BASE_DIR)
-                    )
-                    
-                    if cont_res.returncode == 0:
-                        print(f"[DraftChaptersStep] Continuity passed for Chapter {ch}!")
-                        subprocess.run(["git", "add", f"chapters/ch_{ch:02d}.md"], cwd=str(BASE_DIR))
-                        
-                        # Update state
-                        state["chapters_drafted"] = ch
-                        state_file.write_text(json.dumps(state, indent=2, ensure_ascii=False), encoding="utf-8")
-                        subprocess.run(["git", "add", "book_data/state.json"], cwd=str(BASE_DIR))
-                        
-                        commit_msg = f"ch{ch:02d}: score {score} (attempt {attempt})"
-                        subprocess.run(["git", "commit", "-m", commit_msg], cwd=str(BASE_DIR))
-                        
-                        print("[DraftChaptersStep] Pushing to remote...")
-                        subprocess.run(["git", "push"], cwd=str(BASE_DIR))
-                        
+                    # Run continuity validation and Git push
+                    if run_continuity_and_git_push(
+                        base_dir=BASE_DIR,
+                        state_file=state_file,
+                        state=state,
+                        ch=ch,
+                        score=score,
+                        attempt=attempt
+                    ):
                         drafted = True
                         break
-                    else:
-                        print(f"[DraftChaptersStep] Continuity failed (exit {cont_res.returncode}). Output: {cont_res.stdout}")
                 else:
                     print(f"[DraftChaptersStep] Score {score} < threshold {threshold}. Discarding attempt.")
                     
             if not drafted:
                 print(f"[DraftChaptersStep] WARNING: Chapter {ch} failed to reach threshold after {max_attempts} attempts.")
                 print(f"[DraftChaptersStep] Keeping best attempt (score: {best_draft_score})")
-                ch_file = CHAPTERS_DIR / f"ch_{ch:02d}.md"
-                ch_file.write_text(best_draft_text, encoding="utf-8")
+                save_chapter_draft(CHAPTERS_DIR, ch, best_draft_text)
                 
-                subprocess.run(["git", "add", f"chapters/ch_{ch:02d}.md"], cwd=str(BASE_DIR))
-                state["chapters_drafted"] = ch
-                state_file.write_text(json.dumps(state, indent=2, ensure_ascii=False), encoding="utf-8")
-                subprocess.run(["git", "add", "book_data/state.json"], cwd=str(BASE_DIR))
-                
-                commit_msg = f"ch{ch:02d}: forced score {best_draft_score} (fallback)"
-                subprocess.run(["git", "commit", "-m", commit_msg], cwd=str(BASE_DIR))
-                subprocess.run(["git", "push"], cwd=str(BASE_DIR))
+                run_continuity_and_git_push(
+                    base_dir=BASE_DIR,
+                    state_file=state_file,
+                    state=state,
+                    ch=ch,
+                    score=0.0,
+                    attempt=0,
+                    is_fallback=True,
+                    best_score=best_draft_score
+                )
 
 
 class BookGenerationPipeline(Pipeline):
