@@ -13,6 +13,12 @@ from typing import Dict, Any
 
 from pipelines.base import Step, Pipeline
 from llm import call_llm
+from pipelines.foundation_steps.context import (
+    load_text_file,
+    extract_voice_part2,
+    build_foundation_writing_state,
+    foundation_git_paths
+)
 
 BASE_DIR = Path(__file__).parent.parent.resolve()
 BOOK_DATA_DIR = BASE_DIR / "book_data"
@@ -26,22 +32,6 @@ WORLD_PATH = BOOK_DATA_DIR / "world.md"
 CHARACTERS_PATH = BOOK_DATA_DIR / "characters.md"
 OUTLINE_PATH = BOOK_DATA_DIR / "outline.md"
 CANON_PATH = BOOK_DATA_DIR / "canon.md"
-
-def load_file(path: Path) -> str:
-    try:
-        return path.read_text(encoding="utf-8")
-    except FileNotFoundError:
-        return ""
-
-def get_voice_part2(voice_text: str) -> str:
-    if not voice_text:
-        return ""
-    lines = voice_text.split('\n')
-    try:
-        part2_start = next(i for i, l in enumerate(lines) if 'Part 2' in l)
-        return '\n'.join(lines[part2_start:])
-    except StopIteration:
-        return voice_text
 
 class VerifySeedStep(Step):
     def __init__(self):
@@ -62,9 +52,9 @@ class GenerateWorldStep(Step):
 
     def run(self, context: Dict[str, Any]) -> None:
         print("[Foundation] Gerando world.md...")
-        seed = load_file(SEED_PATH)
-        voice = load_file(VOICE_PATH)
-        voice_p2 = get_voice_part2(voice)
+        seed = load_text_file(SEED_PATH)
+        voice = load_text_file(VOICE_PATH)
+        voice_p2 = extract_voice_part2(voice)
         
         system = (
             "You are a fantasy worldbuilder with deep knowledge of Sanderson's Laws, "
@@ -156,10 +146,10 @@ class GenerateCharactersStep(Step):
 
     def run(self, context: Dict[str, Any]) -> None:
         print("[Foundation] Gerando characters.md...")
-        seed = load_file(SEED_PATH)
-        world = load_file(WORLD_PATH)
-        voice = load_file(VOICE_PATH)
-        voice_p2 = get_voice_part2(voice)
+        seed = load_text_file(SEED_PATH)
+        world = load_text_file(WORLD_PATH)
+        voice = load_text_file(VOICE_PATH)
+        voice_p2 = extract_voice_part2(voice)
         
         system = (
             "You are a character designer for literary fiction with deep knowledge of "
@@ -273,13 +263,13 @@ class GenerateOutlineStep(Step):
 
     def run(self, context: Dict[str, Any]) -> None:
         print("[Foundation] Gerando outline.md...")
-        seed = load_file(SEED_PATH)
-        world = load_file(WORLD_PATH)
-        characters = load_file(CHARACTERS_PATH)
-        mystery = load_file(MYSTERY_PATH)
-        craft = load_file(CRAFT_PATH)
-        voice = load_file(VOICE_PATH)
-        voice_p2 = get_voice_part2(voice)
+        seed = load_text_file(SEED_PATH)
+        world = load_text_file(WORLD_PATH)
+        characters = load_text_file(CHARACTERS_PATH)
+        mystery = load_text_file(MYSTERY_PATH)
+        craft = load_text_file(CRAFT_PATH)
+        voice = load_text_file(VOICE_PATH)
+        voice_p2 = extract_voice_part2(voice)
         
         system = (
             "You are a novel architect with deep knowledge of Save the Cat beats, "
@@ -369,9 +359,9 @@ class GenerateCanonStep(Step):
 
     def run(self, context: Dict[str, Any]) -> None:
         print("[Foundation] Gerando canon.md...")
-        seed = load_file(SEED_PATH)
-        world = load_file(WORLD_PATH)
-        characters = load_file(CHARACTERS_PATH)
+        seed = load_text_file(SEED_PATH)
+        world = load_text_file(WORLD_PATH)
+        characters = load_text_file(CHARACTERS_PATH)
         
         system = (
             "You are a continuity editor extracting hard facts from fantasy novel "
@@ -440,13 +430,8 @@ class CommitFoundationStep(Step):
         
         # Git add and commit
         try:
-            subprocess.run(["git", "add", "seed.txt"], cwd=str(BASE_DIR), check=True)
-            subprocess.run(["git", "add", "book_data/world.md"], cwd=str(BASE_DIR), check=True)
-            subprocess.run(["git", "add", "book_data/characters.md"], cwd=str(BASE_DIR), check=True)
-            subprocess.run(["git", "add", "book_data/outline.md"], cwd=str(BASE_DIR), check=True)
-            subprocess.run(["git", "add", "book_data/canon.md"], cwd=str(BASE_DIR), check=True)
-            if MYSTERY_PATH.exists():
-                subprocess.run(["git", "add", "book_data/MYSTERY.md"], cwd=str(BASE_DIR), check=True)
+            for path_str in foundation_git_paths(MYSTERY_PATH.exists()):
+                subprocess.run(["git", "add", path_str], cwd=str(BASE_DIR), check=True)
                 
             commit_msg = "planning: initialize foundational story bibles and outline"
             subprocess.run(["git", "commit", "-m", commit_msg], cwd=str(BASE_DIR), check=True)
@@ -455,7 +440,7 @@ class CommitFoundationStep(Step):
             print(f"[Warning] Falha ao executar commits automáticos no Git: {e}", file=sys.stderr)
 
         # Reset state.json cursor to 0 chapters drafted
-        state = {"chapters_drafted": 0, "phase": "writing", "current_focus": "chapters"}
+        state = build_foundation_writing_state()
         STATE_FILE.write_text(json.dumps(state, indent=2, ensure_ascii=False), encoding="utf-8")
         print("[Foundation] Cursor em state.json inicializado para escrita (chapters_drafted: 0).")
 

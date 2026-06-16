@@ -13,6 +13,11 @@ from typing import Dict, Any
 
 from pipelines.base import Step, Pipeline
 from llm import call_llm
+from pipelines.ideation_steps.selection import (
+    select_concept_text,
+    default_mystery_template,
+    build_initial_ideation_state
+)
 
 BASE_DIR = Path(__file__).parent.parent.resolve()
 BOOK_DATA_DIR = BASE_DIR / "book_data"
@@ -146,19 +151,8 @@ class SelectConceptStep(Step):
         choice = input("Opção desejada (1-3 ou C): ").strip().upper()
         
         if choice in ["1", "2", "3"]:
-            # Parse the selected option from generated_concepts
             concepts_text = context.get("generated_concepts", "")
-            # Simple heuristic split by number patterns
-            parts = re.split(r'^\s*(\d+)\.\s+', concepts_text, flags=re.MULTILINE)
-            selected_text = ""
-            for idx in range(1, len(parts), 2):
-                if parts[idx] == choice:
-                    selected_text = f"{parts[idx]}. {parts[idx+1].strip()}"
-                    break
-            
-            if not selected_text:
-                selected_text = concepts_text  # fallback to whole text if parse failed
-                
+            selected_text = select_concept_text(concepts_text, choice)
             SEED_PATH.write_text(selected_text, encoding="utf-8")
             print(f"[Ideation] Semente do conceito {choice} salva com sucesso em {SEED_PATH}.")
         else:
@@ -209,13 +203,7 @@ class MysteryGeneratorStep(Step):
         else:
             # Re-fill standard empty template if not generated
             if not MYSTERY_PATH.exists():
-                template = (
-                    "# THE CENTRAL MYSTERY\n"
-                    "### Author's Eyes Only — Not for AI agent context during drafting\n\n"
-                    "---\n\n"
-                    "<!-- Define the central secret... -->\n"
-                )
-                MYSTERY_PATH.write_text(template, encoding="utf-8")
+                MYSTERY_PATH.write_text(default_mystery_template(), encoding="utf-8")
 
 class UpdateStateStep(Step):
     def __init__(self):
@@ -223,7 +211,7 @@ class UpdateStateStep(Step):
 
     def run(self, context: Dict[str, Any]) -> None:
         BOOK_DATA_DIR.mkdir(parents=True, exist_ok=True)
-        state = {"chapters_drafted": 0, "phase": "foundation", "current_focus": "planning"}
+        state = build_initial_ideation_state()
         STATE_FILE.write_text(json.dumps(state, indent=2, ensure_ascii=False), encoding="utf-8")
         print("[Ideation] state.json inicializado com sucesso.")
 
