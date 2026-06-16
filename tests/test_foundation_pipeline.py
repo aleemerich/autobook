@@ -139,7 +139,7 @@ def test_generate_canon_step(mock_call_llm, mock_foundation_paths):
     assert pipelines.foundation.CANON_PATH.exists()
     assert pipelines.foundation.CANON_PATH.read_text(encoding="utf-8") == "## Canon facts checklist"
 
-@patch("subprocess.run")
+@patch("pipelines.foundation_steps.persistence.subprocess.run")
 def test_commit_foundation_step(mock_sub_run, mock_foundation_paths):
     """Test committing files and initializing state.json cursor to 0."""
     step = CommitFoundationStep()
@@ -156,7 +156,7 @@ def test_commit_foundation_step(mock_sub_run, mock_foundation_paths):
     # Git command should have been called
     assert mock_sub_run.call_count >= 5
 
-@patch("subprocess.run")
+@patch("pipelines.foundation_steps.persistence.subprocess.run")
 @patch("pipelines.foundation.call_llm")
 def test_full_foundation_pipeline(mock_call_llm, mock_sub_run, mock_foundation_paths):
     """Test the full FoundationPipeline executing all steps successfully."""

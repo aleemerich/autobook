@@ -25,13 +25,13 @@ entrada principal e `run.py`, que executa pipelines compostos por `Step`s:
 | Pipelines | Parcial | Fluxos principais existem, mas alguns detalhes estao desatualizados. |
 | Avaliacao | Boa | `evaluate.py` combina slop mecanico e juiz LLM. |
 | Typeset | Parcial | `typeset/build_tex.py` gera LaTeX; PDF/EPUB final dependem de ferramentas externas. |
-| Testes | Boa | Baseline moderno confirmado: 60 testes em `tests/`. |
+| Testes | Boa | Baseline moderno confirmado: 274 testes em `tests/`. |
 | Legacy | Parcial | Scripts existem, mas ha caminhos e testes quebrados. |
 
 ## Correcoes Importantes Para v0
 
 - O indice antigo apontava para dezenas de arquivos granulares que nao existem. O novo indice aponta para a estrutura real.
-- O baseline correto de testes modernos e `60 passed` em `tests/`, nao a suite completa incluindo `legacy/tests`.
+- O baseline correto de testes modernos e `274 passed` em `tests/`, nao a suite completa incluindo `legacy/tests`.
 - `legacy/tests` falha na coleta por imports de `draft_chapter`, `run_editorial` e `run_pipeline`.
 - `GIT_AUTO_COMMIT` e `GIT_AUTO_PUSH` nao sao flags efetivas no codigo atual. `foundation`, `book_generation` e `editorial_revision` executam `git commit` e/ou `git push` diretamente.
 - O fluxo modular de `book_generation` usa `DraftingAgent`, criticos e `SynthesisAgent`. `StylistAgent` e `TechnicalEditorAgent` existem, mas nao sao etapas ativas centrais nesse fluxo.
@@ -62,7 +62,7 @@ uv run --with pytest pytest tests
 Resultado:
 
 ```text
-60 passed
+274 passed
 ```
 
 Comando tambem testado:

@@ -14,20 +14,30 @@ controlado por `AUTOBOOK_PROVIDER`.
 
 ## Orquestrador Principal
 
-Entrada unica:
+A entrada principal consolidada é o script `run.py`.
 
-```bash
-uv run python run.py --pipeline <pipeline>
-```
+* **Autobook Wizard (Interativo)**:
+  Chamar o script sem argumentos inicia o Wizard do console, que analisa o estado atual do projeto, sugere e cria a branch de obra correta, e registra `book_data/workspace.json`.
+  ```bash
+  uv run python run.py
+  ```
 
-Pipelines aceitos:
+* **Modo CLI Clássico (Direto)**:
+  Para rodar um pipeline específico diretamente:
+  ```bash
+  uv run python run.py --pipeline <pipeline>
+  ```
 
+Pipelines aceitos (registrados em `pipelines/registry.py`):
 ```bash
 uv run python run.py --pipeline ideation
 uv run python run.py --pipeline foundation
 uv run python run.py --pipeline book_generation
 uv run python run.py --pipeline editorial_revision
 ```
+
+### Regra de Branches de Obra
+Para manter as branches principais `main`/`master` limpas, as pipelines protegidas (`ideation`, `foundation`, `book_generation`, `editorial_revision`) exigem que o código seja executado em uma branch dedicada no formato `autobook/<slug>`.
 
 Opcoes comuns:
 
@@ -104,7 +114,7 @@ Baseline moderno:
 uv run --with pytest pytest tests
 ```
 
-Estado verificado: 60 testes passando.
+Estado verificado: 274 testes passando.
 
 Suite legada:
 

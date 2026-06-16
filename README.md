@@ -36,8 +36,12 @@ uv run python run.py --pipeline book_generation --from-scratch --yes
 
 Autobook has been fully refactored to use a **Command/Composite Pattern** for workflow orchestration. All legacy execution scripts have been consolidated into a single entry point: **`run.py`**.
 
+* **Autobook Wizard**: Running `uv run python run.py` without arguments launches an interactive console wizard. The wizard displays the project state, lists recommended next steps, can suggest and create a dedicated branch, and registers metadata in `book_data/workspace.json`.
+* **Classic CLI Mode**: Running `uv run python run.py --pipeline <name>` runs the specified pipeline directly in non-interactive CLI mode.
+* **Work Branch Enforcement**: To keep the principal `main`/`master` branches clean, execution of protected pipelines is only allowed on dedicated branches matching the format `autobook/<slug>`.
+
 ```bash
-# General CLI options
+# General CLI options (Classic Mode)
 uv run python run.py --pipeline [ideation|foundation|book_generation|editorial_revision] [--from-scratch] [--chapter CH_NUMS] [--yes]
 ```
 
@@ -94,11 +98,17 @@ To keep the repository organized, files are structured into dedicated subdirecto
   * `cauldron.txt` — Cauldron seed concepts.
   * `results.tsv` — Historical execution log of chapter attempts.
 * **[pipelines/](pipelines/)** (Orchestrator Logic):
+  * `registry.py` — Central pipeline specification and registry.
   * `base.py` — Abstract Base classes for Pipelines and Steps.
   * `ideation.py` — Questionnaire and initial seed generation.
   * `foundation.py` — Geração de bíblias estruturais (world, characters, outline, canon).
   * `book_generation.py` — Logic for the book writing pipeline.
   * `editorial_revision.py` — Logic for the revision pipeline.
+  * **[ideation_steps/](pipelines/ideation_steps/)**, **[foundation_steps/](pipelines/foundation_steps/)**, **[book_generation_steps/](pipelines/book_generation_steps/)**, **[editorial_revision_steps/](pipelines/editorial_revision_steps/)** — Modular sub-packages containing pure helper functions and context builders.
+* **[agent_system/](agent_system/)** (Modern Agent Registry & Infrastructure):
+  * Base classes, contract specifications, tardy instantiation factory, and registry defining literary roles (`drafting`, `stylist`, `technical_editor`, `canon_critic`, `style_critic`, `flow_critic`, `synthesis`).
+* **[prompts/](prompts/)** (Localized Agents & Directives):
+  * Dynamic prompt files for literary agent personas under `prompts/{LANG}/agents/` (e.g. `prompts/EN/agents/`).
 * **[skills/](skills/)** (Agent Capabilities):
   * `create_agent.py` — Skill to generate custom agent instances.
   * `redundancy_detector.py` — Skill to detect duplicate technical terms or tropes.
@@ -132,7 +142,7 @@ ELEVENLABS_API_KEY=your-elevenlabs-key-here
 
 ## Testing
 
-Autobook includes a comprehensive suite of **40 fast, local unit and integration tests** verifying prompts, language rules, parser formats, and pipeline controllers.
+Autobook includes a comprehensive suite of **274 fast, local unit and integration tests** verifying prompts, language rules, parser formats, and pipeline controllers.
 
 To run the test suite:
 ```bash

@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import patch
 from pathlib import Path
-from pipelines.foundation_steps.context import (
+from pipelines.foundation_steps import (
     load_text_file,
     extract_voice_part2,
     build_foundation_writing_state,
@@ -10,9 +10,7 @@ from pipelines.foundation_steps.context import (
     load_world_inputs,
     load_characters_inputs,
     load_outline_inputs,
-    load_canon_inputs
-)
-from pipelines.foundation_steps.persistence import (
+    load_canon_inputs,
     write_foundation_state,
     commit_foundation_artifacts
 )
@@ -193,7 +191,7 @@ def test_write_foundation_state(tmp_path) -> None:
     }
 
 
-@patch("subprocess.run")
+@patch("pipelines.foundation_steps.persistence.subprocess.run")
 def test_commit_foundation_artifacts_exclude_mystery(mock_sub_run) -> None:
     """Valida que commit_foundation_artifacts executa git add e commit na ordem certa excluindo o mistério."""
     commit_foundation_artifacts(Path("/test/dir"), include_mystery=False)
@@ -219,7 +217,7 @@ def test_commit_foundation_artifacts_exclude_mystery(mock_sub_run) -> None:
     assert calls[5][1]["check"] is True
 
 
-@patch("subprocess.run")
+@patch("pipelines.foundation_steps.persistence.subprocess.run")
 def test_commit_foundation_artifacts_include_mystery(mock_sub_run) -> None:
     """Valida que commit_foundation_artifacts inclui book_data/MYSTERY.md quando include_mystery é True."""
     commit_foundation_artifacts(Path("/test/dir"), include_mystery=True)
@@ -231,7 +229,7 @@ def test_commit_foundation_artifacts_include_mystery(mock_sub_run) -> None:
     ]
 
 
-@patch("subprocess.run")
+@patch("pipelines.foundation_steps.persistence.subprocess.run")
 def test_commit_foundation_artifacts_error_propagation(mock_sub_run) -> None:
     """Valida que erros de subprocess propagam a partir do helper."""
     import subprocess

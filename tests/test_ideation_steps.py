@@ -1,4 +1,4 @@
-from pipelines.ideation_steps.selection import (
+from pipelines.ideation_steps import (
     parse_numbered_concepts,
     select_concept_text,
     default_mystery_template,

@@ -99,7 +99,7 @@ def test_update_generation_state(tmp_path: Path) -> None:
     assert saved_state["chapters_drafted"] == 3
     assert saved_state["other"] == "value"
 
-@patch("subprocess.run")
+@patch("pipelines.book_generation_steps.persistence.subprocess.run")
 def test_run_continuity_and_git_push_success(mock_run: MagicMock, tmp_path: Path) -> None:
     """Valida que continuidade com returncode 0 executa add, commit e push com mocks."""
     # Mock do verify_continuity subprocess
@@ -131,7 +131,7 @@ def test_run_continuity_and_git_push_success(mock_run: MagicMock, tmp_path: Path
     commit_found = any("commit" in cmd for cmd in commit_args)
     assert commit_found
 
-@patch("subprocess.run")
+@patch("pipelines.book_generation_steps.persistence.subprocess.run")
 def test_run_continuity_and_git_push_fail(mock_run: MagicMock, tmp_path: Path) -> None:
     """Valida que continuidade com returncode != 0 não executa commit e push e retorna False."""
     mock_run.return_value = MagicMock(returncode=1, stdout="failed continuity")
@@ -154,7 +154,7 @@ def test_run_continuity_and_git_push_fail(mock_run: MagicMock, tmp_path: Path) -
     assert mock_run.call_count == 1
     assert "verify_continuity.py" in mock_run.call_args[0][0]
 
-@patch("subprocess.run")
+@patch("pipelines.book_generation_steps.persistence.subprocess.run")
 def test_run_continuity_and_git_push_fallback(mock_run: MagicMock, tmp_path: Path) -> None:
     """Valida que a execução em modo fallback executa commit/push forçados sem rodar o continuity."""
     state_file = tmp_path / "state.json"

@@ -56,7 +56,7 @@ def test_is_main_branch() -> None:
 
 def test_current_branch_mocked() -> None:
     """Valida que current_branch lê a branch ativa chamando git de forma mockada."""
-    with patch("subprocess.run") as mock_run:
+    with patch("workspace.branching.subprocess.run") as mock_run:
         mock_result = MagicMock()
         mock_result.stdout = "autobook/livro-misterioso\n"
         mock_run.return_value = mock_result
@@ -72,7 +72,7 @@ def test_current_branch_mocked() -> None:
 
 def test_current_branch_error() -> None:
     """Valida que erros do subprocess no git propagam como RuntimeError."""
-    with patch("subprocess.run") as mock_run:
+    with patch("workspace.branching.subprocess.run") as mock_run:
         mock_run.side_effect = subprocess.CalledProcessError(1, "git")
         with pytest.raises(RuntimeError) as excinfo:
             current_branch()
@@ -133,7 +133,7 @@ def test_ensure_not_main_for_generation_accepting() -> None:
 
 def test_suggest_book_branch_command_valid() -> None:
     """Valida a geração correta de comandos e slugs para entradas válidas."""
-    with patch("subprocess.run") as mock_run:
+    with patch("workspace.branching.subprocess.run") as mock_run:
         # Título simples
         branch, cmd = suggest_book_branch_command("Meu Livro")
         assert branch == "autobook/meu-livro"
@@ -149,7 +149,7 @@ def test_suggest_book_branch_command_valid() -> None:
 
 def test_suggest_book_branch_command_invalid() -> None:
     """Valida que títulos inválidos levantam ValueError."""
-    with patch("subprocess.run") as mock_run:
+    with patch("workspace.branching.subprocess.run") as mock_run:
         with pytest.raises(ValueError) as excinfo:
             suggest_book_branch_command("")
         assert "não pode ser vazio" in str(excinfo.value)
@@ -162,7 +162,7 @@ def test_suggest_book_branch_command_invalid() -> None:
 
 def test_get_worktree_status() -> None:
     """Valida que get_worktree_status chama o git status --porcelain e trata a saida."""
-    with patch("subprocess.run") as mock_run:
+    with patch("workspace.branching.subprocess.run") as mock_run:
         mock_result = MagicMock()
         mock_result.stdout = " M file.py\n?? untracked.txt\n"
         mock_run.return_value = mock_result
@@ -190,7 +190,7 @@ def test_is_worktree_clean() -> None:
 def test_create_book_branch_clean() -> None:
     """Valida que create_book_branch cria a branch quando o worktree esta limpo."""
     with patch("workspace.branching.is_worktree_clean", return_value=True):
-        with patch("subprocess.run") as mock_run:
+        with patch("workspace.branching.subprocess.run") as mock_run:
             branch = create_book_branch("Livro Novo")
             assert branch == "autobook/livro-novo"
             mock_run.assert_called_once_with(
@@ -203,7 +203,7 @@ def test_create_book_branch_clean() -> None:
 def test_create_book_branch_dirty() -> None:
     """Valida que create_book_branch lanca ValueError e nao cria branch se o worktree estiver sujo."""
     with patch("workspace.branching.is_worktree_clean", return_value=False):
-        with patch("subprocess.run") as mock_run:
+        with patch("workspace.branching.subprocess.run") as mock_run:
             with pytest.raises(ValueError) as excinfo:
                 create_book_branch("Livro Novo")
             assert "alteracoes locais nao commitadas" in str(excinfo.value)
@@ -211,7 +211,7 @@ def test_create_book_branch_dirty() -> None:
 
 def test_subprocess_error_propagates_as_runtime_error() -> None:
     """Valida que erros de execucao do git status ou switch propagam como RuntimeError."""
-    with patch("subprocess.run") as mock_run:
+    with patch("workspace.branching.subprocess.run") as mock_run:
         mock_run.side_effect = subprocess.CalledProcessError(1, "git")
 
         with pytest.raises(RuntimeError) as excinfo:

@@ -10,13 +10,11 @@ from typing import Dict, Any
 
 from pipelines.base import Step, Pipeline
 from llm import call_llm
-from pipelines.foundation_steps.context import (
+from pipelines.foundation_steps import (
     load_world_inputs,
     load_characters_inputs,
     load_outline_inputs,
-    load_canon_inputs
-)
-from pipelines.foundation_steps.persistence import (
+    load_canon_inputs,
     commit_foundation_artifacts,
     write_foundation_state
 )

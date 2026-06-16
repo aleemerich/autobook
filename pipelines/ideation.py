@@ -4,16 +4,13 @@ pipelines/ideation.py — Ideation Pipeline.
 Allows interactive questionnaire and concept selection, generating seed.txt and MYSTERY.md.
 """
 
-import re
-import sys
-import os
 import json
 from pathlib import Path
 from typing import Dict, Any
 
 from pipelines.base import Step, Pipeline
 from llm import call_llm
-from pipelines.ideation_steps.selection import (
+from pipelines.ideation_steps import (
     select_concept_text,
     default_mystery_template,
     build_initial_ideation_state
