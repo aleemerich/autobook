@@ -30,7 +30,8 @@ from pipelines.book_generation_steps import (
     load_lore_files,
     build_lore_data,
     run_beat_drafting,
-    run_chapter_fallback_drafting
+    run_chapter_fallback_drafting,
+    run_critic_agents
 )
 
 BASE_DIR = Path(__file__).parent.parent.resolve()
@@ -172,26 +173,14 @@ class DraftChaptersStep(Step):
                     )
 
                 # Phase 2: Run Independent Critics
-                print("[DraftChaptersStep] Running active critic agents...")
-                context_args = {
-                    "lore_data": lore_data,
-                    "slop_rules": slop_rules
-                }
-                
-                for role in self.critics_roles:
-                    clean_name = role.replace("_critic", "")
-                    filename = f"critique_{clean_name}.md"
-                    print(f"  Running {role}...")
-                    critic_agent = factory.get_agent(role, **context_args)
-                    
-                    critic_prompt = (
-                        f"Você é o {critic_agent.name}.\n"
-                        f"Seu objetivo é analisar o seguinte rascunho bruto de capítulo e gerar um relatório de críticas detalhado.\n\n"
-                        f"RASCUNHO BRUTO DO CAPÍTULO:\n{chapter_raw_text}\n\n"
-                        f"Siga as suas instruções de persona e as regras do sistema."
-                    )
-                    critique = critic_agent.execute(critic_prompt)
-                    (tmp_dir / filename).write_text(critique, encoding="utf-8")
+                run_critic_agents(
+                    tmp_dir=tmp_dir,
+                    critics_roles=self.critics_roles,
+                    chapter_raw_text=chapter_raw_text,
+                    lore_data=lore_data,
+                    slop_rules=slop_rules,
+                    factory=factory
+                )
 
                 # Phase 3: Sequential Synthesis
                 print("[DraftChaptersStep] Starting sequential synthesis...")

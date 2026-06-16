@@ -23,6 +23,12 @@ from pipelines.book_generation_steps.drafting import (
     run_beat_drafting,
     run_chapter_fallback_drafting
 )
+from pipelines.book_generation_steps.critique import (
+    build_critic_filename,
+    build_critic_prompt,
+    run_critic_agents,
+    convert_critique_file_to_report
+)
 
 __all__ = [
     "load_state",
@@ -43,5 +49,9 @@ __all__ = [
     "save_raw_beat",
     "concatenate_raw_beats",
     "run_beat_drafting",
-    "run_chapter_fallback_drafting"
+    "run_chapter_fallback_drafting",
+    "build_critic_filename",
+    "build_critic_prompt",
+    "run_critic_agents",
+    "convert_critique_file_to_report"
 ]
