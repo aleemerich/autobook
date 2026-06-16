@@ -36,10 +36,10 @@ Orquestrador principal que:
 - Instancia e executa o pipeline selecionado
 - Gerencia o contexto de execução
 
-### 2. Módulo `agents.py`
+### 2. Pacote `agent_system` e Módulo `agents.py`
 Contém:
-- Classe base `Agent` que encapsula a chamada ao LLM
-- Agentes especializados:
+- A infraestrutura moderna do sistema de agentes sob o pacote `agent_system/`, incluindo a especificação contratual (`BaseAgent`), especificação de papéis (`AgentSpec`), o registro central de papéis e a classe factory wrapper (`AgentFactory`) com lazy instantiation.
+- As implementações concretas das classes de agentes especializados localizadas em `agents.py`:
   - `DraftingAgent`: Escreve o rascunho inicial
   - `StylistAgent`: Aplica regras de gênero e estilo
   - `TechnicalEditorAgent`: Verifica consistência, lore e localização
@@ -47,7 +47,6 @@ Contém:
   - `StyleCriticAgent`: Identifica problemas de estilo e slop
   - `FlowCriticAgent`: Analisa fluxo e transições
   - `SynthesisAgent`: Aplica correções baseado em críticas
-- `AgentFactory`: Factory para criação dinâmica de agentes
 
 ### 3. Módulo `llm.py`
 Cliente unificado para LLMs que:
@@ -63,15 +62,17 @@ Define as classes base:
 
 ### 5. Pipelines Específicos
 Localizados em `/pipelines/`:
-- `ideation.py`: Geração de ideias e conceitos
-- `foundation.py`: Criação de fundação (personagens, mundo, outline)
-- `book_generation.py`: Geração completa do livro
-- `editorial_revision.py`: Processo de revisão editorial
+- `registry.py`: Centraliza as especificações e o registro das pipelines.
+- `ideation.py`: Geração de ideias e conceitos.
+- `foundation.py`: Criação de fundação (personagens, mundo, outline).
+- `book_generation.py`: Geração completa do livro.
+- `editorial_revision.py`: Processo de revisão editorial.
+- **Subpacotes de Steps** (`*_steps/`): Funções auxiliares puras e montagem de contexto específicas de cada pipeline separadas em subpacotes dedicados sob `pipelines/` (ex: `book_generation_steps/`, `foundation_steps/`, `ideation_steps/`, `editorial_revision_steps/`).
 
 ### 6. Sistema de Prompts
 Localizado em `/prompts/` com subpastas para cada idioma (PT-BR, EN):
-- Arquivos `.txt`: Templates de prompts para diferentes agentes
-- Arquivos `.json`: Configurações estruturadas (continuity, editorial, slop)
+- Arquivos `.txt` e subpastas de agentes (`prompts/{LANG}/agents/`): Contêm os prompts de sistema de cada agente carregados dinamicamente no construtor.
+- Arquivos `.json`: Configurações estruturadas (continuity, editorial, slop).
 
 ### 7. Módulo `prompt_loader.py`
 Responsável por:

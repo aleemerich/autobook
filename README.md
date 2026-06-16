@@ -106,7 +106,7 @@ To keep the repository organized, files are structured into dedicated subdirecto
   * `editorial_revision.py` — Logic for the revision pipeline.
   * **[ideation_steps/](pipelines/ideation_steps/)**, **[foundation_steps/](pipelines/foundation_steps/)**, **[book_generation_steps/](pipelines/book_generation_steps/)**, **[editorial_revision_steps/](pipelines/editorial_revision_steps/)** — Modular sub-packages containing pure helper functions and context builders.
 * **[agent_system/](agent_system/)** (Modern Agent Registry & Infrastructure):
-  * Base classes, contract specifications, tardy instantiation factory, and registry defining literary roles (`drafting`, `stylist`, `technical_editor`, `canon_critic`, `style_critic`, `flow_critic`, `synthesis`).
+  * Base classes, contract specifications, lazy instantiation factory, and registry defining literary roles (`drafting`, `stylist`, `technical_editor`, `canon_critic`, `style_critic`, `flow_critic`, `synthesis`).
 * **[prompts/](prompts/)** (Localized Agents & Directives):
   * Dynamic prompt files for literary agent personas under `prompts/{LANG}/agents/` (e.g. `prompts/EN/agents/`).
 * **[skills/](skills/)** (Agent Capabilities):

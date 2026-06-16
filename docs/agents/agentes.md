@@ -2,9 +2,9 @@
 
 ## Visão Geral do Sistema de Agentes
 
-O sistema Autobook implementa uma arquitetura multi-agente onde cada agente especializado tem um papel específico no processo de criação literária. Os agentes são implementados em `agents.py` e seguem o padrão **Factory Method** através da classe `AgentFactory` para criação dinâmica.
+O sistema Autobook implementa uma arquitetura multi-agente onde cada agente especializado tem um papel específico no processo de criação literária. A infraestrutura moderna do sistema de agentes está localizada no pacote `agent_system/` (com suporte a registro dinâmico e lazy instantiation), definindo as especificações de papéis e encapsulando a criação de agentes que são implementados em `agents.py`.
 
-Todos os agentes herdam da classe base `Agent` que encapsula a chamada ao modelo de linguagem (LLM) através do módulo `llm.py`.
+Todos os agentes herdam da classe base `Agent` que encapsula a chamada ao modelo de linguagem (LLM) através do módulo `llm.py`. Os prompts de sistema de cada agente são carregados dinamicamente a partir de arquivos externos localizados em `prompts/{LANG}/agents/` (como `prompts/EN/agents/`).
 
 ## Classe Base: Agent
 
@@ -205,8 +205,6 @@ Para um dado papel, o factory:
 ```python
 factory = AgentFactory()
 drafting_agent = factory.get_agent("drafting")
-stylist_agent = factory.get_agent("stylist", genre_rules=genre_rules)
-tech_editor_agent = factory.get_agent("technical_editor", lore_data=lore_data, slop_rules=slop_rules)
 ```
 
 #### Na fase de crítica

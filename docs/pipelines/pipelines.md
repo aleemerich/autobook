@@ -8,7 +8,7 @@ O sistema Autobook implementa quatro pipelines principais que cobrem todo o cicl
 3. **Book Generation** - Escrita sequencial dos capítulos com revisão em cascata
 4. **Editorial Revision** - Revisão baseada em feedback editorial e avaliação automática
 
-Cada pipeline segue o padrão **Command/Composite** onde steps individuais são combinados em pipelines que podem ser tratados como steps em pipelines maiores.
+Cada pipeline segue o padrão **Command/Composite** onde os steps utilizam funções puras e utilitários isolados em subpacotes modulares dedicados sob `pipelines/` (como `book_generation_steps`, `foundation_steps`, `ideation_steps`, `editorial_revision_steps`). As especificações e o registro das pipelines são centralizados em `pipelines/registry.py`.
 
 ## 1. Pipeline de Ideação (`pipelines/ideation.py`)
 
@@ -202,7 +202,10 @@ Para cada capítulo alvo:
 
 ## Integração entre Pipelines
 
-### Fluxo de Trabalho Típico
+### Fluxo de Trabalho Típico (Wizard Interativo)
+Executar `python run.py` sem argumentos abre o **Autobook Wizard**, que guia interativamente na criação do branch de obra e na execução sequencial das pipelines.
+
+### Fluxo de Trabalho Típico (CLI Direto)
 1. `python run.py --pipeline ideation` → Cria `seed.txt`
 2. `python run.py --pipeline foundation` → Gera world, personagens, outline, cânone
 3. `python run.py --pipeline book_generation` → Escreve capítulos sequencialmente

@@ -37,25 +37,6 @@ atualizado antes de virar documentacao definitiva.
 | Skills | [skills/skills.md](skills/skills.md) | Novo v0 |
 | Comandos | [operacional/comandos.md](operacional/comandos.md) | Novo v0 |
 | Planejamento futuro | [planejamento/como-transformar-parecer-em-specs.md](planejamento/como-transformar-parecer-em-specs.md) | Novo v0 |
-| Plano para modelos medios | [planejamento/refactor-plataforma/plano-migracao-modelos-medios.md](planejamento/refactor-plataforma/plano-migracao-modelos-medios.md) | Novo v0 |
-| Specs por fase | [planejamento/refactor-plataforma/fases/README.md](planejamento/refactor-plataforma/fases/README.md) | Novo v0 |
-| Spec 00 - Decisão | [planejamento/refactor-plataforma/00-decisao.md](planejamento/refactor-plataforma/00-decisao.md) | Novo v0 (Fase 0) |
-| Spec 01 - run.py Entrypoint | [planejamento/refactor-plataforma/01-run-entrypoint.md](planejamento/refactor-plataforma/01-run-entrypoint.md) | Novo v0 (Fase 0) |
-| Spec 02 - Pipeline Contract | [planejamento/refactor-plataforma/02-pipeline-contract.md](planejamento/refactor-plataforma/02-pipeline-contract.md) | Novo v0 (Fase 0) |
-| Spec 03 - Branch Workflow | [planejamento/refactor-plataforma/03-branch-workflow.md](planejamento/refactor-plataforma/03-branch-workflow.md) | Novo v0 (Fase 0) |
-| Spec 04 - Agent Registry | [planejamento/refactor-plataforma/04-agent-registry.md](planejamento/refactor-plataforma/04-agent-registry.md) | Novo v0 (Fase 0) |
-| Spec 05 - Prompt Layout | [planejamento/refactor-plataforma/05-prompt-layout.md](planejamento/refactor-plataforma/05-prompt-layout.md) | Novo v0 (Fase 0) |
-| Spec 06 - Feedback Lifecycle | [planejamento/refactor-plataforma/06-feedback-lifecycle.md](planejamento/refactor-plataforma/06-feedback-lifecycle.md) | Novo v0 (Fase 0) |
-| Spec 07 - Migration Plan | [planejamento/refactor-plataforma/07-migration-plan.md](planejamento/refactor-plataforma/07-migration-plan.md) | Novo v0 (Fase 0) |
-| Gate A Review | [planejamento/refactor-plataforma/gates/gate-a-review.md](planejamento/refactor-plataforma/gates/gate-a-review.md) | Novo v0 (Pós-Fase 5) |
-| Fase 05.1 - Hardening Pos-Gate A | [planejamento/refactor-plataforma/fases/fase-05-1-hardening-pos-gate-a.md](planejamento/refactor-plataforma/fases/fase-05-1-hardening-pos-gate-a.md) | Concluída |
-| Fase 06 - Agent System | [planejamento/refactor-plataforma/fases/fase-06-agent-system.md](planejamento/refactor-plataforma/fases/fase-06-agent-system.md) | Concluída |
-| Fase 07 - Agent Prompts | [planejamento/refactor-plataforma/fases/fase-07-agent-prompts.md](planejamento/refactor-plataforma/fases/fase-07-agent-prompts.md) | Definida |
-| Fase 08 - Feedback Lifecycle | [planejamento/refactor-plataforma/fases/fase-08-feedback-lifecycle.md](planejamento/refactor-plataforma/fases/fase-08-feedback-lifecycle.md) | Definida |
-| Fase 09 - Book Generation Subpipelines | [planejamento/refactor-plataforma/fases/fase-09-book-generation-subpipelines.md](planejamento/refactor-plataforma/fases/fase-09-book-generation-subpipelines.md) | Definida |
-| Fase 10 - Production Planning | [planejamento/refactor-plataforma/fases/fase-10-production-planning.md](planejamento/refactor-plataforma/fases/fase-10-production-planning.md) | Definida |
-| Fase 11 - Wizard Workspace | [planejamento/refactor-plataforma/fases/fase-11-wizard-workspace.md](planejamento/refactor-plataforma/fases/fase-11-wizard-workspace.md) | Definida |
-| Fase 12 - Docs e README | [planejamento/refactor-plataforma/fases/fase-12-docs-readme.md](planejamento/refactor-plataforma/fases/fase-12-docs-readme.md) | Definida |
 
 
 ## Referencias Historicas e Criativas
