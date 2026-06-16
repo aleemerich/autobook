@@ -292,3 +292,83 @@ def test_synthesis_agent_fallback(tmp_path: Path, monkeypatch) -> None:
     from agents import SynthesisAgent
     agent = SynthesisAgent()
     assert "You are an elite manuscript rewriter" in agent.system_prompt
+
+def test_stylist_agent_invalid_placeholder(tmp_path: Path, monkeypatch) -> None:
+    """Valida que se o arquivo externo de StylistAgent tem placeholder inválido, levanta RuntimeError."""
+    tmp_prompts_dir = tmp_path / "prompts"
+    en_dir = tmp_prompts_dir / "EN" / "agents"
+    en_dir.mkdir(parents=True)
+
+    # Template com placeholder desconhecido {invalid_placeholder}
+    invalid_template = "Stylist.\nRules:\n{invalid_placeholder}"
+    (en_dir / "stylist.txt").write_text(invalid_template, encoding="utf-8")
+
+    monkeypatch.setattr(prompt_loader, "PROMPTS_DIR", tmp_prompts_dir)
+    monkeypatch.setenv("AUTOBOOK_LANGUAGE", "EN")
+
+    from agents import StylistAgent
+    with pytest.raises(RuntimeError) as excinfo:
+        StylistAgent(genre_rules="Genre")
+
+    assert "[StylistAgent] External prompt for role 'stylist' exists but is invalid." in str(excinfo.value)
+
+def test_technical_editor_agent_invalid_placeholder(tmp_path: Path, monkeypatch) -> None:
+    """Valida que se o arquivo externo de TechnicalEditorAgent tem placeholder inválido, levanta RuntimeError."""
+    tmp_prompts_dir = tmp_path / "prompts"
+    en_dir = tmp_prompts_dir / "EN" / "agents"
+    en_dir.mkdir(parents=True)
+
+    invalid_template = "Technical Editor.\n{invalid_placeholder}"
+    (en_dir / "technical_editor.txt").write_text(invalid_template, encoding="utf-8")
+
+    monkeypatch.setattr(prompt_loader, "PROMPTS_DIR", tmp_prompts_dir)
+    monkeypatch.setenv("AUTOBOOK_LANGUAGE", "EN")
+
+    from agents import TechnicalEditorAgent
+    with pytest.raises(RuntimeError) as excinfo:
+        TechnicalEditorAgent(lore_data="Lore", slop_rules="Slop")
+
+    assert "[TechnicalEditorAgent] External prompt for role 'technical_editor' exists but is invalid." in str(excinfo.value)
+
+def test_canon_critic_agent_invalid_placeholder(tmp_path: Path, monkeypatch) -> None:
+    """Valida que se o arquivo externo de CanonCriticAgent tem placeholder inválido, levanta RuntimeError."""
+    tmp_prompts_dir = tmp_path / "prompts"
+    en_dir = tmp_prompts_dir / "EN" / "agents"
+    en_dir.mkdir(parents=True)
+
+    invalid_template = "Canon.\n{invalid_placeholder}"
+    (en_dir / "canon_critic.txt").write_text(invalid_template, encoding="utf-8")
+
+    monkeypatch.setattr(prompt_loader, "PROMPTS_DIR", tmp_prompts_dir)
+    monkeypatch.setenv("AUTOBOOK_LANGUAGE", "EN")
+
+    from agents import CanonCriticAgent
+    with pytest.raises(RuntimeError) as excinfo:
+        CanonCriticAgent(lore_data="Lore")
+
+    assert "[CanonCriticAgent] External prompt for role 'canon_critic' exists but is invalid." in str(excinfo.value)
+
+def test_no_format_agents_load_with_brackets(tmp_path: Path, monkeypatch) -> None:
+    """Valida que agentes que não requerem formatação carregam seus prompts normalmente, mesmo se contiverem chaves."""
+    tmp_prompts_dir = tmp_path / "prompts"
+    en_dir = tmp_prompts_dir / "EN" / "agents"
+    en_dir.mkdir(parents=True)
+
+    # Prompts externos contendo chaves/colchetes
+    (en_dir / "drafting.txt").write_text("Drafting with {braces}.", encoding="utf-8")
+    (en_dir / "flow_critic.txt").write_text("Flow with {more} braces.", encoding="utf-8")
+    (en_dir / "synthesis.txt").write_text("Synthesis with {extra} braces.", encoding="utf-8")
+
+    monkeypatch.setattr(prompt_loader, "PROMPTS_DIR", tmp_prompts_dir)
+    monkeypatch.setenv("AUTOBOOK_LANGUAGE", "EN")
+
+    from agents import DraftingAgent, FlowCriticAgent, SynthesisAgent
+
+    # Não devem levantar erro ao carregar/instanciar
+    d = DraftingAgent()
+    f = FlowCriticAgent()
+    s = SynthesisAgent()
+
+    assert d.system_prompt == "Drafting with {braces}."
+    assert f.system_prompt == "Flow with {more} braces."
+    assert s.system_prompt == "Synthesis with {extra} braces."

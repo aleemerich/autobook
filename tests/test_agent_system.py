@@ -87,3 +87,54 @@ def test_legacy_factory_imports_continue_working() -> None:
     assert agent is not None
     assert agent.name == "SynthesisAgent"
     assert agent.temperature == 0.25
+
+def test_factory_register_custom_agent() -> None:
+    """Valida que register_agent e get_agent funcionam com agentes customizados."""
+    factory = AgentFactory()
+
+    # Cria uma classe fake para teste
+    class CustomFakeAgent:
+        def __init__(self, name="CustomFake", temperature=0.7, **kwargs):
+            self.name = name
+            self.temperature = temperature
+            self.kwargs = kwargs
+
+    # Registra o agente customizado
+    factory.register_agent("custom_test_role", CustomFakeAgent)
+
+    # Instancia o agente customizado
+    agent = factory.get_agent("custom_test_role", temperature=0.85, extra_arg="val")
+
+    assert isinstance(agent, CustomFakeAgent)
+    assert agent.name == "CustomFake"
+    assert agent.temperature == 0.85
+    assert agent.kwargs == {"extra_arg": "val"}
+
+def test_factory_load_skill_agent(monkeypatch) -> None:
+    """Valida que load_skill_agent delega corretamente para a fábrica legada."""
+    import agents
+    factory = AgentFactory()
+
+    called_args = []
+    def mock_load_skill_agent(self, skill_name, **kwargs):
+        called_args.append((skill_name, kwargs))
+        return "mock_agent_instance"
+
+    monkeypatch.setattr(agents.AgentFactory, "load_skill_agent", mock_load_skill_agent)
+
+    agent = factory.load_skill_agent("my_skill", temp=0.5)
+
+    assert agent == "mock_agent_instance"
+    assert called_args == [("my_skill", {"temp": 0.5})]
+
+def test_create_agent_validation_and_value_error() -> None:
+    """Valida que create_agent e get_agent continuam levantando ValueError para papéis desconhecidos."""
+    factory = AgentFactory()
+
+    with pytest.raises(ValueError) as excinfo:
+        create_agent("unknown_role_xyz")
+    assert "Papel de agente desconhecido" in str(excinfo.value)
+
+    with pytest.raises(ValueError) as excinfo:
+        factory.get_agent("another_unknown_role")
+    assert "Papel de agente desconhecido" in str(excinfo.value)
