@@ -63,3 +63,50 @@ def suggest_book_branch_command(title_or_slug: str) -> tuple[str, str]:
     branch_name = book_branch_name(title_or_slug)
     command = f"git switch -c {shlex.quote(branch_name)}"
     return branch_name, command
+
+def get_worktree_status() -> str:
+    """
+    Executa git status --porcelain e retorna a saida limpa (strip).
+    Em erro, levanta RuntimeError.
+    """
+    try:
+        result = subprocess.run(
+            ["git", "status", "--porcelain"],
+            capture_output=True,
+            text=True,
+            check=True
+        )
+        return result.stdout.strip()
+    except (subprocess.SubprocessError, FileNotFoundError) as e:
+        raise RuntimeError(f"Erro ao obter status do worktree Git: {e}")
+
+def is_worktree_clean() -> bool:
+    """Retorna True se o worktree Git estiver limpo, False caso contrario."""
+    return get_worktree_status() == ""
+
+def create_book_branch(title_or_slug: str) -> str:
+    """
+    Gera o nome da branch a partir do titulo/slug, verifica se o worktree esta limpo,
+    cria e muda para a nova branch de obra.
+    """
+    branch_name = book_branch_name(title_or_slug)
+
+    # 1. Verifica se o worktree esta limpo
+    if not is_worktree_clean():
+        raise ValueError(
+            "O worktree do Git contem alteracoes locais nao commitadas. "
+            "Por favor, commite ou salve (stash) suas alteracoes antes de criar uma nova branch de obra."
+        )
+
+    # 2. Cria e muda para a nova branch
+    try:
+        subprocess.run(
+            ["git", "switch", "-c", branch_name],
+            capture_output=True,
+            text=True,
+            check=True
+        )
+    except (subprocess.SubprocessError, FileNotFoundError) as e:
+        raise RuntimeError(f"Erro ao criar a branch Git '{branch_name}': {e}")
+
+    return branch_name

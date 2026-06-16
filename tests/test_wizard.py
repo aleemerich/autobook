@@ -310,35 +310,70 @@ def test_wizard_chapter_flag_escaping(mock_project_state, mock_pipelines_spec) -
     expected_val_2 = shlex.quote('capitulo "especial"')
     assert f"Comando sugerido: python run.py --pipeline book_generation --chapter {expected_val_2}" in output_2
 
-def test_wizard_branch_prep_accepted(mock_project_state, mock_pipelines_spec) -> None:
-    """Valida que o wizard sugere branch e comando git switch se o usuario estiver no main e aceitar preparar."""
+def test_wizard_branch_prep_accepted_but_not_created(mock_project_state, mock_pipelines_spec) -> None:
+    """Valida que o wizard sugere branch e comando se o usuario aceitar preparar mas nao criar."""
     mock_project_state.current_branch = "main"
     stdout_stream = io.StringIO()
-    input_func = SequenceInput(["s", "O Meu Fantastico Livro", "0"])
+    input_func = SequenceInput(["s", "O Meu Fantastico Livro", "n", "0"])
 
     with patch("cli.wizard.discover_project_state", return_value=mock_project_state):
         with patch("cli.wizard.list_pipelines", return_value=mock_pipelines_spec):
-            wizard_main(stdout=stdout_stream, input_func=input_func)
+            with patch("cli.wizard.create_book_branch") as mock_create:
+                wizard_main(stdout=stdout_stream, input_func=input_func)
+                mock_create.assert_not_called()
 
     output = stdout_stream.getvalue()
     assert "Deseja preparar uma branch de obra agora? [s/N]:" in output
     assert "Titulo ou slug da obra:" in output
     assert "Branch sugerida: autobook/o-meu-fantastico-livro" in output
     assert "Comando sugerido: git switch -c autobook/o-meu-fantastico-livro" in output
+    assert "Criar esta branch agora? [s/N]:" in output
+    assert "Branch criada:" not in output
     assert "Saindo..." in output
 
-    # As fabricas dos pipelines nao devem ser chamadas
-    mock_pipelines_spec["ideation"].factory.assert_not_called()
+def test_wizard_branch_creation_accepted(mock_project_state, mock_pipelines_spec) -> None:
+    """Valida que quando o usuario aceita criar a branch, create_book_branch eh chamado."""
+    mock_project_state.current_branch = "main"
+    stdout_stream = io.StringIO()
+    input_func = SequenceInput(["s", "O Meu Fantastico Livro", "s", "0"])
+
+    with patch("cli.wizard.discover_project_state", return_value=mock_project_state):
+        with patch("cli.wizard.list_pipelines", return_value=mock_pipelines_spec):
+            with patch("cli.wizard.create_book_branch", return_value="autobook/o-meu-fantastico-livro") as mock_create:
+                wizard_main(stdout=stdout_stream, input_func=input_func)
+                mock_create.assert_called_once_with("O Meu Fantastico Livro")
+
+    output = stdout_stream.getvalue()
+    assert "Branch criada: autobook/o-meu-fantastico-livro" in output
+    assert "Saindo..." in output
+
+def test_wizard_branch_creation_error_handling(mock_project_state, mock_pipelines_spec) -> None:
+    """Valida que erros de criacao da branch sao capturados e exibidos sem traceback."""
+    mock_project_state.current_branch = "main"
+    stdout_stream = io.StringIO()
+    input_func = SequenceInput(["s", "O Meu Fantastico Livro", "s", "0"])
+
+    with patch("cli.wizard.discover_project_state", return_value=mock_project_state):
+        with patch("cli.wizard.list_pipelines", return_value=mock_pipelines_spec):
+            with patch("cli.wizard.create_book_branch", side_effect=ValueError("Worktree sujo de teste")) as mock_create:
+                wizard_main(stdout=stdout_stream, input_func=input_func)
+                mock_create.assert_called_once_with("O Meu Fantastico Livro")
+
+    output = stdout_stream.getvalue()
+    assert "Erro: Worktree sujo de teste" in output
+    assert "Saindo..." in output
 
 def test_wizard_branch_prep_declined(mock_project_state, mock_pipelines_spec) -> None:
-    """Valida que o wizard nao sugere branch nem comando se o usuario recusar a preparacao no main."""
+    """Valida que o wizard nao sugere branch nem chama criacao se o usuario recusar a preparacao no main."""
     mock_project_state.current_branch = "main"
     stdout_stream = io.StringIO()
     input_func = SequenceInput(["n", "0"])
 
     with patch("cli.wizard.discover_project_state", return_value=mock_project_state):
         with patch("cli.wizard.list_pipelines", return_value=mock_pipelines_spec):
-            wizard_main(stdout=stdout_stream, input_func=input_func)
+            with patch("cli.wizard.create_book_branch") as mock_create:
+                wizard_main(stdout=stdout_stream, input_func=input_func)
+                mock_create.assert_not_called()
 
     output = stdout_stream.getvalue()
     assert "Deseja preparar uma branch de obra agora? [s/N]:" in output
@@ -355,7 +390,9 @@ def test_wizard_branch_prep_invalid_title(mock_project_state, mock_pipelines_spe
 
     with patch("cli.wizard.discover_project_state", return_value=mock_project_state):
         with patch("cli.wizard.list_pipelines", return_value=mock_pipelines_spec):
-            wizard_main(stdout=stdout_stream, input_func=input_func)
+            with patch("cli.wizard.create_book_branch") as mock_create:
+                wizard_main(stdout=stdout_stream, input_func=input_func)
+                mock_create.assert_not_called()
 
     output = stdout_stream.getvalue()
     assert "Deseja preparar uma branch de obra agora? [s/N]:" in output
@@ -371,7 +408,9 @@ def test_wizard_branch_prep_not_on_main(mock_project_state, mock_pipelines_spec)
 
     with patch("cli.wizard.discover_project_state", return_value=mock_project_state):
         with patch("cli.wizard.list_pipelines", return_value=mock_pipelines_spec):
-            wizard_main(stdout=stdout_stream, input_func=input_func)
+            with patch("cli.wizard.create_book_branch") as mock_create:
+                wizard_main(stdout=stdout_stream, input_func=input_func)
+                mock_create.assert_not_called()
 
     output = stdout_stream.getvalue()
     assert "Deseja preparar uma branch de obra agora?" not in output

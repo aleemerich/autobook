@@ -7,7 +7,10 @@ from workspace.branching import (
     is_main_branch,
     current_branch,
     ensure_not_main_for_generation,
-    suggest_book_branch_command
+    suggest_book_branch_command,
+    get_worktree_status,
+    is_worktree_clean,
+    create_book_branch
 )
 
 def test_slugify_work_title() -> None:
@@ -124,3 +127,66 @@ def test_suggest_book_branch_command_invalid() -> None:
         assert "nome de branch vazio inválido" in str(excinfo.value)
 
         mock_run.assert_not_called()
+
+def test_get_worktree_status() -> None:
+    """Valida que get_worktree_status chama o git status --porcelain e trata a saida."""
+    with patch("subprocess.run") as mock_run:
+        mock_result = MagicMock()
+        mock_result.stdout = " M file.py\n?? untracked.txt\n"
+        mock_run.return_value = mock_result
+
+        status = get_worktree_status()
+        assert status == "M file.py\n?? untracked.txt"
+        mock_run.assert_called_once_with(
+            ["git", "status", "--porcelain"],
+            capture_output=True,
+            text=True,
+            check=True
+        )
+
+def test_is_worktree_clean() -> None:
+    """Valida que is_worktree_clean detecta corretamente worktree limpo/sujo."""
+    with patch("workspace.branching.get_worktree_status") as mock_status:
+        # Limpo
+        mock_status.return_value = ""
+        assert is_worktree_clean() is True
+
+        # Sujo
+        mock_status.return_value = "M file.py"
+        assert is_worktree_clean() is False
+
+def test_create_book_branch_clean() -> None:
+    """Valida que create_book_branch cria a branch quando o worktree esta limpo."""
+    with patch("workspace.branching.is_worktree_clean", return_value=True):
+        with patch("subprocess.run") as mock_run:
+            branch = create_book_branch("Livro Novo")
+            assert branch == "autobook/livro-novo"
+            mock_run.assert_called_once_with(
+                ["git", "switch", "-c", "autobook/livro-novo"],
+                capture_output=True,
+                text=True,
+                check=True
+            )
+
+def test_create_book_branch_dirty() -> None:
+    """Valida que create_book_branch lanca ValueError e nao cria branch se o worktree estiver sujo."""
+    with patch("workspace.branching.is_worktree_clean", return_value=False):
+        with patch("subprocess.run") as mock_run:
+            with pytest.raises(ValueError) as excinfo:
+                create_book_branch("Livro Novo")
+            assert "alteracoes locais nao commitadas" in str(excinfo.value)
+            mock_run.assert_not_called()
+
+def test_subprocess_error_propagates_as_runtime_error() -> None:
+    """Valida que erros de execucao do git status ou switch propagam como RuntimeError."""
+    with patch("subprocess.run") as mock_run:
+        mock_run.side_effect = subprocess.CalledProcessError(1, "git")
+
+        with pytest.raises(RuntimeError) as excinfo:
+            get_worktree_status()
+        assert "Erro ao obter status do worktree" in str(excinfo.value)
+
+        with patch("workspace.branching.is_worktree_clean", return_value=True):
+            with pytest.raises(RuntimeError) as excinfo_2:
+                create_book_branch("Livro Novo")
+            assert "Erro ao criar a branch Git" in str(excinfo_2.value)

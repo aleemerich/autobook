@@ -5,7 +5,7 @@ from typing import Any
 
 from cli.discovery import discover_project_state
 from pipelines.registry import list_pipelines
-from workspace.branching import suggest_book_branch_command
+from workspace.branching import suggest_book_branch_command, create_book_branch
 
 def _prompt_input(prompt: str, input_func: Any, stdout: Any) -> str:
     """Helper para obter input garantindo que o prompt seja capturado em stdouts customizados."""
@@ -54,6 +54,19 @@ def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = Non
                     branch_name, branch_cmd = suggest_book_branch_command(title_or_slug)
                     print(f"Branch sugerida: {branch_name}", file=stdout)
                     print(f"Comando sugerido: {branch_cmd}", file=stdout)
+
+                    try:
+                        create_now = _prompt_input("Criar esta branch agora? [s/N]: ", input_func, stdout).strip().lower()
+                    except (KeyboardInterrupt, EOFError):
+                        print(file=stdout)
+                        print("Saindo...", file=stdout)
+                        return
+                    if create_now in ("s", "sim"):
+                        try:
+                            created_name = create_book_branch(title_or_slug)
+                            print(f"Branch criada: {created_name}", file=stdout)
+                        except (ValueError, RuntimeError) as e:
+                            print(f"Erro: {e}", file=stdout)
                 except ValueError as e:
                     print(f"Erro: {e}", file=stdout)
 
