@@ -71,3 +71,18 @@ def test_run_pipeline_requires_branch_and_fails() -> None:
                 # A fábrica e o run não devem ser chamados
                 mock_spec.factory.assert_not_called()
                 mock_spec.factory.return_value.run.assert_not_called()
+
+def test_run_pipeline_fails_on_generic_branch_integration() -> None:
+    """Valida que chamar run.main com pipeline protegida estando em branch genérica aborta com SystemExit(1)."""
+    with patch("run.get_pipeline_spec") as mock_get_spec:
+        mock_spec = MagicMock()
+        mock_spec.requires_work_branch = True
+        mock_get_spec.return_value = mock_spec
+
+        with patch("workspace.branching.current_branch", return_value="feature/foo"):
+            with patch("sys.stderr", new_callable=MagicMock) as mock_stderr:
+                with pytest.raises(SystemExit) as excinfo:
+                    run.main(["--pipeline", "book_generation"])
+
+                assert excinfo.value.code == 1
+                mock_spec.factory.assert_not_called()

@@ -10,7 +10,8 @@ from workspace.branching import (
     suggest_book_branch_command,
     get_worktree_status,
     is_worktree_clean,
-    create_book_branch
+    create_book_branch,
+    is_book_branch
 )
 
 def test_slugify_work_title() -> None:
@@ -77,6 +78,22 @@ def test_current_branch_error() -> None:
             current_branch()
         assert "Erro ao ler a branch Git ativa" in str(excinfo.value)
 
+def test_is_book_branch() -> None:
+    """Valida a detecção de branches no formato autobook/<slug>."""
+    # Válidos
+    assert is_book_branch("autobook/meu-livro") is True
+    assert is_book_branch("autobook/livro-2026") is True
+    assert is_book_branch("autobook/a") is True
+
+    # Inválidos
+    assert is_book_branch("main") is False
+    assert is_book_branch("master") is False
+    assert is_book_branch("feature/foo") is False
+    assert is_book_branch("autobook/") is False
+    assert is_book_branch("autobook/???") is False
+    assert is_book_branch("autobook/meu livro") is False
+    assert is_book_branch("autobook/Meu-Livro") is False
+
 def test_ensure_not_main_for_generation_blocking() -> None:
     """Valida o bloqueio estrito de geração de livros nas branches main/master."""
     with pytest.raises(ValueError) as excinfo:
@@ -92,9 +109,24 @@ def test_ensure_not_main_for_generation_blocking() -> None:
             ensure_not_main_for_generation()
         assert "branch principal do projeto" in str(excinfo.value)
 
+def test_ensure_not_main_for_generation_blocking_invalid_work_branch() -> None:
+    """Valida que branches genéricas ou mal formatadas são rejeitadas com erro explicativo."""
+    invalid_branches = ["feature/foo", "autobook/", "autobook/???", "autobook/meu livro", "bugfix/autobook/ok"]
+    for br in invalid_branches:
+        with pytest.raises(ValueError) as excinfo:
+            ensure_not_main_for_generation(br)
+        assert "nao e uma branch de obra valida" in str(excinfo.value)
+        assert "no formato autobook/<slug>" in str(excinfo.value)
+
+    with patch("workspace.branching.current_branch", return_value="feature/foo"):
+        with pytest.raises(ValueError) as excinfo:
+            ensure_not_main_for_generation()
+        assert "nao e uma branch de obra valida" in str(excinfo.value)
+
 def test_ensure_not_main_for_generation_accepting() -> None:
-    """Valida a aceitação de branches de obra sem levantar exceções."""
+    """Valida a aceitação de branches de obra válidas sem levantar exceções."""
     ensure_not_main_for_generation("autobook/meu-livro")
+    ensure_not_main_for_generation("autobook/livro-2026")
     
     with patch("workspace.branching.current_branch", return_value="autobook/meu-livro"):
         ensure_not_main_for_generation()

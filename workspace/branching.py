@@ -45,14 +45,28 @@ def current_branch() -> str:
     except (subprocess.SubprocessError, FileNotFoundError) as e:
         raise RuntimeError(f"Erro ao ler a branch Git ativa: {e}")
 
+def is_book_branch(branch: str) -> bool:
+    """Verifica se o nome da branch esta no formato autobook/<slug>."""
+    if not branch.startswith("autobook/"):
+        return False
+    slug = branch[len("autobook/"):]
+    if not slug:
+        return False
+    return slugify_work_title(slug) == slug and len(slug) > 0
+
 def ensure_not_main_for_generation(branch: str | None = None) -> None:
-    """Garante que a branch (informada ou atual) não seja principal, levantando exceção caso contrário."""
+    """Garante que a branch (informada ou atual) nao seja principal e seja uma branch de obra valida, levantando excecao caso contrario."""
     target_branch = branch if branch is not None else current_branch()
     if is_main_branch(target_branch):
         raise ValueError(
-            f"Erro: A branch ativa '{target_branch}' é a branch principal do projeto. "
+            f"A branch ativa '{target_branch}' é a branch principal do projeto. "
             "A geração de livros deve ocorrer estritamente em uma branch dedicada (ex: autobook/<slug>) "
             "para manter a branch principal limpa de artefatos."
+        )
+    if not is_book_branch(target_branch):
+        raise ValueError(
+            f"A branch ativa '{target_branch}' nao e uma branch de obra valida. "
+            "Pipelines de geracao ou alteracao de obra devem rodar em uma branch no formato autobook/<slug>."
         )
 
 def suggest_book_branch_command(title_or_slug: str) -> tuple[str, str]:
