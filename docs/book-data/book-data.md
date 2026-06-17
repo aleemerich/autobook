@@ -1,8 +1,13 @@
 # Dados do Livro (`book_data/`)
 
 `book_data/` guarda os arquivos de estado, planejamento e referencia usados
-pelos pipelines. Eles sao dados de runtime do livro em andamento, nao apenas
-documentacao estatica.
+pelos pipelines. Eles sao dados de runtime do livro em andamento e nao devem
+ser tratados como conteudo versionado da branch principal.
+
+No repositorio principal, `book_data/` fica versionado apenas com `.gitkeep`.
+Os arquivos reais sao ignorados por Git e devem ser criados em branches
+`autobook/<slug>`. Templates versionados para bootstrap ficam em
+`templates/book_data/`.
 
 ## Arquivos
 
@@ -37,9 +42,11 @@ documentacao estatica.
 - `editorial.md` pode conter diretrizes gerais e secoes por capitulo; o parser semantico tenta converter isso para JSON e tem fallback regex.
 - `workspace.json` e opcional, mas quando existe deve seguir o schema validado por `workspace/project.py`: `schema_version` 1, `title`, branch no formato `autobook/<slug>` e `created_at` em ISO 8601.
 - `audiobook_cast.json` e opcional. Quando ausente, o roteiro de audiobook usa apenas um narrador generico; quando presente, deve ser um objeto JSON `{ "SPEAKER": "descricao de voz" }`.
+- O wizard inicializa templates de `templates/book_data/` sem sobrescrever arquivos locais existentes.
+- Apesar de `book_data/*`, `seed.txt` e `chapters/*.md` serem ignorados por padrão, os pipelines usam `git add --force` através de `workspace/git.py` para registrar esses artefatos explicitamente nas branches de obra.
 
 ## Riscos v0
 
-- `book_data/` e a area de trabalho da obra. Em branches principais deve conter apenas placeholders/contratos genericos; artefatos reais devem ser gerados em branches `autobook/<slug>`.
+- `book_data/` e a area de trabalho da obra. Em branches principais deve conter apenas `.gitkeep`; artefatos reais devem ser gerados em branches `autobook/<slug>`.
 - Alterar manualmente `state.json` pode fazer o pipeline pular ou sobrescrever capitulos.
 - `foundation.py` procura a referência de craft no caminho correto `docs/others/CRAFT.md`.

@@ -1,5 +1,6 @@
 import datetime
 import json
+import shutil
 from pathlib import Path
 from typing import Any, Dict
 
@@ -11,6 +12,14 @@ def workspace_metadata_path(base_dir: Path | None = None) -> Path:
     if base_dir is None:
         base_dir = Path(__file__).parent.parent.resolve()
     return base_dir / "book_data" / "workspace.json"
+
+def workspace_template_path(base_dir: Path | None = None) -> Path:
+    """
+    Retorna o caminho dos templates versionados usados para inicializar book_data/.
+    """
+    if base_dir is None:
+        base_dir = Path(__file__).parent.parent.resolve()
+    return base_dir / "templates" / "book_data"
 
 def build_workspace_metadata(title: str, branch: str) -> Dict[str, Any]:
     """
@@ -89,6 +98,33 @@ def write_workspace_metadata(title: str, branch: str, base_dir: Path | None = No
         json.dump(data, f, indent=2, ensure_ascii=False)
 
     return path
+
+def initialize_book_workspace(base_dir: Path | None = None) -> list[Path]:
+    """
+    Inicializa arquivos template em book_data/ sem sobrescrever dados existentes.
+    Retorna a lista de arquivos criados.
+    """
+    if base_dir is None:
+        base_dir = Path(__file__).parent.parent.resolve()
+
+    template_dir = workspace_template_path(base_dir)
+    if not template_dir.exists() or not template_dir.is_dir():
+        raise FileNotFoundError(f"Diretorio de templates de workspace nao encontrado: {template_dir}")
+
+    book_data_dir = base_dir / "book_data"
+    book_data_dir.mkdir(parents=True, exist_ok=True)
+
+    created_files: list[Path] = []
+    for source in sorted(template_dir.iterdir()):
+        if not source.is_file() or source.name == "README.md":
+            continue
+        target = book_data_dir / source.name
+        if target.exists():
+            continue
+        shutil.copyfile(source, target)
+        created_files.append(target)
+
+    return created_files
 
 def load_workspace_metadata(base_dir: Path | None = None) -> Dict[str, Any] | None:
     """

@@ -17,6 +17,18 @@ def test_discovery_empty_project(tmp_path: Path) -> None:
         assert state.production_artifacts_present == []
         assert state.recommended_next_steps == ["ideation"]
 
+def test_discovery_ignores_book_data_gitkeep(tmp_path: Path) -> None:
+    """Valida que placeholders versionados nao contam como dados de obra."""
+    book_data = tmp_path / "book_data"
+    book_data.mkdir()
+    (book_data / ".gitkeep").write_text("", encoding="utf-8")
+
+    with patch("cli.discovery.current_branch", return_value="feature/empty"):
+        state = discover_project_state(tmp_path)
+
+        assert state.book_data_files == []
+        assert state.foundation_complete is False
+
 def test_discovery_with_seed(tmp_path: Path) -> None:
     """Valida que um projeto com apenas seed.txt sugere 'foundation' como próximo passo."""
     (tmp_path / "seed.txt").write_text("mystery seed")

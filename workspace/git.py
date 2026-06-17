@@ -59,9 +59,13 @@ def run_git(args: Sequence[str], base_dir: Path | str | None = None, *, check: b
     return result
 
 
-def git_add(path: str | Path, base_dir: Path | str | None = None) -> subprocess.CompletedProcess:
+def git_add(path: str | Path, base_dir: Path | str | None = None, *, force: bool = False) -> subprocess.CompletedProcess:
     """Executa git add para um caminho relativo ou absoluto."""
-    return run_git(["add", str(path)], base_dir=base_dir)
+    args = ["add"]
+    if force:
+        args.append("--force")
+    args.append(str(path))
+    return run_git(args, base_dir=base_dir)
 
 
 def git_commit(

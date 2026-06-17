@@ -60,7 +60,7 @@ def is_better_than_fallback(post_score: float, best_score: float, slop_penalty: 
 def commit_revised_chapter(ch_num: int, pre_score: float, final_score: float, base_dir: Path) -> None:
     """Executa os comandos git para commitar e dar push no capitulo revisado."""
     print(f"[ExecuteEditorialStep] Committing changes for Chapter {ch_num} (Score: {final_score})...")
-    git_add(f"chapters/ch_{ch_num:02d}.md", base_dir=base_dir)
+    git_add(f"chapters/ch_{ch_num:02d}.md", base_dir=base_dir, force=True)
     commit_msg = f"editorial: revised ch{ch_num:02d} ({pre_score} -> {final_score})"
     git_commit(commit_msg, base_dir=base_dir)
     git_push(base_dir=base_dir)

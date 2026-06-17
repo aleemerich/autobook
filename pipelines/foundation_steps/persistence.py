@@ -15,6 +15,10 @@ def write_foundation_state(state_file: Path) -> None:
 def commit_foundation_artifacts(base_dir: Path, include_mystery: bool) -> None:
     """Executa git add e git commit para os arquivos de fundacao."""
     for path in foundation_git_paths(include_mystery):
-        git_add(path, base_dir=base_dir)
+        git_add(path, base_dir=base_dir, force=True)
+
+    for optional_path in ["book_data/state.json", "book_data/voice.md", "book_data/workspace.json"]:
+        if (base_dir / optional_path).exists():
+            git_add(optional_path, base_dir=base_dir, force=True)
         
     git_commit("planning: initialize foundational story bibles and outline", base_dir=base_dir)

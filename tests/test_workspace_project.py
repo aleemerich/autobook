@@ -4,10 +4,12 @@ from pathlib import Path
 
 from workspace.project import (
     workspace_metadata_path,
+    workspace_template_path,
     build_workspace_metadata,
     write_workspace_metadata,
     load_workspace_metadata,
-    validate_workspace_metadata
+    validate_workspace_metadata,
+    initialize_book_workspace
 )
 
 def test_workspace_metadata_path(tmp_path: Path) -> None:
@@ -20,6 +22,10 @@ def test_workspace_metadata_path(tmp_path: Path) -> None:
     path_default = workspace_metadata_path(None)
     assert path_default.name == "workspace.json"
     assert path_default.parent.name == "book_data"
+
+def test_workspace_template_path(tmp_path: Path) -> None:
+    """Valida que templates de workspace ficam fora de book_data runtime."""
+    assert workspace_template_path(tmp_path) == tmp_path / "templates" / "book_data"
 
 def test_build_workspace_metadata() -> None:
     """Valida a construção correta de metadados e integridade dos campos."""
@@ -161,3 +167,29 @@ def test_load_workspace_metadata_validation_scenarios(tmp_path: Path) -> None:
     with pytest.raises(ValueError) as excinfo:
         load_workspace_metadata(tmp_path)
     assert "ISO 8601" in str(excinfo.value)
+
+def test_initialize_book_workspace_copies_templates_without_overwrite(tmp_path: Path) -> None:
+    """Valida que templates versionados inicializam book_data sem sobrescrever arquivos locais."""
+    template_dir = tmp_path / "templates" / "book_data"
+    template_dir.mkdir(parents=True)
+    (template_dir / "README.md").write_text("docs only", encoding="utf-8")
+    (template_dir / "voice.md").write_text("template voice", encoding="utf-8")
+    (template_dir / "audiobook_cast.json").write_text("{}", encoding="utf-8")
+
+    created = initialize_book_workspace(tmp_path)
+
+    assert [path.name for path in created] == ["audiobook_cast.json", "voice.md"]
+    assert (tmp_path / "book_data" / "voice.md").read_text(encoding="utf-8") == "template voice"
+    assert not (tmp_path / "book_data" / "README.md").exists()
+
+    (tmp_path / "book_data" / "voice.md").write_text("custom voice", encoding="utf-8")
+    created_again = initialize_book_workspace(tmp_path)
+
+    assert created_again == []
+    assert (tmp_path / "book_data" / "voice.md").read_text(encoding="utf-8") == "custom voice"
+
+def test_initialize_book_workspace_missing_template_dir(tmp_path: Path) -> None:
+    """Valida erro explícito se o diretório de templates não existir."""
+    with pytest.raises(FileNotFoundError) as excinfo:
+        initialize_book_workspace(tmp_path)
+    assert "Diretorio de templates de workspace nao encontrado" in str(excinfo.value)

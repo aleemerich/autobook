@@ -232,7 +232,7 @@ def test_commit_foundation_artifacts_exclude_mystery(mock_git_add, mock_git_comm
     ]
     for idx, path in enumerate(expected_adds):
         assert mock_git_add.call_args_list[idx].args == (path,)
-        assert mock_git_add.call_args_list[idx].kwargs == {"base_dir": base_dir}
+        assert mock_git_add.call_args_list[idx].kwargs == {"base_dir": base_dir, "force": True}
 
     mock_git_commit.assert_called_once_with(
         "planning: initialize foundational story bibles and outline",
@@ -252,6 +252,22 @@ def test_commit_foundation_artifacts_include_mystery(mock_git_add, mock_git_comm
         "planning: initialize foundational story bibles and outline",
         base_dir=base_dir
     )
+
+@patch("pipelines.foundation_steps.persistence.git_commit")
+@patch("pipelines.foundation_steps.persistence.git_add")
+def test_commit_foundation_artifacts_includes_existing_workspace_files(mock_git_add, mock_git_commit, tmp_path) -> None:
+    """Valida que arquivos locais ignorados sao adicionados explicitamente quando existem."""
+    book_data = tmp_path / "book_data"
+    book_data.mkdir()
+    for name in ["state.json", "voice.md", "workspace.json"]:
+        (book_data / name).write_text("data", encoding="utf-8")
+
+    commit_foundation_artifacts(tmp_path, include_mystery=False)
+
+    mock_git_add.assert_any_call("book_data/state.json", base_dir=tmp_path, force=True)
+    mock_git_add.assert_any_call("book_data/voice.md", base_dir=tmp_path, force=True)
+    mock_git_add.assert_any_call("book_data/workspace.json", base_dir=tmp_path, force=True)
+    mock_git_commit.assert_called_once()
 
 
 @patch("pipelines.foundation_steps.persistence.git_add")

@@ -67,6 +67,7 @@ def test_git_helpers_build_expected_commands(mock_run: MagicMock, tmp_path: Path
     )
 
     git_add("file.md", base_dir=tmp_path)
+    git_add("ignored.md", base_dir=tmp_path, force=True)
     git_push(base_dir=tmp_path)
     assert git_current_branch(base_dir=tmp_path) == "autobook/test"
     assert git_worktree_status(base_dir=tmp_path) == "autobook/test"
@@ -74,6 +75,7 @@ def test_git_helpers_build_expected_commands(mock_run: MagicMock, tmp_path: Path
 
     commands = [call.args[0] for call in mock_run.call_args_list]
     assert ["git", "add", "file.md"] in commands
+    assert ["git", "add", "--force", "ignored.md"] in commands
     assert ["git", "push"] in commands
     assert ["git", "rev-parse", "--abbrev-ref", "HEAD"] in commands
     assert ["git", "status", "--porcelain"] in commands

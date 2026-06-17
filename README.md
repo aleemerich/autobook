@@ -80,7 +80,8 @@ uv run python run.py --pipeline [ideation|foundation|book_generation|editorial_r
 
 To keep the repository organized, files are structured into dedicated subdirectories:
 
-* **[book_data/](book_data/)** (Lore & Story Database):
+* **[book_data/](book_data/)** (Local Runtime Workspace):
+  Runtime story state for the current work. This directory is ignored by Git except for `.gitkeep`; generated book artifacts should live on `autobook/<slug>` branches and are added explicitly by the pipelines when needed.
   * `world.md` — World bible reference.
   * `characters.md` — Character registry and profile sheets.
   * `outline.md` — Chapter-by-chapter outline (beats, plants, harvests).
@@ -91,6 +92,8 @@ To keep the repository organized, files are structured into dedicated subdirecto
   * `state.json` — Pipeline execution progress and checkpoints.
   * `workspace.json` — Optional workspace metadata written by the wizard.
   * `audiobook_cast.json` — Optional speaker/cast descriptions for audiobook script parsing.
+* **[templates/book_data/](templates/book_data/)** (Versioned Workspace Template):
+  Starter files copied into `book_data/` when a new work workspace is initialized.
 * **[docs/](docs/)** (Developer Reference):
   * `others/CRAFT.md` — Frameworks for plot, character, world, and prose development.
   * `others/PIPELINE.md`, `others/WORKFLOW.md`, `others/program.md` — Historical/reference material.
@@ -140,7 +143,7 @@ ELEVENLABS_API_KEY=your-elevenlabs-key-here
 
 ## Testing
 
-Autobook includes a comprehensive suite of **301 fast, local unit and integration tests** verifying prompts, language rules, parser formats, and pipeline controllers.
+Autobook includes a comprehensive suite of **309 fast, local unit and integration tests** verifying prompts, language rules, parser formats, and pipeline controllers.
 
 To run the test suite:
 ```bash

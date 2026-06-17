@@ -70,7 +70,7 @@ def discover_project_state(base_dir: Path | None = None) -> ProjectState:
 
     if book_data_dir.exists() and book_data_dir.is_dir():
         for item in book_data_dir.iterdir():
-            if item.is_file():
+            if item.is_file() and not item.name.startswith("."):
                 book_data_files.append(item.name)
                 if item.name in foundation_files:
                     present_foundation.add(item.name)

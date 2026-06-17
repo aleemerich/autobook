@@ -2,7 +2,7 @@
 
 ## Visão Geral
 
-O sistema de avaliação do Autobook implementa um conjunto abrangente de métricas e verificações para garantir a qualidade dos capítulos gerados. Ele está implementado principalmente no módulo `evaluate.py` e fornece pontuações multidimensionais que avaliam diferentes aspectos do texto literário, desde compliance com cânone até qualidade de prosa e aderência ao gênero.
+O sistema de avaliação do Autobook implementa um conjunto abrangente de métricas e verificações para garantir a qualidade dos capítulos gerados. A entrada operacional continua sendo `evaluate.py`, mas a implementação foi dividida no pacote `evaluation/`, que separa detecção mecânica de slop, parsing/reparo de JSON, carregamento de arquivos, prompts e relatórios.
 
 O sistema de avaliação é usado em múltiplos pontos do pipeline:
 1. **Durante a geração de capítulo**: Para determinar se um capítulo atingiu o threshold de qualidade antes de avançar
@@ -11,8 +11,16 @@ O sistema de avaliação é usado em múltiplos pontos do pipeline:
 
 ## Arquitetura e Design
 
-### Módulo Principal: evaluate.py
-Contém a função `evaluate_chapter(chapter_num: int) -> dict` que retorna um dicionário abrangente de métricas.
+### Fachada Principal: evaluate.py
+Mantém a CLI (`--phase=foundation`, `--chapter=N`, `--full`) e as funções públicas compatíveis, como `evaluate_chapter(chapter_num: int) -> dict`, `evaluate_foundation()` e `evaluate_full()`.
+
+### Pacote `evaluation/`
+- `evaluation/slop.py`: detecção mecânica de slop.
+- `evaluation/json_utils.py`: extração, reparo e validação de JSON retornado por LLM.
+- `evaluation/io.py`: carregamento de arquivos de planejamento e capítulos.
+- `evaluation/judge.py`: chamada ao juiz LLM.
+- `evaluation/prompts.py`: prompts operacionais usados pela avaliação.
+- `evaluation/reports.py`: escrita de `logs/eval_logs/` e `logs/edit_logs/`.
 
 ### Filosofia de Avaliação
 O sistema adota uma abordagem holística que avalia:
@@ -124,35 +132,13 @@ A pontuação geral é calculada como uma média ponderada das diferentes compon
 
 ## Detalhes de Implementação
 
-### Módulo evaluate.py
-Avalia um capítulo através de múltiplas funções especializadas:
-
-#### `_extract_chapter_text(chapter_num: int) -> str`
-- Lê o arquivo `chapters/ch_{chapter_num:02d}.md`
-- Retorna o texto bruto do capítulo para análise
-
-#### `_check_canon_compliance(text: str) -> dict`
-- Compara o texto contra o cânone estabelecido em `book_data/canon.md`
-- Identifica fatos específicos que devem ser consistentes
-- Retorna score, lista de violações e detalhes
-
-#### `_check_slop(text: str) -> dict`
-- Contagem de palavras de nível 1 e 2 de slop
-- Detecção de tiques estruturais de AI
-- Identificação de tells comuns de ficção de AI
-- Cálculo da densidade de travessões
-- Computação da penalidade de slop baseada em fórmulas ponderadas
-
-#### `_check_narrative_dimensions(text: str, chapter_num: int) -> dict`
-- Avalia cada uma das 7 dimensões narrativas usando heurísticas e análise de texto
-- Combina análise de texto simples com verificações contra outline e outros dados de referência
-- Retorna score e sugestões de melhoria para cada dimensão abaixo do threshold
-
-#### `_find_weakest_sentences(text: str) -> list`
-- Identifica frases problemáticas baseado em múltiplos critérios
-- Retorna as três frases identificadas como mais fracas para reescrita
-
-#### `evaluate_chapter(chapter_num: int) -> dict`
+### Fluxo de `evaluate_chapter(chapter_num: int) -> dict`
+- Carrega camadas de planejamento e capítulo via `evaluation/io.py`.
+- Monta o prompt de juiz usando `evaluation/prompts.py`.
+- Tenta os modelos configurados em ciclos de degradação de contexto.
+- Repara/valida JSON via `evaluation/json_utils.py`.
+- Aplica penalidade mecânica de slop via `evaluation/slop.py`.
+- Persiste logs de avaliação e edição via `evaluation/reports.py`.
 - Orquestra todas as verificações acima
 - Combina resultados em dicionário de retorno estruturado
 - Calcula `overall_score` baseado nas componentes individuais

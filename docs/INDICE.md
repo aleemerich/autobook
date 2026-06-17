@@ -66,7 +66,7 @@ lidos como documentacao tecnica atual sem validacao contra o codigo:
 
 - Entrada principal: `run.py`.
 - Pipelines suportados pela CLI: `ideation`, `foundation`, `book_generation`, `editorial_revision`.
-- Baseline moderno de testes: `uv run --with pytest pytest tests` com 301 testes passando.
+- Baseline moderno de testes: `uv run --with pytest pytest tests` com 309 testes passando.
 - `legacy/tests` nao faz parte do baseline atual; a coleta e ignorada e retorna sem testes por configuracao local.
 - Python: `>=3.12`.
 - Gerenciador recomendado: `uv`.

@@ -97,9 +97,9 @@ def run_continuity_and_git_push(
         )
         if cont_res.returncode == 0:
             print(f"[DraftChaptersStep] Continuity passed for Chapter {ch}!")
-            git_add(f"chapters/ch_{ch:02d}.md", base_dir=base_dir)
+            git_add(f"chapters/ch_{ch:02d}.md", base_dir=base_dir, force=True)
             update_generation_state(state_file, state, ch)
-            git_add("book_data/state.json", base_dir=base_dir)
+            git_add("book_data/state.json", base_dir=base_dir, force=True)
             
             commit_msg = f"ch{ch:02d}: score {score} (attempt {attempt})"
             git_commit(commit_msg, base_dir=base_dir)
@@ -112,9 +112,9 @@ def run_continuity_and_git_push(
             return False
     else:
         # Fallback forced commit
-        git_add(f"chapters/ch_{ch:02d}.md", base_dir=base_dir)
+        git_add(f"chapters/ch_{ch:02d}.md", base_dir=base_dir, force=True)
         update_generation_state(state_file, state, ch)
-        git_add("book_data/state.json", base_dir=base_dir)
+        git_add("book_data/state.json", base_dir=base_dir, force=True)
         
         commit_msg = f"ch{ch:02d}: forced score {best_score} (fallback)"
         git_commit(commit_msg, base_dir=base_dir)

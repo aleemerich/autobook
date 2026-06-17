@@ -357,7 +357,7 @@ def test_is_better_than_fallback():
 @patch("pipelines.editorial_revision_steps.revision.git_add")
 def test_commit_revised_chapter(mock_git_add, mock_git_commit, mock_git_push, tmp_path):
     commit_revised_chapter(ch_num=4, pre_score=6.0, final_score=8.5, base_dir=tmp_path)
-    mock_git_add.assert_called_once_with("chapters/ch_04.md", base_dir=tmp_path)
+    mock_git_add.assert_called_once_with("chapters/ch_04.md", base_dir=tmp_path, force=True)
     mock_git_commit.assert_called_once_with("editorial: revised ch04 (6.0 -> 8.5)", base_dir=tmp_path)
     mock_git_push.assert_called_once_with(base_dir=tmp_path)
 

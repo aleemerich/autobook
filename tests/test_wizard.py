@@ -329,9 +329,11 @@ def test_wizard_branch_prep_accepted_but_not_created(mock_project_state, mock_pi
         with patch("cli.wizard.list_pipelines", return_value=mock_pipelines_spec):
             with patch("cli.wizard.create_book_branch") as mock_create:
                 with patch("cli.wizard.write_workspace_metadata") as mock_write:
-                    wizard_main(stdout=stdout_stream, input_func=input_func)
-                    mock_create.assert_not_called()
-                    mock_write.assert_not_called()
+                    with patch("cli.wizard.initialize_book_workspace") as mock_init:
+                        wizard_main(stdout=stdout_stream, input_func=input_func)
+                        mock_create.assert_not_called()
+                        mock_write.assert_not_called()
+                        mock_init.assert_not_called()
 
     output = stdout_stream.getvalue()
     assert "Deseja preparar uma branch de obra agora? [s/N]:" in output
@@ -352,13 +354,16 @@ def test_wizard_branch_creation_accepted(mock_project_state, mock_pipelines_spec
         with patch("cli.wizard.list_pipelines", return_value=mock_pipelines_spec):
             with patch("cli.wizard.create_book_branch", return_value="autobook/o-meu-fantastico-livro") as mock_create:
                 with patch("cli.wizard.write_workspace_metadata") as mock_write:
-                    wizard_main(stdout=stdout_stream, input_func=input_func)
+                    with patch("cli.wizard.initialize_book_workspace", return_value=[Path("book_data/voice.md")]) as mock_init:
+                        wizard_main(stdout=stdout_stream, input_func=input_func)
                     mock_create.assert_called_once_with("O Meu Fantastico Livro")
                     mock_write.assert_called_once_with(title="O Meu Fantastico Livro", branch="autobook/o-meu-fantastico-livro", base_dir=None)
+                    mock_init.assert_called_once_with(None)
 
     output = stdout_stream.getvalue()
     assert "Branch criada: autobook/o-meu-fantastico-livro" in output
     assert "Workspace registrado em: book_data/workspace.json" in output
+    assert "Templates inicializados em book_data/: voice.md" in output
     assert "Saindo..." in output
 
 def test_wizard_branch_creation_write_metadata_failure(mock_project_state, mock_pipelines_spec) -> None:
@@ -371,9 +376,11 @@ def test_wizard_branch_creation_write_metadata_failure(mock_project_state, mock_
         with patch("cli.wizard.list_pipelines", return_value=mock_pipelines_spec):
             with patch("cli.wizard.create_book_branch", return_value="autobook/o-meu-fantastico-livro") as mock_create:
                 with patch("cli.wizard.write_workspace_metadata", side_effect=OSError("Falha de I/O simulada")) as mock_write:
-                    wizard_main(stdout=stdout_stream, input_func=input_func)
+                    with patch("cli.wizard.initialize_book_workspace") as mock_init:
+                        wizard_main(stdout=stdout_stream, input_func=input_func)
                     mock_create.assert_called_once()
                     mock_write.assert_called_once()
+                    mock_init.assert_not_called()
 
     output = stdout_stream.getvalue()
     assert "Branch criada: autobook/o-meu-fantastico-livro" in output

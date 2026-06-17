@@ -1,5 +1,10 @@
 logs/
 briefs/
+seed.txt
+book_data/*
+!book_data/.gitkeep
+chapters/*.md
+!chapters/.gitkeep
 __pycache__/
 *.pyc
 .env

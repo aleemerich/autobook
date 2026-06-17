@@ -135,8 +135,8 @@ def test_run_continuity_and_git_push_success(
     first_cmd = mock_run.call_args_list[0][0][0]
     assert "verify_continuity.py" in first_cmd[1]
     
-    mock_git_add.assert_any_call("chapters/ch_01.md", base_dir=tmp_path)
-    mock_git_add.assert_any_call("book_data/state.json", base_dir=tmp_path)
+    mock_git_add.assert_any_call("chapters/ch_01.md", base_dir=tmp_path, force=True)
+    mock_git_add.assert_any_call("book_data/state.json", base_dir=tmp_path, force=True)
     mock_git_commit.assert_called_once_with("ch01: score 8.5 (attempt 2)", base_dir=tmp_path)
     mock_git_push.assert_called_once_with(base_dir=tmp_path)
 
@@ -195,8 +195,8 @@ def test_run_continuity_and_git_push_fallback(
     mock_run.assert_not_called()
     
     # Chamou add, commit, push
-    mock_git_add.assert_any_call("chapters/ch_01.md", base_dir=tmp_path)
-    mock_git_add.assert_any_call("book_data/state.json", base_dir=tmp_path)
+    mock_git_add.assert_any_call("chapters/ch_01.md", base_dir=tmp_path, force=True)
+    mock_git_add.assert_any_call("book_data/state.json", base_dir=tmp_path, force=True)
     mock_git_commit.assert_called_once_with("ch01: forced score 6.2 (fallback)", base_dir=tmp_path)
     mock_git_push.assert_called_once_with(base_dir=tmp_path)
 

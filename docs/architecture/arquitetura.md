@@ -87,8 +87,19 @@ Responsável por:
 - Fornecer fallbacks para inglês quando necessário
 - Gerenciar diretivas de idioma
 
-### 9. Módulo `book_data/`
-Armazena o estado do projeto em execução:
+### 9. Pacote `evaluation/`
+Responsável pelo harness de qualidade:
+- `slop.py`: detecção mecânica de padrões de IA e penalidades.
+- `json_utils.py`: extração e reparo de JSON de respostas LLM.
+- `io.py`: carregamento de capítulos e dados de planejamento.
+- `judge.py`: chamada ao juiz LLM.
+- `prompts.py`: prompts usados nas avaliações.
+- `reports.py`: escrita dos logs programáticos de avaliação e edição.
+
+### 10. Módulo `book_data/`
+Armazena o estado local da obra em execução. No repositório principal, é um
+workspace ignorado por Git exceto por `.gitkeep`; templates versionados ficam
+em `templates/book_data/`.
 - `state.json`: Estado atual do pipeline
 - Arquivos Markdown com informações do livro (personagens, mundo, cânone, etc.)
 

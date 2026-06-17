@@ -23,19 +23,20 @@ entrada principal e `run.py`, que executa pipelines compostos por `Step`s:
 | Cliente LLM | Boa | `llm.py` cobre provedores, modelos, retry, timeout e erros de configuracao tipados. |
 | Prompts e idioma | Boa | `prompt_loader.py` e `prompts/{EN,PT-BR}` estao documentados. |
 | Pipelines | Parcial | Fluxos principais existem, mas alguns detalhes estao desatualizados. |
-| Avaliacao | Boa | `evaluate.py` combina slop mecanico e juiz LLM. |
+| Avaliacao | Boa | `evaluate.py` permanece como fachada/CLI; o pacote `evaluation/` separa slop mecanico, juiz LLM, prompts, JSON e reports. |
 | Typeset | Parcial | `typeset/build_tex.py` gera LaTeX; PDF/EPUB final dependem de ferramentas externas. |
-| Testes | Boa | Baseline moderno confirmado: 301 testes em `tests/`. |
+| Testes | Boa | Baseline moderno confirmado: 309 testes em `tests/`. |
 | Legacy | Parcial | Scripts existem; testes legados foram desativados e ignorados na suíte moderna. |
 
 ## Correcoes Importantes Para v0
 
 - O indice antigo apontava para dezenas de arquivos granulares que nao existem. O novo indice aponta para a estrutura real.
-- O baseline correto de testes modernos e `301 passed` em `tests/`, nao a suite completa incluindo `legacy/tests`.
+- O baseline correto de testes modernos e `309 passed` em `tests/`, nao a suite completa incluindo `legacy/tests`.
 - `legacy/tests` foi desativado e excluído da suíte moderna. Seus arquivos são ignorados pelo pytest via conftest.py na pasta.
 - `GIT_AUTO_COMMIT` e `GIT_AUTO_PUSH` nao sao flags efetivas no codigo atual. Operacoes Git usadas por pipelines passam pelo adaptador `workspace/git.py`.
 - `book_generation` agora falha explicitamente quando `outline.md` nao contem headings reconheciveis de capitulo ou quando arquivos obrigatorios de lore estao ausentes.
 - `workspace.json` continua opcional, mas quando presente precisa validar branch `autobook/<slug>` e `created_at` em ISO 8601.
+- `book_data/`, `seed.txt` e `chapters/*.md` sao workspace local ignorado na branch principal. Templates versionados ficam em `templates/book_data/`, e pipelines usam add forcado controlado nas branches de obra.
 - O fluxo modular de `book_generation` usa `DraftingAgent`, criticos e `SynthesisAgent`. `StylistAgent` e `TechnicalEditorAgent` existem, mas nao sao etapas ativas centrais nesse fluxo.
 - `resolve_continuity.py` foi corrigido como loop fechado: a duplicidade de `main()` foi removida, o relatório é lido de `logs/eval_logs/continuity_report.json` e a chamada final é enviada via `run.py`.
 - `foundation.py` carrega `CRAFT.md` no caminho correto `docs/others/CRAFT.md` com validação explícita de erro.
@@ -65,7 +66,7 @@ uv run --with pytest pytest tests
 Resultado:
 
 ```text
-301 passed
+309 passed
 ```
 
 Comando tambem testado:

@@ -39,6 +39,8 @@ uv run python run.py --pipeline editorial_revision
 ### Regra de Branches de Obra
 Para manter as branches principais `main`/`master` limpas, as pipelines protegidas (`ideation`, `foundation`, `book_generation`, `editorial_revision`) exigem que o código seja executado em uma branch dedicada no formato `autobook/<slug>`.
 
+`book_data/*`, `seed.txt` e `chapters/*.md` sao ignorados por padrao para nao poluir a branch principal. Em branches de obra, as pipelines adicionam esses artefatos explicitamente via `workspace/git.py`.
+
 Opcoes comuns:
 
 ```bash
@@ -116,7 +118,7 @@ Baseline moderno:
 uv run --with pytest pytest tests
 ```
 
-Estado verificado: 301 testes passando.
+Estado verificado: 309 testes passando.
 
 Suite legada:
 

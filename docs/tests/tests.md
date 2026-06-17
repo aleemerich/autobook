@@ -4,7 +4,7 @@
 
 O sistema de testes do Autobook implementa uma suíte abrangente de testes unitários e de integração para garantir a confiabilidade e correto funcionamento do sistema de geração de livros. Os testes ativos estão localizados no diretório `/tests`.
 
-> **Status:** o baseline moderno verificado e `uv run --with pytest pytest tests`, com 301 testes passando. A pasta `/legacy/tests` existe, mas foi desativada e excluída da suíte de testes moderna. Caso seja executada diretamente, a pasta é configurada para ser ignorada via `conftest.py`.
+> **Status:** o baseline moderno verificado e `uv run --with pytest pytest tests`, com 309 testes passando. A pasta `/legacy/tests` existe, mas foi desativada e excluída da suíte de testes moderna. Caso seja executada diretamente, a pasta é configurada para ser ignorada via `conftest.py`.
 
 Este sistema verifica:
 - Funcionalidade básica de módulos individuais (testes unitários)
@@ -373,7 +373,7 @@ Baseline verificado neste snapshot:
 
 ```text
 uv run --with pytest pytest tests
-301 passed
+309 passed
 ```
 
 A execução direta de `legacy/tests` é ignorada via `conftest.py`, resultando em "no tests ran".
