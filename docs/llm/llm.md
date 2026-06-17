@@ -158,8 +158,8 @@ O módulo fornece logging detalhado no stderr para depuração:
 - "[FATAL ERROR] Max retries exceeded during LLM API call."
 
 ### Tratamento de Erros
-- **Chave de API ausente**: Sai com código de erro 1 após exibir mensagem explicativa
-- **Provedor desconhecido**: Sai com código de erro 1 após listar provedores suportados
+- **Chave de API ausente**: Levanta `LLMConfigurationError` antes de chamar o provedor externo
+- **Provedor desconhecido**: Levanta `LLMConfigurationError` listando provedores suportados
 - **Falha na chamada**: Após todas as tentativas, levanta a exceção original
 - **Resposta de erro da API**: Levanta exceção com detalhes da resposta
 - **Payload de erro (200 OK com erro)**: Levanta ValueError com mensagem de erro da API
@@ -170,13 +170,13 @@ O módulo fornece logging detalhado no stderr para depuração:
 1. **Acoplamento estreito com dotenv**: Carrega variáveis de ambiente diretamente em tempo de importação
 2. **Lógica complexa de seleção de modelo**: Múltiplas condições aninhadas podem ser difíceis de seguir
 3. **Duplicação de lógica de cabeçalhos/payload**: Similaridade entre provedores antropico e outros
-4. **Tratamento de erro disperso**: Verificações de erro em múltiplos locais
+4. **Tratamento de erro em evolução**: Configuração já usa exceções tipadas; falhas HTTP ainda propagam exceções da camada externa
 
 ### Sugestões de Refatoramento
 1. **Separar Configuração da Lógica**: Carregar variáveis de ambiente em uma função de configuração explícita
 2. **Estratégia de Seleção de Modelo**: Extrair a lógica de seleção de modelo para uma função separada
 3. **Padronização de Construção de Requisição**: Usar estratégia ou template method para construir requisições
-4. **Camada de Abstração de Erros**: Criar funções específicas para diferentes tipos de tratamento de erro
+4. **Camada de Abstração de Erros**: Expandir exceções específicas para diferentes tipos de falha externa
 5. **Injeção de Dependência de HTTP Client**: Facilitar teste permitindo injeção de cliente HTTP mock
 
 ### Boas Práticas Presentes

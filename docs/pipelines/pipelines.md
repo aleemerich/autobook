@@ -52,8 +52,8 @@ Gera as documentações fundamentais do livro a partir do `seed.txt`: mundo, per
 ### Detalhes de Implementação
 
 #### GenerateWorldStep
-- Constrói uma world bible específica usando regras de Sanderson (hard rules com custos)
-- Inclui seções de cosmologia, magia, geografia, facções, bestiaria, cultura
+- Constrói uma world bible específica para a obra usando regras centrais com custos e limitações
+- Inclui seções de história, sistemas centrais, geografia, facções, natureza/materialidade, cultura
 - Enfatiza especificidade e interconexão entre elementos
 
 #### GenerateCharactersStep
@@ -64,13 +64,13 @@ Gera as documentações fundamentais do livro a partir do `seed.txt`: mundo, per
   - Registro detalhado para personagens principais e secundários
 
 #### GenerateOutlineStep
-- Cria outline de 22 capítulos (~70,000 palavras total)
+- Cria outline com quantidade de capítulos dimensionada ao material
 - Usa estrutura de três atos com porcentagens específicas
 - Inclui foreshadowing ledger com rastreamento de threads
 - Define beats específicos por capítulo (try-fail cycles, emotional arcs)
 
 #### GenerateCanonStep
-- Extrai fatos hardcoded das documentações de planejamento
+- Extrai fatos concretos das documentações de planejamento
 - Formata como banco de dados verificável com fontes atribuídas
 - Evita invenção de fatos - apenas registra o que está explicitamente declarado
 
@@ -131,7 +131,7 @@ Para cada capítulo, o processo segue estas fases:
 - **Validação de Continuidade**: Verifica consistência global antes de avançar
 - **Logging Detalhado**: Salva todas as tentativas em `logs/generation_attempts/`
 - **Rollback Inteligente**: Mantém melhor tentativa se todas falharem
-- **Integração Git**: commits e push sao executados diretamente pelo codigo
+- **Integração Git**: commits e push passam pelo adaptador `workspace/git.py`
   apos capitulo aprovado ou fallback. Nao ha flag efetiva de ambiente para
   desabilitar isso neste v0.
 
@@ -215,7 +215,7 @@ Executar `python run.py` sem argumentos abre o **Autobook Wizard**, que guia int
 - **State Compartilhado**: `book_data/state.json` rastreia progresso entre pipelines
 - **Documentos de Referência**: Todos os pipelines leem de `book_data/` (world, personagens, etc.)
 - **Estado dos Capítulos**: Pipeline de escrita produz arquivos em `chapters/` que são usados pelos pipelines de revisão
-- **Git como Banco de Dados**: Todos os pipelines fazem commit e push, criando histórico verificável
+- **Git como Banco de Dados**: Pipelines fazem commit e push por meio de `workspace/git.py`, criando histórico verificável com um contrato centralizado
 
 ## Qualidade e Testabilidade
 
@@ -237,16 +237,14 @@ Executar `python run.py` sem argumentos abre o **Autobook Wizard**, que guia int
 
 ### Antipadrões Identificados
 1. **Hardcoded Caminhos em Vários Locais**: Alguns caminhos são construídos usando caminhos relativos hardcoded
-2. **Duplicação de Lógica de Git**: Vários steps fazem chamadas diretas ao Git em vez de abstrair
-3. **Estado Global Implícito**: Uso de variáveis de ambiente para configuração pode complicar testes
-4. **Parsing Frágil em Alguns Locais**: Dependência de formatos específicos de saída do LLM sem validação robusta
+2. **Estado Global Implícito**: Uso de variáveis de ambiente para configuração pode complicar testes
+3. **Parsing Frágil em Alguns Locais**: Dependência de formatos específicos de saída do LLM sem validação robusta
 
 ### Sugestões de Refatoramento
 1. **Camada de Abstração de Arquivos**: Criar serviço para operações de arquivo com caminhos configuráveis
-2. **Serviço de Operações Git**: Encapsular operações Git em uma classe repositório
-3. **Objeto de Configuração Explícito**: Passar configuração explícita em vez de ler diretamente de `os.environ`
-4. **Validação de Schema**: Validar saídas do LLM contra schemas esperados antes do processamento
-5. **Padronização de Tratamento de Erros**: Criar exceções customizadas para diferentes camadas do sistema
+2. **Objeto de Configuração Explícito**: Passar configuração explícita em vez de ler diretamente de `os.environ`
+3. **Validação de Schema**: Validar saídas do LLM contra schemas esperados antes do processamento
+4. **Padronização de Tratamento de Erros**: Expandir exceções customizadas para diferentes camadas do sistema
 
 ### Boas Práticas Presentes
 1. **Separation of Responsabilidades Claras**: Cada step tem uma responsabilidade bem definida

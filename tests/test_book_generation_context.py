@@ -39,7 +39,7 @@ def test_load_outline_missing(tmp_path: Path) -> None:
     assert "Outline file outline.md not found" in str(excinfo.value)
 
 def test_count_total_chapters() -> None:
-    """Valida a contagem de capítulos usando regex e fallback de 22."""
+    """Valida a contagem de capítulos usando regex e erro explícito quando não há capítulos."""
     outline_text = (
         "## Act I\n"
         "### Chapter 1: The Beginning\n"
@@ -48,8 +48,19 @@ def test_count_total_chapters() -> None:
     )
     assert count_total_chapters(outline_text) == 3
 
-    # Fallback caso não encontre nenhum match
-    assert count_total_chapters("No chapters here") == 22
+    with pytest.raises(ValueError) as excinfo:
+        count_total_chapters("No chapters here")
+    assert "Outline sem capitulos reconheciveis" in str(excinfo.value)
+
+def test_count_total_chapters_rejects_invalid_numbering() -> None:
+    """Valida que headings pulados ou fora de ordem falham explicitamente."""
+    with pytest.raises(ValueError) as excinfo:
+        count_total_chapters("### Chapter 1\n### Chapter 3\n")
+    assert "numeracao de capitulos invalida" in str(excinfo.value)
+
+    with pytest.raises(ValueError) as excinfo:
+        count_total_chapters("### Chapter 2\n### Chapter 1\n")
+    assert "numeracao de capitulos invalida" in str(excinfo.value)
 
 def test_extract_chapter_outline_and_next() -> None:
     """Valida a extração de outline do capítulo atual e do próximo."""
@@ -137,3 +148,16 @@ def test_load_lore_files_and_build(tmp_path: Path) -> None:
     assert "world context" in lore_data
     assert "canon context" in lore_data
     assert "chars context" in lore_data
+
+def test_load_lore_files_missing_required_files(tmp_path: Path) -> None:
+    """Valida que lore obrigatório ausente falha de forma explícita."""
+    (tmp_path / "world.md").write_text("world context", encoding="utf-8")
+    (tmp_path / "canon.md").write_text("canon context", encoding="utf-8")
+
+    with pytest.raises(FileNotFoundError) as excinfo:
+        load_lore_files(tmp_path)
+
+    message = str(excinfo.value)
+    assert "Arquivos obrigatorios de lore ausentes" in message
+    assert "characters.md" in message
+    assert "voice.md" in message

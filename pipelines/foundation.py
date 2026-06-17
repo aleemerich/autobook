@@ -56,15 +56,16 @@ class GenerateWorldStep(Step):
         voice_p2 = inputs["voice_part2"]
         
         system = (
-            "You are a fantasy worldbuilder with deep knowledge of Sanderson's Laws, "
-            "Le Guin's prose philosophy, and TTRPG-quality lore design. "
-            "You write world bibles that are specific, interconnected, and imply depth "
-            "beyond what's stated. You never use AI slop words (delve, tapestry, myriad, etc). "
-            "You write in clean, direct prose. Every rule has a cost. Every cultural detail "
-            "implies a history. Every location has a sensory signature."
+            "You are a setting designer and story-world architect with deep knowledge "
+            "of narrative systems, social consequences, genre conventions, and concrete "
+            "sensory worldbuilding. You write reference bibles that are specific, "
+            "interconnected, and imply depth beyond what is stated. You never use AI "
+            "slop words (delve, tapestry, myriad, etc). You write in clean, direct prose. "
+            "Every rule has a cost. Every cultural detail implies a history. Every "
+            "location has a sensory signature."
         )
         
-        prompt = f"""Build a complete world bible for this fantasy novel. This is the WORLD.MD file -- 
+        prompt = f"""Build a complete world bible for the current book. This is the WORLD.MD file --
 the definitive reference for everything that EXISTS in this world. A writer should be able 
 to resolve any worldbuilding question from this document alone.
 
@@ -75,12 +76,12 @@ VOICE IDENTITY (the tone and register of this novel):
 {voice_p2}
 
 CRAFT REQUIREMENTS (follow these):
-- Magic system needs HARD RULES with COSTS and LIMITATIONS per Sanderson's Second Law
-- Limitations >= powers in narrative prominence
-- Trace implications of magic through society, economy, law, religion
-- At least 2-3 societal implications of magic explored in depth
+- Any central system, institution, technology, magic, profession, law, or social structure needs HARD RULES with COSTS and LIMITATIONS
+- Limitations must be at least as narratively prominent as capabilities
+- Trace implications of the book's central systems through society, economy, law, religion, family, class, and daily life where relevant
+- At least 2-3 societal implications of the central systems explored in depth
 - History must create PRESENT-DAY TENSIONS that drive the plot (not just backdrop)
-- Geography must be specific and sensory (not generic fantasy)
+- Geography and built environments must be specific and sensory, not generic
 - Iceberg principle: imply more than you state
 - Interconnection: pulling one thread should move everything
 
@@ -90,37 +91,44 @@ STRUCTURE THE DOCUMENT WITH THESE SECTIONS:
 A timeline of major events. Focus on events that create PRESENT-DAY tensions.
 Include the founding myth, key turning points, and recent events that matter to the plot.
 
-## Magic System
-### Hard Rules (Tonal Law)
-Specific, testable rules. What intervals do what. What progressions bind.
-What happens when you break the rules. Include COSTS and LIMITATIONS prominently.
+## Core Systems, Rules & Constraints
+### Hard / Operational Rules
+Specific, testable rules for any central system in the book: magic, technology,
+law, profession, crime, religion, economics, social codes, or other governing
+logic. What actions are possible? What fails? What breaks? Include COSTS and
+LIMITATIONS prominently.
 
-### Soft Magic (Cass's Gift)
-What he perceives, how it works, what it costs HIM specifically.
-This should be mysterious but have consistent internal logic.
+### Exceptions, Edge Cases, and Unusual Abilities
+If the story has unusual perception, abilities, tools, procedures, privileges,
+or forbidden knowledge, define what is known, what is uncertain, and what it
+costs the characters. Keep mystery where useful, but preserve internal logic.
 
 ### Societal Implications
-How does tonal law shape: governance, commerce, education, class structure,
-crime, family life, childhood, aging, disability?
+How do the book's central systems shape governance, commerce, education, class
+structure, crime, family life, childhood, aging, disability, labor, risk, and
+status?
 
 ## Geography
-Cantamura's physical layout, districts, the natural amphitheater's acoustic properties.
-Neighboring places (at least 2-3). Sensory signatures for each location.
+The main setting's physical layout, districts, borders, routes, climate,
+architecture, infrastructure, and sensory signatures. Include neighboring
+places or adjacent social spaces when relevant.
 
 ## Factions & Politics
 Who holds power, who wants it, who's being crushed by it.
 At least 3-4 factions with opposing interests.
 
 ## Bestiary / Flora / Natural World
-What's unique about the natural world in and around Cantamura?
+What's unique about the natural world, built environment, ecology, technology,
+or material culture in and around the main setting?
 
 ## Cultural Details
 Customs, taboos, festivals, food, clothing, coming-of-age rituals.
 Things that make daily life feel SPECIFIC.
 
 ## Internal Consistency Rules
-Hard constraints a writer must not violate. The physics of sound in this world.
-What's possible and what's not.
+Hard constraints a writer must not violate. The physics, logistics, social rules,
+technological limits, magical constraints, or institutional procedures that define
+what is possible and what is not.
 
 IMPORTANT:
 - Be SPECIFIC. Not "the city has districts" but name them, describe them, 
@@ -128,8 +136,8 @@ IMPORTANT:
 - Every rule should have a COST or LIMITATION stated alongside it.
 - Include 2-3 facts per section that are unexplained, hinting at deeper systems 
   (iceberg depth).
-- Facts should INTERCONNECT: the magic should shape the politics, the geography 
-  should shape the culture, the history should explain current faction conflicts.
+- Facts should INTERCONNECT: central systems should shape politics, geography
+  should shape culture, and history should explain current faction conflicts.
 - Write in clean, direct prose. No AI slop. No "rich tapestry." No "delving."
 - The world should feel grounded and LIVED-IN, not imagined.
 - Target ~3000-4000 words. Dense, not padded.
@@ -151,14 +159,14 @@ class GenerateCharactersStep(Step):
         voice_p2 = inputs["voice_part2"]
         
         system = (
-            "You are a character designer for literary fiction with deep knowledge of "
+            "You are a character designer for fiction with deep knowledge of "
             "wound/want/need/lie frameworks, Sanderson's three sliders, and dialogue "
             "distinctiveness. You create characters who feel like real people with "
             "contradictions, secrets, and speech patterns you can hear. "
             "You never use AI slop words. You write in clean, direct prose."
         )
         
-        prompt = f"""Build a complete character registry for this fantasy novel. This is CHARACTERS.MD --
+        prompt = f"""Build a complete character registry for the current book. This is CHARACTERS.MD --
 the definitive reference for WHO exists in this story, what drives them, how they speak,
 and what secrets they carry.
 
@@ -193,9 +201,9 @@ Rules: Want and Need must be IN TENSION. Lie statable in one sentence.
 7. Metaphor domain  8. Directness vs indirectness
 Test: Remove dialogue tags. Can you tell who's speaking?
 
-BUILD THE REGISTRY WITH AT LEAST THESE CHARACTERS:
+BUILD THE REGISTRY WITH AT LEAST THESE ROLES:
 
-1. **Cass Bellwright** (protagonist, POV character)
+1. **Protagonist / Primary POV character**
    - Full wound/want/need/lie chain
    - Three sliders with justification
    - Arc type (positive/negative/flat)
@@ -204,32 +212,32 @@ BUILD THE REGISTRY WITH AT LEAST THESE CHARACTERS:
    - At least 2 secrets
    - Key relationships mapped
 
-2. **Eddan Bellwright** (father)
-   - Same depth as Cass
-   - His relationship to the sealed journals, the shaking hands
-   - What he knows and what he's hiding
+2. **Primary relationship anchor**
+   - Same depth as the protagonist when narratively important
+   - The relationship pressure this person creates
+   - What they know, need, hide, or misunderstand
 
-3. **Perin Bellwright** (brother) 
-   - Even though he's absent for much of the story, he needs full depth
-   - What actually happened with the Corda contract
-   - His presence through absence
+3. **Missing, absent, threatened, or catalytic figure**
+   - If someone is absent for much of the story, give them full depth anyway
+   - What their absence changes
+   - How their presence is felt indirectly
 
-4. **Maret Corda** (antagonist)
-   - Not a villain -- someone whose interests conflicts with Cass's
-   - Her own wound/want/need/lie (she should be understandable)
+4. **Primary opposition force / antagonist**
+   - Not a cartoon villain -- someone whose interests conflict with the protagonist's
+   - Their own wound/want/need/lie
+   - Why their choices are understandable from inside their worldview
 
-5. **Rector Suvaine** (Academy Chancellor)
-   - The institutional antagonist -- the system personified
-   - She believes she's protecting Cantamura
+5. **Institutional or systemic pressure figure**
+   - A person who embodies a system, institution, family, market, law, class, or ideology
+   - Why they believe they are preserving something necessary
 
-6. **Torvald Hess** (Compact leader)
-   - The outsider perspective on the system
-   - What he represents thematically
+6. **Outsider, reformer, witness, rival, or alternate worldview**
+   - The perspective that exposes blind spots in the protagonist and setting
+   - What this person represents thematically
 
-7. **At least 1-2 additional characters** that the story needs
-   - A peer/friend for Cass at the Academy?
-   - Someone at the House of Corda who knows Perin?
-   - A Court Singer with divided loyalties?
+7. **At least 1-3 additional characters** that the story needs
+   - Peers, friends, rivals, witnesses, gatekeepers, family, professional contacts, or conspirators
+   - Each must create pressure, reveal theme, or complicate the plot
 
 FOR EACH CHARACTER INCLUDE:
 - Name, age, role
@@ -247,9 +255,9 @@ IMPORTANT:
 - Characters must INTERCONNECT. Their wants should conflict with each other.
 - Every secret should be something that would CHANGE the story if revealed.
 - Speech patterns must be distinct enough to pass the no-tags test.
-- Give Cass habits that come from his gift (the pain, the constant listening).
-- The father's shaking hands should connect to something specific.
-- Maret Corda should be as fully realized as Cass -- a worthy antagonist.
+- Give the protagonist habits that emerge from their body, work, wound, training, status, or unusual perception.
+- Physical tells should connect to specific history, pressure, or coping mechanisms.
+- The primary antagonist/opposition force should be as fully realized as the protagonist.
 - Target ~3000-4000 words. Dense character work, not padding.
 """
         chars_text = call_llm(prompt=prompt, system_prompt=system, temperature=0.7, is_judge=False)
@@ -285,8 +293,10 @@ class GenerateOutlineStep(Step):
             "You never use AI slop words. You write in clean, direct prose."
         )
         
-        prompt = f"""Build a complete chapter outline for this fantasy novel. Target: 22 chapters,
-~70,000 words total (~3,000-4,000 words per chapter).
+        prompt = f"""Build a complete chapter outline for the current book. Size the chapter count
+to the material instead of forcing a fixed number. Recommend a target total word count and
+chapter count based on the seed, genre, world complexity, character arcs, mystery/subplot
+density, and intended pacing.
 
 SEED CONCEPT:
 {seed}
@@ -316,8 +326,8 @@ State the percentage marks for the key novel.
 
 For EACH chapter, provide:
 ### Ch N: [Title]
-- **POV:** (always Cass, third-person limited)
-- **Location:** Which districts/locations
+- **POV:** viewpoint character and narrative distance
+- **Location:** Which places or social spaces
 - **Save the Cat beat:** Which beat this chapter serves (Opening Image, Setup, Catalyst, etc.)
 - **% mark:** Where this falls in the novel
 - **Emotional arc:** Starting emotion -> ending emotion
@@ -325,8 +335,8 @@ For EACH chapter, provide:
 - **Beats:** 3-5 specific scene beats that must happen
 - **Plants:** Foreshadowing elements planted in this chapter
 - **Payoffs:** Foreshadowing elements that pay off here
-- **Character movement:** What changes for Cass (or other characters) by chapter's end
-- **The lie:** How Cass's lie ("if I master the system, I can fix things from inside") is reinforced or challenged
+- **Character movement:** What changes for the protagonist or other important characters by chapter's end
+- **The lie / false belief:** How the relevant character's false belief is reinforced, challenged, or broken
 - **~Word count target:** for pacing
 
 ## Foreshadowing Ledger
@@ -338,20 +348,22 @@ Include at LEAST 15 threads. Types: object, dialogue, action, symbolic, structur
 
 KEY PLOT ARCHITECTURE:
 
-Act I (Ch 1-6): Establish Cass's world, his pain, his gift, the Academy, his family.
-Plant the mystery early (the locked room, the forbidden bells, father's tremor).
-Catalyst: something forces Cass to investigate Perin's contract.
+Act I: Establish the protagonist, central pressure, ordinary world, first promises,
+and the initial contradiction or wound. Plant the central question/mystery/conflict early.
+Catalyst: something forces the protagonist into irreversible motion.
 
-Act II Part 1 (Ch 7-12): Investigation. Cass digs into the Corda contract, encounters Maret, allies with Torvald, begins hearing the harmonic.
-Midpoint: Cass learns a partial truth that changes his approach.
+Act II Part 1: Escalation, investigation, training, pursuit, or deepening entanglement.
+The protagonist tests an approach and forms alliances, rivalries, or dependencies.
+Midpoint: a partial truth, false victory, or reversal changes the protagonist's approach.
 
-Act II Part 2 (Ch 13-18): Pressure mounts. Maret moves against the Bellwrights. Father's secrets surface.
-All Is Lost: Cass confronts his father and learns the full truth.
+Act II Part 2: Pressure mounts. Costs become personal. Secrets, betrayals, system limits,
+or relationship fractures surface. All Is Lost: the protagonist loses the old strategy.
 
-Act III (Ch 19-22): Cass understands the question. Climax plays out using Tonal Law.
+Act III: The protagonist understands the real question. The climax resolves through
+rules, relationships, costs, and choices established earlier.
 
 CONSTRAINTS:
-- Climax must be mechanically resolvable using Tonal Law
+- Climax must be mechanically and emotionally resolvable using rules and costs established earlier
 - Vary try-fail types: 60%+ should be "yes-but" or "no-and"
 - Foreshadowing ledger must have plant-to-payoff distances of at least 3 chapters
 """
@@ -371,7 +383,7 @@ class GenerateCanonStep(Step):
         characters = inputs["characters"]
         
         system = (
-            "You are a continuity editor extracting hard facts from fantasy novel "
+            "You are a continuity editor extracting hard facts from book "
             "planning documents. You are precise, exhaustive, and never invent facts "
             "that aren't in the source material. Every entry must be traceable to a "
             "specific statement in the source documents."
@@ -379,7 +391,7 @@ class GenerateCanonStep(Step):
         
         prompt = f"""Extract EVERY hard fact from these planning documents into a structured canon database.
 A "hard fact" is anything a writer must not contradict: names, ages, dates, physical descriptions,
-rules of the magic system, geography, relationships, established events.
+rules of central systems, geography, relationships, established events.
 
 SOURCE DOCUMENTS:
 
@@ -400,9 +412,8 @@ FORMAT THE OUTPUT AS CANON.MD with these categories:
 ## Timeline
 - Dated events, ages, durations
 
-## Magic System Rules
-- Hard rules of Tonal Law (intervals, costs, limitations)
-- Cass's gift specifics
+## Core System Rules
+- Hard rules, constraints, costs, limitations, exceptions, and edge cases for any central system in the book
 
 ## Character Facts
 - Ages, physical descriptions, habits, relationships
@@ -416,7 +427,7 @@ FORMAT THE OUTPUT AS CANON.MD with these categories:
 
 ## Established In-Story
 - Events that have already happened in the story's past
-- The Perin contract, the Expansion Wars, etc.
+- Past events, promises, crimes, obligations, conflicts, losses, agreements, discoveries, or turning points that the story must not contradict
 
 RULES:
 - One fact per bullet point. Short. Specific. Checkable.

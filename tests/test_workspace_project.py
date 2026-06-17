@@ -50,6 +50,10 @@ def test_build_workspace_metadata_validation() -> None:
         build_workspace_metadata("O Hobbit", "  ")
     assert "branch do projeto não pode ser vazia" in str(excinfo.value)
 
+    with pytest.raises(ValueError) as excinfo:
+        build_workspace_metadata("O Hobbit", "feature/hobbit")
+    assert "formato autobook/<slug>" in str(excinfo.value)
+
 def test_write_workspace_metadata(tmp_path: Path) -> None:
     """Valida que write_workspace_metadata cria a pasta book_data e grava JSON válido."""
     written_path = write_workspace_metadata("Silmarillion", "autobook/silmarillion", base_dir=tmp_path)
@@ -101,27 +105,27 @@ def test_load_workspace_metadata_validation_scenarios(tmp_path: Path) -> None:
 
     # 2. schema_version ausente
     with open(path, "w", encoding="utf-8") as f:
-        json.dump({"title": "Hobbit", "branch": "main", "created_at": "now"}, f)
+        json.dump({"title": "Hobbit", "branch": "autobook/hobbit", "created_at": "2026-01-01T00:00:00"}, f)
     with pytest.raises(ValueError) as excinfo:
         load_workspace_metadata(tmp_path)
     assert "schema_version" in str(excinfo.value)
 
     # 3. schema_version diferente de 1
     with open(path, "w", encoding="utf-8") as f:
-        json.dump({"schema_version": 2, "title": "Hobbit", "branch": "main", "created_at": "now"}, f)
+        json.dump({"schema_version": 2, "title": "Hobbit", "branch": "autobook/hobbit", "created_at": "2026-01-01T00:00:00"}, f)
     with pytest.raises(ValueError) as excinfo:
         load_workspace_metadata(tmp_path)
     assert "Versão de schema '2' não suportada" in str(excinfo.value)
 
     # 4. title ausente ou vazio
     with open(path, "w", encoding="utf-8") as f:
-        json.dump({"schema_version": 1, "branch": "main", "created_at": "now"}, f)
+        json.dump({"schema_version": 1, "branch": "autobook/hobbit", "created_at": "2026-01-01T00:00:00"}, f)
     with pytest.raises(ValueError) as excinfo:
         load_workspace_metadata(tmp_path)
     assert "campo 'title' é obrigatório" in str(excinfo.value)
 
     with open(path, "w", encoding="utf-8") as f:
-        json.dump({"schema_version": 1, "title": "  ", "branch": "main", "created_at": "now"}, f)
+        json.dump({"schema_version": 1, "title": "  ", "branch": "autobook/hobbit", "created_at": "2026-01-01T00:00:00"}, f)
     with pytest.raises(ValueError) as excinfo:
         load_workspace_metadata(tmp_path)
     assert "string não vazia" in str(excinfo.value)
@@ -133,10 +137,27 @@ def test_load_workspace_metadata_validation_scenarios(tmp_path: Path) -> None:
         load_workspace_metadata(tmp_path)
     assert "campo 'branch' é obrigatório" in str(excinfo.value)
 
-    # 6. created_at ausente ou vazia
     with open(path, "w", encoding="utf-8") as f:
-        json.dump({"schema_version": 1, "title": "Hobbit", "branch": "main"}, f)
+        json.dump({"schema_version": 1, "title": "Hobbit", "branch": "feature/hobbit", "created_at": "2026-01-01T00:00:00"}, f)
+    with pytest.raises(ValueError) as excinfo:
+        load_workspace_metadata(tmp_path)
+    assert "formato autobook/<slug>" in str(excinfo.value)
+
+    # 6. created_at ausente, vazia ou inválida
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump({"schema_version": 1, "title": "Hobbit", "branch": "autobook/hobbit"}, f)
     with pytest.raises(ValueError) as excinfo:
         load_workspace_metadata(tmp_path)
     assert "campo 'created_at' é obrigatório" in str(excinfo.value)
 
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump({"schema_version": 1, "title": "Hobbit", "branch": "autobook/hobbit", "created_at": "  "}, f)
+    with pytest.raises(ValueError) as excinfo:
+        load_workspace_metadata(tmp_path)
+    assert "string não vazia" in str(excinfo.value)
+
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump({"schema_version": 1, "title": "Hobbit", "branch": "autobook/hobbit", "created_at": "not-a-date"}, f)
+    with pytest.raises(ValueError) as excinfo:
+        load_workspace_metadata(tmp_path)
+    assert "ISO 8601" in str(excinfo.value)

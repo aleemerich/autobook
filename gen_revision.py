@@ -3,13 +3,21 @@
 Revision chapter generator. Rewrites a chapter from a specific revision brief.
 Usage: python gen_revision.py <chapter_num> <brief_file>
 """
-import os
 import sys
 from pathlib import Path
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).parent
 load_dotenv(BASE_DIR / ".env")
+
+def _load_book_title(base_dir: Path = BASE_DIR) -> str:
+    """Load the current workspace title, falling back when no workspace exists."""
+    from workspace.project import load_workspace_metadata
+
+    metadata = load_workspace_metadata(base_dir)
+    if metadata is None:
+        return "Untitled Book"
+    return metadata["title"]
 
 def call_writer(prompt, temperature=0.8, max_tokens=16000):
     """Call the unified writer LLM via llm.py and return response text."""
@@ -52,6 +60,7 @@ def main():
     # Load old version if exists
     old_path = BASE_DIR / "chapters" / f"ch_{ch_num:02d}.md"
     old_text = old_path.read_text() if old_path.exists() else "(no existing draft)"
+    book_title = _load_book_title(BASE_DIR)
     
     from prompt_loader import load_prompt, load_genre_rules, load_slop_rules_instruction
     try:
@@ -60,6 +69,7 @@ def main():
         slop_rules = load_slop_rules_instruction()
         prompt = prompt_template.format(
             ch_num=ch_num,
+            book_title=book_title,
             brief=brief,
             voice=voice,
             characters=characters,
@@ -72,7 +82,7 @@ def main():
         )
     except Exception as e:
         print(f"WARNING: failed to load user prompt template: {e}, falling back to hardcoded template", file=sys.stderr)
-        prompt = f"""Rewrite Chapter {ch_num} of "The Second Son of the House of Bells."
+        prompt = f"""Rewrite Chapter {ch_num} of "{book_title}".
 
 REVISION BRIEF (follow this exactly):
 {brief}

@@ -1,10 +1,10 @@
 import json
-import subprocess
 from pathlib import Path
 from pipelines.foundation_steps.context import (
     build_foundation_writing_state,
     foundation_git_paths
 )
+from workspace.git import git_add, git_commit
 
 def write_foundation_state(state_file: Path) -> None:
     """Escreve o estado inicial de escrita em state.json."""
@@ -15,10 +15,6 @@ def write_foundation_state(state_file: Path) -> None:
 def commit_foundation_artifacts(base_dir: Path, include_mystery: bool) -> None:
     """Executa git add e git commit para os arquivos de fundacao."""
     for path in foundation_git_paths(include_mystery):
-        subprocess.run(["git", "add", path], cwd=str(base_dir), check=True)
+        git_add(path, base_dir=base_dir)
         
-    subprocess.run(
-        ["git", "commit", "-m", "planning: initialize foundational story bibles and outline"],
-        cwd=str(base_dir),
-        check=True
-    )
+    git_commit("planning: initialize foundational story bibles and outline", base_dir=base_dir)

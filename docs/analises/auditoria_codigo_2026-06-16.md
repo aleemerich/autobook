@@ -8,6 +8,13 @@ funcionais e aderencia a documentacao operacional. Ele nao e um plano de
 implementacao ainda; e o inventario de problemas e decisoes pendentes para
 guiar a proxima rodada de planejamento.
 
+> Atualizacao pos-auditoria: os Pacotes 1 e 2 corrigiram parte dos achados
+> criticos listados aqui, incluindo `resolve_continuity.py`, o caminho de
+> `CRAFT.md`, `main.py`, a coleta de `legacy/tests` e os hardcodes operacionais
+> de obra especifica em `foundation.py`, `evaluate.py`, `gen_revision.py`,
+> `gen_audiobook_script.py` e `book_generation_steps/planning.py`. O documento
+> abaixo permanece como registro historico da auditoria original.
+
 ## Escopo e Metodo
 
 Foram analisados:

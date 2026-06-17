@@ -2,7 +2,8 @@
 """
 resolve_continuity.py — Closed-loop continuity router.
 Parses continuity_report.json and latest individual chapter evaluations,
-generates a corrective editorial.md, backs up the old one, and triggers run_editorial.py.
+generates a corrective editorial.md, backs up the old one, and triggers
+python run.py --pipeline editorial_revision --chapter <capitulos>.
 """
 import sys
 import json

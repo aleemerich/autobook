@@ -1,4 +1,4 @@
-Reescreva o Capítulo {ch_num} de "The Second Son of the House of Bells."
+Reescreva o Capítulo {ch_num} de "{book_title}".
 
 GUIA DE REVISÃO (siga isso exatamente):
 {brief}

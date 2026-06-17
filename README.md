@@ -26,19 +26,20 @@ cp .env.example .env    # Add your API keys
 # Install dependencies
 uv sync
 
-# Run the full pipeline (generating the book from scratch)
-uv run python run.py --pipeline book_generation --from-scratch --yes
+# Start the interactive workspace wizard
+uv run python run.py
 ```
 
 ---
 
 ## The Unified Orchestrator (`run.py`)
 
-Autobook has been fully refactored to use a **Command/Composite Pattern** for workflow orchestration. All legacy execution scripts have been consolidated into a single entry point: **`run.py`**.
+Autobook has been refactored to use a **Command/Composite Pattern** for workflow orchestration. The primary book-production pipelines are available through the single entry point: **`run.py`**.
 
 * **Autobook Wizard**: Running `uv run python run.py` without arguments launches an interactive console wizard. The wizard displays the project state, lists recommended next steps, can suggest and create a dedicated branch, and registers metadata in `book_data/workspace.json`.
 * **Classic CLI Mode**: Running `uv run python run.py --pipeline <name>` runs the specified pipeline directly in non-interactive CLI mode.
 * **Work Branch Enforcement**: To keep the principal `main`/`master` branches clean, execution of protected pipelines is only allowed on dedicated branches matching the format `autobook/<slug>`.
+* **Git Adapter**: Git operations used by pipelines are centralized in `workspace/git.py`, giving tests and callers one explicit contract for add, commit, push, branch and worktree status operations.
 
 ```bash
 # General CLI options (Classic Mode)
@@ -54,7 +55,7 @@ uv run python run.py --pipeline [ideation|foundation|book_generation|editorial_r
    Generates the complete set of foundational reference bibles based on `seed.txt`:
    * `world.md` — Detailed worldbuilding bible.
    * `characters.md` — Wound/want/need/lie sheets and slider metrics for all characters.
-   * `outline.md` — 22-chapter beat sheet, including try-fail cycle pacing and foreshadowing ledgers.
+   * `outline.md` — Chapter beat sheet sized to the material, including try-fail cycle pacing and foreshadowing ledgers.
    * `canon.md` — Exhaustive fact continuity database.
    Automatically adds and commits the generated bibles to Git, and initializes the project cursor in `state.json` to start sequential writing (`chapters_drafted: 0`).
 
@@ -88,15 +89,12 @@ To keep the repository organized, files are structured into dedicated subdirecto
   * `voice.md` — Voice fingerprint guardrails.
   * `editorial.md` — Markdown file containing guidelines for editorial revisions.
   * `state.json` — Pipeline execution progress and checkpoints.
-* **[doc/](doc/)** (Developer Reference):
-  * `PIPELINE.md` — Complete technical automation specification.
-  * `CRAFT.md` — Frameworks for plot, character, world, and prose development.
-  * `ANTI-SLOP.md` — AI tell word lists and metrics.
-  * `ANTI-PATTERNS.md` — Structural AI prose patterns to avoid.
-  * `WORKFLOW.md` — Step-by-step human guide.
-  * `program.md` — Historical agent instructions.
-  * `cauldron.txt` — Cauldron seed concepts.
-  * `results.tsv` — Historical execution log of chapter attempts.
+  * `workspace.json` — Optional workspace metadata written by the wizard.
+  * `audiobook_cast.json` — Optional speaker/cast descriptions for audiobook script parsing.
+* **[docs/](docs/)** (Developer Reference):
+  * `others/CRAFT.md` — Frameworks for plot, character, world, and prose development.
+  * `others/PIPELINE.md`, `others/WORKFLOW.md`, `others/program.md` — Historical/reference material.
+  * `others/ANTI-SLOP.md` and `others/ANTI-PATTERNS.md` — AI tell word lists and structural prose patterns to avoid.
 * **[pipelines/](pipelines/)** (Orchestrator Logic):
   * `registry.py` — Central pipeline specification and registry.
   * `base.py` — Abstract Base classes for Pipelines and Steps.
@@ -142,7 +140,7 @@ ELEVENLABS_API_KEY=your-elevenlabs-key-here
 
 ## Testing
 
-Autobook includes a comprehensive suite of **274 fast, local unit and integration tests** verifying prompts, language rules, parser formats, and pipeline controllers.
+Autobook includes a comprehensive suite of **301 fast, local unit and integration tests** verifying prompts, language rules, parser formats, and pipeline controllers.
 
 To run the test suite:
 ```bash

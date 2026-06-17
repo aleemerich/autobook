@@ -1,4 +1,4 @@
-Rewrite Chapter {ch_num} of "The Second Son of the House of Bells."
+Rewrite Chapter {ch_num} of "{book_title}".
 
 REVISION BRIEF (follow this exactly):
 {brief}

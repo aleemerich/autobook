@@ -7,6 +7,11 @@ para montar as proximas specs de implementacao. Os itens nao devem ser
 executados todos de uma vez; a prioridade sugerida e remover riscos funcionais
 primeiro e so depois atacar organizacao ampla.
 
+> Atualizacao pos-auditoria: os Pacotes 1 e 2 ja trataram C01, C02, A01, A02
+> e a parte operacional de C03. Ainda restam decisoes de produto sobre exemplos,
+> docs historicas e futuras refatoracoes maiores, mas os prompts/codigo
+> operacional principal nao estao mais presos a uma obra especifica.
+
 ## Legenda
 
 - Critica: quebra fluxo, induz resultado incorreto ou contradiz premissa

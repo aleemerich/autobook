@@ -99,8 +99,17 @@ def test_update_generation_state(tmp_path: Path) -> None:
     assert saved_state["chapters_drafted"] == 3
     assert saved_state["other"] == "value"
 
+@patch("pipelines.book_generation_steps.persistence.git_push")
+@patch("pipelines.book_generation_steps.persistence.git_commit")
+@patch("pipelines.book_generation_steps.persistence.git_add")
 @patch("pipelines.book_generation_steps.persistence.subprocess.run")
-def test_run_continuity_and_git_push_success(mock_run: MagicMock, tmp_path: Path) -> None:
+def test_run_continuity_and_git_push_success(
+    mock_run: MagicMock,
+    mock_git_add: MagicMock,
+    mock_git_commit: MagicMock,
+    mock_git_push: MagicMock,
+    tmp_path: Path
+) -> None:
     """Valida que continuidade com returncode 0 executa add, commit e push com mocks."""
     # Mock do verify_continuity subprocess
     mock_run.return_value = MagicMock(returncode=0, stdout="success output")
@@ -120,16 +129,16 @@ def test_run_continuity_and_git_push_success(mock_run: MagicMock, tmp_path: Path
     )
     
     assert res is True
-    assert mock_run.call_count >= 5  # continuity, git add ch, git add state, git commit, git push
+    assert mock_run.call_count == 1
     
     # Primeiro comando de todos deve ser verify_continuity
     first_cmd = mock_run.call_args_list[0][0][0]
     assert "verify_continuity.py" in first_cmd[1]
     
-    # Deve conter commit
-    commit_args = [call[0][0] for call in mock_run.call_args_list]
-    commit_found = any("commit" in cmd for cmd in commit_args)
-    assert commit_found
+    mock_git_add.assert_any_call("chapters/ch_01.md", base_dir=tmp_path)
+    mock_git_add.assert_any_call("book_data/state.json", base_dir=tmp_path)
+    mock_git_commit.assert_called_once_with("ch01: score 8.5 (attempt 2)", base_dir=tmp_path)
+    mock_git_push.assert_called_once_with(base_dir=tmp_path)
 
 @patch("pipelines.book_generation_steps.persistence.subprocess.run")
 def test_run_continuity_and_git_push_fail(mock_run: MagicMock, tmp_path: Path) -> None:
@@ -154,8 +163,17 @@ def test_run_continuity_and_git_push_fail(mock_run: MagicMock, tmp_path: Path) -
     assert mock_run.call_count == 1
     assert "verify_continuity.py" in mock_run.call_args[0][0]
 
+@patch("pipelines.book_generation_steps.persistence.git_push")
+@patch("pipelines.book_generation_steps.persistence.git_commit")
+@patch("pipelines.book_generation_steps.persistence.git_add")
 @patch("pipelines.book_generation_steps.persistence.subprocess.run")
-def test_run_continuity_and_git_push_fallback(mock_run: MagicMock, tmp_path: Path) -> None:
+def test_run_continuity_and_git_push_fallback(
+    mock_run: MagicMock,
+    mock_git_add: MagicMock,
+    mock_git_commit: MagicMock,
+    mock_git_push: MagicMock,
+    tmp_path: Path
+) -> None:
     """Valida que a execução em modo fallback executa commit/push forçados sem rodar o continuity."""
     state_file = tmp_path / "state.json"
     state = {"chapters_drafted": 0}
@@ -174,16 +192,13 @@ def test_run_continuity_and_git_push_fallback(mock_run: MagicMock, tmp_path: Pat
     
     assert res is True
     # Não deve ter chamado verify_continuity, mas sim os comandos git diretamente
-    called_cmds = [call[0][0] for call in mock_run.call_args_list]
-    verify_called = any("verify_continuity.py" in cmd[1] if len(cmd) > 1 else False for cmd in called_cmds)
-    assert not verify_called
+    mock_run.assert_not_called()
     
     # Chamou add, commit, push
-    assert mock_run.call_count == 4  # git add ch, git add state, git commit, git push
-    
-    commit_cmd = next(cmd for cmd in called_cmds if "commit" in cmd)
-    # Mensagem de commit deve conter "fallback" e o score
-    assert "forced score 6.2 (fallback)" in commit_cmd[3]
+    mock_git_add.assert_any_call("chapters/ch_01.md", base_dir=tmp_path)
+    mock_git_add.assert_any_call("book_data/state.json", base_dir=tmp_path)
+    mock_git_commit.assert_called_once_with("ch01: forced score 6.2 (fallback)", base_dir=tmp_path)
+    mock_git_push.assert_called_once_with(base_dir=tmp_path)
 
 def test_book_generation_pipeline_structure() -> None:
     """Valida que o BookGenerationPipeline ainda contém ResetStep e DraftChaptersStep."""

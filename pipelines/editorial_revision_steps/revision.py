@@ -1,6 +1,7 @@
 import sys
 import subprocess
 from pathlib import Path
+from workspace.git import git_add, git_commit, git_push
 
 def build_initial_brief(brief: str, general_notes: str) -> str:
     """Monta o brief editorial inicial combinando o brief do capitulo e as diretrizes gerais."""
@@ -59,10 +60,10 @@ def is_better_than_fallback(post_score: float, best_score: float, slop_penalty: 
 def commit_revised_chapter(ch_num: int, pre_score: float, final_score: float, base_dir: Path) -> None:
     """Executa os comandos git para commitar e dar push no capitulo revisado."""
     print(f"[ExecuteEditorialStep] Committing changes for Chapter {ch_num} (Score: {final_score})...")
-    subprocess.run(["git", "add", f"chapters/ch_{ch_num:02d}.md"], cwd=str(base_dir))
+    git_add(f"chapters/ch_{ch_num:02d}.md", base_dir=base_dir)
     commit_msg = f"editorial: revised ch{ch_num:02d} ({pre_score} -> {final_score})"
-    subprocess.run(["git", "commit", "-m", commit_msg], cwd=str(base_dir))
-    subprocess.run(["git", "push"], cwd=str(base_dir))
+    git_commit(commit_msg, base_dir=base_dir)
+    git_push(base_dir=base_dir)
 
 def run_final_maintenance(base_dir: Path) -> None:
     """Consolida manuscrito e outlines executando os scripts auxiliares caso existam."""

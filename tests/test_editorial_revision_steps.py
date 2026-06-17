@@ -186,8 +186,19 @@ def test_format_eval_feedback():
 
 
 @patch("pipelines.editorial_revision.evaluate_chapter")
+@patch("pipelines.editorial_revision_steps.revision.git_push")
+@patch("pipelines.editorial_revision_steps.revision.git_commit")
+@patch("pipelines.editorial_revision_steps.revision.git_add")
 @patch("pipelines.editorial_revision_steps.revision.subprocess.run")
-def test_execute_editorial_step_flow(mock_sub_run, mock_evaluate, tmp_path, monkeypatch):
+def test_execute_editorial_step_flow(
+    mock_sub_run,
+    mock_git_add,
+    mock_git_commit,
+    mock_git_push,
+    mock_evaluate,
+    tmp_path,
+    monkeypatch
+):
     import pipelines.editorial_revision
     from pipelines.editorial_revision import ExecuteEditorialStep
 
@@ -341,24 +352,14 @@ def test_is_better_than_fallback():
     assert is_better_than_fallback(7.5, 7.5, 0.5, 0.5) is False
 
 
-@patch("pipelines.editorial_revision_steps.revision.subprocess.run")
-def test_commit_revised_chapter(mock_sub_run, tmp_path):
+@patch("pipelines.editorial_revision_steps.revision.git_push")
+@patch("pipelines.editorial_revision_steps.revision.git_commit")
+@patch("pipelines.editorial_revision_steps.revision.git_add")
+def test_commit_revised_chapter(mock_git_add, mock_git_commit, mock_git_push, tmp_path):
     commit_revised_chapter(ch_num=4, pre_score=6.0, final_score=8.5, base_dir=tmp_path)
-    # 3 calls: git add, git commit, git push
-    assert mock_sub_run.call_count == 3
-
-    # 1. git add
-    add_args, add_kwargs = mock_sub_run.call_args_list[0]
-    assert add_args[0] == ["git", "add", "chapters/ch_04.md"]
-    assert add_kwargs["cwd"] == str(tmp_path)
-
-    # 2. git commit
-    commit_args, commit_kwargs = mock_sub_run.call_args_list[1]
-    assert commit_args[0] == ["git", "commit", "-m", "editorial: revised ch04 (6.0 -> 8.5)"]
-
-    # 3. git push
-    push_args, push_kwargs = mock_sub_run.call_args_list[2]
-    assert push_args[0] == ["git", "push"]
+    mock_git_add.assert_called_once_with("chapters/ch_04.md", base_dir=tmp_path)
+    mock_git_commit.assert_called_once_with("editorial: revised ch04 (6.0 -> 8.5)", base_dir=tmp_path)
+    mock_git_push.assert_called_once_with(base_dir=tmp_path)
 
 
 @patch("pipelines.editorial_revision_steps.revision.subprocess.run")
@@ -449,8 +450,20 @@ def test_load_editorial_markdown_success(mock_call_llm, tmp_path, monkeypatch):
 
 @patch("pipelines.editorial_revision.get_retry_temperature")
 @patch("pipelines.editorial_revision.evaluate_chapter")
+@patch("pipelines.editorial_revision_steps.revision.git_push")
+@patch("pipelines.editorial_revision_steps.revision.git_commit")
+@patch("pipelines.editorial_revision_steps.revision.git_add")
 @patch("pipelines.editorial_revision_steps.revision.subprocess.run")
-def test_execute_editorial_step_uses_get_retry_temperature(mock_sub_run, mock_evaluate, mock_get_temp, tmp_path, monkeypatch):
+def test_execute_editorial_step_uses_get_retry_temperature(
+    mock_sub_run,
+    mock_git_add,
+    mock_git_commit,
+    mock_git_push,
+    mock_evaluate,
+    mock_get_temp,
+    tmp_path,
+    monkeypatch
+):
     import pipelines.editorial_revision
     from pipelines.editorial_revision import ExecuteEditorialStep
 

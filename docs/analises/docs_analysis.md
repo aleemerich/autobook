@@ -2,6 +2,13 @@
 
 Este documento apresenta o resultado do cruzamento detalhado entre os arquivos de documentação na pasta `docs/` e a implementação real no repositório `autobook`. O objetivo é identificar o que está coberto, o que está correto, o que está faltando ou desatualizado e traçar um plano de ação para atingirmos um **snapshot v0** consistente de todo o sistema.
 
+> Atualizacao pos-refatoracao: este documento registra achados do snapshot
+> inicial. Depois dele, os problemas operacionais de `resolve_continuity.py`,
+> caminho de `CRAFT.md`, coleta de `legacy/tests` e hardcodes de obra especifica
+> em `foundation.py`, `evaluate.py`, `gen_revision.py`,
+> `gen_audiobook_script.py` e `book_generation_steps/planning.py` foram
+> corrigidos. Mantenha as secoes abaixo como historico da analise original.
+
 ---
 
 ## 1. Estrutura de Arquivos: INDICE.md vs. Arquivos Reais

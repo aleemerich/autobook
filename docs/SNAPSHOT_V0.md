@@ -20,23 +20,26 @@ entrada principal e `run.py`, que executa pipelines compostos por `Step`s:
 | --- | --- | --- |
 | Arquitetura `run.py` + `Step`/`Pipeline` | Boa | O padrao Command/Composite esta correto. |
 | Agentes | Boa | `agents.py` define drafting, stylist, technical editor, criticos e synthesis. |
-| Cliente LLM | Boa | `llm.py` cobre provedores, modelos, retry e timeout. |
+| Cliente LLM | Boa | `llm.py` cobre provedores, modelos, retry, timeout e erros de configuracao tipados. |
 | Prompts e idioma | Boa | `prompt_loader.py` e `prompts/{EN,PT-BR}` estao documentados. |
 | Pipelines | Parcial | Fluxos principais existem, mas alguns detalhes estao desatualizados. |
 | Avaliacao | Boa | `evaluate.py` combina slop mecanico e juiz LLM. |
 | Typeset | Parcial | `typeset/build_tex.py` gera LaTeX; PDF/EPUB final dependem de ferramentas externas. |
-| Testes | Boa | Baseline moderno confirmado: 274 testes em `tests/`. |
-| Legacy | Parcial | Scripts existem, mas ha caminhos e testes quebrados. |
+| Testes | Boa | Baseline moderno confirmado: 301 testes em `tests/`. |
+| Legacy | Parcial | Scripts existem; testes legados foram desativados e ignorados na suíte moderna. |
 
 ## Correcoes Importantes Para v0
 
 - O indice antigo apontava para dezenas de arquivos granulares que nao existem. O novo indice aponta para a estrutura real.
-- O baseline correto de testes modernos e `274 passed` em `tests/`, nao a suite completa incluindo `legacy/tests`.
-- `legacy/tests` falha na coleta por imports de `draft_chapter`, `run_editorial` e `run_pipeline`.
-- `GIT_AUTO_COMMIT` e `GIT_AUTO_PUSH` nao sao flags efetivas no codigo atual. `foundation`, `book_generation` e `editorial_revision` executam `git commit` e/ou `git push` diretamente.
+- O baseline correto de testes modernos e `301 passed` em `tests/`, nao a suite completa incluindo `legacy/tests`.
+- `legacy/tests` foi desativado e excluído da suíte moderna. Seus arquivos são ignorados pelo pytest via conftest.py na pasta.
+- `GIT_AUTO_COMMIT` e `GIT_AUTO_PUSH` nao sao flags efetivas no codigo atual. Operacoes Git usadas por pipelines passam pelo adaptador `workspace/git.py`.
+- `book_generation` agora falha explicitamente quando `outline.md` nao contem headings reconheciveis de capitulo ou quando arquivos obrigatorios de lore estao ausentes.
+- `workspace.json` continua opcional, mas quando presente precisa validar branch `autobook/<slug>` e `created_at` em ISO 8601.
 - O fluxo modular de `book_generation` usa `DraftingAgent`, criticos e `SynthesisAgent`. `StylistAgent` e `TechnicalEditorAgent` existem, mas nao sao etapas ativas centrais nesse fluxo.
-- `resolve_continuity.py` nao esta saudavel como loop fechado: tem `main()` duplicado, caminhos divergentes para o relatorio e chama `run_editorial.py`, arquivo que nao existe.
-- `foundation.py` procura `doc/CRAFT.md`, mas a referencia real nesta pasta esta em `docs/others/CRAFT.md`.
+- `resolve_continuity.py` foi corrigido como loop fechado: a duplicidade de `main()` foi removida, o relatório é lido de `logs/eval_logs/continuity_report.json` e a chamada final é enviada via `run.py`.
+- `foundation.py` carrega `CRAFT.md` no caminho correto `docs/others/CRAFT.md` com validação explícita de erro.
+- Os prompts operacionais de `foundation.py`, `evaluate.py`, `gen_revision.py`, `gen_audiobook_script.py` e `book_generation_steps/planning.py` nao carregam mais nomes ou regras de uma obra especifica.
 
 ## Lacunas Documentais
 
@@ -62,24 +65,21 @@ uv run --with pytest pytest tests
 Resultado:
 
 ```text
-274 passed
+301 passed
 ```
 
 Comando tambem testado:
 
 ```bash
-uv run --with pytest pytest tests legacy/tests
+uv run --with pytest pytest legacy/tests
 ```
 
-Resultado: falha na coleta de quatro testes legados por modulos ausentes:
-`draft_chapter`, `run_editorial` e `run_pipeline`.
+Resultado: `no tests ran` com exit code 0 (excluído e ignorado por configuração).
 
 ## Proximas Atualizacoes Recomendadas
 
-1. Revisar `pipelines/foundation.py` para remover ou documentar hardcodes de historia especifica.
-2. Corrigir `resolve_continuity.py` ou marcar oficialmente como ferramenta quebrada.
-3. Atualizar `legacy/legacy.md` com caminhos reais e status por script.
-4. Transformar `docs/others/` em uma area explicitamente historica/criativa.
-5. Criar uma pagina dedicada para ferramentas editoriais avancadas.
-6. Decidir se `docs/analises/` entra no versionamento como registro oficial da auditoria.
-
+1. Monitorar o comportamento de `resolve_continuity.py` sob casos reais de divergência narrativa.
+2. Atualizar `legacy/legacy.md` com caminhos reais e status por script.
+3. Transformar `docs/others/` em uma area explicitamente historica/criativa.
+4. Criar uma pagina dedicada para ferramentas editoriais avancadas.
+5. Decidir se `docs/analises/` entra no versionamento como registro oficial da auditoria.

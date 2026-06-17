@@ -94,9 +94,8 @@ Credenciais necessárias para autenticação com o provedor de LLM escolhido.
 
 #### Comportamento quando ausente
 Se a chave de API necessária não estiver definida, o sistema:
-1. Exibe mensagem de erro clara indicando qual variável está faltando
-2. Lista as variáveis de ambiente necessárias para o provedor configurado
-3. Sai com código de erro 1
+1. Levanta `LLMConfigurationError` com mensagem clara indicando qual variável está faltando
+2. Deixa o orquestrador (`run.py`) converter a exceção em mensagem amigável e código de erro de CLI
 
 ### 3. URLs Base Customizadas
 Permite sobrescrever a URL base padrão do provedor (útil para proxies, ambientes de teste ou provedores personalizados).
@@ -189,10 +188,10 @@ Configurações adicionais que controlam comportamentos específicos do sistema.
 O codigo atual nao implementa flags efetivas `GIT_AUTO_COMMIT` ou
 `GIT_AUTO_PUSH`. Os pipelines `foundation`, `book_generation` e
 `editorial_revision` chamam `git add`, `git commit` e, em alguns casos,
-`git push` diretamente via `subprocess`.
+`git push` por meio do adaptador `workspace/git.py`.
 
 Para transformar isso em configuracao real, sera necessario alterar o codigo
-para ler variaveis de ambiente antes dessas chamadas.
+para ler variaveis de ambiente antes dessas chamadas centralizadas.
 
 ## Precedência e Herança de Configuração
 

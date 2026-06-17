@@ -1,4 +1,4 @@
-Escreva o Capítulo {chapter_num} de "The Second Son of the House of Bells."
+Escreva o Capítulo {chapter_num} de "{book_title}".
 
 DEFINIÇÃO DE VOZ (siga exatamente):
 {voice}

@@ -88,8 +88,9 @@ def test_beat_prompt_structure() -> None:
     assert f"ESTA É A SUA TAREFA ATUAL:\nEscreva a cena correspondente ao Beat 2: {beat_text}" in prompt
     assert f"GANCHO DE TRANSIÇÃO DO TEXTO ANTERIOR:\n{previous_beat_context}" in prompt
     assert f"REGISTRO DE PERSONAGENS:\n{characters_text}" in prompt
-    # Certifica a presença do aviso de saúde mental sobre Helena
-    assert "Helena NÃO tem histórico de demência" in prompt
+    assert "Não invente fatos médicos, cognitivos, familiares, legais" in prompt
+    assert "Se faltar um detalhe factual, escreva a cena sem criar canon novo" in prompt
+    assert "Helena" not in prompt
 
 def test_beat_prompt_beat_1_includes_title() -> None:
     """Valida que o prompt do beat 1 inclui a instrução de título e o beat >1 não inclui."""

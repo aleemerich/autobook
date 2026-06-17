@@ -90,9 +90,20 @@ class TestIntegration(unittest.TestCase):
         self.assertEqual(strategy.get_anti_patterns()[0], "AI tells")
 
     @patch("pipelines.book_generation.evaluate_chapter")
+    @patch("pipelines.book_generation_steps.persistence.git_push")
+    @patch("pipelines.book_generation_steps.persistence.git_commit")
+    @patch("pipelines.book_generation_steps.persistence.git_add")
     @patch("pipelines.book_generation_steps.persistence.subprocess.run")
     @patch("agents.call_llm")
-    def test_book_generation_pipeline_mock_run(self, mock_call_llm, mock_subprocess, mock_eval_chapter):
+    def test_book_generation_pipeline_mock_run(
+        self,
+        mock_call_llm,
+        mock_subprocess,
+        mock_git_add,
+        mock_git_commit,
+        mock_git_push,
+        mock_eval_chapter
+    ):
         """Performs a sandboxed, mock-based run of BookGenerationPipeline."""
         mock_call_llm.return_value = "Mocked chapter/scene output content."
         
@@ -139,9 +150,20 @@ class TestIntegration(unittest.TestCase):
             self.assertEqual(state["chapters_drafted"], 1)
 
     @patch("pipelines.book_generation.evaluate_chapter")
+    @patch("pipelines.book_generation_steps.persistence.git_push")
+    @patch("pipelines.book_generation_steps.persistence.git_commit")
+    @patch("pipelines.book_generation_steps.persistence.git_add")
     @patch("pipelines.book_generation_steps.persistence.subprocess.run")
     @patch("agents.call_llm")
-    def test_book_generation_pipeline_prompts_contain_voice_world_canon(self, mock_call_llm, mock_subprocess, mock_eval_chapter):
+    def test_book_generation_pipeline_prompts_contain_voice_world_canon(
+        self,
+        mock_call_llm,
+        mock_subprocess,
+        mock_git_add,
+        mock_git_commit,
+        mock_git_push,
+        mock_eval_chapter
+    ):
         """Verifies that the generated prompts for DraftingAgent and StylistAgent contain the voice, world, and canon references."""
         mock_call_llm.return_value = "Mocked chapter/scene output content."
         mock_eval_chapter.return_value = {
@@ -190,9 +212,20 @@ class TestIntegration(unittest.TestCase):
             self.assertTrue(len(synthesis_calls) > 0)
 
     @patch("pipelines.book_generation.evaluate_chapter")
+    @patch("pipelines.book_generation_steps.persistence.git_push")
+    @patch("pipelines.book_generation_steps.persistence.git_commit")
+    @patch("pipelines.book_generation_steps.persistence.git_add")
     @patch("pipelines.book_generation_steps.persistence.subprocess.run")
     @patch("agents.call_llm")
-    def test_book_generation_pipeline_skips_chapters(self, mock_call_llm, mock_subprocess, mock_eval_chapter):
+    def test_book_generation_pipeline_skips_chapters(
+        self,
+        mock_call_llm,
+        mock_subprocess,
+        mock_git_add,
+        mock_git_commit,
+        mock_git_push,
+        mock_eval_chapter
+    ):
         """Verifies that the generation pipeline skips chapters not present in context['chapters']."""
         mock_call_llm.return_value = "Mocked chapter/scene output content."
         mock_eval_chapter.return_value = {
@@ -221,9 +254,20 @@ class TestIntegration(unittest.TestCase):
             self.assertFalse(ch_file.exists())
 
     @patch("pipelines.book_generation.evaluate_chapter")
+    @patch("pipelines.book_generation_steps.persistence.git_push")
+    @patch("pipelines.book_generation_steps.persistence.git_commit")
+    @patch("pipelines.book_generation_steps.persistence.git_add")
     @patch("pipelines.book_generation_steps.persistence.subprocess.run")
     @patch("agents.call_llm")
-    def test_book_generation_pipeline_masks_future_beats(self, mock_call_llm, mock_subprocess, mock_eval_chapter):
+    def test_book_generation_pipeline_masks_future_beats(
+        self,
+        mock_call_llm,
+        mock_subprocess,
+        mock_git_add,
+        mock_git_commit,
+        mock_git_push,
+        mock_eval_chapter
+    ):
         """Verifies that future beats are masked in the roadmap passed to the DraftingAgent."""
         mock_call_llm.return_value = "Mocked chapter/scene output content."
         mock_eval_chapter.return_value = {

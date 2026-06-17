@@ -59,6 +59,14 @@ PROVIDER_PROFILES = {
 }
 
 
+class LLMError(RuntimeError):
+    """Base para erros do cliente LLM do Autobook."""
+
+
+class LLMConfigurationError(LLMError):
+    """Erro de configuração local antes de chamar o provedor LLM."""
+
+
 def call_llm(prompt: str, system_prompt: str, temperature: float = 0.8,
              is_judge: bool = False, is_review: bool = False, override_model: str = None) -> str:
     """
@@ -84,18 +92,20 @@ def call_llm(prompt: str, system_prompt: str, temperature: float = 0.8,
     provider_name = os.environ.get("AUTOBOOK_PROVIDER", "anthropic").lower()
     
     if provider_name not in PROVIDER_PROFILES:
-        print(f"ERROR: Unknown LLM provider '{provider_name}' configured in .env.\n"
-              f"Supported providers: {', '.join(PROVIDER_PROFILES.keys())}", file=sys.stderr)
-        sys.exit(1)
+        raise LLMConfigurationError(
+            f"Unknown LLM provider '{provider_name}' configured in .env. "
+            f"Supported providers: {', '.join(PROVIDER_PROFILES.keys())}"
+        )
         
     profile = PROVIDER_PROFILES[provider_name]
     
     # 1. Resolve API Key
     api_key = os.environ.get(profile["env_key"], "")
     if not api_key:
-        print(f"ERROR: API Key '{profile['env_key']}' for provider '{provider_name}' "
-              f"is not set in your .env file.", file=sys.stderr)
-        sys.exit(1)
+        raise LLMConfigurationError(
+            f"API Key '{profile['env_key']}' for provider '{provider_name}' "
+            "is not set in your .env file."
+        )
         
     # 2. Resolve URL
     base_url = os.environ.get("AUTOBOOK_API_BASE_URL", "").strip()

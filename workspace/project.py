@@ -21,6 +21,9 @@ def build_workspace_metadata(title: str, branch: str) -> Dict[str, Any]:
         raise ValueError("O título da obra não pode ser vazio.")
     if not branch or not branch.strip():
         raise ValueError("A branch do projeto não pode ser vazia.")
+    from workspace.branching import is_book_branch
+    if not is_book_branch(branch.strip()):
+        raise ValueError("A branch do projeto deve seguir o formato autobook/<slug>.")
 
     return {
         "title": title.strip(),
@@ -55,12 +58,19 @@ def validate_workspace_metadata(data: Any) -> Dict[str, Any]:
         raise ValueError("O campo 'branch' é obrigatório nos metadados do workspace.")
     if not isinstance(data["branch"], str) or not data["branch"].strip():
         raise ValueError("O campo 'branch' deve ser uma string não vazia.")
+    from workspace.branching import is_book_branch
+    if not is_book_branch(data["branch"].strip()):
+        raise ValueError("O campo 'branch' deve seguir o formato autobook/<slug>.")
 
     # Verificar created_at
     if "created_at" not in data:
         raise ValueError("O campo 'created_at' é obrigatório nos metadados do workspace.")
     if not isinstance(data["created_at"], str) or not data["created_at"].strip():
         raise ValueError("O campo 'created_at' deve ser uma string não vazia.")
+    try:
+        datetime.datetime.fromisoformat(data["created_at"])
+    except ValueError as e:
+        raise ValueError("O campo 'created_at' deve estar em formato ISO 8601 válido.") from e
 
     return data
 
@@ -97,4 +107,3 @@ def load_workspace_metadata(base_dir: Path | None = None) -> Dict[str, Any] | No
         raise ValueError(f"O arquivo de metadados do workspace contém JSON inválido: {e}")
 
     return validate_workspace_metadata(data)
-

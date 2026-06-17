@@ -53,7 +53,7 @@ Observacoes:
 - `--from-scratch` remove capitulos existentes e reinicia o estado quando usado no pipeline de geracao.
 - `--chapter` aceita numeros e intervalos separados por virgula.
 - A execucao grava logs em `logs/pipeline.log`.
-- Alguns pipelines executam `git add`, `git commit` e `git push` diretamente.
+- Operacoes Git de pipelines passam por `workspace/git.py`, que centraliza `git add`, `git commit`, `git push`, leitura de branch e status do worktree.
 
 ## Avaliacao
 
@@ -72,8 +72,10 @@ uv run python verify_continuity.py
 uv run python verify_continuity.py --strict --threshold 7.0
 ```
 
-`resolve_continuity.py` existe, mas nao deve ser tratado como fluxo fechado
-confiavel neste v0: ele chama `run_editorial.py`, que nao existe mais.
+`resolve_continuity.py` carrega o relatório de continuidade global, gera correções em `book_data/editorial.md` e aciona a revisão editorial via `run.py`.
+```bash
+uv run python resolve_continuity.py
+```
 
 ## Revisao e Edicao Avancada
 
@@ -114,7 +116,7 @@ Baseline moderno:
 uv run --with pytest pytest tests
 ```
 
-Estado verificado: 274 testes passando.
+Estado verificado: 301 testes passando.
 
 Suite legada:
 
@@ -122,5 +124,4 @@ Suite legada:
 uv run --with pytest pytest legacy/tests
 ```
 
-Status v0: nao e baseline confiavel; ha erros de coleta por imports de modulos
-historicos removidos.
+Status: esta suite de testes legados foi desativada e não faz parte da suite moderna. Está configurada para ser ignorada na coleta padrão de testes do projeto via `conftest.py`.

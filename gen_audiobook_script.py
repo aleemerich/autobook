@@ -12,7 +12,6 @@ Usage:
   python gen_audiobook_script.py 1         # Single chapter
   python gen_audiobook_script.py 1 5       # Range of chapters
 """
-import os
 import sys
 import json
 import re
@@ -28,21 +27,8 @@ CHAPTERS_DIR = BASE_DIR / "chapters"
 AUDIO_DIR = BASE_DIR / "audiobook"
 SCRIPTS_DIR = AUDIO_DIR / "scripts"
 
-# Characters from the novel
-CHARACTERS = {
+DEFAULT_CHARACTERS = {
     "NARRATOR": "The narrative voice — warm, measured, precise. Reads prose with the rhythm of the novel's world.",
-    "CASS": "14-year-old boy. Dry, sharp, sometimes frustrated. His voice tightens when he lies or holds back.",
-    "EDDAN": "52, Cass's father. Deep, rough, terse. Sentences often trail off or restart. Workshop voice is steadier than kitchen voice.",
-    "PERIN": "26, Cass's brother. Dry, precise, carries something heavy. Letters-voice is more controlled than in-person voice.",
-    "LENNE": "14, female. Quick, confident, intellectually sharp. Composes while she talks — fingers moving, voice certain.",
-    "TORVALD": "63, retired dye merchant. Gravelly, warm, rambling. Outer-district speech — longer sentences, less careful, trade metaphors.",
-    "MARET": "60, female. Controlled, precise, still. No wasted words. When she finally shows emotion it's devastating.",
-    "DAV_SORN": "34, Court Singer. Formal, clipped, self-correcting. Starts sentences and abandons them. Qualifying everything.",
-    "PROCTOR_FEN": "Male, middle-aged, Academy teacher. Dry, archly amused, pedagogical.",
-    "FERREN": "40, acoustician. Clinical, measured, professional.",
-    "MIRA_FEN": "60s, female, Academy scholar. Quiet, precise, carrying thirty years of regret.",
-    "VELLA": "Lenne's mother, Court Singer. Measured, formal, the weight of knowing she's about to risk everything.",
-    "OSSIAN": "14, male student. Nervous, eager, tends to overstate.",
 }
 
 AUDIO_TAG_GUIDE = """
@@ -63,6 +49,29 @@ Rules:
 """
 
 
+def load_character_cast(base_dir=BASE_DIR):
+    """Load audiobook cast descriptions from book_data/audiobook_cast.json if present."""
+    cast_path = base_dir / "book_data" / "audiobook_cast.json"
+    if not cast_path.exists():
+        return DEFAULT_CHARACTERS.copy()
+
+    data = json.loads(cast_path.read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        raise ValueError("book_data/audiobook_cast.json must contain a JSON object.")
+
+    cast = {}
+    for speaker, description in data.items():
+        if not isinstance(speaker, str) or not speaker.strip():
+            raise ValueError("Audiobook cast speaker names must be non-empty strings.")
+        if not isinstance(description, str) or not description.strip():
+            raise ValueError(f"Audiobook cast description for '{speaker}' must be a non-empty string.")
+        cast[speaker.strip().upper()] = description.strip()
+
+    if "NARRATOR" not in cast:
+        cast["NARRATOR"] = DEFAULT_CHARACTERS["NARRATOR"]
+    return cast
+
+
 def call_claude(prompt, max_tokens=8000):
     """Call the unified writer LLM via llm.py and return response text."""
     from llm import call_llm
@@ -80,14 +89,15 @@ def parse_chapter(ch_num):
         print(f"  Chapter {ch_num} not found", file=sys.stderr)
         return None
 
-    text = ch_path.read_text()
+    text = ch_path.read_text(encoding="utf-8")
     title = text.split("\n")[0].lstrip("# ").strip()
     wc = len(text.split())
+    characters = load_character_cast()
 
     prompt = f"""You are parsing a novel chapter into an audiobook script. Your job is to break the text into segments, each attributed to a speaker, with optional audio delivery tags.
 
 CHARACTERS IN THIS NOVEL:
-{json.dumps(CHARACTERS, indent=2)}
+{json.dumps(characters, indent=2)}
 
 AUDIO TAG GUIDE:
 {AUDIO_TAG_GUIDE}
@@ -101,7 +111,7 @@ RULES:
 6. Scene breaks (---) become {{"speaker": "NARRATOR", "text": "[pause]"}}
 7. Chapter titles become the first segment: {{"speaker": "NARRATOR", "text": "[slowly] Chapter One: The Morning Pitch"}}
 8. Add audio tags based on emotional context. Be subtle — most lines need no tag.
-9. Internal thoughts in *italics* should be read by the CHARACTER (Cass usually), tagged [softly] or [whisper].
+9. Internal thoughts in *italics* should be read by the viewpoint character when identifiable, tagged [softly] or [whisper].
 
 OUTPUT FORMAT: A JSON array of objects, each with:
   "speaker": character name (from the list above)
@@ -145,7 +155,7 @@ Output the JSON array only. No other text."""
                 })
             if not segments:
                 print(f" PARSE ERROR", file=sys.stderr)
-                (SCRIPTS_DIR / f"ch{ch_num:02d}_raw.txt").write_text(result)
+                (SCRIPTS_DIR / f"ch{ch_num:02d}_raw.txt").write_text(result, encoding="utf-8")
                 return None
 
     print(f" → {len(segments)} segments")
@@ -181,7 +191,7 @@ def main():
         if script:
             # Save individual chapter script
             out_path = SCRIPTS_DIR / f"ch{ch_num:02d}_script.json"
-            out_path.write_text(json.dumps(script, indent=2))
+            out_path.write_text(json.dumps(script, indent=2), encoding="utf-8")
             all_scripts.append(script)
 
     # Summary

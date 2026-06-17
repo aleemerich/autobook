@@ -89,10 +89,43 @@ def test_generate_world_step(mock_call_llm, mock_foundation_paths):
 
     mock_call_llm.assert_called_once()
     called_kwargs = mock_call_llm.call_args[1]
-    assert "worldbuilder" in called_kwargs["system_prompt"]
+    assert "setting designer" in called_kwargs["system_prompt"]
     assert called_kwargs["temperature"] == 0.7
     assert pipelines.foundation.WORLD_PATH.exists()
     assert pipelines.foundation.WORLD_PATH.read_text(encoding="utf-8") == "## World Bible Lore Details"
+
+
+@patch("pipelines.foundation.call_llm")
+def test_foundation_prompts_are_not_pinned_to_house_of_bells(mock_call_llm, mock_foundation_paths):
+    """Valida que prompts operacionais de foundation nao carregam nomes de uma obra especifica."""
+    mock_call_llm.return_value = "generated"
+    forbidden_terms = [
+        "Cass",
+        "Bellwright",
+        "Maret",
+        "Eddan",
+        "Perin",
+        "Suvaine",
+        "Torvald",
+        "Cantamura",
+        "Tonal Law",
+        "Corda",
+    ]
+
+    for step in (
+        GenerateWorldStep(),
+        GenerateCharactersStep(),
+        GenerateOutlineStep(),
+        GenerateCanonStep(),
+    ):
+        step.run({})
+
+    for call in mock_call_llm.call_args_list:
+        prompt = call.kwargs["prompt"]
+        system_prompt = call.kwargs["system_prompt"]
+        combined = f"{system_prompt}\n{prompt}"
+        for term in forbidden_terms:
+            assert term not in combined
 
 @patch("pipelines.foundation.call_llm")
 def test_generate_characters_step(mock_call_llm, mock_foundation_paths):
@@ -139,8 +172,9 @@ def test_generate_canon_step(mock_call_llm, mock_foundation_paths):
     assert pipelines.foundation.CANON_PATH.exists()
     assert pipelines.foundation.CANON_PATH.read_text(encoding="utf-8") == "## Canon facts checklist"
 
-@patch("pipelines.foundation_steps.persistence.subprocess.run")
-def test_commit_foundation_step(mock_sub_run, mock_foundation_paths):
+@patch("pipelines.foundation_steps.persistence.git_commit")
+@patch("pipelines.foundation_steps.persistence.git_add")
+def test_commit_foundation_step(mock_git_add, mock_git_commit, mock_foundation_paths):
     """Test committing files and initializing state.json cursor to 0."""
     step = CommitFoundationStep()
     context = {}
@@ -153,12 +187,14 @@ def test_commit_foundation_step(mock_sub_run, mock_foundation_paths):
     assert state["phase"] == "writing"
     assert state["current_focus"] == "chapters"
 
-    # Git command should have been called
-    assert mock_sub_run.call_count >= 5
+    # Git helpers should have been called
+    assert mock_git_add.call_count >= 5
+    mock_git_commit.assert_called_once()
 
-@patch("pipelines.foundation_steps.persistence.subprocess.run")
+@patch("pipelines.foundation_steps.persistence.git_commit")
+@patch("pipelines.foundation_steps.persistence.git_add")
 @patch("pipelines.foundation.call_llm")
-def test_full_foundation_pipeline(mock_call_llm, mock_sub_run, mock_foundation_paths):
+def test_full_foundation_pipeline(mock_call_llm, mock_git_add, mock_git_commit, mock_foundation_paths):
     """Test the full FoundationPipeline executing all steps successfully."""
     mock_call_llm.side_effect = [
         "## World Bible Lore Details",

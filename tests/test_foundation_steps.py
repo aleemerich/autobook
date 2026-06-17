@@ -215,12 +215,13 @@ def test_write_foundation_state(tmp_path) -> None:
     }
 
 
-@patch("pipelines.foundation_steps.persistence.subprocess.run")
-def test_commit_foundation_artifacts_exclude_mystery(mock_sub_run) -> None:
+@patch("pipelines.foundation_steps.persistence.git_commit")
+@patch("pipelines.foundation_steps.persistence.git_add")
+def test_commit_foundation_artifacts_exclude_mystery(mock_git_add, mock_git_commit) -> None:
     """Valida que commit_foundation_artifacts executa git add e commit na ordem certa excluindo o mistério."""
-    commit_foundation_artifacts(Path("/test/dir"), include_mystery=False)
-    assert mock_sub_run.call_count == 6  # 5 git adds + 1 git commit
-    calls = mock_sub_run.call_args_list
+    base_dir = Path("/test/dir")
+    commit_foundation_artifacts(base_dir, include_mystery=False)
+    assert mock_git_add.call_count == 5
 
     expected_adds = [
         "seed.txt",
@@ -230,33 +231,33 @@ def test_commit_foundation_artifacts_exclude_mystery(mock_sub_run) -> None:
         "book_data/canon.md",
     ]
     for idx, path in enumerate(expected_adds):
-        assert calls[idx][0][0] == ["git", "add", path]
-        assert calls[idx][1]["cwd"] == "/test/dir"
-        assert calls[idx][1]["check"] is True
+        assert mock_git_add.call_args_list[idx].args == (path,)
+        assert mock_git_add.call_args_list[idx].kwargs == {"base_dir": base_dir}
 
-    assert calls[5][0][0] == [
-        "git", "commit", "-m", "planning: initialize foundational story bibles and outline"
-    ]
-    assert calls[5][1]["cwd"] == "/test/dir"
-    assert calls[5][1]["check"] is True
+    mock_git_commit.assert_called_once_with(
+        "planning: initialize foundational story bibles and outline",
+        base_dir=base_dir
+    )
 
 
-@patch("pipelines.foundation_steps.persistence.subprocess.run")
-def test_commit_foundation_artifacts_include_mystery(mock_sub_run) -> None:
+@patch("pipelines.foundation_steps.persistence.git_commit")
+@patch("pipelines.foundation_steps.persistence.git_add")
+def test_commit_foundation_artifacts_include_mystery(mock_git_add, mock_git_commit) -> None:
     """Valida que commit_foundation_artifacts inclui book_data/MYSTERY.md quando include_mystery é True."""
-    commit_foundation_artifacts(Path("/test/dir"), include_mystery=True)
-    assert mock_sub_run.call_count == 7  # 6 git adds + 1 git commit
-    calls = mock_sub_run.call_args_list
-    assert calls[5][0][0] == ["git", "add", "book_data/MYSTERY.md"]
-    assert calls[6][0][0] == [
-        "git", "commit", "-m", "planning: initialize foundational story bibles and outline"
-    ]
+    base_dir = Path("/test/dir")
+    commit_foundation_artifacts(base_dir, include_mystery=True)
+    assert mock_git_add.call_count == 6
+    assert mock_git_add.call_args_list[5].args == ("book_data/MYSTERY.md",)
+    mock_git_commit.assert_called_once_with(
+        "planning: initialize foundational story bibles and outline",
+        base_dir=base_dir
+    )
 
 
-@patch("pipelines.foundation_steps.persistence.subprocess.run")
-def test_commit_foundation_artifacts_error_propagation(mock_sub_run) -> None:
+@patch("pipelines.foundation_steps.persistence.git_add")
+def test_commit_foundation_artifacts_error_propagation(mock_git_add) -> None:
     """Valida que erros de subprocess propagam a partir do helper."""
-    import subprocess
-    mock_sub_run.side_effect = subprocess.CalledProcessError(1, "git")
-    with pytest.raises(subprocess.CalledProcessError):
+    from workspace.git import GitCommandError
+    mock_git_add.side_effect = GitCommandError(["git", "add", "seed.txt"])
+    with pytest.raises(GitCommandError):
         commit_foundation_artifacts(Path("/test/dir"), include_mystery=False)

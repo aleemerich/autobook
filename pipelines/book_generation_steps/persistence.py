@@ -4,6 +4,7 @@ import shutil
 import subprocess
 from pathlib import Path
 from typing import Any
+from workspace.git import git_add, git_commit, git_push
 
 def clean_chapter_text(text: str) -> str:
     """Limpa títulos/metadados do texto final preservando a regra atual."""
@@ -96,26 +97,26 @@ def run_continuity_and_git_push(
         )
         if cont_res.returncode == 0:
             print(f"[DraftChaptersStep] Continuity passed for Chapter {ch}!")
-            subprocess.run(["git", "add", f"chapters/ch_{ch:02d}.md"], cwd=str(base_dir))
+            git_add(f"chapters/ch_{ch:02d}.md", base_dir=base_dir)
             update_generation_state(state_file, state, ch)
-            subprocess.run(["git", "add", "book_data/state.json"], cwd=str(base_dir))
+            git_add("book_data/state.json", base_dir=base_dir)
             
             commit_msg = f"ch{ch:02d}: score {score} (attempt {attempt})"
-            subprocess.run(["git", "commit", "-m", commit_msg], cwd=str(base_dir))
+            git_commit(commit_msg, base_dir=base_dir)
             
             print("[DraftChaptersStep] Pushing to remote...")
-            subprocess.run(["git", "push"], cwd=str(base_dir))
+            git_push(base_dir=base_dir)
             return True
         else:
             print(f"[DraftChaptersStep] Continuity failed (exit {cont_res.returncode}). Output: {cont_res.stdout}")
             return False
     else:
         # Fallback forced commit
-        subprocess.run(["git", "add", f"chapters/ch_{ch:02d}.md"], cwd=str(base_dir))
+        git_add(f"chapters/ch_{ch:02d}.md", base_dir=base_dir)
         update_generation_state(state_file, state, ch)
-        subprocess.run(["git", "add", "book_data/state.json"], cwd=str(base_dir))
+        git_add("book_data/state.json", base_dir=base_dir)
         
         commit_msg = f"ch{ch:02d}: forced score {best_score} (fallback)"
-        subprocess.run(["git", "commit", "-m", commit_msg], cwd=str(base_dir))
-        subprocess.run(["git", "push"], cwd=str(base_dir))
+        git_commit(commit_msg, base_dir=base_dir)
+        git_push(base_dir=base_dir)
         return True

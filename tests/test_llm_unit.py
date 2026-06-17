@@ -8,7 +8,7 @@ import pytest
 from unittest.mock import patch, MagicMock
 
 # Import the code to test
-from llm import call_llm, PROVIDER_PROFILES
+from llm import call_llm, PROVIDER_PROFILES, LLMConfigurationError
 
 @pytest.fixture(autouse=True)
 def force_clean_lang_env():
@@ -17,22 +17,22 @@ def force_clean_lang_env():
 
 
 def test_invalid_provider():
-    """Ensures call_llm exits with error on unknown provider."""
+    """Ensures call_llm raises a typed error on unknown provider."""
     with patch.dict(os.environ, {"AUTOBOOK_PROVIDER": "invalido"}):
-        with pytest.raises(SystemExit) as excinfo:
+        with pytest.raises(LLMConfigurationError) as excinfo:
             call_llm("prompt", "system")
-        assert excinfo.value.code == 1
+        assert "Unknown LLM provider 'invalido'" in str(excinfo.value)
 
 
 def test_missing_api_key():
-    """Ensures call_llm exits with error when required key is missing."""
+    """Ensures call_llm raises a typed error when required key is missing."""
     with patch.dict(os.environ, {
         "AUTOBOOK_PROVIDER": "openai",
         "OPENAI_API_KEY": ""  # Missing!
     }):
-        with pytest.raises(SystemExit) as excinfo:
+        with pytest.raises(LLMConfigurationError) as excinfo:
             call_llm("prompt", "system")
-        assert excinfo.value.code == 1
+        assert "API Key 'OPENAI_API_KEY'" in str(excinfo.value)
 
 
 @patch("httpx.Client.post")

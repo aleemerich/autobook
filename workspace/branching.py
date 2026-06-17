@@ -1,7 +1,12 @@
 import re
 import shlex
-import subprocess
 import unicodedata
+from workspace.git import (
+    GitCommandError,
+    git_current_branch,
+    git_switch_new_branch,
+    git_worktree_status
+)
 
 def slugify_work_title(title: str) -> str:
     """Converte o título da obra em um slug ASCII seguro para Git branch."""
@@ -35,14 +40,8 @@ def is_main_branch(branch: str) -> bool:
 def current_branch() -> str:
     """Retorna o nome da branch Git ativa de forma puramente de leitura."""
     try:
-        result = subprocess.run(
-            ["git", "rev-parse", "--abbrev-ref", "HEAD"],
-            capture_output=True,
-            text=True,
-            check=True
-        )
-        return result.stdout.strip()
-    except (subprocess.SubprocessError, FileNotFoundError) as e:
+        return git_current_branch()
+    except GitCommandError as e:
         raise RuntimeError(f"Erro ao ler a branch Git ativa: {e}")
 
 def is_book_branch(branch: str) -> bool:
@@ -84,14 +83,8 @@ def get_worktree_status() -> str:
     Em erro, levanta RuntimeError.
     """
     try:
-        result = subprocess.run(
-            ["git", "status", "--porcelain"],
-            capture_output=True,
-            text=True,
-            check=True
-        )
-        return result.stdout.strip()
-    except (subprocess.SubprocessError, FileNotFoundError) as e:
+        return git_worktree_status()
+    except GitCommandError as e:
         raise RuntimeError(f"Erro ao obter status do worktree Git: {e}")
 
 def is_worktree_clean() -> bool:
@@ -114,13 +107,8 @@ def create_book_branch(title_or_slug: str) -> str:
 
     # 2. Cria e muda para a nova branch
     try:
-        subprocess.run(
-            ["git", "switch", "-c", branch_name],
-            capture_output=True,
-            text=True,
-            check=True
-        )
-    except (subprocess.SubprocessError, FileNotFoundError) as e:
+        git_switch_new_branch(branch_name)
+    except GitCommandError as e:
         raise RuntimeError(f"Erro ao criar a branch Git '{branch_name}': {e}")
 
     return branch_name

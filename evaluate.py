@@ -443,7 +443,7 @@ def validate_and_repair_json(raw_text, required_key="overall_score"):
 
 # --- Foundation Evaluation ---
 
-FOUNDATION_PROMPT = """Evaluate these fantasy novel planning documents.
+FOUNDATION_PROMPT = """Evaluate these book planning documents.
 
 SCORING CALIBRATION (read this before scoring anything):
 
@@ -490,9 +490,10 @@ CROSS-CHECKS (perform these before scoring):
    - Deduct from character_distinctiveness if multiple characters
      share the same sentence structures
 2. Check for missing NEGATIVE SPACE -- what's absent?
-   - Are there gaps in the magic system that would block a specific
-     plot scene? (e.g., can Cass hear lies in written documents?
-     What happens during the climax -- what rule resolves it?)
+   - Are there gaps in any central system, relationship, technology,
+     profession, law, magic, institution, or social rule that would block
+     a specific plot scene? What happens during the climax -- what rule,
+     cost, relationship, or prior setup resolves it?
    - Are there characters needed for the plot who don't exist?
    - Are there scenes the outline demands that the world can't support?
 3. Check for CONVENIENT GAPS vs DELIBERATE MYSTERY:
@@ -503,18 +504,20 @@ CROSS-CHECKS (perform these before scoring):
      not an iceberg.
 4. Check the canon for INTERNAL CONTRADICTIONS:
    - Cross-reference dates, ages, and timelines
-   - Check if character abilities match magic system rules
+   - Check if character abilities, permissions, knowledge, tools, or choices
+     match the established world and canon rules
    - Look for factual conflicts between documents
 
 Score these dimensions (gap + improvement required for each):
 
 LORE & WORLDBUILDING:
-- magic_system: Hard rules with COSTS and LIMITATIONS per Sanderson's
-  Second Law. Could a writer resolve the CLIMACTIC CONFLICT using only
-  rules already established? Are costs plot-driving, not decorative?
+- magic_system: This dimension covers any central system in the book:
+  magic, technology, law, profession, crime, religion, economics, social
+  codes, institutions, or other governing logic. Are there hard rules with
+  COSTS and LIMITATIONS? Could a writer resolve the CLIMACTIC CONFLICT using
+  only rules already established? Are costs plot-driving, not decorative?
   Are there at least 3 societal implications explored with specificity?
-  Is the system TESTABLE -- could you write a courtroom scene, a
-  contract negotiation, and a magical confrontation without inventing
+  Is the system TESTABLE -- could you write key scenes without inventing
   new rules?
 - world_history: Timeline of events creating PRESENT-DAY tensions.
   Each historical event should map to a current faction conflict or
@@ -525,9 +528,10 @@ LORE & WORLDBUILDING:
   creates class tension. Check: could two different scenes set in two
   different locations feel meaningfully different based on what's here?
 - lore_interconnection: Does changing one element force changes in
-  at least two others? Test by mentally removing the magic system --
-  does the political structure collapse? Does the class system change?
-  If elements are modular/detachable, score low.
+  at least two others? Test by mentally removing the central system,
+  institution, technology, relationship, or governing constraint -- does
+  the political structure, class system, plot, or character motivation
+  change? If elements are modular/detachable, score low.
 - iceberg_depth: Implied depth vs stated depth. But CHECK: does the
   author actually know the answers to the mysteries, or are they
   handwaving? If a planning doc says "the answer will be revealed"
@@ -546,8 +550,8 @@ CHARACTER:
   Check for REPEATED STRUCTURAL FORMULAS across characters (e.g.,
   multiple characters using "X. Not Y." or balanced antithesis).
   Check that metaphor domains don't overlap. Check that speech
-  patterns reflect character background (a 14-year-old should not
-  sound like a 60-year-old merchant).
+  patterns reflect character background, age, education, class, profession,
+  region, confidence, and emotional pressure.
 - character_secrets: Each major character's secret should be something
   that, if revealed, changes the plot's trajectory. Vague secrets
   ("he knows more than he says") score lower than specific ones
@@ -619,10 +623,10 @@ def evaluate_foundation():
 
 # --- Chapter Evaluation ---
 
-CHAPTER_PROMPT = """Evaluate this fantasy novel chapter against the planning docs.
+CHAPTER_PROMPT = """Evaluate this book chapter against the planning docs.
 
 SCORING CALIBRATION:
-  9-10: Among the best chapters you've read in published fantasy. Name
+  9-10: Among the best chapters you've read in published fiction. Name
         a specific published chapter it competes with, or don't give 9+.
   7-8:  Strong, publishable with editorial polish. Specific flaws exist
         but don't break the reading experience.
@@ -671,8 +675,9 @@ CROSS-CHECKS (perform before scoring):
    emotional moments that tell instead of show, transitions that
    summarize instead of dramatize.
 2. DIALOGUE REALISM: Read all dialogue aloud (mentally). Does it
-   sound like speech or like written prose? Do characters say things
-   a 14-year-old / 60-year-old / etc. would actually say?
+   sound like speech or like written prose? Do characters speak in ways
+   that match their established age, background, education, profession,
+   status, relationship, and emotional state?
 3. SCENE VS SUMMARY: How much of the chapter is in-scene (moment
    by moment, with dialogue and action) vs summary (narrator
    compressing time)? Chapters heavy on summary score lower on
@@ -689,19 +694,20 @@ CROSS-CHECKS (perform before scoring):
    the reader through the narrator's assertions? Is mystery maintained
    through genuine withholding or through the character conveniently
    not thinking about things they'd think about?
-6. MAGICAL & TECH SYSTEM LAWS: Check character abilities against world rules.
-   Specifically, look for errors where the ECO-9 or implant-based surveillance/interaction is
-   attributed to a character who does not have an implant (such as the protagonist Marina).
-   Since Marina is explicitly NOT implanted, any plot point suggesting she is monitored through
-   internal neural metrics or neural networks is a MAJOR canon violation.
+6. WORLD, TECH, MAGIC, LAW, AND SOCIAL SYSTEM RULES: Check all character
+   abilities, access, knowledge, permissions, tools, social constraints,
+   injuries, relationships, technologies, and supernatural elements against
+   the planning documents. Any plot point that gives a character an
+   unearned capability or violates an established limitation is a MAJOR
+   canon violation.
 
 Score these dimensions:
 
 - voice_adherence: Does the prose match voice.md Part 2? Check: sentence
   rhythm variation, vocabulary wells, body-before-emotion principle,
   the specific tone described. Quote the strongest voice moment AND
-  the weakest. Does ANY passage sound like generic fantasy prose that
-  could appear in any novel? If yes, score 7 max.
+  the weakest. Does ANY passage sound like generic genre prose that
+  could appear in any book with names swapped? If yes, score 7 max.
 
 - beat_coverage: Did it hit every beat from the outline? Were beats
   dramatized or merely mentioned? A beat that's summarized in a sentence
@@ -710,10 +716,11 @@ Score these dimensions:
 
 - character_voice: Remove all dialogue tags mentally. Can you tell who's
   speaking? Do characters ever sound alike? Does dialogue read as speech
-  or as written prose? Does Cass sound like a specific 14-year-old, or
-  like "young protagonist"? Does anyone say something surprising -- not
-  just the right thing, but a REAL thing? Characters who never stumble,
-  hesitate, or say something slightly wrong are AI-pattern characters.
+  or as written prose? Do characters sound like specific people with their
+  established age, background, training, status, and current pressure, or
+  like generic role labels? Does anyone say something surprising -- not just
+  the right thing, but a REAL thing? Characters who never stumble, hesitate,
+  or say something slightly wrong are AI-pattern characters.
 
 - plants_seeded: Were foreshadowing elements placed naturally? A plant
   that's obvious is worse than a plant that's invisible. Score based on
@@ -721,10 +728,11 @@ Score these dimensions:
 
 - prose_quality: Sentence variety (measure: do 3+ consecutive sentences
   start the same way?). Specificity (concrete nouns > abstract).
-  Metaphors from Cass's experience, not from a thesaurus. Show-don't-tell
-  at emotional peaks. QUOTE the weakest sentence and explain why. Also
-  check for: repeated phrases, leaned-on constructions, paragraphs that
-  could be cut without loss.
+  Metaphors should come from the viewpoint character's lived experience,
+  profession, body, culture, setting, and current pressure, not from a
+  thesaurus. Show-don't-tell at emotional peaks. QUOTE the weakest sentence
+  and explain why. Also check for: repeated phrases, leaned-on constructions,
+  paragraphs that could be cut without loss.
 
 - continuity: Does it follow logically from the previous chapter? Emotional
   continuity as well as plot continuity. Does the character's state of
@@ -732,10 +740,10 @@ Score these dimensions:
 
 - canon_compliance: Check ALL facts against canon. List violations.
   One major violation caps score at 6. Check: character names, locations,
-  magic system rules, timeline, established events, physical descriptions.
+  central system rules, timeline, established events, physical descriptions.
 
 - lore_integration: Does the world do WORK in this chapter, or is it
-  set dressing? A scene that could happen in any fantasy city with
+  set dressing? A scene that could happen in any generic setting with
   find-and-replace on proper nouns scores 5 max.
 
 - engagement: Would a reader turn the page? Where does tension come from --
@@ -769,7 +777,7 @@ score is too high. The median AI chapter is a 6. An 8 is exceptional. A 9
 is rare. A 10 does not exist for a first draft.
 """
 
-CHAPTER_PROMPT_REDUCED = """Evaluate this fantasy novel chapter.
+CHAPTER_PROMPT_REDUCED = """Evaluate this book chapter.
 
 SCORING CALIBRATION:
   9-10: Published quality.
@@ -831,7 +839,7 @@ Respond with JSON:
 }}
 """
 
-CHAPTER_PROMPT_MINIMAL = """Evaluate this fantasy novel chapter under these minimal instructions.
+CHAPTER_PROMPT_MINIMAL = """Evaluate this book chapter under these minimal instructions.
 
 CHAPTER OUTLINE ENTRY:
 {chapter_outline}
@@ -983,7 +991,7 @@ def evaluate_chapter(chapter_num):
 
 # --- Full Novel Evaluation ---
 
-FULL_NOVEL_PROMPT = """Evaluate this complete fantasy novel holistically.
+FULL_NOVEL_PROMPT = """Evaluate this complete book holistically.
 You have the planning docs and ALL chapter summaries with their individual scores.
 
 VOICE DEFINITION:

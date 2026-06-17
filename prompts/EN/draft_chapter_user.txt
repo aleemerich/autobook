@@ -1,4 +1,4 @@
-Write Chapter {chapter_num} of "The Second Son of the House of Bells."
+Write Chapter {chapter_num} of "{book_title}".
 
 VOICE DEFINITION (follow this exactly):
 {voice}

@@ -4,7 +4,7 @@
 
 O sistema de testes do Autobook implementa uma suíte abrangente de testes unitários e de integração para garantir a confiabilidade e correto funcionamento do sistema de geração de livros. Os testes ativos estão localizados no diretório `/tests`.
 
-> **Status v0:** o baseline moderno verificado e `uv run --with pytest pytest tests`, com 274 testes passando. A pasta `/legacy/tests` existe, mas nao faz parte do baseline saudavel atual porque a coleta falha por imports de modulos historicos que nao existem mais (`draft_chapter`, `run_editorial`, `run_pipeline`).
+> **Status:** o baseline moderno verificado e `uv run --with pytest pytest tests`, com 301 testes passando. A pasta `/legacy/tests` existe, mas foi desativada e excluída da suíte de testes moderna. Caso seja executada diretamente, a pasta é configurada para ser ignorada via `conftest.py`.
 
 Este sistema verifica:
 - Funcionalidade básica de módulos individuais (testes unitários)
@@ -31,9 +31,9 @@ Este sistema verifica:
 - `test_generation_flow.py`: Testes do fluxo completo de geração de capítulos
 
 ### Testes Legados (`/legacy/tests`)
-- Status v0: quebrados na fase de coleta quando executados junto da suite moderna
-- Motivo principal: referencias a modulos removidos ou renomeados
-- Devem ser migrados, corrigidos ou explicitamente arquivados antes de voltarem ao baseline
+- Status: desativados e explicitamente ignorados na suite de testes moderna.
+- Motivo principal: referências a módulos históricos removidos ou renomeados.
+- Estão configurados no pytest de forma a serem ignorados por padrão e a retornarem uma saída limpa (sem testes executados) quando invocados diretamente.
 - `test_batch_generators_unit.py`: Testes de geradores em lote
 - `test_ideation_unit.py`: Testes unitários de ideação
 - `test_pipeline_control.py`: Testes de controle de pipeline
@@ -357,14 +357,15 @@ with patch("builtins.open", mock_open(read_data="conteúdo de teste")) as mock_f
 
 ### Mocking de Operações de Git
 ```python
-with patch('subprocess.run') as mock_subprocess:
-    # Configura retorno esperado
-    mock_subprocess.return_value.returncode = 0
-    # Testa função que chama git
+with patch("modulo_em_teste.git_add") as mock_git_add:
+    # Testa função que chama git via workspace/git.py
     function_that_uses_git()
-    # Verifica que subprocess.run foi chamado com argumentos esperados
-    mock_subprocess.assert_called_with(["git", "add", "arquivo"], check=True)
+    mock_git_add.assert_called_with("arquivo", base_dir=base_dir)
 ```
+
+Chamadas Git de produção são centralizadas em `workspace/git.py`; testes de
+pipelines devem mockar os helpers importados pelo módulo em teste, não
+`subprocess.run` global.
 
 ## Cobertura de Testes e Melhorias Contínuas
 
@@ -372,11 +373,10 @@ Baseline verificado neste snapshot:
 
 ```text
 uv run --with pytest pytest tests
-274 passed
+301 passed
 ```
 
-Executar `tests legacy/tests` atualmente falha durante a coleta dos testes
-legados.
+A execução direta de `legacy/tests` é ignorada via `conftest.py`, resultando em "no tests ran".
 
 ### Áreas de Alta Cobertura
 1. **Módulo LLM**: Boa cobertura de lógica de seleção de provedor, construção de requisição e tratamento de erros

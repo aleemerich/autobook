@@ -5,9 +5,9 @@
 O Autobook é um sistema multi-agente projetado para auxiliar na criação de livros usando Inteligência Artificial. Ele implementa uma arquitetura modular baseada no padrão **Command/Composite** para orquestrar pipelines de geração de conteúdo, com agentes especializados que colaboram para produzir, revisar e aprimorar texto literário.
 
 > **Status v0:** a arquitetura modular descrita aqui esta correta em linhas
-> gerais. Alguns fluxos e scripts auxiliares ainda carregam hardcodes, caminhos
-> historicos ou automacoes parciais; veja `../SNAPSHOT_V0.md` para o inventario
-> atualizado.
+> gerais. Os prompts operacionais principais foram neutralizados para nao ficarem
+> presos a uma obra especifica, mas ainda ha caminhos historicos, scripts legacy
+> e automacoes parciais; veja `../SNAPSHOT_V0.md` para o inventario atualizado.
 
 ## Padrões Arquiteturais
 
@@ -54,13 +54,20 @@ Cliente unificado para LLMs que:
 - Gerencia chaves de API, URLs e modelos
 - Implementa retry com backoff exponencial
 - Seleciona modelos baseado no tipo de operação (writing, judge, review)
+- Levanta exceções tipadas para erros de configuração antes de chamar provedores externos
 
-### 4. Módulo `pipelines/base.py`
+### 4. Módulo `workspace/git.py`
+Adaptador central para operações Git que:
+- Encapsula `git add`, `git commit`, `git push`, leitura de branch e status do worktree
+- Usa erro tipado (`GitCommandError`) para falhas de comandos Git
+- Mantém os testes desacoplados de chamadas diretas a `subprocess.run`
+
+### 5. Módulo `pipelines/base.py`
 Define as classes base:
 - `Step`: Interface para etapas atômicas
 - `Pipeline`: Implementação composite para sequências de steps
 
-### 5. Pipelines Específicos
+### 6. Pipelines Específicos
 Localizados em `/pipelines/`:
 - `registry.py`: Centraliza as especificações e o registro das pipelines.
 - `ideation.py`: Geração de ideias e conceitos.
@@ -69,18 +76,18 @@ Localizados em `/pipelines/`:
 - `editorial_revision.py`: Processo de revisão editorial.
 - **Subpacotes de Steps** (`*_steps/`): Funções auxiliares puras e montagem de contexto específicas de cada pipeline separadas em subpacotes dedicados sob `pipelines/` (ex: `book_generation_steps/`, `foundation_steps/`, `ideation_steps/`, `editorial_revision_steps/`).
 
-### 6. Sistema de Prompts
+### 7. Sistema de Prompts
 Localizado em `/prompts/` com subpastas para cada idioma (PT-BR, EN):
 - Arquivos `.txt` e subpastas de agentes (`prompts/{LANG}/agents/`): Contêm os prompts de sistema de cada agente carregados dinamicamente no construtor.
 - Arquivos `.json`: Configurações estruturadas (continuity, editorial, slop).
 
-### 7. Módulo `prompt_loader.py`
+### 8. Módulo `prompt_loader.py`
 Responsável por:
 - Carregar prompts baseado no idioma ativo
 - Fornecer fallbacks para inglês quando necessário
 - Gerenciar diretivas de idioma
 
-### 8. Módulo `book_data/`
+### 9. Módulo `book_data/`
 Armazena o estado do projeto em execução:
 - `state.json`: Estado atual do pipeline
 - Arquivos Markdown com informações do livro (personagens, mundo, cânone, etc.)

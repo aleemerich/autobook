@@ -26,36 +26,20 @@ Se `outline.md` nao existir, o script tenta reconstruir usando
 
 ## `resolve_continuity.py`
 
-Status v0: presente, mas nao confiavel como fluxo fechado.
+Status: funcional como fluxo fechado.
 
-Problemas conhecidos:
+Responsabilidades:
 
-- O arquivo contem duas definicoes de `main()`.
-- Usa caminhos divergentes para o relatorio de continuidade.
-- No final chama `run_editorial.py`, que nao existe mais no projeto.
-- O fluxo correto de revisao hoje passa por `run.py --pipeline editorial_revision`.
-
-Uso recomendado neste v0:
-
-- Usar `verify_continuity.py` para diagnostico.
-- Transformar manualmente os problemas em instrucoes em `book_data/editorial.md`.
-- Rodar `editorial_revision` pelo orquestrador principal.
+- Ler o relatório de continuidade em `logs/eval_logs/continuity_report.json`.
+- Fazer backup do `book_data/editorial.md` atual para `logs/edit_logs/`.
+- Se a nota de continuidade for menor que 7.5 ou houver problemas críticos de severidade média/alta, gera um novo `book_data/editorial.md` corretivo com as diretrizes e regras mapeadas.
+- Identifica capítulos com pontuação baixa (< 7.0) e os agenda para re-revisão de qualidade.
+- No final, aciona automaticamente a pipeline de revisão editorial executando via subprocesso:
+  ```bash
+  uv run python run.py --pipeline editorial_revision --chapter <capitulos>
+  ```
 
 ## Relatorios
 
 O caminho esperado pelo fluxo moderno e `logs/eval_logs/continuity_report.json`.
-
-## Planejamento
-
-Para tornar continuidade um loop fechado novamente:
-
-1. Remover a duplicacao de `main()`.
-2. Padronizar o caminho do relatorio.
-3. Trocar a chamada final para:
-
-```bash
-uv run python run.py --pipeline editorial_revision --chapter <lista>
-```
-
-4. Adicionar testes para o fluxo completo sem chamadas reais a LLM.
 
