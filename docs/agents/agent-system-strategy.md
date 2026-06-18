@@ -1,6 +1,6 @@
-# Estrategia do Sistema de Agentes
+# Estrategia Do Sistema De Agentes
 
-Status: decisao arquitetural atual.
+Esta e a decisao arquitetural vigente para agentes.
 
 ## Decisao
 

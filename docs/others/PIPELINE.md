@@ -1,5 +1,9 @@
 # AUTOBOOK: Reproducible Novel Pipeline
 
+> Historical reference: this file preserves an older pipeline design and may
+> mention obsolete commands, paths and assumptions. For the current operational
+> contract, start at `docs/INDICE.md`.
+
 ## Overview
 
 This document captures the full automated pipeline for generating,

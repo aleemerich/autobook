@@ -1,86 +1,77 @@
-# Snapshot v0 do Autobook
+# Snapshot Atual Do Autobook
 
-Este documento resume o estado atual do projeto cruzando a pasta `docs/` com
-os arquivos reais do repositorio. Ele nao substitui a documentacao detalhada:
-serve como ponto de partida confiavel para discutir melhorias.
+Este documento resume a situacao atual do projeto depois do refactor de
+plataforma, reorganizacao de pipelines, hardening operacional e revisao da
+documentacao. O nome do arquivo foi preservado para compatibilidade com links
+antigos, mas o conteudo representa o estado atual.
 
-## Escopo Atual
+## Estado Geral
 
-O Autobook e um orquestrador Python para gerar e revisar livros com LLMs. A
-entrada principal e `run.py`, que executa pipelines compostos por `Step`s:
+```mermaid
+flowchart LR
+    Clean["main/master limpo"] --> Wizard["Autobook Wizard"]
+    Wizard --> Branch["autobook/<slug>"]
+    Branch --> Ideation["ideation"]
+    Ideation --> Foundation["foundation"]
+    Foundation --> Generation["book_generation"]
+    Generation --> Editorial["editorial_revision"]
+    Generation --> Eval["evaluation + continuity"]
+    Editorial --> Eval
+```
 
-- `ideation`: cria ou preserva `seed.txt`, opcionalmente gera `book_data/MYSTERY.md` e inicializa `book_data/state.json`.
-- `foundation`: gera `world.md`, `characters.md`, `outline.md` e `canon.md`.
-- `book_generation`: gera capitulos em `chapters/ch_XX.md`, avalia, valida continuidade e atualiza `state.json`.
-- `editorial_revision`: interpreta `book_data/editorial.md`, reescreve capitulos e reavalia.
+Autobook hoje e um orquestrador Python para produzir uma obra em uma branch
+dedicada. `run.py` concentra a entrada principal, `pipelines/registry.py`
+declara as pipelines disponiveis, `workspace/` protege branches e metadados,
+e os pacotes `*_steps/` mantem a logica operacional testavel.
 
-## O Que Esta Coberto
+## Componentes Cobertos
 
-| Assunto | Cobertura | Observacao |
+| Area | Estado | Observacao |
 | --- | --- | --- |
-| Arquitetura `run.py` + `Step`/`Pipeline` | Boa | O padrao Command/Composite esta correto. |
-| Agentes | Boa | `agents.py` define drafting, stylist, technical editor, criticos e synthesis. |
-| Cliente LLM | Boa | `llm.py` cobre provedores, modelos, retry, timeout e erros de configuracao tipados. |
-| Prompts e idioma | Boa | `prompt_loader.py` e `prompts/{EN,PT-BR}` estao documentados. |
-| Pipelines | Parcial | Fluxos principais existem, mas alguns detalhes estao desatualizados. |
-| Avaliacao | Boa | `evaluate.py` permanece como fachada/CLI; o pacote `evaluation/` separa slop mecanico, juiz LLM, prompts, JSON e reports. |
-| Typeset | Parcial | `typeset/build_tex.py` gera LaTeX; PDF/EPUB final dependem de ferramentas externas. |
-| Testes | Boa | Baseline moderno confirmado: 320 testes em `tests/`. |
-| Legacy | Parcial | Scripts existem; testes legados foram desativados e ignorados na suíte moderna. |
+| Wizard e CLI | Atual | `run.py` sem argumentos abre o wizard; com `--pipeline` preserva a CLI classica. |
+| Branch/workspace | Atual | Pipelines protegidas exigem `autobook/<slug>` e podem registrar `book_data/workspace.json`. |
+| Pipelines | Atual | Quatro pipelines principais registradas e protegidas por `PipelineSpec`. |
+| Book generation | Atual | Contexto, planejamento, drafting, critica, revisao e persistencia foram extraidos para `book_generation_steps/`. |
+| Editorial revision | Atual | Config, parsing, contexto, avaliacao e operacoes de revisao estao em `editorial_revision_steps/`. |
+| Agentes | Atual | `agent_system/` e o adapter moderno; classes concretas seguem em `agents.py`. |
+| Prompts | Atual | Prompts de agentes e ferramentas foram externalizados com fallback por idioma. |
+| Avaliacao | Atual | `evaluate.py` e fachada sobre o pacote `evaluation/`. |
+| Continuidade | Atual | `verify_continuity.py` e `resolve_continuity.py` usam caminhos e orquestracao modernos. |
+| Testes | Atual | 320 testes modernos passando; legacy tests desativados. |
+| Legacy | Historico | Mantido como referencia, fora do contrato moderno. |
 
-## Correcoes Importantes Para v0
+## Contratos Importantes
 
-- O indice antigo apontava para dezenas de arquivos granulares que nao existem. O novo indice aponta para a estrutura real.
-- O baseline correto de testes modernos e `320 passed` em `tests/`, nao a suite completa incluindo `legacy/tests`.
-- `legacy/tests` foi desativado e excluído da suíte moderna. Seus arquivos são ignorados pelo pytest via conftest.py na pasta.
-- `GIT_AUTO_COMMIT` e `GIT_AUTO_PUSH` nao sao flags efetivas no codigo atual. Operacoes Git usadas por pipelines passam pelo adaptador `workspace/git.py`.
-- `book_generation` agora falha explicitamente quando `outline.md` nao contem headings reconheciveis de capitulo ou quando arquivos obrigatorios de lore estao ausentes.
-- `workspace.json` continua opcional, mas quando presente precisa validar branch `autobook/<slug>` e `created_at` em ISO 8601.
-- `book_data/`, `seed.txt` e `chapters/*.md` sao workspace local ignorado na branch principal. Templates versionados ficam em `templates/book_data/`, e pipelines usam add forcado controlado nas branches de obra.
-- O fluxo modular de `book_generation` usa `DraftingAgent`, criticos e `SynthesisAgent`. `StylistAgent` e `TechnicalEditorAgent` existem, mas nao sao etapas ativas centrais nesse fluxo.
-- `resolve_continuity.py` foi corrigido como loop fechado: a duplicidade de `main()` foi removida, o relatório é lido de `logs/eval_logs/continuity_report.json` e a chamada final é enviada via `run.py`.
-- `foundation.py` carrega `CRAFT.md` no caminho correto `docs/others/CRAFT.md` com validação explícita de erro.
-- Os prompts operacionais de `foundation.py`, `evaluate.py`, `gen_revision.py`, `gen_audiobook_script.py` e `book_generation_steps/planning.py` nao carregam mais nomes ou regras de uma obra especifica.
-
-## Lacunas Documentais
-
-| Lacuna | Resumo para planejamento |
-| --- | --- |
-| `book_data/` | Falta contrato formal de cada arquivo de estado e lore. Criado v0 em `book-data/book-data.md`. |
-| `genre_strategy.py` e `genres/` | Falta explicar selecao por idioma/genero e fallback. Criado v0 em `genre-strategy/genre-strategy.md`. |
-| Continuidade | Faltava pagina dedicada para `verify_continuity.py` e estado real de `resolve_continuity.py`. Criado v0 em `continuity/continuity.md`. |
-| Skills | Faltava pagina para `skills/create_agent.py` e `skills/redundancy_detector.py`. Criado v0 em `skills/skills.md`. |
-| Comandos | Faltava consolidar CLI principal e scripts auxiliares. Criado v0 em `operacional/comandos.md`. |
-| Ferramentas editoriais | `apply_cuts.py`, `adversarial_edit.py`, `compare_chapters.py`, `gen_brief.py` e `voice_fingerprint.py` precisam docs proprios depois do v0. |
-| Landing page | `landing/index.html` existe, mas falta documentar como atualizar/publicar. |
-| Audiobook/arte | Existem scripts e chaves (`ELEVENLABS_API_KEY`, `FAL_KEY`), mas a automacao e parcial e/ou legacy. |
+- `book_data/`, `chapters/`, `logs/` e `seed.txt` sao artefatos de obra.
+- A branch principal deve permanecer limpa; geracoes acontecem em
+  `autobook/<slug>`.
+- `book_data/workspace.json`, quando presente, precisa validar
+  `schema_version`, `title`, `branch` e `created_at`.
+- `docs/others/CRAFT.md`, `ANTI-SLOP.md` e `ANTI-PATTERNS.md` ainda sao
+  referencias operacionais; os demais arquivos de `docs/others/` sao
+  historicos ou criativos.
+- `legacy/tests` nao mede a saude atual do projeto.
 
 ## Baseline Verificado
 
-Comando executado:
-
 ```bash
-uv run --with pytest pytest tests
+uv run --group dev ruff check .
+uv run --with pytest pytest tests -q
+uv run --with pytest pytest legacy/tests -q
 ```
 
-Resultado:
+Resultado esperado:
 
-```text
-320 passed
-```
+- Ruff sem erros.
+- `320 passed` na suite moderna.
+- `legacy/tests`: nenhum teste coletado, exit code 0.
 
-Comando tambem testado:
+## Proximas Decisoes Nao Bloqueantes
 
-```bash
-uv run --with pytest pytest legacy/tests
-```
-
-Resultado: `no tests ran` com exit code 0 (excluído e ignorado por configuração).
-
-## Proximas Atualizacoes Recomendadas
-
-1. Monitorar o comportamento de `resolve_continuity.py` sob casos reais de divergência narrativa.
-2. Atualizar `legacy/legacy.md` com caminhos reais e status por script.
-3. Transformar `docs/others/` em uma area explicitamente historica/criativa.
-4. Criar uma pagina dedicada para ferramentas editoriais avancadas.
-5. Decidir se `docs/analises/` entra no versionamento como registro oficial da auditoria.
+1. Decidir se scripts experimentais viram contrato suportado ou permanecem
+   documentados como ferramentas auxiliares.
+2. Evoluir criticos para emitirem `CriticReport` JSON nativo sempre que o custo
+   de modelo permitir.
+3. Expandir gradualmente as regras de lint para areas hoje excluidas, sem
+   misturar isso com mudancas funcionais.
+4. Melhorar a ergonomia do wizard sem alterar os contratos de pipeline.

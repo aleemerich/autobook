@@ -45,7 +45,7 @@ Os arquivos reais sao ignorados por Git e devem ser criados em branches
 - O wizard inicializa templates de `templates/book_data/` sem sobrescrever arquivos locais existentes.
 - Apesar de `book_data/*`, `seed.txt` e `chapters/*.md` serem ignorados por padrão, os pipelines usam `git add --force` através de `workspace/git.py` para registrar esses artefatos explicitamente nas branches de obra.
 
-## Riscos v0
+## Cuidados
 
 - `book_data/` e a area de trabalho da obra. Em branches principais deve conter apenas `.gitkeep`; artefatos reais devem ser gerados em branches `autobook/<slug>`.
 - Alterar manualmente `state.json` pode fazer o pipeline pular ou sobrescrever capitulos.

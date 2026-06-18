@@ -1,5 +1,8 @@
 # WORKFLOW
 
+> Historical reference: this workflow is kept for context and does not define
+> the current execution contract.
+
 Step-by-step guide to running autobook.
 
 For the full technical pipeline specification, see [PIPELINE.md](PIPELINE.md).

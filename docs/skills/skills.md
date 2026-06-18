@@ -29,16 +29,14 @@ Depois do registro, o agente pode ser criado com:
 factory.get_agent("nome_do_papel", **kwargs)
 ```
 
-## Status v0
+## Estado Atual
 
-A extensibilidade existe, mas ainda nao ha convencao formal para versionar,
-testar e documentar skills novas. Tambem nao ha CLI propria para listar ou
-validar skills.
+A extensibilidade existe e e testada pelo contrato da factory. Ainda nao ha CLI
+propria para listar ou validar skills.
 
 ## Melhorias Recomendadas
 
 1. Definir um contrato padrao de metadados por skill.
-2. Adicionar testes para `load_skill_agent`.
+2. Adicionar exemplos de uso real dentro de pipelines.
 3. Documentar exemplos reais de uso dentro dos pipelines.
 4. Separar utilitarios que nao sao agentes de skills que registram agentes.
-

@@ -1,5 +1,8 @@
 # autobook
 
+> Referencia historica: este arquivo e material de planejamento antigo e nao
+> define o fluxo operacional atual.
+
 Autonomous fantasy novel writing pipeline. The agent writes and refines
 a novel across 5 co-evolving layers, guided by automated evaluation.
 

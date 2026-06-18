@@ -1,5 +1,9 @@
 # autobook — Estudo Completo do Projeto
 
+> Referencia historica: este estudo preserva uma leitura antiga do projeto e
+> pode citar caminhos, comandos e artefatos obsoletos. Para o contrato atual,
+> consulte `docs/INDICE.md`.
+
 ## Visão Geral
 Pipeline multi-agente autônomo para escrever, revisar, diagramar, ilustrar e narrar livros com AI.
 Fork do [autonovel](https://github.com/NousResearch/autonovel) da NousResearch.

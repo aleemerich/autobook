@@ -37,8 +37,8 @@ instanciar agentes e montar prompts.
 - `get_style_guidelines()`: retorna o texto integral das regras carregadas.
 - `get_anti_patterns()`: tenta extrair linhas de secoes chamadas `PADROES A EVITAR` ou `PATTERNS TO AVOID`.
 
-## Status v0
+## Estado Atual
 
-Funcional e testado indiretamente pelo carregamento de prompts/idioma. Ainda
-falta documentar o contrato editorial esperado dentro de cada arquivo de genero.
-
+Funcional e coberto por testes indiretos de idioma, prompts e pipelines. A
+evolucao mais util e padronizar melhor o contrato editorial interno de cada
+arquivo de genero, mas isso nao bloqueia o fluxo atual.

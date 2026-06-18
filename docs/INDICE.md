@@ -1,76 +1,51 @@
 # Documentacao do Autobook
 
-Este indice reflete a estrutura real da pasta `docs/` e o estado atual do
-codigo na branch em uso. O objetivo deste v0 e servir como snapshot tecnico:
-o que existe, o que funciona, o que esta parcial e o que precisa ser
-atualizado antes de virar documentacao definitiva.
+Este indice representa a documentacao operacional atual do projeto. Arquivos
+historicos continuam disponiveis quando ajudam a entender a origem do sistema,
+mas nao devem ser usados como contrato de execucao sem checagem contra o codigo.
 
 ## Leitura Recomendada
 
-1. [Snapshot v0](SNAPSHOT_V0.md)
+1. [Snapshot atual](SNAPSHOT_V0.md)
 2. [Arquitetura](architecture/arquitetura.md)
 3. [Pipelines](pipelines/pipelines.md)
 4. [Comandos operacionais](operacional/comandos.md)
-5. [Dados do livro](book-data/book-data.md)
-6. [Testes](tests/tests.md)
+5. [Dados da obra](book-data/book-data.md)
+6. [Testes e qualidade](tests/tests.md)
 
-## Documentos Principais
+## Mapa Da Documentacao
 
-| Area | Documento | Status v0 |
+| Area | Documento | Uso |
 | --- | --- | --- |
-| Snapshot e lacunas | [SNAPSHOT_V0.md](SNAPSHOT_V0.md) | Atual |
-| Arquitetura | [architecture/arquitetura.md](architecture/arquitetura.md) | Coberto, precisa revisao fina |
-| Pipelines | [pipelines/pipelines.md](pipelines/pipelines.md) | Coberto, parcialmente desatualizado |
-| Fluxo detalhado | [fluxo-detalhado/guia-completo-fluxos.md](fluxo-detalhado/guia-completo-fluxos.md) | Rico, precisa checagem contra codigo |
-| Agentes | [agents/agentes.md](agents/agentes.md) | Coberto |
-| Estrategia de agentes | [agents/agent-system-strategy.md](agents/agent-system-strategy.md) | Novo v0 |
-| Cliente LLM | [llm/llm.md](llm/llm.md) | Coberto |
-| Prompts e localizacao | [prompts/prompts.md](prompts/prompts.md) | Coberto |
-| Generos | [genre-strategy/genre-strategy.md](genre-strategy/genre-strategy.md) | Novo v0 |
-| Avaliacao | [evaluation/evaluation.md](evaluation/evaluation.md) | Coberto |
-| Continuidade | [continuity/continuity.md](continuity/continuity.md) | Novo v0 |
-| Configuracao | [configuration/configuration.md](configuration/configuration.md) | Atualizado para v0 |
-| Dados do livro | [book-data/book-data.md](book-data/book-data.md) | Novo v0 |
-| Typesetting | [typesetting/typesetting.md](typesetting/typesetting.md) | Coberto, com partes manuais |
-| Testes | [tests/tests.md](tests/tests.md) | Atualizado para baseline real |
-| Legacy | [legacy/legacy.md](legacy/legacy.md) | Precisa limpeza |
-| Qualidade | [quality-analysis/quality-analysis.md](quality-analysis/quality-analysis.md) | Coberto |
-| Skills | [skills/skills.md](skills/skills.md) | Novo v0 |
-| Scripts raiz | [scripts/scripts.md](scripts/scripts.md) | Novo v0 |
-| Comandos | [operacional/comandos.md](operacional/comandos.md) | Novo v0 |
-| Planejamento futuro | [planejamento/como-transformar-parecer-em-specs.md](planejamento/como-transformar-parecer-em-specs.md) | Novo v0 |
+| Snapshot | [SNAPSHOT_V0.md](SNAPSHOT_V0.md) | Resumo do estado atual do projeto. |
+| Arquitetura | [architecture/arquitetura.md](architecture/arquitetura.md) | Componentes, responsabilidades e dependencias. |
+| Fluxo completo | [fluxo-detalhado/guia-completo-fluxos.md](fluxo-detalhado/guia-completo-fluxos.md) | Jornada ponta a ponta de uma obra. |
+| Pipelines | [pipelines/pipelines.md](pipelines/pipelines.md) | Registro, contratos e fases de cada pipeline. |
+| Agentes | [agents/agentes.md](agents/agentes.md) | Papeis, factory, prompts e feedback estruturado. |
+| Estrategia de agentes | [agents/agent-system-strategy.md](agents/agent-system-strategy.md) | Decisao arquitetural sobre o adapter moderno. |
+| Prompts | [prompts/prompts.md](prompts/prompts.md) | Layout de prompts, idiomas e fallbacks. |
+| LLM | [llm/llm.md](llm/llm.md) | Cliente multi-provider e modelos. |
+| Configuracao | [configuration/configuration.md](configuration/configuration.md) | Variaveis de ambiente e arquivos de configuracao. |
+| Dados da obra | [book-data/book-data.md](book-data/book-data.md) | Contrato de `book_data/`, `chapters/` e `logs/`. |
+| Avaliacao | [evaluation/evaluation.md](evaluation/evaluation.md) | Score, slop, juiz LLM e reports. |
+| Continuidade | [continuity/continuity.md](continuity/continuity.md) | Verificacao e resolucao de continuidade. |
+| Qualidade | [quality-analysis/quality-analysis.md](quality-analysis/quality-analysis.md) | Camadas de qualidade literaria e tecnica. |
+| Generos | [genre-strategy/genre-strategy.md](genre-strategy/genre-strategy.md) | Regras de genero e fallback por idioma. |
+| Skills | [skills/skills.md](skills/skills.md) | Utilitarios de agentes e redundancia. |
+| Scripts | [scripts/scripts.md](scripts/scripts.md) | Scripts raiz suportados, experimentais e legados. |
+| Typesetting | [typesetting/typesetting.md](typesetting/typesetting.md) | Geracao de `chapters_content.tex`. |
+| Legacy | [legacy/legacy.md](legacy/legacy.md) | Area historica e testes desativados. |
+| Backlog | [backlog/pacotes_residuais_pos_refactor_2026-06-17.md](backlog/pacotes_residuais_pos_refactor_2026-06-17.md) | Registro dos pacotes residuais pos-refactor. |
+| Referencias historicas | [others/README.md](others/README.md) | Como interpretar `docs/others/`. |
 
-
-## Referencias Historicas e Criativas
-
-Os arquivos abaixo sao uteis como material de referencia, mas nao devem ser
-lidos como documentacao tecnica atual sem validacao contra o codigo:
-
-- [others/PIPELINE.md](others/PIPELINE.md)
-- [others/CRAFT.md](others/CRAFT.md)
-- [others/ANTI-SLOP.md](others/ANTI-SLOP.md)
-- [others/ANTI-PATTERNS.md](others/ANTI-PATTERNS.md)
-- [others/WORKFLOW.md](others/WORKFLOW.md)
-- [others/PROJECT_STUDY.md](others/PROJECT_STUDY.md)
-- [others/program.md](others/program.md)
-- [others/cauldron.txt](others/cauldron.txt)
-- [others/results.tsv](others/results.tsv)
-
-## Analises
-
-- [analises/docs_analysis.md](analises/docs_analysis.md): auditoria detalhada da documentacao contra o codigo.
-- [analises/analise_arquitetura_autobook.md](analises/analise_arquitetura_autobook.md): proposta de arquitetura e evolucao.
-- [analises/recomendacao_pipeline_producao.md](analises/recomendacao_pipeline_producao.md): parecer sobre pipeline intermediaria, agentes dinamicos, continuidade, estilo e modelos de menor custo.
-- [analises/auditoria_codigo_2026-06-16.md](analises/auditoria_codigo_2026-06-16.md): auditoria senior do codigo atual, com achados de arquitetura, clean code, riscos funcionais e aderencia a documentacao.
-- [analises/auditoria_codigo_backlog_2026-06-16.md](analises/auditoria_codigo_backlog_2026-06-16.md): backlog acionavel derivado da auditoria senior para planejamento das correcoes.
-- [analises/pacotes_residuais_pos_refactor_2026-06-17.md](analises/pacotes_residuais_pos_refactor_2026-06-17.md): comparativo pos-refactor contra a auditoria e novos pacotes residuais recomendados.
-
-## Estado Atual Verificado
+## Estado Verificado
 
 - Entrada principal: `run.py`.
-- Pipelines suportados pela CLI: `ideation`, `foundation`, `book_generation`, `editorial_revision`.
-- Baseline moderno de testes: `uv run --with pytest pytest tests` com 320 testes passando.
-- `legacy/tests` nao faz parte do baseline atual; a coleta e ignorada e retorna sem testes por configuracao local.
+- Modo interativo: `uv run python run.py`.
+- Pipelines registradas: `ideation`, `foundation`, `book_generation`, `editorial_revision`.
+- Branches de obra: formato obrigatorio `autobook/<slug>` para pipelines protegidas.
+- Baseline moderno: `uv run --with pytest pytest tests -q` com 320 testes passando.
+- Checks de estilo: `uv run --group dev ruff check .`.
+- `legacy/tests` e historico, ignorado por configuracao e com exit code 0 quando executado diretamente.
 - Python: `>=3.12`.
 - Gerenciador recomendado: `uv`.
-- Provedores LLM suportados em `llm.py`: `anthropic`, `openai`, `gemini`, `openrouter`.

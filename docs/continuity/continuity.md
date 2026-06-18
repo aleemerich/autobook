@@ -1,45 +1,48 @@
 # Continuidade
 
-O sistema de continuidade tem duas partes: verificacao global e tentativa de
-geracao de correcoes.
+A continuidade protege linha temporal, fatos estabelecidos, personagens e
+causalidade entre capitulos.
 
-## `verify_continuity.py`
+## Componentes
 
-Status v0: funcional como validador.
+| Arquivo | Responsabilidade |
+| --- | --- |
+| `verify_continuity.py` | Analisa capitulos e lore, escreve report em `logs/eval_logs/continuity_report.json`. |
+| `resolve_continuity.py` | Le o report, gera `book_data/editorial.md` corretivo e chama `run.py`. |
+| `book_data/canon.md` | Base de fatos estabelecidos. |
+| `book_data/outline.md` | Sequencia planejada de capitulos e beats. |
 
-Responsabilidades:
+## Fluxo
 
-- Ler `book_data/outline.md`.
-- Parsear capitulos, local, personagens, beats, plants e harvests.
-- Chamar um juiz LLM usando `AUTOBOOK_JUDGE_MODEL`.
-- Gerar diagnostico de continuidade com `continuity_score`, inconsistencias e fluxo temporal.
+```mermaid
+flowchart TD
+    Chapters["chapters/"] --> Verify["verify_continuity.py"]
+    Lore["canon + outline + world + characters"] --> Verify
+    Verify --> Report["logs/eval_logs/continuity_report.json"]
+    Report --> Decision{"problemas?"}
+    Decision -- nao --> OK["sem acao"]
+    Decision -- sim --> Resolve["resolve_continuity.py"]
+    Resolve --> Editorial["book_data/editorial.md"]
+    Editorial --> Run["run.py --pipeline editorial_revision"]
+```
 
-Comandos:
+## Uso
 
 ```bash
 uv run python verify_continuity.py
-uv run python verify_continuity.py --strict --threshold 7.0
+uv run python resolve_continuity.py
 ```
 
-Se `outline.md` nao existir, o script tenta reconstruir usando
-`legacy/build_outline.py`.
+`book_generation` executa verificacao de continuidade durante a persistencia de
+capitulos. A execucao manual e util para auditoria.
 
-## `resolve_continuity.py`
+## Report
 
-Status: funcional como fluxo fechado.
+O report principal fica em:
 
-Responsabilidades:
+```text
+logs/eval_logs/continuity_report.json
+```
 
-- Ler o relatório de continuidade em `logs/eval_logs/continuity_report.json`.
-- Fazer backup do `book_data/editorial.md` atual para `logs/edit_logs/`.
-- Se a nota de continuidade for menor que 7.5 ou houver problemas críticos de severidade média/alta, gera um novo `book_data/editorial.md` corretivo com as diretrizes e regras mapeadas.
-- Identifica capítulos com pontuação baixa (< 7.0) e os agenda para re-revisão de qualidade.
-- No final, aciona automaticamente a pipeline de revisão editorial executando via subprocesso:
-  ```bash
-  uv run python run.py --pipeline editorial_revision --chapter <capitulos>
-  ```
-
-## Relatorios
-
-O caminho esperado pelo fluxo moderno e `logs/eval_logs/continuity_report.json`.
-
+`resolve_continuity.py` espera esse caminho. Se o report estiver ausente ou nao
+indicar problemas, o script encerra sem acionar revisao.
