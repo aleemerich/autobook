@@ -1,0 +1,77 @@
+timestamp	phase	score	words	keep_discard	description
+b612c17	ch01	6.0	2375	keep	Chapter 1 (attempt 1)
+discarded	ch02	4.5	2918	discard	Chapter 2 attempt 1
+discarded	ch02	-1.0	3406	discard	Chapter 2 attempt 2
+discarded	ch02	4.5	3212	discard	Chapter 2 attempt 3
+discarded	ch02	3.7	4608	discard	Chapter 2 attempt 4
+discarded	ch02	4.0	4388	discard	Chapter 2 attempt 5
+3ec972f	ch02	?	4388	forced	Chapter 2: kept after max attempts
+66cf533	ch03	6.0	3588	keep	Chapter 3 (attempt 1)
+discarded	ch04	4.5	4312	discard	Chapter 4 attempt 1
+discarded	ch04	5.0	4701	discard	Chapter 4 attempt 2
+discarded	ch04	5.7	3285	discard	Chapter 4 attempt 3
+3716f33	ch04	6.0	5712	keep	Chapter 4 (attempt 4)
+discarded	ch05	4.5	3490	discard	Chapter 5 attempt 1
+discarded	ch05	4.5	3878	discard	Chapter 5 attempt 2
+discarded	ch05	4.0	4221	discard	Chapter 5 attempt 3
+discarded	ch05	2.9	2826	discard	Chapter 5 attempt 4
+discarded	ch05	4.0	3710	discard	Chapter 5 attempt 5
+2f55eb9	ch05	?	3710	forced	Chapter 5: kept after max attempts
+discarded	ch06	4.0	4460	discard	Chapter 6 attempt 1
+discarded	ch06	3.5	4129	discard	Chapter 6 attempt 2
+4ac69ad	ch06	6.0	3945	keep	Chapter 6 (attempt 3)
+discarded	ch07	5.0	3566	discard	Chapter 7 attempt 1
+discarded	ch07	4.5	3434	discard	Chapter 7 attempt 2
+d333912	ch07	6.0	4164	keep	Chapter 7 (attempt 3)
+c7174c1	ch08	6.0	3326	keep	Chapter 8 (attempt 1)
+a14e5cd	ch09	6.0	2989	keep	Chapter 9 (attempt 1)
+49f6379	ch10	6.0	4114	keep	Chapter 10 (attempt 1)
+58b87b7	ch11	6.0	2890	keep	Chapter 11 (attempt 1)
+6a745b2	ch12	6.0	4375	keep	Chapter 12 (attempt 1)
+discarded	ch13	4.5	3758	discard	Chapter 13 attempt 1
+discarded	ch13	4.5	3224	discard	Chapter 13 attempt 2
+discarded	ch13	4.5	3461	discard	Chapter 13 attempt 3
+discarded	ch13	4.5	4101	discard	Chapter 13 attempt 4
+discarded	ch13	4.5	3652	discard	Chapter 13 attempt 5
+7a68486	ch13	?	3652	forced	Chapter 13: kept after max attempts
+discarded	ch14	4.5	4251	discard	Chapter 14 attempt 1
+272711e	ch14	6.0	3615	keep	Chapter 14 (attempt 2)
+fc85fc4	ch15	6.14	2686	keep	Chapter 15 (attempt 1)
+discarded	ch16	4.5	3398	discard	Chapter 16 attempt 1
+58dae14	ch16	6.0	3165	keep	Chapter 16 (attempt 2)
+discarded	ch17	4.5	3176	discard	Chapter 17 attempt 1
+discarded	ch17	4.2	4495	discard	Chapter 17 attempt 2
+56a4a4c	ch17	6.0	3339	keep	Chapter 17 (attempt 3)
+discarded	ch18	4.5	4075	discard	Chapter 18 attempt 1
+discarded	ch18	4.5	2778	discard	Chapter 18 attempt 2
+discarded	ch18	3.6	4330	discard	Chapter 18 attempt 3
+discarded	ch18	3.0	3903	discard	Chapter 18 attempt 4
+discarded	ch18	4.5	3199	discard	Chapter 18 attempt 5
+f752d27	ch18	?	3199	forced	Chapter 18: kept after max attempts
+discarded	ch19	3.0	3348	discard	Chapter 19 attempt 1
+discarded	ch19	4.5	3454	discard	Chapter 19 attempt 2
+discarded	ch19	5.0	3431	discard	Chapter 19 attempt 3
+discarded	ch19	4.5	4122	discard	Chapter 19 attempt 4
+dc7394e	ch19	6.0	3574	keep	Chapter 19 (attempt 5)
+discarded	ch20	5.7	2956	discard	Chapter 20 attempt 1
+discarded	ch20	3.0	242	discard	Chapter 20 attempt 2
+discarded	ch20	5.0	2231	discard	Chapter 20 attempt 3
+discarded	ch20	4.5	2688	discard	Chapter 20 attempt 4
+discarded	ch20	4.5	2680	discard	Chapter 20 attempt 5
+b696a49	ch20	?	2680	forced	Chapter 20: kept after max attempts
+discarded	ch21	4.5	4283	discard	Chapter 21 attempt 1
+discarded	ch21	4.5	3485	discard	Chapter 21 attempt 2
+discarded	ch21	4.2	2963	discard	Chapter 21 attempt 3
+discarded	ch21	4.5	3312	discard	Chapter 21 attempt 4
+discarded	ch21	4.5	3440	discard	Chapter 21 attempt 5
+ae8bff9	ch21	?	3440	forced	Chapter 21: kept after max attempts
+discarded	ch22	2.5	2665	discard	Chapter 22 attempt 1
+discarded	ch22	2.5	3062	discard	Chapter 22 attempt 2
+discarded	ch22	-1.0	2478	discard	Chapter 22 attempt 3
+discarded	ch22	3.5	2955	discard	Chapter 22 attempt 4
+discarded	ch22	3.2	4119	discard	Chapter 22 attempt 5
+e3b7c7b	ch22	?	4119	forced	Chapter 22: kept after max attempts
+reverted	rev-ch15	5.7	2981	discard	Reader Panel: momentum_loss regressed 6.0->5.7
+reverted	rev-ch19	4.5	4536	discard	Reader Panel: missing_scene regressed 6.0->4.5
+e82ad0d	rev-ch11	5.0	2247	keep	Reader Panel: momentum_loss improved 5.0->5.0
+92cc6db	export	0.0	70164	export	Final export

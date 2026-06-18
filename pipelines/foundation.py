@@ -26,7 +26,7 @@ BOOK_DATA_DIR = BASE_DIR / "book_data"
 SEED_PATH = BASE_DIR / "seed.txt"
 MYSTERY_PATH = BOOK_DATA_DIR / "MYSTERY.md"
 STATE_FILE = BOOK_DATA_DIR / "state.json"
-CRAFT_PATH = BASE_DIR / "docs" / "others" / "CRAFT.md"
+CRAFT_PATH = BASE_DIR / "docs" / "en" / "others" / "CRAFT.md"
 VOICE_PATH = BOOK_DATA_DIR / "voice.md"
 
 WORLD_PATH = BOOK_DATA_DIR / "world.md"

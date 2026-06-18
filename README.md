@@ -94,7 +94,7 @@ Key directories:
 | Pipeline | Output | Notes |
 | --- | --- | --- |
 | `ideation` | `seed.txt`, optional `book_data/MYSTERY.md`, initial state | Supports interactive and testable non-interactive context. |
-| `foundation` | `world.md`, `characters.md`, `outline.md`, `canon.md` | Uses localized foundation prompts and `docs/others/CRAFT.md`. |
+| `foundation` | `world.md`, `characters.md`, `outline.md`, `canon.md` | Uses localized foundation prompts and `docs/en/others/CRAFT.md`. |
 | `book_generation` | `chapters/ch_XX.md`, attempts, evaluation logs | Uses modular context, planning, drafting, critique, revision and persistence steps. |
 | `editorial_revision` | Revised chapters and evaluation history | Reads `book_data/editorial.md`, retries corrective edits, keeps best attempts. |
 
@@ -116,7 +116,7 @@ FAL_KEY=your-key
 ELEVENLABS_API_KEY=your-key
 ```
 
-See [docs/configuration/configuration.md](docs/configuration/configuration.md)
+See [docs/en/configuration/configuration.md](docs/en/configuration/configuration.md)
 for the full configuration contract.
 
 ## Quality Checks
@@ -132,11 +132,16 @@ intentionally disabled and exits successfully with no tests collected.
 
 ## Documentation
 
-Start with [docs/INDICE.md](docs/INDICE.md). The most useful documents are:
+Start with the documentation in your preferred language:
 
-- [architecture/arquitetura.md](docs/architecture/arquitetura.md)
-- [pipelines/pipelines.md](docs/pipelines/pipelines.md)
-- [agents/agentes.md](docs/agents/agentes.md)
-- [prompts/prompts.md](docs/prompts/prompts.md)
-- [operacional/comandos.md](docs/operacional/comandos.md)
-- [tests/tests.md](docs/tests/tests.md)
+- English: [docs/en/INDICE.md](docs/en/INDICE.md)
+- Portugues (Brasil): [docs/pt-br/INDICE.md](docs/pt-br/INDICE.md)
+
+The most useful English documents are:
+
+- [architecture/arquitetura.md](docs/en/architecture/arquitetura.md)
+- [pipelines/pipelines.md](docs/en/pipelines/pipelines.md)
+- [agents/agentes.md](docs/en/agents/agentes.md)
+- [prompts/prompts.md](docs/en/prompts/prompts.md)
+- [operacional/comandos.md](docs/en/operacional/comandos.md)
+- [tests/tests.md](docs/en/tests/tests.md)
