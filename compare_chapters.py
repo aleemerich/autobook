@@ -7,14 +7,13 @@ Produces a true rank order from round-robin tournament.
 Usage: python compare_chapters.py          # full tournament
        python compare_chapters.py 1 10     # single matchup
 """
-import os
 import sys
 import json
-import re
-import random
 from pathlib import Path
 from datetime import datetime
 from dotenv import load_dotenv
+from evaluation.json_utils import parse_json_response
+from prompt_loader import load_prompt
 
 BASE_DIR = Path(__file__).parent
 load_dotenv(BASE_DIR / ".env")
@@ -25,76 +24,15 @@ CHAPTERS_DIR = BASE_DIR / "chapters"
 def call_judge(prompt, max_tokens=4000):
     """Call the unified judge LLM via llm.py and return response text."""
     from llm import call_llm
-    system = (
-        "You are a literary editor comparing two chapters of the same novel. "
-        "You pick the better one. You are not allowed to call it a tie. "
-        "You quote specific passages to justify your choice. "
-        "Respond with valid JSON only."
-    )
+    system = load_prompt("tools/compare_chapters_system.txt")
     return call_llm(prompt=prompt, system_prompt=system, temperature=0.2, is_judge=True)
 
 def parse_json(text):
-    text = text.strip()
-    if text.startswith("```"):
-        text = re.sub(r'^```\w*\n?', '', text)
-        text = re.sub(r'\n?```$', '', text)
-    start = text.find('{')
-    if start == -1:
-        raise ValueError("No JSON found")
-    try:
-        return json.loads(text[start:], strict=False)
-    except json.JSONDecodeError:
-        depth = 0
-        in_string = False
-        escape = False
-        for i in range(start, len(text)):
-            c = text[i]
-            if escape: escape = False; continue
-            if c == '\\' and in_string: escape = True; continue
-            if c == '"' and not escape: in_string = not in_string; continue
-            if in_string: continue
-            if c == '{': depth += 1
-            elif c == '}':
-                depth -= 1
-                if depth == 0:
-                    return json.loads(text[start:i+1], strict=False)
-        return json.loads(text[start:], strict=False)
-
-COMPARE_PROMPT = """Compare these two chapters from the same fantasy novel.
-Both are first drafts. Pick the BETTER one. You MUST pick a winner -- no ties.
-
-CHAPTER A (Ch {ch_a}):
-{text_a}
-
-CHAPTER B (Ch {ch_b}):
-{text_b}
-
-Compare on these axes:
-- Which has sharper prose (more specific, less generic)?
-- Which has better dialogue (sounds like speech, not written prose)?
-- Which creates more genuine tension or surprise?
-- Which trusts the reader more (less over-explaining)?
-- Which has fewer AI writing patterns?
-
-You MUST pick one. If they're close, pick the one with the single
-best moment -- the sentence you wish you'd written.
-
-Respond with JSON:
-{{
-  "winner": "A" or "B",
-  "winner_chapter": N,
-  "margin": "clear" or "slight" or "razor-thin",
-  "decisive_moment": "quote the passage that tipped it -- from the WINNER",
-  "winner_strength": "what the winner does that the loser doesn't",
-  "loser_weakness": "what specifically drags the loser down",
-  "best_sentence_a": "quote the single best sentence from A",
-  "best_sentence_b": "quote the single best sentence from B"
-}}
-"""
+    return parse_json_response(text)
 
 def compare(ch_a, ch_b):
-    text_a = (CHAPTERS_DIR / f"ch_{ch_a:02d}.md").read_text()
-    text_b = (CHAPTERS_DIR / f"ch_{ch_b:02d}.md").read_text()
+    text_a = (CHAPTERS_DIR / f"ch_{ch_a:02d}.md").read_text(encoding="utf-8")
+    text_b = (CHAPTERS_DIR / f"ch_{ch_b:02d}.md").read_text(encoding="utf-8")
     
     # Truncate to ~3000 words each to fit context
     words_a = text_a.split()
@@ -104,7 +42,7 @@ def compare(ch_a, ch_b):
     if len(words_b) > 3000:
         text_b = ' '.join(words_b[:3000]) + "\n[truncated]"
     
-    prompt = COMPARE_PROMPT.format(
+    prompt = load_prompt("tools/compare_chapters_user.txt").format(
         ch_a=ch_a, ch_b=ch_b,
         text_a=text_a, text_b=text_b
     )
@@ -148,8 +86,6 @@ def run_tournament(chapters):
                     winner = ch_b
                 else:
                     winner = int(winner)
-                
-                loser = ch_b if winner == ch_a else ch_a
                 
                 # Update Elo
                 exp_a = 1 / (1 + 10 ** ((elo[ch_b] - elo[ch_a]) / 400))
@@ -196,8 +132,7 @@ def main():
         }
         out_path = BASE_DIR / "logs" / "edit_logs" / "tournament_results.json"
         out_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(out_path, "w") as f:
-            json.dump(results, f, indent=2)
+        out_path.write_text(json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8")
         print(f"\nSaved to {out_path}")
 
 if __name__ == "__main__":

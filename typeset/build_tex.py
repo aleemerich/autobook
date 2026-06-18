@@ -55,14 +55,14 @@ def make_drop_cap(latex_body):
     rest_start = 0
     found = False
     
-    for i, l in enumerate(lines):
-        if not found and l.strip():
+    for i, line in enumerate(lines):
+        if not found and line.strip():
             found = True
         if found:
-            if l.strip() == '' or l.strip().startswith('\\scenebreak'):
+            if line.strip() == '' or line.strip().startswith('\\scenebreak'):
                 rest_start = i
                 break
-            first_para.append(l)
+            first_para.append(line)
         else:
             rest_start = i + 1
     
@@ -104,7 +104,7 @@ def main():
     chapters_tex = []
     for n in chapter_numbers:
         path = os.path.join(CHAPTERS_DIR, f"ch_{n:02d}.md")
-        with open(path) as f:
+        with open(path, encoding="utf-8") as f:
             text = f.read()
         
         lines = text.strip().split('\n')
@@ -143,7 +143,7 @@ def main():
 
     content = '\n\\clearpage\n\n'.join(chapters_tex)
 
-    with open(os.path.join(OUT_DIR, "chapters_content.tex"), 'w') as f:
+    with open(os.path.join(OUT_DIR, "chapters_content.tex"), 'w', encoding="utf-8") as f:
         f.write(content)
 
     print(f"\nWrote {len(chapters_tex)} chapters to typeset/chapters_content.tex")

@@ -6,7 +6,7 @@ Este documento compara o estado atual do codigo com a auditoria registrada em
 
 Validacao de referencia apos executar o pacote restante:
 
-- Suite moderna: `uv run --with pytest pytest tests -q` -> 319 testes passando.
+- Suite moderna: `uv run --with pytest pytest tests -q` -> 320 testes passando.
 - Suite legada: permanece desativada por contrato operacional.
 
 ## Pacote restante executado
@@ -49,19 +49,19 @@ Arquivos principais alterados:
 | A07 | Resolvido | `llm.py` usa excecoes tipadas para configuracao e propaga falhas. |
 | A08 | Resolvido como adapter | A estrategia atual e manter adapter moderno sobre legado. Migracao completa segue opcional. |
 | A09 | Resolvido no fluxo principal | Inputs essenciais foram endurecidos; scripts utilitarios ainda merecem limpeza. |
-| M01 | Pendente residual | `cli/wizard.py` ainda e monolitico e mistura apresentacao, selecao e execucao. |
+| M01 | Resolvido | `cli/wizard.py` foi decomposto em helpers de apresentacao, branch/workspace, selecao e execucao. |
 | M02 | Resolvido | `run.py` usa captura de log escopada e restaura streams globais. |
-| M03 | Parcial | Prompts principais foram externalizados; scripts utilitarios raiz ainda concentram prompts. |
-| M04 | Resolvido no pacote `evaluation` | JSON de avaliacao usa utilitario comum; scripts perifericos ainda possuem parsers proprios. |
+| M03 | Resolvido no escopo atual | Prompts principais e prompts dos scripts experimentais iniciais foram externalizados. |
+| M04 | Resolvido no escopo atual | JSON de avaliacao e scripts experimentais iniciais reutilizam utilitario comum quando aplicavel. |
 | M05 | Resolvido | Criticas seguem a ordem declarada em `critics_roles`. |
 | M06 | Resolvido incremental | Conversao estruturada existe; proxima melhoria e fazer agentes emitirem JSON nativamente. |
 | M07 | Resolvido | `workspace.json` valida branch `autobook/<slug>` e `created_at` ISO. |
-| M08 | Pendente | `pyproject.toml` ainda nao declara ferramentas de qualidade graduais. |
+| M08 | Resolvido | `pyproject.toml` declara grupo `dev` e `ruff` gradual. |
 | M09 | Parcial | Docs operacionais principais foram atualizados; docs historicos continuam como registro. |
 | B01 | Parcial | Imports mortos obvios foram limpos; faltam checks automatizados. |
-| B02 | Pendente residual | Alguns scripts raiz e `typeset/` ainda usam leitura/escrita sem `encoding`. |
+| B02 | Resolvido no escopo atual | Scripts raiz classificados e `typeset/` tiveram encoding explicito nos pontos levantados. |
 | B03 | Parcial | CLI principal melhorou, mas mensagens ainda misturam idiomas/acentuacao em scripts perifericos. |
-| B04 | Pendente residual | Scripts raiz ainda precisam classificacao explicita como suportados, experimentais ou legacy. |
+| B04 | Resolvido no escopo atual | Scripts raiz classificados em `docs/scripts/scripts.md`. |
 
 ## Novos pacotes recomendados
 
@@ -83,8 +83,10 @@ Motivo:
 
 ### Pacote R2 - Scripts raiz suportados vs experimentais
 
-Status: iniciado. Classificacao inicial criada em `docs/scripts/scripts.md`;
-encoding de baixo risco ajustado em `gen_revision.py`.
+Status: concluido para o escopo atual. Classificacao inicial criada em
+`docs/scripts/scripts.md`; prompts de scripts experimentais movidos para
+`prompts/{LANG}/tools/`; parsing JSON comum reutilizado onde aplicavel; encoding
+de scripts suportados/experimentais ajustado.
 
 Escopo:
 
@@ -109,6 +111,8 @@ Motivo:
 
 ### Pacote R3 - Decomposicao do wizard
 
+Status: concluido.
+
 Escopo:
 
 - Extrair de `cli/wizard.py` helpers de apresentacao, selecao de pipeline,
@@ -122,6 +126,9 @@ Motivo:
 - Fecha `M01` e melhora a manutencao da principal interface de usuario.
 
 ### Pacote R4 - Estrategia final de agentes
+
+Status: concluido como decisao arquitetural atual. O adapter moderno sobre
+`agents.py` foi formalizado em `docs/agents/agent-system-strategy.md`.
 
 Escopo:
 
@@ -139,6 +146,10 @@ Motivo:
 
 ### Pacote R5 - Feedback estruturado nativo
 
+Status: concluido incrementalmente. Prompts dos criticos principais agora
+preferem JSON no contrato `CriticReport`, enquanto o parser mantem fallback para
+markdown e texto livre.
+
 Escopo:
 
 - Atualizar prompts dos criticos para preferirem JSON com schema de `CriticReport`.
@@ -151,10 +162,10 @@ Motivo:
 - O pacote 6 estruturou a ingestao. Este pacote fecha a producao nativa de
   feedback estruturado e reduz ambiguidade dos modelos.
 
-## Recomendacao de ordem
+## Estado Final da Rodada
 
-1. `R1` primeiro, porque reduz custo de revisao futura.
-2. `R2` em seguida, porque limpa a fronteira entre produto e experimentos.
-3. `R3`, por impacto de manutencao e UX.
-4. `R5`, se o foco voltar para qualidade literaria e ciclo de revisao.
-5. `R4` apenas quando houver decisao sobre adapter permanente ou migracao total.
+Os pacotes `R1` a `R5` foram executados no escopo definido aqui. O que resta
+nao e bloqueio do refactor: sao decisoes futuras sobre promover ou arquivar
+scripts experimentais, adicionar testes dedicados para esses scripts caso virem
+contrato suportado, e eventualmente expandir o `ruff` para a pasta `tests/` e
+para `gen_brief.py`.

@@ -30,10 +30,10 @@ sem uma rodada especifica de limpeza:
 
 | Script | Motivo |
 | --- | --- |
-| `adversarial_edit.py` | Prompt e parser JSON proprios; precisa migrar para `prompts/` e utilitarios comuns. |
-| `compare_chapters.py` | Prompt e parser JSON proprios; precisa padronizar encoding e status operacional. |
-| `gen_audiobook_script.py` | Depende de fluxo de audiobook ainda nao consolidado; prompt hardcoded e parser proprio. |
-| `voice_fingerprint.py` | Auditoria auxiliar de estilo; precisa padronizar encoding e formato de saida. |
+| `adversarial_edit.py` | Prompt ja externalizado e JSON comum reutilizado; ainda precisa decisao se vira fluxo suportado. |
+| `compare_chapters.py` | Prompt ja externalizado e JSON comum reutilizado; ainda precisa decisao se vira fluxo suportado. |
+| `gen_audiobook_script.py` | Prompt ja externalizado; fluxo de audiobook ainda nao esta consolidado como produto principal. |
+| `voice_fingerprint.py` | Auditoria auxiliar de estilo com encoding padronizado; ainda precisa contrato de saida/documentacao propria. |
 
 ## Legacy
 
@@ -42,8 +42,6 @@ consultados como referencia historica, mas nao fazem parte do contrato atual.
 
 ## Proximos Ajustes do Pacote R2
 
-- Mover prompts dos scripts experimentais para `prompts/{LANG}/tools/`.
-- Reusar `evaluation.json_utils` onde houver parsing de JSON de LLM.
-- Padronizar `encoding="utf-8"` em leituras/escritas dos scripts experimentais.
 - Decidir quais scripts experimentais devem virar suportados ou migrar para
   `legacy/`.
+- Criar testes dedicados para os scripts experimentais que forem promovidos.

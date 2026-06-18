@@ -143,7 +143,7 @@ ELEVENLABS_API_KEY=your-elevenlabs-key-here
 
 ## Testing
 
-Autobook includes a comprehensive suite of **309 fast, local unit and integration tests** verifying prompts, language rules, parser formats, and pipeline controllers.
+Autobook includes a comprehensive suite of **320 fast, local unit and integration tests** verifying prompts, language rules, parser formats, and pipeline controllers.
 
 To run the test suite:
 ```bash

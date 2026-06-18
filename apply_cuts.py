@@ -99,7 +99,6 @@ def process_chapter(
 ) -> dict:
     """Process cuts for one chapter. Returns stats dict."""
     stats = {"applied": 0, "failed": 0, "skipped": 0, "words_removed": 0, "error": None}
-    label = f"ch{chapter_num:02d}"
 
     # Load cuts
     data = load_cuts(chapter_num)

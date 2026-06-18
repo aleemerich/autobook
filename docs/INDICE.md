@@ -23,6 +23,7 @@ atualizado antes de virar documentacao definitiva.
 | Pipelines | [pipelines/pipelines.md](pipelines/pipelines.md) | Coberto, parcialmente desatualizado |
 | Fluxo detalhado | [fluxo-detalhado/guia-completo-fluxos.md](fluxo-detalhado/guia-completo-fluxos.md) | Rico, precisa checagem contra codigo |
 | Agentes | [agents/agentes.md](agents/agentes.md) | Coberto |
+| Estrategia de agentes | [agents/agent-system-strategy.md](agents/agent-system-strategy.md) | Novo v0 |
 | Cliente LLM | [llm/llm.md](llm/llm.md) | Coberto |
 | Prompts e localizacao | [prompts/prompts.md](prompts/prompts.md) | Coberto |
 | Generos | [genre-strategy/genre-strategy.md](genre-strategy/genre-strategy.md) | Novo v0 |
@@ -68,7 +69,7 @@ lidos como documentacao tecnica atual sem validacao contra o codigo:
 
 - Entrada principal: `run.py`.
 - Pipelines suportados pela CLI: `ideation`, `foundation`, `book_generation`, `editorial_revision`.
-- Baseline moderno de testes: `uv run --with pytest pytest tests` com 319 testes passando.
+- Baseline moderno de testes: `uv run --with pytest pytest tests` com 320 testes passando.
 - `legacy/tests` nao faz parte do baseline atual; a coleta e ignorada e retorna sem testes por configuracao local.
 - Python: `>=3.12`.
 - Gerenciador recomendado: `uv`.

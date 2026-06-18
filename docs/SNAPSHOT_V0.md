@@ -25,13 +25,13 @@ entrada principal e `run.py`, que executa pipelines compostos por `Step`s:
 | Pipelines | Parcial | Fluxos principais existem, mas alguns detalhes estao desatualizados. |
 | Avaliacao | Boa | `evaluate.py` permanece como fachada/CLI; o pacote `evaluation/` separa slop mecanico, juiz LLM, prompts, JSON e reports. |
 | Typeset | Parcial | `typeset/build_tex.py` gera LaTeX; PDF/EPUB final dependem de ferramentas externas. |
-| Testes | Boa | Baseline moderno confirmado: 309 testes em `tests/`. |
+| Testes | Boa | Baseline moderno confirmado: 320 testes em `tests/`. |
 | Legacy | Parcial | Scripts existem; testes legados foram desativados e ignorados na suíte moderna. |
 
 ## Correcoes Importantes Para v0
 
 - O indice antigo apontava para dezenas de arquivos granulares que nao existem. O novo indice aponta para a estrutura real.
-- O baseline correto de testes modernos e `309 passed` em `tests/`, nao a suite completa incluindo `legacy/tests`.
+- O baseline correto de testes modernos e `320 passed` em `tests/`, nao a suite completa incluindo `legacy/tests`.
 - `legacy/tests` foi desativado e excluído da suíte moderna. Seus arquivos são ignorados pelo pytest via conftest.py na pasta.
 - `GIT_AUTO_COMMIT` e `GIT_AUTO_PUSH` nao sao flags efetivas no codigo atual. Operacoes Git usadas por pipelines passam pelo adaptador `workspace/git.py`.
 - `book_generation` agora falha explicitamente quando `outline.md` nao contem headings reconheciveis de capitulo ou quando arquivos obrigatorios de lore estao ausentes.
@@ -66,7 +66,7 @@ uv run --with pytest pytest tests
 Resultado:
 
 ```text
-309 passed
+320 passed
 ```
 
 Comando tambem testado:

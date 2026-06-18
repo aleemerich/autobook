@@ -58,7 +58,7 @@ ABSTRACT_INDICATORS = {
 }
 
 def analyze_chapter(path):
-    text = path.read_text()
+    text = path.read_text(encoding="utf-8")
     words = text.split()
     word_count = len(words)
     lower_words = [w.lower().strip(".,;:!?\"'()—-–") for w in words]
@@ -107,8 +107,8 @@ def analyze_chapter(path):
     the_way_count = len(re.findall(r'\bthe way\b', text, re.IGNORECASE))
     
     # Fragment count (sentences under 5 words)
-    fragments = sum(1 for l in sent_lengths if l < 5)
-    long_sents = sum(1 for l in sent_lengths if l > 30)
+    fragments = sum(1 for length in sent_lengths if length < 5)
+    long_sents = sum(1 for length in sent_lengths if length > 30)
     
     # Metaphor/simile density (rough: count "like" and "as" comparisons)
     like_count = len(re.findall(r'\blike\s+(?:a|an|the)\b', text))
@@ -185,7 +185,7 @@ def main():
     r = results["novel_average"]
     print(f"  {'AVG':<6} {r['word_count']:<7} {r['avg_sentence_length']:<7} {r['sentence_length_cv']:<6} {r['fragments_pct']:<7} {r['long_sentences_pct']:<7} {r['dialogue_ratio']:<7} {r['well_musical_pct']:<6} {r['well_trade_pct']:<6} {r['well_body_pct']:<6} {r['abstract_per_1k']:<6} {r['he_start_pct']:<7}")
     
-    print(f"\n\nOUTLIERS (>1.5σ from mean):")
+    print("\n\nOUTLIERS (>1.5σ from mean):")
     for ch_key in sorted(outliers.keys()):
         print(f"  {ch_key}:")
         for o in outliers[ch_key]:
@@ -194,8 +194,10 @@ def main():
     # Save full results
     out_path = BASE_DIR / "logs" / "edit_logs" / "voice_fingerprint.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(out_path, "w") as f:
-        json.dump({"chapters": results, "outliers": outliers}, f, indent=2)
+    out_path.write_text(
+        json.dumps({"chapters": results, "outliers": outliers}, indent=2, ensure_ascii=False),
+        encoding="utf-8"
+    )
     print(f"\nSaved to {out_path}")
 
 if __name__ == "__main__":

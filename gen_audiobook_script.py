@@ -17,6 +17,7 @@ import json
 import re
 from pathlib import Path
 from dotenv import load_dotenv
+from prompt_loader import load_prompt
 
 BASE_DIR = Path(__file__).parent
 load_dotenv(BASE_DIR / ".env", override=True)
@@ -75,10 +76,7 @@ def load_character_cast(base_dir=BASE_DIR):
 def call_claude(prompt, max_tokens=8000):
     """Call the unified writer LLM via llm.py and return response text."""
     from llm import call_llm
-    system = (
-        "You are an expert audiobook producer and casting director. "
-        "You attribute dialogue and narrator text precisely, applying subtle and fitting emotional delivery tags."
-    )
+    system = load_prompt("tools/audiobook_script_system.txt")
     return call_llm(prompt=prompt, system_prompt=system, temperature=0.1, is_judge=False)
 
 
@@ -94,34 +92,14 @@ def parse_chapter(ch_num):
     wc = len(text.split())
     characters = load_character_cast()
 
-    prompt = f"""You are parsing a novel chapter into an audiobook script. Your job is to break the text into segments, each attributed to a speaker, with optional audio delivery tags.
-
-CHARACTERS IN THIS NOVEL:
-{json.dumps(characters, indent=2)}
-
-AUDIO TAG GUIDE:
-{AUDIO_TAG_GUIDE}
-
-RULES:
-1. Every piece of text must be attributed to a speaker. Narration = "NARRATOR".
-2. Dialogue lines must be attributed to the character who speaks them.
-3. Remove quotation marks from dialogue — the voice actor performs them.
-4. Keep narration segments reasonably sized (2-4 sentences each). Split long paragraphs.
-5. Dialogue "he said" / "she said" tags should be part of the NARRATOR segment AFTER the dialogue, not part of the character's line.
-6. Scene breaks (---) become {{"speaker": "NARRATOR", "text": "[pause]"}}
-7. Chapter titles become the first segment: {{"speaker": "NARRATOR", "text": "[slowly] Chapter One: The Morning Pitch"}}
-8. Add audio tags based on emotional context. Be subtle — most lines need no tag.
-9. Internal thoughts in *italics* should be read by the viewpoint character when identifiable, tagged [softly] or [whisper].
-
-OUTPUT FORMAT: A JSON array of objects, each with:
-  "speaker": character name (from the list above)
-  "text": the text to speak (with optional [audio tags] at the start)
-
-CHAPTER {ch_num}: "{title}" ({wc} words)
-
-{text}
-
-Output the JSON array only. No other text."""
+    prompt = load_prompt("tools/audiobook_script_user.txt").format(
+        characters_json=json.dumps(characters, indent=2, ensure_ascii=False),
+        audio_tag_guide=AUDIO_TAG_GUIDE,
+        ch_num=ch_num,
+        title=title,
+        wc=wc,
+        text=text,
+    )
 
     print(f"  Ch {ch_num}: parsing '{title}' ({wc}w)...", end="", flush=True)
     result = call_claude(prompt)
@@ -146,7 +124,7 @@ Output the JSON array only. No other text."""
             segments = json.loads(cleaned)
         except json.JSONDecodeError:
             # Last resort: extract individual objects
-            print(f" (fixing JSON...)", end="", flush=True)
+            print(" (fixing JSON...)", end="", flush=True)
             segments = []
             for m in re.finditer(r'\{\s*"speaker"\s*:\s*"([^"]+)"\s*,\s*"text"\s*:\s*"((?:[^"\\]|\\.)*)"\s*\}', result):
                 segments.append({
@@ -154,7 +132,7 @@ Output the JSON array only. No other text."""
                     "text": m.group(2).replace('\\n', '\n').replace('\\"', '"'),
                 })
             if not segments:
-                print(f" PARSE ERROR", file=sys.stderr)
+                print(" PARSE ERROR", file=sys.stderr)
                 (SCRIPTS_DIR / f"ch{ch_num:02d}_raw.txt").write_text(result, encoding="utf-8")
                 return None
 
@@ -196,7 +174,7 @@ def main():
 
     # Summary
     print(f"\n{'='*50}")
-    print(f"AUDIOBOOK SCRIPT SUMMARY")
+    print("AUDIOBOOK SCRIPT SUMMARY")
     print(f"  Chapters: {len(all_scripts)}")
     total_segs = sum(s["total_segments"] for s in all_scripts)
     total_chars = sum(s["total_chars"] for s in all_scripts)

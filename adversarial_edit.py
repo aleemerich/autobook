@@ -6,12 +6,12 @@ What gets cut reveals what's weakest. The cut list IS the revision plan.
 Usage: python adversarial_edit.py 1        # single chapter
        python adversarial_edit.py all      # all chapters
 """
-import os
 import sys
 import json
-import re
 from pathlib import Path
 from dotenv import load_dotenv
+from evaluation.json_utils import parse_json_response
+from prompt_loader import load_prompt
 
 BASE_DIR = Path(__file__).parent
 load_dotenv(BASE_DIR / ".env")
@@ -24,111 +24,24 @@ EDIT_LOG_DIR.mkdir(parents=True, exist_ok=True)
 def call_judge(prompt, max_tokens=8000):
     """Call the unified judge LLM via llm.py and return response text."""
     from llm import call_llm
-    system = (
-        "You are a ruthless literary editor. You cut fat from prose. "
-        "You have no sentiment about good-enough sentences -- if a sentence "
-        "isn't earning its place, it goes. You quote exactly from the text. "
-        "You never invent or paraphrase. Always respond with valid JSON."
-    )
+    system = load_prompt("tools/adversarial_edit_system.txt")
     return call_llm(prompt=prompt, system_prompt=system, temperature=0.3, is_judge=True)
 
 def parse_json(text):
-    text = text.strip()
-    if text.startswith("```"):
-        text = re.sub(r'^```\w*\n?', '', text)
-        text = re.sub(r'\n?```$', '', text)
-    start = text.find('{')
-    if start == -1:
-        start = text.find('[')
-    if start == -1:
-        raise ValueError("No JSON found")
-    # Try direct parse first
-    try:
-        return json.loads(text[start:], strict=False)
-    except json.JSONDecodeError:
-        # Find matching brace
-        depth = 0
-        in_string = False
-        escape = False
-        open_char = text[start]
-        close_char = '}' if open_char == '{' else ']'
-        for i in range(start, len(text)):
-            c = text[i]
-            if escape:
-                escape = False
-                continue
-            if c == '\\' and in_string:
-                escape = True
-                continue
-            if c == '"' and not escape:
-                in_string = not in_string
-                continue
-            if in_string:
-                continue
-            if c == open_char:
-                depth += 1
-            elif c == close_char:
-                depth -= 1
-                if depth == 0:
-                    return json.loads(text[start:i+1], strict=False)
-        return json.loads(text[start:], strict=False)
-
-EDIT_PROMPT = """You are editing a fantasy novel chapter. Your job: identify exactly
-what to cut or rewrite to make this chapter tighter, sharper, more alive.
-
-THE CHAPTER ({word_count} words):
-{chapter_text}
-
-YOUR TASK:
-1. Find 10-20 specific passages that should be CUT or REWRITTEN.
-   For each, quote the EXACT text (minimum 10 words of the quote so
-   it's unambiguous), explain why it's weak, and classify it.
-
-2. Classify each cut as one of:
-   - FAT: adds nothing, could be removed with no loss
-   - REDUNDANT: restates what a previous sentence/scene already showed
-   - OVER-EXPLAIN: narrator explaining what the scene already demonstrated
-   - GENERIC: could appear in any novel, not specific to this world/character
-   - TELL: names an emotion or state instead of showing it
-   - STRUCTURAL: paragraph/section that disrupts pacing or rhythm
-
-3. For REWRITE candidates (not cuts), provide a specific revision.
-
-4. Estimate how many words could be cut total without losing anything
-   the chapter needs.
-
-Respond with JSON:
-{{
-  "cuts": [
-    {{
-      "quote": "exact text from the chapter (10+ words)",
-      "type": "FAT|REDUNDANT|OVER-EXPLAIN|GENERIC|TELL|STRUCTURAL",
-      "reason": "why this should go",
-      "action": "CUT or REWRITE",
-      "rewrite": "replacement text if action is REWRITE, null if CUT"
-    }}
-  ],
-  "total_cuttable_words": N,
-  "tightest_passage": "quote the best 2-3 sentences in the chapter -- the ones you'd never touch",
-  "loosest_passage": "quote the worst 2-3 sentences -- the ones that most need work",
-  "overall_fat_percentage": N,
-  "one_sentence_verdict": "what this chapter does well and what drags it down, in one sentence"
-}}
-"""
+    return parse_json_response(text)
 
 def edit_chapter(ch_num):
     ch_path = CHAPTERS_DIR / f"ch_{ch_num:02d}.md"
-    text = ch_path.read_text()
+    text = ch_path.read_text(encoding="utf-8")
     word_count = len(text.split())
     
-    prompt = EDIT_PROMPT.format(chapter_text=text, word_count=word_count)
+    prompt = load_prompt("tools/adversarial_edit_user.txt").format(chapter_text=text, word_count=word_count)
     raw = call_judge(prompt)
     result = parse_json(raw)
     
     # Save log
     log_path = EDIT_LOG_DIR / f"ch{ch_num:02d}_cuts.json"
-    with open(log_path, "w") as f:
-        json.dump(result, f, indent=2)
+    log_path.write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8")
     
     return result, word_count
 

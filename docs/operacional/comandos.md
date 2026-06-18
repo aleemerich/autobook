@@ -118,7 +118,7 @@ Baseline moderno:
 uv run --with pytest pytest tests
 ```
 
-Estado verificado: 319 testes passando.
+Estado verificado: 320 testes passando.
 
 Suite legada:
 

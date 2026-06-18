@@ -372,3 +372,12 @@ def test_no_format_agents_load_with_brackets(tmp_path: Path, monkeypatch) -> Non
     assert d.system_prompt == "Drafting with {braces}."
     assert f.system_prompt == "Flow with {more} braces."
     assert s.system_prompt == "Synthesis with {extra} braces."
+
+
+def test_real_critic_prompts_request_structured_feedback() -> None:
+    """Valida que os prompts reais de críticos preferem o contrato CriticReport."""
+    for role in ("canon_critic", "style_critic", "flow_critic"):
+        prompt = load_agent_prompt(role=role, lang="EN")
+        assert "CriticReport" in prompt
+        assert "findings" in prompt
+        assert "severity" in prompt

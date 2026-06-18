@@ -22,16 +22,10 @@ exclude = [
     ".venv",
     "book_data",
     "chapters",
-    "adversarial_edit.py",
-    "apply_cuts.py",
-    "compare_chapters.py",
-    "gen_audiobook_script.py",
     "gen_brief.py",
     "legacy",
     "logs",
     "tests",
-    "typeset",
-    "voice_fingerprint.py",
 ]
 
 [tool.ruff.lint]

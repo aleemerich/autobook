@@ -17,24 +17,8 @@ def _prompt_input(prompt: str, input_func: Any, stdout: Any) -> str:
             return input_func("")
     return input_func(prompt)
 
-def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = None) -> None:
-    """
-    Inicializa a visualização do estado atual do projeto no Autobook Wizard.
-    Apresenta informações sobre branch, pipelines, idiomas, gêneros e próximos passos recomendados,
-    permitindo que o usuário escolha interativamente uma intenção para receber o comando clássico correspondente.
-    """
-    if stdout is None:
-        stdout = sys.stdout
-    if input_func is None:
-        input_func = input
 
-    # 1. Obter estado consolidado do projeto
-    state = discover_project_state(base_dir)
-
-    # 2. Imprimir cabeçalho e informações do Branch
-    print("=== AUTOBOOK WIZARD ===", file=stdout)
-    print(f"Branch atual: {state.current_branch}", file=stdout)
-
+def _print_workspace_metadata(base_dir: Path | None, stdout: Any) -> None:
     try:
         ws_meta = load_workspace_metadata(base_dir)
         if ws_meta:
@@ -45,6 +29,8 @@ def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = Non
     except ValueError as e:
         print(f"Aviso: workspace.json invalido: {e}", file=stdout)
 
+
+def _handle_branch_preparation(state: Any, base_dir: Path | None, stdout: Any, input_func: Any) -> bool:
     if state.current_branch in ("main", "master"):
         print("Aviso: Voce esta no branch principal (main/master). Recomendamos criar um branch de feature.", file=stdout)
 
@@ -53,14 +39,14 @@ def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = Non
         except (KeyboardInterrupt, EOFError):
             print(file=stdout)
             print("Saindo...", file=stdout)
-            return
+            return False
         if prep_branch in ("s", "sim"):
             try:
                 title_or_slug = _prompt_input("Titulo ou slug da obra: ", input_func, stdout).strip()
             except (KeyboardInterrupt, EOFError):
                 print(file=stdout)
                 print("Saindo...", file=stdout)
-                return
+                return False
             if title_or_slug:
                 try:
                     branch_name, branch_cmd = suggest_book_branch_command(title_or_slug)
@@ -72,7 +58,7 @@ def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = Non
                     except (KeyboardInterrupt, EOFError):
                         print(file=stdout)
                         print("Saindo...", file=stdout)
-                        return
+                        return False
                     if create_now in ("s", "sim"):
                         try:
                             created_name = create_book_branch(title_or_slug)
@@ -91,8 +77,10 @@ def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = Non
                             print(f"Erro: {e}", file=stdout)
                 except ValueError as e:
                     print(f"Erro: {e}", file=stdout)
+    return True
 
-    # 3. Imprimir resumo do estado do livro
+
+def _render_project_state(state: Any, stdout: Any) -> None:
     print(file=stdout)
     print("--- Estado do Projeto ---", file=stdout)
     print(f"Semente (seed.txt): {'Presente' if state.has_seed else 'Ausente'}", file=stdout)
@@ -107,10 +95,10 @@ def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = Non
     artifacts_list = ", ".join(state.production_artifacts_present) if state.production_artifacts_present else "Nenhum"
     print(f"Artefatos de producao: {artifacts_list}", file=stdout)
 
-    # 4. Listar pipelines disponíveis
+
+def _render_pipelines(state: Any, pipelines_spec: dict, stdout: Any) -> None:
     print(file=stdout)
     print("--- Pipelines Disponiveis ---", file=stdout)
-    pipelines_spec = list_pipelines()
     for name in state.pipelines:
         spec = pipelines_spec.get(name)
         if spec:
@@ -126,12 +114,12 @@ def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = Non
         else:
             print(f"- {name}", file=stdout)
 
-    # 5. Idiomas disponíveis (ordenados)
+
+def _render_language_and_genres(state: Any, stdout: Any) -> None:
     print(file=stdout)
     languages_str = ", ".join(sorted(state.available_languages)) if state.available_languages else "Nenhum"
     print(f"Idiomas disponiveis: {languages_str}", file=stdout)
 
-    # 6. Gêneros por idioma
     print(file=stdout)
     print("Generos por idioma:", file=stdout)
     if state.available_genres:
@@ -140,7 +128,8 @@ def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = Non
     else:
         print("  Nenhum genero cadastrado.", file=stdout)
 
-    # 7. Próximos passos recomendados
+
+def _render_recommended_steps(state: Any, stdout: Any) -> None:
     print(file=stdout)
     print("--- Proximos Passos Recomendados ---", file=stdout)
     if state.recommended_next_steps:
@@ -149,7 +138,8 @@ def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = Non
     else:
         print("- Nenhum passo recomendado no momento.", file=stdout)
 
-    # 8. Exemplos de comandos equivalentes
+
+def _render_command_examples(stdout: Any) -> None:
     print(file=stdout)
     print("--- Exemplos de Comandos Classicos ---", file=stdout)
     print("Para executar um pipeline manualmente, use os seguintes comandos:", file=stdout)
@@ -159,7 +149,8 @@ def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = Non
     print("  python run.py --pipeline book_generation --chapter 1", file=stdout)
     print("  python run.py --pipeline editorial_revision --chapter 1", file=stdout)
 
-    # 9. Menu de Opções Interativas
+
+def _select_pipeline_from_menu(state: Any, pipelines_spec: dict, stdout: Any, input_func: Any) -> str | None:
     print(file=stdout)
     print("=== Menu de Opcoes ===", file=stdout)
 
@@ -196,15 +187,15 @@ def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = Non
     except (KeyboardInterrupt, EOFError):
         print(file=stdout)
         print("Saindo...", file=stdout)
-        return
+        return None
 
     if not user_choice or user_choice == "0":
         print("Saindo...", file=stdout)
-        return
+        return None
 
     if user_choice not in option_mapping:
         print(f"Erro: Opcao invalida '{user_choice}'", file=stdout)
-        return
+        return None
 
     choice = option_mapping[user_choice]
     selected_pipeline = None
@@ -214,7 +205,7 @@ def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = Non
             selected_pipeline = choice["pipeline"]
         else:
             print(f"O passo '{choice['step']}' nao corresponde a um pipeline direto.", file=stdout)
-            return
+            return None
     elif choice["type"] == "list_all":
         print(file=stdout)
         print("--- Selecione uma Pipeline ---", file=stdout)
@@ -232,64 +223,108 @@ def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = Non
         except (KeyboardInterrupt, EOFError):
             print(file=stdout)
             print("Saindo...", file=stdout)
-            return
+            return None
 
         if not sub_choice or sub_choice == "0":
-            return
+            return None
 
         if sub_choice not in sub_mapping:
             print(f"Erro: Opcao invalida '{sub_choice}'", file=stdout)
-            return
+            return None
 
         selected_pipeline = sub_mapping[sub_choice]
 
-    if selected_pipeline:
-        spec = pipelines_spec.get(selected_pipeline)
-        if not spec:
-            print(f"Erro: Pipeline '{selected_pipeline}' nao encontrada.", file=stdout)
-            return
+    return selected_pipeline
 
-        cmd_args = []
-        argv = ["--pipeline", selected_pipeline]
 
-        if spec.supports_from_scratch:
-            try:
-                from_scratch_resp = _prompt_input("Executar do zero? [s/N]: ", input_func, stdout).strip().lower()
-            except (KeyboardInterrupt, EOFError):
-                print(file=stdout)
-                print("Saindo...", file=stdout)
-                return
-            if from_scratch_resp in ("s", "sim"):
-                cmd_args.append("--from-scratch")
-                argv.append("--from-scratch")
+def _configure_pipeline_command(selected_pipeline: str, spec: Any, stdout: Any, input_func: Any) -> tuple[list[str], str] | None:
+    cmd_args = []
+    argv = ["--pipeline", selected_pipeline]
 
-        if spec.supports_chapter:
-            try:
-                chapter_resp = _prompt_input("Capitulo(s), ex: 1 ou 1-3 (vazio para todos): ", input_func, stdout).strip()
-            except (KeyboardInterrupt, EOFError):
-                print(file=stdout)
-                print("Saindo...", file=stdout)
-                return
-            if chapter_resp:
-                cmd_args.append(f'--chapter {shlex.quote(chapter_resp)}')
-                argv.extend(["--chapter", chapter_resp])
-
-        args_str = f" {' '.join(cmd_args)}" if cmd_args else ""
-        print(file=stdout)
-        print(f"Comando sugerido: python run.py --pipeline {selected_pipeline}{args_str}", file=stdout)
-
+    if spec.supports_from_scratch:
         try:
-            run_now = _prompt_input("Executar agora? [s/N]: ", input_func, stdout).strip().lower()
+            from_scratch_resp = _prompt_input("Executar do zero? [s/N]: ", input_func, stdout).strip().lower()
         except (KeyboardInterrupt, EOFError):
             print(file=stdout)
             print("Saindo...", file=stdout)
-            return
+            return None
+        if from_scratch_resp in ("s", "sim"):
+            cmd_args.append("--from-scratch")
+            argv.append("--from-scratch")
 
-        if run_now in ("s", "sim"):
-            print("Executando pipeline...", file=stdout)
-            import run
-            try:
-                run.main(argv)
-            except SystemExit as e:
-                code = e.code if e.code is not None else 0
-                print(f"Execucao abortada com codigo {code}.", file=stdout)
+    if spec.supports_chapter:
+        try:
+            chapter_resp = _prompt_input("Capitulo(s), ex: 1 ou 1-3 (vazio para todos): ", input_func, stdout).strip()
+        except (KeyboardInterrupt, EOFError):
+            print(file=stdout)
+            print("Saindo...", file=stdout)
+            return None
+        if chapter_resp:
+            cmd_args.append(f'--chapter {shlex.quote(chapter_resp)}')
+            argv.extend(["--chapter", chapter_resp])
+
+    args_str = f" {' '.join(cmd_args)}" if cmd_args else ""
+    return argv, args_str
+
+
+def _handle_selected_pipeline(selected_pipeline: str, pipelines_spec: dict, stdout: Any, input_func: Any) -> None:
+    spec = pipelines_spec.get(selected_pipeline)
+    if not spec:
+        print(f"Erro: Pipeline '{selected_pipeline}' nao encontrada.", file=stdout)
+        return
+
+    configured = _configure_pipeline_command(selected_pipeline, spec, stdout, input_func)
+    if configured is None:
+        return
+    argv, args_str = configured
+
+    print(file=stdout)
+    print(f"Comando sugerido: python run.py --pipeline {selected_pipeline}{args_str}", file=stdout)
+
+    try:
+        run_now = _prompt_input("Executar agora? [s/N]: ", input_func, stdout).strip().lower()
+    except (KeyboardInterrupt, EOFError):
+        print(file=stdout)
+        print("Saindo...", file=stdout)
+        return
+
+    if run_now in ("s", "sim"):
+        print("Executando pipeline...", file=stdout)
+        import run
+        try:
+            run.main(argv)
+        except SystemExit as e:
+            code = e.code if e.code is not None else 0
+            print(f"Execucao abortada com codigo {code}.", file=stdout)
+
+
+def main(base_dir: Path | None = None, stdout: Any = None, input_func: Any = None) -> None:
+    """
+    Inicializa a visualização do estado atual do projeto no Autobook Wizard.
+    Apresenta informações sobre branch, pipelines, idiomas, gêneros e próximos passos recomendados,
+    permitindo que o usuário escolha interativamente uma intenção para receber o comando clássico correspondente.
+    """
+    if stdout is None:
+        stdout = sys.stdout
+    if input_func is None:
+        input_func = input
+
+    state = discover_project_state(base_dir)
+    pipelines_spec = list_pipelines()
+
+    print("=== AUTOBOOK WIZARD ===", file=stdout)
+    print(f"Branch atual: {state.current_branch}", file=stdout)
+    _print_workspace_metadata(base_dir, stdout)
+
+    if not _handle_branch_preparation(state, base_dir, stdout, input_func):
+        return
+
+    _render_project_state(state, stdout)
+    _render_pipelines(state, pipelines_spec, stdout)
+    _render_language_and_genres(state, stdout)
+    _render_recommended_steps(state, stdout)
+    _render_command_examples(stdout)
+
+    selected_pipeline = _select_pipeline_from_menu(state, pipelines_spec, stdout, input_func)
+    if selected_pipeline:
+        _handle_selected_pipeline(selected_pipeline, pipelines_spec, stdout, input_func)
