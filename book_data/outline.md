@@ -18,10 +18,7 @@
 
 **Beats:**
 1. Celina abre o cartorio e apresenta o ritual dos nomes em Sao Bras das Almas.
-2. Um nascimento e registrado; o contraste entre nome novo e nome apagado fica evidente.
-3. Celina encara a foto do pai e percebe que a memoria afetiva dele se tornou fria.
-4. Dona Lucia e Ze demonstram pequenas falhas ao pronunciar nomes familiares.
-5. Celina encontra o registro falsificado de Renato e percebe que a perda comecou nela.
+2. Celina encontra o registro falsificado de Renato e percebe que a perda comecou nela enquanto outros moradores tambem falham ao dizer nomes familiares.
 
 **Gancho final:** A assinatura de Celina no registro antigo aparece sem a primeira letra.
 
@@ -33,10 +30,7 @@
 
 **Beats:**
 1. Celina compara registros recentes e encontra nomes borrados em varias paginas.
-2. Padre Mateus confronta Celina com a frase: a verdade e a unica agua que nao enche o poco do esquecimento.
-3. Uma moradora sem nome chega ao cartorio e ninguem consegue dizer por que ela chora.
-4. Celina descobre uma pista de Renato: um recibo recente assinado por um homem sem sobrenome.
-5. O cartorio parece reagir quando Celina tenta esconder o registro falsificado.
+2. Padre Mateus confronta Celina, uma moradora sem nome chega ao cartorio, e a pista de Renato surge quando o livro de obitos muda a data para o dia seguinte.
 
 **Gancho final:** O livro de obitos se abre sozinho na pagina de Renato, mas a data de morte muda para o dia seguinte.
 
@@ -48,9 +42,6 @@
 
 **Beats:**
 1. Celina encontra Renato vivendo sob um apelido que ninguem consegue registrar.
-2. Renato revela que tambem mentiu para fugir da familia e que a mentira dos dois se alimentou por anos.
-3. Na praca, diante de Padre Mateus e dos moradores, Celina confessa a falsificacao.
-4. O cartorio reage: os livros deixam de apagar nomes, mas nao restauram todas as memorias perdidas.
-5. Celina escreve o proprio nome incompleto no livro novo e escolhe viver com a verdade restante.
+2. Na praca, Celina confessa a falsificacao; os livros estabilizam os nomes sem restaurar tudo, e ela escolhe viver com a verdade restante.
 
 **Gancho final:** Uma crianca recem-registrada pergunta o nome de Celina, e ela responde sem mentir.
