@@ -12,7 +12,9 @@ from pipelines.foundation_steps import (
     load_outline_inputs,
     load_canon_inputs,
     write_foundation_state,
-    commit_foundation_artifacts
+    commit_foundation_artifacts,
+    load_foundation_prompt,
+    render_foundation_prompt
 )
 
 def test_load_text_file_exists(tmp_path) -> None:
@@ -180,6 +182,24 @@ def test_load_outline_inputs_missing_craft(tmp_path) -> None:
             seed_path, world_path, characters_path, mystery_path, craft_path, voice_path
         )
     assert "CRAFT.md não encontrado" in str(exc_info.value)
+
+
+def test_foundation_prompt_files_load_and_render() -> None:
+    """Valida que prompts de foundation foram externalizados e aceitam renderizacao."""
+    assert "setting designer" in load_foundation_prompt("world_system")
+
+    rendered = render_foundation_prompt(
+        "world_user",
+        {
+            "seed": "SEED_TEXT",
+            "voice_p2": "VOICE_TEXT",
+        }
+    )
+
+    assert "SEED_TEXT" in rendered
+    assert "VOICE_TEXT" in rendered
+    assert "{seed}" not in rendered
+    assert "{voice_p2}" not in rendered
 
 
 

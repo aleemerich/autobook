@@ -13,6 +13,10 @@ from pipelines.foundation_steps.persistence import (
     write_foundation_state,
     commit_foundation_artifacts
 )
+from pipelines.foundation_steps.prompts import (
+    load_foundation_prompt,
+    render_foundation_prompt
+)
 
 __all__ = [
     "load_text_file",
@@ -25,5 +29,7 @@ __all__ = [
     "load_outline_inputs",
     "load_canon_inputs",
     "write_foundation_state",
-    "commit_foundation_artifacts"
+    "commit_foundation_artifacts",
+    "load_foundation_prompt",
+    "render_foundation_prompt"
 ]

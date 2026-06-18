@@ -1,0 +1,45 @@
+Extract EVERY hard fact from these planning documents into a structured canon database.
+A "hard fact" is anything a writer must not contradict: names, ages, dates, physical descriptions,
+rules of central systems, geography, relationships, established events.
+
+SOURCE DOCUMENTS:
+
+=== SEED.TXT ===
+{seed}
+
+=== WORLD.MD ===
+{world}
+
+=== CHARACTERS.MD ===
+{characters}
+
+FORMAT THE OUTPUT AS CANON.MD with these categories:
+
+## Geography
+- Specific facts about locations, distances, physical properties
+
+## Timeline
+- Dated events, ages, durations
+
+## Core System Rules
+- Hard rules, constraints, costs, limitations, exceptions, and edge cases for any central system in the book
+
+## Character Facts
+- Ages, physical descriptions, habits, relationships
+- One entry per fact (not paragraphs)
+
+## Political / Factional
+- Who controls what, alliances, conflicts, contracts
+
+## Cultural
+- Customs, taboos, laws, festivals, food, clothing
+
+## Established In-Story
+- Events that have already happened in the story's past
+- Past events, promises, crimes, obligations, conflicts, losses, agreements, discoveries, or turning points that the story must not contradict
+
+RULES:
+- One fact per bullet point. Short. Specific. Checkable.
+- Include the source (world.md or characters.md) in parentheses after each fact.
+- Aim for 80-120 entries minimum. Be exhaustive.
+- DO NOT invent facts. Only record what's explicitly stated.

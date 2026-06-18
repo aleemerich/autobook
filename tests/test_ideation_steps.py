@@ -2,7 +2,8 @@ from pipelines.ideation_steps import (
     parse_numbered_concepts,
     select_concept_text,
     default_mystery_template,
-    build_initial_ideation_state
+    build_initial_ideation_state,
+    load_ideation_prompt
 )
 
 def test_parse_numbered_concepts_with_three_concepts() -> None:
@@ -74,3 +75,10 @@ def test_build_initial_ideation_state() -> None:
         "phase": "foundation",
         "current_focus": "planning"
     }
+
+
+def test_ideation_prompt_files_load() -> None:
+    """Valida que prompts de ideacao estao externalizados e carregaveis."""
+    assert "fantasy novelist" in load_ideation_prompt("concept_system")
+    assert "{count}" in load_ideation_prompt("generate_concepts")
+    assert "{seed}" in load_ideation_prompt("mystery_user")

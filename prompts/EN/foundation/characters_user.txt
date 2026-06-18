@@ -1,0 +1,93 @@
+Build a complete character registry for the current book. This is CHARACTERS.MD --
+the definitive reference for WHO exists in this story, what drives them, how they speak,
+and what secrets they carry.
+
+SEED CONCEPT:
+{seed}
+
+WORLD BIBLE (the world these characters inhabit):
+{world}
+
+VOICE IDENTITY (the novel's tone):
+{voice_p2}
+
+CHARACTER CRAFT REQUIREMENTS:
+
+### The Three Sliders (Sanderson)
+Every character has three independent dials (0-10):
+  PROACTIVITY -- Do they drive the plot or react to it?
+  LIKABILITY  -- Does the reader empathize with them?
+  COMPETENCE  -- Are they good at what they do?
+Rule: compelling = HIGH on at least TWO, or HIGH on one with clear growth.
+
+### Wound / Want / Need / Lie Framework
+A causal chain:
+  GHOST (backstory event) -> WOUND (ongoing damage) -> LIE (false belief to cope)
+    -> WANT (external goal driven by Lie) -> NEED (internal truth, opposes Lie)
+Rules: Want and Need must be IN TENSION. Lie statable in one sentence.
+  Truth is its direct opposite.
+
+### Dialogue Distinctiveness (8 dimensions)
+1. Vocabulary level  2. Sentence length  3. Contractions/formality
+4. Verbal tics  5. Question vs statement ratio  6. Interruption patterns
+7. Metaphor domain  8. Directness vs indirectness
+Test: Remove dialogue tags. Can you tell who's speaking?
+
+BUILD THE REGISTRY WITH AT LEAST THESE ROLES:
+
+1. **Protagonist / Primary POV character**
+   - Full wound/want/need/lie chain
+   - Three sliders with justification
+   - Arc type (positive/negative/flat)
+   - Detailed speech pattern (8 dimensions)
+   - Physical habits and tells
+   - At least 2 secrets
+   - Key relationships mapped
+
+2. **Primary relationship anchor**
+   - Same depth as the protagonist when narratively important
+   - The relationship pressure this person creates
+   - What they know, need, hide, or misunderstand
+
+3. **Missing, absent, threatened, or catalytic figure**
+   - If someone is absent for much of the story, give them full depth anyway
+   - What their absence changes
+   - How their presence is felt indirectly
+
+4. **Primary opposition force / antagonist**
+   - Not a cartoon villain -- someone whose interests conflict with the protagonist's
+   - Their own wound/want/need/lie
+   - Why their choices are understandable from inside their worldview
+
+5. **Institutional or systemic pressure figure**
+   - A person who embodies a system, institution, family, market, law, class, or ideology
+   - Why they believe they are preserving something necessary
+
+6. **Outsider, reformer, witness, rival, or alternate worldview**
+   - The perspective that exposes blind spots in the protagonist and setting
+   - What this person represents thematically
+
+7. **At least 1-3 additional characters** that the story needs
+   - Peers, friends, rivals, witnesses, gatekeepers, family, professional contacts, or conspirators
+   - Each must create pressure, reveal theme, or complicate the plot
+
+FOR EACH CHARACTER INCLUDE:
+- Name, age, role
+- Ghost/Wound/Want/Need/Lie chain (for major characters)
+- Three sliders (proactivity/likability/competence) with numbers and justification
+- Arc type and arc trajectory
+- Speech pattern (all 8 dimensions, with example lines)
+- Physical appearance (specific, not generic)
+- Physical habits and unconscious tells
+- Secrets (what the reader doesn't learn immediately)
+- Key relationships (mapped to other characters)
+- Thematic role (what question does this character embody?)
+
+IMPORTANT:
+- Characters must INTERCONNECT. Their wants should conflict with each other.
+- Every secret should be something that would CHANGE the story if revealed.
+- Speech patterns must be distinct enough to pass the no-tags test.
+- Give the protagonist habits that emerge from their body, work, wound, training, status, or unusual perception.
+- Physical tells should connect to specific history, pressure, or coping mechanisms.
+- The primary antagonist/opposition force should be as fully realized as the protagonist.
+- Target ~3000-4000 words. Dense character work, not padding.

@@ -1,0 +1,41 @@
+Evaluate this complete book holistically.
+You have the planning docs and ALL chapter summaries with their individual scores.
+
+VOICE DEFINITION:
+{voice}
+
+WORLD BIBLE:
+{world_summary}
+
+CHARACTER REGISTRY:
+{characters}
+
+OUTLINE + FORESHADOWING LEDGER:
+{outline}
+
+CHAPTER SUMMARIES AND SCORES:
+{chapter_summaries}
+
+Score these novel-level dimensions 0-10:
+- arc_completion: Do character arcs resolve satisfyingly?
+- pacing_curve: Does tension build properly across the book?
+- theme_coherence: Are themes explored consistently?
+- foreshadowing_resolution: Are all planted threads harvested?
+- world_consistency: Any lore contradictions across chapters?
+- voice_consistency: Is the voice steady throughout?
+- overall_engagement: Is this a compelling read start to finish?
+
+Respond with JSON:
+{{
+  "arc_completion": {{"score": N, "note": "..."}},
+  "pacing_curve": {{"score": N, "note": "..."}},
+  "theme_coherence": {{"score": N, "note": "..."}},
+  "foreshadowing_resolution": {{"score": N, "note": "..."}},
+  "world_consistency": {{"score": N, "note": "..."}},
+  "voice_consistency": {{"score": N, "note": "..."}},
+  "overall_engagement": {{"score": N, "note": "..."}},
+  "novel_score": N,
+  "weakest_dimension": "...",
+  "weakest_chapter": N,
+  "top_suggestion": "..."
+}}

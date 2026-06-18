@@ -1,0 +1,76 @@
+Build a complete world bible for the current book. This is the WORLD.MD file --
+the definitive reference for everything that EXISTS in this world. A writer should be able 
+to resolve any worldbuilding question from this document alone.
+
+SEED CONCEPT:
+{seed}
+
+VOICE IDENTITY (the tone and register of this novel):
+{voice_p2}
+
+CRAFT REQUIREMENTS (follow these):
+- Any central system, institution, technology, magic, profession, law, or social structure needs HARD RULES with COSTS and LIMITATIONS
+- Limitations must be at least as narratively prominent as capabilities
+- Trace implications of the book's central systems through society, economy, law, religion, family, class, and daily life where relevant
+- At least 2-3 societal implications of the central systems explored in depth
+- History must create PRESENT-DAY TENSIONS that drive the plot (not just backdrop)
+- Geography and built environments must be specific and sensory, not generic
+- Iceberg principle: imply more than you state
+- Interconnection: pulling one thread should move everything
+
+STRUCTURE THE DOCUMENT WITH THESE SECTIONS:
+
+## Cosmology & History
+A timeline of major events. Focus on events that create PRESENT-DAY tensions.
+Include the founding myth, key turning points, and recent events that matter to the plot.
+
+## Core Systems, Rules & Constraints
+### Hard / Operational Rules
+Specific, testable rules for any central system in the book: magic, technology,
+law, profession, crime, religion, economics, social codes, or other governing
+logic. What actions are possible? What fails? What breaks? Include COSTS and
+LIMITATIONS prominently.
+
+### Exceptions, Edge Cases, and Unusual Abilities
+If the story has unusual perception, abilities, tools, procedures, privileges,
+or forbidden knowledge, define what is known, what is uncertain, and what it
+costs the characters. Keep mystery where useful, but preserve internal logic.
+
+### Societal Implications
+How do the book's central systems shape governance, commerce, education, class
+structure, crime, family life, childhood, aging, disability, labor, risk, and
+status?
+
+## Geography
+The main setting's physical layout, districts, borders, routes, climate,
+architecture, infrastructure, and sensory signatures. Include neighboring
+places or adjacent social spaces when relevant.
+
+## Factions & Politics
+Who holds power, who wants it, who's being crushed by it.
+At least 3-4 factions with opposing interests.
+
+## Bestiary / Flora / Natural World
+What's unique about the natural world, built environment, ecology, technology,
+or material culture in and around the main setting?
+
+## Cultural Details
+Customs, taboos, festivals, food, clothing, coming-of-age rituals.
+Things that make daily life feel SPECIFIC.
+
+## Internal Consistency Rules
+Hard constraints a writer must not violate. The physics, logistics, social rules,
+technological limits, magical constraints, or institutional procedures that define
+what is possible and what is not.
+
+IMPORTANT:
+- Be SPECIFIC. Not "the city has districts" but name them, describe them, 
+  give them sensory signatures.
+- Every rule should have a COST or LIMITATION stated alongside it.
+- Include 2-3 facts per section that are unexplained, hinting at deeper systems 
+  (iceberg depth).
+- Facts should INTERCONNECT: central systems should shape politics, geography
+  should shape culture, and history should explain current faction conflicts.
+- Write in clean, direct prose. No AI slop. No "rich tapestry." No "delving."
+- The world should feel grounded and LIVED-IN, not imagined.
+- Target ~3000-4000 words. Dense, not padded.

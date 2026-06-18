@@ -1,4 +1,5 @@
 import pytest
+import sys
 from unittest.mock import patch, MagicMock
 import run
 
@@ -86,6 +87,34 @@ def test_run_pipeline_fails_on_generic_branch_integration() -> None:
 
                 assert excinfo.value.code == 1
                 mock_spec.factory.assert_not_called()
+
+
+def test_run_restores_standard_streams_after_success() -> None:
+    """Valida que run.main nao deixa sys.stdout/sys.stderr envelopados apos sucesso."""
+    original_stdout = sys.stdout
+    original_stderr = sys.stderr
+
+    with patch("run.get_pipeline_spec") as mock_get_spec:
+        mock_spec = MagicMock()
+        mock_spec.requires_work_branch = False
+        mock_get_spec.return_value = mock_spec
+
+        run.main(["--pipeline", "ideation"])
+
+    assert sys.stdout is original_stdout
+    assert sys.stderr is original_stderr
+
+
+def test_run_restores_standard_streams_after_system_exit() -> None:
+    """Valida restauracao de streams quando a execucao aborta."""
+    original_stdout = sys.stdout
+    original_stderr = sys.stderr
+
+    with pytest.raises(SystemExit):
+        run.main(["--invalid-argument"])
+
+    assert sys.stdout is original_stdout
+    assert sys.stderr is original_stderr
 
 
 def test_main_py_delegates_to_run_main() -> None:

@@ -1,0 +1,60 @@
+Evaluate this book chapter.
+
+SCORING CALIBRATION:
+  9-10: Published quality.
+  7-8:  Strong, minor polish needed.
+  5-6:  Functional but flat. Median score is 6.
+  3-4:  Significant problems.
+  1-2:  Rewrite from scratch.
+
+VOICE DEFINITION (reduced):
+{voice}
+
+WORLD BIBLE (reduced):
+{world}
+
+CHARACTER REGISTRY (reduced):
+{characters}
+
+CANON (reduced):
+{canon}
+
+CHAPTER OUTLINE ENTRY:
+{chapter_outline}
+
+PREVIOUS CHAPTER (reduced):
+{prev_chapter_tail}
+
+THE CHAPTER TO EVALUATE:
+{chapter_text}
+
+Score these dimensions:
+- voice_adherence: Style matching.
+- beat_coverage: All beats hit.
+- character_voice: Distinct dialogue.
+- plants_seeded: Natural plants.
+- prose_quality: Sentence variety, no AI patterns.
+- continuity: Flow.
+- canon_compliance: Violations.
+- lore_integration: World importance.
+- engagement: Tension.
+
+Respond with JSON:
+{{
+  "voice_adherence": {{"score": N, "weakest_moment": "quote", "fix": "suggestion", "note": ""}},
+  "beat_coverage": {{"score": N, "weakest_moment": "", "fix": "", "note": ""}},
+  "character_voice": {{"score": N, "weakest_moment": "", "fix": "", "note": ""}},
+  "plants_seeded": {{"score": N, "weakest_moment": "", "fix": "", "note": ""}},
+  "prose_quality": {{"score": N, "weakest_sentence": "quote", "fix": "suggestion", "strongest_sentence": "", "note": ""}},
+  "continuity": {{"score": N, "note": ""}},
+  "canon_compliance": {{"score": N, "violations": [], "note": ""}},
+  "lore_integration": {{"score": N, "weakest_moment": "", "fix": "", "note": ""}},
+  "engagement": {{"score": N, "weakest_moment": "", "fix": "", "note": ""}},
+  "three_weakest_sentences": [],
+  "three_strongest_sentences": [],
+  "ai_patterns_detected": [],
+  "overall_score": N,
+  "weakest_dimension": "prose_quality",
+  "top_3_revisions": ["revision 1", "revision 2", "revision 3"],
+  "new_canon_entries": []
+}}

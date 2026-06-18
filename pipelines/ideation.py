@@ -13,7 +13,8 @@ from llm import call_llm
 from pipelines.ideation_steps import (
     select_concept_text,
     default_mystery_template,
-    build_initial_ideation_state
+    build_initial_ideation_state,
+    load_ideation_prompt
 )
 
 BASE_DIR = Path(__file__).parent.parent.resolve()
@@ -22,52 +23,36 @@ SEED_PATH = BASE_DIR / "seed.txt"
 MYSTERY_PATH = BOOK_DATA_DIR / "MYSTERY.md"
 STATE_FILE = BOOK_DATA_DIR / "state.json"
 
-SYSTEM_PROMPT = (
-    "You are a fantasy novelist with deep knowledge of the genre's "
-    "best works -- Tolkien, Le Guin, Rothfuss, Wolfe, Jemisin, Peake, "
-    "Susanna Clarke, Andrew Peterson, Sofia Samatar. You generate "
-    "novel concepts that are SPECIFIC, SURPRISING, and STRUCTURALLY "
-    "SOUND. You never propose generic medieval Europe + elves. Each "
-    "concept should make a reader think 'I've never seen THAT before.'"
-)
+def _ideation_config(context: Dict[str, Any]) -> Dict[str, Any]:
+    config = context.get("ideation", {})
+    return config if isinstance(config, dict) else {}
 
-GENERATE_PROMPT = """Generate {count} fantasy novel seed concepts. Each should be
-a complete premise you could build a novel from.
 
-For EACH concept, provide:
+def _context_answer(context: Dict[str, Any], key: str) -> Any:
+    config = _ideation_config(context)
+    if key in config:
+        return config[key]
+    return context.get(key)
 
-NUMBER. TITLE (a working title, evocative, not generic)
-HOOK: One sentence that would make someone pick up the book. Specific
-  and surprising, not "In a world where..."
-WORLD: What makes this world different? Not just "there's magic" but
-  what specific, unusual thing defines this place? Be concrete --
-  salt flats, inverted towers, cities that migrate, a sea that
-  remembers, whatever. Make it SENSORY.
-MAGIC/COST: What is the core speculative element and what does it
-  COST? Per Sanderson's Second Law, limitations > powers. The cost
-  should create interesting dilemmas.
-TENSION: What's the central conflict? It must be both PERSONAL (one
-  character's specific problem) and COSMIC (affects the world).
-  These two must be in tension with each other.
-THEME: What question does this story explore? Not a message -- a
-  genuine question with no easy answer.
-WHY IT'S NOT GENERIC: One sentence on what makes this different from
-  standard fantasy fare.
 
-Aim for DIVERSITY across the {count} concepts:
-  - At least one with a non-human-centric world
-  - At least one that's more literary/quiet than epic
-  - At least one with an unusual narrative structure idea
-  - At least one set outside the typical European-inspired setting
-  - Mix of tones: dark, warm, weird, melancholy, whimsical
+def _answer_or_prompt(context: Dict[str, Any], key: str, prompt: str, default: str = "") -> str:
+    answer = _context_answer(context, key)
+    if answer is None:
+        answer = input(prompt)
+    answer = str(answer).strip()
+    return answer or default
 
-DO NOT generate:
-  - Chosen one prophecies (unless subverted in an interesting way)
-  - Dark lord / ultimate evil as the main antagonist
-  - Medieval Europe + elves/dwarves/orcs
-  - "Academy" or "school for magic" settings
-  - Love triangles as the central plot
-"""
+
+def _boolean_answer(context: Dict[str, Any], key: str, prompt: str, default: bool) -> bool:
+    answer = _context_answer(context, key)
+    if isinstance(answer, bool):
+        return answer
+    if answer is None:
+        answer = input(prompt)
+    normalized = str(answer).strip().upper()
+    if not normalized:
+        return default
+    return normalized in {"S", "SIM", "Y", "YES", "TRUE", "1"}
 
 class BypassOrRunStep(Step):
     def __init__(self):
@@ -77,8 +62,13 @@ class BypassOrRunStep(Step):
         context["skip_ideation"] = False
         if SEED_PATH.exists():
             print(f"\n[Ideation] Um arquivo seed.txt já existe em {SEED_PATH}.")
-            choice = input("Deseja pular (bypass) a ideação e usar a semente existente? [S/N] (default: S): ").strip().upper()
-            if choice != "N":
+            should_bypass = _boolean_answer(
+                context,
+                "bypass_existing_seed",
+                "Deseja pular (bypass) a ideação e usar a semente existente? [S/N] (default: S): ",
+                default=True
+            )
+            if should_bypass:
                 print("[Ideation] Pulando fase de ideação. Semente existente será preservada.")
                 context["skip_ideation"] = True
 
@@ -93,10 +83,30 @@ class QuestionnaireStep(Step):
         print("\n--- QUESTIONÁRIO DE IDEAÇÃO INICIAL ---")
         print("Pressione Enter para usar o valor padrão ou insira sua preferência:")
         
-        genre = input("1. Gênero/Estilo (ex: Sci-fi noir, High fantasy) [default: Fantasy]: ").strip() or "Fantasy"
-        spark = input("2. Centelha criativa (Spark - ideia central) [default: any]: ").strip() or "any"
-        cost = input("3. Custo da magia/speculative element [default: physical toll]: ").strip() or "physical toll"
-        protagonist = input("4. Protagonista (POV/Conflito) [default: scholar]: ").strip() or "scholar"
+        genre = _answer_or_prompt(
+            context,
+            "genre",
+            "1. Gênero/Estilo (ex: Sci-fi noir, High fantasy) [default: Fantasy]: ",
+            "Fantasy"
+        )
+        spark = _answer_or_prompt(
+            context,
+            "spark",
+            "2. Centelha criativa (Spark - ideia central) [default: any]: ",
+            "any"
+        )
+        cost = _answer_or_prompt(
+            context,
+            "cost",
+            "3. Custo da magia/speculative element [default: physical toll]: ",
+            "physical toll"
+        )
+        protagonist = _answer_or_prompt(
+            context,
+            "protagonist",
+            "4. Protagonista (POV/Conflito) [default: scholar]: ",
+            "scholar"
+        )
         
         context["genre"] = genre
         context["spark"] = spark
@@ -119,12 +129,12 @@ class GenerateConceptsStep(Step):
             f"- Centelha Criativa (Spark): {context.get('spark')}\n"
             f"- Custo/Elemento especulativo: {context.get('cost')}\n"
             f"- Protagonista: {context.get('protagonist')}\n\n"
-            f"{GENERATE_PROMPT.format(count=3)}"
+            f"{load_ideation_prompt('generate_concepts').format(count=3)}"
         )
         
         concepts = call_llm(
             prompt=user_prompt,
-            system_prompt=SYSTEM_PROMPT,
+            system_prompt=load_ideation_prompt("concept_system"),
             temperature=1.0,
             is_judge=False
         )
@@ -145,7 +155,7 @@ class SelectConceptStep(Step):
         print("Digite [1], [2] ou [3] para selecionar uma das opções acima.")
         print("Digite [C] para inserir um conceito inteiramente customizado.")
         
-        choice = input("Opção desejada (1-3 ou C): ").strip().upper()
+        choice = _answer_or_prompt(context, "concept_choice", "Opção desejada (1-3 ou C): ").upper()
         
         if choice in ["1", "2", "3"]:
             concepts_text = context.get("generated_concepts", "")
@@ -153,7 +163,7 @@ class SelectConceptStep(Step):
             SEED_PATH.write_text(selected_text, encoding="utf-8")
             print(f"[Ideation] Semente do conceito {choice} salva com sucesso em {SEED_PATH}.")
         else:
-            custom_seed = input("\nDigite/cole o seu próprio conceito completo:\n").strip()
+            custom_seed = _answer_or_prompt(context, "custom_concept", "\nDigite/cole o seu próprio conceito completo:\n")
             if not custom_seed:
                 custom_seed = "Conceito padrão vazio"
             SEED_PATH.write_text(custom_seed, encoding="utf-8")
@@ -168,24 +178,19 @@ class MysteryGeneratorStep(Step):
             return
         
         print("\n=== MISTÉRIO CENTRAL ===")
-        choice = input("Deseja gerar a Bíblia de Mistérios (MYSTERY.md)? [S/N] (default: N): ").strip().upper()
+        should_generate = _boolean_answer(
+            context,
+            "generate_mystery",
+            "Deseja gerar a Bíblia de Mistérios (MYSTERY.md)? [S/N] (default: N): ",
+            default=False
+        )
         
-        if choice == "S":
+        if should_generate:
             print("[Ideation] Gerando mistério central...")
             seed = SEED_PATH.read_text(encoding="utf-8")
             
-            mystery_system = (
-                "You are a master of plots and plot twists. You establish a structural mystery. "
-                "You respond strictly with a markdown document starting with '# THE CENTRAL MYSTERY'."
-            )
-            
-            mystery_prompt = (
-                f"Com base na seguinte semente de romance:\n\n{seed}\n\n"
-                f"Gere um mistério central detalhado estruturado. Inclua:\n"
-                f"- A pergunta/mistério que o protagonista investiga.\n"
-                f"- O segredo oculto (The Answer - o que de fato aconteceu, conspirações, culpados).\n"
-                f"- Como o mistério é plantado e revelado nos atos."
-            )
+            mystery_system = load_ideation_prompt("mystery_system")
+            mystery_prompt = load_ideation_prompt("mystery_user").format(seed=seed)
             
             mystery_text = call_llm(
                 prompt=mystery_prompt,

@@ -1,0 +1,8 @@
+Com base na seguinte semente de romance:
+
+{seed}
+
+Gere um mistério central detalhado estruturado. Inclua:
+- A pergunta/mistério que o protagonista investiga.
+- O segredo oculto (The Answer - o que de fato aconteceu, conspirações, culpados).
+- Como o mistério é plantado e revelado nos atos.

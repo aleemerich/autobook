@@ -7,6 +7,7 @@ Supports launching book generation or editorial revision pipelines.
 import sys
 import argparse
 import datetime
+from contextlib import contextmanager
 from pathlib import Path
 
 # Add project root to path
@@ -17,6 +18,7 @@ from pipelines.registry import list_pipelines, get_pipeline_spec
 
 class Tee:
     def __init__(self, filename, stream):
+        self.filename = str(filename)
         self.file = open(filename, 'a', encoding='utf-8')
         self.stream = stream
 
@@ -29,6 +31,32 @@ class Tee:
     def flush(self):
         self.file.flush()
         self.stream.flush()
+
+    def close(self):
+        self.file.close()
+
+
+@contextmanager
+def capture_pipeline_log(log_file: Path):
+    """Mirror stdout/stderr to the pipeline log only for the active execution scope."""
+    if isinstance(sys.stdout, Tee) or isinstance(sys.stderr, Tee):
+        yield
+        return
+
+    original_stdout = sys.stdout
+    original_stderr = sys.stderr
+    stdout_tee = Tee(str(log_file), original_stdout)
+    stderr_tee = Tee(str(log_file), original_stderr)
+    sys.stdout = stdout_tee
+    sys.stderr = stderr_tee
+    try:
+        yield
+    finally:
+        sys.stdout = original_stdout
+        sys.stderr = original_stderr
+        stdout_tee.close()
+        stderr_tee.close()
+
 
 def parse_chapters(ch_str: str) -> list:
     """Parse comma-separated integers or ranges (e.g. '1-3,5,7')."""
@@ -53,21 +81,7 @@ def parse_chapters(ch_str: str) -> list:
                 print(f"[Error] Invalid chapter: '{part}'", file=sys.stderr)
     return sorted(list(nums))
 
-def main(argv: list[str] | None = None) -> None:
-    # Setup logging to logs/pipeline.log
-    log_dir = BASE_DIR / "logs"
-    log_dir.mkdir(exist_ok=True)
-    log_file = log_dir / "pipeline.log"
-    
-    # Write a run header
-    with open(log_file, "a", encoding="utf-8") as f:
-        f.write(f"\n--- Pipeline Run Started at {datetime.datetime.now().isoformat()} ---\n")
-        
-    if not isinstance(sys.stdout, Tee):
-        sys.stdout = Tee(str(log_file), sys.stdout)
-    if not isinstance(sys.stderr, Tee):
-        sys.stderr = Tee(str(log_file), sys.stderr)
-
+def _execute(argv: list[str] | None = None) -> None:
     if argv is None:
         argv = sys.argv[1:]
 
@@ -107,7 +121,7 @@ def main(argv: list[str] | None = None) -> None:
         "from_scratch": args.from_scratch,
         "yes": args.yes,
     }
-    
+
     if args.chapter:
         context["chapters"] = parse_chapters(args.chapter)
 
@@ -133,6 +147,19 @@ def main(argv: list[str] | None = None) -> None:
     except Exception as e:
         print(f"[Error] Pipeline execution failed: {e}", file=sys.stderr)
         sys.exit(1)
+
+
+def main(argv: list[str] | None = None) -> None:
+    log_dir = BASE_DIR / "logs"
+    log_dir.mkdir(exist_ok=True)
+    log_file = log_dir / "pipeline.log"
+
+    # Write a run header
+    with open(log_file, "a", encoding="utf-8") as f:
+        f.write(f"\n--- Pipeline Run Started at {datetime.datetime.now().isoformat()} ---\n")
+
+    with capture_pipeline_log(log_file):
+        _execute(argv)
 
 if __name__ == "__main__":
     main()

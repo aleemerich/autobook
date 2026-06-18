@@ -17,6 +17,14 @@ PROMPT_FILES = [
     BASE_DIR / "prompts" / "PT-BR" / "gen_revision_user.txt",
 ]
 
+EVALUATION_PROMPT_FILES = {
+    "FOUNDATION_PROMPT": BASE_DIR / "prompts" / "EN" / "evaluation" / "foundation.txt",
+    "CHAPTER_PROMPT": BASE_DIR / "prompts" / "EN" / "evaluation" / "chapter.txt",
+    "CHAPTER_PROMPT_REDUCED": BASE_DIR / "prompts" / "EN" / "evaluation" / "chapter_reduced.txt",
+    "CHAPTER_PROMPT_MINIMAL": BASE_DIR / "prompts" / "EN" / "evaluation" / "chapter_minimal.txt",
+    "FULL_NOVEL_PROMPT": BASE_DIR / "prompts" / "EN" / "evaluation" / "full_novel.txt",
+}
+
 FORBIDDEN_STORY_TERMS = [
     "The Second Son of the House of Bells",
     "Cass",
@@ -143,3 +151,9 @@ def test_foundation_and_evaluation_prompts_do_not_pin_story_terms() -> None:
     for prompt in prompts:
         for term in FORBIDDEN_STORY_TERMS:
             assert term not in prompt
+
+
+def test_evaluation_prompts_are_loaded_from_external_files() -> None:
+    for prompt_attr, prompt_path in EVALUATION_PROMPT_FILES.items():
+        assert prompt_path.exists()
+        assert getattr(evaluate, prompt_attr) == prompt_path.read_text(encoding="utf-8")

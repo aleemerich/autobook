@@ -1,0 +1,73 @@
+Build a complete chapter outline for the current book. Size the chapter count
+to the material instead of forcing a fixed number. Recommend a target total word count and
+chapter count based on the seed, genre, world complexity, character arcs, mystery/subplot
+density, and intended pacing.
+
+SEED CONCEPT:
+{seed}
+
+THE CENTRAL MYSTERY (author's eyes only -- reader discovers gradually):
+{mystery}
+
+WORLD BIBLE:
+{world}
+
+CHARACTER REGISTRY:
+{characters}
+
+VOICE (tone and register):
+{voice_p2}
+
+CRAFT REFERENCE:
+{craft}
+
+BUILD THE OUTLINE WITH:
+
+## Act Structure
+Map out Act I (0-23%), Act II Part 1 (23-50%), Act II Part 2 (50-77%), Act III (77-100%).
+State the percentage marks for the key novel.
+
+## Chapter-by-Chapter Outline
+
+For EACH chapter, provide:
+### Ch N: [Title]
+- **POV:** viewpoint character and narrative distance
+- **Location:** Which places or social spaces
+- **Save the Cat beat:** Which beat this chapter serves (Opening Image, Setup, Catalyst, etc.)
+- **% mark:** Where this falls in the novel
+- **Emotional arc:** Starting emotion -> ending emotion
+- **Try-fail cycle:** Yes-but / No-and / No-but / Yes-and
+- **Beats:** 3-5 specific scene beats that must happen
+- **Plants:** Foreshadowing elements planted in this chapter
+- **Payoffs:** Foreshadowing elements that pay off here
+- **Character movement:** What changes for the protagonist or other important characters by chapter's end
+- **The lie / false belief:** How the relevant character's false belief is reinforced, challenged, or broken
+- **~Word count target:** for pacing
+
+## Foreshadowing Ledger
+
+A table tracking every planted thread:
+| Thread | Planted (Ch) | Reinforced (Ch) | Payoff (Ch) | Type |
+
+Include at LEAST 15 threads. Types: object, dialogue, action, symbolic, structural.
+
+KEY PLOT ARCHITECTURE:
+
+Act I: Establish the protagonist, central pressure, ordinary world, first promises,
+and the initial contradiction or wound. Plant the central question/mystery/conflict early.
+Catalyst: something forces the protagonist into irreversible motion.
+
+Act II Part 1: Escalation, investigation, training, pursuit, or deepening entanglement.
+The protagonist tests an approach and forms alliances, rivalries, or dependencies.
+Midpoint: a partial truth, false victory, or reversal changes the protagonist's approach.
+
+Act II Part 2: Pressure mounts. Costs become personal. Secrets, betrayals, system limits,
+or relationship fractures surface. All Is Lost: the protagonist loses the old strategy.
+
+Act III: The protagonist understands the real question. The climax resolves through
+rules, relationships, costs, and choices established earlier.
+
+CONSTRAINTS:
+- Climax must be mechanically and emotionally resolvable using rules and costs established earlier
+- Vary try-fail types: 60%+ should be "yes-but" or "no-and"
+- Foreshadowing ledger must have plant-to-payoff distances of at least 3 chapters

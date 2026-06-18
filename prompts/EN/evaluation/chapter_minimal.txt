@@ -1,0 +1,17 @@
+Evaluate this book chapter under these minimal instructions.
+
+CHAPTER OUTLINE ENTRY:
+{chapter_outline}
+
+THE CHAPTER TO EVALUATE:
+{chapter_text}
+
+Analyze only outline beat coverage and prose quality.
+Respond with JSON containing the overall score and 3 key revisions:
+{{
+  "overall_score": N,
+  "top_3_revisions": ["revision 1", "revision 2", "revision 3"],
+  "weakest_moment": "...",
+  "canon_compliance": {{"score": N, "violations": []}},
+  "prose_quality": {{"score": N, "fix": "", "weakest_sentence": ""}}
+}}

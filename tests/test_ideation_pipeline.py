@@ -155,3 +155,28 @@ def test_ideation_pipeline_with_mystery(mock_input, mock_call_llm, mock_ideation
     mystery_content = mystery_path.read_text(encoding="utf-8")
     assert "THE CENTRAL MYSTERY" in mystery_content
     assert "Who killed the king?" in mystery_content
+
+
+@patch("pipelines.ideation.call_llm")
+@patch("builtins.input", side_effect=AssertionError("input() nao deve ser chamado"))
+def test_ideation_pipeline_uses_context_without_prompting(mock_input, mock_call_llm, mock_ideation_paths, mock_cauldron_output):
+    """Valida que a ideacao roda sem input quando as respostas estao no contexto."""
+    mock_call_llm.return_value = mock_cauldron_output
+
+    pipeline = IdeationPipeline()
+    context = {
+        "ideation": {
+            "genre": "Fantasy",
+            "spark": "rust binding",
+            "cost": "body heat",
+            "protagonist": "weaver",
+            "concept_choice": "2",
+            "generate_mystery": False,
+        }
+    }
+    pipeline.run(context)
+
+    seed_path = pipelines.ideation.SEED_PATH
+    assert seed_path.exists()
+    assert "THE WEAVERS OF RUST" in seed_path.read_text(encoding="utf-8")
+    mock_input.assert_not_called()
