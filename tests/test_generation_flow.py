@@ -133,8 +133,8 @@ def test_modular_generation_flow(
         saved_plan = json.loads(revision_plan_file.read_text(encoding="utf-8"))
         assert len(saved_plan["findings"]) == 3
         assert saved_plan["findings"][0]["source"] == "canon_critic"
-        assert saved_plan["findings"][1]["source"] == "flow_critic"
-        assert saved_plan["findings"][2]["source"] == "style_critic"
+        assert saved_plan["findings"][1]["source"] == "style_critic"
+        assert saved_plan["findings"][2]["source"] == "flow_critic"
 
 @patch("pipelines.book_generation.evaluate_chapter")
 @patch("pipelines.book_generation_steps.persistence.git_push")

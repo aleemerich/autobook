@@ -3,7 +3,8 @@ from pipelines.book_generation_steps.critique import (
     build_critic_filename,
     build_critic_prompt,
     run_critic_agents,
-    convert_critique_file_to_report
+    convert_critique_file_to_report,
+    convert_critique_text_to_report
 )
 from writing.feedback import CriticReport, CriticFinding
 
@@ -112,3 +113,57 @@ def test_convert_critique_file_to_report(tmp_path: Path) -> None:
     assert finding.instruction == critique_content
     assert finding.quote == ""
     assert finding.severity == "medium"
+
+
+def test_convert_json_critique_to_structured_report() -> None:
+    """Valida conversao de criticas JSON para achados estruturados reais."""
+    content = """
+    {
+      "critic_role": "style_critic",
+      "findings": [
+        {
+          "quote": "frase generica",
+          "instruction": "Substituir por imagem concreta.",
+          "severity": "high"
+        },
+        {
+          "quote": "ritmo plano",
+          "fix": "Variar tamanho das frases.",
+          "severity": "unknown"
+        }
+      ]
+    }
+    """
+
+    report = convert_critique_text_to_report(content, "style_critic")
+
+    assert report.critic_role == "style_critic"
+    assert len(report.findings) == 2
+    assert report.findings[0].quote == "frase generica"
+    assert report.findings[0].instruction == "Substituir por imagem concreta."
+    assert report.findings[0].severity == "high"
+    assert report.findings[1].instruction == "Variar tamanho das frases."
+    assert report.findings[1].severity == "medium"
+
+
+def test_convert_markdown_critique_to_multiple_findings() -> None:
+    """Valida que listas markdown viram varios achados separados."""
+    content = (
+        "- Critical: reescrever \"frase quebrada\" para respeitar o canon.\n"
+        "- Minor: cortar redundancia no paragrafo final.\n"
+    )
+
+    report = convert_critique_text_to_report(content, "canon_critic")
+
+    assert len(report.findings) == 2
+    assert report.findings[0].quote == "frase quebrada"
+    assert report.findings[0].severity == "high"
+    assert report.findings[1].severity == "low"
+
+
+def test_convert_no_issues_critique_to_empty_report() -> None:
+    """Valida que respostas explicitas sem achados nao geram instrucao artificial."""
+    report = convert_critique_text_to_report("No style issues found.", "style_critic")
+
+    assert report.critic_role == "style_critic"
+    assert report.findings == []

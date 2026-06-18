@@ -43,9 +43,9 @@ from evaluation.io import (
     load_all_chapters as _load_all_chapters
 )
 from evaluation.judge import call_judge
-from evaluation.json_utils import parse_json_response, repair_json_quotes, validate_and_repair_json
+from evaluation.json_utils import parse_json_response, validate_and_repair_json
 from evaluation.prompts import FOUNDATION_PROMPT, CHAPTER_PROMPT, CHAPTER_PROMPT_REDUCED, CHAPTER_PROMPT_MINIMAL, FULL_NOVEL_PROMPT
-from evaluation.reports import build_chapter_edit_log, save_chapter_evaluation_logs
+from evaluation.reports import save_chapter_evaluation_logs
 from evaluation.slop import slop_score
 
 

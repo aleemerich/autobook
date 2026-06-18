@@ -41,6 +41,24 @@ def test_list_critique_files_sorted(tmp_path: Path) -> None:
     assert files[1].name == "critique_flow.md"
     assert files[2].name == "critique_style.md"
 
+
+def test_list_critique_files_uses_configured_critic_order(tmp_path: Path) -> None:
+    """Valida que a ordem declarada em critics_roles prevalece sobre a ordem alfabetica."""
+    (tmp_path / "critique_style.md").write_text("style critique", encoding="utf-8")
+    (tmp_path / "critique_canon.md").write_text("canon critique", encoding="utf-8")
+    (tmp_path / "critique_flow.md").write_text("flow critique", encoding="utf-8")
+
+    files = list_critique_files(
+        tmp_path,
+        critics_roles=["style_critic", "canon_critic", "flow_critic"]
+    )
+
+    assert [f.name for f in files] == [
+        "critique_style.md",
+        "critique_canon.md",
+        "critique_flow.md",
+    ]
+
 def test_build_revision_plan_findings(tmp_path: Path) -> None:
     """Valida que o RevisionPlan contém um finding por crítica com mapeamento correto para todos os críticos."""
     f1 = tmp_path / "critique_canon.md"
@@ -86,7 +104,12 @@ def test_run_sequential_synthesis_cascade(tmp_path: Path) -> None:
     factory = FakeFactory()
     original_text = "Original chapter text"
     
-    final_text, plan = run_sequential_synthesis(tmp_path, original_text, factory)
+    final_text, plan = run_sequential_synthesis(
+        tmp_path,
+        original_text,
+        factory,
+        critics_roles=["style_critic", "canon_critic"]
+    )
     
     # Synthesis agent deve ser recuperado
     assert len(factory.calls) == 1
@@ -105,14 +128,14 @@ def test_run_sequential_synthesis_cascade(tmp_path: Path) -> None:
     # Valida que run_sequential_synthesis retorna o RevisionPlan contendo os findings esperados das críticas
     assert isinstance(plan, RevisionPlan)
     assert len(plan.findings) == 2
-    assert plan.findings[0].source == "canon_critic"
-    assert plan.findings[0].instruction == "canon issue"
-    assert plan.findings[1].source == "style_critic"
-    assert plan.findings[1].instruction == "style issue"
+    assert plan.findings[0].source == "style_critic"
+    assert plan.findings[0].instruction == "style issue"
+    assert plan.findings[1].source == "canon_critic"
+    assert plan.findings[1].instruction == "canon issue"
 
     # Deve gravar os arquivos intermediários chapter_step_XX_critique_*.md
-    step1_file = tmp_path / "chapter_step_01_critique_canon.md"
-    step2_file = tmp_path / "chapter_step_02_critique_style.md"
+    step1_file = tmp_path / "chapter_step_01_critique_style.md"
+    step2_file = tmp_path / "chapter_step_02_critique_canon.md"
     
     assert step1_file.exists()
     assert step2_file.exists()

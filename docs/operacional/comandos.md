@@ -118,7 +118,7 @@ Baseline moderno:
 uv run --with pytest pytest tests
 ```
 
-Estado verificado: 309 testes passando.
+Estado verificado: 319 testes passando.
 
 Suite legada:
 
@@ -127,3 +127,17 @@ uv run --with pytest pytest legacy/tests
 ```
 
 Status: esta suite de testes legados foi desativada e não faz parte da suite moderna. Está configurada para ser ignorada na coleta padrão de testes do projeto via `conftest.py`.
+
+## Qualidade de Codigo
+
+As ferramentas de desenvolvimento estao declaradas no grupo `dev` do
+`pyproject.toml`.
+
+```bash
+uv run --group dev pytest tests
+uv run --group dev ruff check .
+```
+
+O `ruff` esta configurado em modo gradual, focado inicialmente em erros de
+sintaxe/runtime e imports nao utilizados. Correcoes mais amplas de estilo devem
+ser feitas em pacotes pequenos.

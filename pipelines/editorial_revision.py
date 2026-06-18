@@ -26,7 +26,7 @@ from pipelines.editorial_revision_steps import (
     is_better_than_fallback,
     commit_revised_chapter,
     run_final_maintenance,
-    load_editorial_config,
+    load_editorial_config,  # noqa: F401 - re-exported for backward compatibility
     get_retry_temperature,
     load_editorial_markdown,
 )
@@ -76,9 +76,9 @@ class ExecuteEditorialStep(Step):
         num_retries = int(os.environ.get("NUM_EDITORIAL_RETRIES", 5))
 
         for ch_num in target_chapters:
-            print(f"\n======================================")
+            print("\n======================================")
             print(f"Processing Editorial Revision: Chapter {ch_num}")
-            print(f"======================================")
+            print("======================================")
 
             ch_file_path = CHAPTERS_DIR / f"ch_{ch_num:02d}.md"
             if ch_num not in filtered_set:
@@ -167,7 +167,7 @@ class ExecuteEditorialStep(Step):
 
                 commit_revised_chapter(ch_num, pre_score, final_score, BASE_DIR)
             else:
-                print(f"[ExecuteEditorialStep] All attempts failed to improve. Reverting to original pristine text.")
+                print("[ExecuteEditorialStep] All attempts failed to improve. Reverting to original pristine text.")
                 ch_file_path.write_text(original_text, encoding="utf-8")
 
         # Consolidate outline and manuscript

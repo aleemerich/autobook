@@ -262,6 +262,14 @@ class AgentFactory:
     def register_agent(self, role: str, agent_class):
         """Register a new agent class dynamically."""
         self._agents_registry[role.lower()] = agent_class
+
+    def has_registered_agent(self, role: str) -> bool:
+        """Return whether a custom agent role was dynamically registered."""
+        return role.lower() in self._agents_registry
+
+    def unregister_agent(self, role: str) -> None:
+        """Remove a dynamically registered custom agent role if present."""
+        self._agents_registry.pop(role.lower(), None)
         
     def get_agent(self, role: str, **kwargs) -> Agent:
         """Create and return an agent instance based on registered classes."""

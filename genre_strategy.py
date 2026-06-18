@@ -51,8 +51,8 @@ class GenreStrategy:
             return
             
         raise FileNotFoundError(
-            f"Critical default genre file 'drama.txt' not found under EN fallback. "
-            f"Please ensure genres/EN/drama.txt exists."
+            "Critical default genre file 'drama.txt' not found under EN fallback. "
+            "Please ensure genres/EN/drama.txt exists."
         )
 
     def get_style_guidelines(self) -> str:

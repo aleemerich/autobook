@@ -35,6 +35,7 @@ atualizado antes de virar documentacao definitiva.
 | Legacy | [legacy/legacy.md](legacy/legacy.md) | Precisa limpeza |
 | Qualidade | [quality-analysis/quality-analysis.md](quality-analysis/quality-analysis.md) | Coberto |
 | Skills | [skills/skills.md](skills/skills.md) | Novo v0 |
+| Scripts raiz | [scripts/scripts.md](scripts/scripts.md) | Novo v0 |
 | Comandos | [operacional/comandos.md](operacional/comandos.md) | Novo v0 |
 | Planejamento futuro | [planejamento/como-transformar-parecer-em-specs.md](planejamento/como-transformar-parecer-em-specs.md) | Novo v0 |
 
@@ -61,12 +62,13 @@ lidos como documentacao tecnica atual sem validacao contra o codigo:
 - [analises/recomendacao_pipeline_producao.md](analises/recomendacao_pipeline_producao.md): parecer sobre pipeline intermediaria, agentes dinamicos, continuidade, estilo e modelos de menor custo.
 - [analises/auditoria_codigo_2026-06-16.md](analises/auditoria_codigo_2026-06-16.md): auditoria senior do codigo atual, com achados de arquitetura, clean code, riscos funcionais e aderencia a documentacao.
 - [analises/auditoria_codigo_backlog_2026-06-16.md](analises/auditoria_codigo_backlog_2026-06-16.md): backlog acionavel derivado da auditoria senior para planejamento das correcoes.
+- [analises/pacotes_residuais_pos_refactor_2026-06-17.md](analises/pacotes_residuais_pos_refactor_2026-06-17.md): comparativo pos-refactor contra a auditoria e novos pacotes residuais recomendados.
 
 ## Estado Atual Verificado
 
 - Entrada principal: `run.py`.
 - Pipelines suportados pela CLI: `ideation`, `foundation`, `book_generation`, `editorial_revision`.
-- Baseline moderno de testes: `uv run --with pytest pytest tests` com 309 testes passando.
+- Baseline moderno de testes: `uv run --with pytest pytest tests` com 319 testes passando.
 - `legacy/tests` nao faz parte do baseline atual; a coleta e ignorada e retorna sem testes por configuracao local.
 - Python: `>=3.12`.
 - Gerenciador recomendado: `uv`.

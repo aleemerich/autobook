@@ -13,7 +13,7 @@ def extract_voice_part2(voice_text: str) -> str:
         return ""
     lines = voice_text.split('\n')
     try:
-        part2_start = next(i for i, l in enumerate(lines) if 'Part 2' in l)
+        part2_start = next(i for i, line in enumerate(lines) if 'Part 2' in line)
         return '\n'.join(lines[part2_start:])
     except StopIteration:
         return voice_text

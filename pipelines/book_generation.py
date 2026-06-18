@@ -112,9 +112,9 @@ class DraftChaptersStep(Step):
                 print(f"[DraftChaptersStep] Skipping Chapter {ch} (not in target chapters: {target_chapters})")
                 continue
 
-            print(f"\n======================================")
+            print("\n======================================")
             print(f"Drafting Chapter {ch}/{total_chapters}")
-            print(f"======================================")
+            print("======================================")
 
             # Extract outline entry for this chapter
             ch_outline = extract_chapter_outline(outline_text, ch)

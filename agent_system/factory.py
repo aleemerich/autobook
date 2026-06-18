@@ -14,7 +14,7 @@ def create_agent(role: str, **kwargs) -> Any:
 
     # Valida se o papel existe no novo registry ou se foi registrado dinamicamente na factory legada
     role_key = role.lower().strip() if role else ""
-    if role_key not in legacy_factory._agents_registry:
+    if not legacy_factory.has_registered_agent(role_key):
         get_role_spec(role)
 
     return legacy_factory.get_agent(role, **kwargs)

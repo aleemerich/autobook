@@ -1,11 +1,30 @@
 from pathlib import Path
 from typing import List, Any, Tuple
 from writing.feedback import RevisionPlan
-from pipelines.book_generation_steps.critique import convert_critique_file_to_report, resolve_role_from_file
+from pipelines.book_generation_steps.critique import (
+    build_critic_filename,
+    convert_critique_file_to_report,
+    resolve_role_from_file,
+)
 
-def list_critique_files(tmp_dir: Path) -> List[Path]:
-    """Lista os arquivos critique_*.md em ordem alfabética."""
-    return sorted(list(tmp_dir.glob("critique_*.md")))
+def list_critique_files(tmp_dir: Path, critics_roles: List[str] = None) -> List[Path]:
+    """Lista os arquivos critique_*.md na ordem configurada dos criticos, com fallback alfabetico."""
+    critique_files = sorted(list(tmp_dir.glob("critique_*.md")))
+    if not critics_roles:
+        return critique_files
+
+    by_name = {path.name: path for path in critique_files}
+    ordered_files = []
+    seen_names = set()
+
+    for role in critics_roles:
+        filename = build_critic_filename(role)
+        if filename in by_name:
+            ordered_files.append(by_name[filename])
+            seen_names.add(filename)
+
+    ordered_files.extend(path for path in critique_files if path.name not in seen_names)
+    return ordered_files
 
 def build_revision_plan(critique_files: List[Path], critics_roles: List[str] = None) -> RevisionPlan:
     """Cria o RevisionPlan consolidado a partir dos arquivos de crítica usando convert_critique_file_to_report."""
@@ -36,7 +55,7 @@ def run_sequential_synthesis(
 ) -> Tuple[str, RevisionPlan]:
     """Executa a síntese sequencial aplicando as críticas uma a uma ao capítulo bruto."""
     print("[DraftChaptersStep] Starting sequential synthesis...")
-    critique_files = list_critique_files(tmp_dir)
+    critique_files = list_critique_files(tmp_dir, critics_roles=critics_roles)
     print(f"  Found {len(critique_files)} critique files to apply sequentially: {[f.name for f in critique_files]}")
     
     plan = build_revision_plan(critique_files, critics_roles=critics_roles)

@@ -54,12 +54,12 @@ def main():
     # Load adjacent chapters for continuity
     prev_path = BASE_DIR / "chapters" / f"ch_{ch_num - 1:02d}.md"
     next_path = BASE_DIR / "chapters" / f"ch_{ch_num + 1:02d}.md"
-    prev_tail = prev_path.read_text()[-2000:] if prev_path.exists() else "(first chapter)"
-    next_head = next_path.read_text()[:1500] if next_path.exists() else "(last chapter)"
+    prev_tail = prev_path.read_text(encoding="utf-8")[-2000:] if prev_path.exists() else "(first chapter)"
+    next_head = next_path.read_text(encoding="utf-8")[:1500] if next_path.exists() else "(last chapter)"
     
     # Load old version if exists
     old_path = BASE_DIR / "chapters" / f"ch_{ch_num:02d}.md"
-    old_text = old_path.read_text() if old_path.exists() else "(no existing draft)"
+    old_text = old_path.read_text(encoding="utf-8") if old_path.exists() else "(no existing draft)"
     book_title = _load_book_title(BASE_DIR)
     
     from prompt_loader import load_prompt, load_genre_rules, load_slop_rules_instruction
@@ -123,7 +123,7 @@ Write the FULL revised chapter now."""
     result = call_writer(prompt, temperature=temperature)
     
     out_path = BASE_DIR / "chapters" / f"ch_{ch_num:02d}.md"
-    out_path.write_text(result)
+    out_path.write_text(result, encoding="utf-8")
     print(f"Saved to {out_path}", file=sys.stderr)
     print(f"Word count: {len(result.split())}", file=sys.stderr)
 

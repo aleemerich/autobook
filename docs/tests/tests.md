@@ -4,7 +4,7 @@
 
 O sistema de testes do Autobook implementa uma suíte abrangente de testes unitários e de integração para garantir a confiabilidade e correto funcionamento do sistema de geração de livros. Os testes ativos estão localizados no diretório `/tests`.
 
-> **Status:** o baseline moderno verificado e `uv run --with pytest pytest tests`, com 309 testes passando. A pasta `/legacy/tests` existe, mas foi desativada e excluída da suíte de testes moderna. Caso seja executada diretamente, a pasta é configurada para ser ignorada via `conftest.py`.
+> **Status:** o baseline moderno verificado e `uv run --with pytest pytest tests`, com 319 testes passando. A pasta `/legacy/tests` existe, mas foi desativada e excluída da suíte de testes moderna. Caso seja executada diretamente, a pasta é configurada para ser ignorada via `conftest.py`.
 
 Este sistema verifica:
 - Funcionalidade básica de módulos individuais (testes unitários)
@@ -71,6 +71,9 @@ Os testes dependem de:
 # Executar baseline moderno
 uv run --with pytest pytest tests
 
+# Executar baseline moderno usando o grupo dev do pyproject.toml
+uv run --group dev pytest tests
+
 # Executar teste específico
 uv run --with pytest pytest tests/test_llm_unit.py
 
@@ -83,6 +86,18 @@ uv run --with pytest pytest -v tests
 # Executar testes com cobertura
 uv run --with pytest pytest --cov=autobook tests/
 ```
+
+### Checks de Qualidade
+
+O projeto declara `ruff` no grupo `dev` para checks graduais de qualidade:
+
+```bash
+uv run --group dev ruff check .
+```
+
+A configuracao inicial foca em erros de sintaxe/runtime e imports nao utilizados
+(`E4`, `E7`, `E9`, `F`). Regras mais amplas devem ser adicionadas aos poucos,
+conforme os scripts suportados forem separados dos experimentais/legados.
 
 ### Marcadores de Teste
 - `slow`: Testes que levam mais tempo para executar (ex: testes que fazem chamadas reais a APIs externas quando não mockados)

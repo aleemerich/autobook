@@ -7,3 +7,38 @@ dependencies = [
     "httpx>=0.28.1",
     "python-dotenv>=1.2.2",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.8.0",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+exclude = [
+    ".git",
+    ".venv",
+    "book_data",
+    "chapters",
+    "adversarial_edit.py",
+    "apply_cuts.py",
+    "compare_chapters.py",
+    "gen_audiobook_script.py",
+    "gen_brief.py",
+    "legacy",
+    "logs",
+    "tests",
+    "typeset",
+    "voice_fingerprint.py",
+]
+
+[tool.ruff.lint]
+# Gradual baseline: start with syntax/runtime hazards and unused imports.
+select = ["E4", "E7", "E9", "F"]
+
+[tool.ruff.lint.per-file-ignores]
+"evaluate.py" = ["E402"]
+"run.py" = ["E402"]
+"verify_continuity.py" = ["E402"]
