@@ -3,6 +3,8 @@ import re
 from pathlib import Path
 from typing import Dict, Any, List
 
+CHAPTER_HEADING = r'(?:Ch(?:apter)?|Cap[ií]tulo)'
+
 def load_state(book_data_dir: Path) -> Dict[str, Any]:
     """Carrega o arquivo state.json ou retorna um dict com chapters_drafted inicializado se ausente."""
     state_file = book_data_dir / "state.json"
@@ -29,7 +31,7 @@ def load_outline(book_data_dir: Path) -> str:
 
 def count_total_chapters(outline_text: str) -> int:
     """Conta o total de capítulos a partir do texto do outline."""
-    chapters_found = re.findall(r'^###\s*Ch(?:apter)?\s*(\d+)\b', outline_text, re.MULTILINE | re.IGNORECASE)
+    chapters_found = re.findall(rf'^###\s*{CHAPTER_HEADING}\s*(\d+)\b', outline_text, re.MULTILINE | re.IGNORECASE)
     if not chapters_found:
         raise ValueError(
             "Outline sem capitulos reconheciveis. Use headings no formato '### Chapter N' ou '### Ch N'."
@@ -45,18 +47,18 @@ def count_total_chapters(outline_text: str) -> int:
 
 def extract_chapter_outline(outline_text: str, ch: int) -> str:
     """Extrai a seção do outline correspondente ao capítulo atual."""
-    pattern = rf'###\s*Ch(?:apter)?\s*{ch}\b.*?(?=###\s*Ch(?:apter)?\s*{ch + 1}\b|## Act|## Foreshadowing|$)'
+    pattern = rf'###\s*{CHAPTER_HEADING}\s*{ch}\b.*?(?=###\s*{CHAPTER_HEADING}\s*{ch + 1}\b|## Act|## Foreshadowing|$)'
     ch_outline_match = re.search(pattern, outline_text, re.DOTALL | re.IGNORECASE)
     return ch_outline_match.group(0).strip() if ch_outline_match else f"Capítulo {ch}"
 
 def extract_chapter_title(ch_outline: str, ch: int) -> str:
     """Extrai o título do capítulo atual a partir da seção do outline do capítulo."""
-    title_match = re.search(r'###\s*Ch(?:apter)?\s*\d+:\s*(.*?)$', ch_outline, re.MULTILINE)
+    title_match = re.search(rf'###\s*{CHAPTER_HEADING}\s*\d+\s*[:–-]\s*(.*?)$', ch_outline, re.MULTILINE | re.IGNORECASE)
     return title_match.group(1).strip() if title_match else f"Capítulo {ch}"
 
 def extract_next_chapter_outline(outline_text: str, ch: int) -> str:
     """Extrai a seção do outline correspondente ao próximo capítulo."""
-    next_pattern = rf'###\s*Ch(?:apter)?\s*{ch + 1}\b.*?(?=###\s*Ch(?:apter)?\s*{ch + 2}\b|## Act|## Foreshadowing|$)'
+    next_pattern = rf'###\s*{CHAPTER_HEADING}\s*{ch + 1}\b.*?(?=###\s*{CHAPTER_HEADING}\s*{ch + 2}\b|## Act|## Foreshadowing|$)'
     next_match = re.search(next_pattern, outline_text, re.DOTALL | re.IGNORECASE)
     return next_match.group(0).strip() if next_match else "(Fim do romance)"
 

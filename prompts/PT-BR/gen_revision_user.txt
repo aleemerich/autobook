@@ -21,10 +21,21 @@ ABERTURA DO PRÓXIMO CAPÍTULO (termine de forma a fluir naturalmente para este)
 O RASCUNHO EXISTENTE (use como material bruto -- mantenha o que funciona, corte o que não funciona):
 {old_text}
 
+ORÇAMENTO DE TAMANHO:
+{word_budget}
+
 DIRETRIZES DE ESCRITA E REGRAS DO GÊNERO:
 {genre_rules}
 
 REGRAS ANTI-SLOP E EVITAÇÃO DE CLICHÊS (OBRIGATÓRIO):
 {slop_rules}
+
+CONTRATO DE ESCOPO DA REVISÃO:
+- Se o guia pedir correções pontuais, locais, conservadoras ou de higiene, faça apenas essas correções.
+- Preserve a ordem das cenas, os eventos, o arco emocional, os personagens, os locais e o desfecho do rascunho existente.
+- Não acrescente novas cenas, subtramas, personagens, flashbacks, revelações ou explicações de mundo, a menos que o guia peça explicitamente.
+- Mantenha o tamanho próximo ao rascunho original; variações pequenas são aceitáveis, expansão substancial não.
+- Obedeça ao orçamento de tamanho acima. Se precisar violá-lo, só faça isso quando o guia pedir explicitamente expansão ou corte.
+- Mesmo em revisão local, devolva o capítulo COMPLETO revisado, não apenas trechos.
 
 Escreva o capítulo revisado COMPLETO agora.

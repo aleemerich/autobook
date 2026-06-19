@@ -98,8 +98,27 @@ def git_commit(
 
 
 def git_push(base_dir: Path | str | None = None) -> subprocess.CompletedProcess:
-    """Executa git push."""
-    return run_git(["push"], base_dir=base_dir)
+    """Executa git push, tratando branch local sem upstream como no-op."""
+    result = run_git(["push"], base_dir=base_dir, check=False)
+    if result.returncode == 0:
+        return result
+
+    combined_output = f"{result.stdout}\n{result.stderr}".lower()
+    no_upstream_markers = (
+        "has no upstream branch",
+        "no upstream branch",
+        "set-upstream",
+    )
+    if any(marker in combined_output for marker in no_upstream_markers):
+        return result
+
+    raise GitCommandError(
+        ["git", "push"],
+        cwd=Path(base_dir) if base_dir is not None else None,
+        returncode=result.returncode,
+        stdout=result.stdout,
+        stderr=result.stderr
+    )
 
 
 def git_current_branch(base_dir: Path | str | None = None) -> str:

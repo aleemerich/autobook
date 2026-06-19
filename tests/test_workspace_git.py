@@ -83,6 +83,24 @@ def test_git_helpers_build_expected_commands(mock_run: MagicMock, tmp_path: Path
 
 
 @patch("workspace.git.subprocess.run")
+def test_git_push_allows_missing_upstream(mock_run: MagicMock, tmp_path: Path) -> None:
+    """Valida que branch local sem upstream nao quebra pipelines de obra locais."""
+    mock_run.return_value = subprocess.CompletedProcess(
+        ["git", "push"],
+        returncode=128,
+        stdout="",
+        stderr=(
+            "fatal: The current branch autobook/test has no upstream branch.\n"
+            "To push the current branch and set the remote as upstream, use git push --set-upstream origin autobook/test"
+        )
+    )
+
+    result = git_push(base_dir=tmp_path)
+
+    assert result.returncode == 128
+
+
+@patch("workspace.git.subprocess.run")
 def test_git_commit_allows_no_changes_when_configured(mock_run: MagicMock, tmp_path: Path) -> None:
     """Valida que commit sem mudanças pode ser tratado como no-op controlado."""
     mock_run.return_value = subprocess.CompletedProcess(

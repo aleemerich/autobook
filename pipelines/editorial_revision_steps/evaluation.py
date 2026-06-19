@@ -25,12 +25,16 @@ def format_eval_feedback(eval_data: dict, retry_idx: int) -> str:
     tier2 = slop.get("tier2_hits", [])
     tics = slop.get("structural_ai_tics", [])
     tells = slop.get("fiction_ai_tells", [])
+    foreign_language_hits = slop.get("foreign_language_hits", [])
     em_dash = slop.get("em_dash_density", 0.0)
     
     slop_critical = []
     if tier1:
         words = ", ".join([f"'{w[0]}' (usado {w[1]} vezes)" for w in tier1])
         slop_critical.append(f"- PALAVRAS PROIBIDAS usadas (MUDAR IMEDIATAMENTE): {words}")
+    if foreign_language_hits:
+        words = ", ".join([f"'{w[0]}' (usado {w[1]} vezes)" for w in foreign_language_hits])
+        slop_critical.append(f"- TERMOS DE OUTRO IDIOMA encontrados na prosa (MUDAR IMEDIATAMENTE): {words}")
     if slop_critical:
         feedback_parts.append("### PROBLEMAS DE SLOP CRÍTICO:")
         feedback_parts.extend(slop_critical)

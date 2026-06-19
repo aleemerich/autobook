@@ -57,6 +57,15 @@ def test_fiction_ai_tells():
     assert any("help but feel" in p for p in caught_tells)
 
 
+def test_ptbr_foreign_language_leftovers():
+    """Ensures configured English leftovers are penalized in PT-BR prose."""
+    with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "PT-BR"}):
+        result = slop_score("Ele bateu o inside da bochecha antes de responder.")
+
+    assert result["foreign_language_hits"] == [("inside", 1)]
+    assert result["slop_penalty"] >= 2.0
+
+
 def test_em_dash_overuse():
     """Ensures excessive em dashes trigger a penalty."""
     # A short text with excessive em-dashes to inflate density
@@ -121,10 +130,77 @@ def test_validate_and_repair_json_regex_fallback():
     assert res["top_3_revisions"] == []
 
 
+def test_validate_and_repair_json_prefers_embedded_required_json():
+    """Uses the final valid object when a model explains before returning JSON."""
+    from evaluate import validate_and_repair_json
+    raw_text = (
+        'First I will think using an example {"schema": {"overall": "ignored"}}.\n'
+        'Final answer:\n'
+        '{"overall_score": 8.0, "top_3_revisions": ["fix"], '
+        '"canon_compliance": {"score": 8, "violations": []}}'
+    )
+    res = validate_and_repair_json(raw_text, "overall_score")
+    assert res is not None
+    assert res["overall_score"] == 8.0
+    assert res["top_3_revisions"] == ["fix"]
+
+
+def test_debug_response_excerpt_truncates_long_text():
+    from evaluation.json_utils import _debug_response_excerpt
+
+    text = "a" * 2050
+
+    excerpt = _debug_response_excerpt(text, limit=20)
+
+    assert excerpt == "a" * 20 + "\n...[truncated 2030 chars]"
+
+
+def test_chapter_evaluation_prompts_format_after_output_contract():
+    import evaluate
+
+    format_args = {
+        "voice": "VOICE",
+        "world": "WORLD",
+        "characters": "CHARACTERS",
+        "canon": "CANON",
+        "chapter_outline": "OUTLINE",
+        "prev_chapter_tail": "PREV",
+        "chapter_text": "CHAPTER",
+    }
+
+    for template in [
+        evaluate.CHAPTER_PROMPT,
+        evaluate.CHAPTER_PROMPT_REDUCED,
+        evaluate.CHAPTER_PROMPT_MINIMAL,
+    ]:
+        rendered = template.format(**format_args)
+        assert "The first character of your response must be `{`." in rendered
+        assert "The final character of your response must be `}`." in rendered
+
+
+def test_extract_chapter_outline_entry_accepts_portuguese_headings():
+    from evaluate import extract_chapter_outline_entry
+    outline = """
+## Ato I
+
+### Capítulo 1 - A Primeira Letra
+Resumo do primeiro capitulo.
+
+### Capítulo 2 – O Livro Vivo
+Resumo do segundo capitulo.
+
+### Capítulo 3: O Nome Que Sobra
+Resumo do terceiro capitulo.
+"""
+    entry = extract_chapter_outline_entry(outline, 2)
+    assert "O Livro Vivo" in entry
+    assert "Resumo do segundo" in entry
+    assert "O Nome Que Sobra" not in entry
+
+
 def test_validate_and_repair_json_failure():
     """Ensures validate_and_repair_json returns None if the key is not present."""
     from evaluate import validate_and_repair_json
     raw_text = '{"some_other_key": 8.0}'
     res = validate_and_repair_json(raw_text, "overall_score")
     assert res is None
-

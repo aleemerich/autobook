@@ -92,6 +92,7 @@ def test_operational_prompts_do_not_pin_specific_book_title(prompt_path: Path) -
                 "prev_tail": "PREV",
                 "next_head": "NEXT",
                 "old_text": "OLD",
+                "word_budget": "BUDGET",
                 "genre_rules": "GENRE",
                 "slop_rules": "SLOP",
             },
@@ -108,6 +109,7 @@ def test_operational_prompts_do_not_pin_specific_book_title(prompt_path: Path) -
                 "prev_tail": "PREV",
                 "next_head": "NEXT",
                 "old_text": "OLD",
+                "word_budget": "BUDGET",
                 "genre_rules": "GENRE",
                 "slop_rules": "SLOP",
             },
@@ -125,6 +127,36 @@ def test_prompt_templates_format_with_book_title(
     assert "A Cidade de Vidro" in rendered
 
 
+def test_revision_prompts_enforce_local_scope_contract() -> None:
+    prompt_expectations = {
+        BASE_DIR / "prompts" / "PT-BR" / "gen_revision_system.txt": [
+            "correções pontuais",
+            "não adicione cenas",
+            "Mantenha o tamanho próximo",
+        ],
+        BASE_DIR / "prompts" / "PT-BR" / "gen_revision_user.txt": [
+            "CONTRATO DE ESCOPO DA REVISÃO",
+            "Preserve a ordem das cenas",
+            "expansão substancial não",
+        ],
+        BASE_DIR / "prompts" / "EN" / "gen_revision_system.txt": [
+            "punctual, local, or conservative fixes",
+            "do not add scenes",
+            "Keep the length close",
+        ],
+        BASE_DIR / "prompts" / "EN" / "gen_revision_user.txt": [
+            "REVISION SCOPE CONTRACT",
+            "Preserve the scene order",
+            "substantial expansion is not",
+        ],
+    }
+
+    for prompt_path, expected_terms in prompt_expectations.items():
+        content = prompt_path.read_text(encoding="utf-8")
+        for term in expected_terms:
+            assert term in content
+
+
 def test_load_book_title_uses_fallback_when_workspace_is_absent(tmp_path: Path) -> None:
     assert gen_revision._load_book_title(tmp_path) == "Untitled Book"
 
@@ -137,6 +169,13 @@ def test_load_book_title_uses_workspace_metadata(tmp_path: Path) -> None:
     )
 
     assert gen_revision._load_book_title(tmp_path) == "A Cidade de Vidro"
+
+
+def test_revision_word_budget_instruction() -> None:
+    instruction = gen_revision._build_word_budget("word " * 100)
+
+    assert "existing draft has 100 words" in instruction
+    assert "between 85 and 115 words" in instruction
 
 
 def test_foundation_and_evaluation_prompts_do_not_pin_story_terms() -> None:

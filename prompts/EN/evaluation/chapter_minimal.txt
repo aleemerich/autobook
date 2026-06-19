@@ -7,6 +7,14 @@ THE CHAPTER TO EVALUATE:
 {chapter_text}
 
 Analyze only outline beat coverage and prose quality.
+
+OUTPUT CONTRACT:
+- Return JSON only.
+- The first character of your response must be `{{`.
+- The final character of your response must be `}}`.
+- Do not write analysis, notes, markdown, or a preamble before the JSON.
+- Put every observation inside the JSON fields.
+
 Respond with JSON containing the overall score and 3 key revisions:
 {{
   "overall_score": N,

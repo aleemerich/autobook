@@ -20,6 +20,9 @@ from pipelines.editorial_revision_steps.evaluation import (
 from pipelines.editorial_revision_steps.revision import (
     build_initial_brief,
     build_corrective_brief,
+    count_words,
+    is_revision_size_acceptable,
+    build_size_guard_eval_data,
     write_temp_brief,
     remove_temp_brief,
     execute_gen_revision,
@@ -116,6 +119,7 @@ def test_format_eval_feedback():
         },
         "slop": {
             "tier1_hits": [("delve", 2), ("tapestry", 1)],
+            "foreign_language_hits": [("inside", 1)],
             "tier2_hits": [("synergy", 3)],
             "structural_ai_tics": [("not only", 2)],
             "fiction_ai_tells": [("help but", 1)],
@@ -141,6 +145,7 @@ def test_format_eval_feedback():
     # Check slop critical
     assert "### PROBLEMAS DE SLOP CRÍTICO:" in feedback
     assert "PALAVRAS PROIBIDAS usadas (MUDAR IMEDIATAMENTE): 'delve' (usado 2 vezes), 'tapestry' (usado 1 vezes)" in feedback
+    assert "TERMOS DE OUTRO IDIOMA encontrados na prosa (MUDAR IMEDIATAMENTE): 'inside' (usado 1 vezes)" in feedback
 
     # Slop style should NOT be present
     assert "### ESTILO & VOCABULÁRIO (SLOP SECUNDÁRIO):" not in feedback
@@ -278,6 +283,51 @@ def test_execute_editorial_step_flow(
     assert called_chapters_fallback == [1, 2, 10]
 
 
+def test_execute_editorial_step_restores_original_on_evaluation_error(tmp_path, monkeypatch):
+    import pipelines.editorial_revision
+    from pipelines.editorial_revision import ExecuteEditorialStep
+
+    chapters_dir = tmp_path / "chapters"
+    chapters_dir.mkdir()
+    chapter_file = chapters_dir / "ch_01.md"
+    chapter_file.write_text("original chapter", encoding="utf-8")
+
+    monkeypatch.setattr(pipelines.editorial_revision, "CHAPTERS_DIR", chapters_dir)
+    monkeypatch.setattr(pipelines.editorial_revision, "BASE_DIR", tmp_path)
+    monkeypatch.setattr(pipelines.editorial_revision, "run_final_maintenance", lambda base_dir: None)
+
+    evaluations = iter([
+        {"overall_score": 7.0, "slop": {"slop_penalty": 0.0}},
+        RuntimeError("evaluation failed after rewrite"),
+    ])
+
+    def fake_evaluate_chapter(chapter_num):
+        result = next(evaluations)
+        if isinstance(result, Exception):
+            raise result
+        return result
+
+    def fake_execute_gen_revision(chapter_num, brief_path, temperature, base_dir):
+        chapter_file.write_text("rewritten but unvalidated", encoding="utf-8")
+
+    monkeypatch.setattr(pipelines.editorial_revision, "evaluate_chapter", fake_evaluate_chapter)
+    monkeypatch.setattr(pipelines.editorial_revision, "execute_gen_revision", fake_execute_gen_revision)
+
+    step = ExecuteEditorialStep()
+    context = {
+        "chapters_briefs": {1: {"brief": "Fix local typo."}},
+        "general_notes": "",
+        "chapters": [1],
+    }
+
+    with pytest.raises(RuntimeError, match="evaluation failed after rewrite"):
+        step.run(context)
+
+    assert chapter_file.read_text(encoding="utf-8") == "original chapter"
+    assert not (tmp_path / "ch01_brief_temp.txt").exists()
+    assert not (tmp_path / "ch01_corrective_temp.txt").exists()
+
+
 def test_build_initial_brief():
     brief = "Do X."
     general = "Rule Y."
@@ -300,6 +350,31 @@ def test_build_corrective_brief():
     assert "Feedback description" in content
     assert "Original brief" in content
     assert "General notes" in content
+    assert "preserve o escopo da revisão" in content
+    assert "Não expanda o capítulo de forma substancial" in content
+    assert "Não crie novas cenas" in content
+
+
+def test_revision_size_guard_helpers():
+    original = "palavra " * 100
+    acceptable = "palavra " * 110
+    too_large = "palavra " * 200
+    too_small = "palavra " * 20
+
+    assert count_words(original) == 100
+    assert is_revision_size_acceptable(original, acceptable)
+    assert not is_revision_size_acceptable(original, too_large)
+    assert not is_revision_size_acceptable(original, too_small)
+    assert is_revision_size_acceptable("", too_large)
+
+
+def test_build_size_guard_eval_data():
+    eval_data = build_size_guard_eval_data("palavra " * 100, "palavra " * 200)
+
+    assert eval_data["overall_score"] == 0.0
+    assert eval_data["slop"]["slop_penalty"] == 99.0
+    assert "original com 100 palavras" in eval_data["prose_quality"]["fix"]
+    assert "candidata com 200 palavras" in eval_data["prose_quality"]["fix"]
 
 
 def test_write_and_remove_temp_brief(tmp_path):
@@ -368,6 +443,8 @@ def test_run_final_maintenance(mock_sub_run, tmp_path):
     legacy_dir = tmp_path / "legacy"
     legacy_dir.mkdir()
     (legacy_dir / "build_outline.py").touch()
+    (legacy_dir / "characters.md").touch()
+    (legacy_dir / "chapters").mkdir()
 
     verify_script = tmp_path / "verify_continuity.py"
     verify_script.touch()
@@ -381,6 +458,22 @@ def test_run_final_maintenance(mock_sub_run, tmp_path):
 
     call2_args = mock_sub_run.call_args_list[1][0][0]
     assert any("verify_continuity.py" in arg for arg in call2_args)
+
+
+@patch("pipelines.editorial_revision_steps.revision.subprocess.run")
+def test_run_final_maintenance_skips_incomplete_legacy_outline(mock_sub_run, tmp_path):
+    legacy_dir = tmp_path / "legacy"
+    legacy_dir.mkdir()
+    (legacy_dir / "build_outline.py").touch()
+    verify_script = tmp_path / "verify_continuity.py"
+    verify_script.touch()
+
+    run_final_maintenance(tmp_path)
+
+    assert mock_sub_run.call_count == 1
+    call_args = mock_sub_run.call_args_list[0][0][0]
+    assert any("verify_continuity.py" in arg for arg in call_args)
+    assert not any("build_outline.py" in arg for arg in call_args)
 
 
 def test_load_editorial_config():

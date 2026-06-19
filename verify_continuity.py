@@ -180,6 +180,9 @@ def get_minimal_chapters_data(chapters_data):
         })
     return minimal
 
+CHAPTER_HEADING = r'(?:Ch(?:apter)?|Cap[ií]tulo)'
+
+
 def parse_outline(outline_path: Path) -> list:
     """Parse outline.md and extract structured fields per chapter."""
     if not outline_path.exists():
@@ -187,32 +190,35 @@ def parse_outline(outline_path: Path) -> list:
         
     text = outline_path.read_text(encoding="utf-8")
     
-    # Split by chapters using the headers. Matches '### Ch X: ...' or '### Chapter X: ...'
-    chapters_raw = re.split(r'^###\s+Ch(?:apter)?\s+(\d+):', text, flags=re.MULTILINE)
+    heading_pattern = re.compile(
+        rf'^###\s+{CHAPTER_HEADING}\s+(\d+)\s*[:–-]\s*(.*)$',
+        flags=re.MULTILINE | re.IGNORECASE,
+    )
+    matches = list(heading_pattern.finditer(text))
     
     entries = []
-    if len(chapters_raw) < 2:
+    if not matches:
         return entries
         
-    for i in range(1, len(chapters_raw), 2):
-        ch_num = int(chapters_raw[i])
-        ch_content = chapters_raw[i+1]
+    for idx, match in enumerate(matches):
+        ch_num = int(match.group(1))
+        title_line = match.group(2).strip() or f"Chapter {ch_num}"
+        start = match.end()
+        end = matches[idx + 1].start() if idx + 1 < len(matches) else len(text)
+        ch_content = text[start:end]
         
         # Split ch_content at '---' to isolate this chapter's entry from next or ledgers
         ch_body = ch_content.split('\n---')[0].strip()
-        
-        lines = ch_body.split('\n')
-        title_line = lines[0].strip() if lines else f"Chapter {ch_num}"
-        
+
         # Extract location
         location = "N/A"
-        loc_match = re.search(r'\*\*Location:\*\*\s*(.*)$', ch_body, re.MULTILINE)
+        loc_match = re.search(r'\*\*(?:Location|Local):\*\*\s*(.*)$', ch_body, re.MULTILINE | re.IGNORECASE)
         if loc_match:
             location = loc_match.group(1).strip()
             
         # Extract characters
         characters = []
-        char_match = re.search(r'-\s*\*\*Characters:\*\*\s*(.*)$', ch_body, re.MULTILINE)
+        char_match = re.search(r'-?\s*\*\*(?:Characters|Personagens):\*\*\s*(.*)$', ch_body, re.MULTILINE | re.IGNORECASE)
         if char_match:
             characters = [c.strip() for c in char_match.group(1).split(',') if c.strip()]
             
@@ -230,7 +236,7 @@ def parse_outline(outline_path: Path) -> list:
             
         # Extract summary
         summary = "N/A"
-        sum_match = re.search(r'\*\*Summary:\*\*\s*(.*?)(?=\n\s*\*\*|$)', ch_body, re.DOTALL)
+        sum_match = re.search(r'\*\*(?:Summary|Resumo):\*\*\s*(.*?)(?=\n\s*\*\*|$)', ch_body, re.DOTALL | re.IGNORECASE)
         if sum_match:
             summary = sum_match.group(1).strip()
             

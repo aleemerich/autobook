@@ -3,6 +3,51 @@ import re
 import sys
 
 
+def _debug_response_excerpt(text, limit=2000):
+    if len(text) <= limit:
+        return text
+    return f"{text[:limit]}\n...[truncated {len(text) - limit} chars]"
+
+
+def _load_json_candidate(candidate):
+    repaired = re.sub(r',\s*([}\]])', r'\1', candidate)
+    repaired = repair_json_quotes(repaired)
+    attempts = (candidate, repaired, re.sub(r'(?<!\\)\n', '\\n', repaired))
+    for attempt in attempts:
+        try:
+            return json.loads(attempt, strict=False)
+        except json.JSONDecodeError:
+            continue
+    return None
+
+
+def _iter_balanced_json_candidates(text):
+    for start in [m.start() for m in re.finditer(r'\{', text)]:
+        depth = 0
+        in_string = False
+        escape = False
+        for i in range(start, len(text)):
+            c = text[i]
+            if escape:
+                escape = False
+                continue
+            if c == '\\' and in_string:
+                escape = True
+                continue
+            if c == '"' and not escape:
+                in_string = not in_string
+                continue
+            if in_string:
+                continue
+            if c == '{':
+                depth += 1
+            elif c == '}':
+                depth -= 1
+                if depth == 0:
+                    yield text[start:i + 1]
+                    break
+
+
 def parse_json_response(text):
     """Extract JSON from a response that might have markdown fences or trailing text."""
     text = text.strip()
@@ -21,7 +66,7 @@ def parse_json_response(text):
     # Find the outermost JSON object
     start = text.find('{')
     if start == -1:
-        print(f"DEBUG: raw text that failed JSON parsing:\n{text}", file=sys.stderr)
+        print(f"DEBUG: raw text that failed JSON parsing:\n{_debug_response_excerpt(text)}", file=sys.stderr)
         raise ValueError("No JSON object found in response")
         
     # Walk forward to find the matching closing brace
@@ -100,7 +145,7 @@ def parse_json_response(text):
         try:
             return json.loads(fixed, strict=False)
         except json.JSONDecodeError as e:
-            print(f"DEBUG: raw text that failed JSON parsing (final fallback):\n{text}", file=sys.stderr)
+            print(f"DEBUG: raw text that failed JSON parsing (final fallback):\n{_debug_response_excerpt(text)}", file=sys.stderr)
             raise e
 
 def repair_json_quotes(s):
@@ -181,7 +226,32 @@ def validate_and_repair_json(raw_text, required_key="overall_score"):
     except Exception:
         pass
 
-    # 2. Regex fallback for required_key
+    # 2. Prefer a complete embedded JSON object that contains the required key.
+    # Some inexpensive models explain their reasoning first and only then emit
+    # the requested JSON. The earlier prose may contain example objects, so we
+    # scan all balanced candidates and keep the last valid object with the key.
+    keyed_candidate = None
+    for candidate in _iter_balanced_json_candidates(raw_text):
+        data = _load_json_candidate(candidate)
+        if isinstance(data, dict) and required_key in data:
+            keyed_candidate = data
+    if keyed_candidate is not None:
+        data = keyed_candidate
+        if required_key == "overall_score":
+            if "top_3_revisions" not in data or not isinstance(data["top_3_revisions"], list):
+                data["top_3_revisions"] = []
+            if "canon_compliance" not in data or not isinstance(data["canon_compliance"], dict):
+                data["canon_compliance"] = {"score": data.get("overall_score", 5.0), "violations": [], "note": ""}
+            if "prose_quality" not in data or not isinstance(data["prose_quality"], dict):
+                data["prose_quality"] = {"score": data.get("overall_score", 5.0), "fix": "", "weakest_sentence": "", "strongest_sentence": "", "note": ""}
+        elif required_key == "continuity_score":
+            if "inconsistencies" not in data or not isinstance(data["inconsistencies"], list):
+                data["inconsistencies"] = []
+            if "timeline_flow" not in data:
+                data["timeline_flow"] = ""
+        return data
+
+    # 3. Regex fallback for required_key
     score_match = re.search(rf'"{required_key}"\s*:\s*(\d+(?:\.\d+)?)', raw_text)
     if score_match:
         try:
