@@ -21,10 +21,21 @@ NEXT CHAPTER OPENING (end so this flows into it):
 THE EXISTING DRAFT (use as raw material -- keep what works, cut what doesn't):
 {old_text}
 
+WORD BUDGET:
+{word_budget}
+
 GENRE-SPECIFIC RULES & WRITING GUIDELINES:
 {genre_rules}
 
 ANTI-SLOP AND PROSE QUALITY RULES (MANDATORY):
 {slop_rules}
+
+REVISION SCOPE CONTRACT:
+- If the brief asks for punctual, local, conservative, or hygiene fixes, make only those fixes.
+- Preserve the scene order, plot events, emotional arc, characters, locations, and ending from the existing draft.
+- Do not add new scenes, subplots, characters, flashbacks, revelations, or world explanations unless the brief explicitly asks for them.
+- Keep the length close to the original draft; small variations are acceptable, substantial expansion is not.
+- Follow the word budget above. Violate it only if the brief explicitly asks for expansion or cuts.
+- Even for local revision, return the FULL revised chapter, not excerpts.
 
 Write the FULL revised chapter now.

@@ -176,6 +176,16 @@ def test_generate_canon_step(mock_call_llm, mock_foundation_paths):
 @patch("pipelines.foundation_steps.persistence.git_add")
 def test_commit_foundation_step(mock_git_add, mock_git_commit, mock_foundation_paths):
     """Test committing files and initializing state.json cursor to 0."""
+    def assert_state_written_before_commit(*args, **kwargs):
+        state = json.loads(pipelines.foundation.STATE_FILE.read_text(encoding="utf-8"))
+        assert state == {
+            "chapters_drafted": 0,
+            "phase": "writing",
+            "current_focus": "chapters",
+        }
+
+    mock_git_commit.side_effect = assert_state_written_before_commit
+
     step = CommitFoundationStep()
     context = {}
     step.run(context)

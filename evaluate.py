@@ -83,6 +83,19 @@ def evaluate_foundation():
 # --- Chapter Evaluation ---
 
 
+CHAPTER_HEADING = r"(?:Ch(?:apter)?|Cap[ií]tulo)"
+
+
+def extract_chapter_outline_entry(outline: str, chapter_num: int) -> str:
+    """Extracts one chapter outline entry, accepting EN and PT-BR headings."""
+    pattern = (
+        rf"###\s*{CHAPTER_HEADING}\s*{chapter_num}\b.*?"
+        rf"(?=###\s*{CHAPTER_HEADING}\s*\d|## Act|## Ato|## Foreshadowing|$)"
+    )
+    match = re.search(pattern, outline, re.IGNORECASE | re.DOTALL)
+    return match.group(0) if match else "(outline entry not found)"
+
+
 
 def evaluate_chapter(chapter_num):
     layers = load_layer_files()
@@ -99,9 +112,7 @@ def evaluate_chapter(chapter_num):
 
     # Extract this chapter's outline entry (rough heuristic)
     outline = layers["outline"]
-    ch_pattern = rf'###\s*Ch\s*{chapter_num}\b.*?(?=###\s*Ch\s*\d|## Act|## Foreshadowing|$)'
-    ch_match = re.search(ch_pattern, outline, re.DOTALL)
-    chapter_outline = ch_match.group(0) if ch_match else "(outline entry not found)"
+    chapter_outline = extract_chapter_outline_entry(outline, chapter_num)
 
     # Prepare prompt data for different cycles
     voice_full = layers["voice"]

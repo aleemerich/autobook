@@ -39,6 +39,13 @@ Score these dimensions:
 - lore_integration: World importance.
 - engagement: Tension.
 
+OUTPUT CONTRACT:
+- Return JSON only.
+- The first character of your response must be `{{`.
+- The final character of your response must be `}}`.
+- Do not write analysis, notes, markdown, or a preamble before the JSON.
+- Put every observation inside the JSON fields.
+
 Respond with JSON:
 {{
   "voice_adherence": {{"score": N, "weakest_moment": "quote", "fix": "suggestion", "note": ""}},

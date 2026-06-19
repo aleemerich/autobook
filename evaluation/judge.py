@@ -3,5 +3,7 @@ def call_judge(prompt, max_tokens=2000, override_model=None):
     from llm import call_llm
     system = ("You are a literary critic and novel editor. "
               "You evaluate fiction with precision. Always respond with valid JSON. "
-              "No markdown fences, no preamble -- just the JSON object.")
+              "No markdown fences, no preamble, no reasoning transcript. "
+              "Your first character must be '{' and your final character must be '}'. "
+              "If you need to think, do it silently and return only the JSON object.")
     return call_llm(prompt=prompt, system_prompt=system, temperature=0.3, is_judge=True, override_model=override_model)

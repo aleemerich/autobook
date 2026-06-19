@@ -69,6 +69,17 @@
     "\\b(?:ele|ela|eles|elas|eu|nós|[A-Z]\\w+) (?:sentiu|estava|parecia|aparentava) (?:triste|feliz|assustado|nervoso|animado|ciumento|culpado|ansioso|solitário|desesperado|furioso|aterrorizado|miserável|esperançoso|confuso|aliviado|horrorizado|enojado|envergonhado|orgulhoso|amargurado|derrotado|triunfante)\\b",
     "\\b(?:tristemente|alegremente|nervosamente|desesperadamente|furiosamente|ansiosamente|culpadamente|amarguradamente|cansadamente|miseravelmente)\\b"
   ],
+  "language_hygiene": {
+    "foreign_language_terms": [
+      "inside",
+      "outside",
+      "sorry",
+      "please",
+      "thanks",
+      "okay",
+      "nope"
+    ]
+  },
   "instruction_templates": {
     "tier1_banned": "CRÍTICO: Não use NENHUMA das seguintes palavras banidas (Tier 1 Banned): {words}",
     "tier2_suspicious": "CRÍTICO: Evite ao máximo usar palavras suspeitas de IA (Tier 2 Suspicious): {words}",

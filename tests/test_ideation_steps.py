@@ -45,6 +45,28 @@ def test_select_concept_text_returns_selected() -> None:
     assert selected.startswith("2. THE WEAVERS OF RUST")
     assert "THE ECHO CHAMBER" not in selected
 
+
+def test_select_concept_text_handles_markdown_headings() -> None:
+    """Valida selecao quando o LLM retorna conceitos como headings Markdown."""
+    concepts_text = (
+        "INTRODUCTION\n\n"
+        "## 1. O LIVRO DOS SEM NOME\n\n"
+        "**HOOK:** Uma escriva perde o proprio nome.\n\n"
+        "---\n\n"
+        "## 2. ARQUIVO MORTO\n\n"
+        "**HOOK:** Uma escriva prende o irmao entre vivo e morto.\n\n"
+        "---\n\n"
+        "## 3. A CIDADE QUE NAO LEMBRA\n\n"
+        "**HOOK:** Uma cidade esquece sua propria fundacao.\n"
+    )
+
+    selected = select_concept_text(concepts_text, "1")
+
+    assert selected.startswith("1. O LIVRO DOS SEM NOME")
+    assert "ARQUIVO MORTO" not in selected
+    assert "A CIDADE QUE NAO LEMBRA" not in selected
+
+
 def test_select_concept_text_fallback_on_parse_failure() -> None:
     """Valida que select_concept_text retorna o texto original completo se o parsing falhar ou nao achar a escolha."""
     # Caso 1: Texto sem número

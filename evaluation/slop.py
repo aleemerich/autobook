@@ -11,6 +11,7 @@ def slop_score(text):
       - em_dash_density: em dashes per 1000 words
       - sentence_length_cv: coefficient of variation (higher = more human)
       - transition_opener_ratio: fraction of paragraphs starting with transitions
+      - foreign_language_hits: list of configured foreign-language terms found
       - slop_penalty: 0-10 deduction (0 = clean, 10 = pure slop)
     """
     from prompt_loader import load_slop_config
@@ -27,6 +28,8 @@ def slop_score(text):
     fiction_ai_tells = config.get("fiction_ai_tells", [])
     structural_ai_tics = config.get("structural_ai_tics", [])
     telling_patterns = config.get("telling_patterns", [])
+    language_hygiene = config.get("language_hygiene", {})
+    foreign_language_terms = language_hygiene.get("foreign_language_terms", [])
 
     words = text.lower().split()
     word_count = len(words) or 1
@@ -96,6 +99,14 @@ def slop_score(text):
     for pattern in telling_patterns:
         telling_count += len(re.findall(pattern, text, re.IGNORECASE))
 
+    # Foreign-language leftovers for localized prose
+    foreign_language_hits = []
+    for term in foreign_language_terms:
+        pattern = rf"(?<!\w){re.escape(term)}(?!\w)"
+        matches = re.findall(pattern, text, re.IGNORECASE)
+        if matches:
+            foreign_language_hits.append((term, len(matches)))
+
     # Structural AI tics (rhetorical formulas)
     structural_tics = []
     for pattern in structural_ai_tics:
@@ -117,6 +128,7 @@ def slop_score(text):
         penalty += min(transition_ratio * 2, 1.0)  # transition abuse: up to 1 pt
     penalty += min(fiction_tell_count * 0.3, 2.0)     # fiction AI tells: up to 2 pts
     penalty += min(telling_count * 0.2, 1.5)          # show-don't-tell: up to 1.5 pts
+    penalty += min(sum(c for _, c in foreign_language_hits) * 2.0, 4.0)  # language leftovers: up to 4 pts
     penalty += min(structural_tic_count * 0.5, 2.0)   # structural AI tics: up to 2 pts
 
     penalty = min(penalty, 10.0)
@@ -129,6 +141,7 @@ def slop_score(text):
         "fiction_ai_tells": fiction_tells,
         "structural_ai_tics": structural_tics,
         "telling_violations": telling_count,
+        "foreign_language_hits": foreign_language_hits,
         "em_dash_density": round(em_dash_density, 2),
         "sentence_length_cv": round(sentence_length_cv, 3),
         "transition_opener_ratio": round(transition_ratio, 3),

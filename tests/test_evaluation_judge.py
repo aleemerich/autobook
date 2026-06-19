@@ -18,3 +18,5 @@ def test_call_judge_delegates_to_unified_llm(mock_call_llm) -> None:
     assert kwargs["is_judge"] is True
     assert kwargs["override_model"] == "judge-model"
     assert "Always respond with valid JSON" in kwargs["system_prompt"]
+    assert "Your first character must be '{'" in kwargs["system_prompt"]
+    assert "return only the JSON object" in kwargs["system_prompt"]

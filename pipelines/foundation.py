@@ -141,6 +141,10 @@ class CommitFoundationStep(Step):
 
     def run(self, context: Dict[str, Any]) -> None:
         print("[Foundation] Commitando arquivos estruturais de planejamento no Git...")
+
+        # Reset state.json cursor to 0 chapters drafted before committing so the
+        # committed planning snapshot is immediately usable for writing.
+        write_foundation_state(STATE_FILE)
         
         # Git add and commit
         try:
@@ -149,8 +153,6 @@ class CommitFoundationStep(Step):
         except Exception as e:
             print(f"[Warning] Falha ao executar commits automáticos no Git: {e}", file=sys.stderr)
 
-        # Reset state.json cursor to 0 chapters drafted
-        write_foundation_state(STATE_FILE)
         print("[Foundation] Cursor em state.json inicializado para escrita (chapters_drafted: 0).")
 
 

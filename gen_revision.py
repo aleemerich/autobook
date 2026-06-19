@@ -19,6 +19,25 @@ def _load_book_title(base_dir: Path = BASE_DIR) -> str:
         return "Untitled Book"
     return metadata["title"]
 
+
+def _build_word_budget(old_text: str) -> str:
+    """Build a conservative word budget instruction from the existing draft."""
+    old_word_count = len(old_text.split())
+    if old_word_count <= 0:
+        return (
+            "No existing draft word count is available. Keep the revised chapter "
+            "concise and proportional to the requested changes."
+        )
+
+    min_words = max(1, int(round(old_word_count * 0.85)))
+    max_words = max(min_words, int(round(old_word_count * 1.15)))
+    return (
+        f"The existing draft has {old_word_count} words. Keep the revised chapter "
+        f"between {min_words} and {max_words} words unless the revision brief "
+        "explicitly asks for major expansion or cuts."
+    )
+
+
 def call_writer(prompt, temperature=0.8, max_tokens=16000):
     """Call the unified writer LLM via llm.py and return response text."""
     from llm import call_llm
@@ -60,6 +79,7 @@ def main():
     # Load old version if exists
     old_path = BASE_DIR / "chapters" / f"ch_{ch_num:02d}.md"
     old_text = old_path.read_text(encoding="utf-8") if old_path.exists() else "(no existing draft)"
+    word_budget = _build_word_budget(old_text if old_path.exists() else "")
     book_title = _load_book_title(BASE_DIR)
     
     from prompt_loader import load_prompt, load_genre_rules, load_slop_rules_instruction
@@ -77,6 +97,7 @@ def main():
             prev_tail=prev_tail,
             next_head=next_head,
             old_text=old_text,
+            word_budget=word_budget,
             genre_rules=genre_rules,
             slop_rules=slop_rules
         )
@@ -104,6 +125,9 @@ NEXT CHAPTER OPENING (end so this flows into it):
 
 THE EXISTING DRAFT (use as raw material -- keep what works, cut what doesn't):
 {old_text}
+
+WORD BUDGET:
+{word_budget}
 
 ANTI-PATTERN RULES:
 - NO triadic sensory lists (X. Y. Z.)

@@ -52,6 +52,27 @@ def test_count_total_chapters() -> None:
         count_total_chapters("No chapters here")
     assert "Outline sem capitulos reconheciveis" in str(excinfo.value)
 
+
+def test_count_total_chapters_accepts_portuguese_headings() -> None:
+    """Valida headings em PT-BR gerados pela foundation."""
+    outline_text = (
+        "## Ato I\n"
+        "### Capítulo 1 – A Falha no Nome\n"
+        "**Beats:**\n"
+        "1. Celina abre o cartorio.\n"
+        "### Capitulo 2: O Livro Vivo\n"
+        "**Beats:**\n"
+        "1. Ela investiga os registros.\n"
+        "### Capítulo 3 - A Verdade No Cartorio\n"
+        "**Beats:**\n"
+        "1. Ela confessa a falsificacao.\n"
+    )
+
+    assert count_total_chapters(outline_text) == 3
+    assert "A Falha no Nome" in extract_chapter_outline(outline_text, 1)
+    assert "O Livro Vivo" in extract_next_chapter_outline(outline_text, 1)
+    assert extract_chapter_title(extract_chapter_outline(outline_text, 3), 3) == "A Verdade No Cartorio"
+
 def test_count_total_chapters_rejects_invalid_numbering() -> None:
     """Valida que headings pulados ou fora de ordem falham explicitamente."""
     with pytest.raises(ValueError) as excinfo:

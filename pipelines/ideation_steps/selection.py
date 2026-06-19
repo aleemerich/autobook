@@ -1,10 +1,10 @@
 import re
 
 def parse_numbered_concepts(concepts_text: str) -> dict[str, str]:
-    """Extrai conceitos numerados no formato '1. ...', '2. ...', '3. ...'."""
+    """Extrai conceitos numerados em texto simples ou headings Markdown."""
     if not concepts_text:
         return {}
-    parts = re.split(r'^\s*(\d+)\.\s+', concepts_text, flags=re.MULTILINE)
+    parts = re.split(r'^\s*(?:#{1,6}\s*)?(\d+)[\.\)]\s+', concepts_text, flags=re.MULTILINE)
     concepts = {}
     if len(parts) <= 1:
         return {}

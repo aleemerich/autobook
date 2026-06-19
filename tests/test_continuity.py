@@ -95,6 +95,47 @@ def test_parse_outline(temp_outline):
     assert "stranger" in ch2["harvests"][0]
     assert len(ch2["beats"]) == 3
 
+
+def test_parse_outline_accepts_portuguese_headings(tmp_path):
+    """Ensures continuity parsing accepts PT-BR headings produced by foundation."""
+    outline_file = tmp_path / "outline.md"
+    outline_file.write_text(
+        """# Outline Curto
+
+### Capítulo 1 - A Primeira Letra
+**Local:** Cartorio
+**Personagens:** Celina, Dona Lucia
+
+**Resumo:** Celina percebe que perdeu a primeira letra do nome.
+
+**Beats:**
+1. Celina abre o cartorio.
+2. Ela encontra o registro falsificado.
+
+### Capitulo 2: O Livro Vivo
+**Local:** Praca
+**Personagens:** Celina, Padre Mateus
+
+**Resumo:** Celina investiga os nomes borrados.
+
+**Beats:**
+1. Celina compara registros.
+2. Padre Mateus confronta Celina.
+""",
+        encoding="utf-8",
+    )
+
+    entries = parse_outline(outline_file)
+
+    assert len(entries) == 2
+    assert entries[0]["num"] == 1
+    assert entries[0]["title"] == "A Primeira Letra"
+    assert entries[0]["location"] == "Cartorio"
+    assert entries[0]["characters"] == ["Celina", "Dona Lucia"]
+    assert "primeira letra" in entries[0]["summary"]
+    assert len(entries[0]["beats"]) == 2
+    assert entries[1]["title"] == "O Livro Vivo"
+
 @patch("verify_continuity.call_llm")
 @patch("verify_continuity.OUTLINE_PATH")
 @patch("verify_continuity.EVAL_LOGS_DIR")
@@ -343,4 +384,3 @@ def test_resolve_continuity_with_issues(mock_backup, mock_get_score, mock_load_c
         assert "editorial_revision" in args
         assert "--chapter" in args
         assert "2,3" in args
-
