@@ -105,7 +105,7 @@ Embodifica a questão central: **uma mentira compassiva ainda é uma mentira?** 
 Altura 1,78 m, corpo magro devido a anos de trabalho braçal, cicatriz fina no sobrancelha esquerda (de um golpe de garrafa). Cabelo castanho curto, geralmente sob um boné de lã desgastado. Barba de três dias, olhos castanhos avermelhados por falta de sono. Usa sempre uma jaqueta de couro gastó e botas de cano alto, mesmo em clima quente — hábito que adquiriu ao trabalhar em obras.  
 
 ### Hábitos / tells  
-- **Morde a inside da bochecha** quando está pensando em voltar para casa.  
+- **Morde o interior da bochecha** quando está pensando em voltar para casa.  
 - **Bate os dedos na mesa** em ritmo de três quando está ansioso (lembra o compasso de uma marcha que ouvia na infância).  
 - **Evita espelhos**; quando se vê, baixa o olhar rapidamente.  
 
