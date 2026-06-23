@@ -61,6 +61,24 @@ def load_slop_config() -> dict:
         return json.load(f)
 
 
+def load_continuity_config() -> dict:
+    """
+    Load continuity workflow configuration for the active language.
+    Falls back gracefully to EN if missing.
+    """
+    lang = get_active_language()
+    config_file = PROMPTS_DIR / lang / "continuity.json"
+
+    if not config_file.exists() and lang != "EN":
+        config_file = PROMPTS_DIR / "EN" / "continuity.json"
+
+    if not config_file.exists():
+        raise FileNotFoundError(f"Continuity configuration 'continuity.json' not found in EN fallback or {lang}")
+
+    with open(config_file, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
 def load_genre_rules() -> str:
     """
     Wraps the new GenreStrategy to maintain backwards compatibility 

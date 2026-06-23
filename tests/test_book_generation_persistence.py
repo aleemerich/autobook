@@ -134,11 +134,47 @@ def test_run_continuity_and_git_push_success(
     # Primeiro comando de todos deve ser verify_continuity
     first_cmd = mock_run.call_args_list[0][0][0]
     assert "verify_continuity.py" in first_cmd[1]
+    assert "--threshold" in first_cmd
+    assert "7.0" in first_cmd
     
     mock_git_add.assert_any_call("chapters/ch_01.md", base_dir=tmp_path, force=True)
     mock_git_add.assert_any_call("book_data/state.json", base_dir=tmp_path, force=True)
     mock_git_commit.assert_called_once_with("ch01: score 8.5 (attempt 2)", base_dir=tmp_path)
     mock_git_push.assert_called_once_with(base_dir=tmp_path)
+
+
+@patch("pipelines.book_generation_steps.persistence.git_push")
+@patch("pipelines.book_generation_steps.persistence.git_commit")
+@patch("pipelines.book_generation_steps.persistence.git_add")
+@patch("pipelines.book_generation_steps.persistence.subprocess.run")
+def test_run_continuity_and_git_push_uses_configurable_threshold(
+    mock_run: MagicMock,
+    mock_git_add: MagicMock,
+    mock_git_commit: MagicMock,
+    mock_git_push: MagicMock,
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    mock_run.return_value = MagicMock(returncode=0, stdout="success output")
+    monkeypatch.setenv("CONTINUITY_THRESHOLD", "6.5")
+
+    state_file = tmp_path / "state.json"
+    state = {"chapters_drafted": 0}
+    state_file.write_text(json.dumps(state), encoding="utf-8")
+
+    assert run_continuity_and_git_push(
+        base_dir=tmp_path,
+        state_file=state_file,
+        state=state,
+        ch=1,
+        score=7.0,
+        attempt=1,
+        is_fallback=False,
+    )
+
+    cmd = mock_run.call_args[0][0]
+    threshold_index = cmd.index("--threshold")
+    assert cmd[threshold_index + 1] == "6.5"
 
 @patch("pipelines.book_generation_steps.persistence.subprocess.run")
 def test_run_continuity_and_git_push_fail(mock_run: MagicMock, tmp_path: Path) -> None:

@@ -12,6 +12,7 @@ import subprocess
 from pathlib import Path
 from datetime import datetime
 from dotenv import load_dotenv
+from prompt_loader import load_continuity_config
 
 BASE_DIR = Path(__file__).parent.resolve()
 load_dotenv(BASE_DIR / ".env")
@@ -208,33 +209,6 @@ def main():
     
     result = subprocess.run(cmd)
     sys.exit(result.returncode)
-
-def load_continuity_config() -> dict:
-    from prompt_loader import get_active_language, PROMPTS_DIR
-    lang = get_active_language()
-    config_file = PROMPTS_DIR / lang / "continuity.json"
-    if not config_file.exists() and lang != "EN":
-        config_file = PROMPTS_DIR / "EN" / "continuity.json"
-    if not config_file.exists():
-        # Minimal fallback — generic, no story-specific references
-        return {
-            "general_rules": [
-                "- Ensure all chapter output is written in high-quality, standard English (EN) only.",
-                "- Avoid common AI fiction tropes, structural repetitions, and rhetorical tics.",
-                "- Maintain strict consistency of location names and character lore as defined in canon.md and world.md for the current project."
-            ],
-            "divergence_rules": {},
-            "templates": {
-                "quality_improvement": "Quality Improvement: The previous draft received a low score ({score:.2f}). Eliminate AI writing tics, tropes, and improve pacing and the protagonist's inner thoughts.",
-                "continuity_correction": "Continuity Correction ({severity} Severity): {desc} -> {fix}",
-                "general_directives_header": "# General Directives",
-                "chapter_header": "# Chapter {ch}",
-                "affects_downstream": "- affects_downstream: {downstream}",
-                "generic_update": "- Apply general style and consistency corrections to this chapter."
-            }
-        }
-    with open(config_file, "r", encoding="utf-8") as f:
-        return json.load(f)
 
 if __name__ == "__main__":
     main()

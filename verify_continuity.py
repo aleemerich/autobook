@@ -22,6 +22,7 @@ load_dotenv(BASE_DIR / ".env")
 # Insert local path to load llm and prompt_loader
 sys.path.insert(0, str(BASE_DIR))
 from llm import call_llm
+from prompt_loader import load_continuity_config
 
 OUTLINE_PATH = BASE_DIR / "book_data" / "outline.md"
 EVAL_LOGS_DIR = BASE_DIR / "logs" / "eval_logs"
@@ -180,18 +181,79 @@ def get_minimal_chapters_data(chapters_data):
         })
     return minimal
 
-CHAPTER_HEADING = r'(?:Ch(?:apter)?|Cap[ií]tulo)'
+def _outline_parser_config() -> dict:
+    config = load_continuity_config()
+    return config.get("outline_parser", {})
 
 
-def parse_outline(outline_path: Path) -> list:
+def _configured_labels(parser_config: dict, field_name: str) -> list[str]:
+    return parser_config.get("fields", {}).get(field_name, [])
+
+
+def _chapter_heading_regex(parser_config: dict) -> str:
+    terms = parser_config.get("chapter_heading_terms", ["Chapter", "Ch"])
+    separators = parser_config.get("chapter_heading_separators", [":", "-", "–", "—"])
+    term_pattern = "|".join(re.escape(term) for term in terms)
+    separator_pattern = "".join(re.escape(separator) for separator in separators)
+    return rf'(?:{term_pattern})\s+(\d+)\s*[{separator_pattern}]\s*(.*)$'
+
+
+def _extract_single_line_field(ch_body: str, labels: list[str], default: str = "N/A") -> str:
+    if not labels:
+        return default
+    label_pattern = "|".join(re.escape(label) for label in labels)
+    match = re.search(
+        rf'\*\*(?:{label_pattern}):\*\*\s*(.*)$',
+        ch_body,
+        re.MULTILINE | re.IGNORECASE,
+    )
+    if match:
+        return match.group(1).strip()
+    return default
+
+
+def _extract_markdown_section(ch_body: str, labels: list[str]) -> str:
+    if not labels:
+        return ""
+    label_pattern = "|".join(re.escape(label) for label in labels)
+    match = re.search(
+        rf'^\*\*(?:{label_pattern}):\*\*\s*(.*?)(?=\n\s*(?:-?\s*)?\*\*[^*\n]+:\*\*|\n---|\Z)',
+        ch_body,
+        re.DOTALL | re.MULTILINE | re.IGNORECASE,
+    )
+    if match:
+        return match.group(1).strip()
+    return ""
+
+
+def _extract_list_section(ch_body: str, labels: list[str], numbered: bool = False) -> list[str]:
+    content = _extract_markdown_section(ch_body, labels)
+    if not content:
+        return []
+    items = []
+    for line in content.splitlines():
+        item = line.strip()
+        if not item:
+            continue
+        if numbered:
+            item = re.sub(r'^\d+[.)]\s*', '', item).strip()
+        else:
+            item = re.sub(r'^[-*]\s*', '', item).strip()
+        if item:
+            items.append(item)
+    return items
+
+
+def parse_outline(outline_path: Path, parser_config: dict | None = None) -> list:
     """Parse outline.md and extract structured fields per chapter."""
     if not outline_path.exists():
         return []
         
     text = outline_path.read_text(encoding="utf-8")
+    parser_config = parser_config or _outline_parser_config()
     
     heading_pattern = re.compile(
-        rf'^###\s+{CHAPTER_HEADING}\s+(\d+)\s*[:–-]\s*(.*)$',
+        rf'^###\s+{_chapter_heading_regex(parser_config)}',
         flags=re.MULTILINE | re.IGNORECASE,
     )
     matches = list(heading_pattern.finditer(text))
@@ -210,59 +272,51 @@ def parse_outline(outline_path: Path) -> list:
         # Split ch_content at '---' to isolate this chapter's entry from next or ledgers
         ch_body = ch_content.split('\n---')[0].strip()
 
-        # Extract location
-        location = "N/A"
-        loc_match = re.search(r'\*\*(?:Location|Local):\*\*\s*(.*)$', ch_body, re.MULTILINE | re.IGNORECASE)
-        if loc_match:
-            location = loc_match.group(1).strip()
-            
-        # Extract characters
-        characters = []
-        char_match = re.search(r'-?\s*\*\*(?:Characters|Personagens):\*\*\s*(.*)$', ch_body, re.MULTILINE | re.IGNORECASE)
-        if char_match:
-            characters = [c.strip() for c in char_match.group(1).split(',') if c.strip()]
-            
-        # Extract try-fail
-        try_fail = "N/A"
-        tf_match = re.search(r'-\s*\*\*Try-fail cycle:\*\*\s*(.*)$', ch_body, re.MULTILINE)
-        if tf_match:
-            try_fail = tf_match.group(1).strip()
-            
-        # Extract emotional arc
-        emotional_arc = "N/A"
-        ea_match = re.search(r'-\s*\*\*Emotional arc:\*\*\s*(.*)$', ch_body, re.MULTILINE)
-        if ea_match:
-            emotional_arc = ea_match.group(1).strip()
-            
-        # Extract summary
-        summary = "N/A"
-        sum_match = re.search(r'\*\*(?:Summary|Resumo):\*\*\s*(.*?)(?=\n\s*\*\*|$)', ch_body, re.DOTALL | re.IGNORECASE)
-        if sum_match:
-            summary = sum_match.group(1).strip()
-            
-        # Extract beats
-        beats = []
-        beats_section = re.search(r'\*\*Beats:\*\*\s*(.*?)(?=\n\s*\*\*|$)', ch_body, re.DOTALL)
-        if beats_section:
-            beats = [re.sub(r'^\d+\.\s*', '', line).strip() for line in beats_section.group(1).split('\n') if line.strip()]
-            
-        # Extract plants
-        plants = []
-        plants_section = re.search(r'\*\*Plants:\*\*\s*(.*?)(?=\n\s*\*\*|$)', ch_body, re.DOTALL)
-        if plants_section:
-            plants = [re.sub(r'^-\s*', '', line).strip() for line in plants_section.group(1).split('\n') if line.strip()]
-            
-        # Extract harvests
-        harvests = []
-        harvests_section = re.search(r'\*\*Harvests:\*\*\s*(.*?)(?=\n\s*\*\*|$)', ch_body, re.DOTALL)
-        if harvests_section:
-            harvests = [re.sub(r'^-\s*', '', line).strip() for line in harvests_section.group(1).split('\n') if line.strip()]
-            
-        # Extract chapter question
-        chapter_question = "N/A"
-        cq_match = re.search(r'\*\*Chapter question:\*\*\s*(.*)$', ch_body, re.MULTILINE)
-        if cq_match:
-            chapter_question = cq_match.group(1).strip()
+        location = _extract_single_line_field(
+            ch_body,
+            _configured_labels(parser_config, "location"),
+        )
+
+        characters_raw = _extract_single_line_field(
+            ch_body,
+            _configured_labels(parser_config, "characters"),
+            default="",
+        )
+        characters = [c.strip() for c in characters_raw.split(',') if c.strip()]
+
+        try_fail = _extract_single_line_field(
+            ch_body,
+            _configured_labels(parser_config, "try_fail"),
+        )
+
+        emotional_arc = _extract_single_line_field(
+            ch_body,
+            _configured_labels(parser_config, "emotional_arc"),
+        )
+
+        summary = _extract_markdown_section(
+            ch_body,
+            _configured_labels(parser_config, "summary"),
+        ) or "N/A"
+        beats = _extract_list_section(
+            ch_body,
+            _configured_labels(parser_config, "beats"),
+            numbered=True,
+        )
+        if summary == "N/A" and beats:
+            summary = " ".join(beats[:2])
+        plants = _extract_list_section(
+            ch_body,
+            _configured_labels(parser_config, "plants"),
+        )
+        harvests = _extract_list_section(
+            ch_body,
+            _configured_labels(parser_config, "harvests"),
+        )
+        chapter_question = _extract_single_line_field(
+            ch_body,
+            _configured_labels(parser_config, "chapter_question"),
+        )
             
         entries.append({
             "num": ch_num,

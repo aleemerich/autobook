@@ -262,7 +262,7 @@ def test_load_slop_rules_instruction_dynamic():
 
 def test_load_continuity_config_and_formatting():
     """Ensures load_continuity_config retrieves and formats continuity configuration correctly."""
-    from resolve_continuity import load_continuity_config
+    from prompt_loader import load_continuity_config
     
     with patch.dict(os.environ, {"AUTOBOOK_LANGUAGE": "PT-BR"}):
         config = load_continuity_config()
@@ -273,6 +273,11 @@ def test_load_continuity_config_and_formatting():
         # Test Portuguese specific values
         assert "ecrã" in config["general_rules"][0]
         assert "Melhoria de Qualidade:" in config["templates"]["quality_improvement"]
+        assert "outline_parser" in config
+        assert "Capítulo" in config["outline_parser"]["chapter_heading_terms"]
+        assert "Cenas" in config["outline_parser"]["fields"]["beats"]
+        assert "fix_outline" in config
+        assert "system_prompt" in config["fix_outline"]
         # divergence_rules may be empty (no story-specific rules in generic template)
         assert isinstance(config["divergence_rules"], dict)
 
@@ -285,6 +290,11 @@ def test_load_continuity_config_and_formatting():
         # Test English specific values
         assert "standard English" in config["general_rules"][0]
         assert "Quality Improvement:" in config["templates"]["quality_improvement"]
+        assert "outline_parser" in config
+        assert "Chapter" in config["outline_parser"]["chapter_heading_terms"]
+        assert "Beats" in config["outline_parser"]["fields"]["beats"]
+        assert "fix_outline" in config
+        assert "system_prompt" in config["fix_outline"]
         # divergence_rules may be empty (no story-specific rules in generic template)
         assert isinstance(config["divergence_rules"], dict)
 
@@ -306,5 +316,4 @@ def test_load_editorial_config_retry_temperatures():
         assert get_retry_temperature(1) == 0.6
         assert get_retry_temperature(4) == 0.9
         assert "CRITICAL SLOP PROBLEMS" in config["feedback_labels"]["slop_critical_header"]
-
 
