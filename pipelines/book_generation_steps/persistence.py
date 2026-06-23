@@ -1,3 +1,4 @@
+import os
 import sys
 import json
 import shutil
@@ -89,8 +90,9 @@ def run_continuity_and_git_push(
     """Roda validação de continuidade e comandos Git."""
     if not is_fallback:
         print("[DraftChaptersStep] Running global continuity validation...")
+        continuity_threshold = str(os.environ.get("CONTINUITY_THRESHOLD", "7.0"))
         cont_res = subprocess.run(
-            [sys.executable, "verify_continuity.py", "--strict", "--threshold", "7.0"],
+            [sys.executable, "verify_continuity.py", "--strict", "--threshold", continuity_threshold],
             capture_output=True,
             text=True,
             cwd=str(base_dir)

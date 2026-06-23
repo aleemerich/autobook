@@ -12,5 +12,24 @@
     "chapter_header": "# Chapter {ch}",
     "affects_downstream": "- affects_downstream: {downstream}",
     "generic_update": "- Apply general style and consistency corrections to this chapter."
+  },
+  "outline_parser": {
+    "chapter_heading_terms": ["Ch", "Chapter"],
+    "chapter_heading_separators": [":", "-", "–", "—"],
+    "fields": {
+      "location": ["Location"],
+      "characters": ["Characters"],
+      "try_fail": ["Try-fail cycle", "Try fail cycle"],
+      "emotional_arc": ["Emotional arc"],
+      "summary": ["Summary"],
+      "beats": ["Beats"],
+      "plants": ["Plants"],
+      "harvests": ["Harvests"],
+      "chapter_question": ["Chapter question"]
+    }
+  },
+  "fix_outline": {
+    "system_prompt": "You are an elite novelist and literary continuity editor. Your task is to read one chunk of a book outline and a continuity report, then rewrite only that chunk to resolve applicable inconsistencies.\n\nCritical rules:\n1. Resolve all high and medium severity inconsistencies listed in the report that affect chapters in this chunk.\n2. Follow the suggested_fix guidance from the report.\n3. Preserve the original Markdown format. Do not change section tags or chapter structure.\n4. Keep numbered beats/scenes intact for modular writing.\n5. Use a simple hyphen '-' in chapter headings when rewriting headings for parser compatibility.\n6. Do not shorten or summarize scenes and beats. Keep the outline rich and detailed.\n7. Return only the corrected outline chunk received in the prompt, with no preamble and no chapters outside the chunk.\nReturn ONLY plain Markdown. Do not include notes, introductions, or markdown fences.",
+    "user_prompt": "=== CONTINUITY REPORT (continuity_report.json) ===\n{report_content}\n\n=== ORIGINAL OUTLINE CHUNK ===\n{chunk_content}\n\nRewrite and return ONLY this corrected chunk, preserving every chapter and section tag in the chunk."
   }
 }

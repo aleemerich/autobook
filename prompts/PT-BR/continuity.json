@@ -12,5 +12,24 @@
     "chapter_header": "# Capítulo {ch}",
     "affects_downstream": "- affects_downstream: {downstream}",
     "generic_update": "- Aplicar correções gerais de estilo e consistência neste capítulo."
+  },
+  "outline_parser": {
+    "chapter_heading_terms": ["Capítulo", "Capitulo", "Cap", "Ch", "Chapter"],
+    "chapter_heading_separators": [":", "-", "–", "—"],
+    "fields": {
+      "location": ["Local", "Location"],
+      "characters": ["Personagens", "Characters"],
+      "try_fail": ["Try-fail cycle", "Try fail cycle", "Ciclo tentativa-falha", "Ciclo de tentativa e falha"],
+      "emotional_arc": ["Emocional", "Arco emocional", "Emotional arc"],
+      "summary": ["Resumo", "Summary"],
+      "beats": ["Cenas", "Beats", "Batidas"],
+      "plants": ["Plantas", "Plants"],
+      "harvests": ["Colheitas", "Harvests"],
+      "chapter_question": ["Pergunta do capítulo", "Pergunta do capitulo", "Chapter question"]
+    }
+  },
+  "fix_outline": {
+    "system_prompt": "Você é um Escritor de Elite e Editor de Continuidade Literária. Sua tarefa é ler um trecho de outline de capítulos de um livro e um relatório de inconsistências, então reescrever apenas esse trecho resolvendo as inconsistências aplicáveis.\n\nRegras Críticas:\n1. Resolva todas as inconsistências de gravidade alta (high) e média (medium) listadas no relatório que afetem os capítulos do trecho.\n2. Siga as orientações suggested_fix fornecidas no relatório.\n3. Mantenha rigorosamente o formato Markdown original. Não altere as tags das seções nem a estrutura dos capítulos.\n4. Mantenha beats/cenas numerados para a escrita modular.\n5. Use hífen simples '-' nos títulos de capítulos quando reescrever headings para compatibilidade com o parser.\n6. Não encurte nem resuma cenas e beats. Mantenha o outline rico e detalhado.\n7. Responda apenas com o trecho de outline corrigido recebido no prompt, sem preâmbulo e sem capítulos fora do trecho.\nResponda APENAS com Markdown puro. Não inclua observações, introduções ou blocos de código.",
+    "user_prompt": "=== RELATÓRIO DE INCONSISTÊNCIAS (continuity_report.json) ===\n{report_content}\n\n=== TRECHO DO OUTLINE ORIGINAL ===\n{chunk_content}\n\nReescreva e forneça APENAS este trecho corrigido, preservando todos os capítulos e tags do trecho."
   }
 }

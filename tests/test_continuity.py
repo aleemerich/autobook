@@ -70,8 +70,9 @@ def temp_outline(tmp_path):
     outline_file.write_text(content, encoding="utf-8")
     return outline_file
 
-def test_parse_outline(temp_outline):
+def test_parse_outline(temp_outline, monkeypatch):
     """Ensures that verify_continuity correctly parses outline.md structures."""
+    monkeypatch.setenv("AUTOBOOK_LANGUAGE", "EN")
     entries = parse_outline(temp_outline)
     assert len(entries) == 2
     
@@ -96,21 +97,30 @@ def test_parse_outline(temp_outline):
     assert len(ch2["beats"]) == 3
 
 
-def test_parse_outline_accepts_portuguese_headings(tmp_path):
+def test_parse_outline_accepts_portuguese_headings(tmp_path, monkeypatch):
     """Ensures continuity parsing accepts PT-BR headings produced by foundation."""
+    monkeypatch.setenv("AUTOBOOK_LANGUAGE", "PT-BR")
     outline_file = tmp_path / "outline.md"
     outline_file.write_text(
         """# Outline Curto
 
-### Capítulo 1 - A Primeira Letra
+### Capítulo 1 — A Primeira Letra
 **Local:** Cartorio
 **Personagens:** Celina, Dona Lucia
+- **Emocional:** Medo -> decisão
+- **Ciclo tentativa-falha:** No, but
 
-**Resumo:** Celina percebe que perdeu a primeira letra do nome.
-
-**Beats:**
+**Cenas:**
 1. Celina abre o cartorio.
 2. Ela encontra o registro falsificado.
+
+**Plantas:**
+- A caneta de pena
+
+**Colheitas:**
+- A mentira no registro
+
+**Pergunta do capítulo:** Celina vai confessar?
 
 ### Capitulo 2: O Livro Vivo
 **Local:** Praca
@@ -132,8 +142,14 @@ def test_parse_outline_accepts_portuguese_headings(tmp_path):
     assert entries[0]["title"] == "A Primeira Letra"
     assert entries[0]["location"] == "Cartorio"
     assert entries[0]["characters"] == ["Celina", "Dona Lucia"]
-    assert "primeira letra" in entries[0]["summary"]
+    assert entries[0]["try_fail"] == "No, but"
+    assert entries[0]["emotional_arc"] == "Medo -> decisão"
+    assert "Celina abre o cartorio" in entries[0]["summary"]
+    assert "registro falsificado" in entries[0]["summary"]
     assert len(entries[0]["beats"]) == 2
+    assert entries[0]["plants"] == ["A caneta de pena"]
+    assert entries[0]["harvests"] == ["A mentira no registro"]
+    assert entries[0]["chapter_question"] == "Celina vai confessar?"
     assert entries[1]["title"] == "O Livro Vivo"
 
 @patch("verify_continuity.call_llm")
