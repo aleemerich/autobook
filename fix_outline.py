@@ -70,12 +70,107 @@ def filter_report_for_chapters(report_content: str, chapter_nums: set[int]) -> s
     return json.dumps(filtered, indent=2, ensure_ascii=False)
 
 
-def fix_outline_chunk(chunk_content: str, report_content: str, writer_model: str) -> str:
+def _env_flag(name: str, default: bool = True) -> bool:
+    raw_value = os.environ.get(name)
+    if raw_value is None:
+        return default
+    return raw_value.strip().lower() not in {"0", "false", "no", "n", "off"}
+
+
+def _truncate_for_prompt(text: str, max_chars: int) -> str:
+    if max_chars <= 0 or len(text) <= max_chars:
+        return text.strip()
+    return text[:max_chars].rstrip() + "\n[...]"
+
+
+def build_compact_outline_map(
+    chapter_blocks: list[tuple[int, str]],
+    max_chars_per_chapter: int = 900,
+) -> str:
+    """Build a compact global map that preserves original chapter headings."""
+    parts = []
+    for chapter_num, block in chapter_blocks:
+        parts.append(f"### {chapter_num}\n{_truncate_for_prompt(block, max_chars_per_chapter)}")
+    return "\n\n".join(parts).strip()
+
+
+def _flatten_chunks(chunks: list[list[tuple[int, str]]]) -> list[tuple[int, str]]:
+    return [chapter_block for chunk in chunks for chapter_block in chunk]
+
+
+def _neighbor_context(
+    chunks: list[list[tuple[int, str]]],
+    chunk_index: int,
+    overlap_chapters: int,
+) -> tuple[str, str]:
+    if overlap_chapters <= 0:
+        return "", ""
+
+    previous_blocks = chunks[chunk_index - 1][-overlap_chapters:] if chunk_index > 0 else []
+    next_blocks = chunks[chunk_index + 1][:overlap_chapters] if chunk_index + 1 < len(chunks) else []
+    previous_context = "".join(block for _num, block in previous_blocks).strip()
+    next_context = "".join(block for _num, block in next_blocks).strip()
+    return previous_context, next_context
+
+
+def create_global_outline_plan(
+    outline_content: str,
+    report_content: str,
+    writer_model: str,
+    chunk_size: int = 4,
+    max_chars_per_chapter: int = 900,
+) -> str:
+    """Create a compact cross-chapter repair plan before chunk-level rewrites."""
+    _preamble, chunks = split_outline_chunks(outline_content, chunk_size)
+    chapter_blocks = _flatten_chunks(chunks)
+    compact_outline_map = build_compact_outline_map(
+        chapter_blocks,
+        max_chars_per_chapter=max_chars_per_chapter,
+    )
+    return create_global_plan_from_map(compact_outline_map, report_content, writer_model)
+
+
+def create_global_plan_from_map(
+    compact_outline_map: str,
+    report_content: str,
+    writer_model: str,
+) -> str:
+    fix_config = load_continuity_config().get("fix_outline", {})
+    system_prompt = fix_config["global_plan_system_prompt"]
+    user_prompt = fix_config["global_plan_user_prompt"].format(
+        report_content=report_content,
+        compact_outline_map=compact_outline_map,
+    )
+
+    global_plan = call_llm(
+        prompt=user_prompt,
+        system_prompt=system_prompt,
+        temperature=0.2,
+        override_model=writer_model,
+    )
+    return _strip_markdown_fences(global_plan)
+
+
+def fix_outline_chunk(
+    chunk_content: str,
+    report_content: str,
+    writer_model: str,
+    global_plan: str = "",
+    previous_context: str = "",
+    next_context: str = "",
+) -> str:
     fix_config = load_continuity_config().get("fix_outline", {})
     system_prompt = fix_config["system_prompt"]
-    user_prompt = fix_config["user_prompt"].format(
+    prompt_template = fix_config["user_prompt"]
+    if global_plan:
+        prompt_template = fix_config.get("chunk_with_plan_user_prompt", prompt_template)
+
+    user_prompt = prompt_template.format(
         report_content=report_content,
         chunk_content=chunk_content,
+        global_plan=global_plan,
+        previous_context=previous_context,
+        next_context=next_context,
     )
 
     resolved_chunk = call_llm(
@@ -92,22 +187,51 @@ def fix_outline_content(
     report_content: str,
     writer_model: str,
     chunk_size: int = 4,
+    global_plan: str | None = None,
+    overlap_chapters: int = 1,
+    max_chars_per_chapter: int = 900,
 ) -> str:
     preamble, chunks = split_outline_chunks(outline_content, chunk_size)
     if not chunks:
         return outline_content
 
+    if global_plan is None and _env_flag("FIX_OUTLINE_GLOBAL_PLAN", default=True):
+        print("[INFO] Creating global outline repair plan...")
+        global_plan = create_global_outline_plan(
+            outline_content=outline_content,
+            report_content=report_content,
+            writer_model=writer_model,
+            chunk_size=chunk_size,
+            max_chars_per_chapter=max_chars_per_chapter,
+        )
+    elif global_plan is None:
+        global_plan = ""
+
     fixed_chunks = []
-    for idx, chunk in enumerate(chunks, start=1):
+    for chunk_idx, chunk in enumerate(chunks):
         chapter_nums = {num for num, _block in chunk if num > 0}
         chunk_content = "".join(block for _num, block in chunk)
         chunk_report = filter_report_for_chapters(report_content, chapter_nums)
+        previous_context, next_context = _neighbor_context(
+            chunks,
+            chunk_idx,
+            overlap_chapters,
+        )
         print(
-            f"[INFO] Fixing outline chunk {idx}/{len(chunks)} "
+            f"[INFO] Fixing outline chunk {chunk_idx + 1}/{len(chunks)} "
             f"(chapters {min(chapter_nums) if chapter_nums else '?'}-"
             f"{max(chapter_nums) if chapter_nums else '?'})..."
         )
-        fixed_chunks.append(fix_outline_chunk(chunk_content, chunk_report, writer_model))
+        fixed_chunks.append(
+            fix_outline_chunk(
+                chunk_content=chunk_content,
+                report_content=chunk_report,
+                writer_model=writer_model,
+                global_plan=global_plan,
+                previous_context=previous_context,
+                next_context=next_context,
+            )
+        )
 
     return (preamble + "\n\n".join(fixed_chunks)).strip() + "\n"
 
@@ -129,6 +253,8 @@ def main():
     print("[INFO] Calling LLM to resolve continuity inconsistencies in outline.md by chunks...")
     writer_model = os.environ.get("AUTOBOOK_WRITER_MODEL", "openrouter/owl-alpha")
     chunk_size = int(os.environ.get("FIX_OUTLINE_CHUNK_CHAPTERS", "4"))
+    overlap_chapters = int(os.environ.get("FIX_OUTLINE_CONTEXT_CHAPTERS", "1"))
+    max_chars_per_chapter = int(os.environ.get("FIX_OUTLINE_MAP_CHARS_PER_CHAPTER", "900"))
 
     try:
         resolved_outline = fix_outline_content(
@@ -136,6 +262,8 @@ def main():
             report_content=report_content,
             writer_model=writer_model,
             chunk_size=chunk_size,
+            overlap_chapters=overlap_chapters,
+            max_chars_per_chapter=max_chars_per_chapter,
         )
         outline_path.write_text(resolved_outline, encoding="utf-8")
         print("[SUCCESS] outline.md has been rewritten with continuity fixes!")
