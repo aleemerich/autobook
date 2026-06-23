@@ -278,6 +278,8 @@ def test_load_continuity_config_and_formatting():
         assert "Cenas" in config["outline_parser"]["fields"]["beats"]
         assert "fix_outline" in config
         assert "system_prompt" in config["fix_outline"]
+        assert "global_plan_system_prompt" in config["fix_outline"]
+        assert "chunk_with_plan_user_prompt" in config["fix_outline"]
         # divergence_rules may be empty (no story-specific rules in generic template)
         assert isinstance(config["divergence_rules"], dict)
 
@@ -295,6 +297,8 @@ def test_load_continuity_config_and_formatting():
         assert "Beats" in config["outline_parser"]["fields"]["beats"]
         assert "fix_outline" in config
         assert "system_prompt" in config["fix_outline"]
+        assert "global_plan_system_prompt" in config["fix_outline"]
+        assert "chunk_with_plan_user_prompt" in config["fix_outline"]
         # divergence_rules may be empty (no story-specific rules in generic template)
         assert isinstance(config["divergence_rules"], dict)
 
@@ -316,4 +320,3 @@ def test_load_editorial_config_retry_temperatures():
         assert get_retry_temperature(1) == 0.6
         assert get_retry_temperature(4) == 0.9
         assert "CRITICAL SLOP PROBLEMS" in config["feedback_labels"]["slop_critical_header"]
-
