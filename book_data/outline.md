@@ -1,5 +1,3 @@
-
-
 # *O Índice* — Esboço Completo de Capítulos
 
 ## Análise Estrutural Inicial
@@ -85,7 +83,7 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 **Cenas:**
 1. **Abertura:** Elisa no laboratório às 6h47 da manhã. Café requentado na caneca. O zumbido dos freezers criogênicos. Elisa revisa dados de Φ-S de pacientes do HC. O índice funciona — consistente, replicável, preciso. Mas há ruído. Três pacientes com Φ-S abaixo do limiar mostraram sinais de consciência. Elisa anota: "Ruído ou lacuna?"
 2. **O medidor:** Descrição do capacete de Φ-S — o "polvo", como Helena vai chamá-lo depois. Elisa faz a calibração matinal. O ritual é mecânico, preciso. Elisa se sente bem quando os números fazem sentido.
-3. **O paciente do HC:** Elisa e Marina levam o medidor ao Hospital de Clínicas. Paciente masculino, 54 anos, estado vegetativo há oito meses. Φ-S de 0,02. Durante a medição, o paciente move o dedo indicador quando a enfermeira chama seu nome. Marina anota. Elisa ignora. "É reflexo", diz Marina. "É reflexo", confirma Elisa. Nenhuma das duas está certa.
+3. **O paciente do HC:** Elisa e Marina levam o medidor ao Hospital de Clínicas. Paciente masculino, 54 anos, estado vegetativo há oito meses. Φ-S de 0,02. Durante a medição, a enfermeira chama o nome do paciente e ele move o dedo indicador — um movimento lento, deliberado, como se estivesse respondendo a uma chamada. Marina anota. Elisa observa o movimento e franze o cenho. "É reflexo", diz Marina. Elisa não responde de imediato. Ela viu o dedo se mover ao ouvir o nome — não foi um espasmo aleatório, foi uma resposta direta a um estímulo verbal. Mas o protocolo classifica qualquer movimento como reflexo. Elisa anota no caderno: "Movimento ao estímulo verbal. Reflexo?" e sublinha a palavra "reflexo" duas vezes, como se o questionamento fosse uma ordem que ela mesma se dá. Por baixo, quase ilegível, ela acrescenta: "Ele respondeu ao nome. Isso não é reflexo — é reconhecimento." Elisa não mostra essa anotação a ninguém.
 4. **O café esquecido:** De volta ao laboratório, Marina encontra três canecas de café frio nas superfícies do laboratório. Elisa não se lembra de ter enchido a terceira. Rafael chega com a garrafa de mate e comenta sobre o artigo de Whitfield — mais uma refutação pública de Φ-S. Elisa não reage. Está pensando no dedo do paciente.
 5. **O tema é declarado:** Rafael diz: "O número funciona, Elisa. Três pacientes anômalos em duzentos não invalidam o índice." Elisa responde: "Não é sobre invalidar. É sobre o que o número não captura." Rafael: "O número captura o que a gente pediu pra ele capturar." Elisa: "E se a gente pediu a coisa errada?"
 
@@ -108,7 +106,7 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 
 **Cenas:**
 1. **Marina chega à casa de Helena:** Descrição da casa — o sobrado estreito, a porta azul, a escada de ferro, o quintal com manjericão e a mangueira. Marina toca a campainha. Helena abre com um sorriso e um prato de pão de queijo. "Você deve ser a Marina. A Elisa falou de você. Entra, faz tempo que não vem alguém novo aqui."
-2. **A medição:** Marina instala o capacete de Φ-S na sala de Helena. Helena olha para o espelho e ri: "Parece que um polvo está tentando me abraçar." Marina ri também — e se sente culpada por rir, porque está tratando Helena como amiga quando deveria tratar como sujeito. A medição dura 45 minutos. Helena conversa durante o processo — sobre Clarice Lispector, sobre a mangueira, sobre a neta. Marina anota tudo.
+2. **A medição:** Marina instala o capacete de Φ-S na sala de Helena. Helena olha para o espelho e ri: "Parece que um polvo está tentando me abraçar." Marina ri também — e se sente culpada por rir, porque está tratando Helena como amiga quando deveria tratar como sujeito. A medição dura 45 minutos. Helena conversa durante o processo — sobre Clarice Lispector, sobre a mangueira, sobre a neta. Marina anota tudo. Helena não se move nem quando Marina fala diretamente com ela — nenhum reflexo, nenhum espasmo, nenhuma resposta involuntária a estímulos externos. Marina nota a ausência e pensa, com um aperto no peito: "No Hospital de Clínicas, o paciente dele moveu o dedo quando a enfermeira chamou o nome. Helena não se move nem quando eu falo diretamente com ela. Ela está aqui, conversando, lendo Clarice — mas o corpo não responde. Como se a consciência estivesse desconectada do reflexo. Como se ela fosse... diferente de todo mundo." Isso deveria ser reconfortante, mas não é. É perturbador.
 3. **O resultado:** Marina vê o número no console. Φ-S: 0,001. Marina pensa que o medidor está com defeito. Repete a calibração. Mesmo resultado. Marina fotografa a tela com o celular — contra o protocolo — e manda para Elisa com a mensagem: "Você precisa ver isso."
 4. **Helena pergunta:** "Tudo bem com o número?" Marina: "Tudo bem." Helena: "Por que você está com essa cara, então?" Marina não responde. Helena serve mais café.
 5. **De volta ao laboratório:** Marina mostra o resultado a Elisa. Elisa olha para o número por um longo tempo. Depois diz: "Repita amanhã." Marina: "Elisa, esse número é—" Elisa: "Eu sei o que esse número é. Repita amanhã."
@@ -124,16 +122,16 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 ### Capítulo 3 — "Replicável"
 
 **POV:** Elisa
-**Local:** Laboratório da Unicamp; Hospital de Clínicas
+**Local:** Laboratório da Unicamp, subsolo do prédio C; Hospital de Clínicas
 **Save the Cat beat:** *Setup* + *Theme Stated*
 **% mark:** 8–11%
 **Emocional:** Ceticismo → perturbação → medo
 **Try-fail cycle:** *No, and* — Elisa repete a medição de Helena três vezes em três dias. O resultado é sempre 0,001. O fenômeno é replicável. Isso é pior do que se fosse um erro.
 
 **Cenas:**
-1. **Três medições:** Montagem das três medições. Dia 1: Elisa pessoalmente supervisiona. 0,001. Dia 2: Elisa muda o protocolo — pede que Helena fique em silêncio. 0,001. Dia 3: Elisa pede que Helena resolva problemas matemáticos durante a medição. 0,001. O número não muda. Helena não muda. Helena é sempre Helena — gentil, lúcida, presente.
+1. **Três medições:** Três dias depois da primeira medição de Helena — aquela feita por Marina na sala com manjericão e mangueira —, Elisa assume o protocolo. A primeira medição já estava feita: Marina havia registrado 0,001 dias antes, e agora era a vez de Elisa repetir, repetir, repetir. Montagem das três repetições. Dia 1 — a segunda medição: Elisa pessoalmente supervisiona. 0,001. Igual ao de Marina. Elisa anota no caderno: "Replicação confirmada. Resultado consistente com o obtido por Marina." Dia 2 — a terceira medição: Elisa muda o protocolo — pede que Helena fique em silêncio. 0,001. Igual ao de Marina. Igual ao do dia anterior. Elisa circula o número três vezes. Dia 3 — a quarta medição: Elisa pede que Helena resolva problemas matemáticos durante a medição. 0,001. O número não muda. Helena não muda. Helena é sempre Helena — gentil, lúcida, presente. Elisa fecha o caderno e sussurra para si mesma: "Quatro medições. Quatro vezes o mesmo número. Isso não é ruído. Isso é replicável."
 2. **A discussão com Rafael:** Rafael está eufórico. "Isso é o trabalho de uma vida, Elisa. Isso prova que a consciência não é o que a gente pensa." Elisa: "Isso prova que o medidor tem um ponto cego." Rafael: "Ou que a termodinâmica tem um ponto cego. De qualquer forma, é uma descoberta." Elisa: "Não publica nada ainda." Rafael: "Elisa—" Elisa: "Ainda não."
-3. **O tema é declarado:** Helena, durante a terceira medição, diz a Elisa: "Sabe, eu li uma vez que os números não dizem nada sobre o que importa. Era um poema. Ou um conto. Não lembro. Mas a frase ficou." Elisa não responde. Mais tarde, sozinha no laboratório, Elisa escreve no caderno: "Os números não dizem nada sobre o que importa. E se ela estiver certa?"
+3. **O tema é declarado:** Helena, durante a quarta medição, diz a Elisa: "Sabe, eu li uma vez que os números não dizem nada sobre o que importa. Era um poema. Ou um conto. Não lembro. Mas a frase ficou." Elisa não responde. Mais tarde, sozinha no laboratório, Elisa escreve no caderno: "Os números não dizem nada sobre o que importa. E se ela estiver certa?"
 4. **O fantasma de Elisa:** Sozinha, Elisa abre a pasta de papelão no fundo do armário. A tese rejeitada de 2003. Elisa lê a primeira página. Fecha a pasta. Guarda de volta. Não tira o lápis do cabelo.
 5. **A decisão:** Elisa liga para a fundação. Não para Klaus — para o departamento de pesquisa. Informa que encontrou um caso anômalo que requer investigação adicional. Não menciona Helena pelo nome. Usa o código do protocolo: "Sujeito C-034."
 
@@ -148,7 +146,7 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 ### Capítulo 4 — "A Fundação"
 
 **POV:** Elisa
-**Local:** Escritório da FHEC, Itaim Bibi, São Paulo; laboratório da Unicamp
+**Local:** Escritório da FHEC, Itaim Bibi, São Paulo; laboratório da Unicamp, subsolo do prédio C
 **Save the Cat beat:** *Catalyst* (a fundação toma conhecimento e a pressão externa começa)
 **% mark:** 11–14%
 **Emocional:** Apreensão → tensão → resolução fria
@@ -181,11 +179,11 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 **Cenas:**
 1. **O café de domingo:** Helena em sua varanda, como sempre. Mas desta vez, algo é diferente. Helena olha para a mangueira e pensa: "Eu sempre fui assim. Sempre existi desse jeito. Sem calor, sem urgência, sem o cansaço que os outros descrevem." Helena nunca pensou nisso antes. Ou pensou, mas nunca nomeou.
 2. **O bosque:** Helena caminha no bosque dos Jequitibás. Toca os jequitibás — "o velho", "a noiva", "o gordo". Senta num banco. Observa as pessoas: uma mãe com um filho, um casal de idosos, um homem correndo. Todos parecem carregados. Helena se pergunta: "Eu sou diferente?" Não como mística. Como quem nota que fala um idioma que ninguém mais fala.
-3. **A gaveta:** Em casa, Helena abre a gaveta onde guarda coisas que não sabe por que guarda. O recorte de jornal sobre o Dr. Tanaka. 2011. "Pesquisador japonês que detectou anomalia em paciente vegetativo se suicida." Helena lê o recorte pela primeira vez em treze anos. Não entende por que guardou. Guarda de volta.
+3. **A gaveta:** Em casa, Helena abre a gaveta onde guarda coisas que não sabe por que guarda. Encontra um recorte de jornal amarelado, de 2011, com uma manchete sobre um pesquisador japonês chamado Dr. Tanaka que detectou uma anomalia em um paciente vegetativo e depois se suicidou. Helena lê com atenção — vê a manchete, lê os parágrafos, identifica os termos técnicos: Φ-S, "dissipação informacional nula", "entropia de Shannon". Helena entende que é sobre um paciente em estado vegetativo, mas o significado científico lhe escapa. As palavras são familiares individualmente, mas o conjunto não forma sentido. Helena guarda o recorte por intuição — algo naquilo importa, mas ela não sabe dizer o quê. A pergunta fica suspensa: por que guardaria aquilo?
 4. **A videochamada com Beatriz:** Quinta-feira. Beatriz aparece na tela, no laboratório em Porto Alegre, cercada de tubos de ensaio e microscópios. Falam sobre o mestrado, sobre as plantas, sobre nada. Beatriz: "Vó, a senhora tá bem?" Helena: "Tá, minha filha." Beatriz: "A senhora tá diferente." Helena: "Diferente como?" Beatriz: "Sei lá. Mais quieta." Helena sorri. "Eu sempre sou quieta, Beatriz." Depois da chamada, Helena fica olhando para a tela desligada por muito tempo.
-5. **A pergunta:** Helena senta na varanda com o café da tarde. Pensa: "O que aquela máquina mede? O que o número significa?" Decide perguntar a Marina na próxima visita. A última frase: *"Helena não sabia que a resposta para sua pergunta destruiria tudo que uma mulher de doze quilômetros dali havia construído."*
+5. **A pergunta:** Helena senta na varanda com o café da tarde. Pensa no recorte de Tanaka. Pensa nas palavras que não entendeu. Pensa: "O que aquela máquina mede? O que o número significa?" Decide perguntar a Marina na próxima visita. A última frase: *"Helena não sabia que a resposta para sua pergunta destruiria tudo que uma mulher de doze quilômetros dali havia construído."*
 
-**Plantas:** O recorte de Tanaka (paga no capítulo 16, quando Helena confronta Elisa com o recorte); a pergunta sobre o que a máquina mede (paga no capítulo 10, quando Helena pergunta diretamente); "eu sempre fui assim" (paga no capítulo 21, quando Helena entende o que é).
+**Plantas:** O recorte de Tanaka (paga no capítulo 16, quando Helena relê o recorte que guarda desde 2011 com um novo olhar — não por ignorância científica, mas porque o contexto mudou; ela finalmente consegue conectar a história de Tanaka à sua própria situação — "Da primeira vez, aquilo tinham sido palavras vazias. Agora, cada linha era um espelho."); a pergunta sobre o que a máquina mede (paga no capítulo 8, quando Helena pergunta diretamente a Elisa, e no capítulo 10, quando a pergunta se aprofunda); "eu sempre fui assim" (paga no capítulo 21, quando Helena entende o que é).
 
 **Personagem — Helena:** Helena não tem arco convencional — ela é o espelho. Mas Helena tem um deslocamento: de inconsciência sobre si mesma para consciência. O capítulo planta essa jornada.
 
@@ -196,16 +194,16 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 ### Capítulo 6 — "O Demônio de Maxwell"
 
 **POV:** Elisa
-**Local:** Laboratório da Unicamp; biblioteca da Unicamp
+**Local:** Laboratório da Unicamp (subsolo do prédio C); biblioteca da Unicamp (terceiro andar)
 **Save the Cat beat:** *Debate* (Elisa resiste à implicação de Helena, busca explicações alternativas)
 **% mark:** 17–20%
 **Emocional:** Negação → investigação → relutância
 **Try-fail cycle:** *No, and* — Elisa tenta encontrar uma explicação convencional para Helena (erro de medição, artefato, condição neurológica não detectada) e falha em todas.
 
 **Cenas:**
-1. **A busca por explicações:** Elisa enche a lousa de equações. Se Φ é normal e S é próximo de zero, então ou Φ não é real (artefato do EEG) ou S não é real (falha do sensor térmico). Elisa testa ambas as hipóteses. O EEG mostra atividade neural normal — Φ é real. O sensor térmico está calibrado — S é real. Elisa está diante de algo que a física diz ser impossível.
-2. **A biblioteca:** Elisa vai à biblioteca da Unicamp. Pesquisa "demônio de Maxwell biológico", "dissipação informacional nula", "processamento de informação sem entropia". Encontra o artigo de Zurek de 1978. Encontra o artigo de Penrose de 1953. Não encontra nada sobre biologia. Ninguém conectou isso à biologia. Até agora.
-3. **Rafael nomeia:** Rafael entra no laboratório e vê a lousa de Elisa. "Você sabe o que ela é, não sabe?" Elisa não responde. Rafael: "Ela é um demônio de Maxwell biológico. Processa informação sem gerar entropia na proporção esperada. É impossível. E é real." Elisa: "Não chama assim." Rafael: "Por quê?" Elisa: "Porque dar um nome não é explicar."
+1. **A busca por explicações:** Elisa enche a lousa de equações no laboratório do subsolo do prédio C. A sala é fria, sem janelas, iluminada por luzes fluorescentes que zumbem baixo. Se Φ é normal e S é próximo de zero, então ou Φ não é real (artefato do EEG) ou S não é real (falha do sensor térmico). Elisa testa ambas as hipóteses. O EEG mostra atividade neural normal — Φ é real. O sensor térmico está calibrado — S é real. Elisa está diante de algo que a física diz ser impossível.
+2. **A biblioteca:** Elisa vai à biblioteca da Unicamp, no terceiro andar. Pesquisa "demônio de Maxwell biológico", "dissipação informacional nula", "processamento de informação sem entropia". Encontra o artigo de Zurek de 1978. Encontra o artigo de Penrose de 1953. Não encontra nada sobre biologia. Ninguém conectou isso à biologia. Até agora.
+3. **Rafael nomeia:** Rafael desce as escadas e entra no laboratório do subsolo. Vê a lousa de Elisa. "Você sabe o que ela é, não sabe?" Elisa não responde. Rafael: "Ela é um demônio de Maxwell biológico. Processa informação sem gerar entropia na proporção esperada. É impossível. E é real." Elisa: "Não chama assim." Rafael: "Por quê?" Elisa: "Porque dar um nome não é explicar."
 4. **A ligação de Klaus:** O telefone toca. Klaus. "Dra. Monteiro, preciso de um relatório completo sobre o sujeito C-034. Incluindo todas as medições, todas as condições, todas as variáveis. Preciso em quarenta e oito horas." Elisa: "O estudo ainda está em andamento." Klaus: "O estudo está em andamento há três semanas. A fundação precisa de clareza. Isso não é pessoal. É responsabilidade." Elisa desliga. Olha para a lousa. Apaga tudo.
 5. **A cena final:** Elisa no estacionamento da Unicamp, de noite, sentada dentro do carro sem ligar o motor. Pensa na tese rejeitada de 2003. Pensa em Helena. Pensa: "E se eu estiver certa? E se a consciência for termodinâmica, e Helena for a exceção que prova a regra? Ou e se eu estiver errada, e Helena for a regra que eu não consigo ver?"
 
@@ -220,22 +218,22 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 ### Capítulo 7 — "O Que Marina Leu"
 
 **POV:** Marina
-**Local:** Laboratório da Unicamp; apartamento de Marina, Barão Geraldo
-**Save the Cat beat:** *Debate* (Marina descobre os cadernos de Tanaka e enfrenta o dilema de contar ou não a Elisa)
+**Local:** Laboratório da Unicamp (subsolo do prédio C); apartamento de Marina, Barão Geraldo
+**Save the Cat beat:** *Debate* (Marina descobre uma referência aos cadernos de Tanaka e enfrenta o dilema de contar ou não a Elisa)
 **% mark:** 20–23%
 **Emocional:** Curiosidade → choque → conflito moral
-**Try-fail cycle:** *Yes, and* — Marina encontra os cadernos de Tanaka (sim, encontra), e os dados confirmam que o fenômeno de Helena não é novo (e isso é pior do que se fosse).
+**Try-fail cycle:** *Yes, and* — Marina encontra uma referência aos cadernos de Tanaka nos arquivos de Osaka (sim, encontra), e a referência sugere que o fenômeno de Helena não é novo — mas Marina deliberadamente não tenta acessar o conteúdo completo porque sabe que seria rastreável e porque ainda não tem certeza do que fazer com a informação (e isso é o dilema).
 
 **Cenas:**
-1. **Os arquivos de Osaka:** Marina está digitalizando dados antigos do laboratório quando encontra uma referência nos arquivos adquiridos da universidade de Osaka. Um conjunto de cadernos digitalizados — Dr. Tanaka, 2009-2011. Marina começa a ler. Os cadernos descrevem um paciente chamado Hiroshi, 43 anos, estado vegetativo após AVC. Tanaka mediu Φ e S separadamente. Φ em faixa humana normal. S próximo de zero. Tanaka chamou de "dissipação informacional nula".
-2. **A última entrada:** Marina lê a última entrada de Tanaka: *"Se Φ/S pode ser zero com Φ não-zero, então a consciência não é termodinâmica. Ou a termodinâmica é incompleta. De qualquer forma, eu estava certo. E estar certo não foi suficiente."* Marina fecha o notebook. Abre de novo. Lê de novo.
-3. **O dilema:** Marina sabe que deveria contar a Elisa. Marina sabe que Elisa precisa saber. Marina também sabe que, se Elisa souber que Tanaka encontrou o mesmo fenômeno — e foi destruído por isso — Elisa vai fazer uma de duas coisas: desistir ou ir mais longe. Marina não sabe qual é pior.
-4. **A decisão:** Marina não conta. Ainda. Salva os cadernos em uma pasta no computador. Senha: "Hiroshi". Deita na cama. Não dorme.
-5. **A cena final:** Marina pensa em Helena. Na varanda, tomando café, olhando para a mangueira. Marina pensa: "Ela não sabe. Ela não sabe o que é. E eu sei. E não conto." A culpa é uma pedra no estômago.
+1. **Os arquivos de Osaka:** Marina está digitalizando dados antigos no laboratório do subsolo do prédio C quando encontra uma referência nos arquivos adquiridos da universidade de Osaka. Um conjunto de cadernos digitalizados — Dr. Tanaka, 2009-2011. Marina clica no link. Uma pasta restrita aparece. Marina vê o nome "Hiroshi" associado ao caso — identifica que é uma senha ou uma pista. Anota a referência. Marina olha para a pasta bloqueada e pensa em tentar acessar. Mas sabe que o sistema da Unicamp registra tentativas. Sabe que qualquer acesso ficaria rastreável. Sabe que, se Elisa souber que Marina tentou acessar algo sem autorização, as consequências podem ser sérias. Marina fecha a janela. Anota o nome "Hiroshi" e salva a referência. Não tenta acessar. Não ainda.
+2. **A decisão de não acessar:** Marina passa o dia pensando na pasta restrita. Sabe que o conteúdo pode mudar tudo — pode confirmar que o fenômeno de Helena não é novo, pode revelar o que Tanaka descobriu antes de se suicidar. Mas Marina também sabe que acessar agora seria precipitado. Não pede a Elisa. Não ainda. Primeiro, Marina precisa entender o que tem nas mãos. Uma referência não é prova. É uma pista. E Marina quer ter algo concreto antes de dividir com alguém.
+3. **O dilema:** Marina sabe que deveria contar a Elisa. Marina sabe que Elisa precisa saber que os cadernos existem. Mas Marina também sabe que, se Elisa souber que Tanaka encontrou o mesmo fenômeno — e foi destruído por isso — Elisa vai fazer uma de duas coisas: desistir ou ir mais longe. Marina não sabe qual é pior. E Marina quer ter algo concreto antes de contar. Uma referência não é prova. É apenas uma pista.
+4. **A decisão:** Marina não conta. Ainda. Salva a referência em uma pasta no computador. Senha: "Hiroshi". Deita na cama. Não dorme.
+5. **A cena final:** Marina pensa em Helena. Na varanda, tomando café, olhando para a mangueira. Marina pensa: "Ela não sabe. Ela não sabe o que é. E eu sei que existe alguém — Tanaka — que viu isso antes. E eu não conto." A culpa é uma pedra no estômago.
 
-**Plantas:** Os cadernos de Tanaka (paga no capítulo 9, quando Marina finalmente conta a Elisa); Hiroshi (paga no capítulo 14, quando Marina descobre o que aconteceu com ele); a senha "Hiroshi" (paga no capítulo 17, quando Elisa descobre a pasta).
+**Plantas:** A referência aos cadernos de Tanaka (paga no capítulo 9, quando Marina finalmente acessa o conteúdo completo e revela a Elisa — a confissão funciona porque Marina revela o conteúdo, não a existência); Hiroshi (paga no capítulo 14, quando Marina descobre o que aconteceu com ele); a senha "Hiroshi" (paga no capítulo 17, quando Elisa descobre a pasta).
 
-**Personagem — Marina:** A mentira é desafiada. Marina acredita que pode proteger todos sendo cuidadosa. Mas esconder os cadernos de Tanaka é proteger Elisa ou controlar Elisa?
+**Personagem — Marina:** A mente é desafiada. Marina acredita que pode proteger todos sendo cuidadosa. Mas esconder os cadernos de Tanaka é proteger Elisa ou controlar Elisa?
 
 **Contagem:** ~3.000 palavras
 
@@ -244,7 +242,7 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 ### Capítulo 8 — "A Ruptura"
 
 **POV:** Elisa
-**Local:** Laboratório da Unicamp; casa de Helena
+**Local:** Laboratório da Unicamp (subsolo do prédio C); casa de Helena
 **Save the Cat beat:** *Break Into Two* (Elisa decide investigar Helena a fundo — não como anomalia, mas como pessoa. A escolha ativa que entra no novo mundo)
 **% mark:** 23–26%
 **Emocional:** Determinação → desconexão → faísca de humanidade
@@ -263,20 +261,18 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 
 **Contagem:** ~3.400 palavras
 
----
-
 ### Capítulo 9 — "Tanaka"
 
 **POV:** Marina
-**Local:** Laboratório da Unicamp; cafeteria da Unicamp
+**Local:** Laboratório da Unicamp (subsolo do prédio C); cafeteria da Unicamp
 **Save the Cat beat:** *B Story* (o fio de Tanaka se cruza com o fio principal; Marina conta a Elisa sobre os cadernos)
 **% mark:** 26–30%
 **Emocional:** Culpa → alívio → medo
 **Try-fail cycle:** *Yes, but* — Marina conta a Elisa sobre os cadernos (sim, conta), e Elisa reage de uma forma que Marina não esperava (mas que faz sentido).
 
 **Cenas:**
-1. **A confissão:** Marina entra no laboratório de Elisa às 23h. Elisa está sozinha, como sempre. Marina: "Eu preciso te contar uma coisa." Mostra os cadernos de Tanaka no laptop. Elisa lê em silêncio. Marina observa o rosto de Elisa — e não vê surpresa. Vê reconhecimento.
-2. **A revelação:** Marina: "Você já sabia." Não é uma pergunta. Elisa: "Eu li os cadernos antes de você. Quando a Unicamp adquiriu os arquivos. Eu li, e não contei." Marina: "Por quê?" Elisa: "Porque se eu contasse, você ia querer saber o que aconteceu com Hiroshi. E se você soubesse o que aconteceu com Hiroshi, você ia ter medo. E se você tivesse medo, você ia parar. E eu não podia parar."
+1. **A confissão:** Marina entra no laboratório de Elisa às 23h. O laboratório fica no subsolo do prédio C de neurociência, uma sala ampla sem janelas, iluminada apenas por lâmpadas frias e pelo brilho dos monitores. Elisa está sozinha, como sempre. Marina: "Eu preciso te contar uma coisa." Mostra a tela do laptop — a referência aos cadernos de Tanaka que Marina encontrou nos arquivos de Osaka, a anotação sobre Hiroshi, a pasta restrita que finalmente conseguira acessar naquela tarde usando a senha "Hiroshi". Elisa lê em silêncio. Marina observa o rosto de Elisa — e não vê surpresa. Vê reconhecimento parcial.
+2. **A revelação:** Marina: "Você já sabia que os cadernos existiam." Não é uma pergunta. Elisa: "Eu vi a referência quando a Unicamp adquiriu os arquivos. Uma linha numa planilha. 'Tanaka, K. — Osaka, 2009 — paciente H.' Eu anotei a senha. Mas a pasta estava restrita — eu nunca consegui acessar o conteúdo completo." Marina: "E você não me contou?" Elisa: "Eu queria ter algo concreto antes de te mostrar. Uma referência não é uma descoberta." Marina: "Pois agora é." Marina abre os arquivos completos — as entradas de Tanaka, dia a dia, descrevendo Hiroshi. Os resultados. A tentativa de publicação. O silenciamento. Elisa lê pela primeira vez. Seus olhos se arregalam em determinadas passagens — a descrição do estado de Hiroshi, os valores de Φ-S, a nota de Tanaka dizendo "ele está em algum lugar que não conseguimos alcançar". Elisa sussurra: "Eu não sabia de nada disso. Eu só sabia que existiam." Marina: "Agora a gente sabe o que aconteceu."
 3. **O que aconteceu com Hiroshi:** Marina pesquisa. Hiroshi sobreviveu. Quando Tanaka perdeu o financiamento, o estudo foi encerrado. Hiroshi foi transferido para um hospital comunitário em Osaka. Os registros param em 2012. Marina: "Ele pode estar vivo." Elisa: "Ele pode estar em qualquer hospital, em qualquer cidade, sendo tratado como inconsciente porque o número dele diz que ele é inconsciente." Marina: "Meu Deus."
 4. **A discussão:** Marina: "A gente precisa contar pra Helena." Elisa: "Não." Marina: "Ela tem o direito de saber." Elisa: "Ela tem o direito de não ser transformada em espécime." Marina: "Ela já é um espécime. A diferença é que ela não sabe." A discussão escala. Rafael ouve da sala ao lado. Não interfere.
 5. **A cena final:** Marina sai do laboratório. Senta na cafeteria da Unicamp, que está fechada, no banco de fora. Chove. Marina não se molha — está sob o toldo — mas a chuva está lá, a dois metros, como uma coisa que poderia acontecer mas não acontece. Marina pensa em Helena. Em Tanaka. Em Hiroshi. Em todos os que foram medidos e classificados e arquivados.
@@ -292,7 +288,7 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 ### Capítulo 10 — "O Polvo"
 
 **POV:** Elisa
-**Local:** Casa de Helena; laboratório da Unicamp
+**Local:** Casa de Helena; laboratório da Unicamp (subsolo do prédio C)
 **Save the Cat beat:** *Fun and Games* (a promessa da premissa — a ciência em ação, o mistério se aprofundando, o humor e a humanidade do processo)
 **% mark:** 30–34%
 **Emocional:** Frustração → humor → perturbação
@@ -300,9 +296,9 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 
 **Cenas:**
 1. **A recusa:** Elisa chega à casa de Helena com o medidor. Helena olha para o capacete e diz: "Não hoje." Elisa: "Precisamos repetir a medição sob condições controladas." Helena: "Eu sei. Mas hoje eu não quero. Hoje eu quero tomar café e ler meu livro. Você fica?" Elisa não sabe o que fazer com um sujeito que diz não.
-2. **O impasse:** Elisa tenta persuadir. Helena não é rude — é firme. "Doutora, eu não entendo o que essa máquina faz. Eu não entendo o que o número significa. Mas eu entendo que, quando você coloca aquilo na minha cabeça, você fica com uma cara de quem está com medo. E eu não quero ser a razão do medo de ninguém. Principalmente o medo de alguém que toma café comigo." Elisa fica em silêncio. Helena serve café.
+2. **O impasse:** Elisa tenta persuadir. Helena não é rude — é firme. "Doutora, eu não sou um número. Eu não sou um sujeito de estudo. Hoje eu sou uma pessoa que toma café e lê um livro. Se você quer me conhecer, me conheça assim — ou não me conheça." Elisa fica em silêncio. Helena serve café. Elisa percebe que não se trata de medo — é autonomia. Helena está dizendo quem é, e a resposta não cabe em um protocolo.
 3. **A conversa:** Sem o medidor, sem o protocolo, Elisa e Helena conversam. Helena pergunta sobre o trabalho de Elisa. Elisa explica — de forma simplificada, sem jargão — o que é Φ-S. Helena ouve. Depois diz: "Então você mede quanto uma pessoa gasta de energia pra pensar." Elisa: "Mais ou menos." Helena: "E eu gasto pouco." Elisa: "Você gasta quase nada." Helena: "Isso é bom ou ruim?" Elisa: "É diferente." Helena: "Diferente não é ruim." Elisa: "Não. Não é."
-4. **Rafael explode:** De volta ao laboratório, Elisa conta a Rafael sobre a recusa de Helena. Rafael: "Ela não pode simplesmente recusar. É um estudo aprovado pelo comitê de ética." Elisa: "Ela pode sim. O consentimento é revogável." Rafael: "Então a gente recontrata. Explica a importância. Oferece compensação." Elisa: "Ela não quer dinheiro, Rafael." Rafael: "Todo mundo quer algo." Elisa olha para Rafael por um longo tempo. "É por isso que eu não posso deixar você perto dela."
+4. **Rafael explode:** De volta ao laboratório do subsolo do prédio C, Elisa conta a Rafael sobre a recusa de Helena. Rafael: "Ela não pode simplesmente recusar. É um estudo aprovado pelo comitê de ética." Elisa: "Ela pode sim. O consentimento é revogável." Rafael: "Então a gente recontrata. Explica a importância. Oferece compensação." Elisa: "Ela não quer dinheiro, Rafael." Rafael: "Todo mundo quer algo." Elisa olha para Rafael por um longo tempo. "É por isso que eu não posso deixar você perto dela."
 5. **A cena final:** Elisa em casa — um apartamento pequeno no Barão Geraldo, cheio de livros e papéis, sem decoração. Elisa abre o laptop. Escreve um e-mail para Klaus: "O sujeito C-034 revogou temporariamente o consentimento. A investigação está suspensa até segunda ordem." Apaga. Reescreve: "O sujeito C-034 requer abordagem diferenciada. Solicito prazo adicional." Envia. Odeia si mesma.
 
 **Plantas:** A recusa de Helena (paga no capítulo 16, quando Helena revoga o consentimento de vez); "diferente não é ruim" (paga no capítulo 22, quando Elisa repete essa frase); o e-mail para Klaus (paga no capítulo 13, quando Klaus responde com um ultimato).
@@ -316,7 +312,7 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 ### Capítulo 11 — "Whitfield"
 
 **POV:** Elisa
-**Local:** Auditório da Unicamp; laboratório
+**Local:** Auditório da Unicamp; laboratório (subsolo do prédio C)
 **Save the Cat beat:** *Fun and Games* (o debate público sobre Φ-S; a oposição intelectual se materializa)
 **% mark:** 34–38%
 **Emocional:** Defensividade → confronto → dúvida
@@ -327,7 +323,7 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 2. **A resposta de Elisa:** Elisa responde com dados. Os números são consistentes. O índice é replicável. A correlação entre Φ-S e estado de consciência é estatisticamente significativa. A plateia ouve, mas não se convence. Elisa sabe que não se convenceu. Dados não convencem — narrativas convencem. E a narrativa de Whitfield é melhor: "Vocês estão usando um número para decidir quem vive."
 3. **A pergunta:** No final do debate, Whitfield faz uma pergunta que não é retórica: "Dra. Monteiro, existe algum caso — um único caso — em que Φ-S classificou como não-consciente um paciente que depois demonstrou consciência?" Elisa hesita. A plateia espera. Elisa: "Existem casos na zona cinzenta. Entre 0,03 e 0,07. A margem de erro—" Whitfield: "Não estou perguntando sobre a margem de erro. Estou perguntando se o índice já errou." Elisa: "Todo índice erra." Whitfield: "Então por que estamos usando este para decidir quem morre?"
 4. **O corredor:** Depois do debate, Whitfield encontra Elisa no corredor. Não é hostil — é quase gentil. "Eu não faço isso por rivalidade. Eu faço porque acredito que você está errada. E se eu estou certo, pessoas vão morrer." Elisa: "E se eu estou certa, e você está impedindo uma ferramenta que salva vidas?" Whitfield: "Então eu carrego esse peso. Prefiro carregar o peso de ter impedido algo bom do que o peso de ter permitido algo mau." Elisa não tem resposta.
-5. **A cena final:** Elisa no laboratório, de noite. Liga para Marina: "Preciso de todos os dados de Helena. Todos. Incluindo os que a gente não publicou." Marina: "Por quê?" Elisa: "Porque eu preciso saber se o índice errou com ela. Ou se ela é a prova de que o índice não mede o que eu penso que mede."
+5. **A cena final:** Elisa no laboratório do subsolo do prédio C, de noite. Liga para Marina: "Preciso de todos os dados de Helena. Todos. Incluindo os que a gente não publicou." Marina: "Por quê?" Elisa: "Porque eu preciso saber se o índice errou com ela. Ou se ela é a prova de que o índice não mede o que eu penso que mede."
 
 **Plantas:** A pergunta "o índice já errou?" (paga no capítulo 14, quando o caso de Liège é revelado); a gentileza de Whitfield (paga no capítulo 21, quando Whitfield muda de posição); "prefiro carregar o peso" (paga no capítulo 23, quando Elisa faz a mesma escolha).
 
@@ -340,26 +336,24 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 ### Capítulo 12 — "O Nome"
 
 **POV:** Rafael
-**Local:** Laboratório da Unicamp; bar próximo à Unicamp
+**Local:** Laboratório da Unicamp (subsolo do prédio C); bar próximo à Unicamp
 **Save the Cat beat:** *Fun and Games* (o entusiasmo da descoberta; o contraponto humano e imperfeito de Rafael)
 **% mark:** 38–42%
 **Emocional:** Euforia → ambição → imprudência
 **Try-fail cycle:** *Yes, and* — Rafael consegue mapear o fenômeno de Helena com precisão (sim, consegue), e decide que é hora de publicar (e coloca tudo em risco).
 
 **Cenas:**
-1. **O mapeamento:** Rafael passa três dias analisando os dados de Helena. Cria um modelo computacional que separa Φ e S em tempo real. O modelo mostra o que Elisa já sabia, mas com clareza visual: Φ de Helena oscila entre 0,5 e 0,8 (faixa humana normal). S permanece próximo de zero. O gráfico é bonito — Rafael pensa nisso com admiração genuína. É a coisa mais elegante que ele já viu.
+1. **O mapeamento:** Rafael passa três dias analisando os dados de Helena no laboratório do subsolo do prédio C. Cria um modelo computacional que separa Φ e S em tempo real. O modelo mostra o que Elisa já sabia, mas com clareza visual: Φ de Helena oscila entre 0,5 e 0,8 (faixa humana normal). S permanece próximo de zero. O gráfico é bonito — Rafael pensa nisso com admiração genuína. É a coisa mais elegante que ele já viu.
 2. **O bar:** Rafael encontra um colega de neurociência em um bar próximo à Unicamp. Bebe demais. Fala demais. Não menciona Helena pelo nome, mas descreve o fenômeno: "E se existisse uma pessoa que processa informação sem gerar entropia? E se a consciência pudesse existir sem o custo termodinâmico?" O colega: "Isso seria impossível." Rafael: "Eu sei. E é real."
-3. **O e-mail:** No dia seguinte, de ressaca, Rafael escreve um e-mail para uma repórter de ciência da Folha. "Tenho uma história que vai mudar tudo. Uma anomalia que desafia as leis da termodinâmica. Posso confiar em você?" A repórter responde em duas horas: "Pode. Me conta." Rafael não responde de volta. Ainda. O e-mail fica na caixa de saída.
+3. **O e-mail:** No dia seguinte, de ressaca, Rafael escreve um e-mail para uma repórter de ciência da Folha. "Tenho uma história que vai mudar tudo. Uma anomalia que desafia as leis da termodinâmica. Posso confiar em você?" A repórter responde em duas horas: "Pode. Me conta." Rafael não responde de volta. Ainda. O e-mail fica na caixa de saída — salvo como rascunho, não enviado.
 4. **A discussão com Elisa:** Elisa descobre que Rafael apresentou os dados de Helena — sem nome, mas identificável — em um seminário interno. "Quem estava na sala?" Rafael: "Unas quinze pessoas." Elisa: "Quinze pessoas que agora sabem que existe um sujeito com Φ-S de 0,001 e consciência plena." Rafael: "Elisa, a ciência precisa saber." Elisa: "A ciência não precisa de nada. A ciência é um método. Quem precisa é você. Você precisa ser visto."
-5. **A cena final:** Rafael sozinho no laboratório. Olha para o e-mail na caixa de saída. O cursor pisca. Rafael pensa em 2014 — o artigo rejeitado, o padrão que ninguém acreditou. Pensa: "Desta vez é diferente. Desta vez eu tenho prova." Não apaga o e-mail. Não o envia. Ainda.
+5. **A cena final:** Rafael sozinho no laboratório do subsolo do prédio C. Olha para o e-mail na caixa de saída. O cursor pisca. Rafael pensa em 2014 — o artigo rejeitado, o padrão que ninguém acreditou. Pensa: "Desta vez é diferente. Desta vez eu tenho prova." Não apaga o e-mail. Não o envia. Ainda. Rafael salva o rascunho. A caixa de saída pisca na tela. Ele fecha o laptop. São 2h da manhã.
 
-**Plantas:** O modelo computacional (paga no capítulo 15, quando Rafael usa o modelo para convencer o jornalista); o e-mail na caixa de saída (paga no capítulo 15, quando Rafael finalmente envia); "quinze pessoas" (paga no capítulo 14, quando a informação vaza).
+**Plantas:** O modelo computacional (paga no capítulo 15, quando Rafael usa o modelo para convencer o jornalista); o e-mail na caixa de saída (paga no capítulo 15, quando Rafael finalmente envia); "quinze pessoas" (paga no capítulo 14, quando a informação vaza a partir do seminário interno).
 
 **Personagem — Rafael:** A mente é reforçada, não desafiada. Rafael acredita que publicar é um dever. A ambição e a convicção se misturam de forma indistinguível.
 
 **Contagem:** ~3.000 palavras
-
----
 
 ### Capítulo 13 — "O Ultimato"
 
@@ -385,16 +379,42 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 
 ---
 
-### Capítulo 14 — "Liège"
+### Capítulo 14 — "O Jornalista"
+
+**POV:** Rafael
+**Local:** Cafeteria em São Paulo; laboratório da Unicamp
+**Save the Cat beat:** *Bad Guys Close In* (Rafael envia o e-mail; a informação começa a vazar)
+**% mark:** 46–50%
+**Emocional:** Urgência → impulso → arrependimento imediato
+**Try-fail cycle:** *Yes, and* — Rafael envia o e-mail para a jornalista (sim, envia), e a jornalista responde com interesse imediato (e agora é tarde para voltar atrás).
+
+**Cenas:**
+0. **Indicação temporal:** Na manhã seguinte ao ultimato de Klaus. Rafael ainda não sabe o que Elisa ouviu, mas a pressão institucional já está no ar — e Rafael sente que o tempo está se esgotando.
+1. **O envio:** Rafael acorda às 5h com o coração acelerado. Não é o medo que o move — é a urgência. Ele soube, por Marina, que Elisa está prestes a contar a Helena a verdade sobre o índice. Se a história vai sair, que saia pela mão dele, antes que a fundação possa controlar a narrativa. Abre o laptop. O e-mail ainda está lá, na caixa de saída, exatamente onde o deixou na noite anterior. O cursor pisca. Rafael não pensa em 2014. Não pensa em Helena. Pensa: "Se eu não enviar agora, alguém vai me antecipar." Envia.
+2. **A resposta:** A jornalista responde em uma hora. "Me manda o que você tem. Fontes, dados, nomes. Posso proteger a identidade do sujeito se necessário." Rafael não tem nomes — tem o código C-034. Tem os dados. Tem o modelo computacional. Manda tudo, exceto o nome de Helena. A jornalista: "Preciso do nome. Sem nome, não tem matéria." Rafael: "O nome vem depois. Primeiro a ciência."
+3. **Elisa descobre:** Marina vê o e-mail de Rafael — ele deixou o laptop aberto no laboratório do subsolo do prédio C. Marina lê. Fica parada por trinta segundos. Depois vai até Elisa. "A gente tem um problema." Elisa lê o e-mail. Não diz nada por um longo tempo. Depois: "Onde ele está?" Marina: "Não sei." Elisa liga para Rafael. Atendeu. Elisa: "Venha aqui. Agora." Rafael: "Elisa, eu—" Elisa: "Agora."
+4. **A confrontação:** Rafael chega ao laboratório do subsolo do prédio C. Elisa está sentada. Marina está de pé. O silêncio dura. Rafael: "Eu fiz o que tinha que fazer." Elisa: "Você fez o que quis fazer. Não é a mesma coisa." Rafael: "A Helena—" Elisa: "Não menciona o nome dela. Não neste laboratório. Não neste telefone. Não em nenhum e-mail." Rafael: "Eu protegi a identidade dela." Elisa: "Você expôs a identidade dela. O código C-034 está no sistema da fundação. Se a jornalista for boa — e ela é — ela vai rastrear."
+5. **A cena final:** Rafael sai. Marina fica. Elisa diz: "Eu preciso de uma semana. Uma semana antes de a jornalista publicar. Eu preciso contar pra Helena antes que ela leia no jornal." Marina: "E a fundação?" Elisa: "A fundação vai saber antes da jornalista publicar. Klaus tem gente em toda parte." Marina: "E aí?" Elisa: "E aí a gente descobre do que eu sou feita."
+
+**Plantas:** O código C-034 no e-mail (paga no capítulo 16, quando Klaus usa o código para localizar Helena); "do que eu sou feita" (paga no capítulo 23, clímax); a semana de prazo (paga no capítulo 16, quando a semana acaba).
+
+**Personagem — Rafael:** A mente produz suas piores consequências. Rafael agiu por convicção e urgência, e agora todos pagam o preço.
+
+**Contagem:** ~2.800 palavras
+
+---
+
+### Capítulo 15 — "Liège"
 
 **POV:** Marina
 **Local:** Laboratório da Unicamp; Hospital de Clínicas
 **Save the Cat beat:** *Bad Guys Close In* (as consequências do índice se tornam concretas e pessoais)
-**% mark:** 46–50%
+**% mark:** 50–53%
 **Emocional:** Incredulidade → horror → determinação
 **Try-fail cycle:** *No, and* — Marina descobre o caso de Liège (não, o índice não funcionou), e descobre que há mais casos (e a situação é pior do que pensava).
 
 **Cenas:**
+0. **Indicação temporal:** Três dias depois de Rafael ter enviado o e-mail para a jornalista. A informação já está circulando — a jornalista começou a fazer perguntas, e o seminário interno onde Rafael apresentou os dados (capítulo 12) já repercute nos corredores da Unicamp. Marina ainda não sabe do e-mail, mas o cenário institucional já está em movimento.
 1. **O caso de Liège:** Marina, pesquisando processos judiciais relacionados a Φ-S, encontra o caso de Liège. Paciente masculino, 61 anos, Φ-S de 0,03. Declarado não-consciente. Suporte vital desligado. Três dias depois, uma gravação de vídeo mostra o paciente reagindo a estímulos verbais. A família processou o hospital. O caso está em tribunal. Marina lê o processo inteiro. As mãos tremem.
 2. **Mais casos:** Marina encontra outro caso — Suíça, resolvido fora de tribunal. Compensação financeira. Acordo de sigilo. E outro — Brasil, São Paulo, 2022. Paciente feminina, 38 anos, Φ-S de 0,04. Suporte vital mantido por insistência da família. Seis meses depois, a paciente despertou. Marina faz as contas: se Φ-S de 0,03 a 0,05 é a zona cinzenta, e se Helena tem Φ-S de 0,001 com consciência plena, então a zona cinzenta pode conter pessoas conscientes que estão sendo declaradas mortas.
 3. **A conversa com Elisa:** Marina mostra os casos a Elisa. Elisa lê em silêncio. Marina: "Quantos?" Elisa: "Não sei." Marina: "Estimativas." Elisa: "Com base em quê? Não temos dados populacionais suficientes. Não sabemos a prevalência de casos como o de Helena. Não sabemos se Helena é única ou se existem milhares." Marina: "Mas podem existir milhares." Elisa: "Podem." Marina: "E a gente não faz nada?" Elisa: "O que você quer que eu faça?" Marina: "Publicar. Alertar. Parar de medir gente com uma régua que não funciona." Elisa: "Se eu publicar sem aprovação da fundação, perco tudo. O laboratório, o medidor, o financiamento. E aí não consigo ajudar ninguém."
@@ -405,30 +425,6 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 **Personagem — Marina:** A mente se quebra. Marina não pode mais acreditar que ser cuidadosa é suficiente. A ação se torna necessária.
 
 **Contagem:** ~3.200 palavras
-
----
-
-### Capítulo 15 — "O Jornalista"
-
-**POV:** Rafael
-**Local:** Cafeteria em São Paulo; laboratório da Unicamp
-**Save the Cat beat:** *Bad Guys Close In* (Rafael envia o e-mail; a informação começa a vazar)
-**% mark:** 50–53%
-**Emocional:** Ansiedade → impulso → arrependimento imediato
-**Try-fail cycle:** *Yes, and* — Rafael envia o e-mail para a jornalista (sim, envia), e a jornalista responde com interesse imediato (e agora é tarde para voltar atrás).
-
-**Cenas:**
-1. **O envio:** Rafael acorda às 5h com o coração acelerado. Abre o laptop. O e-mail ainda está na caixa de saída. O cursor pisca. Rafael pensa em 2014. Pensa em Helena. Pensa em Elisa. Pensa: "A ciência precisa saber." Envia.
-2. **A resposta:** A jornalista responde em uma hora. "Me manda o que você tem. Fontes, dados, nomes. Posso proteger a identidade do sujeito se necessário." Rafael não tem nomes — tem o código C-034. Tem os dados. Tem o modelo computacional. Manda tudo, exceto o nome de Helena. A jornalista: "Preciso do nome. Sem nome, não tem matéria." Rafael: "O nome vem depois. Primeiro a ciência."
-3. **Elisa descobre:** Marina vê o e-mail de Rafael — ele deixou o laptop aberto no laboratório. Marina lê. Fica parada por trinta segundos. Depois vai até Elisa. "A gente tem um problema." Elisa lê o e-mail. Não diz nada por um longo tempo. Depois: "Onde ele está?" Marina: "Não sei." Elisa liga para Rafael. Atendeu. Elisa: "Venha aqui. Agora." Rafael: "Elisa, eu—" Elisa: "Agora."
-4. **A confrontação:** Rafael chega ao laboratório. Elisa está sentada. Marina está de pé. O silêncio dura. Rafael: "Eu fiz o que tinha que fazer." Elisa: "Você fez o que quis fazer. Não é a mesma coisa." Rafael: "A Helena—" Elisa: "Não menciona o nome dela. Não neste laboratório. Não neste telefone. Não em nenhum e-mail." Rafael: "Eu protegi a identidade dela." Elisa: "Você expôs a identidade dela. O código C-034 está no sistema da fundação. Se a jornalista for boa — e ela é — ela vai rastrear."
-5. **A cena final:** Rafael sai. Marina fica. Elisa diz: "Eu preciso de uma semana. Uma semana antes de a jornalista publicar. Eu preciso contar pra Helena antes que ela leia no jornal." Marina: "E a fundação?" Elisa: "A fundação vai saber antes da jornalista publicar. Klaus tem gente em toda parte." Marina: "E aí?" Elisa: "E aí a gente descobre do que eu sou feita."
-
-**Plantas:** O código C-034 no e-mail (paga no capítulo 16, quando Klaus usa o código para localizar Helena); "do que eu sou feita" (paga no capítulo 23, clímax); a semana de prazo (paga no capítulo 16, quando a semana acaba).
-
-**Personagem — Rafael:** A mente produz suas piores consequências. Rafael agiu por convicção e ambição, e agora todos pagam o preço.
-
-**Contagem:** ~2.800 palavras
 
 ---
 
@@ -445,8 +441,9 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 1. **A suspeita:** Helena está na varanda. Marina vem visitar — sem aviso, o que é incomum. Marina está nervosa, o que é mais incomum ainda. Helena serve café. Marina não bebe. Helena: "Marina, o que aconteceu?" Marina: "Nada." Helena: "Você é uma mentirosa terrível. Pior que eu aos quinze anos." Marina ri, mas o riso é frágil. Helena: "É sobre o estudo. Sobre o meu número." Marina congela. Helena: "Eu não sou burra, Marina. Eu sei que o número é baixo. Eu sei que baixo significa inconsciente. Eu sei que vocês estão me estudando porque eu sou uma anomalia. Eu só não sei o que isso significa."
 2. **Marina não conta:** Marina: "Helena, eu... Eu não posso te contar. Não é minha decisão." Helena: "Não é sua decisão. É da doutora Elisa." Marina: "Sim." Helena: "E a doutora Elisa decidiu que eu não aguentaria saber." Marina não responde. Helena: "Eu tenho 67 anos. Fui professora por 34 anos. Criei uma filha sozinha. Enterrei um marido. Eu aguento." Marina: "Eu sei. Mas não é minha decisão."
 3. **A descoberta:** Depois que Marina vai embora, Helena abre o notebook. Pesquisa "Φ-S consciência". Encontra artigos — os de Elisa, os de Whitfield, os debates. Encontra o índice. Entende o que o número significa. Φ-S de 0,001 é o mesmo de uma rocha. Helena lê isso três vezes. Depois fecha o notebook. Fica sentada na varanda, olhando para a mangueira, sem tomar café.
-4. **O recorte de Tanaka:** Helena abre a gaveta. Tira o recorte de jornal. Lê de novo. "Pesquisador japonês que detectou anomalia em paciente vegetativo se suicida." Helena pensa: "Ele encontrou alguém como eu." Pensa: "E o mundo o destruiu por isso." Pensa: "E eu estou deixando o mesmo mundo me medir."
-5. **A decisão:** Helena liga para Marina. "Eu quero falar com a doutora Elisa. Amanhã. Sem o medidor. Sem protocolo. Eu quero que ela me explique, com as próprias palavras, o que eu sou." Marina: "Helena..." Helena: "Amanhã. Na minha casa. Ou eu procuro outra forma de saber." Desliga.
+4. **O recorte de Tanaka:** Helena abre a gaveta do criado-mudo. Tira o recorte de jornal que guarda desde 2011 — "Pesquisador japonês que detectou anomalia em paciente vegetativo se suicida." Na época, guardou por intuição, sem compreender os termos técnicos. Agora, depois da entrevista e da exposição pública, cada linha faz sentido. Os termos que antes lhe escapavam — Φ-S, "dissipação informacional nula", "entropia de Shannon" — agora se encaixam como peças de um quebra-cabeça que ela montou em silêncio durante anos. Helena entende a estrutura: um paciente em estado vegetativo, um pesquisador que encontrou algo incomum, uma tragédia. E entende, pela primeira vez, que aquilo tem a ver com ela. Não por ignorância, mas por reconhecimento. Sente os olhos marejarem. Não de tristeza — de clareza.
+5. **A conexão:** Helena pensa no que Marina disse — que o número é "incomum". Imediatamente, associa isso ao que já suspeitava desde aquele dia no bosque, quando decidiu perguntar a Marina o que a máquina mede. "Eu soube na hora", Helena pensa. "Não porque Marina me explicou — mas porque eu já vinha me perguntando desde aquele dia." A suspeita antiga encontra a confirmação presente. Helena não precisa que ninguém lhe diga o que o número significa. Ela já sabe.
+6. **A decisão:** Helena liga para Marina. "Eu quero falar com a doutora Elisa. Amanhã. Sem o medidor. Sem protocolo. Eu quero que ela me explique, com as próprias palavras, o que eu sou." Marina: "Helena..." Helena: "Amanhã. Na minha casa. Ou eu procuro outra forma de saber." Desliga.
 
 **Plantas:** "Eu aguento" (paga no capítulo 21, quando Helena repete para Elisa); o recorte de Tanaka (paga no capítulo 17, quando Helena mostra a Elisa); "o que eu sou" (paga no capítulo 22, quando Elisa admite que não sabe).
 
@@ -454,51 +451,50 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 
 **Contagem:** ~3.400 palavras
 
----
-
 ### Capítulo 17 — "A Confrontação"
 
 **POV:** Elisa
 **Local:** Casa de Helena; laboratório da Unicamp
 **Save the Cat beat:** *Bad Guys Close In* (Elisa conta a verdade a Helena; a relação muda irreversivelmente)
 **% mark:** 57–61%
-**Emocional:** Medo → honestidade → perda
-**Try-fail cycle:** *Yes, but* — Elisa conta a verdade a Helena (sim, conta), e Helena aceita (mas a aceitação não é o que Elisa esperava).
+**Emocional:** Medo → honestidade → perda → decisão
+**Try-fail cycle:** *Yes, but* — Elisa conta a verdade a Helena (sim, conta), e Helena aceita (mas a aceitação não é o que Elisa esperava — e obriga Elisa a tomar uma decisão que vinha adiando há vinte anos).
 
 **Cenas:**
 1. **A preparação:** Elisa vai à casa de Helena sem aviso. Está preparada para uma conversa difícil. Tem argumentos, dados, qualificações. Helena abre a porta. "Entre. O café já está pronto." Elisa entra. A casa cheira a café e alecrim. Elisa se senta na varanda. Helena serve café. Silêncio.
 2. **A verdade:** Elisa conta. Tudo. O índice Φ-S. O que o número significa. O valor de 0,001. A comparação com uma rocha. O demônio de Maxwell. Tanaka. Hiroshi. A fundação. Tudo. Elisa fala por vinte minutos sem parar. Helena ouve sem interromper. Quando Elisa termina, Helena diz: "Obrigada." Elisa: "Obrigada?" Helena: "Por me contar. Por fim."
 3. **A reação de Helena:** Helena não chora. Helena não grita. Helena olha para a mangueira e diz: "Sabe o que eu acho? Eu acho que você está mais assustada do que eu." Elisa: "Eu estou." Helena: "Por quê?" Elisa: "Porque se você é real — e você é — então o índice que eu passei vinte anos construindo não mede o que eu penso que mede. E se o índice não mede o que eu penso que mede, então eu não sei o que ele mede. E se eu não sei o que ele mede, então eu não sei o que eu faço."
 4. **A pergunta de Helena:** "Doutora, me diz uma coisa. Se você pudesse escolher — o número ou eu —, qual você escolheria?" Elisa não responde. Helena: "Eu acho que você já escolheu. E eu acho que escolheu errado. Mas eu entendo. O número é seu. Eu sou só uma mulher que toma café."
-5. **A cena final:** Elisa sai. No carro, finalmente chora. Não por Helena — por si mesma. Porque Helena fez a pergunta que Elisa faz a si mesma há vinte anos, e Elisa não teve coragem de responder. Dirige até o laboratório. Abre o armário. Tira a pasta de papelão. A tese rejeitada de 2003. Lê a primeira página. Depois lê a última. A última frase da tese: "A consciência pode ser um processo termodinâmico. Mas pode ser algo mais. E se for algo mais, precisamos de uma ciência que aceite não entender." Elisa fecha a pasta. Não guarda de volta no armário. Coloca na mochila.
+5. **A decisão de Elisa:** Elisa olha para Helena — para a mulher que confiara nela, que lhe contara sobre Hiroshi, que perguntara "o que a sua máquina mede?" — e sente algo se quebrar dentro dela. Não é o índice. É a desculpa. Elisa pensa: "Eu escolhi o número. Escolhi o número porque o número é seguro, o número não me faz olhar nos olhos de ninguém, o número não me pergunta coisas que eu não sei responder. Mas o número não está aqui na varanda. O número não toma café. O número não tem 67 anos e uma neta e uma mangueira." Elisa diz, com a voz baixa: "Você." Helena: "O quê?" Elisa: "Eu escolho você. Eu escolhi você quando entrei pela sua porta. Eu só não tive coragem de dizer." Helena não responde. Serve mais café. Elisa está tremendo. É a primeira vez em vinte anos que Elisa escolhe uma pessoa em vez de uma medição. A decisão é silenciosa, interna, mas definitiva. Elisa sabe que não volta atrás — e sabe o que isso vai custar.
+6. **A cena final:** Elisa sai. No carro, finalmente chora. Não por Helena — por si mesma. Porque Helena fez a pergunta que Elisa faz a si mesma há vinte anos, e Elisa finalmente teve coragem de responder. Dirige até o laboratório no subsolo do prédio C. Abre o armário. Tira a pasta de papelão. A tese rejeitada de 2003. Lê a primeira página. Depois lê a última. A última frase da tese: "A consciência pode ser um processo termodinâmico. Mas pode ser algo mais. E se for algo mais, precisamos de uma ciência que aceite não entender." Elisa fecha a pasta. Não guarda de volta no armário. Coloca na mochila. Sabe que a fundação não vai aceitar o que ela fez hoje. Sabe que Klaus vai cobrar. Mas pela primeira vez, Elisa não vai recuar.
 
-**Plantas:** "O número ou eu" (paga no capítulo 23, clímax, quando Elisa responde); a tese rejeitada (paga no capítulo 23, quando Elisa a usa no clímax); "eu sou só uma mulher que toma café" (paga no capítulo 24, epílogo, quando Elisa repete).
+**Plantas:** "O número ou eu" (paga no capítulo 23, clímax, quando Elisa responde publicamente); a tese rejeitada (paga no capítulo 23, quando Elisa a usa no clímax); "eu sou só uma mulher que toma café" (paga no capítulo 24, epílogo, quando Elisa repete); a decisão de Elisa (paga no capítulo 18, quando Elisa desafia o ultimato de Klaus como consequência direta do que decidiu aqui).
 
-**Personagem — Elisa:** A mente está rachando. Elisa contou a verdade a Helena — um ato de coragem que é também um ato de perda. Porque contar a verdade significa aceitar que o índice é insuficiente.
+**Personagem — Elisa:** A mente está rachando. Elisa contou a verdade a Helena — um ato de coragem que é também um ato de perda. Porque contar a verdade significa aceitar que o índice é insuficiente. E escolher Helena significa aceitar que a fundação vai destruir tudo o que Elisa construiu. Elisa sabe disso. E escolhe mesmo assim.
 
-**Contagem:** ~3.400 palavras
+**Contagem:** ~3.800 palavras
 
 ---
 
 ### Capítulo 18 — "Tudo se Perde"
 
 **POV:** Elisa
-**Local:** Laboratório da Unicamp; escritório do diretor da Unicamp
+**Local:** Laboratório da Unicamp (subsolo do prédio C); escritório do diretor da Unicamp
 **Save the Cat beat:** *All Is Lost* (Klaus cumpre a ameaça; Elisa perde o laboratório, o financiamento, e quase perde Helena)
 **% mark:** 61–65%
 **Emocional:** Resistência → colapso → vazio
 **Try-fail cycle:** *No, and* — Elisa tenta salvar o laboratório (não, não consegue), e Klaus revela que tem os cadernos completos de Tanaka (e pode provar que Elisa escondeu dados).
 
 **Cenas:**
-1. **A notificação:** Elisa recebe uma carta da fundação. O financiamento está suspenso. O medidor de Φ-S será removido do laboratório em 72 horas. A justificativa: violação da cláusula de confidencialidade. O e-mail de Rafael para a jornalista foi rastreado. Klaus sabe que Elisa sabia sobre Tanaka e não reportou.
+1. **A notificação:** Três dias após a conversa de Elisa com Helena — e após Elisa recusar publicamente os dados de Tanaka para a fundação, desafiando o ultimato de Klaus como consequência direta da decisão que tomou na varanda de Helena —, Elisa recebe uma carta formal da fundação. O financiamento está suspenso imediatamente. O medidor de Φ-S será removido do laboratório em 72 horas. A justificativa: violação da cláusula de confidencialidade e recusa em entregar dados completos do estudo. O e-mail de Rafael para a jornalista foi rastreado. Klaus sabe que Elisa sabia sobre Tanaka e não reportou — e agora sabe que Elisa se recusou a obedecer. A carta é a consequência direta e imediata da escolha de Elisa por Helena em vez do índice.
 2. **O escritório do diretor:** Elisa é convocada pelo diretor do departamento de física. Ele está desconfortável. "Dra. Monteiro, a fundação está ameaçando processar a Unicamp. Se isso acontecer, o departamento inteiro perde credibilidade. Eu preciso que a senhora assine um termo de compromisso: todos os dados sobre o sujeito C-034 são entregues à fundação. A senhora se afasta do estudo. E a senhora não publica nada sem aprovação." Elisa: "E se eu não assinar?" Diretor: "A senhora é desligada."
 3. **A notificação a Helena:** Klaus envia uma equipe à casa de Helena. Não para medir — para informar. Helena é excluída do estudo. O motivo oficial: "O estudo foi encerrado por questões técnicas." Helena recebe a visita, ouve a explicação, e diz: "Obrigada por me avisarem." Fecha a porta. Do outro lado, fica de pé, encostada na porta, por muito tempo.
-4. **O laboratório vazio:** Elisa vai ao laboratório. O medidor está sendo desmontado. Técnicos embalam os eletrodos, o sensor térmico, o console. Elisa assiste. Marina está lá, parada no canto, sem saber o que fazer. Rafael não está — está em casa, com medo. Elisa olha para o espaço vazio onde o medidor estava. Pensa: "Eu construí isso para medir a consciência. E agora não consigo medir nada."
-5. **A cena final:** Elisa sai do laboratório. No corredor, encontra Marina. Marina: "E agora?" Elisa: "Agora eu não sei." Marina: "A Helena..." Elisa: "Eu sei." Marina: "Ela não merecia isso." Elisa: "Ninguém merecia isso. Mas aconteceu. E eu não consigo desfazer." Marina: "Então a gente faz o quê?" Elisa: "A gente descobre o que importa." É a primeira vez que Elisa diz algo que não é sobre o índice.
+4. **A desmontagem:** Elisa vai ao laboratório no subsolo do prédio C. O medidor está sendo desmontado. Técnicos embalam os eletrodos, o sensor térmico, o console. Elisa assiste. Marina está lá, parada no canto, sem saber o que fazer. Rafael não está — está em casa, com medo. Elisa olha para o espaço vazio onde o medidor estava. Pensa: "Eu construí isso para medir a consciência. E agora não consigo medir nada." A desmontagem continua ao longo do dia. Ao fim da tarde, o laboratório está completamente vazio — sem equipamentos, sem cabos, sem a bancada de trabalho. Apenas as marcas no chão onde o medidor ficava e o eco de um espaço que já não serve mais ao propósito para o qual foi criado.
+5. **A cena final:** Elisa sai do laboratório. No corredor do subsolo, encontra Marina. Marina: "E agora?" Elisa: "Agora eu não sei." Marina: "A Helena..." Elisa: "Eu sei." Marina: "Ela não merecia isso." Elisa: "Ninguém merecia isso. Mas aconteceu. E eu não consigo desfazer." Marina: "Então a gente faz o quê?" Elisa: "A gente descobre o que importa." É a primeira vez que Elisa diz algo que não é sobre o índice.
 
 **Plantas:** "O que importa" (paga no capítulo 24, tema central); o medidor desmontado (paga no capítulo 23, quando Elisa percebe que não precisa dele); Helena excluída (paga no capítulo 19, quando Helena toma uma atitude).
 
-**Personagem — Elisa:** O ponto mais baixo. Elisa perdeu o laboratório, o financiamento, o índice. A mente ("se eu medir com precisão suficiente...") está em ruínas. A verdade ("a consciência excede a medida") está nua na frente dela.
+**Personagem — Elisa:** O ponto mais baixo. Elisa perdeu o laboratório, o financiamento, o índice. A mente ("se eu medir com precisão suficiente...") está em ruínas. A verdade ("a consciência excede a medida") está nua na frente dela. Mas a decisão da varanda de Helena — "eu escolho você" — ainda está de pé. E é essa decisão que vai impedir Elisa de assinar o termo.
 
 **Contagem:** ~3.000 palavras
 
@@ -514,11 +510,11 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 **Try-fail cycle:** *Yes, but* — Marina encontra Helena bem (sim, está bem), mas Helena tomou uma decisão que Marina não esperava (e que muda tudo).
 
 **Cenas:**
-1. **A visita:** Marina vai à casa de Helena com pão de queijo e culpa. Helena abre a porta. "Marina. Que bom. Entra." A casa está a mesma — livros, café, alecrim. Helena serve café. Marina: "Helena, eu sinto muito. Eu sinto muito por tudo." Helena: "Eu sei." Marina: "A senhora não está...?" Helena: "Destruída? Não. Incomodada, sim. Com raiva, um pouco. Mas não destruída."
+1. **A visita:** Uma semana depois da desmontagem completa do laboratório, Marina vai à casa de Helena com pão de queijo e culpa. Helena abre a porta. "Marina. Que bom. Entra." A casa está a mesma — livros, café, alecrim. Helena serve café. Marina: "Helena, eu sinto muito. Eu sinto muito por tudo." Helena: "Eu sei." Marina: "A senhora não está...?" Helena: "Destruída? Não. Incomodada, sim. Com raiva, um pouco. Mas não destruída."
 2. **A decisão de Helena:** Helena conta que ligou para Beatriz. Contou tudo. Beatriz está vindo a Campinas — chega amanhã. "Ela largou tudo e está vindo. Eu disse pra ela não vir. Ela veio mesmo assim. Neto é assim." Marina: "E a senhora vai fazer o quê?" Helena: "Eu vou contar a minha história. Não como anomalia. Como pessoa. Eu vou falar com essa jornalista que o Rafael contatou. Eu vou dizer o que eu sou. E se o mundo quiser me medir, vai ter que me medir falando."
 3. **O medo de Marina:** Marina: "Helena, a fundação vai tentar impedir. Eles têm advogados, dinheiro, poder." Helena: "Eu sei. Eu li os termos que a doutora Elisa assinou. Eu não sou advogada, mas sei ler. A fundação controla os dados. Mas a fundação não controla a minha voz. Eu posso falar. E vou falar."
 4. **A pergunta:** Marina: "A senhora não tem medo?" Helena: "Tenho. Mas sabe o que é pior do que ter medo? Ser tratada como se eu não existisse. O número diz que eu sou uma rocha. Mas eu não sou uma rocha. Eu sou uma mulher de 67 anos que toma café, cuida de plantas e ama a neta. E se o mundo precisa de um número pra acreditar nisso, então o problema não é meu."
-5. **A cena final:** Marina sai da casa de Helena. Liga para Elisa. "A Helena vai falar com a jornalista." Silêncio. Marina: "Elisa?" Elisa: "Eu sei. Eu ia impedir." Marina: "E agora?" Elisa: "Agora eu não sei se devo impedir." Marina: "Ela não é mais um sujeito de estudo, Elisa. Ela é uma pessoa que tomou uma decisão. E a gente tem que respeitar." Elisa: "Eu sei." Desliga. Fica olhando para a parede do laboratório vazio.
+5. **A cena final:** Marina sai da casa de Helena. Liga para Elisa. "A Helena vai falar com a jornalista." Silêncio. Marina: "Elisa?" Elisa: "Eu sei. Eu ia impedir." Marina: "E agora?" Elisa: "Agora eu não sei se devo impedir." Marina: "Ela não é mais um sujeito de estudo, Elisa. Ela é uma pessoa que tomou uma decisão. E a gente tem que respeitar." Elisa: "Eu sei." Desliga. Fica olhando para a parede do laboratório vazio no subsolo do prédio C. O espaço está completamente desmontado — sem equipamentos, sem cabos, sem a bancada de trabalho. Apenas as marcas no chão onde o medidor ficava. Elisa está ali não porque ainda há trabalho a fazer, mas porque precisa olhar para o vazio e aceitar que acabou. É um ritual de despedida. O laboratório que existiu ali já não existe mais.
 
 **Plantas:** Beatriz vindo a Campinas (paga no capítulo 20, quando Beatriz chega); "a minha voz" (paga no capítulo 21, quando Helena fala publicamente); "o problema não é meu" (paga no capítulo 23, quando Elisa aceita isso).
 
@@ -567,7 +563,7 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 4. **A publicação:** A matéria é publicada online na quinta-feira à noite. Título: "A mulher que desafia a física: 'O número diz que eu sou uma rocha, mas eu tomo café.'" Em duas horas, é o assunto mais compartilhado nas redes sociais. Em seis horas, Whitfield publica uma nota. Em doze horas, a fundação publica uma nota. Em vinte e quatro horas, a matéria é traduzida para inglês, francês, alemão, japonês.
 5. **A cena final:** Helena está na varanda. Beatriz está ao lado. O celular de Helena — que ela mal sabe usar — recebe mensagens de números desconhecidos. Helena desliga o celular. Beatriz: "Vó, o mundo está olhando pra senhora." Helena: "O mundo sempre olhou. A diferença é que agora eu estou olhando de volta." Tomam café. A mangueira está lá, como sempre.
 
-**Plantas:** "Proteção sem transparência é uma forma de solidão" (paga no capítulo 23, quando Elisa reconhece que fez isso); "eu estou olhando de volta" (paga no capítulo 24, epílogo); a nota de Whitfield (paga no capítulo 22, quando Whitfield muda de posição).
+**Plantas:** "Proteção sem transparência é uma forma de solidão" (paga no capítulo 22, quando Elisa reconhece que fez exatamente isso); "eu estou olhando de volta" (paga no capítulo 24, epílogo); a nota de Whitfield (paga no capítulo 22, quando Whitfield muda de posição).
 
 **Personagem — Helena:** O arco plano com deslocamento se completa. Helena não muda — Helena sempre foi Helena. O que muda é que agora o mundo sabe. E Helena decide o que fazer com isso.
 
@@ -578,7 +574,7 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 ### Capítulo 22 — "A Fissura"
 
 **POV:** Elisa
-**Local:** Apartamento de Elisa; laboratório vazio da Unicamp; casa de Helena
+**Local:** Apartamento de Elisa; laboratório vazio no subsolo do prédio C da Unicamp; casa de Helena
 **Save the Cat beat:** *Finale — sub-beat (a): Gather the Team / Make the Plan* (Elisa decide o que fazer; reúne o que resta da equipe)
 **% mark:** 76–80%
 **Emocional:** Isolamento → clareza → determinação
@@ -588,21 +584,21 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 1. **O isolamento:** Elisa está no apartamento. Não vai ao laboratório — não há laboratório. Não atende ligações — Rafael ligou 14 vezes. Não lê e-mails — a fundação enviou 7. Elisa está sentada no chão da sala, com a pasta de papelão no colo. Lê a tese rejeitada de 2003 do início ao fim. Pela primeira vez, não para para anotar. Apenas lê.
 2. **A clareza:** Elisa entende algo que Helena entendeu há décadas: o número não é a pessoa. O índice não é a consciência. A medida não é o medido. Elisa passou vinte anos confundindo o mapa com o território. E agora, sem laboratório, sem medidor, sem financiamento, Elisa está, pela primeira vez, livre para pensar.
 3. **A reunião:** Elisa liga para Marina. "Preciso de você. E do Rafael. E de mais uma pessoa." Marina: "Quem?" Elisa: "Da Helena." Marina: "Elisa..." Elisa: "Eu sei. Eu sei o que eu fiz. Eu sei o que eu deixei de fazer. Mas eu preciso fazer uma coisa certa. Uma só. Me ajuda."
-4. **O plano:** Elisa, Marina e Rafael se encontram no laboratório vazio. Elisa: "A fundação vai processar a Helena por violação de confidencialidade. Vai argumentar que ela não pode falar publicamente sobre dados que são propriedade da fundação. Mas há uma falha no contrato: a Helena nunca assinou um termo de confidencialidade. Ela assinou um termo de consentimento para pesquisa. São documentos diferentes. A fundação controla os dados. Mas a fundação não controla a experiência da Helena. Ela pode falar sobre o que sentiu, o que viveu, o que é. Sem mencionar dados, sem mencionar números. E se ela falar, a fundação não pode impedir."
-5. **A cena final:** Elisa vai à casa de Helena. Sozinha. Toca a campainha. Helena abre. Silêncio. Elisa: "Eu vim pedir desculpas. E vim oferecer ajuda." Helena: "Que tipo de ajuda?" Elisa: "O tipo que eu deveria ter oferecido desde o início. Não como cientista. Como pessoa." Helena olha para Elisa por um longo tempo. Depois: "Entra. O café já está pronto."
+4. **O plano:** Elisa, Marina e Rafael se encontram no laboratório vazio no subsolo do prédio C. Elisa: "A fundação vai processar a Helena por violação de confidencialidade. Vai argumentar que ela não pode falar publicamente sobre dados que são propriedade da fundação. Mas há uma falha no contrato: a Helena nunca assinou um termo de confidencialidade. Ela assinou um termo de consentimento para pesquisa. São documentos diferentes. A fundação controla os dados. Mas a fundação não controla a experiência da Helena. Ela pode falar sobre o que sentiu, o que viveu, o que é. Sem mencionar dados, sem mencionar números. E se ela falar, a fundação não pode impedir."
+5. **A ida à casa de Helena:** Elisa vai à casa de Helena. Sozinha. Toca a campainha. Helena abre. Silêncio. Elisa: "Eu vim pedir desculpas. E vim oferecer ajuda." Helena: "Que tipo de ajuda?" Elisa: "O tipo que eu deveria ter oferecido desde o início. Não como cientista. Como pessoa." Elisa olha para Helena e, com a voz baixa, diz: "Você tinha razão. Proteção sem transparência é uma forma de solidão. Eu proteji o índice — proteji os dados, o método, a fundação — e acabei me isolando. E isolando todo mundo. Isolando você. Eu fiz exatamente o que você descreveu na entrevista. E eu nem tinha percebido." Helena olha para Elisa por um longo tempo. O silêncio entre elas não é vazio — é o peso de anos sendo reconhecido. Depois: "Entra. O café já está pronto."
 
-**Plantas:** "O café já está pronto" (espelho do capítulo 17 — a mesma frase, mas o significado mudou); "como pessoa" (paga no capítulo 23, clímax); a falha no contrato (paga no capítulo 23, quando Elisa a usa).
+**Plantas:** "O café já está pronto" (espelho do capítulo 17 — a mesma frase, mas o significado mudou); "como pessoa" (paga no capítulo 23, clímax); a falha no contrato (paga no capítulo 23, quando Elisa a usa); o reconhecimento da frase "proteção sem transparência é uma forma de solidão" (paga da entrevista de Helena no capítulo 21 — Elisa reconhece que é exatamente isso que fez).
 
 **Personagem — Elisa:** A mente se quebra de vez. Elisa aceita que o índice é insuficiente. A verdade — "a consciência excede a medida" — se instala. Elisa está, pela primeira vez, pronta para agir não como cientista, mas como pessoa.
 
-**Contagem:** ~3.200 palavras
+**Contagem:** ~3.400 palavras
 
 ---
 
 ### Capítulo 23 — "O Que Importa"
 
 **POV:** Elisa, com seções em POV de Marina e Beatriz
-**Local:** Tribunal de Campinas; casa de Helena; laboratório da Unicamp
+**Local:** Tribunal de Campinas; casa de Helena; laboratório no subsolo do prédio C da Unicamp
 **Save the Cat beat:** *Finale — sub-beats (b) through (e)* (Execute o plano, Surpresa, Fundo do Poço, Novo Plano)
 **% mark:** 80–92%
 **Emocional:** Determinação → surpresa → desespero → resolução
@@ -610,4 +606,31 @@ Elisa escolhe entre proteger o índice e proteger Helena. Marina conta a verdade
 
 **Cenas:**
 1. **Execute o plano (b):** A fundação entra com uma ação judicial contra Helena — violação de confidencialidade, uso não autorizado de dados protegidos por patente. A audiência é em Campinas. Elisa vai ao tribunal — não como réu, mas como testemunha. Leva a tese rejeitada de 2003. Leva os dados de Tanaka. Leva os 47 pacientes do HC. Marina está lá. Beatriz está lá. Renata está lá. Helena está lá, com o vestido verde.
-2. **High Tower Surprise (c):** O advogado da fundação é implacável. Argumenta
+2. **High Tower Surprise (c):** O advogado da fundação é implacável. Argumenta que a própria existência de Helena, seus hábitos descritos e os testes no laboratório do subsolo do prédio C constituem segredo comercial da fundação. Revela que a fundação tem o depoimento gravado de Rafael (que assinou um acordo em troca de financiamento de seu laboratório próprio). Rafael se sente traído pela fundação, mas o estrago está feito. O juiz parece inclinado a conceder a liminar de silêncio (censura prévia) e apreensão de todos os dados do laboratório de Elisa.
+3. **Fundo do Poço (d):** Elisa vê seu trabalho de uma vida prestes a ser confiscado e sua reputação de pesquisa destruída. Marina chora no corredor. Helena, no entanto, permanece calma. Ela se aproxima de Elisa e entrega sua caneca de barro de Antônio. "Você está tentando medir a água enquanto está morrendo de sede, Elisa. Beba um pouco." Elisa finalmente compreende a insuficiência do índice e desiste de tentar provar o caso usando medidores ou patentes.
+4. **Novo Plano (e):** Elisa percebe que a única saída é expor a verdade publicamente no tribunal e abrir os dados. Ela admite em depoimento que o índice Φ-S é insuficiente para caracterizar a totalidade da consciência de Helena e lê trechos de sua tese rejeitada de 2003 e dos cadernos de Tanaka. Marina e Beatriz apoiam. O clamor público inviabiliza a ação da fundação, que é forçada a recuar diante do escândalo ético.
+5. **As consequências imediatas:** Na semana seguinte à audiência, a fundação emite um comunicado público recuando da ação judicial e anunciando a revisão interna de seus protocolos de consentimento. Elisa recebe uma carta formal de afastamento do laboratório do subsolo do prédio C — não como punição, mas como consequência administrativa da dissolução do projeto financiado. Rafael é chamado à coordenação de sua universidade para prestar esclarecimentos sobre o vazamento; a coordenação abre uma comissão informal, mas Rafael sabe que sua reputação está arranhada. Marina, por sua vez, começa a esboçar seu projeto de doutorado — agora sob a orientação direta de Elisa, em um novo tema de termodinâmica de não-equilíbrio, sem pressão por patentes ou publicações imediatas. Marina escreve a primeira página do projeto na mesma noite, no laboratório vazio, sozinha.
+
+**Plantas:** A caneca de Antônio (paga do capítulo 23); a tese rejeitada (paga do capítulo 23); "eu sou só uma mulher que toma café" (paga no capítulo 24, epílogo).
+
+**Contagem:** ~3.800 palavras
+
+---
+
+### Capítulo 24 — "O Café de Domingo"
+
+**POV:** Elisa
+**Local:** Casa de Helena, Cambuí, Campinas — varanda, manhã de domingo
+**Save the Cat beat:** *Finale — sub-beat (f): Dig Deep / Final Image* (Resolução final e encerramento da jornada M-I-C-E)
+**% mark:** 92–100%
+**Emocional:** Calma → aceitação → conexão pura
+
+**Cenas:**
+1. **O rescaldo:** Depois de perder o laboratório, Elisa se permitiu parar. Rafael foi para outra universidade, menor, mais longe, carregando o peso de ter assinado um acordo que não cumpriu e de ter vazado uma história que não era só dele. Marina se reposicionou: começou a escrever seu doutorado do zero, sem pressa, sem a urgência de provar nada a ninguém. E Helena — Helena continuou sendo Helena. Tomando café. Cuidando da mangueira. Recusando-se a ser um número.
+2. **A visita dominical:** É domingo de manhã. Elisa vai à casa de Helena. Ela não leva medidores, nem sensores. Leva apenas um livro e sua presença.
+3. **O café na varanda:** Helena está na varanda. Ela faz café no coador de pano clássico. Elisa senta na cadeira ao lado da mangueira. Helena: "Você está olhando de volta." Elisa sorri. Não responde. Não precisa.
+4. **Resolução:** Elisa bebe o café. Olha para a mangueira, sentindo o calor do sol da manhã e o vento. Ela percebe que não precisa de um número para provar que está viva. A consciência simplesmente é. E pela primeira vez em vinte anos, Elisa não sente a necessidade de medir nada.
+
+**Plantas:** A mangueira de 30 anos (paga do capítulo 24); "eu estou olhando de volta" (paga do capítulo 24); "eu sou só uma mulher que toma café" (paga do capítulo 24).
+
+**Contagem:** ~2.700 palavras
