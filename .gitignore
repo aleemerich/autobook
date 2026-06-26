@@ -12,3 +12,6 @@ __pycache__/
 typeset/*.pdf
 typeset/chapters_content.tex
 *.pdf
+*brief_temp.txt
+*corrective_temp.txt
+
