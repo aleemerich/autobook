@@ -10,7 +10,7 @@ against the current code.
 1. [Current snapshot](SNAPSHOT_V0.md)
 2. [Architecture](architecture/arquitetura.md)
 3. [Pipelines](pipelines/pipelines.md)
-4. [Operational commands](operacional/comandos.md)
+4. [Complete terminal commands](operacional/comandos-completos.md)
 5. [Book data](book-data/book-data.md)
 6. [Tests and quality](tests/tests.md)
 
@@ -22,6 +22,7 @@ against the current code.
 | Architecture | [architecture/arquitetura.md](architecture/arquitetura.md) | Components, responsibilities and dependencies. |
 | Full flow | [fluxo-detalhado/guia-completo-fluxos.md](fluxo-detalhado/guia-completo-fluxos.md) | End-to-end journey for producing a book. |
 | Pipelines | [pipelines/pipelines.md](pipelines/pipelines.md) | Registry, contracts and phases for each pipeline. |
+| Complete commands | [operacional/comandos-completos.md](operacional/comandos-completos.md) | All terminal commands, parameters, examples and end-to-end sequence. |
 | Agents | [agents/agentes.md](agents/agentes.md) | Roles, factory, prompts and structured feedback. |
 | Agent strategy | [agents/agent-system-strategy.md](agents/agent-system-strategy.md) | Architectural decision for the modern adapter. |
 | Prompts | [prompts/prompts.md](prompts/prompts.md) | Prompt layout, languages and fallbacks. |

@@ -9,7 +9,7 @@ mas nao devem ser usados como contrato de execucao sem checagem contra o codigo.
 1. [Snapshot atual](SNAPSHOT_V0.md)
 2. [Arquitetura](architecture/arquitetura.md)
 3. [Pipelines](pipelines/pipelines.md)
-4. [Comandos operacionais](operacional/comandos.md)
+4. [Comandos completos de terminal](operacional/comandos-completos.md)
 5. [Dados da obra](book-data/book-data.md)
 6. [Testes e qualidade](tests/tests.md)
 
@@ -21,6 +21,7 @@ mas nao devem ser usados como contrato de execucao sem checagem contra o codigo.
 | Arquitetura | [architecture/arquitetura.md](architecture/arquitetura.md) | Componentes, responsabilidades e dependencias. |
 | Fluxo completo | [fluxo-detalhado/guia-completo-fluxos.md](fluxo-detalhado/guia-completo-fluxos.md) | Jornada ponta a ponta de uma obra. |
 | Pipelines | [pipelines/pipelines.md](pipelines/pipelines.md) | Registro, contratos e fases de cada pipeline. |
+| Comandos completos | [operacional/comandos-completos.md](operacional/comandos-completos.md) | Todos os comandos de terminal, parametros, exemplos e sequencia end-to-end. |
 | Agentes | [agents/agentes.md](agents/agentes.md) | Papeis, factory, prompts e feedback estruturado. |
 | Estrategia de agentes | [agents/agent-system-strategy.md](agents/agent-system-strategy.md) | Decisao arquitetural sobre o adapter moderno. |
 | Prompts | [prompts/prompts.md](prompts/prompts.md) | Layout de prompts, idiomas e fallbacks. |

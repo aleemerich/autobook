@@ -143,5 +143,5 @@ The most useful English documents are:
 - [pipelines/pipelines.md](docs/en/pipelines/pipelines.md)
 - [agents/agentes.md](docs/en/agents/agentes.md)
 - [prompts/prompts.md](docs/en/prompts/prompts.md)
-- [operacional/comandos.md](docs/en/operacional/comandos.md)
+- [operacional/comandos-completos.md](docs/en/operacional/comandos-completos.md)
 - [tests/tests.md](docs/en/tests/tests.md)
