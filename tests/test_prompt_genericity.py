@@ -178,6 +178,16 @@ def test_revision_word_budget_instruction() -> None:
     assert "between 85 and 115 words" in instruction
 
 
+def test_validate_revision_result_rejects_missing_or_empty_text() -> None:
+    assert gen_revision._validate_revision_result("Texto revisado.", 3) == "Texto revisado."
+
+    with pytest.raises(ValueError, match="returned no text"):
+        gen_revision._validate_revision_result(None, 3)
+
+    with pytest.raises(ValueError, match="returned empty text"):
+        gen_revision._validate_revision_result("   ", 3)
+
+
 def test_foundation_and_evaluation_prompts_do_not_pin_story_terms() -> None:
     prompts = [
         evaluate.FOUNDATION_PROMPT,

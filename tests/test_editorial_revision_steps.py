@@ -23,6 +23,7 @@ from pipelines.editorial_revision_steps.revision import (
     count_words,
     is_revision_size_acceptable,
     build_size_guard_eval_data,
+    build_revision_failure_eval_data,
     write_temp_brief,
     remove_temp_brief,
     execute_gen_revision,
@@ -328,6 +329,65 @@ def test_execute_editorial_step_restores_original_on_evaluation_error(tmp_path, 
     assert not (tmp_path / "ch01_corrective_temp.txt").exists()
 
 
+def test_execute_editorial_step_keeps_best_attempt_when_corrective_revision_fails(tmp_path, monkeypatch):
+    import pipelines.editorial_revision
+    from pipelines.editorial_revision import ExecuteEditorialStep
+
+    chapters_dir = tmp_path / "chapters"
+    chapters_dir.mkdir()
+    chapter_file = chapters_dir / "ch_01.md"
+    original_text = "original " * 120
+    best_text = "improved " * 120
+    chapter_file.write_text(original_text, encoding="utf-8")
+
+    monkeypatch.setenv("NUM_EDITORIAL_RETRIES", "1")
+    monkeypatch.setattr(pipelines.editorial_revision, "CHAPTERS_DIR", chapters_dir)
+    monkeypatch.setattr(pipelines.editorial_revision, "BASE_DIR", tmp_path)
+    monkeypatch.setattr(pipelines.editorial_revision, "run_final_maintenance", lambda base_dir: None)
+
+    evaluations = iter([
+        {"overall_score": 5.0, "slop": {"slop_penalty": 0.0}},
+        {"overall_score": 6.0, "slop": {"slop_penalty": 1.0}},
+    ])
+
+    def fake_evaluate_chapter(chapter_num):
+        return next(evaluations)
+
+    revision_calls = []
+
+    def fake_execute_gen_revision(chapter_num, brief_path, temperature, base_dir):
+        revision_calls.append((chapter_num, brief_path, temperature, base_dir))
+        if len(revision_calls) == 1:
+            chapter_file.write_text(best_text, encoding="utf-8")
+            return
+        raise RuntimeError("revision subprocess failed")
+
+    commits = []
+
+    monkeypatch.setattr(pipelines.editorial_revision, "evaluate_chapter", fake_evaluate_chapter)
+    monkeypatch.setattr(pipelines.editorial_revision, "execute_gen_revision", fake_execute_gen_revision)
+    monkeypatch.setattr(
+        pipelines.editorial_revision,
+        "commit_revised_chapter",
+        lambda ch_num, pre_score, final_score, base_dir: commits.append((ch_num, pre_score, final_score, base_dir)),
+    )
+
+    step = ExecuteEditorialStep()
+    context = {
+        "chapters_briefs": {1: {"brief": "Fix local typo."}},
+        "general_notes": "",
+        "chapters": [1],
+    }
+
+    step.run(context)
+
+    assert len(revision_calls) == 2
+    assert chapter_file.read_text(encoding="utf-8") == best_text
+    assert commits == [(1, 5.0, 6.0, tmp_path)]
+    assert not (tmp_path / "ch01_brief_temp.txt").exists()
+    assert not (tmp_path / "ch01_corrective_temp.txt").exists()
+
+
 def test_build_initial_brief():
     brief = "Do X."
     general = "Rule Y."
@@ -375,6 +435,15 @@ def test_build_size_guard_eval_data():
     assert eval_data["slop"]["slop_penalty"] == 99.0
     assert "original com 100 palavras" in eval_data["prose_quality"]["fix"]
     assert "candidata com 200 palavras" in eval_data["prose_quality"]["fix"]
+
+
+def test_build_revision_failure_eval_data():
+    eval_data = build_revision_failure_eval_data("model returned no text")
+
+    assert eval_data["overall_score"] == 0.0
+    assert eval_data["slop"]["slop_penalty"] == 99.0
+    assert "model returned no text" in eval_data["prose_quality"]["fix"]
+    assert "não gerou texto válido" in eval_data["prose_quality"]["note"]
 
 
 def test_write_and_remove_temp_brief(tmp_path):

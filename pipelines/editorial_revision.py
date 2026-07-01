@@ -24,6 +24,7 @@ from pipelines.editorial_revision_steps import (
     execute_gen_revision,
     is_revision_size_acceptable,
     build_size_guard_eval_data,
+    build_revision_failure_eval_data,
     is_quality_target_reached,
     is_better_than_fallback,
     commit_revised_chapter,
@@ -107,16 +108,21 @@ class ExecuteEditorialStep(Step):
 
                 # Initial run of revision
                 print(f"[ExecuteEditorialStep] Generating initial rewrite for Chapter {ch_num}...")
-                execute_gen_revision(ch_num, temp_brief_path, 0.8, BASE_DIR)
-
-                # Evaluate the first draft
-                candidate_text = load_chapter_text(ch_file_path)
-                if not is_revision_size_acceptable(original_text, candidate_text):
-                    print("[ExecuteEditorialStep] Attempt 1 rejected by size guard before evaluation.")
-                    eval_data = build_size_guard_eval_data(original_text, candidate_text)
+                try:
+                    execute_gen_revision(ch_num, temp_brief_path, 0.8, BASE_DIR)
+                except Exception as e:
+                    print(f"[ExecuteEditorialStep] Attempt 1 failed before evaluation: {e}")
+                    eval_data = build_revision_failure_eval_data(e)
                     ch_file_path.write_text(original_text, encoding="utf-8")
                 else:
-                    eval_data = evaluate_chapter(ch_num)
+                    # Evaluate the first draft
+                    candidate_text = load_chapter_text(ch_file_path)
+                    if not is_revision_size_acceptable(original_text, candidate_text):
+                        print("[ExecuteEditorialStep] Attempt 1 rejected by size guard before evaluation.")
+                        eval_data = build_size_guard_eval_data(original_text, candidate_text)
+                        ch_file_path.write_text(original_text, encoding="utf-8")
+                    else:
+                        eval_data = evaluate_chapter(ch_num)
                 post_score = eval_data.get("overall_score", 0.0)
                 slop_penalty = eval_data.get("slop", {}).get("slop_penalty", 0.0)
 
@@ -143,7 +149,22 @@ class ExecuteEditorialStep(Step):
                         write_temp_brief(corrective_brief_path, corrective_brief_content)
 
                         retry_temp = get_retry_temperature(retry_idx)
-                        execute_gen_revision(ch_num, corrective_brief_path, retry_temp, BASE_DIR)
+                        try:
+                            execute_gen_revision(ch_num, corrective_brief_path, retry_temp, BASE_DIR)
+                        except Exception as e:
+                            print(
+                                f"[ExecuteEditorialStep] Corrective Loop {retry_idx} failed before evaluation: {e}"
+                            )
+                            eval_data = build_revision_failure_eval_data(e)
+                            ch_file_path.write_text(best_fallback_text, encoding="utf-8")
+                            post_score = eval_data.get("overall_score", 0.0)
+                            slop_penalty = eval_data.get("slop", {}).get("slop_penalty", 0.0)
+                            print(
+                                f"[ExecuteEditorialStep] Corrective Loop {retry_idx} Score: "
+                                f"{post_score} (Slop: {slop_penalty})"
+                            )
+                            remove_temp_brief(corrective_brief_path)
+                            continue
                         remove_temp_brief(corrective_brief_path)
 
                         # Evaluate again
