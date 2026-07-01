@@ -38,6 +38,18 @@ def _build_word_budget(old_text: str) -> str:
     )
 
 
+def _validate_revision_result(result: object, chapter_num: int) -> str:
+    """Return valid revision text or raise a clear error before writing files."""
+    if not isinstance(result, str):
+        raise ValueError(
+            f"Revision model returned no text for chapter {chapter_num}. "
+            f"Expected str, got {type(result).__name__}."
+        )
+    if not result.strip():
+        raise ValueError(f"Revision model returned empty text for chapter {chapter_num}.")
+    return result
+
+
 def call_writer(prompt, temperature=0.8, max_tokens=16000):
     """Call the unified writer LLM via llm.py and return response text."""
     from llm import call_llm
@@ -144,7 +156,7 @@ ANTI-PATTERN RULES:
 Write the FULL revised chapter now."""
 
     print(f"Rewriting Chapter {ch_num}...", file=sys.stderr)
-    result = call_writer(prompt, temperature=temperature)
+    result = _validate_revision_result(call_writer(prompt, temperature=temperature), ch_num)
     
     out_path = BASE_DIR / "chapters" / f"ch_{ch_num:02d}.md"
     out_path.write_text(result, encoding="utf-8")

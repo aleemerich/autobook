@@ -71,6 +71,22 @@ def build_size_guard_eval_data(original_text: str, candidate_text: str) -> dict:
         "top_3_revisions": [message],
     }
 
+def build_revision_failure_eval_data(error: Exception | str) -> dict:
+    """Cria feedback sintetico quando o subprocesso de revisao falha."""
+    message = f"A geração da revisão falhou antes de produzir um capítulo válido: {error}"
+    return {
+        "overall_score": 0.0,
+        "slop": {"slop_penalty": 99.0},
+        "prose_quality": {
+            "score": 1,
+            "weakest_sentence": "",
+            "fix": message,
+            "note": "Tentativa rejeitada porque o processo de revisão não gerou texto válido.",
+        },
+        "three_weakest_sentences": [message],
+        "top_3_revisions": [message],
+    }
+
 def write_temp_brief(brief_path: Path, content: str) -> None:
     """Escreve o conteudo do brief em um arquivo temporario."""
     brief_path.write_text(content, encoding="utf-8")
