@@ -1,3 +1,4 @@
+% !TEX program = xelatex
 \documentclass[11pt, openany]{book}
 
 % === GEOMETRY: Trade paperback (5.5 x 8.5 inches) ===
@@ -11,12 +12,37 @@
   headheight=14pt
 ]{geometry}
 
+% === BOOK METADATA ===
+\newcommand{\BookTitle}{}
+\newcommand{\BookAuthor}{}
+\newcommand{\BookSubtitle}{}
+\newcommand{\BookSubject}{}
+\newcommand{\BookEpigraph}{}
+\newcommand{\BookColophon}{}
+\newcommand{\BookEndMatter}{}
+\newcommand{\BookMainFont}{}
+\newcommand{\BookFallbackFont}{DejaVu Serif}
+\IfFileExists{book_meta.tex}{\input{book_meta.tex}}{}
+
 % === FONTS ===
 \usepackage{fontspec}
-\setmainfont{EB Garamond}[
-  Ligatures=TeX,
-  Numbers=OldStyle
-]
+\usepackage{etoolbox}
+\newcommand{\AutobookSetFallbackFont}{%
+  \IfFontExistsTF{\BookFallbackFont}{%
+    \setmainfont{\BookFallbackFont}[Ligatures=TeX]
+  }{%
+    \setmainfont{Latin Modern Roman}[Ligatures=TeX]
+  }%
+}
+\ifdefempty{\BookMainFont}{%
+  \AutobookSetFallbackFont
+}{%
+  \IfFontExistsTF{\BookMainFont}{%
+    \setmainfont{\BookMainFont}[Ligatures=TeX, Numbers=OldStyle]
+  }{%
+    \AutobookSetFallbackFont
+  }%
+}
 
 % === TYPOGRAPHY ===
 \usepackage{microtype}
@@ -32,12 +58,13 @@
 % === DROP CAPS ===
 \usepackage{lettrine}
 \setcounter{DefaultLines}{2}
+\renewcommand*{\LettrineTextFont}{\relax}
 
 % === HEADERS AND FOOTERS ===
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[LE]{\small\textsc{the second son of the house of bells}}
+\fancyhead[LE]{\small\textsc{\BookTitle}}
 \fancyhead[RO]{\small\textit{\leftmark}}
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0pt}
@@ -93,19 +120,17 @@
   \begin{center}
   \vspace*{2in}
   
-  {\small\textsc{the}}\\[0.15in]
-  
-  {\Huge\textsc{Second Son}}\\[0.1in]
-  
-  {\small\textsc{of the}}\\[0.15in]
-  
-  {\Huge\textsc{House of Bells}}\\[0.4in]
+  {\Huge\textsc{\BookTitle}}\\[0.4in]
   
   {\small------\quad$\diamond$\quad------}\\[0.5in]
   
-  {\large\textit{A Novel}}\\[1in]
+  \ifdefempty{\BookSubtitle}{}{%
+  {\large\textit{\BookSubtitle}}\\[1in]
+  }
   
-  {\Large\textsc{Claude Hermes}}\\[1.5in]
+  \ifdefempty{\BookAuthor}{}{%
+  {\Large\textsc{\BookAuthor}}\\[1.5in]
+  }
   
   \end{center}
   \clearpage
@@ -119,9 +144,7 @@
   \begin{minipage}{3in}
   \begin{center}
   \itshape
-  You're not listening to the bell.\\
-  You're listening for what the bell\\
-  is trying to tell you it is.\\[12pt]
+  \BookEpigraph\\[12pt]
   \end{center}
   \end{minipage}
   \end{center}
@@ -133,17 +156,39 @@
   \thispagestyle{empty}
   \vspace*{3in}
   \begin{center}
-  {\large\textsc{The Second Son of the House of Bells}}
+  {\large\textsc{\BookTitle}}
   \end{center}
+  \clearpage
+}
+
+% === COLOPHON ===
+\newcommand{\makecolophon}{%
+  \thispagestyle{empty}
+  \vspace*{\fill}
+  \begin{center}
+  {\small\BookColophon}\\[16pt]
+
+  \IfFileExists{../art/qr.png}{%
+    \includegraphics[width=1in]{../art/qr.png}
+  }{}
+
+  \end{center}
+  \vspace*{\fill}
+  \begin{center}
+  \IfFileExists{../art/pdf/nous_logo.pdf}{%
+    \includegraphics[width=0.8in]{../art/pdf/nous_logo.pdf}
+  }{}
+  \end{center}
+  \vspace{0.3in}
   \clearpage
 }
 
 % === PDF METADATA ===
 \usepackage{hyperref}
 \hypersetup{
-  pdftitle={The Second Son of the House of Bells},
-  pdfauthor={Claude Hermes},
-  pdfsubject={Fantasy Novel},
+  pdftitle={\BookTitle},
+  pdfauthor={\BookAuthor},
+  pdfsubject={\BookSubject},
   hidelinks
 }
 
@@ -173,34 +218,14 @@
 \makenoveltitle
 
 % Copyright / colophon
-\thispagestyle{empty}
-\vspace*{\fill}
-\begin{center}
-
-{\small This is a work of fiction}\\[4pt]
-{\small created by Hermes Agent.}\\[18pt]
-
-{\small For full reproduction code and alternate formats}\\[2pt]
-{\small (ePub, audiobook) please visit:}\\[8pt]
-
-{\small\texttt{https://nousresearch.com/bells}}\\[16pt]
-
-\IfFileExists{../art/qr_bells.png}{%
-  \includegraphics[width=1in]{../art/qr_bells.png}
-}{}
-
-\end{center}
-\vspace*{\fill}
-\begin{center}
-\IfFileExists{../art/pdf/nous_logo.pdf}{%
-  \includegraphics[width=0.8in]{../art/pdf/nous_logo.pdf}
-}{}
-\end{center}
-\vspace{0.3in}
-\clearpage
+\ifdefempty{\BookColophon}{}{%
+\makecolophon
+}
 
 % Epigraph
+\ifdefempty{\BookEpigraph}{}{%
 \makeepigraph
+}
 
 % Blank verso before main text
 \thispagestyle{empty}
@@ -215,11 +240,13 @@
 % === END MATTER ===
 \backmatter
 
+\ifdefempty{\BookEndMatter}{}{%
 \thispagestyle{empty}
 \vspace*{3in}
 \begin{center}
 {\small------\quad$\diamond$\quad------}\\[0.3in]
-{\small\textit{The bells rang on.}}
+{\small\textit{\BookEndMatter}}
 \end{center}
+}
 
 \end{document}

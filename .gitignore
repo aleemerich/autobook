@@ -10,8 +10,16 @@ __pycache__/
 .env
 .venv/
 typeset/*.pdf
+typeset/*.epub
 typeset/chapters_content.tex
+typeset/book_meta.tex
+typeset/*.aux
+typeset/*.log
+typeset/*.out
+typeset/*.toc
+typeset/*.fls
+typeset/*.fdb_latexmk
+typeset/*.synctex.gz
 *.pdf
 *brief_temp.txt
 *corrective_temp.txt
-

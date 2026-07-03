@@ -42,6 +42,7 @@ flowchart LR
     Generation --> Revision["editorial_revision"]
     Generation --> Checks["evaluation + continuity"]
     Revision --> Checks
+    Checks --> Final["typeset/build_final.py\nPDF + EPUB"]
 ```
 
 Classic CLI mode remains available:
@@ -97,6 +98,25 @@ Key directories:
 | `foundation` | `world.md`, `characters.md`, `outline.md`, `canon.md` | Uses localized foundation prompts and `docs/en/others/CRAFT.md`. |
 | `book_generation` | `chapters/ch_XX.md`, attempts, evaluation logs | Uses modular context, planning, drafting, critique, revision and persistence steps. |
 | `editorial_revision` | Revised chapters and evaluation history | Reads `book_data/editorial.md`, retries corrective edits, keeps best attempts. |
+
+## Final Book Artifacts
+
+After generation and revision, build the distributable files with:
+
+```bash
+uv run python typeset/build_final.py
+```
+
+The command writes `typeset/novel.pdf` and `typeset/novel.epub`. It checks for
+the external tools required by each format (`xelatex` for PDF and `pandoc` for
+EPUB) and can ask the user to install missing packages through the terminal.
+
+```bash
+uv run python typeset/build_final.py --format pdf
+uv run python typeset/build_final.py --format epub
+uv run python typeset/build_final.py --yes
+uv run python typeset/build_final.py --no-install
+```
 
 ## Environment
 

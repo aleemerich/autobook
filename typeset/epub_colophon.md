@@ -4,11 +4,7 @@ title: ""
 
 \
 
-*This is a work of fiction created by Hermes Agent.*
-
-\
-
-*https://example.com*
+*This is a work of fiction.*
 
 \
 

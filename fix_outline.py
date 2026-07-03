@@ -6,12 +6,11 @@ import json
 from pathlib import Path
 from dotenv import load_dotenv
 
-BASE_DIR = Path(__file__).parent.resolve()
-load_dotenv(BASE_DIR / ".env")
-
-sys.path.insert(0, str(BASE_DIR))
 from llm import call_llm
 from prompt_loader import load_continuity_config
+
+BASE_DIR = Path(__file__).parent.resolve()
+load_dotenv(BASE_DIR / ".env")
 
 
 def _chapter_heading_re():

@@ -59,7 +59,15 @@ uv run python gen_revision.py
 uv run python compare_chapters.py
 uv run python adversarial_edit.py
 uv run python typeset/build_tex.py
+uv run python typeset/build_final.py
+uv run python typeset/build_final.py --format epub
 ```
+
+`typeset/build_final.py` generates `typeset/novel.pdf` and
+`typeset/novel.epub`. When `xelatex` or `pandoc` are not installed, it shows
+the install command and asks whether it should run it through the terminal. Use
+`--yes` to accept installation automatically or `--no-install` to only validate
+dependencies.
 
 ## Quality
 

@@ -24,6 +24,8 @@ com contrato central.
 | `gen_revision.py` | Reescrita editorial usada por `editorial_revision`. |
 | `gen_brief.py` | Gera brief auxiliar quando usado manualmente. |
 | `typeset/build_tex.py` | Gera `typeset/chapters_content.tex`. |
+| `typeset/build_epub.py` | Gera `typeset/novel.epub` a partir dos capitulos e metadados. |
+| `typeset/build_final.py` | Gera PDF/EPUB finais e orienta instalacao de dependencias externas. |
 
 ## Experimentais Ou Auxiliares
 

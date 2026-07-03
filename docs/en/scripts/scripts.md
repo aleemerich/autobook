@@ -24,6 +24,8 @@ contract.
 | `gen_revision.py` | Editorial rewrite used by `editorial_revision`. |
 | `gen_brief.py` | Auxiliary brief generation when used manually. |
 | `typeset/build_tex.py` | Generates `typeset/chapters_content.tex`. |
+| `typeset/build_epub.py` | Generates `typeset/novel.epub` from chapters and metadata. |
+| `typeset/build_final.py` | Generates final PDF/EPUB artifacts and guides external dependency installation. |
 
 ## Experimental Or Auxiliary
 

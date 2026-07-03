@@ -1,0 +1,552 @@
+{
+  "chapter": 1,
+  "title": "O laborat\u00f3rio do pr\u00e9dio C cheirava a caf\u00e9 requentado e oz\u00f4nio. \u00c0s 6h47, Elisa estava diante do monitor, caneca de pl\u00e1stico na m\u00e3o esquerda, mouse na direita. A tela mostrava a planilha dos \u00faltimos quarenta e tr\u00eas pacientes do Hospital de Cl\u00ednicas. Linhas em colunas organizadas: nome, data, \u03a6 estimado, S medido, \u03a6-S final, diagn\u00f3stico cl\u00ednico.",
+  "segments": [
+    {
+      "speaker": "NARRATOR",
+      "text": "O laborat\u00f3rio do pr\u00e9dio C cheirava a caf\u00e9 requentado e oz\u00f4nio. \u00c0s 6h47, Elisa estava diante do monitor, caneca de pl\u00e1stico na m\u00e3o esquerda, mouse na direita. A tela mostrava a planilha dos \u00faltimos quarenta e tr\u00eas pacientes do Hospital de Cl\u00ednicas. Linhas em colunas organizadas: nome, data, \u03a6 estimado, S medido, \u03a6-S final, diagn\u00f3stico cl\u00ednico."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "O zumbido dos freezers criog\u00eanicos vibrava no subsolo. Um segundo cora\u00e7\u00e3o que ela nem notava mais. Tr\u00eas semanas chegando antes das sete, antes de Rafael, antes de Marina, antes de qualquer pessoa que pudesse perguntar como dormira. A resposta era sempre a mesma: n\u00e3o dormira, ou dormira mal, ou dormira o suficiente para funcionar \u2014 o que n\u00e3o era descansar."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Ela rolou a tela at\u00e9 a se\u00e7\u00e3o destacada na noite anterior. Tr\u00eas pacientes. Tr\u00eas anomalias."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Maria Jos\u00e9 da Silva, 54 anos, estado vegetativo persistente ap\u00f3s parada card\u00edaca. \u03a6-S em 0,03 \u2014 abaixo do limiar de 0,05. Classifica\u00e7\u00e3o: n\u00e3o-consciente. Mas o relat\u00f3rio cl\u00ednico, anotado por Rafael na margem, registrava resposta a est\u00edmulos verbais durante avalia\u00e7\u00e3o de rotina. Movimento ocular direcionado, repetido, consistente."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Duas linhas abaixo, Carlos Eduardo Moraes, 37 anos, coma profundo p\u00f3s-traum\u00e1tico. \u03a6-S em 0,04. Tamb\u00e9m abaixo do limiar. Tamb\u00e9m n\u00e3o-consciente. A esposa relatava que o paciente apertava sua m\u00e3o quando ela falava. O neurologista do HC registrara o reflexo como \"provavelmente espinal, n\u00e3o volunt\u00e1rio\" \u2014 e Elisa ouvia, naquelas palavras, o tom de quem queria estar certo sem ter certeza de nada."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Ana L\u00facia Ferreira, 71 anos, estado vegetativo, \u03a6-S em 0,02. O relat\u00f3rio n\u00e3o mencionava sinais de consci\u00eancia. Mas a filha enviara um v\u00eddeo mostrando a m\u00e3e abrindo os olhos quando o neto cantava. Anexo ao prontu\u00e1rio digital. Elisa assistira duas vezes. Na segunda, pausara no frame em que as p\u00e1lpebras se erguiam."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "O n\u00famero n\u00e3o viu isso."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Empurrou o cabelo para tr\u00e1s. O gesto derrubou o l\u00e1pis que prendia o coque. Caiu no ch\u00e3o. N\u00e3o pegou."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "O \u00edndice funcionava. Era consistente, replic\u00e1vel, preciso. Volunt\u00e1rios saud\u00e1veis produziam \u03a6-S entre 0,5 e 0,9. Objetos inanimados, 0,001. Pacientes em coma profundo, entre 0,01 e 0,05. A correla\u00e7\u00e3o com estado cl\u00ednico era estatisticamente significativa. Tr\u00eas laborat\u00f3rios independentes replicaram os resultados. O \u00edndice era s\u00f3lido."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Mas havia ru\u00eddo. Ou uma lacuna."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Abriu um documento de texto e digitou: \"Tr\u00eas pacientes com \u03a6-S abaixo do limiar de consci\u00eancia demonstram sinais cl\u00ednicos de consci\u00eancia. Poss\u00edveis explica\u00e7\u00f5es: (1) Erro de medi\u00e7\u00e3o \u2014 improv\u00e1vel, testes replicados. (2) Falso positivo cl\u00ednico \u2014 poss\u00edvel, mas tr\u00eas casos simult\u00e2neos reduzem a probabilidade. (3) O limiar de 0,05 \u00e9 alto demais. (4) \u03a6-S n\u00e3o captura toda a consci\u00eancia. (5) \u03a6-S captura algo que n\u00e3o \u00e9 consci\u00eancia.\""
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Parou. Olhou para a \u00faltima linha. Apagou. Digitou de novo: \"Ru\u00eddo ou lacuna?\""
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Salvou. Tomou um gole de caf\u00e9. Frio. N\u00e3o lembrava de ter esquentado."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "O laborat\u00f3rio \u00e0s sete da manh\u00e3 tinha um sil\u00eancio espec\u00edfico \u2014 n\u00e3o aus\u00eancia de som, mas presen\u00e7a de sons que se tornaram fundo. O zumbido dos freezers no canto. O clique ocasional do ar-condicionado industrial. O rangido quase impercept\u00edvel da estante de metal expandindo com o calor do dia. Elisa conhecia cada um como se conhece o barulho da pr\u00f3pria casa. Talvez melhor."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Levantou-se e foi ao arm\u00e1rio de a\u00e7o no fundo da sala. Abriu a porta do meio. L\u00e1 estava o capacete."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Uma coisa absurda. Branco, volumoso, 256 eletrodos saindo do interior como tent\u00e1culos met\u00e1licos, finos, flex\u00edveis, cada um terminando em disco prateado que precisava contato direto com o couro cabeludo. Helena ia cham\u00e1-lo de polvo. Elisa sabia. Vi a express\u00e3o dela na primeira vez \u2014 meio sorriso, jeito de quem \u00e9 apresentada a animal ex\u00f3tico."
+    },
+    {
+      "speaker": "HELENA",
+      "text": "Parece um polvo tentando me abra\u00e7ar."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Ningu\u00e9m rira. N\u00e3o era engra\u00e7ado. Era preciso."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Tirou o capacete com as duas m\u00e3os. Mais pesado do que aparentava. Levou \u00e0 mesa de calibra\u00e7\u00e3o, bancada de a\u00e7o inox com o laptop militarizado j\u00e1 aberto. Tr\u00eas janelas: ondas cerebrais em azul, curvas t\u00e9rmicas em vermelho, canto superior direito com campo num\u00e9rico piscando zeros."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Conectou o cabo. Apertou o bot\u00e3o de calibra\u00e7\u00e3o. Bipe curto."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Verificou cada eletrodo \u2014 256 contatos, nenhum oxidado, nenhum frouxo. Verificou o sensor t\u00e9rmico, faixa flex\u00edvel para testa e t\u00eamporas, sens\u00edvel a varia\u00e7\u00f5es de um mil\u00e9simo de grau. Temperatura ambiente a 23\u00b0C, est\u00e1vel. Ru\u00eddo eletromagn\u00e9tico dentro do aceit\u00e1vel. O laborat\u00f3rio ficava no subsolo exatamente por isso, longe das interfer\u00eancias de celulares, Wi-Fis, torres de transmiss\u00e3o cobrindo Campinas como teia invis\u00edvel."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Trinta e dois minutos. A calibra\u00e7\u00e3o levou trinta e dois minutos, e Elisa n\u00e3o pensou em nada. N\u00e3o em Helena, n\u00e3o nos tr\u00eas pacientes do HC, n\u00e3o na linha apagada e reescrita. Pensou em eletrodos, curvas, n\u00fameros que precisavam fazer sentido antes de serem usados para fazer sentido em outras pessoas."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "O laptop emitiu o segundo bipe. Longo, limpo, afinado. Elisa expirou de uma vez."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Tela azul. Curva vermelha. Zero no canto superior direito."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Tudo funcionando. Tudo pronto."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Encostou a m\u00e3o no capacete. Pl\u00e1stico branco, frio. Eletrodos pendiam im\u00f3veis, esperando uma cabe\u00e7a que ainda n\u00e3o tinha chegado."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Fechou os olhos por um instante. Quando abriu, o n\u00famero ainda estava l\u00e1. Zero. Limpo."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "O peito desanuviou do jeito que s\u00f3 acontecia quando o equipamento respondia certo."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "[pause]"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "O corredor do terceiro andar do HC cheirava a desinfetante e algo met\u00e1lico escondido atr\u00e1s do doce do soro. Marina ia \u00e0 frente, empurrando o carrinho com o medidor. O capacete balan\u00e7ava levemente entre cabos e laptop. Eletrodos pendiam im\u00f3veis, como dedos que ainda n\u00e3o encontraram onde pousar. Marina consultou o tablet."
+    },
+    {
+      "speaker": "MARINA",
+      "text": "Quarto 314. Carlos Eduardo Moraes, 37 anos. Coma profundo p\u00f3s-traum\u00e1tico h\u00e1 oito meses. AVC isqu\u00eamico, tronco encef\u00e1lico preservado. \u03a6-S registrado em 0,04 na \u00faltima medi\u00e7\u00e3o, h\u00e1 tr\u00eas semanas."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Elisa n\u00e3o respondeu. Caminhava em linha reta, t\u00eanis de sola gasta fazendo o m\u00ednimo de barulho no lin\u00f3leo. O rel\u00f3gio do pai atrasava dois minutos. Sabia porque conferia toda manh\u00e3 com o celular. Nunca consertava."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "A enfermeira do plant\u00e3o os recebeu na porta. Uns quarenta anos, cabelo preso, olheiras combinando com as de Elisa."
+    },
+    {
+      "speaker": "C\u00c9LIA",
+      "text": "Doutora Monteiro. Ele est\u00e1 est\u00e1vel. Sem altera\u00e7\u00f5es desde a \u00faltima avalia\u00e7\u00e3o."
+    },
+    {
+      "speaker": "ELISA",
+      "text": "Obrigada, C\u00e9lia."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "O quarto era pequeno. Janela para o estacionamento do campus. Paciente na cama, im\u00f3vel, olhos fechados. Monitor card\u00edaco desenhando linha verde regular. A esposa s\u00f3 aparecia \u00e0s quartas e domingos. Elisa sabia pelos registros do hospital e porque Marina mencionara uma vez, numa tentativa de conversa que Elisa n\u00e3o soube continuar."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Marina preparou o medidor. Calibra\u00e7\u00e3o. Vinte minutos. Elisa ficou parada ao lado da cama, olhando o rosto do homem. Trinta e sete anos. Barba por fazer. Fio de saliva no canto da boca. A enfermeira limpava tr\u00eas vezes ao dia."
+    },
+    {
+      "speaker": "MARINA",
+      "text": "Posso come\u00e7ar?"
+    },
+    {
+      "speaker": "ELISA",
+      "text": "Pode."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Marina colocou o capacete na cabe\u00e7a de Carlos Eduardo. Eletrodos se acomodaram no couro cabeludo. Sensor t\u00e9rmico posicionado ao redor da testa. Laptop piscou e come\u00e7ou a registrar."
+    },
+    {
+      "speaker": "MARINA",
+      "text": "In\u00edcio da medi\u00e7\u00e3o. Quarenta e cinco minutos."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Elisa sentou na cadeira ao lado da cama. Marina ficou de p\u00e9, ao lado do carrinho, caderno aberto no colo. O sil\u00eancio do quarto era preenchido pelo zumbido do medidor e pelo bip regular do monitor card\u00edaco."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Trinta minutos se passaram. Elisa olhava a tela. Ondas cerebrais em azul. Curvas t\u00e9rmicas em vermelho. N\u00famero no canto superior direito oscilando: 0,039, 0,041, 0,040. Est\u00e1vel. Previs\u00edvel."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "C\u00e9lia entrou para verificar o soro. Parou ao lado da cama. E, por h\u00e1bito, por instinto de quem cuida de pessoas h\u00e1 vinte anos, disse:"
+    },
+    {
+      "speaker": "C\u00c9LIA",
+      "text": "Carlos Eduardo. C\u00e9lia. T\u00e1 tudo bem aqui com voc\u00ea."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "O dedo indicador da m\u00e3o direita do paciente se moveu. Pequeno. Um cent\u00edmetro, talvez dois. Dedos se curvaram levemente e voltaram. Como espasmo. Como reflexo."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Marina viu. Olhos foram do dedo para o rosto. Olhos continuavam fechados. Anotou no caderno. M\u00e3o tremia levemente."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Elisa viu tamb\u00e9m. Olhou para o dedo. Olhou para a tela. O n\u00famero continuava 0,040. Olhou para o rosto. Olhos fechados. Nenhuma outra altera\u00e7\u00e3o."
+    },
+    {
+      "speaker": "ELISA",
+      "text": "[softly] Marina."
+    },
+    {
+      "speaker": "MARINA",
+      "text": "[quietly] Eu vi."
+    },
+    {
+      "speaker": "ELISA",
+      "text": "Anotou?"
+    },
+    {
+      "speaker": "MARINA",
+      "text": "Anotou."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Elisa ficou em sil\u00eancio. Monitor bipou. Medidor zumbiu. N\u00famero na tela continuava 0,040."
+    },
+    {
+      "speaker": "ELISA",
+      "text": "[worried] E se n\u00e3o for reflexo?"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "A pergunta ficou suspensa no ar do quarto. Marina mordeu o l\u00e1bio inferior. C\u00e9lia olhou para as duas, sem entender."
+    },
+    {
+      "speaker": "MARINA",
+      "text": "[hesitantly] O tronco encef\u00e1lico est\u00e1 preservado. Movimento reflexo \u00e9 compat\u00edvel com o quadro."
+    },
+    {
+      "speaker": "ELISA",
+      "text": "[firmly] Eu sei. Mas ele se moveu quando ela chamou o nome dele."
+    },
+    {
+      "speaker": "MARINA",
+      "text": "Reflexo pode ser desencadeado por est\u00edmulos auditivos. N\u00e3o \u00e9 necessariamente..."
+    },
+    {
+      "speaker": "ELISA",
+      "text": "[sigh] Eu sei, Marina."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "N\u00e3o terminou a frase. Ficou olhando para o dedo do homem. O dedo que se moveu. O dedo que o n\u00famero n\u00e3o viu."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Marina anotou mais alguma coisa. M\u00e3o ainda tremia."
+    },
+    {
+      "speaker": "MARINA",
+      "text": "[slowly] A gente devia repetir a medi\u00e7\u00e3o. Com ele. Controlar as vari\u00e1veis. Ver se o movimento se reproduz."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Elisa assentiu devagar. N\u00e3o porque concordasse com o m\u00e9todo, mas porque a pergunta dela mesma ainda estava ali, sem resposta, e repetir era o \u00fanico caminho que sabia seguir."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "C\u00e9lia saiu do quarto. As duas ficaram ali, em sil\u00eancio, olhando para o homem na cama. O n\u00famero na tela continuava 0,040. Est\u00e1vel. Limpo. E pela primeira vez naquela manh\u00e3, a estabilidade de um n\u00famero incomodou Elisa mais do que sua imprecis\u00e3o."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "[pause]"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "O corredor do subsolo tinha outro cheiro agora \u2014 ou era o mesmo, mas Elisa estava mais atenta. Metal e algo que lembrava sangue, talvez o rastro qu\u00edmico de fam\u00edlias esperando not\u00edcias que n\u00e3o queriam ouvir."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Marina na frente, carregando a mala do medidor com as duas m\u00e3os, caderno de capa dura debaixo do bra\u00e7o. Elisa atr\u00e1s, em sil\u00eancio, olhos no ch\u00e3o de lin\u00f3leo."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "No laborat\u00f3rio, as tr\u00eas canecas estavam onde as coisas ficavam quando ningu\u00e9m prestava aten\u00e7\u00e3o. Uma na bancada principal, ao lado do console. Uma na prateleira dos cabos, equilibrada sobre um transformador. A terceira, a que Elisa n\u00e3o lembrada, no parapeito da janela que n\u00e3o existia \u2014 foto de paisagem colada na parede por ex-aluno que achava que humor aliviava o confinamento."
+    },
+    {
+      "speaker": "MARINA",
+      "text": "Tr\u00eas."
+    },
+    {
+      "speaker": "ELISA",
+      "text": "[distracted] Hm."
+    },
+    {
+      "speaker": "MARINA",
+      "text": "Voc\u00ea encheu tr\u00eas, Elisa."
+    },
+    {
+      "speaker": "ELISA",
+      "text": "[quietly] Duas."
+    },
+    {
+      "speaker": "MARINA",
+      "text": "Tr\u00eas. Eu contei."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Elisa passou a m\u00e3o pelo rosto. O l\u00e1pis do coque j\u00e1 estava no ch\u00e3o desde a manh\u00e3."
+    },
+    {
+      "speaker": "ELISA",
+      "text": "[sigh] A terceira eu n\u00e3o lembro."
+    },
+    {
+      "speaker": "MARINA",
+      "text": "[matter-of-factly] Eu sei. Por isso s\u00e3o tr\u00eas."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Marina deixou a mala no ch\u00e3o com cuidado, como se o medidor pudesse acordar. Abriu o caderno, anotou algo. Elisa n\u00e3o quis saber o qu\u00ea."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "A porta se abriu e Rafael entrou com a garrafa t\u00e9rmica de um litro e meio, celular no ouvido, sorriso largo de quem est\u00e1 ganhando discuss\u00e3o que ningu\u00e9m mais est\u00e1 tendo."
+    },
+    {
+      "speaker": "RAFAEL",
+      "text": "...n\u00e3o, Klaus, o ponto \u00e9 que o artigo n\u00e3o refuta a metodologia, refuta a interpreta\u00e7\u00e3o, que \u00e9 uma coisa completamente diferente... T\u00e1, t\u00e1. Eu mando o e-mail. T\u00e1."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Desligou. Guardou o celular. Olhou para Elisa."
+    },
+    {
+      "speaker": "RAFAEL",
+      "text": "[excited] Whitfield publicou de novo. No Physical Review Letters, dessa vez. N\u00e3o s\u00f3 no blog."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Elisa sentou na cadeira girat\u00f3ria. Olhou para a tela do console, \u00faltimo gr\u00e1fico da medi\u00e7\u00e3o do HC, ondas cerebrais em azul, curva t\u00e9rmica em vermelho, canto superior direito com o n\u00famero que n\u00e3o sa\u00eda da cabe\u00e7a: 0,040."
+    },
+    {
+      "speaker": "ELISA",
+      "text": "[flat] O que ele diz?"
+    },
+    {
+      "speaker": "RAFAEL",
+      "text": "Que a gente est\u00e1 confundindo o term\u00f4metro com a febre. Que \u03a6-S mede um correlato, n\u00e3o a consci\u00eancia em si. Que usar o \u00edndice para decis\u00f5es cl\u00ednicas \u00e9 um erro categorial."
+    },
+    {
+      "speaker": "ELISA",
+      "text": "[calm] Ele n\u00e3o est\u00e1 errado."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Rafael inclinou-se para frente."
+    },
+    {
+      "speaker": "RAFAEL",
+      "text": "Elisa."
+    },
+    {
+      "speaker": "ELISA",
+      "text": "Sobre o princ\u00edpio. Ele n\u00e3o est\u00e1 errado sobre o princ\u00edpio."
+    },
+    {
+      "speaker": "RAFAEL",
+      "text": "O princ\u00edpio \u00e9 tudo. Se o princ\u00edpio est\u00e1 errado, o \u00edndice est\u00e1 errado."
+    },
+    {
+      "speaker": "ELISA",
+      "text": "O \u00edndice funciona."
+    },
+    {
+      "speaker": "RAFAEL",
+      "text": "Funciona para qu\u00ea?"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Elisa n\u00e3o respondeu. Olhou para a tela. O n\u00famero continuava ali, 0,040, est\u00e1vel, replic\u00e1vel. O n\u00famero que dizia que o homem no HC era quase uma rocha. O n\u00famero que n\u00e3o explicava o dedo."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Marina, encostada na bancada, mordeu o l\u00e1bio inferior."
+    },
+    {
+      "speaker": "MARINA",
+      "text": "[quietly] O paciente moveu o dedo."
+    },
+    {
+      "speaker": "RAFAEL",
+      "text": "[dismissive] Foi reflexo."
+    },
+    {
+      "speaker": "MARINA",
+      "text": "[persistent] Eu sei. Mas foi no momento certo. Quando a enfermeira chamou o nome dele."
+    },
+    {
+      "speaker": "RAFAEL",
+      "text": "Coincid\u00eancia."
+    },
+    {
+      "speaker": "MARINA",
+      "text": "Talvez."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Rafael abriu a garrafa de mate e bebeu. Olhou para as duas."
+    },
+    {
+      "speaker": "RAFAEL",
+      "text": "[matter-of-factly] Tr\u00eas pacientes an\u00f4malos em duzentos. Isso \u00e9 ru\u00eddo estat\u00edstico. N\u00e3o \u00e9 lacuna."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Elisa olhou para ele. N\u00e3o disse nada. Estava pensando no dedo. No dedo que se moveu quando algu\u00e9m chamou um nome que o n\u00famero dizia que ningu\u00e9m estava l\u00e1 para ouvir."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Ela se levantou. Foi at\u00e9 a janela que n\u00e3o dava para lugar nenhum, dava para o corredor interno do subsolo, parede branca, luz fluorescente, e ficou olhando para nada."
+    },
+    {
+      "speaker": "ELISA",
+      "text": "[slowly] N\u00e3o se trata de invalidar. Se trata do que o n\u00famero n\u00e3o captura."
+    },
+    {
+      "speaker": "RAFAEL",
+      "text": "O n\u00famero captura exatamente o que a gente pediu pra ele capturar. \u03a6 sobre S. Informa\u00e7\u00e3o integrada por unidade de entropia. Isso \u00e9 o que ele mede. E ele mede bem."
+    },
+    {
+      "speaker": "ELISA",
+      "text": "[tense] E se a gente pediu a coisa errada?"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "O sil\u00eancio que se seguiu tinha peso. N\u00e3o vazio \u2014 cheio de tudo o que nenhum dos tr\u00eas queria dizer em voz alta. O ar-condicionado industrial ligou com estalo e come\u00e7ou a soprar ar frio pelo duto acima da bancada. Marina respirou fundo e a caneta no caderno arrastou linha involunt\u00e1ria pela p\u00e1gina."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Rafael se inclinou para frente. O sorriso que colocou n\u00e3o era o largo de sempre. Menor. Mais cuidadoso."
+    },
+    {
+      "speaker": "RAFAEL",
+      "text": "[gently] Elisa. Tr\u00eas pacientes em duzentos. Isso \u00e9 um ponto e meio por cento. Em qualquer estudo cl\u00ednico do mundo, isso \u00e9 margem de erro. Voc\u00ea sabe disso."
+    },
+    {
+      "speaker": "ELISA",
+      "text": "[firmly] Eu sei disso."
+    },
+    {
+      "speaker": "RAFAEL",
+      "text": "Ent\u00e3o?"
+    },
+    {
+      "speaker": "ELISA",
+      "text": "[quietly] Ent\u00e3o por que o dedo se moveu?"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Rafael abriu a boca. Fechou. Bebeu mate. A garrafa t\u00e9rmica fez som de v\u00e1cuo quando inclinou demais."
+    },
+    {
+      "speaker": "RAFAEL",
+      "text": "[hesitantly] Reflexo."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Mas a palavra saiu diferente daquela manh\u00e3. Menos firma. Como se ele pr\u00f3prio n\u00e3o tivesse limpado a garganta antes de diz\u00ea-la."
+    },
+    {
+      "speaker": "ELISA",
+      "text": "\u00c9. Provavelmente. Mas provavelmente n\u00e3o \u00e9."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Marina fechou o caderno. Som pequeno e definitivo, como porta que se tranca por dentro."
+    },
+    {
+      "speaker": "MARINA",
+      "text": "[hopeful] A gente devia repetir a medi\u00e7\u00e3o. Com o paciente do HC. Repetir, controlar as vari\u00e1veis, ver se o movimento se reproduz. Antes de... antes de qualquer coisa."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Elisa assentiu. N\u00e3o porque concordasse com o m\u00e9todo, mas porque concordava com a inten\u00e7\u00e3o. Marina queria ter certeza. Marina queria fazer direito. Era o que Marina sempre queria, e o que tornava Marina insuport\u00e1vel e indispens\u00e1vel em partes iguais."
+    },
+    {
+      "speaker": "ELISA",
+      "text": "[determined] Amanh\u00e3. De manh\u00e3 cedo. Antes da equipe chegar."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Rafael enxugou o canto da boca com o dorso da m\u00e3o. Olhou para as duas. Abriu a garrafa de mate e bebeu de novo, e dessa vez o sil\u00eancio durou o tempo inteiro do gole."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Elisa olhou para a tela uma \u00faltima vez. O n\u00famero continuava ali. 0,040. Est\u00e1vel. Limpo. E desde que o \u00edndice, a estabilidade de um n\u00famero nunca a incomodara tanto quanto naquele momento."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "[pause]"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Elisa ficou no laborat\u00f3rio at\u00e9 as dez e quarenta. Saiu porque o seguran\u00e7a do pr\u00e9dio C fez a ronda e pediu que desligasse as luzes, e porque o zumbido dos freezers, que durante o dia era fundo, \u00e0 noite se tornava coisa viva pulsando na base do cr\u00e2nio."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "O estacionamento do campus quase vazio. Far\u00f3is amarelos iluminavam vagas sem carro. O ar de Campinas nessa hora tinha umidade que grudava na pele como segunda camada, como se o pr\u00f3prio ar estivesse exausto de um dia que n\u00e3o acabava nunca, pesado, demorando a passar pelos pulm\u00f5es. Elisa andou at\u00e9 o carro \u2014 Fiat Palio 2008, prata, amassado na porta traseira esquerda que nunca consertou \u2014 e ficou parada ao lado dele por um momento, chave na m\u00e3o, olhando para o pr\u00e9dio C como se esperasse que dissesse alguma coisa."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "N\u00e3o disse."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Dirigiu at\u00e9 a garagem do apartamento no Taquaral, estacionou no subsolo, subiu pelo elevador cheirando a cigarro e desinfetante. Dois quartos, um dos quais era escrit\u00f3rio \u2014 ou seria, se houvesse m\u00f3veis al\u00e9m da mesa, da pilha de artigos impressos e da pasta de papel\u00e3o no fundo do arm\u00e1rio."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "N\u00e3o abriu a pasta naquela noite. Tomou banho quente, vestiu a camiseta preta que servia de pijama, encheu uma caneca de caf\u00e9 e sentou no sof\u00e1 com o laptop."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Abriu a planilha. Rolou at\u00e9 a linha de Carlos Eduardo Moraes. \u03a6-S: 0,040. Abriu o relat\u00f3rio cl\u00ednico. Leu a nota da esposa: \"Ele aperta minha m\u00e3o quando eu falo com ele. N\u00e3o \u00e9 sempre. Mas \u00e9 quando eu digo o nome dele.\""
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Fechou o laptop."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Ficou sentada no escuro. A caneca esfriava entre as m\u00e3os. L\u00e1 em cima, o apartamento do vizinho \u2014 algu\u00e9m andando de um lado para o outro, torneira aberta, porta que se fechava com cuidado, como se o mundo inteiro estivesse tentando n\u00e3o acordar algu\u00e9m. O tipo de som que n\u00e3o significava nada, mas preenchia o sil\u00eancio de um jeito que lembrava que a vida continuava funcionando l\u00e1 fora, com ou sem ela."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "O dedo se moveu. O n\u00famero n\u00e3o viu."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Pensou em ligar para Marina. Pensou em ligar para Rafael. Pensou em abrir a pasta de papel\u00e3o."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "N\u00e3o fez nenhuma das tr\u00eas coisas."
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Ficou ali at\u00e9 a caneca esfriar completamente. Quando finalmente se levantou e foi dormir, o rel\u00f3gio do pai marcava 23h47. Atrasado dois minutos, como sempre."
+    }
+  ],
+  "total_segments": 134,
+  "speakers": [
+    "ELISA",
+    "C\u00c9LIA",
+    "MARINA",
+    "RAFAEL",
+    "NARRATOR",
+    "HELENA"
+  ],
+  "total_chars": 16596
+}
